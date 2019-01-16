@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+mode="${1}"
+file="${2}"
+
+find ${file} -exec chgrp 0 {} \;
+find ${file} -exec chmod g=${mode} {} \;

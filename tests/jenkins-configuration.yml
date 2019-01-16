@@ -1,0 +1,50 @@
+jenkins:
+  systemMessage: "Jenkins configured automatically by <strong>Jenkins Configuration as Code</strong> Plugin"
+  numExecutors: 2
+  
+  disableRememberMe: false
+  agentProtocols:
+    - "JNLP4-connect"
+    - "Ping"
+
+  authorizationStrategy:
+    projectMatrix:
+      grantedPermissions:
+        - "Overall/Read:anonymous"
+        - "Job/Read:anonymous"
+        - "Overall/Administer:anonymous"
+
+  markupFormatter: rawHtml
+  crumbIssuer: 
+    standard:
+       excludeClientIPFromCrumb: false
+  remotingSecurity:
+    enabled: true
+
+# plugins:
+#   sites:
+#   - id: "default"
+#     url: "https://updates.jenkins.io/update-center.json"
+#     url: "https://updates.jenkins.io/stable-2.150/update-center.json"
+
+security:
+  remotingCLI:
+    enabled: false
+
+unclassified:
+  location:
+    adminAddress: admin@localhost
+    url: http://localhost:8080/jenkins
+  
+  mailer:
+    adminAddress: admin@localhost
+    replyToAddress: admin@localhost
+
+  globalDefaultFlowDurabilityLevel:
+    durabilityHint: PERFORMANCE_OPTIMIZED
+
+tool:
+  git:
+    installations:
+      - name: git
+        home: /usr/bin/git

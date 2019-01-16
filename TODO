@@ -1,0 +1,11 @@
+Better handling of tools setup
+Better handling of permissions
+add preStop lifecycle hook && terminationGracePeriodSeconds
+Different system account/NS for agent exec
+Dashboard listing instances (oc describe resourcequota -n NSNAME)
+fix USERNAME issue in master container (current=default, should be jenkins)
+OpenJ9 cache on host mounted volume (requires some changes in scc/podsecuritypolicy)
+merge limit-range-default with limit-range-LX
+Compute quotas from set of base values
+ExitLifecycle.exitcode = 0 to avoid error when safe restart
+Theming
