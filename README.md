@@ -51,8 +51,6 @@ Build and deployment tasks are implemented as Make targets. Dependencies are pro
 
 Give it the folder to an instance and it will let you call any Jenkins CLI commands at the proper URL. You can get the list of available commands by running.
 
-    $ ./jenkins-cli.sh instances/<project_full_name> help
-
 #### Examples
 
 * Get the version of the running Jenkins
