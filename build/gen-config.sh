@@ -31,7 +31,7 @@ config="${instance}/target/config.json"
 mkdir -p ${instance}/target
 
 # merge default values and instance specific values
-${SCRIPT_FOLDER}/merge-json.sh "${SCRIPT_FOLDER}/../templates/default.json" "${instance}/config.json" "${config}"
+${SCRIPT_FOLDER}/merge-json.sh "${SCRIPT_FOLDER}/../templates/default.json.hbs" "${instance}/config.json" "${config}"
 
 # merge previous with parent image build args
 buildArgsJsonFile="${SCRIPT_FOLDER}/../jenkins-master-base/$(jq -r '.jenkins.version' "${config}")/build-args.json"
