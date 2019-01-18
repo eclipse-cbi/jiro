@@ -27,14 +27,13 @@ if [ ! -d "${instance}" ]; then
   exit 1
 fi
 
-. "${instance}/target/config.properties"
-
-JENKINS_URL="https://${JENKINS_HOST}${JENKINS_PREFIX}"
+jenkinsUrl="$(jq -r '.deployment.url' "${instance}/target/config.json")"
+jenkinsVersion="$(jq -r '.jenkins.actualVersion' "${instance}/target/config.json")"
 
 # First download the jar for the running version (if needed)
-CLI_JAR="${SCRIPT_FOLDER}/jenkins-master-base/${JENKINS_VERSION}/cli.jar"
+CLI_JAR="${SCRIPT_FOLDER}/jenkins-master-base/${jenkinsVersion}/cli.jar"
 if [[ ! -f ${CLI_JAR} ]]; then
-  curl -sfSL ${JENKINS_URL}/jnlpJars/jenkins-cli.jar -o ${CLI_JAR}
+  curl -sfSL ${jenkinsUrl}/jnlpJars/jenkins-cli.jar -o ${CLI_JAR}
 fi
 
-java -jar ${CLI_JAR} -noKeyAuth -auth @${SCRIPT_FOLDER}/.jenkinscreds -s ${JENKINS_URL} ${@:2}
+java -jar ${CLI_JAR} -noKeyAuth -auth @${SCRIPT_FOLDER}/.jenkinscreds -s ${jenkinsUrl} ${@:2}

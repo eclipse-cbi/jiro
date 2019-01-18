@@ -41,11 +41,16 @@ if [[ ! -z "${previousConfigMapVersion:-}" ]]; then
   if [[ "${previousConfigMapVersion}" != "${newConfigMapVersion}" ]]; then
     remoteConfig=$(mktemp)
     oc rsh -n "${namespace}" "${projectShortName}-0" cat "/etc/jenkins/jenkins.yaml" > "${remoteConfig}"
-    while ! diff "${remoteConfig}" "${instance}/target/jenkins/configuration.yml" > /dev/null; do
+    diff -Z -B "${remoteConfig}" "${instance}/target/jenkins/configuration.yml" || :
+    echo -n "Waiting for the Jenkins CasC config map to be updated on the pod..."
+    while ! diff -Z -B "${remoteConfig}" "${instance}/target/jenkins/configuration.yml" > /dev/null; do
       sleep 5
-      echo "Reloading Jenkins CasC file..."
-      ${SCRIPT_FOLDER}/../jenkins-cli.sh "${instance}" "reload-jcasc-configuration"
+      echo -n "."
+      oc rsh -n "${namespace}" "${projectShortName}-0" cat "/etc/jenkins/jenkins.yaml" > "${remoteConfig}"
     done
+    echo -e "\nReloading Jenkins CasC file..."
+    ${SCRIPT_FOLDER}/../jenkins-cli.sh "${instance}" "reload-jcasc-configuration"
+    rm "${remoteConfig}"
   fi
 fi
 
@@ -57,7 +62,6 @@ oc apply -f ${instance}/target/k8s/role-binding.yml
 oc apply -f ${instance}/target/k8s/service-jenkins-ui.yml
 oc apply -f ${instance}/target/k8s/service-jenkins-discovery.yml
 oc apply -f ${instance}/target/k8s/route.yml
-
 
 oc create secret generic "jenkins-secrets" -n ${namespace} 2> /dev/null || :
 
