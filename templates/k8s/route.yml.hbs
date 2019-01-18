@@ -1,0 +1,18 @@
+{{> copyright }}
+apiVersion: "route.openshift.io/v1"
+kind: "Route"
+metadata:
+  {{> common-metadata }}
+  name: "{{project.shortName}}"
+spec:
+  host: "{{deployment.host}}"
+  path: "{{deployment.prefix}}"
+  port:
+    targetPort: "http"
+  tls:
+    insecureEdgeTerminationPolicy: "Redirect"
+    termination: "edge"
+  to:
+    kind: "Service"
+    name: "jenkins-ui"
+    weight: 100

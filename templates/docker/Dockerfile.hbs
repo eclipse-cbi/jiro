@@ -5,8 +5,13 @@
 # which is available at http://www.eclipse.org/legal/epl-v20.html
 # SPDX-License-Identifier: EPL-2.0
 #*******************************************************************************
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: {{JENKINS_SHORT_NAME}}
-  namespace: {{JENKINS_NAMESPACE}}
+# <templates/Dockerfile.tpl>
+FROM {{docker.master.parentImage}}
+
+EXPOSE {{deployment.uiPort}}
+EXPOSE {{deployment.jnlpPort}}
+
+RUN mkdir -p {{docker.master.ref}}/userContent/theme/
+COPY jenkins/quicksilver.css.override {{docker.master.ref}}/userContent/theme/
+# </templates/Dockerfile.tpl>
+

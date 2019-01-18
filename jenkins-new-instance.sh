@@ -15,12 +15,15 @@ set -o pipefail
 IFS=$'\n\t'
 SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
 
-project_full_name="${1}"
-project_short_name="${2}"
-project_display_name="${3}"
+full_name="${1}"
+short_name="${2}"
+display_name="${3}"
 
-mkdir -p "${SCRIPT_FOLDER}/instances/${project_full_name}"
-echo "#!/usr/bin/env bash" > "${SCRIPT_FOLDER}/instances/${project_full_name}/config.properties"
-echo "JENKINS_FULL_NAME=\"${project_full_name}\"" >> "${SCRIPT_FOLDER}/instances/${project_full_name}/config.properties"
-echo "JENKINS_SHORT_NAME=\"${project_short_name}\"" >> "${SCRIPT_FOLDER}/instances/${project_full_name}/config.properties"
-echo "JENKINS_DISPLAY_NAME=\"${project_display_name}\"" >> "${SCRIPT_FOLDER}/instances/${project_full_name}/config.properties"
+mkdir -p "${SCRIPT_FOLDER}/instances/${full_name}"
+>  "${SCRIPT_FOLDER}/instances/${full_name}/config.json" printf '{\n'
+>> "${SCRIPT_FOLDER}/instances/${full_name}/config.json" printf '  "project": {\n'
+>> "${SCRIPT_FOLDER}/instances/${full_name}/config.json" printf '    "fullName": "%s",\n' $full_name
+>> "${SCRIPT_FOLDER}/instances/${full_name}/config.json" printf '    "shortName": "%s",\n' $short_name
+>> "${SCRIPT_FOLDER}/instances/${full_name}/config.json" printf '    "displayName": "%s"\n' $display_name
+>> "${SCRIPT_FOLDER}/instances/${full_name}/config.json" printf '  }\n'
+>> "${SCRIPT_FOLDER}/instances/${full_name}/config.json" printf '}\n'

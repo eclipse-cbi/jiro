@@ -1,0 +1,55 @@
+{
+  "project": {
+    "shortName": "!NOT_SET!shortName",
+    "fullName": "!NOT_SET!fullName",
+    "displayName": "!NOT_SET!displayName",
+    "sponsorshipLevel": "S0"
+  },
+  "jenkins": {
+    "version": "latest",
+    "maxConcurrency": 2
+  },
+  "docker": {
+    "repository": "eclipsecbijenkins",
+    "master": {
+      "parentImage": "{{docker.repository}}/jenkins-master-base:{{jenkins.version}}",
+      "image": "{{docker.repository}}/{{project.shortName}}",
+      "imageTag": "{{jenkins.version}}"
+    }
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org",
+    "prefix": "/{{project.shortName}}",
+    "url": "https://{{deployment.host}}{{deployment.prefix}}",
+    "uiPort": 8080,
+    "jnlpPort": 50000
+  },
+  "kubernetes": {
+    "master": {
+      "namespace": "{{project.shortName}}",
+      "stsName": "{{project.shortName}}",
+      "resources": {
+        "cpu": {
+          "request": "500m",
+          "limit": 2
+        },
+        "memory": {
+          "limit": "1.5Gi"
+        }
+      },
+      "probe": {
+        "liveness": {
+          "delaySeconds": 480,
+          "periodSeconds": 60,
+          "timeoutSeconds": 90,
+          "failureThreshold": 2
+        },
+        "readiness": {
+          "delaySeconds": 15,
+          "periodSeconds": "{{kubernetes.master.probe.liveness.periodSeconds}}",
+          "timeoutSeconds": "{{kubernetes.master.probe.liveness.timeoutSeconds}}"
+        }
+      }
+    }
+  }
+}

@@ -11,39 +11,35 @@
 set -o errexit
 set -o nounset
 set -o pipefail
+set -x
 
 IFS=$'\n\t'
 
 SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
 
-PATH=${SCRIPT_FOLDER}/../bin:${PATH}
-
-DOCKER_REPO="$(head -n 1 ${SCRIPT_FOLDER}/../repositoryName)"
-IMAGE="${DOCKER_REPO}/$(basename $(readlink -f ${SCRIPT_FOLDER}))"
-
-if [[ ! -d "${1:-}" ]]; then
-  echo "ERROR: invalid argument '${1:-}'. Must be a subfolder of '${SCRIPT_FOLDER}'}"
+CONTEXT_PATH="${1:-}"
+if [[ ! -d "${CONTEXT_PATH}" ]]; then
+  echo "ERROR: invalid argument '${CONTEXT_PATH}'. Must be a subfolder of '${SCRIPT_FOLDER}'}"
   exit 1
 fi
+VERSION=$(basename ${CONTEXT_PATH})
+BUILD_ARGS="${CONTEXT_PATH}/build-args.json"
 
-VERSION=$(basename ${1:-})
-
-. "${SCRIPT_FOLDER}/${VERSION}/build-args.shsource"
-
-mapfile -t tpl_vars < <(compgen -A variable | grep "^JENKINS_")
-
-docker_build_arg=()
-for v in ${tpl_vars[@]}; do 
-  docker_build_arg+=( "--build-arg" )
-  docker_build_arg+=( "${v}=${!v}" )
-done
+DOCKER_REPO="$(jq -r '.docker.repository' "${BUILD_ARGS}")"
+IMAGE="${DOCKER_REPO}/$(basename $(readlink -f ${SCRIPT_FOLDER}))"
 
 docker build --rm -t ${IMAGE}:${VERSION} \
-  --build-arg JENKINS_VERSION=${VERSION} "${docker_build_arg[@]}" \
-  -f "${SCRIPT_FOLDER}/${VERSION}/Dockerfile" "${SCRIPT_FOLDER}/${VERSION}"
+  --build-arg JENKINS_VERSION=${VERSION} \
+  --build-arg USERNAME="$(jq -r '.docker.master.username' "${BUILD_ARGS}")" \
+  --build-arg JENKINS_HOME="$(jq -r '.docker.master.home' "${BUILD_ARGS}")" \
+  --build-arg JENKINS_REF="$(jq -r '.docker.master.ref' "${BUILD_ARGS}")" \
+  --build-arg JENKINS_WEB_ROOT="$(jq -r '.docker.master.webroot' "${BUILD_ARGS}")" \
+  --build-arg JENKINS_PLUGIN_ROOT="$(jq -r '.docker.master.pluginroot' "${BUILD_ARGS}")" \
+  --build-arg JENKINS_WAR="$(jq -r '.docker.master.war' "${BUILD_ARGS}")" \
+  --build-arg JENKINS_UC="$(jq -r '.docker.master.updateCenter' "${BUILD_ARGS}")" \
+  -f "${CONTEXT_PATH}/Dockerfile" "${CONTEXT_PATH}"
 
 latest_version=$(find ${SCRIPT_FOLDER} -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort -V | tail -n 1)
-
 if [[ "${latest_version}" = "${VERSION}" ]]; then
   docker tag "${IMAGE}:${VERSION}" "${IMAGE}:latest"
 fi

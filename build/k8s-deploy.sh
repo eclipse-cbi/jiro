@@ -27,13 +27,30 @@ if [ ! -d "${instance}" ]; then
   exit 1
 fi
 
-. "${instance}/target/config.properties"
+namespace="$(jq -r '.kubernetes.master.namespace' "${instance}/target/config.json")"
+projectShortName="$(jq -r '.project.shortName' "${instance}/target/config.json")"
 
 oc apply -f ${instance}/target/k8s/namespace.yml
+
+if oc get configmap -n ${namespace} jenkins-config > /dev/null; then
+  previousConfigMapVersion="$(oc get configmap -n ${namespace} jenkins-config -o json | jq -r '.metadata.resourceVersion')"
+fi
 oc apply -f ${instance}/target/k8s/configmap-jenkins-config.yml
+if [[ ! -z "${previousConfigMapVersion:-}" ]]; then
+  newConfigMapVersion="$(oc get configmap -n ${namespace} jenkins-config -o json | jq -r '.metadata.resourceVersion')"
+  if [[ "${previousConfigMapVersion}" != "${newConfigMapVersion}" ]]; then
+    remoteConfig=$(mktemp)
+    oc rsh -n "${namespace}" "${projectShortName}-0" cat "/etc/jenkins/jenkins.yaml" > "${remoteConfig}"
+    while ! diff "${remoteConfig}" "${instance}/target/jenkins/configuration.yml" > /dev/null; do
+      sleep 5
+      echo "Reloading Jenkins CasC file..."
+      ${SCRIPT_FOLDER}/../jenkins-cli.sh "${instance}" "reload-jcasc-configuration"
+    done
+  fi
+fi
+
 oc apply -f ${instance}/target/k8s/role.yml
 oc apply -f ${instance}/target/k8s/service-account.yml
-oc apply -f ${instance}/target/k8s/limit-range-default.yml
 oc apply -f ${instance}/target/k8s/limit-range.yml
 oc apply -f ${instance}/target/k8s/resource-quotas.yml
 oc apply -f ${instance}/target/k8s/role-binding.yml
@@ -41,8 +58,7 @@ oc apply -f ${instance}/target/k8s/service-jenkins-ui.yml
 oc apply -f ${instance}/target/k8s/service-jenkins-discovery.yml
 oc apply -f ${instance}/target/k8s/route.yml
 
-oc create secret generic "jenkins-secrets" -n ${JENKINS_NAMESPACE} 2> /dev/null || true
 
-sleep 5
-${SCRIPT_FOLDER}/jenkins-cli.sh "${instance}" "reload-jcasc-configuration" 2> /dev/null || true
+oc create secret generic "jenkins-secrets" -n ${namespace} 2> /dev/null || :
+
 oc apply -f ${instance}/target/k8s/statefulset.yml

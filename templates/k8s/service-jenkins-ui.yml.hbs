@@ -1,0 +1,14 @@
+{{> copyright }}
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  {{> common-metadata }}
+  name: "jenkins-ui"
+spec:
+  ports:
+  - name: "http"
+    port: 80
+    protocol: "TCP"
+    targetPort: {{deployment.uiPort}}
+  selector:
+    org.eclipse.cbi.jiro/project.fullName: "{{project.fullName}}"

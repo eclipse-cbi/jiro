@@ -7,33 +7,27 @@
 # SPDX-License-Identifier: EPL-2.0
 #*******************************************************************************
 
-# Bash strict-mode
 set -o errexit
 set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-: "${TEMPLATE_VARIABLE_PREFIX:="JENKINS_"}"
+SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
 
-template="${1}"
-tpl_config="${2}"
+instance="${1:-}"
 
-if [[ ! -f "${tpl_config}" ]]; then
-  echo "ERROR: no configuration file '${tpl_config}'"
+if [ -z "${instance}" ]; then
+  echo "ERROR: you must provide an 'instance' name argument"
   exit 1
 fi
 
-. "${tpl_config}"
+if [ ! -d "${instance}" ]; then
+  echo "ERROR: no 'instance' at '${instance}'"
+  exit 1
+fi
 
-tmp=$(mktemp)
+config="${instance}/target/config.json"
+masterImage="$(jq -r '.docker.master.image' "${config}")"
 
-cp "${template}" "${tmp}"
-mapfile -t tpl_vars < <(compgen -A variable | grep "^${TEMPLATE_VARIABLE_PREFIX}")
-for v in ${tpl_vars[@]}; do 
-  value=$(echo ${!v} | sed -e 's#/#\\/#g')
-  sed -i -e "s/{{${v}}}/${value}/g" "${tmp}"
-done
-
-cat "${tmp}"
-
-rm "${tmp}"
+${SCRIPT_FOLDER}/dockerw rmi_all "${masterImage}"
+rm -rf "${instance}/target"

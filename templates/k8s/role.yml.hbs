@@ -1,0 +1,16 @@
+{{> copyright }}
+apiVersion: v1
+kind: Role
+metadata:
+  {{> common-metadata }}
+  name: jenkins-master-owner
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["create","delete","get","list","patch","update","watch"]
+- apiGroups: [""]
+  resources: ["pods/exec"]
+  verbs: ["create","delete","get","list","patch","update","watch"]
+- apiGroups: [""]
+  resources: ["pods/log"]
+  verbs: ["get","list","watch"]

@@ -1,0 +1,15 @@
+{{> copyright }}
+apiVersion: v1
+kind: RoleBinding
+metadata:
+  {{> common-metadata }}
+  name: {{project.shortName}}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: jenkins-master-owner
+  namespace: {{kubernetes.master.namespace}}
+subjects:
+- kind: ServiceAccount
+  name: {{project.shortName}}
+  namespace: {{kubernetes.master.namespace}}

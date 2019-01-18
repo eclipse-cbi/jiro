@@ -1,0 +1,9 @@
+{{> copyright }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  {{> common-metadata }}
+  name: jenkins-config
+data:
+  jenkins.yaml: |
+    {{> configuration }}

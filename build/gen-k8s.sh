@@ -15,7 +15,7 @@ set -o pipefail
 IFS=$'\n\t'
 
 SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
-templates="${SCRIPT_FOLDER}/templates"
+templates="${SCRIPT_FOLDER}/../templates"
 
 instance="${1:-}"
 
@@ -29,8 +29,7 @@ if [ ! -d "${instance}" ]; then
   exit 1
 fi
 
-tpl_config="${instance}/target/config.properties"
-. "${tpl_config}"
+config="${instance}/target/config.json"
 
 target="${instance}/target/k8s"
 mkdir -p "${target}"
@@ -38,7 +37,7 @@ mkdir -p "${target}"
 gen_resource() {
   local r="${1}"
   local t="${2:-"${r}"}"
-  ${SCRIPT_FOLDER}/gen-yaml.sh "${instance}/k8s/${r}.yml" "${templates}/k8s/${r}.yml.tpl" "${tpl_config}" > "${target}/${t}.yml"
+  ${SCRIPT_FOLDER}/gen-yaml.sh "${instance}/k8s/${r}.yml" "${templates}/k8s/${r}.yml.hbs" "${config}" > "${target}/${t}.yml"
 }
 
 gen_resource "namespace"
@@ -48,21 +47,12 @@ gen_resource "service-jenkins-discovery"
 gen_resource "service-account"
 gen_resource "role"
 gen_resource "role-binding"
-gen_resource "configmap-jenkins-config"
-
-# For stateful set, we want to set the image sha
-imageSha="$(docker inspect --format='{{index .RepoDigests 0}}' "${JENKINS_MASTER_IMAGE}:${JENKINS_MASTER_IMAGE_TAG}" | sed -E 's/.*sha256:(.*)/\1/g')"
 gen_resource "statefulset"
-sed -i -e "s/{{JENKINS_MASTER_IMAGE_SHA256}}/${imageSha}/g" "${target}/statefulset.yml"
 
 ## Jenkins CaC config map filling
-tmp=$(mktemp)
-${SCRIPT_FOLDER}/gen-yaml.sh "${instance}/jenkins/configuration.yml" "${templates}/jenkins/configuration.yml.tpl" "${tpl_config}" > "${tmp}"
-for l in $(cat ${tmp}); do
-  echo "    ${l}" >> "${target}/configmap-jenkins-config.yml"
-done
-rm "${tmp}"
+echo "# GENERATED FILE - DO NOT EDIT" >> "${target}/configmap-jenkins-config.yml"
+hbs -s -D "${config}" -P ${templates}'/k8s/partials/*.hbs' -P ${instance}'/target/jenkins/*.yml' "${templates}/k8s/configmap-jenkins-config.yml.hbs" > "${target}/configmap-jenkins-config.yml"
 
-gen_resource "limit-range-default"
-gen_resource "limit-range-${JENKINS_RESPACK_ID}" "limit-range"
-gen_resource "resource-quotas-${JENKINS_RESPACK_ID}" "resource-quotas"
+sponsorshipLevel="$(jq -r '.project.sponsorshipLevel' "${config}")"
+gen_resource "limit-range-${sponsorshipLevel}" "limit-range"
+gen_resource "resource-quotas-${sponsorshipLevel}" "resource-quotas"

@@ -28,15 +28,15 @@ if [ ! -d "${instance}" ]; then
   exit 1
 fi
 
-target="${instance}/target"
+target="${instance}/target/jenkins"
+mkdir -p "${target}"
 
 if [[ -f "${instance}/jenkins/plugins-list" ]]; then
-  echo "# GENERATED FILE - DO NOT EDIT" > "${target}/jenkins-plugins-list"
-  cat "${instance}/jenkins/plugins-list" >> "${target}/jenkins-plugins-list"
+  echo "# GENERATED FILE - DO NOT EDIT" > "${target}/plugins-list"
+  cat "${instance}/jenkins/plugins-list" >> "${target}/plugins-list"
 fi
 
-tmp=$(mktemp)
-echo "/* GENERATED FILE - DO NOT EDIT */" > "${tmp}"
-cat "${SCRIPT_FOLDER}/templates/jenkins/eclipse-theme.css.tpl" >> "${tmp}"
-${SCRIPT_FOLDER}/apply-template.sh "${tmp}" "${target}/config.properties" > "${target}/eclipse-theme.css.override"
-rm "${tmp}"
+echo "/* GENERATED FILE - DO NOT EDIT */" > "${target}/quicksilver.css.override"
+hbs -s -D "${instance}/config.json" "${SCRIPT_FOLDER}/../templates/jenkins/quicksilver.css.hbs" >> "${target}/quicksilver.css.override"
+
+${SCRIPT_FOLDER}/gen-yaml.sh "${instance}/jenkins/configuration.yml" "${SCRIPT_FOLDER}/../templates/jenkins/configuration.yml.hbs" "${instance}/target/config.json" > "${target}/configuration.yml"

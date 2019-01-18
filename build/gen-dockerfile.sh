@@ -15,7 +15,7 @@ set -o pipefail
 IFS=$'\n\t'
 
 SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
-templates="${SCRIPT_FOLDER}/templates"
+templates="${SCRIPT_FOLDER}/../templates"
 
 instance="${1:-}"
 
@@ -29,8 +29,6 @@ if [ ! -d "${instance}" ]; then
   exit 1
 fi
 
-tpl_config="${instance}/target/config.properties"
-
 target="${instance}/target"
 mkdir -p "${target}"
 
@@ -41,28 +39,24 @@ if [ -f "${instance}/Dockerfile.override" ]; then
   sed -e '$s/$/\n/' "${instance}/Dockerfile.override" >> "${target}/Dockerfile"
   echo -e "# </instances/${instance}/Dockerfile.override>\n" >> "${target}/Dockerfile"
 else 
+  cat "${templates}/docker/Dockerfile.hbs" >> "${target}/Dockerfile"
+  # if Dockefile exists, append it to the template
   if [ -f "${instance}/Dockerfile" ]; then
-    # if Dockefile exists, append it to the template
-    cat "${templates}/docker/Dockerfile.tpl" >> "${target}/Dockerfile"
-    
     echo "# <instances/${instance}/Dockerfile>" >> "${target}/Dockerfile"
     sed -e '$s/$/\n/' "${instance}/Dockerfile" >> "${target}/Dockerfile"
     echo -e "# </instances/${instance}/Dockerfile>\n" >> "${target}/Dockerfile"
-    
-    ${SCRIPT_FOLDER}/apply-template.sh "${target}/Dockerfile" "${tpl_config}" > "${target}/Dockerfile.gen"
-    mv "${target}/Dockerfile.gen" "${target}/Dockerfile"
-  else
-    # else just generate from stock template
-    ${SCRIPT_FOLDER}/apply-template.sh "${templates}/docker/Dockerfile.tpl" "${tpl_config}" >> "${target}/Dockerfile"
   fi
 fi
+# apply template
+hbs -s -D "${target}/config.json" "${target}/Dockerfile" > "${target}/Dockerfile.gen"
+mv "${target}/Dockerfile.gen" "${target}/Dockerfile"
 
 # Then add the variable parts of Dockerfile depending on instance configuration
 echo "# <gen-dockerfile.sh>" >> "${target}/Dockerfile"
 
 if [[ -f "${instance}/jenkins/plugins-list" ]]; then
-  echo "COPY jenkins-plugins-list /usr/share/jenkins/ref/jenkins-plugins-list" >> "${target}/Dockerfile"
-  echo "RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/jenkins-plugins-list" >> "${target}/Dockerfile"
+  echo "COPY jenkins/plugins-list /usr/share/jenkins/ref/plugins-list" >> "${target}/Dockerfile"
+  echo "RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins-list" >> "${target}/Dockerfile"
 fi
 
 echo "USER 10001" >> "${target}/Dockerfile"

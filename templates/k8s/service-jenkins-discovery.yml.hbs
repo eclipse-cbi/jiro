@@ -1,0 +1,14 @@
+{{> copyright }}
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  {{> common-metadata }}
+  name: "jenkins-discovery"
+spec:
+  ports:
+  - name: "jnlp"
+    port: {{deployment.jnlpPort}}
+    protocol: "TCP"
+    targetPort: {{deployment.jnlpPort}}
+  selector:
+    org.eclipse.cbi.jiro/project.fullName: "{{project.fullName}}"

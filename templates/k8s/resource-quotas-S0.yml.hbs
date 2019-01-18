@@ -1,0 +1,19 @@
+{{> copyright }}
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  {{> common-metadata }}
+  name: jenkins-instance-quota
+spec:
+  hard:
+    # Jenkins master + 2 agents
+    pods: 3
+    # Jenkins master 50 + 2 agents 2*20 = 90GB
+    requests.storage: 90Gi
+    # (Jenkin master 0.5 + JNLP agents 2x0.3)=1.1 + 2vCPU
+    requests.cpu: 3.1
+    # (Jenkin master 1.5 + JNLP agents 2x512MB)=2.5 + 4GB
+    requests.memory: 6.5Gi
+    # (Jenkins master 1 + JNLP agents 2x0.4)=1.8 + 2vCPU
+    limits.cpu: 3.8
+    limits.memory: 6.5Gi

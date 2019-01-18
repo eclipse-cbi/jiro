@@ -5,18 +5,3 @@
 # which is available at http://www.eclipse.org/legal/epl-v20.html
 # SPDX-License-Identifier: EPL-2.0
 #*******************************************************************************
-apiVersion: "v1"
-kind: "Service"
-metadata:
-  labels:
-    org.eclipse.jenkins.master.shortname: "{{JENKINS_SHORT_NAME}}"
-  name: "jenkins-discovery"
-  namespace: "{{JENKINS_NAMESPACE}}"
-spec:
-  ports:
-  - name: "jnlp"
-    port: {{JENKINS_JNLP_PORT}}
-    protocol: "TCP"
-    targetPort: {{JENKINS_JNLP_PORT}}
-  selector:
-    org.eclipse.jenkins.master.shortname: "{{JENKINS_SHORT_NAME}}"

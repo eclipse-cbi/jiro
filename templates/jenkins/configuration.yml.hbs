@@ -1,0 +1,144 @@
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html
+# SPDX-License-Identifier: EPL-2.0
+#*******************************************************************************
+jenkins:
+  numExecutors: 0
+  scmCheckoutRetryCount: 2
+  mode: EXCLUSIVE
+  
+  globalNodeProperties:
+    - envVars:
+        env:
+          - key: FOO
+            value: BAR
+
+  disableRememberMe: false
+  agentProtocols:
+    - "JNLP4-connect"
+    - "Ping"
+
+  authorizationStrategy:
+    projectMatrix:
+      grantedPermissions:
+        - "Overall/Read:anonymous"
+        - "Overall/Administer:admins"
+        - "Credentials/View:{{project.fullName}}"
+        - "Job/Read:anonymous"
+        - "Job/ExtendedRead:common"
+        - "Job/Build:{{project.fullName}}"
+        - "Job/Create:{{project.fullName}}"
+        - "Job/Delete:{{project.fullName}}"
+        - "Job/Move:{{project.fullName}}"
+        - "Job/Cancel:{{project.fullName}}"
+        - "Job/Configure:{{project.fullName}}"
+        - "Job/Workspace:{{project.fullName}}"
+        - "Run/Delete:{{project.fullName}}"
+        - "Run/Replay:{{project.fullName}}"
+        - "Run/Update:{{project.fullName}}"
+        - "View/Read:{{project.fullName}}"
+        - "View/Delete:{{project.fullName}}"
+        - "View/Create:{{project.fullName}}"
+        - "View/Configure:{{project.fullName}}"
+        - "SCM/Tag:{{project.fullName}}"
+
+  markupFormatter: rawHtml
+  crumbIssuer: 
+    standard:
+       excludeClientIPFromCrumb: false
+  remotingSecurity:
+    enabled: true
+
+  securityRealm:
+    ldap:
+      configurations:
+        - server: ldapmaster
+          rootDN: dc=eclipse,dc=org
+          groupMembershipStrategy: fromGroupSearch
+          groupSearchBase: ou=group
+          userSearch: mail={0}
+          displayNameAttributeName: cn
+          mailAddressAttributeName: mail
+
+  clouds:
+  - kubernetes:
+      name: "kubernetes"
+      containerCapStr: "{{jenkins.maxConcurrency}}"
+      jenkinsUrl: "http://jenkins-ui.{{project.shortName}}.svc.cluster.local{{deployment.prefix}}"
+      jenkinsTunnel: "jenkins-discovery.{{project.shortName}}.svc.cluster.local:{{deployment.jnlpPort}}"
+      maxRequestsPerHostStr: "32"
+      namespace: "{{project.shortName}}"
+      podRetention: "onFailure"
+      templates:
+      - containers:
+        - image: "eclipsecbi/jenkins-jnlp-agent:3.25@sha256:62913fe4840a51e81dd00b8ec0af31e78930f8c3a3eaaf15dca821d42b71a16d"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          ttyEnabled: true
+          command: ""
+          args: ""
+
+        instanceCap: 5
+        name: "default-agent"
+        namespace: "{{project.shortName}}"
+        nodeUsageMode: NORMAL
+        workspaceVolume:
+          emptyDirWorkspaceVolume:
+            memory: false
+
+security:
+  remotingCLI:
+    enabled: false
+
+unclassified:
+  location:
+    adminAddress: ci-admin@eclipse.org
+    url: {{deployment.url}}
+  
+  mailer:
+    adminAddress: ci-admin@eclipse.org
+    replyToAddress: ci-admin@eclipse.org
+    smtpHost: mail.eclipse.org
+
+  globalDefaultFlowDurabilityLevel:
+    durabilityHint: PERFORMANCE_OPTIMIZED
+
+  simple-theme-plugin:
+    elements:
+    - cssUrl:
+        url: "{{deployment.prefix}}/userContent/theme/quicksilver.css"
+    - cssUrl:
+        url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+
+tool:
+  {{> tools-jdk }}
+  {{> tools-ant }}
+  {{> tools-maven }}
+  git:
+    installations:
+    - home: "/usr/local/bin/git"
+      name: "git"
+
+credentials:
+  system:
+    domainCredentials:
+      - domain :
+          name: "oss.sonatype.org"
+          description: "oss.sonatype.org domain"
+          specifications:
+            - hostnameSpecification:
+                includes: "oss.sonatype.org"
+        credentials:
+          - usernamePassword:
+              scope:    SYSTEM
+              id:       ossrh
+              username: ${oss_sonatype_org_username}
+              password: ${oss_sonatype_org_password}
