@@ -7,4 +7,5 @@ fix USERNAME issue in master container (current=default, should be jenkins)
 OpenJ9 cache on host mounted volume (requires some changes in scc/podsecuritypolicy)
 Compute quotas from set of base values
 ExitLifecycle.exitcode = 0 to avoid error when safe restart
+remove repositoryName
 Theming
