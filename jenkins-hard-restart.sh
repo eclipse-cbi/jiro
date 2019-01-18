@@ -27,15 +27,10 @@ if [ ! -d "${instance}" ]; then
   exit 1
 fi
 
-tpl_config="${instance}/target/config.properties"
 
-if [[ ! -f "${tpl_config}" ]]; then
-  echo "ERROR: no configuration file '${tpl_config}'"
-  exit 1
-fi
+stsName="$(jq -r '.kubernetes.master.stsName' "${instance}/target/config.json")"
+ns="$(jq -r '.kubernetes.master.namespace' "${instance}/target/config.json")"
 
-. "${tpl_config}"
-
-oc scale sts ${JENKINS_STS_NAME} --replicas=0 -n ${JENKINS_NAMESPACE}
+oc scale sts ${stsName} --replicas=0 -n ${ns}
 sleep 5
-oc scale sts ${JENKINS_STS_NAME} --replicas=1 -n ${JENKINS_NAMESPACE}
+oc scale sts ${stsName} --replicas=1 -n ${ns}
