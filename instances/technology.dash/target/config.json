@@ -1,0 +1,64 @@
+{
+  "project": {
+    "shortName": "dash",
+    "fullName": "technology.dash",
+    "displayName": "Eclipse Dash",
+    "sponsorshipLevel": "S0"
+  },
+  "jenkins": {
+    "version": "latest",
+    "maxConcurrency": 2,
+    "actualVersion": "2.150.1"
+  },
+  "docker": {
+    "repository": "eclipsecbijenkins",
+    "master": {
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:latest",
+      "image": "eclipsecbijenkins/dash",
+      "imageTag": "latest",
+      "username": "jenkins",
+      "home": "/var/jenkins_home",
+      "ref": "/usr/share/jenkins/ref",
+      "webroot": "/var/cache/jenkins/war",
+      "pluginroot": "/var/cache/jenkins/plugins",
+      "war": "/usr/share/jenkins/jenkins.war",
+      "updateCenter": "https://updates.jenkins.io",
+      "imageSha256": "146c23d3a30908815f446ca925079c20a815c99c4646df0443e4130472f52b3a"
+    }
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org",
+    "prefix": "/dash",
+    "url": "https://ci-staging.eclipse.org/dash",
+    "uiPort": 8080,
+    "jnlpPort": 50000
+  },
+  "kubernetes": {
+    "master": {
+      "namespace": "dash",
+      "stsName": "dash",
+      "resources": {
+        "cpu": {
+          "request": "500m",
+          "limit": 2
+        },
+        "memory": {
+          "limit": "1.5Gi"
+        }
+      },
+      "probe": {
+        "liveness": {
+          "delaySeconds": 480,
+          "periodSeconds": 60,
+          "timeoutSeconds": 90,
+          "failureThreshold": 2
+        },
+        "readiness": {
+          "delaySeconds": 15,
+          "periodSeconds": "60",
+          "timeoutSeconds": "90"
+        }
+      }
+    }
+  }
+}
