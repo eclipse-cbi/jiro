@@ -1,7 +1,3 @@
-export PATH := bin:$(PATH)
-TEMPLATE_VARIABLE_PREFIX := "JENKINS_"
-SHELL := $$(which bash)
-
 DOCKER_REPO=`cat repositoryName`
 
 INSTANCES=$(patsubst instances/%,%,$(wildcard instances/*))
