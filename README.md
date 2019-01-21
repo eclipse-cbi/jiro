@@ -4,7 +4,7 @@ Jenkins infrastructure for projects hosted by the Eclipse Foundation
 
 ## Tasks
 
-Build and deployment tasks are implemented as Make targets. Dependencies are properly specified, so you don't need to run all the following tasks, e.g., deploy will first build and push the imaegs, then generates the Kubernetes configuration files and finally deploy the instance on the cluster.
+Build and deployment tasks are implemented as Make targets. Dependencies are properly specified, so you don't need to run all the following tasks, e.g., deploy will first build and push the images, then generate the Kubernetes configuration files and finally deploy the instance on the cluster.
 
 ### Build the Jenkins docker image of a project
 
@@ -49,7 +49,9 @@ Build and deployment tasks are implemented as Make targets. Dependencies are pro
 
 ### jenkins-cli.sh
 
-Give it the folder to an instance and it will let you call any Jenkins CLI commands at the proper URL. You can get the list of available commands by running.
+Give it the folder to an instance and it will let you call any Jenkins CLI commands at the proper URL. You can get the list of available commands by running
+
+      $ ./jenkins-cli.sh instances/<project_full_name> help
 
 #### Examples
 
@@ -61,7 +63,7 @@ Give it the folder to an instance and it will let you call any Jenkins CLI comma
 
       $ ./jenkins-cli.sh instances/<project_full_name> reload-jcasc-configuration
 
-* Safe restart / safe shutdown of Jenkins. All instances are configured with the ExitLifecyle, meaning that a restart is actually an shutdown, letting Kubernetes re-spawn a new container thanks to the restart policy of the StatefulSet.
+* Safe restart / safe shutdown of Jenkins. All instances are configured with the ExitLifecyle, meaning that a restart is actually a shutdown, letting Kubernetes re-spawn a new container thanks to the restart policy of the StatefulSet.
 
       $ ./jenkins-cli.sh instances/<project_full_name> safe-shutdown
       $ ./jenkins-cli.sh instances/<project_full_name> safe-restart
