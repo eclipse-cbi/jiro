@@ -1,0 +1,24 @@
+{
+  "project": {
+    "fullName": "technology.cbi",
+    "shortName": "cbi",
+    "displayName": "Eclipse CBI"
+  },
+  "jenkins": {
+    "version": "2.150.2",
+    "permissions": [
+      {
+        "principal": "anonymous",
+        "withheldPermissions": [
+          "Job/Read"
+        ]
+      },
+      {
+        "principal": "common",
+        "grantedPermissions": [
+          "Job/Read"
+        ]
+      }
+    ]
+  }
+}

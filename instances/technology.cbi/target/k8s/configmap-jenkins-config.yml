@@ -1,0 +1,225 @@
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html
+# SPDX-License-Identifier: EPL-2.0
+#*******************************************************************************
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "cbi"
+    org.eclipse.cbi.jiro/project.fullName: "technology.cbi"
+    org.eclipse.cbi.jiro/jenkins.version: "2.150.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.2"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "cbi"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+  namespace: "cbi"
+  name: jenkins-config
+data:
+  jenkins.yaml: |
+    # GENERATED FILE - DO NOT EDIT
+    #*******************************************************************************
+    # Copyright (c) 2018 Eclipse Foundation and others.
+    # This program and the accompanying materials are made available
+    # under the terms of the Eclipse Public License 2.0
+    # which is available at http://www.eclipse.org/legal/epl-v20.html
+    # SPDX-License-Identifier: EPL-2.0
+    #*******************************************************************************
+    jenkins:
+      numExecutors: 0
+      scmCheckoutRetryCount: 2
+      mode: EXCLUSIVE
+      systemMessage: ""
+      globalNodeProperties:
+        - envVars:
+            env:
+              - key: FOO
+                value: BAR
+    
+      disableRememberMe: false
+      agentProtocols:
+        - "JNLP4-connect"
+        - "Ping"
+    
+      authorizationStrategy:
+        projectMatrix:
+          grantedPermissions:
+            - "Overall/Administer:admins"
+            - "Overall/Read:anonymous"
+            - "Job/ExtendedRead:common"
+            - "Job/Read:common"
+            - "Credentials/View:technology.cbi"
+            - "Job/Build:technology.cbi"
+            - "Job/Cancel:technology.cbi"
+            - "Job/Configure:technology.cbi"
+            - "Job/Create:technology.cbi"
+            - "Job/Delete:technology.cbi"
+            - "Job/Move:technology.cbi"
+            - "Job/Workspace:technology.cbi"
+            - "Run/Delete:technology.cbi"
+            - "Run/Replay:technology.cbi"
+            - "Run/Update:technology.cbi"
+            - "SCM/Tag:technology.cbi"
+            - "View/Configure:technology.cbi"
+            - "View/Create:technology.cbi"
+            - "View/Delete:technology.cbi"
+            - "View/Read:technology.cbi"
+    
+      markupFormatter: rawHtml
+      crumbIssuer: 
+        standard:
+           excludeClientIPFromCrumb: false
+      remotingSecurity:
+        enabled: true
+    
+      securityRealm:
+        ldap:
+          configurations:
+            - server: ldapmaster
+              rootDN: dc=eclipse,dc=org
+              groupMembershipStrategy: fromGroupSearch
+              groupSearchBase: ou=group
+              userSearch: mail={0}
+              displayNameAttributeName: cn
+              mailAddressAttributeName: mail
+    
+      clouds:
+      - kubernetes:
+          name: "kubernetes"
+          containerCapStr: "2"
+          jenkinsUrl: "http://jenkins-ui.cbi.svc.cluster.local/cbi"
+          jenkinsTunnel: "jenkins-discovery.cbi.svc.cluster.local:50000"
+          maxRequestsPerHostStr: "32"
+          namespace: "cbi"
+          podRetention: "onFailure"
+          templates:
+          - containers:
+            - image: "eclipsecbi/jenkins-jnlp-agent:3.25@sha256:62913fe4840a51e81dd00b8ec0af31e78930f8c3a3eaaf15dca821d42b71a16d"
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: "jnlp"
+              ttyEnabled: true
+              command: ""
+              args: ""
+    
+            instanceCap: 5
+            name: "default-agent"
+            namespace: "cbi"
+            nodeUsageMode: NORMAL
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+    
+    security:
+      remotingCLI:
+        enabled: false
+    
+    unclassified:
+      location:
+        adminAddress: ci-admin@eclipse.org
+        url: https://ci-staging.eclipse.org/cbi
+      
+      mailer:
+        adminAddress: ci-admin@eclipse.org
+        replyToAddress: ci-admin@eclipse.org
+        smtpHost: mail.eclipse.org
+    
+      globalDefaultFlowDurabilityLevel:
+        durabilityHint: PERFORMANCE_OPTIMIZED
+    
+      simple-theme-plugin:
+        elements:
+        - cssUrl:
+            url: "/cbi/userContent/theme/quicksilver.css"
+        - cssUrl:
+            url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+    
+    tool:
+      jdk:
+        installations:
+        - home: "openjdk-latest"
+          name: "/opt/tools/java/openjdk/latest"
+        - home: "openjdk-jdk11-latest"
+          name: "/opt/tools/java/openjdk/jdk-11/latest"
+        - home: "openjdk-jdk10-latest"
+          name: "/opt/tools/java/openjdk/jdk-10/latest"
+        - home: "openjdk-jdk9-latest"
+          name: "/opt/tools/java/openjdk/jdk-9/latest"
+        - home: "adoptopenjdk-hotspot-latest"
+          name: "/opt/tools/java/adoptopenjdk/hotspot-latest"
+        - home: "adoptopenjdk-hotspot-jdk11-latest"
+          name: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
+        - home: "adoptopenjdk-hotspot-jdk10-latest"
+          name: "/opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest"
+        - home: "adoptopenjdk-hotspot-jdk9-latest"
+          name: "/opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest"
+        - home: "adoptopenjdk-hotspot-jdk8-latest"
+          name: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
+        - home: "adoptopenjdk-openj9-latest"
+          name: "/opt/tools/java/adoptopenjdk/openj9-latest"
+        - home: "adoptopenjdk-openj9-jdk11-latest"
+          name: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
+        - home: "adoptopenjdk-openj9-jdk10-latest"
+          name: "/opt/tools/java/adoptopenjdk/openj9-jdk-10/latest"
+        - home: "adoptopenjdk-openj9-jdk9-latest"
+          name: "/opt/tools/java/adoptopenjdk/openj9-jdk-9/latest"
+        - home: "adoptopenjdk-openj9-jdk8-latest"
+          name: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
+        - home: "oracle-latest"
+          name: "/opt/tools/java/oracle/latest"
+        - home: "oracle-jdk10-latest"
+          name: "/opt/tools/java/oracle/jdk-10/latest"
+        - home: "oracle-jdk9-latest"
+          name: "/opt/tools/java/oracle/jdk-9/latest"
+        - home: "oracle-jdk8-latest"
+          name: "/opt/tools/java/oracle/jdk-8/latest"
+        - home: "oracle-jdk7-latest"
+          name: "/opt/tools/java/oracle/jdk-7/latest"
+        - home: "oracle-jdk6-latest"
+          name: "/opt/tools/java/oracle/jdk-6/latest"
+        - home: "oracle-jdk5-latest"
+          name: "/opt/tools/java/oracle/jdk-5/latest"
+        - home: "ibm-jdk8-latest"
+          name: "/opt/tools/java/ibm/jdk-8/latest"
+        - home: "ibm-latest"
+          name: "/opt/tools/java/ibm/latest"
+      ant:
+        installations:
+        - home: "/opt/tools/apache-ant/latest"
+          name: "apache-ant-latest"
+      maven:
+        installations:
+        - home: "/opt/tools/apache-maven/latest"
+          name: "apache-maven-latest"
+        - home: "/opt/tools/apache-maven/3.5.4"
+          name: "apache-maven-3.5.4"
+        - home: "/opt/tools/apache-maven/3.3.9"
+          name: "apache-maven-3.3.9"
+        - home: "/opt/tools/apache-maven/3.2.5"
+          name: "apache-maven-3.2.5"
+      git:
+        installations:
+        - home: "/usr/local/bin/git"
+          name: "git"
+    
+    credentials:
+      system:
+        domainCredentials:
+          - domain :
+              name: "oss.sonatype.org"
+              description: "oss.sonatype.org domain"
+              specifications:
+                - hostnameSpecification:
+                    includes: "oss.sonatype.org"
+            credentials:
+              - usernamePassword:
+                  scope:    SYSTEM
+                  id:       ossrh
+                  username: ${oss_sonatype_org_username}
+                  password: ${oss_sonatype_org_password}
