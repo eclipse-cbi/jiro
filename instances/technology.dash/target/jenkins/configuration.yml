@@ -25,9 +25,10 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       grantedPermissions:
-        - "Overall/Administer:admin"
+        - "Overall/Administer:admins"
         - "Overall/Read:anonymous"
         - "Job/ExtendedRead:common"
+        - "Job/Read:common"
         - "Credentials/View:technology.dash"
         - "Job/Build:technology.dash"
         - "Job/Cancel:technology.dash"

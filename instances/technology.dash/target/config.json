@@ -23,7 +23,7 @@
         ]
       },
       {
-        "principal": "admin",
+        "principal": "admins",
         "grantedPermissions": [
           "Overall/Administer"
         ]
@@ -52,6 +52,12 @@
       {
         "principal": "anonymous",
         "withheldPermissions": [
+          "Job/Read"
+        ]
+      },
+      {
+        "principal": "common",
+        "grantedPermissions": [
           "Job/Read"
         ]
       }

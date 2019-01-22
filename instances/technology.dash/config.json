@@ -11,6 +11,12 @@
         "withheldPermissions": [
           "Job/Read"
         ]
+      },
+      {
+        "principal": "common",
+        "grantedPermissions": [
+          "Job/Read"
+        ]
       }
     ]
   }
