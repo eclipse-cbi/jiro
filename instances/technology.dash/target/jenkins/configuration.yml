@@ -25,26 +25,25 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       grantedPermissions:
+        - "Overall/Administer:admin"
         - "Overall/Read:anonymous"
-        - "Overall/Administer:admins"
-        - "Credentials/View:technology.dash"
-        - "Job/Read:anonymous"
         - "Job/ExtendedRead:common"
+        - "Credentials/View:technology.dash"
         - "Job/Build:technology.dash"
+        - "Job/Cancel:technology.dash"
+        - "Job/Configure:technology.dash"
         - "Job/Create:technology.dash"
         - "Job/Delete:technology.dash"
         - "Job/Move:technology.dash"
-        - "Job/Cancel:technology.dash"
-        - "Job/Configure:technology.dash"
         - "Job/Workspace:technology.dash"
         - "Run/Delete:technology.dash"
         - "Run/Replay:technology.dash"
         - "Run/Update:technology.dash"
-        - "View/Read:technology.dash"
-        - "View/Delete:technology.dash"
-        - "View/Create:technology.dash"
-        - "View/Configure:technology.dash"
         - "SCM/Tag:technology.dash"
+        - "View/Configure:technology.dash"
+        - "View/Create:technology.dash"
+        - "View/Delete:technology.dash"
+        - "View/Read:technology.dash"
 
   markupFormatter: rawHtml
   crumbIssuer: 

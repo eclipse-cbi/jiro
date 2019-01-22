@@ -18,6 +18,7 @@ SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
 yml_source="${1:-}"
 template="${2:-}"
 config="${3:-}"
+partials="${4:-}"
 
 if [[ -z ${yml_source} ]]; then
   echo "ERROR: must give an non-empty yaml source file name" >&2
@@ -45,6 +46,10 @@ else
 fi
 
 echo "# GENERATED FILE - DO NOT EDIT"
-hbs -s -D "${config}" -e gen -P $(dirname ${template})'/partials/*.hbs' "${tmp}"
+if [[ ! -z "${partials}" ]]; then
+  hbs -s -D "${config}" -e gen -P $(dirname "${template}")'/partials/*.hbs' -P "${partials}"'/*.hbs' "${tmp}"
+else
+  hbs -s -D "${config}" -e gen -P $(dirname "${template}")'/partials/*.hbs' "${tmp}"
+fi
 
 rm "${tmp}"

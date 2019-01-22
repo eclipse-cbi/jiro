@@ -8,6 +8,54 @@
   "jenkins": {
     "version": "latest",
     "maxConcurrency": 2,
+    "permissions": [
+      {
+        "principal": "anonymous",
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ]
+      },
+      {
+        "principal": "common",
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ]
+      },
+      {
+        "principal": "admin",
+        "grantedPermissions": [
+          "Overall/Administer"
+        ]
+      },
+      {
+        "principal": "technology.dash",
+        "grantedPermissions": [
+          "Credentials/View",
+          "Job/Build",
+          "Job/Create",
+          "Job/Delete",
+          "Job/Move",
+          "Job/Cancel",
+          "Job/Configure",
+          "Job/Workspace",
+          "Run/Delete",
+          "Run/Replay",
+          "Run/Update",
+          "View/Read",
+          "View/Delete",
+          "View/Create",
+          "View/Configure",
+          "SCM/Tag"
+        ]
+      },
+      {
+        "principal": "anonymous",
+        "withheldPermissions": [
+          "Job/Read"
+        ]
+      }
+    ],
     "actualVersion": "2.150.1"
   },
   "docker": {

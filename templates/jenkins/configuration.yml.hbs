@@ -24,26 +24,7 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       grantedPermissions:
-        - "Overall/Read:anonymous"
-        - "Overall/Administer:admins"
-        - "Credentials/View:{{project.fullName}}"
-        - "Job/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Job/Build:{{project.fullName}}"
-        - "Job/Create:{{project.fullName}}"
-        - "Job/Delete:{{project.fullName}}"
-        - "Job/Move:{{project.fullName}}"
-        - "Job/Cancel:{{project.fullName}}"
-        - "Job/Configure:{{project.fullName}}"
-        - "Job/Workspace:{{project.fullName}}"
-        - "Run/Delete:{{project.fullName}}"
-        - "Run/Replay:{{project.fullName}}"
-        - "Run/Update:{{project.fullName}}"
-        - "View/Read:{{project.fullName}}"
-        - "View/Delete:{{project.fullName}}"
-        - "View/Create:{{project.fullName}}"
-        - "View/Configure:{{project.fullName}}"
-        - "SCM/Tag:{{project.fullName}}"
+        {{> permissions }}
 
   markupFormatter: rawHtml
   crumbIssuer: 

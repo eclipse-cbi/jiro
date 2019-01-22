@@ -1,0 +1,40 @@
+#! /usr/bin/env bash
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html
+# SPDX-License-Identifier: EPL-2.0
+#*******************************************************************************
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+IFS=$'\n\t'
+
+json=${1:-}
+
+if [[ ! -f "${json}" ]]; then
+  >&2 echo "ERROR: no json file at location '${json}'"
+  exit 1
+fi
+
+JQ_PROG=$(cat <<'EOM'
+.jenkins.permissions | group_by(.principal) | 
+  map( {
+    principal: map(.principal) | unique | .[0], 
+    permissions: 
+      ((map(reduce (.grantedPermissions) as $x (null; . + $x?)) | flatten | unique | map(select(. != null))) 
+      - 
+      (map(reduce (.withheldPermissions) as $x (null; . + $x?)) | flatten | unique | map(select(. != null))))
+  } )
+EOM
+)
+
+for permObject in $(jq -c "${JQ_PROG} | .[]" "${json}"); do
+  principal=$(jq -r .principal <<<${permObject})
+  for perm in $(jq -r '.permissions[]' <<<${permObject}); do
+    echo "- \"${perm}:${principal}\""
+  done
+done

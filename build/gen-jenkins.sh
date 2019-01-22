@@ -39,4 +39,7 @@ fi
 echo "/* GENERATED FILE - DO NOT EDIT */" > "${target}/quicksilver.css.override"
 hbs -s -D "${instance}/config.json" "${SCRIPT_FOLDER}/../templates/jenkins/quicksilver.css.hbs" >> "${target}/quicksilver.css.override"
 
-${SCRIPT_FOLDER}/gen-yaml.sh "${instance}/jenkins/configuration.yml" "${SCRIPT_FOLDER}/../templates/jenkins/configuration.yml.hbs" "${instance}/target/config.json" > "${target}/configuration.yml"
+mkdir -p "${target}/partials"
+${SCRIPT_FOLDER}/gen-permissions.sh "${instance}/target/config.json" > "${target}/partials/permissions.hbs"
+
+${SCRIPT_FOLDER}/gen-yaml.sh "${instance}/jenkins/configuration.yml" "${SCRIPT_FOLDER}/../templates/jenkins/configuration.yml.hbs" "${instance}/target/config.json" "${target}/partials" > "${target}/configuration.yml"
