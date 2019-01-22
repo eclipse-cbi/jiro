@@ -52,6 +52,7 @@ RUN curl -sfSL "${JENKINS_WAR_BASE_URL}/jenkins-war-${JENKINS_VERSION}.war.asc" 
   gpg -q --batch --verify "${JENKINS_WAR}.asc" "${JENKINS_WAR}" 2>&1 /dev/null
 
 COPY ./scripts /usr/local/bin
+RUN chmod ug+x /usr/local/bin/*
 RUN chmod_container_user "rx" /usr/local/bin/install-plugins.sh
 
 COPY base-plugins ${JENKINS_REF}/
