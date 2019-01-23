@@ -77,7 +77,7 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "8b129a2367f9507a957846ca0a0367bef60073c951513d22becbd69e2f072c9c"
+      "imageSha256": "bf5fe700c80ce8520e99896e4297e765c223c2165aac8371a97f66e796000323"
     }
   },
   "deployment": {
