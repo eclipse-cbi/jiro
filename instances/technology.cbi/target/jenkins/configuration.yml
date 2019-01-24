@@ -47,7 +47,7 @@ jenkins:
         - "View/Read:technology.cbi"
 
   markupFormatter: rawHtml
-  crumbIssuer: 
+  crumbIssuer:
     standard:
        excludeClientIPFromCrumb: false
   remotingSecurity:
@@ -91,6 +91,11 @@ jenkins:
         name: "default-agent"
         namespace: "cbi"
         nodeUsageMode: NORMAL
+        volumes:
+        - persistentVolumeClaim:
+            claimName: "tools-claim-jiro-cbi"
+            mountPath: "/opt/tools"
+            readOnly: true
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
@@ -103,7 +108,7 @@ unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
     url: https://ci-staging.eclipse.org/cbi
-  
+
   mailer:
     adminAddress: ci-admin@eclipse.org
     replyToAddress: ci-admin@eclipse.org

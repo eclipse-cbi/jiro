@@ -27,7 +27,7 @@ jenkins:
         {{> permissions }}
 
   markupFormatter: rawHtml
-  crumbIssuer: 
+  crumbIssuer:
     standard:
        excludeClientIPFromCrumb: false
   remotingSecurity:
@@ -71,6 +71,11 @@ jenkins:
         name: "default-agent"
         namespace: "{{project.shortName}}"
         nodeUsageMode: NORMAL
+        volumes:
+        - persistentVolumeClaim:
+            claimName: "tools-claim-jiro-{{project.shortName}}"
+            mountPath: "/opt/tools"
+            readOnly: true
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
@@ -83,7 +88,7 @@ unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
     url: {{deployment.url}}
-  
+
   mailer:
     adminAddress: ci-admin@eclipse.org
     replyToAddress: ci-admin@eclipse.org

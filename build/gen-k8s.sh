@@ -48,6 +48,7 @@ gen_resource "service-account"
 gen_resource "role"
 gen_resource "role-binding"
 gen_resource "statefulset"
+gen_resource "tools-pv"
 
 ## Jenkins CaC config map filling
 echo "# GENERATED FILE - DO NOT EDIT" >> "${target}/configmap-jenkins-config.yml"

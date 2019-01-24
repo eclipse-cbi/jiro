@@ -62,6 +62,7 @@ oc apply -f ${instance}/target/k8s/role-binding.yml
 oc apply -f ${instance}/target/k8s/service-jenkins-ui.yml
 oc apply -f ${instance}/target/k8s/service-jenkins-discovery.yml
 oc apply -f ${instance}/target/k8s/route.yml
+oc apply -f ${instance}/target/k8s/tools-pv.yml
 
 oc create secret generic "jenkins-secrets" -n ${namespace} 2> /dev/null || :
 

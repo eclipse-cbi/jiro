@@ -18,6 +18,8 @@ COPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/
 # </templates/Dockerfile.tpl>
 
 # <gen-dockerfile.sh>
+COPY jenkins/plugins-list /usr/share/jenkins/ref/plugins-list
+RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins-list
 USER 10001
 # </gen-dockerfile.sh>
 
