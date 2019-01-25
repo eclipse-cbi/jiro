@@ -51,18 +51,6 @@
           "View/Read",
           "SCM/Tag"
         ]
-      },
-      {
-        "principal": "anonymous",
-        "withheldPermissions": [
-          "Job/Read"
-        ]
-      },
-      {
-        "principal": "common",
-        "grantedPermissions": [
-          "Job/Read"
-        ]
       }
     ],
     "actualVersion": "2.150.2"
