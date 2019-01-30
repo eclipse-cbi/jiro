@@ -86,6 +86,8 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
+          resourceLimitMemory: "1Gi"
+          resourceRequestMemory: "1Gi"
           ttyEnabled: true
           command: ""
           args: ""
@@ -192,8 +194,8 @@ tool:
       home: "/opt/tools/apache-maven/3.2.5"
   git:
     installations:
-    - home: "/usr/local/bin/git"
-      name: "git"
+    - name: "git"
+      home: "/usr/bin/git"
 
 credentials:
   system:
