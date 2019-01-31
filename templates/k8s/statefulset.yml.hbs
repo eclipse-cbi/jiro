@@ -37,7 +37,7 @@ spec:
           periodSeconds: {{kubernetes.master.probe.liveness.periodSeconds}}
           failureThreshold: {{kubernetes.master.probe.liveness.failureThreshold}}
           timeoutSeconds: {{kubernetes.master.probe.liveness.timeoutSeconds}}
-        readinessProbe: 
+        readinessProbe:
           httpGet:
             path: {{deployment.prefix}}/login
             port: {{deployment.uiPort}}
@@ -68,14 +68,17 @@ spec:
         - mountPath: "/run/secrets/jenkins"
           name: jenkins-secrets
           readOnly: true
+        - mountPath: "/run/secrets/jenkins/ssh"
+          name: gerrit-ssh-keys
+          readOnly: true
         env:
           - name: JAVA_OPTS
               # -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle
               # -Xshareclasses:verbose,name=jenkins,cacheDir=/var/cache/openj9/sharedclasses/jenkins,groupAccess,fatal
-              # Djdk.nativeCrypto=false is a workaround for 
+              # Djdk.nativeCrypto=false is a workaround for
               # https://github.com/eclipse/openj9/issues/3637
             value: >-
-              -XshowSettings:vm 
+              -XshowSettings:vm
               -Djdk.nativeCrypto=false
               -Dsun.zip.disableMemoryMapping=true
               -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle
@@ -91,7 +94,7 @@ spec:
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
               -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbi/jenkins-jnlp-agent:3.25@sha256:62913fe4840a51e81dd00b8ec0af31e78930f8c3a3eaaf15dca821d42b71a16d
           - name: JENKINS_OPTS
-            value: >- 
+            value: >-
               --prefix={{deployment.prefix}}
               --webroot={{docker.master.webroot}}
               --pluginroot={{docker.master.pluginroot}}
@@ -108,6 +111,9 @@ spec:
       - name: jenkins-secrets
         secret:
           secretName: jenkins-secrets
+      - name: gerrit-ssh-keys
+        secret:
+          secretName: gerrit-ssh-keys
   volumeClaimTemplates:
   - metadata:
       name: jenkins-home

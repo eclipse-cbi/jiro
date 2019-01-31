@@ -81,6 +81,9 @@ spec:
         - mountPath: "/run/secrets/jenkins"
           name: jenkins-secrets
           readOnly: true
+        - mountPath: "/run/secrets/jenkins/ssh"
+          name: gerrit-ssh-keys
+          readOnly: true
         env:
           - name: JAVA_OPTS
               # -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle
@@ -121,6 +124,9 @@ spec:
       - name: jenkins-secrets
         secret:
           secretName: jenkins-secrets
+      - name: gerrit-ssh-keys
+        secret:
+          secretName: gerrit-ssh-keys
   volumeClaimTemplates:
   - metadata:
       name: jenkins-home
