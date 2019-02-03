@@ -5,7 +5,7 @@
 # which is available at http://www.eclipse.org/legal/epl-v20.html
 # SPDX-License-Identifier: EPL-2.0
 #*******************************************************************************
-FROM eclipsecbijenkins/openshift-java:jdk8u192-b12-openj9
+FROM eclipsecbijenkins/openshift-java:jdk8u202-b08-openj9
 
 ARG JENKINS_HOME
 ENV JENKINS_HOME="${JENKINS_HOME}"
