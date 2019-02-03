@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk8-openj9:jdk8u192-b12-alpine-slim
+FROM adoptopenjdk/openjdk8-openj9:jdk8u202-b08-alpine-slim
 
 # Workaround for https://github.com/AdoptOpenJDK/openjdk-docker/issues/75
 # SEVERE: Failed to initialize Jenkins
