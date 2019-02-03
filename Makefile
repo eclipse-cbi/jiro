@@ -17,6 +17,12 @@ openshift-java:
 push_openshift-java: openshift-java
 	./build/dockerw push_all ${DOCKER_REPO} $<
 
+jenkins-agent: openshift-java
+	./build/dockerw build_all ${DOCKER_REPO} $@
+
+push_jenkins-agent: jenkins-agent
+	./build/dockerw push_all ${DOCKER_REPO} $<
+
 jenkins-master-base: openshift-java
 	find jenkins-master-base -mindepth 1 -maxdepth 1 -type d -exec jenkins-master-base/build.sh {} \;
 
