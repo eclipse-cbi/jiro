@@ -39,7 +39,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/dash:latest@sha256:b561ece2683eb6e8f61e00242aec6da122bf4e61ec6783ee1fda283cdda98839
+        image: eclipsecbijenkins/dash:latest@sha256:b56adcd216fea5f814034708c9788773c7b2ff3366bd083da8122ae04f5025a3
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -105,7 +105,7 @@ spec:
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbi/jenkins-jnlp-agent:3.25@sha256:62913fe4840a51e81dd00b8ec0af31e78930f8c3a3eaaf15dca821d42b71a16d
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.27@sha256:98acfa0dc23e8caf917f133a4bb212d9a4b245be413f2f12e7a8f356e98d69b5
           - name: JENKINS_OPTS
             value: >-
               --prefix=/dash
