@@ -20,7 +20,7 @@ RUN chmod 555 /usr/local/bin/jenkins-slave && \
 ENTRYPOINT [ "uid_entrypoint", "jenkins-slave"]
 ENV HOME=/home/jenkins
 ENV JENKINS_AGENT_WORKDIR=/home/jenkins/agent
-ENV JAVA_OPTS="-XshowSettings:vm"
+ENV JAVA_OPTS=""
 ENV JNLP_PROTOCOL_OPTS="-XshowSettings:vm -Xmx256m -Djdk.nativeCrypto=false -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true"
 ENV OPENJ9_JAVA_OPTIONS="-XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
 ENV JAVA_TOOL_OPTIONS="-XX:+IgnoreUnrecognizedVMOptions -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
