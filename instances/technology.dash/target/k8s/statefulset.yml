@@ -105,7 +105,7 @@ spec:
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.27@sha256:98acfa0dc23e8caf917f133a4bb212d9a4b245be413f2f12e7a8f356e98d69b5
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.27@sha256:c0e966ea6cd1f490d146496d87473c08a5cea32beb46ea169b884b35a5a08e0b
           - name: JENKINS_OPTS
             value: >-
               --prefix=/dash
