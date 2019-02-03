@@ -55,7 +55,7 @@ jenkins:
       podRetention: "onFailure"
       templates:
       - containers:
-        - image: "eclipsecbi/jenkins-jnlp-agent:3.25@sha256:62913fe4840a51e81dd00b8ec0af31e78930f8c3a3eaaf15dca821d42b71a16d"
+        - image: "eclipsecbijenkins/jenkins-agent:3.27@sha256:41514dc6578851ebaa343528e6c30a9fb22fc94c9779462649a1b94e200f7bb4"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
