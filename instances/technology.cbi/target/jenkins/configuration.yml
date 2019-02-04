@@ -78,7 +78,7 @@ jenkins:
       podRetention: "onFailure"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:3.27@sha256:c0e966ea6cd1f490d146496d87473c08a5cea32beb46ea169b884b35a5a08e0b"
+        - image: "eclipsecbijenkins/jenkins-agent:3.27@sha256:60af6fd9cfdaec6888c5ee3957e2898a8b9dcc68d8543b6269dae1676bb808ed"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -86,8 +86,8 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitMemory: "2Gi"
-          resourceRequestMemory: "2Gi"
+          resourceLimitMemory: "2.25Gi"
+          resourceRequestMemory: "2.25Gi"
           ttyEnabled: true
           command: ""
           args: ""
@@ -134,6 +134,10 @@ tool:
     installations:
     - name: "openjdk-latest"
       home: "/opt/tools/java/openjdk/latest"
+    - name: "openjdk-jdk13ea-latest"
+      home: "/opt/tools/java/openjdk/jdk-13ea/latest"
+    - name: "openjdk-jdk12ea-latest"
+      home: "/opt/tools/java/openjdk/jdk-12ea/latest"
     - name: "openjdk-jdk11-latest"
       home: "/opt/tools/java/openjdk/jdk-11/latest"
     - name: "openjdk-jdk10-latest"
