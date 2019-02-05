@@ -221,19 +221,3 @@ data:
         installations:
         - name: "git"
           home: "/usr/bin/git"
-    
-    credentials:
-      system:
-        domainCredentials:
-          - domain :
-              name: "oss.sonatype.org"
-              description: "oss.sonatype.org domain"
-              specifications:
-                - hostnameSpecification:
-                    includes: "oss.sonatype.org"
-            credentials:
-              - usernamePassword:
-                  scope:    SYSTEM
-                  id:       ossrh
-                  username: ${oss_sonatype_org_username}
-                  password: ${oss_sonatype_org_password}
