@@ -92,6 +92,6 @@ Scale down to 0 the StatefulSet running Jenkins then scale it up to 1. It makes 
 
 ### OpenShift
 
-* Namespace ownership check must be disabled
+* [Namespace ownership check must be disabled](https://docs.openshift.com/container-platform/3.9/architecture/networking/routes.html#disable-namespace-ownership-check)
 
       $ oc env dc/router -n default ROUTER_DISABLE_NAMESPACE_OWNERSHIP_CHECK=true
