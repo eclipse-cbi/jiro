@@ -29,6 +29,6 @@ spec:
     requests.cpu: 3.1
     # (Jenkin master 1.5 + JNLP agents 2x512MB)=2.5 + 4GB
     requests.memory: 6.5Gi
-    # (Jenkins master 1 + JNLP agents 2x0.4)=1.8 + 2vCPU
-    limits.cpu: 3.8
+    # (Jenkins master 2 + JNLP agents 2x0.5)=3 + 2vCPU
+    limits.cpu: 5
     limits.memory: 6.5Gi
