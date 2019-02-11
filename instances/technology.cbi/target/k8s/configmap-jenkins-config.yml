@@ -26,7 +26,7 @@ data:
     # This program and the accompanying materials are made available
     # under the terms of the Eclipse Public License 2.0
     # which is available at http://www.eclipse.org/legal/epl-v20.html,
-# or the MIT License which is available at https://opensource.org/licenses/MIT.
+    # or the MIT License which is available at https://opensource.org/licenses/MIT.
     # SPDX-License-Identifier: EPL-2.0 OR MIT
     #*******************************************************************************
     jenkins:
@@ -124,6 +124,12 @@ data:
                 claimName: "tools-claim-jiro-cbi"
                 mountPath: "/opt/tools"
                 readOnly: true
+            - configMapVolume:
+                configMapName: "known-hosts"
+                mountPath: "/home/jenkins/.ssh/"
+            - configMapVolume:
+                configMapName: "m2-dir"
+                mountPath: "/home/jenkins/.m2/"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false

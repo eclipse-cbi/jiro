@@ -102,6 +102,12 @@ jenkins:
             claimName: "tools-claim-jiro-dash"
             mountPath: "/opt/tools"
             readOnly: true
+        - configMapVolume:
+            configMapName: "known-hosts"
+            mountPath: "/home/jenkins/.ssh/"
+        - configMapVolume:
+            configMapName: "m2-dir"
+            mountPath: "/home/jenkins/.m2/"
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
