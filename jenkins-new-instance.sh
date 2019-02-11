@@ -10,21 +10,49 @@
 
 # Bash strict-mode
 set -o errexit
-set -o nounset
+#set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
+script_name="$(basename ${0})"
 SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
 
-full_name="${1}"
-short_name="${2}"
-display_name="${3}"
+project_name="${1}"
+display_name="${2}"
+short_name=${project_name##*.}
 
-mkdir -p "${SCRIPT_FOLDER}/instances/${full_name}"
->  "${SCRIPT_FOLDER}/instances/${full_name}/config.json" printf '{\n'
->> "${SCRIPT_FOLDER}/instances/${full_name}/config.json" printf '  "project": {\n'
->> "${SCRIPT_FOLDER}/instances/${full_name}/config.json" printf '    "fullName": "%s",\n' $full_name
->> "${SCRIPT_FOLDER}/instances/${full_name}/config.json" printf '    "shortName": "%s",\n' $short_name
->> "${SCRIPT_FOLDER}/instances/${full_name}/config.json" printf '    "displayName": "%s"\n' $display_name
->> "${SCRIPT_FOLDER}/instances/${full_name}/config.json" printf '  }\n'
->> "${SCRIPT_FOLDER}/instances/${full_name}/config.json" printf '}\n'
+usage() {
+  printf "Usage: %s project_name display_name\n" "$script_name"
+  printf "\t%-16s full name (e.g. technology.cbi for CBI project).\n" "project_name"
+  printf "\t%-16s display name (e.g. 'Eclipse CBI' for CBI project).\n" "display_name"
+}
+
+# check that project name is not empty
+if [ "$project_name" == "" ]; then
+ printf "ERROR: a project name must be given.\n"
+ usage
+ exit 1
+fi
+
+# check that display name is not empty
+if [ "$display_name" == "" ]; then
+ printf "ERROR: a display name must be given.\n"
+ usage
+ exit 1
+fi
+
+# check that project name contains a dot
+if [[ "$project_name" != *.* ]]; then
+  printf "ERROR: the full project name with a dot must be given (e.g. technology.cbi).\n"
+  usage
+  exit 1
+fi
+
+mkdir -p "${SCRIPT_FOLDER}/instances/${project_name}"
+>  "${SCRIPT_FOLDER}/instances/${project_name}/config.json" printf '{\n'
+>> "${SCRIPT_FOLDER}/instances/${project_name}/config.json" printf '  "project": {\n'
+>> "${SCRIPT_FOLDER}/instances/${project_name}/config.json" printf '    "fullName": "%s",\n' $project_name
+>> "${SCRIPT_FOLDER}/instances/${project_name}/config.json" printf '    "shortName": "%s",\n' $short_name
+>> "${SCRIPT_FOLDER}/instances/${project_name}/config.json" printf '    "displayName": "%s"\n' $display_name
+>> "${SCRIPT_FOLDER}/instances/${project_name}/config.json" printf '  }\n'
+>> "${SCRIPT_FOLDER}/instances/${project_name}/config.json" printf '}\n'
