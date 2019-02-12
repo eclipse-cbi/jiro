@@ -10,15 +10,15 @@
 
 # Bash strict-mode
 set -o errexit
-#set -o nounset
+set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
 script_name="$(basename ${0})"
 SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
 
-project_name="${1}"
-display_name="${2}"
+project_name="${1:-}"
+display_name="${2:-}"
 short_name=${project_name##*.}
 
 usage() {
@@ -28,14 +28,14 @@ usage() {
 }
 
 # check that project name is not empty
-if [ "$project_name" == "" ]; then
+if [[ -z "${project_name}" ]]; then
  printf "ERROR: a project name must be given.\n"
  usage
  exit 1
 fi
 
 # check that display name is not empty
-if [ "$display_name" == "" ]; then
+if [[ -z "${display_name}" ]]; then
  printf "ERROR: a display name must be given.\n"
  usage
  exit 1
