@@ -2,10 +2,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
+  {{> common-metadata }}
   name: m2-dir
-  namespace: {{kubernetes.master.namespace}}
-  labels:
-    {{> common-labels }}
 data:
   settings.xml: |
     <?xml version="1.0" encoding="UTF-8"?>

@@ -10,15 +10,17 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: m2-dir
-  namespace: cbi
   labels:
     org.eclipse.cbi.jiro/project.shortname: "cbi"
     org.eclipse.cbi.jiro/project.fullName: "technology.cbi"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
     org.eclipse.cbi.jiro/jenkins.version: "2.150.2"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cbi"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+  namespace: "cbi"
+  name: m2-dir
 data:
   settings.xml: |
     <?xml version="1.0" encoding="UTF-8"?>

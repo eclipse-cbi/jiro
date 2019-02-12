@@ -2,10 +2,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
+  {{> common-metadata }}
   name: known-hosts
-  namespace: {{kubernetes.master.namespace}}
-  labels:
-    {{> common-labels }}
 data:
   known_hosts: |-
     build.eclipse.org ssh-dss AAAAB3NzaC1kc3MAAACBAPk0ETW2mCBYwo4nYxBse9jhWAEVmmb+UWadxnR1Gq9X5aYHp4wjgtyclW+2l4aBO1TTT0FKqzSSGNydX9+wGM0/IGrwDhfeNBb2ELhhcdcwDa6TjNfitpFOizdvu9bx2usWpqTthAUcus/7MvRU5TIwwnOwg6ZvbLUK2gK0MhefAAAAFQDcYaAXyQzfxPw0cDI6/a5ZGWnuTQAAAIBbWG4PjvOCcrE7qRkAuMFRpv7HG0r6gXyPz9OreYEVYj8L2IVg1nG1tAkJkd8wGfxX3aN1wf3GHnYz30nqIli1n6dFxGb28zMAaCjnGSmrlJ43qzZSeOtt31de+I8Z7Ry48DQthzPr3gvtxqAUyhmra2A5//2VlVAzcrC8Vv76RQAAAIAvS0yFl4sUPuvX85sH4rIURvW/akmX27X2BDc9C1x2gmpONxz9oUOMLaS9DLKT7uq+PDMDd3xFUA/e2TRJCJB/UMVv5HaiLM4MuB81EZ5xVUFs5EmmfCON2BsW8HN+JKu2tYgIT3p+dz5Fv4fRgi6hqduCUkOTgPUQEXUSubXsbg==
