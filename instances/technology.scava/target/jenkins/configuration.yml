@@ -119,7 +119,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/scava
+    url: https://ci.eclipse.org/scava
 
   mailer:
     adminAddress: ci-admin@eclipse.org

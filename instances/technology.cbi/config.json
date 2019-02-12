@@ -6,5 +6,8 @@
   },
   "jenkins": {
     "version": "2.150.2"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
   }
 }

@@ -72,9 +72,9 @@
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/scava",
-    "url": "https://ci-staging.eclipse.org/scava",
+    "url": "https://ci.eclipse.org/scava",
     "uiPort": 8080,
     "jnlpPort": 50000
   },
