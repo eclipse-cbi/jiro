@@ -21,6 +21,8 @@ spec:
     metadata:
       labels:
         {{> common-labels }}
+      annotations:
+        {{> common-annotations }}
       name: "{{project.shortName}}"
     spec:
       serviceAccountName: {{project.shortName}}

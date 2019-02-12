@@ -13,6 +13,8 @@ metadata:
   labels:
     org.eclipse.cbi.jiro/project.shortname: "dash"
     org.eclipse.cbi.jiro/project.fullName: "technology.dash"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "dash"
