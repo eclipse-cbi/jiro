@@ -105,13 +105,18 @@ jenkins:
         - configMapVolume:
             configMapName: "known-hosts"
             mountPath: "/home/jenkins/.ssh/"
-        - configMapVolume:
-            configMapName: "m2-dir"
-            mountPath: "/home/jenkins/.m2/"
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
-
+        yaml: "spec:\n  containers:\n  - name: jnlp\n    volumeMounts:\n    - name:\
+          \ settings\n      mountPath: /home/jenkins/.m2/settings.xml\n      subPath:\
+          \ settings.xml\n    - name: toolchains\n      mountPath: /home/jenkins/.m2/toolchains.xml\n\
+          \      subPath: toolchains.xml\n    - name: repository\n      mountPath:\
+          \ /home/jenkins/.m2/repository\n  volumes:\n  - name: settings\n    configMap:\n\
+          \      name: m2-dir\n      items:\n      - key: settings.xml\n        path:\
+          \ settings.xml\n  - name: toolchains\n    configMap:\n      name: m2-dir\n\
+          \      items:\n      - key: toolchains.xml\n        path: toolchains.xml\n\
+          \  - name: repository\n    emptyDir: {}"
 security:
   remotingCLI:
     enabled: false
