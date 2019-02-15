@@ -119,7 +119,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/openk-usermodules
+    url: https://ci.eclipse.org/openk-usermodules
 
   mailer:
     adminAddress: ci-admin@eclipse.org

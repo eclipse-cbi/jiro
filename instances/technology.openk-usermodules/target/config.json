@@ -72,9 +72,9 @@
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/openk-usermodules",
-    "url": "https://ci-staging.eclipse.org/openk-usermodules",
+    "url": "https://ci.eclipse.org/openk-usermodules",
     "uiPort": 8080,
     "jnlpPort": 50000
   },
