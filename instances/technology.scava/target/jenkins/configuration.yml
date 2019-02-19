@@ -60,12 +60,11 @@ jenkins:
   securityRealm:
     ldap:
       configurations:
-        - server: ldapmaster
-          rootDN: dc=eclipse,dc=org
-          groupMembershipStrategy: fromGroupSearch
+        - displayNameAttributeName: cn
           groupSearchBase: ou=group
+          rootDN: dc=eclipse,dc=org
+          server: ldapmaster
           userSearch: mail={0}
-          displayNameAttributeName: cn
           mailAddressAttributeName: mail
 
   clouds:
@@ -108,10 +107,12 @@ jenkins:
         - configMapVolume:
             configMapName: "m2-dir"
             mountPath: "/home/jenkins/.m2/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/repository"
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
-
 security:
   remotingCLI:
     enabled: false

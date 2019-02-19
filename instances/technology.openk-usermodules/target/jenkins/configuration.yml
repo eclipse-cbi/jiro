@@ -60,12 +60,11 @@ jenkins:
   securityRealm:
     ldap:
       configurations:
-        - server: ldapmaster
-          rootDN: dc=eclipse,dc=org
-          groupMembershipStrategy: fromGroupSearch
+        - displayNameAttributeName: cn
           groupSearchBase: ou=group
+          rootDN: dc=eclipse,dc=org
+          server: ldapmaster
           userSearch: mail={0}
-          displayNameAttributeName: cn
           mailAddressAttributeName: mail
 
   clouds:
@@ -105,18 +104,15 @@ jenkins:
         - configMapVolume:
             configMapName: "known-hosts"
             mountPath: "/home/jenkins/.ssh/"
+        - configMapVolume:
+            configMapName: "m2-dir"
+            mountPath: "/home/jenkins/.m2/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/repository"
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
-        yaml: "spec:\n  containers:\n  - name: jnlp\n    volumeMounts:\n    - name:\
-          \ settings\n      mountPath: /home/jenkins/.m2/settings.xml\n      subPath:\
-          \ settings.xml\n    - name: toolchains\n      mountPath: /home/jenkins/.m2/toolchains.xml\n\
-          \      subPath: toolchains.xml\n    - name: repository\n      mountPath:\
-          \ /home/jenkins/.m2/repository\n  volumes:\n  - name: settings\n    configMap:\n\
-          \      name: m2-dir\n      items:\n      - key: settings.xml\n        path:\
-          \ settings.xml\n  - name: toolchains\n    configMap:\n      name: m2-dir\n\
-          \      items:\n      - key: toolchains.xml\n        path: toolchains.xml\n\
-          \  - name: repository\n    emptyDir: {}"
 security:
   remotingCLI:
     enabled: false
