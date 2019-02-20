@@ -1,0 +1,143 @@
+# GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "antenna"
+    org.eclipse.cbi.jiro/project.fullName: "technology.sw360.antenna"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.1"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "antenna"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+  namespace: "antenna"
+  name: "antenna"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      org.eclipse.cbi.jiro/project.fullName: "technology.sw360.antenna"
+  serviceName: "antenna"
+  template:
+    metadata:
+      labels:
+        org.eclipse.cbi.jiro/project.shortname: "antenna"
+        org.eclipse.cbi.jiro/project.fullName: "technology.sw360.antenna"
+        org.eclipse.cbi.jiro/kind: "master"
+      annotations:
+        org.eclipse.cbi.jiro/jenkins.version: "latest"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.1"
+        org.eclipse.cbi.jiro/kubernetes.master.namespace: "antenna"
+        org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+      name: "antenna"
+    spec:
+      serviceAccountName: antenna
+      terminationGracePeriodSeconds: 1200
+      containers:
+      - name: jenkins
+        image: eclipsecbijenkins/antenna:latest@sha256:29ac59ce154cac7c41de226d0c920c3a8633d115db1170ed73469758c7305735
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /antenna/login
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 480
+          periodSeconds: 60
+          failureThreshold: 2
+          timeoutSeconds: 90
+        readinessProbe:
+          httpGet:
+            path: /antenna/login
+            port: 8080
+          periodSeconds: 60
+          timeoutSeconds: 90
+          initialDelaySeconds: 15
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 50000
+          protocol: TCP
+        resources:
+          requests:
+            cpu: 500m
+          limits:
+            cpu: 2
+            memory: 1.5Gi
+        volumeMounts:
+        - mountPath: "/var/jenkins_home"
+          name: jenkins-home
+        - mountPath: "/var/cache/jenkins/war"
+          name: jenkins-war
+        - mountPath: "/var/cache/jenkins/plugins"
+          name: jenkins-plugins
+        - mountPath: "/etc/jenkins/"
+          name: jenkins-config
+          readOnly: true
+        - mountPath: "/run/secrets/jenkins"
+          name: jenkins-secrets
+          readOnly: true
+        - mountPath: "/run/secrets/jenkins/ssh"
+          name: gerrit-ssh-keys
+          readOnly: true
+        env:
+          - name: JAVA_OPTS
+              # -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle
+              # -Xshareclasses:verbose,name=jenkins,cacheDir=/var/cache/openj9/sharedclasses/jenkins,groupAccess,fatal
+              # Djdk.nativeCrypto=false is a workaround for
+              # https://github.com/eclipse/openj9/issues/3637
+            value: >-
+              -XshowSettings:vm
+              -Djdk.nativeCrypto=false
+              -Dsun.zip.disableMemoryMapping=true
+              -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle
+              -Dhudson.slaves.NodeProvisioner.initialDelay=0
+              -Dhudson.slaves.NodeProvisioner.MARGIN=50
+              -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85
+              -Dhudson.footerURL=https://ci.eclipse.org
+              -Dhudson.model.UsageStatistics.disabled=true
+              -Djenkins.model.Jenkins.slaveAgentPort=50000
+              -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
+              -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
+              -Djenkins.install.runSetupWizard=false
+              -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.27@sha256:60af6fd9cfdaec6888c5ee3957e2898a8b9dcc68d8543b6269dae1676bb808ed
+          - name: JENKINS_OPTS
+            value: >-
+              --prefix=/antenna
+              --webroot=/var/cache/jenkins/war
+              --pluginroot=/var/cache/jenkins/plugins
+          - name: SECRETS
+            value: /run/secrets/jenkins
+      volumes:
+      - name: jenkins-war
+        emptyDir: {}
+      - name: jenkins-plugins
+        emptyDir: {}
+      - name: jenkins-config
+        configMap:
+          name: jenkins-config
+      - name: jenkins-secrets
+        secret:
+          secretName: jenkins-secrets
+      - name: gerrit-ssh-keys
+        secret:
+          secretName: gerrit-ssh-keys
+  volumeClaimTemplates:
+  - metadata:
+      name: jenkins-home
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 50Gi
