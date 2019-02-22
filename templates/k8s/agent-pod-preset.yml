@@ -1,0 +1,29 @@
+kind: PodPreset
+apiVersion: settings.k8s.io/v1alpha1 
+metadata:
+  name: agent-pod-preset 
+  namespace: dash
+spec:
+  selector:
+    matchLabels:
+      jenkins: slave
+  volumeMounts:
+  - name: settings
+    mountPath: /tmp/m2/settings.xml
+    subPath: settings.xml
+  - name: toolchains
+    mountPath: /tmp/m2/toolchains.xml
+    subPath: toolchains.xml
+  volumes:
+  - name: settings
+    configMap:
+      name: m2
+      items:
+      - key: settings.xml
+        path: settings.xml
+  - name: toolchains
+    configMap:
+      name: m2
+      items:
+      - key: toolchains.xml
+        path: toolchains.xml
