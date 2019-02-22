@@ -53,7 +53,7 @@
         ]
       }
     ],
-    "actualVersion": "2.150.1"
+    "actualVersion": "2.150.3"
   },
   "docker": {
     "repository": "eclipsecbijenkins",
@@ -68,7 +68,7 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "534e6d6b301981a178086200759872e748982f70aa476aa491d1664f63d56d5a"
+      "imageSha256": "054533f4376f20a86818162cfcfdd6d7f6a9eb9b8aad76706ca547bad1c0be86"
     }
   },
   "deployment": {

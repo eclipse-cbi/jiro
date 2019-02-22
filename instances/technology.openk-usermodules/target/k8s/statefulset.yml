@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "openk-usermodules"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "openk-usermodules"
@@ -35,7 +35,7 @@ spec:
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
-        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.1"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "openk-usermodules"
         org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
       name: "openk-usermodules"
@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/openk-usermodules:latest@sha256:4025f1daa1410ff470ef9aa6168818eb5b7a7fae361780cce265c609d9acbc69
+        image: eclipsecbijenkins/openk-usermodules:latest@sha256:6d916ca29adbb8f3d239e4d9f108abddfaac77c36e0406770c79cdfb16ae016d
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:

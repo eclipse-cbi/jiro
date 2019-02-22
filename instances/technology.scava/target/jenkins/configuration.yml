@@ -12,11 +12,6 @@ jenkins:
   scmCheckoutRetryCount: 2
   mode: EXCLUSIVE
   systemMessage: ""
-  globalNodeProperties:
-    - envVars:
-        env:
-          - key: FOO
-            value: BAR
 
   disableRememberMe: false
   agentProtocols:
@@ -75,7 +70,7 @@ jenkins:
       jenkinsTunnel: "jenkins-discovery.scava.svc.cluster.local:50000"
       maxRequestsPerHostStr: "32"
       namespace: "scava"
-      podRetention: "onFailure"
+      podRetention: "never"
       templates:
       - containers:
         - image: "eclipsecbijenkins/jenkins-agent:3.27@sha256:60af6fd9cfdaec6888c5ee3957e2898a8b9dcc68d8543b6269dae1676bb808ed"

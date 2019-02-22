@@ -4,9 +4,6 @@
     "shortName": "cbi",
     "displayName": "Eclipse CBI"
   },
-  "jenkins": {
-    "version": "2.150.2"
-  },
   "deployment": {
     "host": "ci-staging.eclipse.org"
   }

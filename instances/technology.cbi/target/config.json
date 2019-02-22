@@ -6,7 +6,7 @@
     "sponsorshipLevel": "S0"
   },
   "jenkins": {
-    "version": "2.150.2",
+    "version": "latest",
     "maxConcurrency": 2,
     "permissions": [
       {
@@ -53,14 +53,14 @@
         ]
       }
     ],
-    "actualVersion": "2.150.2"
+    "actualVersion": "2.150.3"
   },
   "docker": {
     "repository": "eclipsecbijenkins",
     "master": {
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.150.2",
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:latest",
       "image": "eclipsecbijenkins/cbi",
-      "imageTag": "2.150.2",
+      "imageTag": "latest",
       "username": "jenkins",
       "home": "/var/jenkins_home",
       "ref": "/usr/share/jenkins/ref",
@@ -68,7 +68,7 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "4162a4b7e285d0c4427efc43df79a6d09ee0681e71b8b41c5a7a1966293ae7e7"
+      "imageSha256": "fe1c22c703c860987bbf847e4167921385b02aea86bb2ae4503901dd4c8fad7e"
     }
   },
   "deployment": {

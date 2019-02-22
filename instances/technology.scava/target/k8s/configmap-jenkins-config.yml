@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "scava"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "scava"
@@ -36,11 +36,6 @@ data:
       scmCheckoutRetryCount: 2
       mode: EXCLUSIVE
       systemMessage: ""
-      globalNodeProperties:
-        - envVars:
-            env:
-              - key: FOO
-                value: BAR
     
       disableRememberMe: false
       agentProtocols:
@@ -99,7 +94,7 @@ data:
           jenkinsTunnel: "jenkins-discovery.scava.svc.cluster.local:50000"
           maxRequestsPerHostStr: "32"
           namespace: "scava"
-          podRetention: "onFailure"
+          podRetention: "never"
           templates:
           - containers:
             - image: "eclipsecbijenkins/jenkins-agent:3.27@sha256:60af6fd9cfdaec6888c5ee3957e2898a8b9dcc68d8543b6269dae1676bb808ed"

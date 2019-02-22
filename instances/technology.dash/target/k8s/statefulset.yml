@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "dash"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "dash"
@@ -35,7 +35,7 @@ spec:
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
-        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.1"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "dash"
         org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
       name: "dash"
@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/dash:latest@sha256:5546ae846afe3321e3ce1f94d8ca096a03111addded1466e1c55544989adcb44
+        image: eclipsecbijenkins/dash:latest@sha256:e51ea8333dc0722cab637ab8bf5ef39f8aef1ee03f88bfbe062aaaa48a51927f
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
