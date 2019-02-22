@@ -139,7 +139,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/dash
+        url: https://ci.eclipse.org/dash
     
       mailer:
         adminAddress: ci-admin@eclipse.org
