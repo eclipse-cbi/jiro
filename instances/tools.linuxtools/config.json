@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "tools.linuxtools",
+    "shortName": "linuxtools",
+    "displayName": "Eclipse Linux Tools"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
+  }
+}
