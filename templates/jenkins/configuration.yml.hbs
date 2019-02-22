@@ -52,7 +52,7 @@ jenkins:
       jenkinsTunnel: "jenkins-discovery.{{project.shortName}}.svc.cluster.local:{{deployment.jnlpPort}}"
       maxRequestsPerHostStr: "32"
       namespace: "{{project.shortName}}"
-      podRetention: "onFailure"
+      podRetention: "never"
       templates:
       - containers:
         - image: "eclipsecbijenkins/jenkins-agent:3.27@sha256:60af6fd9cfdaec6888c5ee3957e2898a8b9dcc68d8543b6269dae1676bb808ed"
