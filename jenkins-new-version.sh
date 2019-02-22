@@ -35,6 +35,7 @@ fi
 
 mkdir -p "${SCRIPT_FOLDER}/jenkins-master-base/${version}"
 cp -rf "${SCRIPT_FOLDER}/jenkins-master-base/latest/"* "${SCRIPT_FOLDER}/jenkins-master-base/${version}/"
+rm "${SCRIPT_FOLDER}/jenkins-master-base/${version}/cli.jar"
 
 if [[ "${is_latest}" = "true" ]]; then
   rm "${SCRIPT_FOLDER}/jenkins-master-base/latest"
