@@ -1,0 +1,36 @@
+# GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "egit"
+    org.eclipse.cbi.jiro/project.fullName: "technology.egit"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "egit"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+  namespace: "egit"
+  name: jenkins-instance-quota
+spec:
+  hard:
+    # Jenkins master + 2 agents
+    pods: 3
+    # Jenkins master 50 + 2 agents 2*20 = 90GB
+    requests.storage: 90Gi
+    # (Jenkin master 0.5 + JNLP agents 2x0.3)=1.1 + 2vCPU
+    requests.cpu: 3.1
+    # (Jenkin master 1.5 + JNLP agents 2x512MB)=2.5 + 4GB
+    requests.memory: 6.5Gi
+    # (Jenkins master 2 + JNLP agents 2x0.5)=3 + 2vCPU
+    limits.cpu: 5
+    limits.memory: 6.5Gi

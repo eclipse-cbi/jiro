@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "technology.egit",
+    "shortName": "egit",
+    "displayName": "Eclipse EGit"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
+  }
+}
