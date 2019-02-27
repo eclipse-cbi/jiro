@@ -17,7 +17,7 @@ CLEAN_INSTANCES=$(patsubst %,clean_%,$(INSTANCES))
 DELETE_INSTANCES=$(patsubst %,delete_%,$(INSTANCES))
 GENCONFIG_INSTANCES=$(patsubst %,genconfig_%,$(INSTANCES))
 
-.PHONY: all clean all_images push_all_images k8s_all_instances deploy_all_instances clean_all_instances tests openshift-java push_openshift-java jenkins-master-base push_jenkins-master-base $(IMAGE_INSTANCES) $(K8S_INSTANCES) $(PUSH_INSTANCES) $(DEPLOY_INSTANCES) $(CLEAN_INSTANCES) $(DELETE_INSTANCES) $(GENCONFIG_INSTANCES)
+.PHONY: all clean all_images push_all_images k8s_all_instances deploy_all_instances clean_all_instances tests openshift-java push_openshift-java jenkins-master-base push_jenkins-master-base jenkins-agent push_jenkins-agent $(IMAGE_INSTANCES) $(K8S_INSTANCES) $(PUSH_INSTANCES) $(DEPLOY_INSTANCES) $(CLEAN_INSTANCES) $(DELETE_INSTANCES) $(GENCONFIG_INSTANCES)
 
 openshift-java:
 	./build/dockerw build_all ${DOCKER_REPO} $@
@@ -26,7 +26,7 @@ push_openshift-java: openshift-java
 	./build/dockerw push_all ${DOCKER_REPO} $<
 
 jenkins-agent: openshift-java
-	./build/dockerw build_all ${DOCKER_REPO} $@
+	find jenkins-agent -mindepth 1 -maxdepth 1 -type d -exec jenkins-agent/build.sh {} \;
 
 push_jenkins-agent: jenkins-agent
 	./build/dockerw push_all ${DOCKER_REPO} $<
@@ -48,7 +48,7 @@ all_images: $(IMAGE_INSTANCES)
 $(PUSH_INSTANCES): push_% : image_%
 	./build/push-image.sh instances/$(patsubst push_%,%,$@)
 
-push_all_images: push_openshift-java push_jenkins-master-base $(PUSH_INSTANCES)
+push_all_images: push_openshift-java push_jenkins-master-base push_jenkins-agent $(PUSH_INSTANCES)
 
 $(K8S_INSTANCES): k8s_% : push_%
 	./build/gen-k8s.sh instances/$(patsubst k8s_%,%,$@)
