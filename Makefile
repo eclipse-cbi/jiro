@@ -37,7 +37,8 @@ jenkins-master-base: openshift-java
 push_jenkins-master-base: jenkins-master-base
 	./build/dockerw push_all ${DOCKER_REPO} $<
 
-$(GENCONFIG_INSTANCES): genconfig_% : templates/default.json.hbs instances/%/config.json
+# requires push_jenkins-agent to get jenkins-agent sha
+$(GENCONFIG_INSTANCES): genconfig_% : templates/default.json.hbs instances/%/config.json push_jenkins-agent
 	./build/gen-config.sh instances/$(patsubst genconfig_%,%,$@)
 
 $(IMAGE_INSTANCES): image_% : jenkins-master-base genconfig_%
