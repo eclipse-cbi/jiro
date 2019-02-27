@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "ecd.orion",
+    "shortName": "orion",
+    "displayName": "Eclipse Orion"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
+  }
+}
