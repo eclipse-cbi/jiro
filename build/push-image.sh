@@ -29,9 +29,6 @@ fi
 
 config="${instance}/target/config.json"
 
-${SCRIPT_FOLDER}/gen-jenkins.sh "${instance}"
-${SCRIPT_FOLDER}/gen-dockerfile.sh "${instance}"
-
 masterImage="$(jq -r '.docker.master.image' "${config}")"
 masterImageTag="$(jq -r '.docker.master.imageTag' "${config}")"
 
@@ -42,8 +39,5 @@ if [[ "${masterImageTag}" != "latest" ]]; then
 fi
 
 imageSha="$(docker inspect --format='{{index .RepoDigests 0}}' "${masterImage}:${masterImageTag}" | sed -E 's/.*sha256:(.*)/\1/g')"
-configForSha=$(mktemp)
-echo '{"docker": {"master": {"imageSha256": "'${imageSha}'"}}}' > "${configForSha}"
-jq -s '.[0] * .[1]' "${config}" "${configForSha}" > "${config}.out"
-mv "${config}.out" "${config}"
-rm "${configForSha}"
+
+${SCRIPT_FOLDER}/merge-json.sh "${config}" '{"docker": {"master": {"imageSha256": "'${imageSha}'"}}}' "${config}"
