@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/osee:latest@sha256:43b3822b9fe2a41545b15587526e231ea0159c2308edf1ef0fb8b0fbc1d3df84
+        image: eclipsecbijenkins/osee:latest@sha256:8381f9b9eecec5a86028b4fd8cd3ae6413108813124ffb105544e4d6f7512249
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -110,7 +110,7 @@ spec:
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.27@sha256:60af6fd9cfdaec6888c5ee3957e2898a8b9dcc68d8543b6269dae1676bb808ed
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:latest@sha256:60af6fd9cfdaec6888c5ee3957e2898a8b9dcc68d8543b6269dae1676bb808ed
           - name: JENKINS_OPTS
             value: >-
               --prefix=/osee

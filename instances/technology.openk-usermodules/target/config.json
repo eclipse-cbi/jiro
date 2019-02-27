@@ -7,6 +7,7 @@
   },
   "jenkins": {
     "version": "latest",
+    "remotingVersion": "latest",
     "maxConcurrency": 2,
     "permissions": [
       {
@@ -53,7 +54,8 @@
         ]
       }
     ],
-    "actualVersion": "2.150.3"
+    "actualVersion": "2.150.3",
+    "actualRemotingVersion": "3.27"
   },
   "docker": {
     "repository": "eclipsecbijenkins",
@@ -69,6 +71,13 @@
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
       "imageSha256": "3668fbc0babcb636b1756c782814bf9f5aa894ebfc4f30a588b207cfa1911a43"
+    },
+    "agent": {
+      "defaultImage": {
+        "name": "eclipsecbijenkins/jenkins-agent",
+        "tag": "latest",
+        "sha256": "60af6fd9cfdaec6888c5ee3957e2898a8b9dcc68d8543b6269dae1676bb808ed"
+      }
     }
   },
   "deployment": {

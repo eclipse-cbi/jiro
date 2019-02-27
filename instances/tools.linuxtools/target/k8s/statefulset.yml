@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/linuxtools:latest@sha256:720d4c03617c664907dc31e65cf49f74aea5811d5e9e7515f5cc1e52221ee351
+        image: eclipsecbijenkins/linuxtools:latest@sha256:d63b8122b688441e3b63dd11221ac8bc275f96a3dca921bba13f4c5e91a400cf
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -110,7 +110,7 @@ spec:
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.27@sha256:60af6fd9cfdaec6888c5ee3957e2898a8b9dcc68d8543b6269dae1676bb808ed
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:latest@sha256:60af6fd9cfdaec6888c5ee3957e2898a8b9dcc68d8543b6269dae1676bb808ed
           - name: JENKINS_OPTS
             value: >-
               --prefix=/linuxtools

@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/egit:latest@sha256:684599b8173802996d12c1dd0480c4d90ffb6376134f8727da9439f4f520fb2e
+        image: eclipsecbijenkins/egit:latest@sha256:57bab7c2ed5a3d7ccbef81c3c10e706b3a6a25ab003e4c3fe0261e88a3719010
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -110,7 +110,7 @@ spec:
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.27@sha256:60af6fd9cfdaec6888c5ee3957e2898a8b9dcc68d8543b6269dae1676bb808ed
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:latest@sha256:60af6fd9cfdaec6888c5ee3957e2898a8b9dcc68d8543b6269dae1676bb808ed
           - name: JENKINS_OPTS
             value: >-
               --prefix=/egit
