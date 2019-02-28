@@ -70,7 +70,7 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "57bab7c2ed5a3d7ccbef81c3c10e706b3a6a25ab003e4c3fe0261e88a3719010"
+      "imageSha256": "3ae59de6173cb9e46469fca1d01c670fc5be47b43ff8286814122ebe103a9ae0"
     },
     "agent": {
       "defaultImage": {
@@ -112,6 +112,19 @@
           "periodSeconds": "60",
           "timeoutSeconds": "90"
         }
+      }
+    }
+  },
+  "maven": {
+    "home": "/home/jenkins/.m2",
+    "files": {
+      "settings.xml": {
+        "volumeType": "ConfigMap",
+        "volumeName": "m2-dir"
+      },
+      "toolchains.xml": {
+        "volumeType": "ConfigMap",
+        "volumeName": "m2-dir"
       }
     }
   }

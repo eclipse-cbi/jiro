@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/cbi:latest@sha256:b9b9c4e42140bde7d113d2578d3b1dbbdcb0e40294e02a1be668e7d32160d222
+        image: eclipsecbijenkins/cbi:latest@sha256:213a0db7449fee71ecd1f8ef17b65c36efe48ce1205baa179e1ea3f953160559
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:

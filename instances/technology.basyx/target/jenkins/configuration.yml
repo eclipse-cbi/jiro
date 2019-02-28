@@ -73,7 +73,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
+        - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:60af6fd9cfdaec6888c5ee3957e2898a8b9dcc68d8543b6269dae1676bb808ed"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -99,15 +99,41 @@ jenkins:
         - configMapVolume:
             configMapName: "known-hosts"
             mountPath: "/home/jenkins/.ssh/"
-        - configMapVolume:
-            configMapName: "m2-dir"
-            mountPath: "/home/jenkins/.m2/"
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
+        yaml: | 
+          apiVersion: v1
+          kind: Pod
+          spec:
+            containers:
+            - name: jnlp
+              volumeMounts:
+              - name: settings-xml
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
+                readOnly: true
+              - name: toolchains-xml
+                mountPath: /home/jenkins/.m2/toolchains.xml
+                subPath: toolchains.xml
+                readOnly: true
+            volumes:
+            - name: settings-xml
+              configMap: 
+                name: m2-dir
+                items:
+                - key: settings.xml
+                  path: settings.xml
+            - name: toolchains-xml
+              configMap: 
+                name: m2-dir
+                items:
+                - key: toolchains.xml
+                  path: toolchains.xml
+
 security:
   remotingCLI:
     enabled: false

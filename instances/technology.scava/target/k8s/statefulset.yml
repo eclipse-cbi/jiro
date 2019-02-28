@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/scava:latest@sha256:7b55377788cb7362f4d554b9e7196e15fdeadec5e58d73f0f2b1af99ba48d5fa
+        image: eclipsecbijenkins/scava:latest@sha256:4f7a96cfb9a1932de5213ec5533cee83b4762dea5fb780c24ecd0184c55419e3
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
