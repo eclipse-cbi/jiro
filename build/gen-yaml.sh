@@ -48,9 +48,9 @@ fi
 
 echo "# GENERATED FILE - DO NOT EDIT"
 if [[ ! -z "${partials}" ]]; then
-  hbs -s -D "${config}" -e gen -P $(dirname "${template}")'/partials/*.hbs' -P "${partials}"'/*.hbs' "${tmp}"
+  hbs -s -D "${config}" -H $(dirname "${template}")'/helpers/*.js' -P $(dirname "${template}")'/partials/*.hbs' -P "${partials}"'/*.hbs' "${tmp}"
 else
-  hbs -s -D "${config}" -e gen -P $(dirname "${template}")'/partials/*.hbs' "${tmp}"
+  hbs -s -D "${config}" -H $(dirname "${template}")'/helpers/*.js' -P $(dirname "${template}")'/partials/*.hbs' "${tmp}"
 fi
 
 rm "${tmp}"
