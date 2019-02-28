@@ -1,0 +1,46 @@
+Jiro migration - old infrastructure
+===================================
+
+- create new Jiro JIPP
+    - execute /jiro/incubation/create_new_jiro_jipp.sh technology.linuxtools "Eclipse Linux Tools"
+- export config from hipp machine
+    - in /jiro/migration folder
+    - scp oi_jipp_export.sh hipp1:/tmp/
+    - login to genie.linuxtools home on hipp machine
+    - cp /tmp/oi_jipp_export.sh .
+    - chmod +x oi_jipp_export.sh
+    - execute oi_jipp_export.sh
+- download configs to local machine and push to Jiro pod
+    - in /jiro/migration folder
+    - execute oi2jiro.sh technology.linuxtools hipp1
+- check Jiro JIPP
+    - check that all jobs and views have been copied
+    - add password/passphrase for SonarQube and Gerrit config
+    - check if plugins are missing (old data admin monitor) and install (via jiro)
+
+Jiro migration - CJE
+====================
+
+- copy export script to CJE pod
+    - in /jiro/migration folder
+    - mkdir tmp
+    - cp cje_jipp_export.sh tmp/
+    - oc rsync tmp/ basyx-0:/tmp/ -n=cje
+    - rm -rf tmp
+- execute export script on CJE pod
+    - oc rsh basyx-0 -n=cje
+    - cd /tmp
+    - chmod +x cje_jipp_export.sh
+    - ./cje_jipp_export technology.basyx
+    - quit rsh with CTRL+D
+- download configs to local machine and push to Jiro pod
+    - in /jiro/migration folder
+    - mkdir basyx
+    - oc rsync basyx-0:/tmp/cje-migration-technology.basyx.tar.gz basyx/ -n=cje
+    - tar xzf basyx/cje-migration-technology.basyx.tar.gz -C basyx
+    - oc rsync basyx/jobs ${short_name}-0:/var/jenkins_home/ -n=${short_name}
+    - #TODO: merge views
+- check Jiro JIPP
+    - check that all jobs and views have been copied
+    - add password/passphrase for SonarQube and Gerrit config
+    - check if plugins are missing (old data admin monitor) and install (via jiro)
