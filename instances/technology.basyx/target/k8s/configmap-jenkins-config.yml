@@ -1,0 +1,229 @@
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "basyx"
+    org.eclipse.cbi.jiro/project.fullName: "technology.basyx"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "basyx"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+  namespace: "basyx"
+  name: jenkins-config
+data:
+  jenkins.yaml: |
+    # GENERATED FILE - DO NOT EDIT
+    #*******************************************************************************
+    # Copyright (c) 2018 Eclipse Foundation and others.
+    # This program and the accompanying materials are made available
+    # under the terms of the Eclipse Public License 2.0
+    # which is available at http://www.eclipse.org/legal/epl-v20.html,
+    # or the MIT License which is available at https://opensource.org/licenses/MIT.
+    # SPDX-License-Identifier: EPL-2.0 OR MIT
+    #*******************************************************************************
+    jenkins:
+      numExecutors: 0
+      scmCheckoutRetryCount: 2
+      mode: EXCLUSIVE
+      systemMessage: ""
+    
+      disableRememberMe: false
+      agentProtocols:
+        - "JNLP4-connect"
+        - "Ping"
+    
+      authorizationStrategy:
+        projectMatrix:
+          grantedPermissions:
+            - "Overall/Administer:admins"
+            - "Job/Read:anonymous"
+            - "Overall/Read:anonymous"
+            - "Job/ExtendedRead:common"
+            - "Credentials/View:technology.basyx"
+            - "Gerrit/ManualTrigger:technology.basyx"
+            - "Gerrit/Retrigger:technology.basyx"
+            - "Job/Build:technology.basyx"
+            - "Job/Cancel:technology.basyx"
+            - "Job/Configure:technology.basyx"
+            - "Job/Create:technology.basyx"
+            - "Job/Delete:technology.basyx"
+            - "Job/Move:technology.basyx"
+            - "Job/Read:technology.basyx"
+            - "Job/Workspace:technology.basyx"
+            - "Run/Delete:technology.basyx"
+            - "Run/Replay:technology.basyx"
+            - "Run/Update:technology.basyx"
+            - "SCM/Tag:technology.basyx"
+            - "View/Configure:technology.basyx"
+            - "View/Create:technology.basyx"
+            - "View/Delete:technology.basyx"
+            - "View/Read:technology.basyx"
+    
+      markupFormatter: rawHtml
+      crumbIssuer:
+        standard:
+           excludeClientIPFromCrumb: false
+      remotingSecurity:
+        enabled: true
+    
+      securityRealm:
+        ldap:
+          configurations:
+            - displayNameAttributeName: cn
+              groupSearchBase: ou=group
+              rootDN: dc=eclipse,dc=org
+              server: ldapmaster
+              userSearch: mail={0}
+              mailAddressAttributeName: mail
+    
+      clouds:
+      - kubernetes:
+          name: "kubernetes"
+          containerCapStr: "2"
+          jenkinsUrl: "http://jenkins-ui.basyx.svc.cluster.local/basyx"
+          jenkinsTunnel: "jenkins-discovery.basyx.svc.cluster.local:50000"
+          maxRequestsPerHostStr: "32"
+          namespace: "basyx"
+          podRetention: "never"
+          templates:
+          - containers:
+            - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: "jnlp"
+              resourceLimitMemory: "2.25Gi"
+              resourceRequestMemory: "2.25Gi"
+              ttyEnabled: true
+              command: ""
+              args: ""
+    
+            instanceCap: 5
+            name: "default-agent"
+            namespace: "basyx"
+            nodeUsageMode: NORMAL
+            volumes:
+            - persistentVolumeClaim:
+                claimName: "tools-claim-jiro-basyx"
+                mountPath: "/opt/tools"
+                readOnly: true
+            - configMapVolume:
+                configMapName: "known-hosts"
+                mountPath: "/home/jenkins/.ssh/"
+            - configMapVolume:
+                configMapName: "m2-dir"
+                mountPath: "/home/jenkins/.m2/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/repository"
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+    security:
+      remotingCLI:
+        enabled: false
+    
+    unclassified:
+      location:
+        adminAddress: ci-admin@eclipse.org
+        url: https://ci.eclipse.org/basyx
+    
+      mailer:
+        adminAddress: ci-admin@eclipse.org
+        replyToAddress: ci-admin@eclipse.org
+        smtpHost: mail.eclipse.org
+    
+      globalDefaultFlowDurabilityLevel:
+        durabilityHint: PERFORMANCE_OPTIMIZED
+    
+      simple-theme-plugin:
+        elements:
+        - cssUrl:
+            url: "/basyx/userContent/theme/quicksilver.css"
+        - cssUrl:
+            url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+    
+    tool:
+      jdk:
+        installations:
+        - name: "openjdk-latest"
+          home: "/opt/tools/java/openjdk/latest"
+        - name: "openjdk-jdk13ea-latest"
+          home: "/opt/tools/java/openjdk/jdk-13ea/latest"
+        - name: "openjdk-jdk12ea-latest"
+          home: "/opt/tools/java/openjdk/jdk-12ea/latest"
+        - name: "openjdk-jdk11-latest"
+          home: "/opt/tools/java/openjdk/jdk-11/latest"
+        - name: "openjdk-jdk10-latest"
+          home: "/opt/tools/java/openjdk/jdk-10/latest"
+        - name: "openjdk-jdk9-latest"
+          home: "/opt/tools/java/openjdk/jdk-9/latest"
+        - name: "adoptopenjdk-hotspot-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
+        - name: "adoptopenjdk-hotspot-jdk11-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
+        - name: "adoptopenjdk-hotspot-jdk10-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest"
+        - name: "adoptopenjdk-hotspot-jdk9-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest"
+        - name: "adoptopenjdk-hotspot-jdk8-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
+        - name: "adoptopenjdk-openj9-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-latest"
+        - name: "adoptopenjdk-openj9-jdk11-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
+        - name: "adoptopenjdk-openj9-jdk10-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-10/latest"
+        - name: "adoptopenjdk-openj9-jdk9-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-9/latest"
+        - name: "adoptopenjdk-openj9-jdk8-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
+        - name: "oracle-latest"
+          home: "/opt/tools/java/oracle/latest"
+        - name: "oracle-jdk10-latest"
+          home: "/opt/tools/java/oracle/jdk-10/latest"
+        - name: "oracle-jdk9-latest"
+          home: "/opt/tools/java/oracle/jdk-9/latest"
+        - name: "oracle-jdk8-latest"
+          home: "/opt/tools/java/oracle/jdk-8/latest"
+        - name: "oracle-jdk7-latest"
+          home: "/opt/tools/java/oracle/jdk-7/latest"
+        - name: "oracle-jdk6-latest"
+          home: "/opt/tools/java/oracle/jdk-6/latest"
+        - name: "oracle-jdk5-latest"
+          home: "/opt/tools/java/oracle/jdk-5/latest"
+        - name: "ibm-jdk8-latest"
+          home: "/opt/tools/java/ibm/jdk-8/latest"
+        - name: "ibm-latest"
+          home: "/opt/tools/java/ibm/latest"
+      ant:
+        installations:
+        - name: "apache-ant-latest"
+          home: "/opt/tools/apache-ant/latest"
+      maven:
+        installations:
+        - name: "apache-maven-latest"
+          home: "/opt/tools/apache-maven/latest"
+        - name: "apache-maven-3.5.4"
+          home: "/opt/tools/apache-maven/3.5.4"
+        - name: "apache-maven-3.3.9"
+          home: "/opt/tools/apache-maven/3.3.9"
+        - name: "apache-maven-3.2.5"
+          home: "/opt/tools/apache-maven/3.2.5"
+      git:
+        installations:
+        - name: "git"
+          home: "/usr/bin/git"
