@@ -73,7 +73,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:60af6fd9cfdaec6888c5ee3957e2898a8b9dcc68d8543b6269dae1676bb808ed"
+        - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -120,10 +120,14 @@ jenkins:
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
+              - name: settings-security-xml
+                mountPath: /home/jenkins/.m2/settings-security.xml
+                subPath: settings-security.xml
+                readOnly: true
             volumes:
             - name: settings-xml
-              configMap: 
-                name: m2-dir
+              secret: 
+                secretName: m2-secret-dir
                 items:
                 - key: settings.xml
                   path: settings.xml
@@ -133,6 +137,12 @@ jenkins:
                 items:
                 - key: toolchains.xml
                   path: toolchains.xml
+            - name: settings-security-xml
+              secret: 
+                secretName: m2-secret-dir
+                items:
+                - key: settings-security.xml
+                  path: settings-security.xml
 
 security:
   remotingCLI:
