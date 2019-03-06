@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "technology.passage",
+    "shortName": "passage",
+    "displayName": "Eclipse Passage"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
+  }
+}
