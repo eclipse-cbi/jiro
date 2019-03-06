@@ -70,13 +70,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "7245b808f3a6fa97e76171b9aae8d6018b56eb2098461531ee74eebf526f434b"
+      "imageSha256": "4c98b7a41103687f2d1aa7bf70b0aabb3575d66d76dda268693f15808c4c2bab"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "latest",
-        "sha256": "60af6fd9cfdaec6888c5ee3957e2898a8b9dcc68d8543b6269dae1676bb808ed"
+        "sha256": "13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
       }
     }
   },

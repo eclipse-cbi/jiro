@@ -63,7 +63,6 @@ jenkins:
           ttyEnabled: true
           command: ""
           args: ""
-
         instanceCap: 5
         name: "default-agent"
         namespace: "{{project.shortName}}"
@@ -82,7 +81,7 @@ jenkins:
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
-        yaml: | 
+        yaml: |
           apiVersion: v1
           kind: Pod
           spec:
@@ -98,7 +97,62 @@ jenkins:
             volumes:
             {{#each maven.files}}
             - name: {{dns1123 @key}}
-              {{#ifeq volumeType "ConfigMap"}}configMap{{/ifeq}}{{#ifeq volumeType "Secret"}}secret{{/ifeq}}: 
+              {{#ifeq volumeType "ConfigMap"}}configMap{{/ifeq}}{{#ifeq volumeType "Secret"}}secret{{/ifeq}}:
+                {{#ifeq volumeType "ConfigMap"}}name{{/ifeq}}{{#ifeq volumeType "Secret"}}secretName{{/ifeq}}: {{volumeName}}
+                items:
+                - key: {{#if entryName}}{{entryName}}{{else}}{{@key}}{{/if}}
+                  path: {{@key}}
+            {{/each}}
+      - containers:
+        - image: "eclipsecbijenkins/ui-test-agent:0.0.1@sha256:bbbd136234e7c669e06b3c96e35c1fa72c3a95c1de4bc7cdf8ff99b60383156c"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          resourceLimitMemory: "2.25Gi"
+          resourceRequestMemory: "2.25Gi"
+          ttyEnabled: true
+          command: ""
+          args: ""
+        instanceCap: 5
+        instanceCapStr: "5"
+        name: "ui-test-agent"
+        namespace: "{{project.shortName}}"
+        label: "ui-test"
+        volumes:
+        - persistentVolumeClaim:
+            claimName: "tools-claim-jiro-{{project.shortName}}"
+            mountPath: "/opt/tools"
+            readOnly: true
+        - configMapVolume:
+            configMapName: "known-hosts"
+            mountPath: "/home/jenkins/.ssh/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/repository"
+        workspaceVolume:
+          emptyDirWorkspaceVolume:
+            memory: false
+        yaml: |
+          apiVersion: v1
+          kind: Pod
+          spec:
+            containers:
+            - name: jnlp
+              volumeMounts:
+              {{#each maven.files}}
+              - name: {{dns1123 @key}}
+                mountPath: {{../maven.home}}/{{@key}}
+                subPath: {{@key}}
+                readOnly: true
+              {{/each}}
+            volumes:
+            {{#each maven.files}}
+            - name: {{dns1123 @key}}
+              {{#ifeq volumeType "ConfigMap"}}configMap{{/ifeq}}{{#ifeq volumeType "Secret"}}secret{{/ifeq}}:
                 {{#ifeq volumeType "ConfigMap"}}name{{/ifeq}}{{#ifeq volumeType "Secret"}}secretName{{/ifeq}}: {{volumeName}}
                 items:
                 - key: {{#if entryName}}{{entryName}}{{else}}{{@key}}{{/if}}
