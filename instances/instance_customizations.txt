@@ -1,0 +1,13 @@
+This file should list all customized configurations of instances that are not yet captured in Jiro.
+
+technology.basyx
+  - CMake plugin:
+    - CMake installation in Global Tool Configuration
+
+technology.cbi
+  - Slack plugin:
+    - Slack configuration
+
+technology.openk-usermodules
+  - node.js plugin
+    - node.js installation in Global Tool Configuration
