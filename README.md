@@ -1,6 +1,15 @@
-# Eclipse CBI - jiro
+# Eclipse CBI - Jiro
 
-Jenkins infrastructure for projects hosted by the Eclipse Foundation
+Jiro is a cluster-based Jenkins infrastructure for projects hosted by the Eclipse Foundation.
+
+## What is Jiro?
+The goal of Jiro is to make the administration of hundreds of Jenkins master instances on a Kubernetes based infrastructure bearable. It uses automation, templates and a configuration-as-code approach. Jiro consist of a set of custom shell scripts and a Makefile. It relies heavily on the Docker CLI, OpenShift CLI and the [Jenkins Configuration as Code plugin](https://jenkins.io/projects/jcasc/).
+
+### Why Jiro?
+After evaluating CloudBees Core (formerly known as CloudBees Jenkins Enterprise), we found it to miss important features like resource quotas and support for separate name spaces. We also expected a lower administration overhead for recurring task like setting up a new Jenkins instance, upgrading plugins, etc. Therefore we decided to evaluate a custom approach (Jiro), which turned out to be ready for prime time.
+
+### Why is it called Jiro?
+You can interpret Jiro as acronym for "**J**enkins **I**nstances **R**unning \[on\] **O**penShift", even though the name originates from [Sukiyabashi Jiro](https://en.wikipedia.org/wiki/Sukiyabashi_Jiro). It should be pronounced "Geero" and not be confused with a famous bug-tracking tool.
 
 ## Tasks
 
