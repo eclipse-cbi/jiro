@@ -201,7 +201,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/passage
+    url: https://ci.eclipse.org/passage
 
   mailer:
     adminAddress: ci-admin@eclipse.org

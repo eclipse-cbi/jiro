@@ -81,9 +81,9 @@
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/passage",
-    "url": "https://ci-staging.eclipse.org/passage",
+    "url": "https://ci.eclipse.org/passage",
     "uiPort": 8080,
     "jnlpPort": 50000
   },
