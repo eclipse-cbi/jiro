@@ -1,5 +1,10 @@
 This file should list all customized configurations of instances that are not yet captured in Jiro.
 
+ecd.orion
+  - custom Maven settings file
+    - set up with config file provider plugin
+    - contains credentials for orion test server
+
 technology.basyx
   - CMake plugin:
     - CMake installation in Global Tool Configuration
@@ -11,3 +16,7 @@ technology.cbi
 technology.openk-usermodules
   - node.js plugin
     - node.js installation in Global Tool Configuration
+
+several instances
+  - the xvnc command in the global configuration needs to be set for instances that run UI tests
+    - JCasC does not yet support that option

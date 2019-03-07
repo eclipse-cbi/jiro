@@ -28,7 +28,7 @@ Jiro migration - CJE
     - oc rsync tmp/ basyx-0:/tmp/ -n=cje
     - rm -rf tmp
 - execute export script on CJE pod
-    - oc rsh basyx-0 -n=cje
+    - oc rsh -n=cje basyx-0
     - cd /tmp
     - chmod +x cje_jipp_export.sh
     - ./cje_jipp_export technology.basyx
@@ -38,7 +38,7 @@ Jiro migration - CJE
     - mkdir basyx
     - oc rsync basyx-0:/tmp/cje-migration-technology.basyx.tar.gz basyx/ -n=cje
     - tar xzf basyx/cje-migration-technology.basyx.tar.gz -C basyx
-    - oc rsync basyx/jobs ${short_name}-0:/var/jenkins_home/ -n=${short_name}
+    - oc rsync basyx/jobs basyx-0:/var/jenkins_home/ -n=basyx
     - #TODO: merge views
 - check Jiro JIPP
     - check that all jobs and views have been copied

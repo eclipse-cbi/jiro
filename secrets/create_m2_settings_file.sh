@@ -8,7 +8,7 @@
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
 
-# This script generates a secret in OpenShift that contains the Maven settings file and the settings-security file.
+# This script generates a Maven settings file utilizing the master password stored in pass.
 
 # Bash strict-mode
 set -o errexit
@@ -78,6 +78,7 @@ yes_no_exit() {
 
 create_mvn_security_file() {
   # check if master pw exists in pass
+  echo "Path: ${mvn_master_pw_path}.gpg"
   if [ ! -f ${pw_store_root_dir}/${mvn_master_pw_path}.gpg ]; then
     printf "ERROR: Maven master password is missing in pass.\n"
     yes_no_exit "generate a new Maven master password" generate_master_pw exit
@@ -100,18 +101,22 @@ EOG
 }
 
 generate_mvn_settings() {
-  read -sp "Nexus password: " nexus_pw
-  nexus_pw_enc=$(mvn --encrypt-password $(printf "%s" ${nexus_pw}) -Dsettings.security=${mvn_security_file})
+  read -p "Server ID: " server_id
+  echo
+  read -p "Username: " username
+  echo
+  read -sp "Password: " pw
+  pw_enc=$(mvn --encrypt-password $(printf "%s" ${pw}) -Dsettings.security=${mvn_security_file})
 
   # generate settings-xxx.xml file
   printf "\n${mvn_settings_file}:\n"
-  cat <<EOF > ${mvn_settings_file}
+  cat <<EOF
 <settings>
   <servers>
     <server>
-      <id>repo.eclipse.org</id>
-      <username>deployment</username>
-      <password>${nexus_pw_enc}</password>
+      <id>${server_id}</id>
+      <username>${username}</username>
+      <password>${pw_enc}</password>
     </server>
   </servers>
   <mirrors>
@@ -124,21 +129,10 @@ generate_mvn_settings() {
   </mirrors>
 </settings>
 EOF
-  cat ${mvn_settings_file}
-}
-
-add_secret_to_k8s() {
-  if [ -f ${mvn_settings_file} ] && [ -f ${mvn_security_file} ]; then
-    oc create secret generic m2-secret-dir --namespace=${short_name} --from-file=${mvn_settings_file} --from-file=${mvn_security_file}
-  else
-    echo "ERROR: ${mvn_settings_file} and/or ${mvn_security_file} do not exist."
-  fi
 }
 
 create_mvn_security_file
 generate_mvn_settings
-add_secret_to_k8s
-
 
 rm -rf ${temp_path}
 
