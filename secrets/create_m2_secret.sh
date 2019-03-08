@@ -19,14 +19,10 @@ IFS=$'\n\t'
 script_name="$(basename ${0})"
 
 project_name="${1:-}"
-short_name=${project_name##*.}
 
-temp_path=/tmp/${short_name}
 pw_store_root_dir=~/.password-store
 pw_store_path=cbi-pass/bots/${project_name}
 mvn_master_pw_path=${pw_store_path}/apache-maven-security-settings/master-password
-mvn_settings_file=${temp_path}/settings.xml
-mvn_security_file=${temp_path}/settings-security.xml
 
 usage() {
   printf "Usage: %s project_name\n" "$script_name"
@@ -35,9 +31,9 @@ usage() {
 
 # check that project name is not empty
 if [[ -z "${project_name}" ]]; then
- printf "ERROR: a project name must be given.\n"
- usage
- exit 1
+  printf "ERROR: a project name must be given.\n"
+  usage
+  exit 1
 fi
 
 # check that project name contains a dot
@@ -46,6 +42,11 @@ if [[ "$project_name" != *.* ]]; then
   usage
   exit 1
 fi
+
+short_name=${project_name##*.}
+temp_path=/tmp/${short_name}
+mvn_settings_file=${temp_path}/settings.xml
+mvn_security_file=${temp_path}/settings-security.xml
 
 mkdir -p ${temp_path}
 
@@ -85,7 +86,7 @@ create_mvn_security_file() {
 
   # encrypt master pw
   master_pw=$(pass ${mvn_master_pw_path})
-  master_pw_enc=$(mvn --encrypt-master-password "$(printf "%s" ${master_pw})")
+  master_pw_enc=$(mvn --encrypt-master-password "$(printf "%s" ${master_pw})" -Dsettings.security=${mvn_security_file})
   #master_pw_enc=$(mvn --encrypt-master-password <<< "${master_pw}")
 
   # generate security-settings.xml file
@@ -99,13 +100,35 @@ EOG
   cat ${mvn_security_file}
 }
 
+generate_ossrh_settings() {
+  ossrh_pw_path=${pw_store_path}/oss.sonatype.org/password
+  # check if pw exists in pass
+  if [ ! -f ${pw_store_root_dir}/${ossrh_pw_path}.gpg ]; then
+    printf "ERROR: OSSRH password is missing in pass.\n"
+    exit 1
+  fi
+
+  # encrypt ossrh pw
+  ossrh_user=$(pass ${pw_store_path}/oss.sonatype.org/username)
+  ossrh_pw=$(pass ${ossrh_pw_path})
+  ossrh_pw_enc=$(mvn --encrypt-password $(printf "%s" ${ossrh_pw}) -Dsettings.security=${mvn_security_file})
+  #ossrh_pw_enc=$(mvn --encrypt-password <<< "${ossrh_pw}")
+
+cat <<EOF2 >> ${mvn_settings_file}
+    <server>
+      <id>ossrh</id>
+      <username>${ossrh_user}</username>
+      <password>${ossrh_pw_enc}</password>
+    </server>
+EOF2
+}
+
 generate_mvn_settings() {
   read -sp "Nexus password: " nexus_pw
+  echo
   nexus_pw_enc=$(mvn --encrypt-password $(printf "%s" ${nexus_pw}) -Dsettings.security=${mvn_security_file})
 
-  # generate settings-xxx.xml file
-  printf "\n${mvn_settings_file}:\n"
-  cat <<EOF > ${mvn_settings_file}
+  cat <<EOF1 > ${mvn_settings_file}
 <settings>
   <servers>
     <server>
@@ -113,6 +136,11 @@ generate_mvn_settings() {
       <username>deployment</username>
       <password>${nexus_pw_enc}</password>
     </server>
+EOF1
+
+yes_no_exit "add OSSRH credentials" generate_ossrh_settings :
+
+  cat <<EOF3 >> ${mvn_settings_file}
   </servers>
   <mirrors>
     <mirror>
@@ -123,7 +151,9 @@ generate_mvn_settings() {
     </mirror>
   </mirrors>
 </settings>
-EOF
+EOF3
+
+  printf "\n${mvn_settings_file}:\n"
   cat ${mvn_settings_file}
 }
 
@@ -138,7 +168,6 @@ add_secret_to_k8s() {
 create_mvn_security_file
 generate_mvn_settings
 add_secret_to_k8s
-
 
 rm -rf ${temp_path}
 

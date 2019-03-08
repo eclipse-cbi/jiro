@@ -46,16 +46,19 @@ if [[ "$project_name" != *.* ]]; then
   exit 1
 fi
 
-mkdir -p ${temp_path}
+add_gerrit_secret() {
+  mkdir -p ${temp_path}
 
-pass ${pw_store_path}/id_rsa > ${temp_path}/id_rsa
-if [ -f ${temp_path}/id_rsa ]; then
-  oc create secret generic gerrit-ssh-keys --namespace=${short_name} --from-file=${temp_path}/id_rsa
-else
-  echo "ERROR: ${temp_path} does not exist."
-fi
+  pass ${pw_store_path}/id_rsa > ${temp_path}/id_rsa
+  if [ -f ${temp_path}/id_rsa ]; then
+    oc create secret generic gerrit-ssh-keys --namespace=${short_name} --from-file=${temp_path}/id_rsa
+  else
+    echo "ERROR: ${temp_path} does not exist."
+  fi
 
-rm -rf ${temp_path}
+  rm -rf ${temp_path}
+}
+add_gerrit_secret
 
 echo "Adding user to Event Streaming Users group..."
 ssh -p 29418 git.eclipse.org gerrit set-members --add "${short_name}-bot@eclipse.org" '"Event Streaming Users"'
