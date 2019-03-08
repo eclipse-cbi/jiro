@@ -42,7 +42,7 @@ check_git_file_urls() {
 
 convert_git_file_urls() {
   echo "The following jobs use Git file URLs:"
-  check_git_file_urls
+  check_git_file_urls || true
 
   echo "Trying to convert them..."
   # convert file urls to git urls
@@ -52,7 +52,7 @@ convert_git_file_urls() {
   find ${cje_tmp_dir}/jobs/*/ -name config.xml -exec sed -i 's/git clone file:\/\/\/gitroot/git clone git:\/\/git.eclipse.org\/gitroot/g' {} \;
 
   echo "Check after conversion (should not show anything):"
-  check_git_file_urls
+  check_git_file_urls || true
 }
 
 convert_tools() {

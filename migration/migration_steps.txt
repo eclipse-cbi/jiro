@@ -3,6 +3,7 @@ Jiro migration - old infrastructure
 
 - create new Jiro JIPP
     - execute /jiro/incubation/create_new_jiro_jipp.sh technology.linuxtools "Eclipse Linux Tools"
+    - execute /jiro/incubation/setup_gerrit_sonar.sh technology.linuxtools
 - export config from hipp machine
     - in /jiro/migration folder
     - scp oi_jipp_export.sh hipp1:/tmp/
