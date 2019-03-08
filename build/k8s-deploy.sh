@@ -33,7 +33,7 @@ projectShortName="$(jq -r '.project.shortName' "${instance}/target/config.json")
 
 oc apply -f ${instance}/target/k8s/namespace.yml
 
-if oc get configmap -n ${namespace} jenkins-config > /dev/null; then
+if oc get configmap -n ${namespace} jenkins-config &> /dev/null; then
   previousConfigMapVersion="$(oc get configmap -n ${namespace} jenkins-config -o json | jq -r '.metadata.resourceVersion')"
 fi
 oc apply -f ${instance}/target/k8s/configmap-jenkins-config.yml
