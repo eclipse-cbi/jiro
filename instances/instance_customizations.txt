@@ -17,6 +17,11 @@ technology.openk-usermodules
   - node.js plugin
     - node.js installation in Global Tool Configuration
 
+tools.cdt
+  - node.js plugin
+    - node.js installation in Global Tool Configuration
+
+
 several instances
   - the xvnc command in the global configuration needs to be set for instances that run UI tests
     - JCasC does not yet support that option
