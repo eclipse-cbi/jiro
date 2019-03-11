@@ -205,9 +205,31 @@ xvnc
   fi
 }
 
+check_file_size() {
+  local file=$1
+  local os="$(uname -s)"
+  if [ "${os}" == "Linux" ]; then
+    filesize=$(stat -c '%s' ${file})
+  elif [ "${os}" == "Darwin" ]; then
+    filesize=$(stat -f '%z' ${file})
+  else
+    echo "ERROR: os is neither Linux nor Darwin: ${os}. Can not check file size of ${file}."
+    exit 1
+  fi
+  if [ -z ${filesize} ]; then
+    echo "ERROR: filesize of ${file} is empty."
+    exit 1
+  fi
+  if [ ${filesize} -gt 150000000 ]; then #150MB
+    echo "${file} is bigger than 150MB. Please investigate."
+    exit 1
+  fi
+}
+
 tar_files() {
   printf "Taring files and copying to /tmp..."
   tar czf ${cje_migration_tar} -C ${cje_tmp_dir} .
+  check_file_size ${cje_migration_tar}
   cp ${cje_migration_tar} /tmp/
   printf "Done.\n"
 }

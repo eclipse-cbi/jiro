@@ -11,13 +11,17 @@ Jiro migration - old infrastructure
     - cp /tmp/oi_jipp_export.sh .
     - chmod +x oi_jipp_export.sh
     - execute oi_jipp_export.sh
+    - check if a custom maven settings file exists (e.g. for OSSRH deployment)
 - download configs to local machine and push to Jiro pod
     - in /jiro/migration folder
     - execute oi2jiro.sh technology.linuxtools hipp1
 - check Jiro JIPP
     - check that all jobs and views have been copied
     - add password/passphrase for SonarQube and Gerrit config
+    - add Xvnc command line: Xvnc :$DISPLAY_NUMBER -geometry 1024x768 -depth 24 -ac -SecurityTypes none -noreset
+    - add project-storage credentials
     - check if plugins are missing (old data admin monitor) and install (via jiro)
+    - check if old JIPP uses any credentials that need to be migrated
 
 Jiro migration - CJE
 ====================
