@@ -81,9 +81,9 @@
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/efxclipse",
-    "url": "https://ci-staging.eclipse.org/efxclipse",
+    "url": "https://ci.eclipse.org/efxclipse",
     "uiPort": 8080,
     "jnlpPort": 50000
   },

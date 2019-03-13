@@ -3,8 +3,5 @@
     "fullName": "technology.efxclipse",
     "shortName": "efxclipse",
     "displayName": "Eclipse e(fx)clipse"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }
