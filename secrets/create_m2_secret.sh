@@ -123,6 +123,26 @@ cat <<EOF2 >> ${mvn_settings_file}
 EOF2
 }
 
+generate_gpg_settings() {
+  gpg_pw_path=${pw_store_path}/gpg/passphrase
+  # check if pw exists in pass
+  if [ ! -f ${pw_store_root_dir}/${gpg_pw_path}.gpg ]; then
+    printf "ERROR: GPG passphrase is missing in pass.\n"
+    exit 1
+  fi
+  # encrypt gpg passphrase
+  gpg_pw=$(pass ${gpg_pw_path})
+  gpg_pw_enc=$(mvn --encrypt-password "$(printf "%s" ${gpg_pw})" -Dsettings.security=${mvn_security_file})
+  #gpg_pw_enc=$(mvn --encrypt-password <<< "${gpg_pw}")
+
+cat <<EOF3 >> ${mvn_settings_file}
+    <server>
+      <id>gpg.passphrase</id>
+      <passphrase>${gpg_pw_enc}</passphrase>
+    </server>
+EOF3
+}
+
 generate_mvn_settings() {
   read -sp "Nexus password: " nexus_pw
   echo
@@ -140,7 +160,9 @@ EOF1
 
 yes_no_exit "add OSSRH credentials" generate_ossrh_settings :
 
-  cat <<EOF3 >> ${mvn_settings_file}
+yes_no_exit "add GPG credentials" generate_gpg_settings :
+
+  cat <<EOF4 >> ${mvn_settings_file}
   </servers>
   <mirrors>
     <mirror>
@@ -151,7 +173,7 @@ yes_no_exit "add OSSRH credentials" generate_ossrh_settings :
     </mirror>
   </mirrors>
 </settings>
-EOF3
+EOF4
 
   printf "\n${mvn_settings_file}:\n"
   cat ${mvn_settings_file}
