@@ -193,6 +193,67 @@ jenkins:
                 items:
                 - key: toolchains.xml
                   path: toolchains.xml
+      - containers:
+        - image: "eclipsecbijenkins/migration-fat-agent:3.27"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          resourceLimitMemory: "2.25Gi"
+          resourceRequestMemory: "2.25Gi"
+          ttyEnabled: true
+          command: ""
+          args: ""
+        instanceCap: 5
+        instanceCapStr: "5"
+        name: "migration-agent"
+        namespace: "actf"
+        label: "migration"
+        volumes:
+        - persistentVolumeClaim:
+            claimName: "tools-claim-jiro-actf"
+            mountPath: "/opt/tools"
+            readOnly: true
+        - configMapVolume:
+            configMapName: "known-hosts"
+            mountPath: "/home/jenkins/.ssh/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/repository"
+        workspaceVolume:
+          emptyDirWorkspaceVolume:
+            memory: false
+        yaml: |
+          apiVersion: v1
+          kind: Pod
+          spec:
+            containers:
+            - name: jnlp
+              volumeMounts:
+              - name: settings-xml
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
+                readOnly: true
+              - name: toolchains-xml
+                mountPath: /home/jenkins/.m2/toolchains.xml
+                subPath: toolchains.xml
+                readOnly: true
+            volumes:
+            - name: settings-xml
+              configMap:
+                name: m2-dir
+                items:
+                - key: settings.xml
+                  path: settings.xml
+            - name: toolchains-xml
+              configMap:
+                name: m2-dir
+                items:
+                - key: toolchains.xml
+                  path: toolchains.xml
 
 security:
   remotingCLI:
