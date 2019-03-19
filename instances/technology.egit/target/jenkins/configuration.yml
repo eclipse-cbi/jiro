@@ -81,8 +81,10 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitMemory: "2.25Gi"
-          resourceRequestMemory: "2.25Gi"
+          resourceLimitCpu: "2375m"
+          resourceRequestCpu: "1250m"
+          resourceLimitMemory: "2560Mi"
+          resourceRequestMemory: "2560Mi"
           ttyEnabled: true
           command: ""
           args: ""
@@ -151,8 +153,10 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitMemory: "2.25Gi"
-          resourceRequestMemory: "2.25Gi"
+          resourceLimitCpu: "2375m"
+          resourceRequestCpu: "1250m"
+          resourceLimitMemory: "2560Mi"
+          resourceRequestMemory: "2560Mi"
           ttyEnabled: true
           command: ""
           args: ""
@@ -222,8 +226,10 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitMemory: "2.25Gi"
-          resourceRequestMemory: "2.25Gi"
+          resourceLimitCpu: "2375m"
+          resourceRequestCpu: "1250m"
+          resourceLimitMemory: "2560Mi"
+          resourceRequestMemory: "2560Mi"
           ttyEnabled: true
           command: ""
           args: ""
