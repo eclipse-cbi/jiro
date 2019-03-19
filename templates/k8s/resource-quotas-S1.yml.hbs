@@ -10,9 +10,9 @@ spec:
     pods: 3
     # Jenkins master 50 + 4 agents 4*20 = 130GB
     requests.storage: 130Gi
-    # (Jenkin master 0.5 + JNLP agents 4x0.3)=1.7 + 4vCPU
+    # (Jenkins master 0.5 + JNLP agents 4x0.3)=1.7 + 4vCPU
     requests.cpu: 5.7
-    # (Jenkin master 1.5 + JNLP agents 4x512MB)=3.5 + 8GB
+    # (Jenkins master 1.5 + JNLP agents 4x512MB)=3.5 + 8GB
     requests.memory: 11.5Gi
     # (Jenkins master 2 + JNLP agents 4x0.5)=4 + 4vCPU
     limits.cpu: 8
