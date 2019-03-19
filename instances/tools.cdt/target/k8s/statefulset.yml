@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cdt"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "cdt"
@@ -35,7 +35,7 @@ spec:
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
-        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "cdt"
         org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
       name: "cdt"
@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/cdt:latest@sha256:05bd28513c530026e632acfb787f292beb813df158bffa9d2ea9677768ed898e
+        image: eclipsecbijenkins/cdt:latest@sha256:c8827c5d8f16c158637eb09995539b29278f62d962467e0ab873d3d91f247bd2
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:

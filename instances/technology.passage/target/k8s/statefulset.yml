@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "passage"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "passage"
@@ -35,7 +35,7 @@ spec:
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
-        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "passage"
         org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
       name: "passage"
@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/passage:latest@sha256:c8876415acb492a2e5a825cbe3b74f5aeaf72d37144ddcc613664da976325a03
+        image: eclipsecbijenkins/passage:latest@sha256:d6c1d11cb58fdde9cf074de46279038614a016bd1fba3b2ac706c3e9775c0484
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:

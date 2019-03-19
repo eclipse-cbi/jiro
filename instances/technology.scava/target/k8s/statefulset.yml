@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "scava"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "scava"
@@ -35,7 +35,7 @@ spec:
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
-        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "scava"
         org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
       name: "scava"
@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/scava:latest@sha256:ecac1c4d141f7a8aae522e1df11657ea998f45714c5dc80c54872447375926bd
+        image: eclipsecbijenkins/scava:latest@sha256:a42d5ba7279741b1a7e41c13a54c3b491ce19337cab0521c22e92504dcdbb0a7
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:

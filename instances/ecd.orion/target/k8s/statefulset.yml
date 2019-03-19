@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "orion"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "orion"
@@ -35,7 +35,7 @@ spec:
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
-        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "orion"
         org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
       name: "orion"
@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/orion:latest@sha256:fe25f170e3c88f38e2e72670bb36d393ce02e17da54e25c627edac853e1ad7f7
+        image: eclipsecbijenkins/orion:latest@sha256:cb1d60870460e927cfcbaff202a55606a42c34c1e863fdb60a830b82809e080f
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:

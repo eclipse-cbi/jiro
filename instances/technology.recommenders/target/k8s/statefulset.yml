@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "recommenders"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "recommenders"
@@ -35,7 +35,7 @@ spec:
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
-        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "recommenders"
         org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
       name: "recommenders"
@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/recommenders:latest@sha256:3d806b7d9aeee7108eb8ce2bcadae4bb566c63b220101943402edb598e872c55
+        image: eclipsecbijenkins/recommenders:latest@sha256:9e53bb131b6ab80f5ba3f10a59ca90a4a109f17b420f124094c7cbad2ec11dc7
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:

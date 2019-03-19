@@ -54,7 +54,7 @@
         ]
       }
     ],
-    "actualVersion": "2.150.3",
+    "actualVersion": "2.164.1",
     "actualRemotingVersion": "3.27"
   },
   "docker": {
@@ -70,7 +70,7 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "c4d6380c8f0be617b2d88dba7c6563421dd18a68d88ba2ac6292f13e0ed435d0"
+      "imageSha256": "e8f5e7b9ca001bebbe061e0234ab3175185b795d86cce3bc82338ceadebfb306"
     },
     "agent": {
       "defaultImage": {

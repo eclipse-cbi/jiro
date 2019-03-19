@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "basyx"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "basyx"
@@ -35,7 +35,7 @@ spec:
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
-        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "basyx"
         org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
       name: "basyx"
@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/basyx:latest@sha256:d3fbb01555a2f53622402796bf90469c0c94dbe08d97733df8e63403a8d0eb88
+        image: eclipsecbijenkins/basyx:latest@sha256:6158931ef1fc25090e0d28f5ecc777e2e716404d496a41adf26249437a483644
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:

@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "actf"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "actf"
@@ -35,7 +35,7 @@ spec:
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
-        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "actf"
         org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
       name: "actf"
@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/actf:latest@sha256:83a73fb7b892947891782f11e6543af3d31260307ee062b1c1ac650883970152
+        image: eclipsecbijenkins/actf:latest@sha256:2bf814b871b2be0de000a7d1a0f42b87cba73d958dfe2a8184211eafe271ee7f
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:

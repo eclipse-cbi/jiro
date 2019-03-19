@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "swtbot"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "swtbot"
@@ -35,7 +35,7 @@ spec:
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
-        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "swtbot"
         org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
       name: "swtbot"
@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/swtbot:latest@sha256:19ade994412e65e0c781ec9dc48730b5b1eebe30457e3c71c648b7615d463cc2
+        image: eclipsecbijenkins/swtbot:latest@sha256:8696e2879cde2c06938ac6e47bceb8573d0aaa9c1ca82be5b2186daf0ff12594
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:

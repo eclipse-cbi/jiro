@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.150.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "linuxtools"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "linuxtools"
@@ -27,9 +27,9 @@ spec:
     pods: 3
     # Jenkins master 50 + 2 agents 2*20 = 90GB
     requests.storage: 90Gi
-    # (Jenkin master 0.5 + JNLP agents 2x0.3)=1.1 + 2vCPU
+    # (Jenkins master 0.5 + JNLP agents 2x0.3)=1.1 + 2vCPU
     requests.cpu: 3.1
-    # (Jenkin master 1.5 + JNLP agents 2x512MB)=2.5 + 4GB
+    # (Jenkins master 1.5 + JNLP agents 2x512MB)=2.5 + 4GB
     requests.memory: 6.5Gi
     # (Jenkins master 2 + JNLP agents 2x0.5)=3 + 2vCPU
     limits.cpu: 5
