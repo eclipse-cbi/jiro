@@ -3,8 +3,5 @@
     "fullName": "technology.cbi",
     "shortName": "cbi",
     "displayName": "Eclipse CBI"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }

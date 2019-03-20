@@ -81,9 +81,9 @@
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/cbi",
-    "url": "https://ci-staging.eclipse.org/cbi",
+    "url": "https://ci.eclipse.org/cbi",
     "uiPort": 8080,
     "jnlpPort": 50000
   },
