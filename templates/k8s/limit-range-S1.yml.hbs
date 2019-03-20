@@ -1,25 +1,18 @@
-#*******************************************************************************
-# Copyright (c) 2018 Eclipse Foundation and others.
-# This program and the accompanying materials are made available
-# under the terms of the Eclipse Public License 2.0
-# which is available at http://www.eclipse.org/legal/epl-v20.html,
-# or the MIT License which is available at https://opensource.org/licenses/MIT.
-# SPDX-License-Identifier: EPL-2.0 OR MIT
-#*******************************************************************************
+{{> copyright }}
 apiVersion: "v1"
 kind: "LimitRange"
 metadata:
+  {{> common-metadata }}
   name: "jenkins-instance-limit-range" 
-  namespace: "{{JENKINS_NAMESPACE}}"
-  labels:
-    org.eclipse.cbi.resource_pack.id: "L1"
 spec:
   limits:
     - type: "Pod"
+      {{> limit-range-default-pod }}
       max:
-        cpu: 4.5
-        memory: 8.5Gi
+        cpu: 4375m
+        memory: 8704Mi
     - type: "Container"
+      {{> limit-range-default-container }}
       max:
-        cpu: 4
-        memory: 8Gi
+        cpu: 4375m
+        memory: 8704Mi

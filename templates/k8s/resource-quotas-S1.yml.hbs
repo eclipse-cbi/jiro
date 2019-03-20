@@ -6,14 +6,9 @@ metadata:
   name: jenkins-instance-quota
 spec:
   hard:
-    # Jenkins master + 4 agents
-    pods: 3
-    # Jenkins master 50 + 4 agents 4*20 = 130GB
+    pods: 5
     requests.storage: 130Gi
-    # (Jenkins master 0.5 + JNLP agents 4x0.3)=1.7 + 4vCPU
-    requests.cpu: 5.7
-    # (Jenkins master 1.5 + JNLP agents 4x512MB)=3.5 + 8GB
-    requests.memory: 11.5Gi
-    # (Jenkins master 2 + JNLP agents 4x0.5)=4 + 4vCPU
-    limits.cpu: 8
-    limits.memory: 11.5Gi
+    requests.memory: 11776Mi
+    limits.memory: 11776Mi
+    requests.cpu: 5500m
+    limits.cpu: 11500m
