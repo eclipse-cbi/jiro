@@ -18,19 +18,14 @@ metadata:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cdt"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S1"
   namespace: "cdt"
   name: jenkins-instance-quota
 spec:
   hard:
-    # Jenkins master + 2 agents
-    pods: 3
-    # Jenkins master 50 + 2 agents 2*20 = 90GB
-    requests.storage: 90Gi
-    # (Jenkins master 0.5 + JNLP agents 2x0.3)=1.1 + 2vCPU
-    requests.cpu: 3.1
-    # (Jenkins master 1.5 + JNLP agents 2x512MB)=2.5 + 4GB
-    requests.memory: 6.5Gi
-    # (Jenkins master 2 + JNLP agents 2x0.5)=3 + 2vCPU
-    limits.cpu: 5
-    limits.memory: 6.5Gi
+    pods: 5
+    requests.storage: 130Gi
+    requests.memory: 11776Mi
+    limits.memory: 11776Mi
+    requests.cpu: 5500m
+    limits.cpu: 11500m

@@ -3,12 +3,12 @@
     "shortName": "cdt",
     "fullName": "tools.cdt",
     "displayName": "Eclipse CDT",
-    "sponsorshipLevel": "S0"
+    "sponsorshipLevel": "S1"
   },
   "jenkins": {
     "version": "latest",
     "remotingVersion": "latest",
-    "maxConcurrency": 2,
+    "maxConcurrency": 4,
     "permissions": [
       {
         "principal": "anonymous",
@@ -70,13 +70,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "c8827c5d8f16c158637eb09995539b29278f62d962467e0ab873d3d91f247bd2"
+      "imageSha256": "afd43fcfe3b95a585d69b67c38570b144c2a0d7b7418f987d7cf4784368399ab"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "latest",
-        "sha256": "13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
+        "sha256": "ab9a75525e91487023bb875d2dba4f813c9841c795f19cafa1dcca4b5a10fe08"
       }
     }
   },

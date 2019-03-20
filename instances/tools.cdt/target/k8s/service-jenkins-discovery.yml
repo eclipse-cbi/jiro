@@ -18,7 +18,7 @@ metadata:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cdt"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S1"
   namespace: "cdt"
   name: "jenkins-discovery"
 spec:

@@ -2,7 +2,11 @@
   "project": {
     "fullName": "tools.cdt",
     "shortName": "cdt",
-    "displayName": "Eclipse CDT"
+    "displayName": "Eclipse CDT",
+    "sponsorshipLevel": "S1"
+  },
+  "jenkins": {
+    "maxConcurrency": 4
   },
   "deployment": {
     "host": "ci-staging.eclipse.org"

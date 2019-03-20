@@ -18,7 +18,7 @@ metadata:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cdt"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S1"
   namespace: "cdt"
   name: "cdt"
 spec:
@@ -37,14 +37,14 @@ spec:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
         org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "cdt"
-        org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+        org.eclipse.cbi.jiro/project.sponsorshipLevel: "S1"
       name: "cdt"
     spec:
       serviceAccountName: cdt
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/cdt:latest@sha256:c8827c5d8f16c158637eb09995539b29278f62d962467e0ab873d3d91f247bd2
+        image: eclipsecbijenkins/cdt:latest@sha256:afd43fcfe3b95a585d69b67c38570b144c2a0d7b7418f987d7cf4784368399ab
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -110,7 +110,7 @@ spec:
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:latest@sha256:13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:latest@sha256:ab9a75525e91487023bb875d2dba4f813c9841c795f19cafa1dcca4b5a10fe08
           - name: JENKINS_OPTS
             value: >-
               --prefix=/cdt
