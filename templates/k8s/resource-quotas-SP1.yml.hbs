@@ -1,0 +1,14 @@
+{{> copyright }}
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  {{> common-metadata }}
+  name: jenkins-instance-quota
+spec:
+  hard:
+    pods: 11
+    requests.storage: 800Gi
+    requests.memory: 204800Mi
+    limits.memory: 204800Mi
+    requests.cpu: 96000m
+    limits.cpu: 166400m

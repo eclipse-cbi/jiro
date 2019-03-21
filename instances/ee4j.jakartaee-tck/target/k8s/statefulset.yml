@@ -18,7 +18,7 @@ metadata:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jakartaee-tck"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "SP1"
   namespace: "jakartaee-tck"
   name: "jakartaee-tck"
 spec:
@@ -37,14 +37,14 @@ spec:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
         org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "jakartaee-tck"
-        org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+        org.eclipse.cbi.jiro/project.sponsorshipLevel: "SP1"
       name: "jakartaee-tck"
     spec:
       serviceAccountName: jakartaee-tck
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/jakartaee-tck:latest@sha256:ffd1ec953efcc6007b7e3144fe21226d563e829152ac7f766e2f632b3eb9e868
+        image: eclipsecbijenkins/jakartaee-tck:latest@sha256:3f8e925912af549222d5130d32693041a2d36d865d6bb701652e7ae724790295
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -69,10 +69,10 @@ spec:
           protocol: TCP
         resources:
           requests:
-            cpu: 500m
+            cpu: 4000m
           limits:
-            cpu: 2
-            memory: 1.5Gi
+            cpu: 8000m
+            memory: 16384Mi
         volumeMounts:
         - mountPath: "/var/jenkins_home"
           name: jenkins-home
@@ -110,7 +110,7 @@ spec:
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:latest@sha256:13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:latest@sha256:ab9a75525e91487023bb875d2dba4f813c9841c795f19cafa1dcca4b5a10fe08
           - name: JENKINS_OPTS
             value: >-
               --prefix=/jakartaee-tck

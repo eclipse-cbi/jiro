@@ -3,12 +3,12 @@
     "shortName": "jakartaee-tck",
     "fullName": "ee4j.jakartaee-tck",
     "displayName": "Eclipse Jakarta EE TCK",
-    "sponsorshipLevel": "S0"
+    "sponsorshipLevel": "SP1"
   },
   "jenkins": {
     "version": "latest",
     "remotingVersion": "latest",
-    "maxConcurrency": 2,
+    "maxConcurrency": 10,
     "permissions": [
       {
         "principal": "anonymous",
@@ -70,13 +70,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "ffd1ec953efcc6007b7e3144fe21226d563e829152ac7f766e2f632b3eb9e868"
+      "imageSha256": "3f8e925912af549222d5130d32693041a2d36d865d6bb701652e7ae724790295"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "latest",
-        "sha256": "13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
+        "sha256": "ab9a75525e91487023bb875d2dba4f813c9841c795f19cafa1dcca4b5a10fe08"
       }
     }
   },
@@ -93,11 +93,11 @@
       "stsName": "jakartaee-tck",
       "resources": {
         "cpu": {
-          "request": "500m",
-          "limit": 2
+          "request": "4000m",
+          "limit": "8000m"
         },
         "memory": {
-          "limit": "1.5Gi"
+          "limit": "16384Mi"
         }
       },
       "probe": {

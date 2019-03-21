@@ -17,7 +17,7 @@ metadata:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jakartaee-tck"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "SP1"
   namespace: "jakartaee-tck"
   name: jenkins-config
 data:
@@ -89,7 +89,7 @@ data:
       clouds:
       - kubernetes:
           name: "kubernetes"
-          containerCapStr: "2"
+          containerCapStr: "10"
           jenkinsUrl: "http://jenkins-ui.jakartaee-tck.svc.cluster.local/jakartaee-tck"
           jenkinsTunnel: "jenkins-discovery.jakartaee-tck.svc.cluster.local:50000"
           maxRequestsPerHostStr: "32"
@@ -97,7 +97,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
+            - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:ab9a75525e91487023bb875d2dba4f813c9841c795f19cafa1dcca4b5a10fe08"
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
