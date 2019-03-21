@@ -40,6 +40,11 @@ fi
 echo "/* GENERATED FILE - DO NOT EDIT */" > "${target}/quicksilver.css.override"
 hbs -s -D "${instance}/config.json" "${SCRIPT_FOLDER}/../templates/jenkins/quicksilver.css.hbs" >> "${target}/quicksilver.css.override"
 
+displayName="$(jq -r '.project.displayName' "${instance}/target/config.json")"
+cat <<EOF > ${target}/title.js
+document.title = "${displayName} - " + document.title;
+EOF
+
 mkdir -p "${target}/partials"
 ${SCRIPT_FOLDER}/gen-permissions.sh "${instance}/target/config.json" > "${target}/partials/permissions.hbs"
 

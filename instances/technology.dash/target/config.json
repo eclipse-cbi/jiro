@@ -82,7 +82,7 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "e4953019273d2d6d450c506aa8f9b3c12090145080a829a16e566d3261b0a9cb"
+      "imageSha256": "78e364c2b3b72f941d9edb79798eabb2054d8273b941ed3361abe8cd1dc26786"
     },
     "agent": {
       "defaultImage": {
