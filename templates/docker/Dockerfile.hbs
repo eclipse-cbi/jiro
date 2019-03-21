@@ -14,5 +14,6 @@ EXPOSE {{deployment.jnlpPort}}
 
 RUN mkdir -p {{docker.master.ref}}/userContent/theme/
 COPY jenkins/quicksilver.css.override {{docker.master.ref}}/userContent/theme/
+COPY jenkins/title.js {{docker.master.ref}}/userContent/theme/
 # </templates/Dockerfile.tpl>
 
