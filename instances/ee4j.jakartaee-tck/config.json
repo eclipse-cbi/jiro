@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "ee4j.jakartaee-tck",
+    "shortName": "jakartaee-tck",
+    "displayName": "Eclipse Jakarta EE TCK"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
+  }
+}
