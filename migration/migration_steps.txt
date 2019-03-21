@@ -20,7 +20,7 @@ Jiro migration - old infrastructure
     - add password/passphrase for SonarQube and Gerrit config
     - add Xvnc command line: Xvnc :$DISPLAY_NUMBER -geometry 1024x768 -depth 24 -ac -SecurityTypes none -noreset
     - add project-storage credentials
-    - check if plugins are missing (old data admin monitor) and install (via jiro)
+    - check if plugins are missing (old data admin monitor) and install them (via jiro)
     - check if old JIPP uses any credentials that need to be migrated
 
 Jiro migration - CJE
@@ -40,12 +40,12 @@ Jiro migration - CJE
     - quit rsh with CTRL+D
 - download configs to local machine and push to Jiro pod
     - in /jiro/migration folder
-    - mkdir basyx
-    - oc rsync basyx-0:/tmp/cje-migration-technology.basyx.tar.gz basyx/ -n=cje
-    - tar xzf basyx/cje-migration-technology.basyx.tar.gz -C basyx
-    - oc rsync basyx/jobs basyx-0:/var/jenkins_home/ -n=basyx
+    - execute cje2jiro.sh technology.basyx
     - #TODO: merge views
 - check Jiro JIPP
     - check that all jobs and views have been copied
     - add password/passphrase for SonarQube and Gerrit config
-    - check if plugins are missing (old data admin monitor) and install (via jiro)
+    - add Xvnc command line: Xvnc :$DISPLAY_NUMBER -geometry 1024x768 -depth 24 -ac -SecurityTypes none -noreset
+    - add project-storage credentials
+    - check if plugins are missing (old data admin monitor) and install them (via jiro)
+    - check if old JIPP uses any credentials that need to be migrated
