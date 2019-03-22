@@ -57,7 +57,7 @@ copy_sonar_gerrit_templates() {
       <sonarSecret></sonarSecret>
     </hudson.plugins.sonar.SonarInstallation>
   </installations>
-  <buildWrapperEnabled>false</buildWrapperEnabled>
+  <buildWrapperEnabled>true</buildWrapperEnabled>
 </hudson.plugins.sonar.SonarGlobalConfiguration>
 EOF
 
