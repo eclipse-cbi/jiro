@@ -45,7 +45,7 @@ fi
 
 jenkinsTheme="$(jq -r '.jenkins.theme' "${instance}/target/config.json")"
 echo "/* GENERATED FILE - DO NOT EDIT */" > "${target}/${jenkinsTheme}.css.override"
-hbs -s -D "${instance}/config.json" "${jenkinsTemplateFolder}/${jenkinsTheme}.css.hbs" >> "${target}/${jenkinsTheme}.css.override"
+hbs -s -D "${instance}/target/config.json" "${jenkinsTemplateFolder}/${jenkinsTheme}.css.hbs" >> "${target}/${jenkinsTheme}.css.override"
 
 displayName="$(jq -r '.project.displayName' "${instance}/target/config.json")"
 cat <<EOF > "${target}/title.js"

@@ -17,7 +17,7 @@ CLEAN_INSTANCES=$(patsubst %,clean_%,$(INSTANCES))
 DELETE_INSTANCES=$(patsubst %,delete_%,$(INSTANCES))
 GENCONFIG_INSTANCES=$(patsubst %,genconfig_%,$(INSTANCES))
 
-.PHONY: all clean all_images push_all_images k8s_all_instances deploy_all_instances clean_all_instances tests openshift-java push_openshift-java jenkins-master-base push_jenkins-master-base jenkins-agent push_jenkins-agent $(IMAGE_INSTANCES) $(K8S_INSTANCES) $(PUSH_INSTANCES) $(DEPLOY_INSTANCES) $(CLEAN_INSTANCES) $(DELETE_INSTANCES) $(GENCONFIG_INSTANCES) error_resources error_pages deploy_error_pages
+.PHONY: all clean all_images push_all_images k8s_all_instances deploy_all_instances clean_all_instances tests openshift-java push_openshift-java jenkins-master-base push_jenkins-master-base jenkins-agent push_jenkins-agent $(IMAGE_INSTANCES) $(K8S_INSTANCES) $(PUSH_INSTANCES) $(DEPLOY_INSTANCES) $(CLEAN_INSTANCES) $(DELETE_INSTANCES) $(GENCONFIG_INSTANCES) error_resources error_pages deploy_error_pages clone_jsonnet
 
 error_resources:
 	./build/dockerw build "eclipsecbijenkins/error_resources" "latest" "./error_pages/resources.Dockerfile"
@@ -50,7 +50,7 @@ push_jenkins-master-base: jenkins-master-base
 	./build/dockerw push_all ${DOCKER_REPO} $<
 
 # requires push_jenkins-agent to get jenkins-agent sha
-$(GENCONFIG_INSTANCES): genconfig_% : templates/default.json.hbs instances/%/config.json push_jenkins-agent
+$(GENCONFIG_INSTANCES): genconfig_% : .jsonnet/jsonnet templates/default.libsonnet instances/%/config.jsonnet push_jenkins-agent
 	./build/gen-config.sh instances/$(patsubst genconfig_%,%,$@)
 
 $(IMAGE_INSTANCES): image_% : jenkins-master-base genconfig_%
@@ -82,6 +82,13 @@ clean_all_instances: $(CLEAN_INSTANCES)
 
 $(DELETE_INSTANCES):
 	./build/k8s-delete.sh instances/$(patsubst delete_%,%,$@)
+
+.jsonnet: 
+	git clone https://github.com/google/jsonnet.git .jsonnet || git -C .jsonnet fetch
+	git -C .jsonnet reset --hard master && git -C .jsonnet clean -f -d
+
+.jsonnet/jsonnet: .jsonnet
+	make -C .jsonnet
 
 tests: jenkins-master-base
 	./tests/run.sh

@@ -29,28 +29,13 @@ fi
 
 config="${instance}/target/config.json"
 
-mkdir -p "${instance}/target"
+mkdir -p "$(dirname "${config}")"
 
-# merge default values and instance specific values
-"${SCRIPT_FOLDER}/merge-json.sh" "${SCRIPT_FOLDER}/../templates/default.json.hbs" "${instance}/config.json" "${config}"
+"${SCRIPT_FOLDER}/../.jsonnet/jsonnet" -o "${config}" "${instance}/config.jsonnet"
 
-# merge previous with parent image build args
-buildArgsJsonFile="${SCRIPT_FOLDER}/../jenkins-master-base/$(jq -r '.jenkins.version' "${config}")/build-args.json"
-"${SCRIPT_FOLDER}/merge-json.sh" "${config}" "${buildArgsJsonFile}" "${config}"
-
-# add the actual version based on parent image folder name
-jenkinsVersion="$(jq -r '.jenkins.version' "${config}")"
-actualJenkinsVersion="$(basename "$(readlink -f "jenkins-master-base/${jenkinsVersion}")")"
-"${SCRIPT_FOLDER}/merge-json.sh" "${config}" '{"jenkins": {"actualVersion": "'"${actualJenkinsVersion}"'"}}' "${config}"
-
-jenkinsRemotingVersion="$(jq -r '.jenkins.remotingVersion' "${config}")"
-actualJenkinsRemotingVersion="$(basename "$(readlink -f "jenkins-agent-images/jenkins-agent/${jenkinsRemotingVersion}")")"
-"${SCRIPT_FOLDER}/merge-json.sh" "${config}" '{"jenkins": {"actualRemotingVersion": "'"${actualJenkinsRemotingVersion}"'"}}' "${config}"
-
-agentImage="$("${SCRIPT_FOLDER}/expand-template.sh" "${config}" "$(jq -r '.docker.agent.defaultImage.name' "${config}")")"
-agentImageTag="$("${SCRIPT_FOLDER}/expand-template.sh" "${config}" "$(jq -r '.docker.agent.defaultImage.tag' "${config}")")"
+agentImage="$(jq -r '.docker.agent.defaultImage.name' "${config}")"
+agentImageTag="$(jq -r '.docker.agent.defaultImage.tag' "${config}")"
 agentImageSha="$(docker inspect --format='{{index .RepoDigests 0}}' "${agentImage}:${agentImageTag}" | sed -E 's/.*sha256:(.*)/\1/g')"
-"${SCRIPT_FOLDER}/merge-json.sh" "${config}" '{"docker": {"agent": {"defaultImage": {"sha256": "'"${agentImageSha}"'"}}}}' "${config}"
 
-# expand all templates in there
-"${SCRIPT_FOLDER}/expand-self-template.sh" "${config}"
+patch='{"docker": {"agent": {"defaultImage": {"sha256": "'"${agentImageSha}"'"}}}}'
+"${SCRIPT_FOLDER}/../.jsonnet/jsonnet" -e 'std.mergePatch(import "'"${config}"'", '"${patch}"')' -o "${config}"

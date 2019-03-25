@@ -10,5 +10,11 @@
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io"
     }
+  },
+  "jenkins": {
+    "version": "2.176.1",
+    "remoting": {
+      "version": "3.29"
+    }
   }
 }
