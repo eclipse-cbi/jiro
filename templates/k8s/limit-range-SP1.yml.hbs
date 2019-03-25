@@ -9,10 +9,18 @@ spec:
     - type: "Pod"
       {{> limit-range-default-pod }}
       max:
-        cpu: 81440m
-        memory: 166298Mi
+        cpu: 122000m
+        memory: 247808Mi
     - type: "Container"
-      {{> limit-range-default-container }}
+      min:
+        cpu: 100m
+        memory: 4Mi
+      default:
+        cpu: 2000m
+        memory: 2048Mi
+      defaultRequest:
+        cpu: 500m 
+        memory: 2048Mi
       max:
-        cpu: 81440m
-        memory: 166298Mi
+        cpu: 122000m
+        memory: 247808Mi

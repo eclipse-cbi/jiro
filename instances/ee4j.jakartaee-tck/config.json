@@ -6,7 +6,7 @@
     "sponsorshipLevel": "SP1"
   },
   "jenkins": {
-    "maxConcurrency": 10
+    "maxConcurrency": 15
   },
   "deployment": {
     "host": "ci-staging.eclipse.org"

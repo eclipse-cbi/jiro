@@ -8,7 +8,7 @@
   "jenkins": {
     "version": "latest",
     "remotingVersion": "latest",
-    "maxConcurrency": 10,
+    "maxConcurrency": 15,
     "permissions": [
       {
         "principal": "anonymous",
@@ -70,7 +70,7 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "3f8e925912af549222d5130d32693041a2d36d865d6bb701652e7ae724790295"
+      "imageSha256": "a077329b3b20bdbe1155a2c029cfc64c717ea118168b5d4fa30a90a6b0b242ed"
     },
     "agent": {
       "defaultImage": {
