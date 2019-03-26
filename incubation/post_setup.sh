@@ -30,7 +30,7 @@ if [[ "$project_name" != *.* ]]; then
   exit 1
 fi
 
-copy_sonar_gerrit_xvnctemplates() {
+copy_sonar_gerrit_xvnc_templates() {
   mkdir -p tmp
   echo "Create SonarQube config template..."
   cat <<EOF > tmp/hudson.plugins.sonar.SonarGlobalConfiguration.xml
@@ -162,4 +162,4 @@ EOH
   oc delete pod ${short_name}-0 -n=${short_name}
 }
 
-copy_sonar_gerrit_templates
+copy_sonar_gerrit_xvnc_templates
