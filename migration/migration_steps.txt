@@ -18,8 +18,10 @@ Jiro migration - old infrastructure
 - check Jiro JIPP
     - check that all jobs and views have been copied
     - add password/passphrase for SonarQube and Gerrit config
-    - add Xvnc command line: Xvnc :$DISPLAY_NUMBER -geometry 1024x768 -depth 24 -ac -SecurityTypes none -noreset
     - add project-storage credentials
+        - create with /ci-admin/add_creds_projects-storage.sh <project_name> if credentials do not exist yet
+        - ID: projects-storage.eclipse.org-bot-ssh
+        - Description: ssh://genie.xxx@projects-storage.eclipse.org
     - check if plugins are missing (old data admin monitor) and install them (via jiro)
     - check if old JIPP uses any credentials that need to be migrated
 
@@ -45,7 +47,9 @@ Jiro migration - CJE
 - check Jiro JIPP
     - check that all jobs and views have been copied
     - add password/passphrase for SonarQube and Gerrit config
-    - add Xvnc command line: Xvnc :$DISPLAY_NUMBER -geometry 1024x768 -depth 24 -ac -SecurityTypes none -noreset
     - add project-storage credentials
+        - create with /ci-admin/add_creds_projects-storage.sh <project_name> if credentials do not exist yet
+        - ID: projects-storage.eclipse.org-bot-ssh
+        - Description: ssh://genie.xxx@projects-storage.eclipse.org
     - check if plugins are missing (old data admin monitor) and install them (via jiro)
     - check if old JIPP uses any credentials that need to be migrated

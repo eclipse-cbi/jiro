@@ -30,7 +30,7 @@ if [[ "$project_name" != *.* ]]; then
   exit 1
 fi
 
-copy_sonar_gerrit_templates() {
+copy_sonar_gerrit_xvnctemplates() {
   mkdir -p tmp
   echo "Create SonarQube config template..."
   cat <<EOF > tmp/hudson.plugins.sonar.SonarGlobalConfiguration.xml
@@ -139,6 +139,22 @@ EOF
   </pluginConfig>
 </com.sonyericsson.hudson.plugins.gerrit.trigger.PluginImpl>
 EOG
+
+  echo "Create Xvnc config template..."
+  xvnc_commandline='Xvnc :$DISPLAY_NUMBER -geometry 1024x768 -depth 24 -ac -SecurityTypes none -noreset'
+  cat <<EOH > tmp/hudson.plugins.xvnc.Xvnc.xml
+<?xml version='1.1' encoding='UTF-8'?>
+<hudson.plugins.xvnc.Xvnc_-DescriptorImpl plugin="xvnc@1.24">
+  <xvnc>${xvnc_commandline}</xvnc>
+  <minDisplayNumber>10</minDisplayNumber>
+  <maxDisplayNumber>99</maxDisplayNumber>
+  <skipOnWindows>true</skipOnWindows>
+  <cleanUp>true</cleanUp>
+  <allocators>
+  </allocators>
+</hudson.plugins.xvnc.Xvnc_-DescriptorImpl>
+EOH
+
   echo "Copy files to Jiro pod ${short_name}-0..."
   oc rsync tmp/ ${short_name}-0:/var/jenkins_home/ -n=${short_name}
   rm -rf tmp
