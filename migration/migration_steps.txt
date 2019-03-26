@@ -1,56 +1,57 @@
-Jiro migration - old infrastructure
-===================================
+Jiro migration
+==============
 
-- create new Jiro JIPP
-    - execute /jiro/incubation/create_new_jiro_jipp.sh technology.linuxtools "Eclipse Linux Tools"
-    - wait until the JIPP is online!
-    - execute /jiro/incubation/post_setup.sh technology.linuxtools
-- export config from hipp machine
-    - in /jiro/migration folder
-    - scp oi_jipp_export.sh hipp1:/tmp/
-    - login to genie.linuxtools home on hipp machine
-    - cp /tmp/oi_jipp_export.sh .
-    - chmod +x oi_jipp_export.sh
-    - execute oi_jipp_export.sh
-    - check if a custom maven settings file exists (e.g. for OSSRH deployment)
-- download configs to local machine and push to Jiro pod
-    - in /jiro/migration folder
-    - execute oi2jiro.sh technology.linuxtools hipp1
-- check Jiro JIPP
-    - check that all jobs and views have been copied
-    - add password/passphrase for SonarQube and Gerrit config
-    - add project-storage credentials
-        - create with /ci-admin/add_creds_projects-storage.sh <project_name> if credentials do not exist yet
-        - ID: projects-storage.eclipse.org-bot-ssh
-        - Description: ssh://genie.xxx@projects-storage.eclipse.org
-    - check if plugins are missing (old data admin monitor) and install them (via jiro)
-    - check if old JIPP uses any credentials that need to be migrated
+1. Create new Jiro JIPP
+  - execute /jiro/incubation/create_new_jiro_jipp.sh technology.linuxtools "Eclipse Linux Tools"
+  - wait until the JIPP is online!
+  - execute /jiro/incubation/post_setup.sh technology.linuxtools
 
-Jiro migration - CJE
-====================
 
-- copy export script to CJE pod
+Old infrastructure
+------------------
+
+2. export config from hipp machine
+  - in /jiro/migration folder
+  - scp oi_jipp_export.sh hipp1:/tmp/
+  - login to genie.linuxtools home on hipp machine
+  - cp /tmp/oi_jipp_export.sh .
+  - chmod +x oi_jipp_export.sh
+  - execute oi_jipp_export.sh
+  - check if a custom maven settings file exists (e.g. for OSSRH deployment)
+3. download configs to local machine and push to Jiro pod
+  - in /jiro/migration folder
+  - execute oi2jiro.sh technology.linuxtools hipp1
+
+continue with 4.
+
+CJE
+---
+
+2. export config from CJE pod
+  - copy export script to CJE pod
     - in /jiro/migration folder
     - mkdir tmp
     - cp cje_jipp_export.sh tmp/
     - oc rsync tmp/ basyx-0:/tmp/ -n=cje
     - rm -rf tmp
-- execute export script on CJE pod
+  - execute export script on CJE pod
     - oc rsh -n=cje basyx-0
     - cd /tmp
     - chmod +x cje_jipp_export.sh
     - ./cje_jipp_export technology.basyx
     - quit rsh with CTRL+D
-- download configs to local machine and push to Jiro pod
-    - in /jiro/migration folder
-    - execute cje2jiro.sh technology.basyx
-    - #TODO: merge views
-- check Jiro JIPP
-    - check that all jobs and views have been copied
-    - add password/passphrase for SonarQube and Gerrit config
-    - add project-storage credentials
-        - create with /ci-admin/add_creds_projects-storage.sh <project_name> if credentials do not exist yet
-        - ID: projects-storage.eclipse.org-bot-ssh
-        - Description: ssh://genie.xxx@projects-storage.eclipse.org
-    - check if plugins are missing (old data admin monitor) and install them (via jiro)
-    - check if old JIPP uses any credentials that need to be migrated
+3. download configs to local machine and push to Jiro pod
+  - in /jiro/migration folder
+  - execute cje2jiro.sh technology.basyx
+  - #TODO: merge views
+
+
+4. check Jiro JIPP
+  - check that all jobs and views have been copied
+  - add password/passphrase for SonarQube and Gerrit config
+  - add project-storage credentials
+    - create with /ci-admin/add_creds_projects-storage.sh <project_name> if credentials do not exist yet
+    - ID: projects-storage.eclipse.org-bot-ssh
+    - Description: ssh://genie.xxx@projects-storage.eclipse.org
+   - check if plugins are missing (old data admin monitor) and install them (via jiro)
+   - check if old JIPP uses any credentials that need to be migrated
