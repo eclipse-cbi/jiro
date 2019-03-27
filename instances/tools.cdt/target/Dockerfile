@@ -16,6 +16,7 @@ EXPOSE 50000
 
 RUN mkdir -p /usr/share/jenkins/ref/userContent/theme/
 COPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/
+COPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/
 # </templates/Dockerfile.tpl>
 
 # <gen-dockerfile.sh>

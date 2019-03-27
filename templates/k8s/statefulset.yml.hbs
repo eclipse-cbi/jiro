@@ -96,6 +96,7 @@ spec:
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
               -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage={{docker.agent.defaultImage.name}}:{{docker.agent.defaultImage.tag}}@sha256:{{docker.agent.defaultImage.sha256}}
+              -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout={{jenkins.agentConnectionTimeout}}
           - name: JENKINS_OPTS
             value: >-
               --prefix={{deployment.prefix}}
