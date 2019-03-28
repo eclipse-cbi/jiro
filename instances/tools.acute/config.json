@@ -3,8 +3,5 @@
     "fullName": "tools.acute",
     "shortName": "acute",
     "displayName": "Eclipse aCute"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }
