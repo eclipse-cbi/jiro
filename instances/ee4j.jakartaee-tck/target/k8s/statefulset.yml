@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/jakartaee-tck:latest@sha256:a077329b3b20bdbe1155a2c029cfc64c717ea118168b5d4fa30a90a6b0b242ed
+        image: eclipsecbijenkins/jakartaee-tck:latest@sha256:8ac0b06d1016c21e9c18170054faebd68a37928144c918aacfeab2556396f1aa
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -110,7 +110,8 @@ spec:
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:latest@sha256:ab9a75525e91487023bb875d2dba4f813c9841c795f19cafa1dcca4b5a10fe08
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:latest@sha256:34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d
+              -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=300
           - name: JENKINS_OPTS
             value: >-
               --prefix=/jakartaee-tck
