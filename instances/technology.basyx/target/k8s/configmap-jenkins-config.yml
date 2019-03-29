@@ -49,6 +49,25 @@ data:
             - "Job/Read:anonymous"
             - "Overall/Read:anonymous"
             - "Job/ExtendedRead:common"
+            - "Credentials/View:susan.iwai@eclipse.org"
+            - "Gerrit/ManualTrigger:susan.iwai@eclipse.org"
+            - "Gerrit/Retrigger:susan.iwai@eclipse.org"
+            - "Job/Build:susan.iwai@eclipse.org"
+            - "Job/Cancel:susan.iwai@eclipse.org"
+            - "Job/Configure:susan.iwai@eclipse.org"
+            - "Job/Create:susan.iwai@eclipse.org"
+            - "Job/Delete:susan.iwai@eclipse.org"
+            - "Job/Move:susan.iwai@eclipse.org"
+            - "Job/Read:susan.iwai@eclipse.org"
+            - "Job/Workspace:susan.iwai@eclipse.org"
+            - "Run/Delete:susan.iwai@eclipse.org"
+            - "Run/Replay:susan.iwai@eclipse.org"
+            - "Run/Update:susan.iwai@eclipse.org"
+            - "SCM/Tag:susan.iwai@eclipse.org"
+            - "View/Configure:susan.iwai@eclipse.org"
+            - "View/Create:susan.iwai@eclipse.org"
+            - "View/Delete:susan.iwai@eclipse.org"
+            - "View/Read:susan.iwai@eclipse.org"
             - "Credentials/View:technology.basyx"
             - "Gerrit/ManualTrigger:technology.basyx"
             - "Gerrit/Retrigger:technology.basyx"
@@ -97,7 +116,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
+            - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d"
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -105,8 +124,10 @@ data:
                 successThreshold: 0
                 timeoutSeconds: 0
               name: "jnlp"
-              resourceLimitMemory: "2.25Gi"
-              resourceRequestMemory: "2.25Gi"
+              resourceLimitCpu: "2375m"
+              resourceRequestCpu: "1250m"
+              resourceLimitMemory: "2560Mi"
+              resourceRequestMemory: "2560Mi"
               ttyEnabled: true
               command: ""
               args: ""
@@ -165,8 +186,10 @@ data:
                 successThreshold: 0
                 timeoutSeconds: 0
               name: "jnlp"
-              resourceLimitMemory: "2.25Gi"
-              resourceRequestMemory: "2.25Gi"
+              resourceLimitCpu: "2375m"
+              resourceRequestCpu: "1250m"
+              resourceLimitMemory: "2560Mi"
+              resourceRequestMemory: "2560Mi"
               ttyEnabled: true
               command: ""
               args: ""
@@ -226,8 +249,10 @@ data:
                 successThreshold: 0
                 timeoutSeconds: 0
               name: "jnlp"
-              resourceLimitMemory: "2.25Gi"
-              resourceRequestMemory: "2.25Gi"
+              resourceLimitCpu: "2375m"
+              resourceRequestCpu: "1250m"
+              resourceLimitMemory: "2560Mi"
+              resourceRequestMemory: "2560Mi"
               ttyEnabled: true
               command: ""
               args: ""
@@ -302,6 +327,8 @@ data:
             url: "/basyx/userContent/theme/quicksilver.css"
         - cssUrl:
             url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+        - jsUrl:
+            url: "/basyx/userContent/theme/title.js"
     
     tool:
       jdk:
@@ -310,8 +337,8 @@ data:
           home: "/opt/tools/java/openjdk/latest"
         - name: "openjdk-jdk13ea-latest"
           home: "/opt/tools/java/openjdk/jdk-13ea/latest"
-        - name: "openjdk-jdk12ea-latest"
-          home: "/opt/tools/java/openjdk/jdk-12ea/latest"
+        - name: "openjdk-jdk12-latest"
+          home: "/opt/tools/java/openjdk/jdk-12/latest"
         - name: "openjdk-jdk11-latest"
           home: "/opt/tools/java/openjdk/jdk-11/latest"
         - name: "openjdk-jdk10-latest"
@@ -320,6 +347,8 @@ data:
           home: "/opt/tools/java/openjdk/jdk-9/latest"
         - name: "adoptopenjdk-hotspot-latest"
           home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
+        - name: "adoptopenjdk-hotspot-jdk12-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest"
         - name: "adoptopenjdk-hotspot-jdk11-latest"
           home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
         - name: "adoptopenjdk-hotspot-jdk10-latest"
@@ -330,6 +359,8 @@ data:
           home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
         - name: "adoptopenjdk-openj9-latest"
           home: "/opt/tools/java/adoptopenjdk/openj9-latest"
+        - name: "adoptopenjdk-openj9-jdk12-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-12/latest"
         - name: "adoptopenjdk-openj9-jdk11-latest"
           home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
         - name: "adoptopenjdk-openj9-jdk10-latest"
