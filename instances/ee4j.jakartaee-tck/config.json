@@ -9,9 +9,6 @@
     "maxConcurrency": 15,
     "agentConnectionTimeout": 300
   },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
-  },
   "kubernetes": {
     "master": {
       "namespace": "{{project.shortName}}",

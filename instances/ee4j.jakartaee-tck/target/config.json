@@ -82,9 +82,9 @@
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/jakartaee-tck",
-    "url": "https://ci-staging.eclipse.org/jakartaee-tck",
+    "url": "https://ci.eclipse.org/jakartaee-tck",
     "uiPort": 8080,
     "jnlpPort": 50000
   },

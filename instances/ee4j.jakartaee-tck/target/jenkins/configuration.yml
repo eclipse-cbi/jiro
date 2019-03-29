@@ -268,7 +268,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/jakartaee-tck
+    url: https://ci.eclipse.org/jakartaee-tck
 
   mailer:
     adminAddress: ci-admin@eclipse.org
