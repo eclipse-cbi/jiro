@@ -7,8 +7,9 @@ set -o pipefail
 
 IFS=$'\n\t'
 script_name="$(basename ${0})"
+script_folder="$(dirname $(readlink -f "${0}"))"
 
-ci_admin_dir="../../ci-admin"
+ci_admin_dir="${script_folder}/../../ci-admin"
 
 project_name="${1:-}"
 display_name="${2:-}"
@@ -41,14 +42,13 @@ if [[ "$project_name" != *.* ]]; then
   exit 1
 fi
 
-../jenkins-new-instance.sh ${project_name} ${display_name}
+${script_folder}/../jenkins-new-instance.sh ${project_name} ${display_name}
 pushd ${ci_admin_dir}
-./add_creds_gerrit.sh ${project_name} || true # if gerrit creds already exist, ignore exit code 1
+./add_creds_gerrit.sh ${project_name} || : # if gerrit creds already exist, ignore exit code 1
 popd
 oc create namespace ${short_name}
-../secrets/create_gerrit_ssh_keys_secret.sh ${project_name}
-pushd ../
-make deploy_${project_name}
+${script_folder}/../secrets/create_gerrit_ssh_keys_secret.sh ${project_name}
+make -C ${script_folder}/.. deploy_${project_name}
 popd
 
 
