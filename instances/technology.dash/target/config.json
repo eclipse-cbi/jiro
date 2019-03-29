@@ -9,6 +9,7 @@
     "version": "2.164.1",
     "remotingVersion": "latest",
     "maxConcurrency": 2,
+    "agentConnectionTimeout": "180",
     "permissions": [
       {
         "principal": "anonymous",
@@ -82,13 +83,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "78e364c2b3b72f941d9edb79798eabb2054d8273b941ed3361abe8cd1dc26786"
+      "imageSha256": "1dcf567d9f098079fa682371ad69f93c04f266dff582e6c94d25455e169bf0df"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "latest",
-        "sha256": "13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
+        "sha256": "34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d"
       }
     }
   },
