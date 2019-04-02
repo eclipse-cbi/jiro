@@ -6,7 +6,7 @@
     "sponsorshipLevel": "SP1"
   },
   "jenkins": {
-    "maxConcurrency": 15,
+    "maxConcurrency": 25,
     "agentConnectionTimeout": 300
   },
   "kubernetes": {

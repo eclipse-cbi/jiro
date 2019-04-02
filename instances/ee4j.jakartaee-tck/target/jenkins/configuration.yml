@@ -65,7 +65,7 @@ jenkins:
   clouds:
   - kubernetes:
       name: "kubernetes"
-      containerCapStr: "15"
+      containerCapStr: "25"
       jenkinsUrl: "http://jenkins-ui.jakartaee-tck.svc.cluster.local/jakartaee-tck"
       jenkinsTunnel: "jenkins-discovery.jakartaee-tck.svc.cluster.local:50000"
       maxRequestsPerHostStr: "32"

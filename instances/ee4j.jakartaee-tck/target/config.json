@@ -8,7 +8,7 @@
   "jenkins": {
     "version": "latest",
     "remotingVersion": "latest",
-    "maxConcurrency": 15,
+    "maxConcurrency": 25,
     "agentConnectionTimeout": 300,
     "permissions": [
       {
