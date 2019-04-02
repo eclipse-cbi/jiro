@@ -9,6 +9,7 @@
     "version": "latest",
     "remotingVersion": "latest",
     "maxConcurrency": 2,
+    "agentConnectionTimeout": "180",
     "permissions": [
       {
         "principal": "anonymous",
@@ -70,20 +71,20 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "cb1d60870460e927cfcbaff202a55606a42c34c1e863fdb60a830b82809e080f"
+      "imageSha256": "286f4e09749c5144d75414a98927c1c18ae4693dcafb835fc670659247ec152c"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "latest",
-        "sha256": "13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
+        "sha256": "34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d"
       }
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/orion",
-    "url": "https://ci-staging.eclipse.org/orion",
+    "url": "https://ci.eclipse.org/orion",
     "uiPort": 8080,
     "jnlpPort": 50000
   },

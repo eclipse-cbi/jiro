@@ -24,7 +24,7 @@ metadata:
     haproxy.router.openshift.io/timeout: 60s
   name: "orion"
 spec:
-  host: "ci-staging.eclipse.org"
+  host: "ci.eclipse.org"
   path: "/orion"
   port:
     targetPort: "http"
