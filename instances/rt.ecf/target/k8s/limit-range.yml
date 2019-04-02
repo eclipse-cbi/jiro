@@ -28,18 +28,18 @@ spec:
         cpu: 200m
         memory: 8Mi
       max:
-        cpu: 2.3
-        memory: 4.5Gi
+        cpu: 2375m
+        memory: 4608Mi
     - type: "Container"
       min:
         cpu: 100m
         memory: 4Mi
       default:
-        cpu: 500m
+        cpu: 375m
         memory: 512Mi
       defaultRequest:
-        cpu: 300m 
+        cpu: 250m 
         memory: 512Mi
       max:
-        cpu: 2
-        memory: 4Gi
+        cpu: 2375m
+        memory: 4608Mi
