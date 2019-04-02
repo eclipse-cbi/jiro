@@ -3,8 +3,5 @@
     "fullName": "technology.recommenders",
     "shortName": "recommenders",
     "displayName": "Eclipse Code Recommenders"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }
