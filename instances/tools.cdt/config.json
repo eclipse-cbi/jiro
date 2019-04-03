@@ -7,8 +7,5 @@
   },
   "jenkins": {
     "maxConcurrency": 4
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }
