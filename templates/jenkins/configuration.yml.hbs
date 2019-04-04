@@ -96,8 +96,22 @@ jenkins:
                 subPath: {{@key}}
                 readOnly: true
               {{/each}}
+              {{#each gradle.files}}
+              - name: {{dns1123 @key}}
+                mountPath: {{../gradle.home}}/{{@key}}
+                subPath: {{@key}}
+                readOnly: true
+              {{/each}}
             volumes:
             {{#each maven.files}}
+            - name: {{dns1123 @key}}
+              {{#ifeq volumeType "ConfigMap"}}configMap{{/ifeq}}{{#ifeq volumeType "Secret"}}secret{{/ifeq}}:
+                {{#ifeq volumeType "ConfigMap"}}name{{/ifeq}}{{#ifeq volumeType "Secret"}}secretName{{/ifeq}}: {{volumeName}}
+                items:
+                - key: {{#if entryName}}{{entryName}}{{else}}{{@key}}{{/if}}
+                  path: {{@key}}
+            {{/each}}
+            {{#each gradle.files}}
             - name: {{dns1123 @key}}
               {{#ifeq volumeType "ConfigMap"}}configMap{{/ifeq}}{{#ifeq volumeType "Secret"}}secret{{/ifeq}}:
                 {{#ifeq volumeType "ConfigMap"}}name{{/ifeq}}{{#ifeq volumeType "Secret"}}secretName{{/ifeq}}: {{volumeName}}
@@ -153,8 +167,22 @@ jenkins:
                 subPath: {{@key}}
                 readOnly: true
               {{/each}}
+              {{#each gradle.files}}
+              - name: {{dns1123 @key}}
+                mountPath: {{../gradle.home}}/{{@key}}
+                subPath: {{@key}}
+                readOnly: true
+              {{/each}}
             volumes:
             {{#each maven.files}}
+            - name: {{dns1123 @key}}
+              {{#ifeq volumeType "ConfigMap"}}configMap{{/ifeq}}{{#ifeq volumeType "Secret"}}secret{{/ifeq}}:
+                {{#ifeq volumeType "ConfigMap"}}name{{/ifeq}}{{#ifeq volumeType "Secret"}}secretName{{/ifeq}}: {{volumeName}}
+                items:
+                - key: {{#if entryName}}{{entryName}}{{else}}{{@key}}{{/if}}
+                  path: {{@key}}
+            {{/each}}
+            {{#each gradle.files}}
             - name: {{dns1123 @key}}
               {{#ifeq volumeType "ConfigMap"}}configMap{{/ifeq}}{{#ifeq volumeType "Secret"}}secret{{/ifeq}}:
                 {{#ifeq volumeType "ConfigMap"}}name{{/ifeq}}{{#ifeq volumeType "Secret"}}secretName{{/ifeq}}: {{volumeName}}
@@ -210,8 +238,22 @@ jenkins:
                 subPath: {{@key}}
                 readOnly: true
               {{/each}}
+              {{#each gradle.files}}
+              - name: {{dns1123 @key}}
+                mountPath: {{../gradle.home}}/{{@key}}
+                subPath: {{@key}}
+                readOnly: true
+              {{/each}}
             volumes:
             {{#each maven.files}}
+            - name: {{dns1123 @key}}
+              {{#ifeq volumeType "ConfigMap"}}configMap{{/ifeq}}{{#ifeq volumeType "Secret"}}secret{{/ifeq}}:
+                {{#ifeq volumeType "ConfigMap"}}name{{/ifeq}}{{#ifeq volumeType "Secret"}}secretName{{/ifeq}}: {{volumeName}}
+                items:
+                - key: {{#if entryName}}{{entryName}}{{else}}{{@key}}{{/if}}
+                  path: {{@key}}
+            {{/each}}
+            {{#each gradle.files}}
             - name: {{dns1123 @key}}
               {{#ifeq volumeType "ConfigMap"}}configMap{{/ifeq}}{{#ifeq volumeType "Secret"}}secret{{/ifeq}}:
                 {{#ifeq volumeType "ConfigMap"}}name{{/ifeq}}{{#ifeq volumeType "Secret"}}secretName{{/ifeq}}: {{volumeName}}

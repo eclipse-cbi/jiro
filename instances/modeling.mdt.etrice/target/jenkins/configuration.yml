@@ -73,7 +73,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
+        - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -121,6 +121,10 @@ jenkins:
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
+              - name: gradle-properties
+                mountPath: /home/jenkins/.gradle/gradle.properties
+                subPath: gradle.properties
+                readOnly: true
             volumes:
             - name: settings-xml
               configMap:
@@ -134,6 +138,12 @@ jenkins:
                 items:
                 - key: toolchains.xml
                   path: toolchains.xml
+            - name: gradle-properties
+              secret:
+                secretName: gradle-secret-dir
+                items:
+                - key: gradle.properties
+                  path: gradle.properties
       - containers:
         - image: "eclipsecbijenkins/ui-test-agent:0.0.1@sha256:bbbd136234e7c669e06b3c96e35c1fa72c3a95c1de4bc7cdf8ff99b60383156c"
           livenessProbe:
@@ -184,6 +194,10 @@ jenkins:
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
+              - name: gradle-properties
+                mountPath: /home/jenkins/.gradle/gradle.properties
+                subPath: gradle.properties
+                readOnly: true
             volumes:
             - name: settings-xml
               configMap:
@@ -197,6 +211,12 @@ jenkins:
                 items:
                 - key: toolchains.xml
                   path: toolchains.xml
+            - name: gradle-properties
+              secret:
+                secretName: gradle-secret-dir
+                items:
+                - key: gradle.properties
+                  path: gradle.properties
       - containers:
         - image: "eclipsecbijenkins/migration-fat-agent:3.27"
           livenessProbe:
@@ -247,6 +267,10 @@ jenkins:
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
+              - name: gradle-properties
+                mountPath: /home/jenkins/.gradle/gradle.properties
+                subPath: gradle.properties
+                readOnly: true
             volumes:
             - name: settings-xml
               configMap:
@@ -260,6 +284,12 @@ jenkins:
                 items:
                 - key: toolchains.xml
                   path: toolchains.xml
+            - name: gradle-properties
+              secret:
+                secretName: gradle-secret-dir
+                items:
+                - key: gradle.properties
+                  path: gradle.properties
 
 security:
   remotingCLI:
@@ -294,8 +324,8 @@ tool:
       home: "/opt/tools/java/openjdk/latest"
     - name: "openjdk-jdk13ea-latest"
       home: "/opt/tools/java/openjdk/jdk-13ea/latest"
-    - name: "openjdk-jdk12ea-latest"
-      home: "/opt/tools/java/openjdk/jdk-12ea/latest"
+    - name: "openjdk-jdk12-latest"
+      home: "/opt/tools/java/openjdk/jdk-12/latest"
     - name: "openjdk-jdk11-latest"
       home: "/opt/tools/java/openjdk/jdk-11/latest"
     - name: "openjdk-jdk10-latest"
@@ -304,6 +334,8 @@ tool:
       home: "/opt/tools/java/openjdk/jdk-9/latest"
     - name: "adoptopenjdk-hotspot-latest"
       home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
+    - name: "adoptopenjdk-hotspot-jdk12-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest"
     - name: "adoptopenjdk-hotspot-jdk11-latest"
       home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
     - name: "adoptopenjdk-hotspot-jdk10-latest"
@@ -314,6 +346,8 @@ tool:
       home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
     - name: "adoptopenjdk-openj9-latest"
       home: "/opt/tools/java/adoptopenjdk/openj9-latest"
+    - name: "adoptopenjdk-openj9-jdk12-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-12/latest"
     - name: "adoptopenjdk-openj9-jdk11-latest"
       home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
     - name: "adoptopenjdk-openj9-jdk10-latest"
@@ -336,6 +370,8 @@ tool:
       home: "/opt/tools/java/oracle/jdk-6/latest"
     - name: "oracle-jdk5-latest"
       home: "/opt/tools/java/oracle/jdk-5/latest"
+    - name: "oracle-jdk1.4-latest"
+      home: "/opt/tools/java/oracle/jdk-1.4/latest"
     - name: "ibm-jdk8-latest"
       home: "/opt/tools/java/ibm/jdk-8/latest"
     - name: "ibm-latest"
