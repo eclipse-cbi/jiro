@@ -127,6 +127,21 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/repository"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/caches"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/daemon"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/native"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/workers"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/wrapper"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -200,6 +215,21 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/repository"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/caches"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/daemon"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/native"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/workers"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/wrapper"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -273,6 +303,21 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/repository"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/caches"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/daemon"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/native"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/workers"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/wrapper"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
