@@ -73,7 +73,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
+        - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -81,8 +81,10 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitMemory: "2.25Gi"
-          resourceRequestMemory: "2.25Gi"
+          resourceLimitCpu: "2375m"
+          resourceRequestCpu: "1250m"
+          resourceLimitMemory: "2560Mi"
+          resourceRequestMemory: "2560Mi"
           ttyEnabled: true
           command: ""
           args: ""
@@ -141,8 +143,10 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitMemory: "2.25Gi"
-          resourceRequestMemory: "2.25Gi"
+          resourceLimitCpu: "2375m"
+          resourceRequestCpu: "1250m"
+          resourceLimitMemory: "2560Mi"
+          resourceRequestMemory: "2560Mi"
           ttyEnabled: true
           command: ""
           args: ""
@@ -202,8 +206,10 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitMemory: "2.25Gi"
-          resourceRequestMemory: "2.25Gi"
+          resourceLimitCpu: "2375m"
+          resourceRequestCpu: "1250m"
+          resourceLimitMemory: "2560Mi"
+          resourceRequestMemory: "2560Mi"
           ttyEnabled: true
           command: ""
           args: ""
@@ -262,7 +268,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/linuxtools
+    url: https://ci.eclipse.org/linuxtools
 
   mailer:
     adminAddress: ci-admin@eclipse.org
@@ -278,6 +284,8 @@ unclassified:
         url: "/linuxtools/userContent/theme/quicksilver.css"
     - cssUrl:
         url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+    - jsUrl:
+        url: "/linuxtools/userContent/theme/title.js"
 
 tool:
   jdk:
@@ -286,8 +294,8 @@ tool:
       home: "/opt/tools/java/openjdk/latest"
     - name: "openjdk-jdk13ea-latest"
       home: "/opt/tools/java/openjdk/jdk-13ea/latest"
-    - name: "openjdk-jdk12ea-latest"
-      home: "/opt/tools/java/openjdk/jdk-12ea/latest"
+    - name: "openjdk-jdk12-latest"
+      home: "/opt/tools/java/openjdk/jdk-12/latest"
     - name: "openjdk-jdk11-latest"
       home: "/opt/tools/java/openjdk/jdk-11/latest"
     - name: "openjdk-jdk10-latest"
@@ -296,6 +304,8 @@ tool:
       home: "/opt/tools/java/openjdk/jdk-9/latest"
     - name: "adoptopenjdk-hotspot-latest"
       home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
+    - name: "adoptopenjdk-hotspot-jdk12-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest"
     - name: "adoptopenjdk-hotspot-jdk11-latest"
       home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
     - name: "adoptopenjdk-hotspot-jdk10-latest"
@@ -306,6 +316,8 @@ tool:
       home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
     - name: "adoptopenjdk-openj9-latest"
       home: "/opt/tools/java/adoptopenjdk/openj9-latest"
+    - name: "adoptopenjdk-openj9-jdk12-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-12/latest"
     - name: "adoptopenjdk-openj9-jdk11-latest"
       home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
     - name: "adoptopenjdk-openj9-jdk10-latest"
@@ -328,6 +340,8 @@ tool:
       home: "/opt/tools/java/oracle/jdk-6/latest"
     - name: "oracle-jdk5-latest"
       home: "/opt/tools/java/oracle/jdk-5/latest"
+    - name: "oracle-jdk1.4-latest"
+      home: "/opt/tools/java/oracle/jdk-1.4/latest"
     - name: "ibm-jdk8-latest"
       home: "/opt/tools/java/ibm/jdk-8/latest"
     - name: "ibm-latest"

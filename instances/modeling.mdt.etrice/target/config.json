@@ -82,9 +82,9 @@
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/etrice",
-    "url": "https://ci-staging.eclipse.org/etrice",
+    "url": "https://ci.eclipse.org/etrice",
     "uiPort": 8080,
     "jnlpPort": 50000
   },

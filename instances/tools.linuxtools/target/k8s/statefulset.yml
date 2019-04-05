@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/linuxtools:latest@sha256:e8f5e7b9ca001bebbe061e0234ab3175185b795d86cce3bc82338ceadebfb306
+        image: eclipsecbijenkins/linuxtools:latest@sha256:1bd7b8a502dc715996f67b7f294cf93bf18572dc847700b4cb860474632b9c71
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -103,14 +103,16 @@ spec:
               -Dhudson.slaves.NodeProvisioner.initialDelay=0
               -Dhudson.slaves.NodeProvisioner.MARGIN=50
               -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85
-              -Dhudson.footerURL=https://ci-staging.eclipse.org
+              -Dhudson.footerURL=https://ci.eclipse.org
               -Dhudson.model.UsageStatistics.disabled=true
               -Djenkins.model.Jenkins.slaveAgentPort=50000
               -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:latest@sha256:13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:latest@sha256:34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d
+              -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
+              -Dkubernetes.websocket.ping.interval=30000
           - name: JENKINS_OPTS
             value: >-
               --prefix=/linuxtools

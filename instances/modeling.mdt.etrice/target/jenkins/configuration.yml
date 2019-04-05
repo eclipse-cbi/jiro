@@ -343,7 +343,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/etrice
+    url: https://ci.eclipse.org/etrice
 
   mailer:
     adminAddress: ci-admin@eclipse.org

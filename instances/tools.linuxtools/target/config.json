@@ -9,6 +9,7 @@
     "version": "latest",
     "remotingVersion": "latest",
     "maxConcurrency": 2,
+    "agentConnectionTimeout": "180",
     "permissions": [
       {
         "principal": "anonymous",
@@ -70,20 +71,20 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "e8f5e7b9ca001bebbe061e0234ab3175185b795d86cce3bc82338ceadebfb306"
+      "imageSha256": "1bd7b8a502dc715996f67b7f294cf93bf18572dc847700b4cb860474632b9c71"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "latest",
-        "sha256": "13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
+        "sha256": "34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d"
       }
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/linuxtools",
-    "url": "https://ci-staging.eclipse.org/linuxtools",
+    "url": "https://ci.eclipse.org/linuxtools",
     "uiPort": 8080,
     "jnlpPort": 50000
   },

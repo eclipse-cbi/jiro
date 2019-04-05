@@ -82,9 +82,9 @@
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/egit",
-    "url": "https://ci-staging.eclipse.org/egit",
+    "url": "https://ci.eclipse.org/egit",
     "uiPort": 8080,
     "jnlpPort": 50000
   },

@@ -4,9 +4,6 @@
     "shortName": "etrice",
     "displayName": "Eclipse eTrice"
   },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
-  },
   "gradle": {
     "home": "/home/jenkins/.gradle",
     "files": {
