@@ -9,6 +9,7 @@
     "version": "latest",
     "remotingVersion": "latest",
     "maxConcurrency": 2,
+    "agentConnectionTimeout": "180",
     "permissions": [
       {
         "principal": "anonymous",
@@ -70,20 +71,20 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "8e0c4c33d684e59ee697aaedcfadc2325e62adc3993f9a9b0c1b338efd3c443d"
+      "imageSha256": "3f220e67fea1df9f3c6ef34919f9c896ddc807e98c483d57b2a78e8c822600f2"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "latest",
-        "sha256": "13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
+        "sha256": "34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d"
       }
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/swtbot",
-    "url": "https://ci-staging.eclipse.org/swtbot",
+    "url": "https://ci.eclipse.org/swtbot",
     "uiPort": 8080,
     "jnlpPort": 50000
   },

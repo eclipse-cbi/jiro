@@ -4,9 +4,6 @@
     "shortName": "ebr",
     "displayName": "Eclipse Bundle Recipes"
   },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
-  },
   "maven": {
     "home": "/home/jenkins/.m2",
     "files": {

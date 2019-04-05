@@ -3,8 +3,5 @@
     "fullName": "technology.swtbot",
     "shortName": "swtbot",
     "displayName": "Eclipse SWTBot"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }
