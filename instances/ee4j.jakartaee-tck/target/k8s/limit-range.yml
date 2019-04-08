@@ -42,4 +42,4 @@ spec:
         memory: 1024Mi
       max:
         cpu: 8000m
-        memory: 8192Mi
+        memory: 16384Mi
