@@ -23,7 +23,13 @@ if [ -z "${instance}" ]; then
   exit 1
 fi
 
-if [ ! -d "${instance}" ]; then
+if [[ ${instance} == "ALL" ]]; then
+  for i in ${SCRIPT_FOLDER}/instances/*; do 
+    >&2 echo "Calling CLI for '$(basename ${i})'..."
+    "${0}" "${i}" "${@:2}" || :
+  done
+  exit 0
+elif [[ ! -d "${instance}" ]]; then
   echo "ERROR: no 'instance' at '${instance}'"
   exit 1
 fi
