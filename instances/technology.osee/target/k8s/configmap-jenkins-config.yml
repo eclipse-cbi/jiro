@@ -292,7 +292,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/osee
+        url: https://ci.eclipse.org/osee
     
       mailer:
         adminAddress: ci-admin@eclipse.org

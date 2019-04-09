@@ -4,9 +4,6 @@
     "shortName": "osee",
     "displayName": "Eclipse OSEE"
   },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
-  },
   "jenkins": {
     "maxConcurrency": 1
   }
