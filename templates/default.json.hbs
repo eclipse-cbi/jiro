@@ -117,5 +117,11 @@
         "volumeName": "m2-dir"
       }
     }
+  },
+  "secrets": {
+    "gerrit-trigger-plugin": {
+      "username": "genie.{{project.shortName}}",
+      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
+    }
   }
 }

@@ -108,9 +108,11 @@ spec:
       - name: jenkins-config
         configMap:
           name: jenkins-config
+      {{#if secrets.gerrit-trigger-plugin.username}}
       - name: gerrit-ssh-keys
         secret:
           secretName: gerrit-ssh-keys
+      {{/if}}
   volumeClaimTemplates:
   - metadata:
       name: jenkins-home
