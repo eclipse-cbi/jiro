@@ -43,10 +43,10 @@ jenkins:
   - kubernetes:
       name: "kubernetes"
       containerCapStr: "{{jenkins.maxConcurrency}}"
-      jenkinsUrl: "http://jenkins-ui.{{project.shortName}}.svc.cluster.local{{deployment.prefix}}"
-      jenkinsTunnel: "jenkins-discovery.{{project.shortName}}.svc.cluster.local:{{deployment.jnlpPort}}"
+      jenkinsUrl: "http://jenkins-ui.{{kubernetes.master.namespace}}.svc.cluster.local{{deployment.prefix}}"
+      jenkinsTunnel: "jenkins-discovery.{{kubernetes.master.namespace}}.svc.cluster.local:{{deployment.jnlpPort}}"
       maxRequestsPerHostStr: "32"
-      namespace: "{{project.shortName}}"
+      namespace: "{{kubernetes.master.namespace}}"
       podRetention: "never"
       templates:
       - containers:
@@ -67,7 +67,7 @@ jenkins:
           args: ""
         instanceCap: 5
         name: "default-agent"
-        namespace: "{{project.shortName}}"
+        namespace: "{{kubernetes.master.namespace}}"
         nodeUsageMode: NORMAL
         volumes:
         - persistentVolumeClaim:
@@ -157,7 +157,7 @@ jenkins:
         instanceCap: 5
         instanceCapStr: "5"
         name: "ui-test-agent"
-        namespace: "{{project.shortName}}"
+        namespace: "{{kubernetes.master.namespace}}"
         label: "ui-test"
         volumes:
         - persistentVolumeClaim:
@@ -247,7 +247,7 @@ jenkins:
         instanceCap: 5
         instanceCapStr: "5"
         name: "migration-agent"
-        namespace: "{{project.shortName}}"
+        namespace: "{{kubernetes.master.namespace}}"
         label: "migration"
         volumes:
         - persistentVolumeClaim:
