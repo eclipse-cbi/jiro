@@ -67,6 +67,4 @@ oc apply -f ${instance}/target/k8s/tools-pv.yml
 oc apply -f ${instance}/target/k8s/known-hosts.yml
 oc apply -f ${instance}/target/k8s/m2-dir.yml
 
-oc create secret generic "jenkins-secrets" -n ${namespace} 2> /dev/null || :
-
 oc apply -f ${instance}/target/k8s/statefulset.yml
