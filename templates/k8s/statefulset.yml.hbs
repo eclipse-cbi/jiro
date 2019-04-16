@@ -68,9 +68,11 @@ spec:
         - mountPath: "/etc/jenkins/"
           name: jenkins-config
           readOnly: true
+        {{#if secrets.gerrit-trigger-plugin.username}}
         - mountPath: "/run/secrets/jenkins/ssh"
           name: gerrit-ssh-keys
           readOnly: true
+        {{/if}}
         env:
           - name: JAVA_OPTS
               # -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle
