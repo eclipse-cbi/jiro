@@ -140,5 +140,11 @@
         "volumeName": "m2-dir"
       }
     }
+  },
+  "secrets": {
+    "gerrit-trigger-plugin": {
+      "username": "genie.dash",
+      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
+    }
   }
 }

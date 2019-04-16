@@ -340,6 +340,8 @@ tool:
       home: "/opt/tools/java/oracle/jdk-6/latest"
     - name: "oracle-jdk5-latest"
       home: "/opt/tools/java/oracle/jdk-5/latest"
+    - name: "oracle-jdk1.4-latest"
+      home: "/opt/tools/java/oracle/jdk-1.4/latest"
     - name: "ibm-jdk8-latest"
       home: "/opt/tools/java/ibm/jdk-8/latest"
     - name: "ibm-latest"
