@@ -49,6 +49,25 @@ data:
             - "Job/Read:anonymous"
             - "Overall/Read:anonymous"
             - "Job/ExtendedRead:common"
+            - "Credentials/View:mat.booth@redhat.com"
+            - "Gerrit/ManualTrigger:mat.booth@redhat.com"
+            - "Gerrit/Retrigger:mat.booth@redhat.com"
+            - "Job/Build:mat.booth@redhat.com"
+            - "Job/Cancel:mat.booth@redhat.com"
+            - "Job/Configure:mat.booth@redhat.com"
+            - "Job/Create:mat.booth@redhat.com"
+            - "Job/Delete:mat.booth@redhat.com"
+            - "Job/Move:mat.booth@redhat.com"
+            - "Job/Read:mat.booth@redhat.com"
+            - "Job/Workspace:mat.booth@redhat.com"
+            - "Run/Delete:mat.booth@redhat.com"
+            - "Run/Replay:mat.booth@redhat.com"
+            - "Run/Update:mat.booth@redhat.com"
+            - "SCM/Tag:mat.booth@redhat.com"
+            - "View/Configure:mat.booth@redhat.com"
+            - "View/Create:mat.booth@redhat.com"
+            - "View/Delete:mat.booth@redhat.com"
+            - "View/Read:mat.booth@redhat.com"
             - "Credentials/View:rt.ecf"
             - "Gerrit/ManualTrigger:rt.ecf"
             - "Gerrit/Retrigger:rt.ecf"
@@ -97,7 +116,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d"
+            - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0

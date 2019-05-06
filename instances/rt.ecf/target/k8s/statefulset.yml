@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/ecf:latest@sha256:5b60271d37f756583770a29e2440c190ef845d0bf2a0554ed53043d7db1d40e2
+        image: eclipsecbijenkins/ecf:latest@sha256:ddfb275428487f376da8b3c7c57828eb69d9aa34974e6eae14aca7637d85a636
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -83,9 +83,6 @@ spec:
         - mountPath: "/etc/jenkins/"
           name: jenkins-config
           readOnly: true
-        - mountPath: "/run/secrets/jenkins"
-          name: jenkins-secrets
-          readOnly: true
         - mountPath: "/run/secrets/jenkins/ssh"
           name: gerrit-ssh-keys
           readOnly: true
@@ -110,7 +107,7 @@ spec:
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:latest@sha256:34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:latest@sha256:13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436
               -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
               -Dkubernetes.websocket.ping.interval=30000
           - name: JENKINS_OPTS
@@ -118,8 +115,6 @@ spec:
               --prefix=/ecf
               --webroot=/var/cache/jenkins/war
               --pluginroot=/var/cache/jenkins/plugins
-          - name: SECRETS
-            value: /run/secrets/jenkins
       volumes:
       - name: jenkins-war
         emptyDir: {}
@@ -128,9 +123,6 @@ spec:
       - name: jenkins-config
         configMap:
           name: jenkins-config
-      - name: jenkins-secrets
-        secret:
-          secretName: jenkins-secrets
       - name: gerrit-ssh-keys
         secret:
           secretName: gerrit-ssh-keys
