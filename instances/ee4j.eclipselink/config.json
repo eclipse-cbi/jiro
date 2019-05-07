@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "ee4j.eclipselink",
+    "shortName": "eclipselink",
+    "displayName": "EclipseLink"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
+  }
+}
