@@ -71,13 +71,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "816e17a797a6f033298e85058ca818f1b1fb62277a27e605a662ad14219d908a"
+      "imageSha256": "ec87116a082ef74bf4d3aa2b0af00deadd58094958ca76b4ada0fb2bab2b89e9"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "latest",
-        "sha256": "34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d"
+        "sha256": "13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
       }
     }
   },
@@ -120,13 +120,23 @@
     "home": "/home/jenkins/.m2",
     "files": {
       "settings.xml": {
-        "volumeType": "ConfigMap",
-        "volumeName": "m2-dir"
+        "volumeType": "Secret",
+        "volumeName": "m2-secret-dir"
       },
       "toolchains.xml": {
         "volumeType": "ConfigMap",
         "volumeName": "m2-dir"
+      },
+      "settings-security.xml": {
+        "volumeType": "Secret",
+        "volumeName": "m2-secret-dir"
       }
+    }
+  },
+  "secrets": {
+    "gerrit-trigger-plugin": {
+      "username": "genie.statet",
+      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
     }
   }
 }
