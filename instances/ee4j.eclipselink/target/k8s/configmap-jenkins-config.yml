@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "eclipselink"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "eclipselink"
@@ -373,7 +373,12 @@ data:
       ant:
         installations:
         - name: "apache-ant-latest"
-          home: "/opt/tools/apache-ant/latest"
+          home: ""
+          properties:
+          - installSource:
+              installers:
+              - antFromApache:
+                  id: "1.10.5"
       maven:
         installations:
         - name: "apache-maven-latest"

@@ -349,7 +349,12 @@ tool:
   ant:
     installations:
     - name: "apache-ant-latest"
-      home: "/opt/tools/apache-ant/latest"
+      home: ""
+      properties:
+      - installSource:
+          installers:
+          - antFromApache:
+              id: "1.10.5"
   maven:
     installations:
     - name: "apache-maven-latest"
