@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "technology.imagen",
+    "shortName": "imagen",
+    "displayName": "Eclipse ImageN"
+  },
+  "jenkins": {
+    "version": "2.164.2"
+  }
+}
