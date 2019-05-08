@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "ptp"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "ptp"
@@ -24,7 +24,7 @@ metadata:
     haproxy.router.openshift.io/timeout: 60s
   name: "ptp"
 spec:
-  host: "ci-staging.eclipse.org"
+  host: "ci.eclipse.org"
   path: "/ptp"
   port:
     targetPort: "http"

@@ -3,8 +3,5 @@
     "fullName": "tools.ptp",
     "shortName": "ptp",
     "displayName": "Eclipse PTP"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }

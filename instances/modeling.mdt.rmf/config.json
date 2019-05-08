@@ -3,8 +3,5 @@
     "fullName": "modeling.mdt.rmf",
     "shortName": "rmf",
     "displayName": "Eclipse RMF"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }

@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "rmf"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "rmf"
@@ -35,7 +35,7 @@ spec:
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
-        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.2"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "rmf"
         org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
       name: "rmf"
@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/rmf:latest@sha256:74c4a6ed95e7e1921cf50db82d84f7ec02d1f696770dfe51fd1dc5da2a295b64
+        image: eclipsecbijenkins/rmf:latest@sha256:ed6aba9cd5bb345b25743681face513d40c52f7b366c27b039b9b7d8f7de2764
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -83,9 +83,6 @@ spec:
         - mountPath: "/etc/jenkins/"
           name: jenkins-config
           readOnly: true
-        - mountPath: "/run/secrets/jenkins"
-          name: jenkins-secrets
-          readOnly: true
         - mountPath: "/run/secrets/jenkins/ssh"
           name: gerrit-ssh-keys
           readOnly: true
@@ -103,7 +100,7 @@ spec:
               -Dhudson.slaves.NodeProvisioner.initialDelay=0
               -Dhudson.slaves.NodeProvisioner.MARGIN=50
               -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85
-              -Dhudson.footerURL=https://ci-staging.eclipse.org
+              -Dhudson.footerURL=https://ci.eclipse.org
               -Dhudson.model.UsageStatistics.disabled=true
               -Djenkins.model.Jenkins.slaveAgentPort=50000
               -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
@@ -111,13 +108,13 @@ spec:
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
               -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:latest@sha256:13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436
+              -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
+              -Dkubernetes.websocket.ping.interval=30000
           - name: JENKINS_OPTS
             value: >-
               --prefix=/rmf
               --webroot=/var/cache/jenkins/war
               --pluginroot=/var/cache/jenkins/plugins
-          - name: SECRETS
-            value: /run/secrets/jenkins
       volumes:
       - name: jenkins-war
         emptyDir: {}
@@ -126,9 +123,6 @@ spec:
       - name: jenkins-config
         configMap:
           name: jenkins-config
-      - name: jenkins-secrets
-        secret:
-          secretName: jenkins-secrets
       - name: gerrit-ssh-keys
         secret:
           secretName: gerrit-ssh-keys

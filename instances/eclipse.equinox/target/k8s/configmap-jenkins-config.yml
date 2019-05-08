@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "equinox"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "equinox"
@@ -97,7 +97,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d"
+            - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -292,7 +292,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/equinox
+        url: https://ci.eclipse.org/equinox
     
       mailer:
         adminAddress: ci-admin@eclipse.org
@@ -373,7 +373,12 @@ data:
       ant:
         installations:
         - name: "apache-ant-latest"
-          home: "/opt/tools/apache-ant/latest"
+          home: ""
+          properties:
+          - installSource:
+              installers:
+              - antFromApache:
+                  id: "1.10.5"
       maven:
         installations:
         - name: "apache-maven-latest"

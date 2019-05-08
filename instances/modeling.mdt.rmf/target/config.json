@@ -9,6 +9,7 @@
     "version": "latest",
     "remotingVersion": "latest",
     "maxConcurrency": 2,
+    "agentConnectionTimeout": "180",
     "permissions": [
       {
         "principal": "anonymous",
@@ -54,7 +55,7 @@
         ]
       }
     ],
-    "actualVersion": "2.164.1",
+    "actualVersion": "2.164.2",
     "actualRemotingVersion": "3.27"
   },
   "docker": {
@@ -70,7 +71,7 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "74c4a6ed95e7e1921cf50db82d84f7ec02d1f696770dfe51fd1dc5da2a295b64"
+      "imageSha256": "ed6aba9cd5bb345b25743681face513d40c52f7b366c27b039b9b7d8f7de2764"
     },
     "agent": {
       "defaultImage": {
@@ -81,9 +82,9 @@
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/rmf",
-    "url": "https://ci-staging.eclipse.org/rmf",
+    "url": "https://ci.eclipse.org/rmf",
     "uiPort": 8080,
     "jnlpPort": 50000
   },
@@ -126,6 +127,12 @@
         "volumeType": "ConfigMap",
         "volumeName": "m2-dir"
       }
+    }
+  },
+  "secrets": {
+    "gerrit-trigger-plugin": {
+      "username": "genie.rmf",
+      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
     }
   }
 }

@@ -55,7 +55,7 @@
         ]
       }
     ],
-    "actualVersion": "2.164.1",
+    "actualVersion": "2.164.2",
     "actualRemotingVersion": "3.27"
   },
   "docker": {
@@ -71,20 +71,20 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "9d48572ee29d3c9bfc42fc01fbfed1d2392815f75475b95c5c093e60d65d8228"
+      "imageSha256": "1b6e2eaabee31a5b7f0add75e599e435b1b0326629d76687acee6f352fd44784"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "latest",
-        "sha256": "34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d"
+        "sha256": "13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
       }
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/equinox",
-    "url": "https://ci-staging.eclipse.org/equinox",
+    "url": "https://ci.eclipse.org/equinox",
     "uiPort": 8080,
     "jnlpPort": 50000
   },
@@ -127,6 +127,12 @@
         "volumeType": "ConfigMap",
         "volumeName": "m2-dir"
       }
+    }
+  },
+  "secrets": {
+    "gerrit-trigger-plugin": {
+      "username": "genie.equinox",
+      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
     }
   }
 }

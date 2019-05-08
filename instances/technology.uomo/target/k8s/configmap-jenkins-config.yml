@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "uomo"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "uomo"
@@ -292,7 +292,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/uomo
+        url: https://ci.eclipse.org/uomo
     
       mailer:
         adminAddress: ci-admin@eclipse.org
@@ -318,8 +318,8 @@ data:
           home: "/opt/tools/java/openjdk/latest"
         - name: "openjdk-jdk13ea-latest"
           home: "/opt/tools/java/openjdk/jdk-13ea/latest"
-        - name: "openjdk-jdk12ea-latest"
-          home: "/opt/tools/java/openjdk/jdk-12ea/latest"
+        - name: "openjdk-jdk12-latest"
+          home: "/opt/tools/java/openjdk/jdk-12/latest"
         - name: "openjdk-jdk11-latest"
           home: "/opt/tools/java/openjdk/jdk-11/latest"
         - name: "openjdk-jdk10-latest"
@@ -328,6 +328,8 @@ data:
           home: "/opt/tools/java/openjdk/jdk-9/latest"
         - name: "adoptopenjdk-hotspot-latest"
           home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
+        - name: "adoptopenjdk-hotspot-jdk12-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest"
         - name: "adoptopenjdk-hotspot-jdk11-latest"
           home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
         - name: "adoptopenjdk-hotspot-jdk10-latest"
@@ -338,6 +340,8 @@ data:
           home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
         - name: "adoptopenjdk-openj9-latest"
           home: "/opt/tools/java/adoptopenjdk/openj9-latest"
+        - name: "adoptopenjdk-openj9-jdk12-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-12/latest"
         - name: "adoptopenjdk-openj9-jdk11-latest"
           home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
         - name: "adoptopenjdk-openj9-jdk10-latest"
@@ -360,6 +364,8 @@ data:
           home: "/opt/tools/java/oracle/jdk-6/latest"
         - name: "oracle-jdk5-latest"
           home: "/opt/tools/java/oracle/jdk-5/latest"
+        - name: "oracle-jdk1.4-latest"
+          home: "/opt/tools/java/oracle/jdk-1.4/latest"
         - name: "ibm-jdk8-latest"
           home: "/opt/tools/java/ibm/jdk-8/latest"
         - name: "ibm-latest"
@@ -367,7 +373,12 @@ data:
       ant:
         installations:
         - name: "apache-ant-latest"
-          home: "/opt/tools/apache-ant/latest"
+          home: ""
+          properties:
+          - installSource:
+              installers:
+              - antFromApache:
+                  id: "1.10.5"
       maven:
         installations:
         - name: "apache-maven-latest"
