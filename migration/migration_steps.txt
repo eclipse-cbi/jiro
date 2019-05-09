@@ -11,7 +11,7 @@ Jiro migration
 Old infrastructure
 ------------------
 
-2. export config from hipp machine
+2. Export config from hipp machine
   - in /jiro/migration folder
   - scp oi_jipp_export.sh hipp1:/tmp/
   - login to genie.linuxtools home on hipp machine
@@ -19,7 +19,7 @@ Old infrastructure
   - chmod +x oi_jipp_export.sh
   - execute oi_jipp_export.sh
   - check if a custom maven settings file exists (e.g. for OSSRH deployment)
-3. download configs to local machine and push to Jiro pod
+3. Download configs to local machine and push to Jiro pod
   - in /jiro/migration folder
   - execute oi2jiro.sh technology.linuxtools hipp1
 
@@ -28,7 +28,7 @@ continue with 4.
 CJE
 ---
 
-2. export config from CJE pod
+2. Export config from CJE pod
   - copy export script to CJE pod
     - in /jiro/migration folder
     - mkdir tmp
@@ -41,13 +41,13 @@ CJE
     - chmod +x cje_jipp_export.sh
     - ./cje_jipp_export technology.basyx
     - quit rsh with CTRL+D
-3. download configs to local machine and push to Jiro pod
+3. Download configs to local machine and push to Jiro pod
   - in /jiro/migration folder
   - execute cje2jiro.sh technology.basyx
   - #TODO: merge views
 
 
-4. check Jiro JIPP
+4. Check Jiro JIPP
   - check that all jobs and views have been copied
     - reload configuration if you don't see the jobs
   - add password/passphrase for SonarQube and Gerrit config
@@ -57,3 +57,12 @@ CJE
     - add public key to ~genie.xxx/.ssh/authorized_keys
   - check if plugins are missing (old data admin monitor) and install them (via jiro)
   - check if old JIPP uses any credentials that need to be migrated
+
+5. Move new JIPP to ci.eclipse.org/<project_name>
+  - retire old JIPP
+    - use retire JIPP script in Genie home dir
+  - fix entry in ProjectServices DB
+  - remove ci-staging entry in config.json
+  - redeploy instance with make deploy_<project name>
+
+
