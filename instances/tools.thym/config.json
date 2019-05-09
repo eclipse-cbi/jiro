@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "tools.thym",
+    "shortName": "thym",
+    "displayName": "Eclipse Thym"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
+  }
+}
