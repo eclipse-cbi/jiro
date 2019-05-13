@@ -1,0 +1,138 @@
+{
+  "project": {
+    "shortName": "tracecompass",
+    "fullName": "tools.tracecompass",
+    "displayName": "Eclipse Trace Compass",
+    "sponsorshipLevel": "S0"
+  },
+  "jenkins": {
+    "version": "latest",
+    "remotingVersion": "latest",
+    "maxConcurrency": 2,
+    "agentConnectionTimeout": "180",
+    "permissions": [
+      {
+        "principal": "anonymous",
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ]
+      },
+      {
+        "principal": "common",
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ]
+      },
+      {
+        "principal": "admins",
+        "grantedPermissions": [
+          "Overall/Administer"
+        ]
+      },
+      {
+        "principal": "tools.tracecompass",
+        "grantedPermissions": [
+          "Credentials/View",
+          "Gerrit/ManualTrigger",
+          "Gerrit/Retrigger",
+          "Job/Build",
+          "Job/Cancel",
+          "Job/Configure",
+          "Job/Create",
+          "Job/Delete",
+          "Job/Move",
+          "Job/Read",
+          "Job/Workspace",
+          "Run/Delete",
+          "Run/Replay",
+          "Run/Update",
+          "View/Configure",
+          "View/Create",
+          "View/Delete",
+          "View/Read",
+          "SCM/Tag"
+        ]
+      }
+    ],
+    "actualVersion": "2.164.2",
+    "actualRemotingVersion": "3.27"
+  },
+  "docker": {
+    "repository": "eclipsecbijenkins",
+    "master": {
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:latest",
+      "image": "eclipsecbijenkins/tracecompass",
+      "imageTag": "latest",
+      "username": "jenkins",
+      "home": "/var/jenkins_home",
+      "ref": "/usr/share/jenkins/ref",
+      "webroot": "/var/cache/jenkins/war",
+      "pluginroot": "/var/cache/jenkins/plugins",
+      "war": "/usr/share/jenkins/jenkins.war",
+      "updateCenter": "https://updates.jenkins.io",
+      "imageSha256": "85bde6f827495883dc680bc76d518b475d0feb661d79c94bb9c602e6d32ef810"
+    },
+    "agent": {
+      "defaultImage": {
+        "name": "eclipsecbijenkins/jenkins-agent",
+        "tag": "latest",
+        "sha256": "13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
+      }
+    }
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org",
+    "prefix": "/tracecompass",
+    "url": "https://ci-staging.eclipse.org/tracecompass",
+    "uiPort": 8080,
+    "jnlpPort": 50000
+  },
+  "kubernetes": {
+    "master": {
+      "namespace": "tracecompass",
+      "stsName": "tracecompass",
+      "resources": {
+        "cpu": {
+          "request": "500m",
+          "limit": 2
+        },
+        "memory": {
+          "limit": "1.5Gi"
+        }
+      },
+      "probe": {
+        "liveness": {
+          "delaySeconds": 480,
+          "periodSeconds": 60,
+          "timeoutSeconds": 90,
+          "failureThreshold": 2
+        },
+        "readiness": {
+          "delaySeconds": 15,
+          "periodSeconds": "60",
+          "timeoutSeconds": "90"
+        }
+      }
+    }
+  },
+  "maven": {
+    "home": "/home/jenkins/.m2",
+    "files": {
+      "settings.xml": {
+        "volumeType": "ConfigMap",
+        "volumeName": "m2-dir"
+      },
+      "toolchains.xml": {
+        "volumeType": "ConfigMap",
+        "volumeName": "m2-dir"
+      }
+    }
+  },
+  "secrets": {
+    "gerrit-trigger-plugin": {
+      "username": "genie.tracecompass",
+      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
+    }
+  }
+}
