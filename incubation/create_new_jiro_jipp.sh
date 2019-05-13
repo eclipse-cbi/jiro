@@ -49,6 +49,6 @@ popd
 oc create namespace ${short_name}
 ${script_folder}/../secrets/create_gerrit_ssh_keys_secret.sh ${project_name}
 make -C ${script_folder}/.. deploy_${project_name}
-popd
+
 
 

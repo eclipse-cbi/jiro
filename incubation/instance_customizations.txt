@@ -5,6 +5,10 @@ ecd.orion
     - set up with config file provider plugin
     - contains credentials for orion test server
 
+modeling.sirius
+  - zentimestamp
+    - "Date pattern for the BUILD_TIMESTAMP (build timestamp) variable" in global config: yyyyMMdd-HHmmss
+
 technology.basyx
   - CMake plugin:
     - CMake installation in Global Tool Configuration

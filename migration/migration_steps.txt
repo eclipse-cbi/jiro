@@ -13,7 +13,7 @@ Old infrastructure
 
 2. Export config from hipp machine
   - in /jiro/migration folder
-  - scp oi_jipp_export.sh hipp1:/tmp/
+  - scp oi_jipp_export.sh hipp1:/tmp/ (only once per hipp machine)
   - login to genie.linuxtools home on hipp machine
   - cp /tmp/oi_jipp_export.sh .
   - chmod +x oi_jipp_export.sh
