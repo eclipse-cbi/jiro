@@ -1,0 +1,36 @@
+# GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "californium"
+    org.eclipse.cbi.jiro/project.fullName: "iot.californium"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.2"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "californium"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+  namespace: "californium"
+  name: jenkins-instance-quota
+spec:
+  hard:
+    # Jenkins master + 2 agents
+    pods: 3
+    # Jenkins master 50 + 2 agents 2*20 = 90GB
+    requests.storage: 90Gi
+    # (Jenkins master 0.5 + JNLP agents 2x0.25)=1 + 2*1vCPU
+    requests.cpu: 3000m
+    # (Jenkins master 1.5 + JNLP agents 2x512MB)=2.5 + 4Gi
+    requests.memory: 6656Mi
+    # (Jenkins master 2 + JNLP agents 2x0.5 + 2*2vCPU)=3 + 2*2vCPU
+    limits.cpu: 6750m
+    limits.memory: 6656Mi

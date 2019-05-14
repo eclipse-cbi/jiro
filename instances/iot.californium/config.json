@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "iot.californium",
+    "shortName": "californium",
+    "displayName": "Eclipse Californium"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
+  }
+}

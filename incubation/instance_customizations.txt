@@ -5,6 +5,13 @@ ecd.orion
     - set up with config file provider plugin
     - contains credentials for orion test server
 
+iot.californium
+    - centslave1 config + credentials
+
+modeling.amalgam
+  - zentimestamp
+    - "Date pattern for the BUILD_TIMESTAMP (build timestamp) variable" in global config: yyyyMMdd-HHmmss
+
 modeling.sirius
   - zentimestamp
     - "Date pattern for the BUILD_TIMESTAMP (build timestamp) variable" in global config: yyyyMMdd-HHmmss
