@@ -6,7 +6,7 @@
     "sponsorshipLevel": "S0"
   },
   "jenkins": {
-    "version": "2.164.2",
+    "version": "latest",
     "remotingVersion": "latest",
     "maxConcurrency": 2,
     "agentConnectionTimeout": "180",
@@ -61,9 +61,9 @@
   "docker": {
     "repository": "eclipsecbijenkins",
     "master": {
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.164.2",
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:latest",
       "image": "eclipsecbijenkins/imagen",
-      "imageTag": "2.164.2",
+      "imageTag": "latest",
       "username": "jenkins",
       "home": "/var/jenkins_home",
       "ref": "/usr/share/jenkins/ref",
