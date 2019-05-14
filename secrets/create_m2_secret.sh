@@ -22,6 +22,7 @@ project_name="${1:-}"
 
 pw_store_root_dir=~/.password-store
 pw_store_path=cbi-pass/bots/${project_name}
+nexus_creds_path=cbi-pass/nexus
 mvn_master_pw_path=${pw_store_path}/apache-maven-security-settings/master-password
 
 usage() {
@@ -144,16 +145,17 @@ EOF3
 }
 
 generate_mvn_settings() {
-  read -sp "Nexus password: " nexus_pw
-  echo
-  nexus_pw_enc=$(mvn --encrypt-password $(printf "%s" ${nexus_pw}) -Dsettings.security=${mvn_security_file})
+  nexus_username=$(pass ${nexus_creds_path}/username)
+  nexus_password=$(pass ${nexus_creds_path}/password)
+
+  nexus_pw_enc=$(mvn --encrypt-password $(printf "%s" ${nexus_password}) -Dsettings.security=${mvn_security_file})
 
   cat <<EOF1 > ${mvn_settings_file}
 <settings>
   <servers>
     <server>
       <id>repo.eclipse.org</id>
-      <username>deployment</username>
+      <username>${nexus_username}</username>
       <password>${nexus_pw_enc}</password>
     </server>
 EOF1
