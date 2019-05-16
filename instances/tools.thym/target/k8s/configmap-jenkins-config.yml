@@ -292,7 +292,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/thym
+        url: https://ci.eclipse.org/thym
     
       mailer:
         adminAddress: ci-admin@eclipse.org
