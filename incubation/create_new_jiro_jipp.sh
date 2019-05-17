@@ -50,5 +50,21 @@ oc create namespace ${short_name}
 ${script_folder}/../secrets/create_gerrit_ssh_keys_secret.sh ${project_name}
 make -C ${script_folder}/.. deploy_${project_name}
 
+printf "Waiting for JIPP to come online..."
+n=0
+until [ $n -ge 10 ]
+do
+  curl -sL -w "%{http_code}\n" "https://ci-staging.eclipse.org/${short_name}" -o /dev/null | grep 200 && break
+  printf "."
+  n=$[$n+1]
+  sleep 12
+done
+printf "\n"
 
+if [[ $(curl -sL -w "%{http_code}\n" "https://ci-staging.eclipse.org/${short_name}" -o /dev/null | grep 200) ]]; then
+  printf "JIPP is online!\n"
+  ./post_setup.sh ${project_name}
+else
+  printf "ERROR: JIPP is not online after two minutes, please investigate and run post_setup.sh manually!\n"
+fi
 

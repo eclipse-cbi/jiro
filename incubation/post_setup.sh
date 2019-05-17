@@ -30,9 +30,9 @@ if [[ "$project_name" != *.* ]]; then
   exit 1
 fi
 
-copy_sonar_gerrit_xvnc_templates() {
+create_and_copy_templates() {
   mkdir -p tmp
-  echo "Create SonarQube config template..."
+  echo "Creating SonarQube config template..."
   cat <<EOF > tmp/hudson.plugins.sonar.SonarGlobalConfiguration.xml
 <?xml version='1.0' encoding='UTF-8'?>
 <hudson.plugins.sonar.SonarGlobalConfiguration plugin="sonar@2.6.1">
@@ -61,7 +61,7 @@ copy_sonar_gerrit_xvnc_templates() {
 </hudson.plugins.sonar.SonarGlobalConfiguration>
 EOF
 
-  echo "Create Gerrit config template..."
+  echo "Creating Gerrit config template..."
   cat <<EOG > tmp/gerrit-trigger.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <com.sonyericsson.hudson.plugins.gerrit.trigger.PluginImpl plugin="gerrit-trigger@2.23.2">
@@ -140,7 +140,7 @@ EOF
 </com.sonyericsson.hudson.plugins.gerrit.trigger.PluginImpl>
 EOG
 
-  echo "Create Xvnc config template..."
+  echo "Creating Xvnc config template..."
   xvnc_commandline='Xvnc :$DISPLAY_NUMBER -geometry 1024x768 -depth 24 -ac -SecurityTypes none -noreset'
   cat <<EOH > tmp/hudson.plugins.xvnc.Xvnc.xml
 <?xml version='1.1' encoding='UTF-8'?>
@@ -155,6 +155,33 @@ EOG
 </hudson.plugins.xvnc.Xvnc_-DescriptorImpl>
 EOH
 
+  echo "Creating credentials template..."
+  cat <<EOI > tmp/credentials.xml
+<?xml version='1.1' encoding='UTF-8'?>
+<com.cloudbees.plugins.credentials.SystemCredentialsProvider plugin="credentials@2.1.18">
+  <domainCredentialsMap class="hudson.util.CopyOnWriteMap\$Hash">
+    <entry>
+      <com.cloudbees.plugins.credentials.domains.Domain>
+        <specifications/>
+      </com.cloudbees.plugins.credentials.domains.Domain>
+      <java.util.concurrent.CopyOnWriteArrayList>
+        <com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey plugin="ssh-credentials@1.16">
+          <scope>GLOBAL</scope>
+          <id>projects-storage.eclipse.org-bot-ssh</id>
+          <description>ssh://genie.${short_name}@projects-storage.eclipse.org</description>
+          <username>genie.${short_name}</username>
+          <passphrase></passphrase>
+          <privateKeySource class="com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey\$DirectEntryPrivateKeySource">
+            <privateKey>
+            </privateKey>
+          </privateKeySource>
+        </com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey>
+      </java.util.concurrent.CopyOnWriteArrayList>
+    </entry>
+  </domainCredentialsMap>
+</com.cloudbees.plugins.credentials.SystemCredentialsProvider>
+EOI
+
   echo "Copy files to Jiro pod ${short_name}-0..."
   oc rsync tmp/ ${short_name}-0:/var/jenkins_home/ -n=${short_name}
   rm -rf tmp
@@ -162,4 +189,4 @@ EOH
   oc delete pod ${short_name}-0 -n=${short_name}
 }
 
-copy_sonar_gerrit_xvnc_templates
+create_and_copy_templates

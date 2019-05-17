@@ -3,8 +3,6 @@ Jiro migration
 
 1. Create new Jiro JIPP
   - execute /jiro/incubation/create_new_jiro_jipp.sh technology.linuxtools "Eclipse Linux Tools"
-  - wait until the JIPP is online!
-  - execute /jiro/incubation/post_setup.sh technology.linuxtools
   - execute /ci-admin/add_creds_projects-storage.sh <project_name> if credentials do not exist yet
 
 
@@ -51,9 +49,7 @@ CJE
   - check that all jobs and views have been copied
     - reload configuration if you don't see the jobs
   - add password/passphrase for SonarQube and Gerrit config
-  - add projects-storage credentials
-    - ID: projects-storage.eclipse.org-bot-ssh
-    - Description: ssh://genie.xxx@projects-storage.eclipse.org
+  - add passphrase and private key in projects-storage credentials
     - add public key to ~genie.xxx/.ssh/authorized_keys
   - check if plugins are missing (old data admin monitor) and install them (via jiro)
   - check if old JIPP uses any credentials that need to be migrated
