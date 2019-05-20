@@ -36,10 +36,27 @@ if [[ ! -f "${template}" ]]; then
   exit 1
 fi
 
+expand_templated_yaml() {
+  local yml_source="${1}"
+  local template_dirname="${2}"
+  local config="${3}"
+  local partials="${4:-}"
+  if [[ ! -z "${partials}" ]]; then
+    hbs -s -D "${config}" -H ${template_dirname}'/helpers/*.js' -P ${template_dirname}'/partials/*.hbs' -P "${partials}"'/*.hbs' "${yml_source}"
+  else
+    hbs -s -D "${config}" -H ${template_dirname}'/helpers/*.js' -P ${template_dirname}'/partials/*.hbs' "${yml_source}"
+  fi
+}
+
 tmp=$(mktemp)
 
 if [[ -f "${yml_source}" ]]; then
-  yq m -a "${yml_source}" "${template}" > "${tmp}"
+  expanded_src=$(mktemp)
+  expand_templated_yaml "${yml_source}" $(dirname "${template}") "${config}" "${partials}" > "${expanded_src}"
+  expanded_tpl=$(mktemp)
+  expand_templated_yaml "${template}" $(dirname "${template}") "${config}" "${partials}" > "${expanded_tpl}"
+  yq m -a "${expanded_src}" "${expanded_tpl}" > "${tmp}"
+  rm "${expanded_src}" "${expanded_tpl}"
 elif [[ -f "${yml_source}.override" ]]; then
   cp "${yml_source}.override" "${tmp}"
 else 
@@ -47,10 +64,6 @@ else
 fi
 
 echo "# GENERATED FILE - DO NOT EDIT"
-if [[ ! -z "${partials}" ]]; then
-  hbs -s -D "${config}" -H $(dirname "${template}")'/helpers/*.js' -P $(dirname "${template}")'/partials/*.hbs' -P "${partials}"'/*.hbs' "${tmp}"
-else
-  hbs -s -D "${config}" -H $(dirname "${template}")'/helpers/*.js' -P $(dirname "${template}")'/partials/*.hbs' "${tmp}"
-fi
+expand_templated_yaml "${tmp}" "$(dirname ${template})" "${config}" "${partials}"
 
 rm "${tmp}"
