@@ -1,0 +1,427 @@
+# GENERATED FILE - DO NOT EDIT
+jenkins:
+  agentProtocols:
+  - JNLP4-connect
+  - Ping
+  authorizationStrategy:
+    projectMatrix:
+      grantedPermissions:
+      - Overall/Administer:admins
+      - Credentials/View:chris.guindon@eclipse-foundation.org
+      - Gerrit/ManualTrigger:chris.guindon@eclipse-foundation.org
+      - Gerrit/Retrigger:chris.guindon@eclipse-foundation.org
+      - Job/Build:chris.guindon@eclipse-foundation.org
+      - Job/Cancel:chris.guindon@eclipse-foundation.org
+      - Job/Configure:chris.guindon@eclipse-foundation.org
+      - Job/Create:chris.guindon@eclipse-foundation.org
+      - Job/Delete:chris.guindon@eclipse-foundation.org
+      - Job/Move:chris.guindon@eclipse-foundation.org
+      - Job/Read:chris.guindon@eclipse-foundation.org
+      - Job/Workspace:chris.guindon@eclipse-foundation.org
+      - Overall/Read:chris.guindon@eclipse-foundation.org
+      - Run/Delete:chris.guindon@eclipse-foundation.org
+      - Run/Replay:chris.guindon@eclipse-foundation.org
+      - Run/Update:chris.guindon@eclipse-foundation.org
+      - SCM/Tag:chris.guindon@eclipse-foundation.org
+      - View/Configure:chris.guindon@eclipse-foundation.org
+      - View/Create:chris.guindon@eclipse-foundation.org
+      - View/Delete:chris.guindon@eclipse-foundation.org
+      - View/Read:chris.guindon@eclipse-foundation.org
+      - Credentials/View:eric.poirier@eclipse-foundation.org
+      - Gerrit/ManualTrigger:eric.poirier@eclipse-foundation.org
+      - Gerrit/Retrigger:eric.poirier@eclipse-foundation.org
+      - Job/Build:eric.poirier@eclipse-foundation.org
+      - Job/Cancel:eric.poirier@eclipse-foundation.org
+      - Job/Configure:eric.poirier@eclipse-foundation.org
+      - Job/Create:eric.poirier@eclipse-foundation.org
+      - Job/Delete:eric.poirier@eclipse-foundation.org
+      - Job/Move:eric.poirier@eclipse-foundation.org
+      - Job/Read:eric.poirier@eclipse-foundation.org
+      - Job/Workspace:eric.poirier@eclipse-foundation.org
+      - Overall/Read:eric.poirier@eclipse-foundation.org
+      - Run/Delete:eric.poirier@eclipse-foundation.org
+      - Run/Replay:eric.poirier@eclipse-foundation.org
+      - Run/Update:eric.poirier@eclipse-foundation.org
+      - SCM/Tag:eric.poirier@eclipse-foundation.org
+      - View/Configure:eric.poirier@eclipse-foundation.org
+      - View/Create:eric.poirier@eclipse-foundation.org
+      - View/Delete:eric.poirier@eclipse-foundation.org
+      - View/Read:eric.poirier@eclipse-foundation.org
+      - Credentials/View:martin.lowe@eclipse-foundation.org
+      - Gerrit/ManualTrigger:martin.lowe@eclipse-foundation.org
+      - Gerrit/Retrigger:martin.lowe@eclipse-foundation.org
+      - Job/Build:martin.lowe@eclipse-foundation.org
+      - Job/Cancel:martin.lowe@eclipse-foundation.org
+      - Job/Configure:martin.lowe@eclipse-foundation.org
+      - Job/Create:martin.lowe@eclipse-foundation.org
+      - Job/Delete:martin.lowe@eclipse-foundation.org
+      - Job/Move:martin.lowe@eclipse-foundation.org
+      - Job/Read:martin.lowe@eclipse-foundation.org
+      - Job/Workspace:martin.lowe@eclipse-foundation.org
+      - Overall/Read:martin.lowe@eclipse-foundation.org
+      - Run/Delete:martin.lowe@eclipse-foundation.org
+      - Run/Replay:martin.lowe@eclipse-foundation.org
+      - Run/Update:martin.lowe@eclipse-foundation.org
+      - SCM/Tag:martin.lowe@eclipse-foundation.org
+      - View/Configure:martin.lowe@eclipse-foundation.org
+      - View/Create:martin.lowe@eclipse-foundation.org
+      - View/Delete:martin.lowe@eclipse-foundation.org
+      - View/Read:martin.lowe@eclipse-foundation.org
+  clouds:
+  - kubernetes:
+      containerCapStr: "2"
+      jenkinsTunnel: jenkins-discovery.foundation-internal-webdev.svc.cluster.local:50000
+      jenkinsUrl: http://jenkins-ui.foundation-internal-webdev.svc.cluster.local/ci/webdev
+      maxRequestsPerHostStr: "32"
+      name: kubernetes
+      namespace: foundation-internal-webdev
+      podRetention: never
+      templates:
+      - containers:
+        - args: ""
+          command: ""
+          image: eclipsecbijenkins/jenkins-agent:latest@sha256:34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: jnlp
+          resourceLimitCpu: 2375m
+          resourceLimitMemory: 2560Mi
+          resourceRequestCpu: 1250m
+          resourceRequestMemory: 2560Mi
+          ttyEnabled: true
+        instanceCap: 5
+        name: default-agent
+        namespace: foundation-internal-webdev
+        nodeUsageMode: NORMAL
+        volumes:
+        - persistentVolumeClaim:
+            claimName: tools-claim-jiro-webdev
+            mountPath: /opt/tools
+            readOnly: true
+        - configMapVolume:
+            configMapName: known-hosts
+            mountPath: /home/jenkins/.ssh/
+        - emptyDirVolume:
+            memory: false
+            mountPath: /home/jenkins/.m2/repository
+        workspaceVolume:
+          emptyDirWorkspaceVolume:
+            memory: false
+        yaml: |
+          apiVersion: v1
+          kind: Pod
+          spec:
+            containers:
+            - name: jnlp
+              volumeMounts:
+              - name: settings-xml
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
+                readOnly: true
+              - name: toolchains-xml
+                mountPath: /home/jenkins/.m2/toolchains.xml
+                subPath: toolchains.xml
+                readOnly: true
+            volumes:
+            - name: settings-xml
+              configMap:
+                name: m2-dir
+                items:
+                - key: settings.xml
+                  path: settings.xml
+            - name: toolchains-xml
+              configMap:
+                name: m2-dir
+                items:
+                - key: toolchains.xml
+                  path: toolchains.xml
+      - containers:
+        - args: ""
+          command: ""
+          image: eclipsecbijenkins/ui-test-agent:0.0.1@sha256:bbbd136234e7c669e06b3c96e35c1fa72c3a95c1de4bc7cdf8ff99b60383156c
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: jnlp
+          resourceLimitCpu: 2375m
+          resourceLimitMemory: 2560Mi
+          resourceRequestCpu: 1250m
+          resourceRequestMemory: 2560Mi
+          ttyEnabled: true
+        instanceCap: 5
+        instanceCapStr: "5"
+        label: ui-test
+        name: ui-test-agent
+        namespace: foundation-internal-webdev
+        volumes:
+        - persistentVolumeClaim:
+            claimName: tools-claim-jiro-webdev
+            mountPath: /opt/tools
+            readOnly: true
+        - configMapVolume:
+            configMapName: known-hosts
+            mountPath: /home/jenkins/.ssh/
+        - emptyDirVolume:
+            memory: false
+            mountPath: /home/jenkins/.m2/repository
+        workspaceVolume:
+          emptyDirWorkspaceVolume:
+            memory: false
+        yaml: |
+          apiVersion: v1
+          kind: Pod
+          spec:
+            containers:
+            - name: jnlp
+              volumeMounts:
+              - name: settings-xml
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
+                readOnly: true
+              - name: toolchains-xml
+                mountPath: /home/jenkins/.m2/toolchains.xml
+                subPath: toolchains.xml
+                readOnly: true
+            volumes:
+            - name: settings-xml
+              configMap:
+                name: m2-dir
+                items:
+                - key: settings.xml
+                  path: settings.xml
+            - name: toolchains-xml
+              configMap:
+                name: m2-dir
+                items:
+                - key: toolchains.xml
+                  path: toolchains.xml
+      - containers:
+        - args: ""
+          command: ""
+          image: eclipsecbijenkins/migration-fat-agent:3.27
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: jnlp
+          resourceLimitCpu: 2375m
+          resourceLimitMemory: 2560Mi
+          resourceRequestCpu: 1250m
+          resourceRequestMemory: 2560Mi
+          ttyEnabled: true
+        instanceCap: 5
+        instanceCapStr: "5"
+        label: migration
+        name: migration-agent
+        namespace: foundation-internal-webdev
+        volumes:
+        - persistentVolumeClaim:
+            claimName: tools-claim-jiro-webdev
+            mountPath: /opt/tools
+            readOnly: true
+        - configMapVolume:
+            configMapName: known-hosts
+            mountPath: /home/jenkins/.ssh/
+        - emptyDirVolume:
+            memory: false
+            mountPath: /home/jenkins/.m2/repository
+        workspaceVolume:
+          emptyDirWorkspaceVolume:
+            memory: false
+        yaml: |
+          apiVersion: v1
+          kind: Pod
+          spec:
+            containers:
+            - name: jnlp
+              volumeMounts:
+              - name: settings-xml
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
+                readOnly: true
+              - name: toolchains-xml
+                mountPath: /home/jenkins/.m2/toolchains.xml
+                subPath: toolchains.xml
+                readOnly: true
+            volumes:
+            - name: settings-xml
+              configMap:
+                name: m2-dir
+                items:
+                - key: settings.xml
+                  path: settings.xml
+            - name: toolchains-xml
+              configMap:
+                name: m2-dir
+                items:
+                - key: toolchains.xml
+                  path: toolchains.xml
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  markupFormatter: rawHtml
+  mode: EXCLUSIVE
+  nodes:
+  - permanent:
+      labelString: docker-build
+      launcher:
+        sSHLauncher:
+          credentialsId: 4057f0a8-6a32-4ba5-99d0-b34cdb0505cd
+          host: 40.117.168.25
+          jvmOptions: -Xmx256m -Xms256m
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCZt0a9fSaLDdGRGSBE1vBN47xvsgxwe44zFlelq4/3rGhOVHdisScbd+y0jlZoe4Q8nmZ2k96ubV4fG12V8tA6JPr/jcS50QkaJlHaEeXCt+rPK1aagQXiitdOEmmDm9FntneCsvhw6n8j3U0hXLZf7iQfYCRMzUVKu0G9dCNe+YiDHosHc24GKsqyeIOGh1HnL1UjIkOxwCa5G0n/vTImQ6cLUym6PUmznzhvdj8Fc7KzPnl87wPzI9xfyacvbIghGklmbL3gel2gNEbThU6saNPCZZJ+4hxzHFuCFgWFFiwUo31s9XbmTduu+m5ZQpYw949bGj96ArmSKtDw1Sgz
+      mode: EXCLUSIVE
+      name: w9x5t-ubuntu1804
+      nodeDescription: 2vCPU, 8GB RAM, Hosted @ Azure
+      remoteFS: /home/genie.webdev/jenkins-agent
+  numExecutors: 0
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 2
+  securityRealm:
+    ldap:
+      configurations:
+      - displayNameAttributeName: cn
+        groupSearchBase: ou=group
+        mailAddressAttributeName: mail
+        rootDN: dc=eclipse,dc=org
+        server: ldapmaster
+        userSearch: mail={0}
+  systemMessage: ""
+security:
+  remotingCLI:
+    enabled: false
+tool:
+  ant:
+    installations:
+    - home: ""
+      name: apache-ant-latest
+      properties:
+      - installSource:
+          installers:
+          - antFromApache:
+              id: 1.10.5
+  git:
+    installations:
+    - home: /usr/bin/git
+      name: git
+  jdk:
+    installations:
+    - home: /opt/tools/java/openjdk/latest
+      name: openjdk-latest
+    - home: /opt/tools/java/openjdk/jdk-13ea/latest
+      name: openjdk-jdk13ea-latest
+    - home: /opt/tools/java/openjdk/jdk-12/latest
+      name: openjdk-jdk12-latest
+    - home: /opt/tools/java/openjdk/jdk-11/latest
+      name: openjdk-jdk11-latest
+    - home: /opt/tools/java/openjdk/jdk-10/latest
+      name: openjdk-jdk10-latest
+    - home: /opt/tools/java/openjdk/jdk-9/latest
+      name: openjdk-jdk9-latest
+    - home: /opt/tools/java/adoptopenjdk/hotspot-latest
+      name: adoptopenjdk-hotspot-latest
+    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest
+      name: adoptopenjdk-hotspot-jdk12-latest
+    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest
+      name: adoptopenjdk-hotspot-jdk11-latest
+    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest
+      name: adoptopenjdk-hotspot-jdk10-latest
+    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest
+      name: adoptopenjdk-hotspot-jdk9-latest
+    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest
+      name: adoptopenjdk-hotspot-jdk8-latest
+    - home: /opt/tools/java/adoptopenjdk/openj9-latest
+      name: adoptopenjdk-openj9-latest
+    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-12/latest
+      name: adoptopenjdk-openj9-jdk12-latest
+    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-11/latest
+      name: adoptopenjdk-openj9-jdk11-latest
+    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-10/latest
+      name: adoptopenjdk-openj9-jdk10-latest
+    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-9/latest
+      name: adoptopenjdk-openj9-jdk9-latest
+    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-8/latest
+      name: adoptopenjdk-openj9-jdk8-latest
+    - home: /opt/tools/java/oracle/latest
+      name: oracle-latest
+    - home: /opt/tools/java/oracle/jdk-10/latest
+      name: oracle-jdk10-latest
+    - home: /opt/tools/java/oracle/jdk-9/latest
+      name: oracle-jdk9-latest
+    - home: /opt/tools/java/oracle/jdk-8/latest
+      name: oracle-jdk8-latest
+    - home: /opt/tools/java/oracle/jdk-7/latest
+      name: oracle-jdk7-latest
+    - home: /opt/tools/java/oracle/jdk-6/latest
+      name: oracle-jdk6-latest
+    - home: /opt/tools/java/oracle/jdk-5/latest
+      name: oracle-jdk5-latest
+    - home: /opt/tools/java/oracle/jdk-1.4/latest
+      name: oracle-jdk1.4-latest
+    - home: /opt/tools/java/ibm/jdk-8/latest
+      name: ibm-jdk8-latest
+    - home: /opt/tools/java/ibm/latest
+      name: ibm-latest
+  maven:
+    installations:
+    - home: /opt/tools/apache-maven/latest
+      name: apache-maven-latest
+    - home: /opt/tools/apache-maven/3.5.4
+      name: apache-maven-3.5.4
+    - home: /opt/tools/apache-maven/3.3.9
+      name: apache-maven-3.3.9
+    - home: /opt/tools/apache-maven/3.2.5
+      name: apache-maven-3.2.5
+  oc:
+    installations:
+    - name: oc-3.9
+      properties:
+      - installSource:
+          installers:
+          - zip:
+              subdir: openshift-origin-client-tools-v3.9.0-191fece-linux-64bit
+              url: https://github.com/openshift/origin/releases/download/v3.9.0/openshift-origin-client-tools-v3.9.0-191fece-linux-64bit.tar.gz
+unclassified:
+  gitHubPluginConfig:
+    configs:
+    - credentialsId: 131d507e-6b2c-4358-b27c-f3d7c1da06d5
+      manageHooks: false
+      name: github.com
+    hookSecretConfig:
+      credentialsId: 12631a0f-87bf-4688-b85e-f0bdc18e84dd
+    hookUrl: https://foundation.eclipse.org/ci/webdev/github-webhook/
+  globalDefaultFlowDurabilityLevel:
+    durabilityHint: PERFORMANCE_OPTIMIZED
+  location:
+    adminAddress: ci-admin@eclipse.org
+    url: https://foundation.eclipse.org/ci/webdev
+  mailer:
+    adminAddress: ci-admin@eclipse.org
+    replyToAddress: ci-admin@eclipse.org
+    smtpHost: mail.eclipse.org
+  openShift:
+    clusterConfigs:
+    - credentialsId: ecda650e-23ab-4b17-82cd-20e4e6cbb9d7
+      name: c1-ci.eclipse.org
+      serverUrl: https://console-int.c1-ci.eclipse.org
+  simple-theme-plugin:
+    elements:
+    - cssUrl:
+        url: /ci/webdev/userContent/theme/quicksilver.css
+    - cssUrl:
+        url: //fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100
+    - jsUrl:
+        url: /ci/webdev/userContent/theme/title.js

@@ -1,0 +1,42 @@
+jenkins:
+  nodes:
+  - permanent:
+      labelString: "docker-build"
+      launcher:
+        sSHLauncher:
+          credentialsId: "4057f0a8-6a32-4ba5-99d0-b34cdb0505cd"
+          host: "40.117.168.25"
+          jvmOptions: "-Xmx256m -Xms256m"
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCZt0a9fSaLDdGRGSBE1vBN47xvsgxwe44zFlelq4/3rGhOVHdisScbd+y0jlZoe4Q8nmZ2k96ubV4fG12V8tA6JPr/jcS50QkaJlHaEeXCt+rPK1aagQXiitdOEmmDm9FntneCsvhw6n8j3U0hXLZf7iQfYCRMzUVKu0G9dCNe+YiDHosHc24GKsqyeIOGh1HnL1UjIkOxwCa5G0n/vTImQ6cLUym6PUmznzhvdj8Fc7KzPnl87wPzI9xfyacvbIghGklmbL3gel2gNEbThU6saNPCZZJ+4hxzHFuCFgWFFiwUo31s9XbmTduu+m5ZQpYw949bGj96ArmSKtDw1Sgz"
+      mode: EXCLUSIVE
+      name: "w9x5t-ubuntu1804"
+      nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
+      remoteFS: "/home/genie.webdev/jenkins-agent"
+
+unclassified:
+  gitHubPluginConfig:
+    configs:
+    - credentialsId: "131d507e-6b2c-4358-b27c-f3d7c1da06d5"
+      manageHooks: false
+      name: "github.com"
+    hookSecretConfig:
+      credentialsId: "12631a0f-87bf-4688-b85e-f0bdc18e84dd"
+    hookUrl: "https://foundation.eclipse.org/ci/webdev/github-webhook/"
+  openShift:
+    clusterConfigs:
+    - credentialsId: "ecda650e-23ab-4b17-82cd-20e4e6cbb9d7"
+      name: "c1-ci.eclipse.org"
+      serverUrl: "https://console-int.c1-ci.eclipse.org"
+
+tool:
+  oc:
+    installations:
+    - name: "oc-3.9"
+      properties:
+      - installSource:
+          installers:
+          - zip:
+              subdir: "openshift-origin-client-tools-v3.9.0-191fece-linux-64bit"
+              url: "https://github.com/openshift/origin/releases/download/v3.9.0/openshift-origin-client-tools-v3.9.0-191fece-linux-64bit.tar.gz"
