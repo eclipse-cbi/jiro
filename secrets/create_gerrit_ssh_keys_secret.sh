@@ -58,7 +58,12 @@ add_gerrit_secret() {
 
   rm -rf ${temp_path}
 }
-add_gerrit_secret
+
+if [[ $(oc get secrets -n=${short_name} | grep gerrit-ssh-keys) ]]; then
+  printf "Secret gerrit-ssh-key already exists. Skipping creation...\n"
+else
+  add_gerrit_secret
+fi
 
 echo "Adding user to Event Streaming Users group..."
 ssh -p 29418 git.eclipse.org gerrit set-members --add "${short_name}-bot@eclipse.org" '"Event Streaming Users"'
