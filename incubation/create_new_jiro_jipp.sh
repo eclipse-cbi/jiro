@@ -44,7 +44,7 @@ fi
 
 ${script_folder}/../jenkins-new-instance.sh ${project_name} ${display_name}
 pushd ${ci_admin_dir}
-./add_creds_gerrit.sh ${project_name}
+./add_creds_gerrit.sh ${project_name} || : # if gerrit creds already exist, ignore exit code 1
 popd
 oc create namespace ${short_name}
 ${script_folder}/../secrets/create_gerrit_ssh_keys_secret.sh ${project_name}
