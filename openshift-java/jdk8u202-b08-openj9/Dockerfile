@@ -26,6 +26,7 @@ RUN apk add --no-cache \
   git \
   gnupg \
   openssh-client \
+  rsync \
   ttf-dejavu \
   unzip \
   wget
