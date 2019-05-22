@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "tools.om2m",
+    "shortName": "om2m",
+    "displayName": "Eclipse OM2M"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
+  }
+}

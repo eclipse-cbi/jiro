@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "technology.lyo",
+    "shortName": "lyo",
+    "displayName": "Eclipse Lyo"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
+  }
+}

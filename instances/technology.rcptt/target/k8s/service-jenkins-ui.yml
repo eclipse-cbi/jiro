@@ -1,0 +1,31 @@
+# GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "rcptt"
+    org.eclipse.cbi.jiro/project.fullName: "technology.rcptt"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.2"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "rcptt"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+  namespace: "rcptt"
+  name: "jenkins-ui"
+spec:
+  ports:
+  - name: "http"
+    port: 80
+    protocol: "TCP"
+    targetPort: 8080
+  selector:
+    org.eclipse.cbi.jiro/project.fullName: "technology.rcptt"

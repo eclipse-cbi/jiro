@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "locationtech.udig",
+    "shortName": "udig",
+    "displayName": "LocationTech uDig"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
+  }
+}
