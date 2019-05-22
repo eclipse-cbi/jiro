@@ -3,16 +3,16 @@ apiVersion: "v1"
 kind: "LimitRange"
 metadata:
   {{> common-metadata }}
-  name: "jenkins-instance-limit-range" 
+  name: "jenkins-instance-limit-range"
 spec:
   limits:
     - type: "Pod"
       {{> limit-range-default-pod }}
       max:
-        cpu: 2375m
-        memory: 4608Mi
+        cpu: 2200m
+        memory: 8448Mi
     - type: "Container"
       {{> limit-range-default-container }}
       max:
-        cpu: 2375m
-        memory: 4608Mi
+        cpu: 2000m
+        memory: 8192Mi
