@@ -25,6 +25,10 @@ RUN chmod 555 /usr/local/bin/jenkins-slave && \
 
 ENTRYPOINT [ "uid_entrypoint", "jenkins-slave" ]
 
+# Required for python36u
+RUN yum install -y yum-utils && \
+  yum install -y https://centos7.iuscommunity.org/ius-release.rpm
+
 RUN yum update -y \
   && yum install -y \
   autoconf \
@@ -63,6 +67,7 @@ RUN yum update -y \
   perl \
   perl-LDAP \
   python-gtk-vnc \
+  python36u\
   rpm-build \
   strace \
   subversion \
@@ -99,7 +104,7 @@ RUN yum update -y \
   zsh \
   && yum clean all
 
-RUN ln -s /usr/bin/git /usr/local/bin/git \ 
+RUN ln -s /usr/bin/git /usr/local/bin/git \
   && ln -s /bin/bash /usr/local/bin/hipp_shell
 
 ENV HOME=/home/jenkins
