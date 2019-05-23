@@ -229,7 +229,7 @@ jenkins:
                   path: {{@key}}
             {{/each}}
       - containers:
-        - image: "eclipsecbijenkins/migration-fat-agent:3.27"
+        - image: "eclipsecbijenkins/migration-fat-agent:3.27@sha256:3d4b2d72e1816668dae4f4dee7322e53aa886c8689294487e49fbe7e5639a6d2"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
