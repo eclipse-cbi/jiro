@@ -1,0 +1,371 @@
+# GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+jenkins:
+  numExecutors: 0
+  scmCheckoutRetryCount: 2
+  mode: EXCLUSIVE
+  systemMessage: ""
+
+  disableRememberMe: false
+  agentProtocols:
+    - "JNLP4-connect"
+    - "Ping"
+
+  authorizationStrategy:
+    projectMatrix:
+      grantedPermissions:
+        - "Overall/Administer:admins"
+        - "Job/Read:anonymous"
+        - "Overall/Read:anonymous"
+        - "Job/ExtendedRead:common"
+        - "Credentials/View:technology.packager"
+        - "Gerrit/ManualTrigger:technology.packager"
+        - "Gerrit/Retrigger:technology.packager"
+        - "Job/Build:technology.packager"
+        - "Job/Cancel:technology.packager"
+        - "Job/Configure:technology.packager"
+        - "Job/Create:technology.packager"
+        - "Job/Delete:technology.packager"
+        - "Job/Move:technology.packager"
+        - "Job/Read:technology.packager"
+        - "Job/Workspace:technology.packager"
+        - "Run/Delete:technology.packager"
+        - "Run/Replay:technology.packager"
+        - "Run/Update:technology.packager"
+        - "SCM/Tag:technology.packager"
+        - "View/Configure:technology.packager"
+        - "View/Create:technology.packager"
+        - "View/Delete:technology.packager"
+        - "View/Read:technology.packager"
+
+  markupFormatter: rawHtml
+  crumbIssuer:
+    standard:
+       excludeClientIPFromCrumb: false
+  remotingSecurity:
+    enabled: true
+
+  securityRealm:
+    ldap:
+      configurations:
+        - displayNameAttributeName: cn
+          groupSearchBase: ou=group
+          rootDN: dc=eclipse,dc=org
+          server: ldapmaster
+          userSearch: mail={0}
+          mailAddressAttributeName: mail
+
+  clouds:
+  - kubernetes:
+      name: "kubernetes"
+      containerCapStr: "2"
+      jenkinsUrl: "http://jenkins-ui.packager.svc.cluster.local/packager"
+      jenkinsTunnel: "jenkins-discovery.packager.svc.cluster.local:50000"
+      maxRequestsPerHostStr: "32"
+      namespace: "packager"
+      podRetention: "never"
+      templates:
+      - containers:
+        - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:b0988972cc41814d7d9299d7c2c69858716c41afb4ba1f6a30448b6da1a0a4a4"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
+          ttyEnabled: true
+          command: ""
+          args: ""
+        instanceCap: 5
+        name: "default-agent"
+        namespace: "packager"
+        nodeUsageMode: NORMAL
+        volumes:
+        - persistentVolumeClaim:
+            claimName: "tools-claim-jiro-packager"
+            mountPath: "/opt/tools"
+            readOnly: true
+        - configMapVolume:
+            configMapName: "known-hosts"
+            mountPath: "/home/jenkins/.ssh/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/repository"
+        workspaceVolume:
+          emptyDirWorkspaceVolume:
+            memory: false
+        yaml: |
+          apiVersion: v1
+          kind: Pod
+          spec:
+            containers:
+            - name: jnlp
+              volumeMounts:
+              - name: settings-xml
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
+                readOnly: true
+              - name: toolchains-xml
+                mountPath: /home/jenkins/.m2/toolchains.xml
+                subPath: toolchains.xml
+                readOnly: true
+            volumes:
+            - name: settings-xml
+              configMap:
+                name: m2-dir
+                items:
+                - key: settings.xml
+                  path: settings.xml
+            - name: toolchains-xml
+              configMap:
+                name: m2-dir
+                items:
+                - key: toolchains.xml
+                  path: toolchains.xml
+      - containers:
+        - image: "eclipsecbijenkins/ui-test-agent:0.0.1@sha256:bbbd136234e7c669e06b3c96e35c1fa72c3a95c1de4bc7cdf8ff99b60383156c"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
+          ttyEnabled: true
+          command: ""
+          args: ""
+        instanceCap: 5
+        instanceCapStr: "5"
+        name: "ui-test-agent"
+        namespace: "packager"
+        label: "ui-test"
+        volumes:
+        - persistentVolumeClaim:
+            claimName: "tools-claim-jiro-packager"
+            mountPath: "/opt/tools"
+            readOnly: true
+        - configMapVolume:
+            configMapName: "known-hosts"
+            mountPath: "/home/jenkins/.ssh/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/repository"
+        workspaceVolume:
+          emptyDirWorkspaceVolume:
+            memory: false
+        yaml: |
+          apiVersion: v1
+          kind: Pod
+          spec:
+            containers:
+            - name: jnlp
+              volumeMounts:
+              - name: settings-xml
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
+                readOnly: true
+              - name: toolchains-xml
+                mountPath: /home/jenkins/.m2/toolchains.xml
+                subPath: toolchains.xml
+                readOnly: true
+            volumes:
+            - name: settings-xml
+              configMap:
+                name: m2-dir
+                items:
+                - key: settings.xml
+                  path: settings.xml
+            - name: toolchains-xml
+              configMap:
+                name: m2-dir
+                items:
+                - key: toolchains.xml
+                  path: toolchains.xml
+      - containers:
+        - image: "eclipsecbijenkins/migration-fat-agent:3.27@sha256:3d4b2d72e1816668dae4f4dee7322e53aa886c8689294487e49fbe7e5639a6d2"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
+          ttyEnabled: true
+          command: ""
+          args: ""
+        instanceCap: 5
+        instanceCapStr: "5"
+        name: "migration-agent"
+        namespace: "packager"
+        label: "migration"
+        volumes:
+        - persistentVolumeClaim:
+            claimName: "tools-claim-jiro-packager"
+            mountPath: "/opt/tools"
+            readOnly: true
+        - configMapVolume:
+            configMapName: "known-hosts"
+            mountPath: "/home/jenkins/.ssh/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/repository"
+        workspaceVolume:
+          emptyDirWorkspaceVolume:
+            memory: false
+        yaml: |
+          apiVersion: v1
+          kind: Pod
+          spec:
+            containers:
+            - name: jnlp
+              volumeMounts:
+              - name: settings-xml
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
+                readOnly: true
+              - name: toolchains-xml
+                mountPath: /home/jenkins/.m2/toolchains.xml
+                subPath: toolchains.xml
+                readOnly: true
+            volumes:
+            - name: settings-xml
+              configMap:
+                name: m2-dir
+                items:
+                - key: settings.xml
+                  path: settings.xml
+            - name: toolchains-xml
+              configMap:
+                name: m2-dir
+                items:
+                - key: toolchains.xml
+                  path: toolchains.xml
+
+security:
+  remotingCLI:
+    enabled: false
+
+unclassified:
+  location:
+    adminAddress: ci-admin@eclipse.org
+    url: https://ci.eclipse.org/packager
+
+  mailer:
+    adminAddress: ci-admin@eclipse.org
+    replyToAddress: ci-admin@eclipse.org
+    smtpHost: mail.eclipse.org
+
+  globalDefaultFlowDurabilityLevel:
+    durabilityHint: PERFORMANCE_OPTIMIZED
+
+  simple-theme-plugin:
+    elements:
+    - cssUrl:
+        url: "/packager/userContent/theme/quicksilver.css"
+    - cssUrl:
+        url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+    - jsUrl:
+        url: "/packager/userContent/theme/title.js"
+
+tool:
+  jdk:
+    installations:
+    - name: "openjdk-latest"
+      home: "/opt/tools/java/openjdk/latest"
+    - name: "openjdk-jdk13ea-latest"
+      home: "/opt/tools/java/openjdk/jdk-13ea/latest"
+    - name: "openjdk-jdk12-latest"
+      home: "/opt/tools/java/openjdk/jdk-12/latest"
+    - name: "openjdk-jdk11-latest"
+      home: "/opt/tools/java/openjdk/jdk-11/latest"
+    - name: "openjdk-jdk10-latest"
+      home: "/opt/tools/java/openjdk/jdk-10/latest"
+    - name: "openjdk-jdk9-latest"
+      home: "/opt/tools/java/openjdk/jdk-9/latest"
+    - name: "adoptopenjdk-hotspot-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
+    - name: "adoptopenjdk-hotspot-jdk12-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest"
+    - name: "adoptopenjdk-hotspot-jdk11-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
+    - name: "adoptopenjdk-hotspot-jdk10-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest"
+    - name: "adoptopenjdk-hotspot-jdk9-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest"
+    - name: "adoptopenjdk-hotspot-jdk8-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
+    - name: "adoptopenjdk-openj9-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-latest"
+    - name: "adoptopenjdk-openj9-jdk12-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-12/latest"
+    - name: "adoptopenjdk-openj9-jdk11-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
+    - name: "adoptopenjdk-openj9-jdk10-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-10/latest"
+    - name: "adoptopenjdk-openj9-jdk9-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-9/latest"
+    - name: "adoptopenjdk-openj9-jdk8-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
+    - name: "oracle-latest"
+      home: "/opt/tools/java/oracle/latest"
+    - name: "oracle-jdk10-latest"
+      home: "/opt/tools/java/oracle/jdk-10/latest"
+    - name: "oracle-jdk9-latest"
+      home: "/opt/tools/java/oracle/jdk-9/latest"
+    - name: "oracle-jdk8-latest"
+      home: "/opt/tools/java/oracle/jdk-8/latest"
+    - name: "oracle-jdk7-latest"
+      home: "/opt/tools/java/oracle/jdk-7/latest"
+    - name: "oracle-jdk6-latest"
+      home: "/opt/tools/java/oracle/jdk-6/latest"
+    - name: "oracle-jdk5-latest"
+      home: "/opt/tools/java/oracle/jdk-5/latest"
+    - name: "oracle-jdk1.4-latest"
+      home: "/opt/tools/java/oracle/jdk-1.4/latest"
+    - name: "ibm-jdk8-latest"
+      home: "/opt/tools/java/ibm/jdk-8/latest"
+    - name: "ibm-latest"
+      home: "/opt/tools/java/ibm/latest"
+  ant:
+    installations:
+    - name: "apache-ant-latest"
+      home: ""
+      properties:
+      - installSource:
+          installers:
+          - antFromApache:
+              id: "1.10.5"
+  maven:
+    installations:
+    - name: "apache-maven-latest"
+      home: "/opt/tools/apache-maven/latest"
+    - name: "apache-maven-3.5.4"
+      home: "/opt/tools/apache-maven/3.5.4"
+    - name: "apache-maven-3.3.9"
+      home: "/opt/tools/apache-maven/3.3.9"
+    - name: "apache-maven-3.2.5"
+      home: "/opt/tools/apache-maven/3.2.5"
+  git:
+    installations:
+    - name: "git"
+      home: "/usr/bin/git"
