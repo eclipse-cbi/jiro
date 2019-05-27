@@ -57,7 +57,7 @@ make -C ${script_folder}/.. deploy_${project_name}
 
 printf "Waiting for JIPP to come online..."
 n=0
-until [ $n -ge 10 ]
+until [ $n -ge 15 ]
 do
   curl -sL -w "%{http_code}\n" "https://ci-staging.eclipse.org/${short_name}" -o /dev/null | grep 200 && break
   printf "."
@@ -70,6 +70,6 @@ if [[ $(curl -sL -w "%{http_code}\n" "https://ci-staging.eclipse.org/${short_nam
   printf "JIPP is online!\n"
   ./post_setup.sh ${project_name}
 else
-  printf "ERROR: JIPP is not online after two minutes, please investigate and run post_setup.sh manually!\n"
+  printf "ERROR: JIPP is not online after three minutes, please investigate and run post_setup.sh manually!\n"
 fi
 
