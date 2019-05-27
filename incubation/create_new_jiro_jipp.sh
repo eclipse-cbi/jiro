@@ -44,7 +44,8 @@ fi
 
 ${script_folder}/../jenkins-new-instance.sh ${project_name} ${display_name}
 pushd ${ci_admin_dir}
-./add_creds_gerrit.sh ${project_name} || : # if gerrit creds already exist, ignore exit code 1
+./add_creds_gerrit.sh ${project_name} || : # if creds already exist, ignore exit code 1
+./add_creds_projects-storage.sh ${project_name} || : # if creds already exist, ignore exit code 1
 popd
 if [[ $(oc get projects | grep ${short_name}) ]]; then
   printf "Namespace ${project_name} already exists. Skipping creation...\n"
