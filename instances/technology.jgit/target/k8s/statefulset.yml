@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jgit"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "jgit"
@@ -35,7 +35,7 @@ spec:
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
-        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.2"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "jgit"
         org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
       name: "jgit"
@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/jgit:latest@sha256:03c899d1669fb511e05c6d387f73aba1c5443d838ec986c6985a4cb9c44a59aa
+        image: eclipsecbijenkins/jgit:latest@sha256:9ccc98cd48a888caa8c39209b647bab27818720b6cac7f25160d4b3ab175812d
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -107,7 +107,7 @@ spec:
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:latest@sha256:34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:latest@sha256:ec6ef6023f9df69aff87d37448270391cc9a169fdd9680393143fbd534388970
               -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
               -Dkubernetes.websocket.ping.interval=30000
           - name: JENKINS_OPTS
