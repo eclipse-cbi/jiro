@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "ecd.codewind",
+    "shortName": "codewind",
+    "displayName": "codewind"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
+  }
+}

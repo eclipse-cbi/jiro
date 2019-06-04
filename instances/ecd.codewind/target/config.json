@@ -1,0 +1,138 @@
+{
+  "project": {
+    "shortName": "codewind",
+    "fullName": "ecd.codewind",
+    "displayName": "codewind",
+    "sponsorshipLevel": "S0"
+  },
+  "jenkins": {
+    "version": "latest",
+    "remotingVersion": "latest",
+    "maxConcurrency": 2,
+    "agentConnectionTimeout": "180",
+    "permissions": [
+      {
+        "principal": "anonymous",
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ]
+      },
+      {
+        "principal": "common",
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ]
+      },
+      {
+        "principal": "admins",
+        "grantedPermissions": [
+          "Overall/Administer"
+        ]
+      },
+      {
+        "principal": "ecd.codewind",
+        "grantedPermissions": [
+          "Credentials/View",
+          "Gerrit/ManualTrigger",
+          "Gerrit/Retrigger",
+          "Job/Build",
+          "Job/Cancel",
+          "Job/Configure",
+          "Job/Create",
+          "Job/Delete",
+          "Job/Move",
+          "Job/Read",
+          "Job/Workspace",
+          "Run/Delete",
+          "Run/Replay",
+          "Run/Update",
+          "View/Configure",
+          "View/Create",
+          "View/Delete",
+          "View/Read",
+          "SCM/Tag"
+        ]
+      }
+    ],
+    "actualVersion": "2.164.2",
+    "actualRemotingVersion": "3.27"
+  },
+  "docker": {
+    "repository": "eclipsecbijenkins",
+    "master": {
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:latest",
+      "image": "eclipsecbijenkins/codewind",
+      "imageTag": "latest",
+      "username": "jenkins",
+      "home": "/var/jenkins_home",
+      "ref": "/usr/share/jenkins/ref",
+      "webroot": "/var/cache/jenkins/war",
+      "pluginroot": "/var/cache/jenkins/plugins",
+      "war": "/usr/share/jenkins/jenkins.war",
+      "updateCenter": "https://updates.jenkins.io",
+      "imageSha256": "4b5422c11a412882dc216faf8b93642480e6c81039139382f1be8dfb5af35821"
+    },
+    "agent": {
+      "defaultImage": {
+        "name": "eclipsecbijenkins/jenkins-agent",
+        "tag": "latest",
+        "sha256": "adf9add05e918b525b0f8296f0be39db0785bfb47e03f18eb3e4336e7b44b5d4"
+      }
+    }
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org",
+    "prefix": "/codewind",
+    "url": "https://ci-staging.eclipse.org/codewind",
+    "uiPort": 8080,
+    "jnlpPort": 50000
+  },
+  "kubernetes": {
+    "master": {
+      "namespace": "codewind",
+      "stsName": "codewind",
+      "resources": {
+        "cpu": {
+          "request": "500m",
+          "limit": 2
+        },
+        "memory": {
+          "limit": "1.5Gi"
+        }
+      },
+      "probe": {
+        "liveness": {
+          "delaySeconds": 480,
+          "periodSeconds": 60,
+          "timeoutSeconds": 90,
+          "failureThreshold": 2
+        },
+        "readiness": {
+          "delaySeconds": 15,
+          "periodSeconds": "60",
+          "timeoutSeconds": "90"
+        }
+      }
+    }
+  },
+  "maven": {
+    "home": "/home/jenkins/.m2",
+    "files": {
+      "settings.xml": {
+        "volumeType": "ConfigMap",
+        "volumeName": "m2-dir"
+      },
+      "toolchains.xml": {
+        "volumeType": "ConfigMap",
+        "volumeName": "m2-dir"
+      }
+    }
+  },
+  "secrets": {
+    "gerrit-trigger-plugin": {
+      "username": "genie.codewind",
+      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
+    }
+  }
+}
