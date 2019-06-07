@@ -55,7 +55,7 @@
         ]
       }
     ],
-    "actualVersion": "2.164.1",
+    "actualVersion": "2.164.2",
     "actualRemotingVersion": "3.27"
   },
   "docker": {
@@ -71,13 +71,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "16deca50dbe4220692091c24828f97828b1404e230576f8bc7cc2766e9fb5c79"
+      "imageSha256": "0bf0e905691160645c22e5cb6fcfd1d88df870c7266564118f3f1220cbab0b58"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "latest",
-        "sha256": "34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d"
+        "sha256": "ec6ef6023f9df69aff87d37448270391cc9a169fdd9680393143fbd534388970"
       }
     }
   },
@@ -127,6 +127,12 @@
         "volumeType": "ConfigMap",
         "volumeName": "m2-dir"
       }
+    }
+  },
+  "secrets": {
+    "gerrit-trigger-plugin": {
+      "username": "genie.cdt",
+      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
     }
   }
 }

@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cdt"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S1"
   namespace: "cdt"
@@ -35,7 +35,7 @@ spec:
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
-        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.2"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "cdt"
         org.eclipse.cbi.jiro/project.sponsorshipLevel: "S1"
       name: "cdt"
@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/cdt:latest@sha256:16deca50dbe4220692091c24828f97828b1404e230576f8bc7cc2766e9fb5c79
+        image: eclipsecbijenkins/cdt:latest@sha256:0bf0e905691160645c22e5cb6fcfd1d88df870c7266564118f3f1220cbab0b58
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -83,9 +83,6 @@ spec:
         - mountPath: "/etc/jenkins/"
           name: jenkins-config
           readOnly: true
-        - mountPath: "/run/secrets/jenkins"
-          name: jenkins-secrets
-          readOnly: true
         - mountPath: "/run/secrets/jenkins/ssh"
           name: gerrit-ssh-keys
           readOnly: true
@@ -110,7 +107,7 @@ spec:
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:latest@sha256:34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:latest@sha256:ec6ef6023f9df69aff87d37448270391cc9a169fdd9680393143fbd534388970
               -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
               -Dkubernetes.websocket.ping.interval=30000
           - name: JENKINS_OPTS
@@ -118,8 +115,6 @@ spec:
               --prefix=/cdt
               --webroot=/var/cache/jenkins/war
               --pluginroot=/var/cache/jenkins/plugins
-          - name: SECRETS
-            value: /run/secrets/jenkins
       volumes:
       - name: jenkins-war
         emptyDir: {}
@@ -128,9 +123,6 @@ spec:
       - name: jenkins-config
         configMap:
           name: jenkins-config
-      - name: jenkins-secrets
-        secret:
-          secretName: jenkins-secrets
       - name: gerrit-ssh-keys
         secret:
           secretName: gerrit-ssh-keys

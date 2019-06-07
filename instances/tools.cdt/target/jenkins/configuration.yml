@@ -73,7 +73,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d"
+        - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:ec6ef6023f9df69aff87d37448270391cc9a169fdd9680393143fbd534388970"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -81,10 +81,10 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitCpu: "2375m"
-          resourceRequestCpu: "1250m"
-          resourceLimitMemory: "2560Mi"
-          resourceRequestMemory: "2560Mi"
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
           ttyEnabled: true
           command: ""
           args: ""
@@ -143,10 +143,10 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitCpu: "2375m"
-          resourceRequestCpu: "1250m"
-          resourceLimitMemory: "2560Mi"
-          resourceRequestMemory: "2560Mi"
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
           ttyEnabled: true
           command: ""
           args: ""
@@ -198,7 +198,7 @@ jenkins:
                 - key: toolchains.xml
                   path: toolchains.xml
       - containers:
-        - image: "eclipsecbijenkins/migration-fat-agent:3.27"
+        - image: "eclipsecbijenkins/migration-fat-agent:3.27@sha256:3d4b2d72e1816668dae4f4dee7322e53aa886c8689294487e49fbe7e5639a6d2"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -206,10 +206,10 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitCpu: "2375m"
-          resourceRequestCpu: "1250m"
-          resourceLimitMemory: "2560Mi"
-          resourceRequestMemory: "2560Mi"
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
           ttyEnabled: true
           command: ""
           args: ""
@@ -349,11 +349,18 @@ tool:
   ant:
     installations:
     - name: "apache-ant-latest"
-      home: "/opt/tools/apache-ant/latest"
+      home: ""
+      properties:
+      - installSource:
+          installers:
+          - antFromApache:
+              id: "1.10.5"
   maven:
     installations:
     - name: "apache-maven-latest"
       home: "/opt/tools/apache-maven/latest"
+    - name: "apache-maven-3.6.1"
+      home: "/opt/tools/apache-maven/3.6.1"
     - name: "apache-maven-3.5.4"
       home: "/opt/tools/apache-maven/3.5.4"
     - name: "apache-maven-3.3.9"
