@@ -1,1 +1,1 @@
-document.title = "codewind - " + document.title;
+document.title = "Eclipse Codewind - " + document.title;

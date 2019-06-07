@@ -97,7 +97,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:adf9add05e918b525b0f8296f0be39db0785bfb47e03f18eb3e4336e7b44b5d4"
+            - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:ec6ef6023f9df69aff87d37448270391cc9a169fdd9680393143fbd534388970"
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -292,7 +292,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/codewind
+        url: https://ci.eclipse.org/codewind
     
       mailer:
         adminAddress: ci-admin@eclipse.org

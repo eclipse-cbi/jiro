@@ -21,7 +21,7 @@
   height: 34px;
 }
 .logo:after {
-  content: 'codewind';
+  content: 'Eclipse Codewind';
   font-weight: bold;
   font-size: 20px;
   position: relative;

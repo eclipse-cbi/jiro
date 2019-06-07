@@ -2,7 +2,7 @@
   "project": {
     "shortName": "codewind",
     "fullName": "ecd.codewind",
-    "displayName": "codewind",
+    "displayName": "Eclipse Codewind",
     "sponsorshipLevel": "S0"
   },
   "jenkins": {
@@ -71,20 +71,20 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "4b5422c11a412882dc216faf8b93642480e6c81039139382f1be8dfb5af35821"
+      "imageSha256": "844e3ced3dc8db2a3934751ae76a86da911dd5191272f2c18599cd180a847a44"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "latest",
-        "sha256": "adf9add05e918b525b0f8296f0be39db0785bfb47e03f18eb3e4336e7b44b5d4"
+        "sha256": "ec6ef6023f9df69aff87d37448270391cc9a169fdd9680393143fbd534388970"
       }
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/codewind",
-    "url": "https://ci-staging.eclipse.org/codewind",
+    "url": "https://ci.eclipse.org/codewind",
     "uiPort": 8080,
     "jnlpPort": 50000
   },
