@@ -16,11 +16,11 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "egit"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S1"
   namespace: "egit"
-  name: "jenkins-instance-limit-range" 
+  name: "jenkins-instance-limit-range"
 spec:
   limits:
     - type: "Pod"
@@ -28,18 +28,18 @@ spec:
         cpu: 200m
         memory: 8Mi
       max:
-        cpu: 2375m
-        memory: 4608Mi
+        cpu: 4200m
+        memory: 16640Mi
     - type: "Container"
       min:
         cpu: 100m
         memory: 4Mi
       default:
-        cpu: 375m
-        memory: 512Mi
+        cpu: 200m
+        memory: 256Mi
       defaultRequest:
-        cpu: 250m 
-        memory: 512Mi
+        cpu: 200m
+        memory: 256Mi
       max:
-        cpu: 2375m
-        memory: 4608Mi
+        cpu: 4000m
+        memory: 16384Mi

@@ -3,12 +3,12 @@
     "shortName": "egit",
     "fullName": "technology.egit",
     "displayName": "Eclipse EGit",
-    "sponsorshipLevel": "S0"
+    "sponsorshipLevel": "S1"
   },
   "jenkins": {
     "version": "latest",
     "remotingVersion": "latest",
-    "maxConcurrency": 2,
+    "maxConcurrency": 4,
     "agentConnectionTimeout": "180",
     "permissions": [
       {
@@ -55,7 +55,7 @@
         ]
       }
     ],
-    "actualVersion": "2.164.1",
+    "actualVersion": "2.164.2",
     "actualRemotingVersion": "3.27"
   },
   "docker": {
@@ -71,13 +71,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "9f54a0bb7b1eca0fbe1993dace9b7eeba0a71dfa3ee9afb8136f07a722852136"
+      "imageSha256": "7b1cb3b839ad9456a003987852f15f393aa0e5f07a028c1e422f33ba7a1481c5"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "latest",
-        "sha256": "34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d"
+        "sha256": "b0988972cc41814d7d9299d7c2c69858716c41afb4ba1f6a30448b6da1a0a4a4"
       }
     }
   },
@@ -131,6 +131,12 @@
         "volumeType": "Secret",
         "volumeName": "m2-secret-dir"
       }
+    }
+  },
+  "secrets": {
+    "gerrit-trigger-plugin": {
+      "username": "genie.egit",
+      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
     }
   }
 }

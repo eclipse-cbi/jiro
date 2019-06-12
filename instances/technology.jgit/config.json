@@ -2,7 +2,11 @@
   "project": {
     "fullName": "technology.jgit",
     "shortName": "jgit",
-    "displayName": "Eclipse JGit"
+    "displayName": "Eclipse JGit",
+    "sponsorshipLevel": "S1"
+  },
+  "jenkins": {
+    "maxConcurrency": 4
   },
   "deployment": {
     "host": "ci-staging.eclipse.org"

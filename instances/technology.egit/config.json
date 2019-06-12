@@ -2,7 +2,11 @@
   "project": {
     "fullName": "technology.egit",
     "shortName": "egit",
-    "displayName": "Eclipse EGit"
+    "displayName": "Eclipse EGit",
+    "sponsorshipLevel": "S1"
+  },
+  "jenkins": {
+    "maxConcurrency": 4
   },
   "maven": {
     "home": "/home/jenkins/.m2",

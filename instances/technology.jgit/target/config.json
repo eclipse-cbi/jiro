@@ -3,12 +3,12 @@
     "shortName": "jgit",
     "fullName": "technology.jgit",
     "displayName": "Eclipse JGit",
-    "sponsorshipLevel": "S0"
+    "sponsorshipLevel": "S1"
   },
   "jenkins": {
     "version": "latest",
     "remotingVersion": "latest",
-    "maxConcurrency": 2,
+    "maxConcurrency": 4,
     "agentConnectionTimeout": "180",
     "permissions": [
       {
@@ -71,13 +71,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "9ccc98cd48a888caa8c39209b647bab27818720b6cac7f25160d4b3ab175812d"
+      "imageSha256": "00a42e0fc3ce9ac6253f9b0d658b310d99e19a512fd79d3efe9522cc9fca2cfa"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "latest",
-        "sha256": "ec6ef6023f9df69aff87d37448270391cc9a169fdd9680393143fbd534388970"
+        "sha256": "b0988972cc41814d7d9299d7c2c69858716c41afb4ba1f6a30448b6da1a0a4a4"
       }
     }
   },
