@@ -1,108 +1,75 @@
 # GENERATED FILE - DO NOT EDIT
-#*******************************************************************************
-# Copyright (c) 2018 Eclipse Foundation and others.
-# This program and the accompanying materials are made available
-# under the terms of the Eclipse Public License 2.0
-# which is available at http://www.eclipse.org/legal/epl-v20.html,
-# or the MIT License which is available at https://opensource.org/licenses/MIT.
-# SPDX-License-Identifier: EPL-2.0 OR MIT
-#*******************************************************************************
 jenkins:
-  numExecutors: 0
-  scmCheckoutRetryCount: 2
-  mode: EXCLUSIVE
-  systemMessage: ""
-
-  disableRememberMe: false
   agentProtocols:
-    - "JNLP4-connect"
-    - "Ping"
-
+  - JNLP4-connect
+  - Ping
   authorizationStrategy:
     projectMatrix:
       grantedPermissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Credentials/View:tools.cdt"
-        - "Gerrit/ManualTrigger:tools.cdt"
-        - "Gerrit/Retrigger:tools.cdt"
-        - "Job/Build:tools.cdt"
-        - "Job/Cancel:tools.cdt"
-        - "Job/Configure:tools.cdt"
-        - "Job/Create:tools.cdt"
-        - "Job/Delete:tools.cdt"
-        - "Job/Move:tools.cdt"
-        - "Job/Read:tools.cdt"
-        - "Job/Workspace:tools.cdt"
-        - "Run/Delete:tools.cdt"
-        - "Run/Replay:tools.cdt"
-        - "Run/Update:tools.cdt"
-        - "SCM/Tag:tools.cdt"
-        - "View/Configure:tools.cdt"
-        - "View/Create:tools.cdt"
-        - "View/Delete:tools.cdt"
-        - "View/Read:tools.cdt"
-
-  markupFormatter: rawHtml
-  crumbIssuer:
-    standard:
-       excludeClientIPFromCrumb: false
-  remotingSecurity:
-    enabled: true
-
-  securityRealm:
-    ldap:
-      configurations:
-        - displayNameAttributeName: cn
-          groupSearchBase: ou=group
-          rootDN: dc=eclipse,dc=org
-          server: ldapmaster
-          userSearch: mail={0}
-          mailAddressAttributeName: mail
-
+      - Overall/Administer:admins
+      - Job/Read:anonymous
+      - Overall/Read:anonymous
+      - Job/ExtendedRead:common
+      - Credentials/View:tools.cdt
+      - Gerrit/ManualTrigger:tools.cdt
+      - Gerrit/Retrigger:tools.cdt
+      - Job/Build:tools.cdt
+      - Job/Cancel:tools.cdt
+      - Job/Configure:tools.cdt
+      - Job/Create:tools.cdt
+      - Job/Delete:tools.cdt
+      - Job/Move:tools.cdt
+      - Job/Read:tools.cdt
+      - Job/Workspace:tools.cdt
+      - Run/Delete:tools.cdt
+      - Run/Replay:tools.cdt
+      - Run/Update:tools.cdt
+      - SCM/Tag:tools.cdt
+      - View/Configure:tools.cdt
+      - View/Create:tools.cdt
+      - View/Delete:tools.cdt
+      - View/Read:tools.cdt
   clouds:
   - kubernetes:
-      name: "kubernetes"
       containerCapStr: "4"
-      jenkinsUrl: "http://jenkins-ui.cdt.svc.cluster.local/cdt"
-      jenkinsTunnel: "jenkins-discovery.cdt.svc.cluster.local:50000"
+      jenkinsTunnel: jenkins-discovery.cdt.svc.cluster.local:50000
+      jenkinsUrl: http://jenkins-ui.cdt.svc.cluster.local/cdt
       maxRequestsPerHostStr: "32"
-      namespace: "cdt"
-      podRetention: "never"
+      name: kubernetes
+      namespace: cdt
+      podRetention: never
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:ec6ef6023f9df69aff87d37448270391cc9a169fdd9680393143fbd534388970"
+        - args: ""
+          command: ""
+          image: eclipsecbijenkins/jenkins-agent:latest@sha256:ec6ef6023f9df69aff87d37448270391cc9a169fdd9680393143fbd534388970
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
             periodSeconds: 0
             successThreshold: 0
             timeoutSeconds: 0
-          name: "jnlp"
-          resourceLimitCpu: "2000m"
-          resourceRequestCpu: "1000m"
-          resourceLimitMemory: "4096Mi"
-          resourceRequestMemory: "4096Mi"
+          name: jnlp
+          resourceLimitCpu: 2000m
+          resourceLimitMemory: 4096Mi
+          resourceRequestCpu: 1000m
+          resourceRequestMemory: 4096Mi
           ttyEnabled: true
-          command: ""
-          args: ""
         instanceCap: 5
-        name: "default-agent"
-        namespace: "cdt"
+        name: default-agent
+        namespace: cdt
         nodeUsageMode: NORMAL
         volumes:
         - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-cdt"
-            mountPath: "/opt/tools"
+            claimName: tools-claim-jiro-cdt
+            mountPath: /opt/tools
             readOnly: true
         - configMapVolume:
-            configMapName: "known-hosts"
-            mountPath: "/home/jenkins/.ssh/"
+            configMapName: known-hosts
+            mountPath: /home/jenkins/.ssh/
         - emptyDirVolume:
             memory: false
-            mountPath: "/home/jenkins/.m2/repository"
+            mountPath: /home/jenkins/.m2/repository
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
@@ -135,37 +102,37 @@ jenkins:
                 - key: toolchains.xml
                   path: toolchains.xml
       - containers:
-        - image: "eclipsecbijenkins/ui-test-agent:0.0.1@sha256:bbbd136234e7c669e06b3c96e35c1fa72c3a95c1de4bc7cdf8ff99b60383156c"
+        - args: ""
+          command: ""
+          image: eclipsecbijenkins/ui-test-agent:0.0.1@sha256:bbbd136234e7c669e06b3c96e35c1fa72c3a95c1de4bc7cdf8ff99b60383156c
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
             periodSeconds: 0
             successThreshold: 0
             timeoutSeconds: 0
-          name: "jnlp"
-          resourceLimitCpu: "2000m"
-          resourceRequestCpu: "1000m"
-          resourceLimitMemory: "4096Mi"
-          resourceRequestMemory: "4096Mi"
+          name: jnlp
+          resourceLimitCpu: 2000m
+          resourceLimitMemory: 4096Mi
+          resourceRequestCpu: 1000m
+          resourceRequestMemory: 4096Mi
           ttyEnabled: true
-          command: ""
-          args: ""
         instanceCap: 5
         instanceCapStr: "5"
-        name: "ui-test-agent"
-        namespace: "cdt"
-        label: "ui-test"
+        label: ui-test
+        name: ui-test-agent
+        namespace: cdt
         volumes:
         - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-cdt"
-            mountPath: "/opt/tools"
+            claimName: tools-claim-jiro-cdt
+            mountPath: /opt/tools
             readOnly: true
         - configMapVolume:
-            configMapName: "known-hosts"
-            mountPath: "/home/jenkins/.ssh/"
+            configMapName: known-hosts
+            mountPath: /home/jenkins/.ssh/
         - emptyDirVolume:
             memory: false
-            mountPath: "/home/jenkins/.m2/repository"
+            mountPath: /home/jenkins/.m2/repository
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
@@ -198,37 +165,37 @@ jenkins:
                 - key: toolchains.xml
                   path: toolchains.xml
       - containers:
-        - image: "eclipsecbijenkins/migration-fat-agent:3.27@sha256:3d4b2d72e1816668dae4f4dee7322e53aa886c8689294487e49fbe7e5639a6d2"
+        - args: ""
+          command: ""
+          image: eclipsecbijenkins/migration-fat-agent:3.27@sha256:3d4b2d72e1816668dae4f4dee7322e53aa886c8689294487e49fbe7e5639a6d2
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
             periodSeconds: 0
             successThreshold: 0
             timeoutSeconds: 0
-          name: "jnlp"
-          resourceLimitCpu: "2000m"
-          resourceRequestCpu: "1000m"
-          resourceLimitMemory: "4096Mi"
-          resourceRequestMemory: "4096Mi"
+          name: jnlp
+          resourceLimitCpu: 2000m
+          resourceLimitMemory: 4096Mi
+          resourceRequestCpu: 1000m
+          resourceRequestMemory: 4096Mi
           ttyEnabled: true
-          command: ""
-          args: ""
         instanceCap: 5
         instanceCapStr: "5"
-        name: "migration-agent"
-        namespace: "cdt"
-        label: "migration"
+        label: migration
+        name: migration-agent
+        namespace: cdt
         volumes:
         - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-cdt"
-            mountPath: "/opt/tools"
+            claimName: tools-claim-jiro-cdt
+            mountPath: /opt/tools
             readOnly: true
         - configMapVolume:
-            configMapName: "known-hosts"
-            mountPath: "/home/jenkins/.ssh/"
+            configMapName: known-hosts
+            mountPath: /home/jenkins/.ssh/
         - emptyDirVolume:
             memory: false
-            mountPath: "/home/jenkins/.m2/repository"
+            mountPath: /home/jenkins/.m2/repository
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
@@ -260,114 +227,133 @@ jenkins:
                 items:
                 - key: toolchains.xml
                   path: toolchains.xml
-
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  markupFormatter: rawHtml
+  mode: EXCLUSIVE
+  numExecutors: 0
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 2
+  securityRealm:
+    ldap:
+      configurations:
+      - displayNameAttributeName: cn
+        groupSearchBase: ou=group
+        mailAddressAttributeName: mail
+        rootDN: dc=eclipse,dc=org
+        server: ldapmaster
+        userSearch: mail={0}
+  systemMessage: ""
 security:
   remotingCLI:
     enabled: false
-
-unclassified:
-  location:
-    adminAddress: ci-admin@eclipse.org
-    url: https://ci.eclipse.org/cdt
-
-  mailer:
-    adminAddress: ci-admin@eclipse.org
-    replyToAddress: ci-admin@eclipse.org
-    smtpHost: mail.eclipse.org
-
-  globalDefaultFlowDurabilityLevel:
-    durabilityHint: PERFORMANCE_OPTIMIZED
-
-  simple-theme-plugin:
-    elements:
-    - cssUrl:
-        url: "/cdt/userContent/theme/quicksilver.css"
-    - cssUrl:
-        url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
-    - jsUrl:
-        url: "/cdt/userContent/theme/title.js"
-
 tool:
-  jdk:
-    installations:
-    - name: "openjdk-latest"
-      home: "/opt/tools/java/openjdk/latest"
-    - name: "openjdk-jdk13ea-latest"
-      home: "/opt/tools/java/openjdk/jdk-13ea/latest"
-    - name: "openjdk-jdk12-latest"
-      home: "/opt/tools/java/openjdk/jdk-12/latest"
-    - name: "openjdk-jdk11-latest"
-      home: "/opt/tools/java/openjdk/jdk-11/latest"
-    - name: "openjdk-jdk10-latest"
-      home: "/opt/tools/java/openjdk/jdk-10/latest"
-    - name: "openjdk-jdk9-latest"
-      home: "/opt/tools/java/openjdk/jdk-9/latest"
-    - name: "adoptopenjdk-hotspot-latest"
-      home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
-    - name: "adoptopenjdk-hotspot-jdk12-latest"
-      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest"
-    - name: "adoptopenjdk-hotspot-jdk11-latest"
-      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
-    - name: "adoptopenjdk-hotspot-jdk10-latest"
-      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest"
-    - name: "adoptopenjdk-hotspot-jdk9-latest"
-      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest"
-    - name: "adoptopenjdk-hotspot-jdk8-latest"
-      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
-    - name: "adoptopenjdk-openj9-latest"
-      home: "/opt/tools/java/adoptopenjdk/openj9-latest"
-    - name: "adoptopenjdk-openj9-jdk12-latest"
-      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-12/latest"
-    - name: "adoptopenjdk-openj9-jdk11-latest"
-      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
-    - name: "adoptopenjdk-openj9-jdk10-latest"
-      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-10/latest"
-    - name: "adoptopenjdk-openj9-jdk9-latest"
-      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-9/latest"
-    - name: "adoptopenjdk-openj9-jdk8-latest"
-      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
-    - name: "oracle-latest"
-      home: "/opt/tools/java/oracle/latest"
-    - name: "oracle-jdk10-latest"
-      home: "/opt/tools/java/oracle/jdk-10/latest"
-    - name: "oracle-jdk9-latest"
-      home: "/opt/tools/java/oracle/jdk-9/latest"
-    - name: "oracle-jdk8-latest"
-      home: "/opt/tools/java/oracle/jdk-8/latest"
-    - name: "oracle-jdk7-latest"
-      home: "/opt/tools/java/oracle/jdk-7/latest"
-    - name: "oracle-jdk6-latest"
-      home: "/opt/tools/java/oracle/jdk-6/latest"
-    - name: "oracle-jdk5-latest"
-      home: "/opt/tools/java/oracle/jdk-5/latest"
-    - name: "oracle-jdk1.4-latest"
-      home: "/opt/tools/java/oracle/jdk-1.4/latest"
-    - name: "ibm-jdk8-latest"
-      home: "/opt/tools/java/ibm/jdk-8/latest"
-    - name: "ibm-latest"
-      home: "/opt/tools/java/ibm/latest"
   ant:
     installations:
-    - name: "apache-ant-latest"
-      home: ""
+    - home: ""
+      name: apache-ant-latest
       properties:
       - installSource:
           installers:
           - antFromApache:
-              id: "1.10.5"
-  maven:
-    installations:
-    - name: "apache-maven-latest"
-      home: "/opt/tools/apache-maven/latest"
-    - name: "apache-maven-3.6.1"
-      home: "/opt/tools/apache-maven/3.6.1"
-    - name: "apache-maven-3.5.4"
-      home: "/opt/tools/apache-maven/3.5.4"
-    - name: "apache-maven-3.3.9"
-      home: "/opt/tools/apache-maven/3.3.9"
-    - name: "apache-maven-3.2.5"
-      home: "/opt/tools/apache-maven/3.2.5"
+              id: 1.10.5
   git:
     installations:
-    - name: "git"
-      home: "/usr/bin/git"
+    - home: /usr/bin/git
+      name: git
+  jdk:
+    installations:
+    - home: /opt/tools/java/openjdk/latest
+      name: openjdk-latest
+    - home: /opt/tools/java/openjdk/jdk-13ea/latest
+      name: openjdk-jdk13ea-latest
+    - home: /opt/tools/java/openjdk/jdk-12/latest
+      name: openjdk-jdk12-latest
+    - home: /opt/tools/java/openjdk/jdk-11/latest
+      name: openjdk-jdk11-latest
+    - home: /opt/tools/java/openjdk/jdk-10/latest
+      name: openjdk-jdk10-latest
+    - home: /opt/tools/java/openjdk/jdk-9/latest
+      name: openjdk-jdk9-latest
+    - home: /opt/tools/java/adoptopenjdk/hotspot-latest
+      name: adoptopenjdk-hotspot-latest
+    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest
+      name: adoptopenjdk-hotspot-jdk12-latest
+    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest
+      name: adoptopenjdk-hotspot-jdk11-latest
+    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest
+      name: adoptopenjdk-hotspot-jdk10-latest
+    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest
+      name: adoptopenjdk-hotspot-jdk9-latest
+    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest
+      name: adoptopenjdk-hotspot-jdk8-latest
+    - home: /opt/tools/java/adoptopenjdk/openj9-latest
+      name: adoptopenjdk-openj9-latest
+    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-12/latest
+      name: adoptopenjdk-openj9-jdk12-latest
+    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-11/latest
+      name: adoptopenjdk-openj9-jdk11-latest
+    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-10/latest
+      name: adoptopenjdk-openj9-jdk10-latest
+    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-9/latest
+      name: adoptopenjdk-openj9-jdk9-latest
+    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-8/latest
+      name: adoptopenjdk-openj9-jdk8-latest
+    - home: /opt/tools/java/oracle/latest
+      name: oracle-latest
+    - home: /opt/tools/java/oracle/jdk-10/latest
+      name: oracle-jdk10-latest
+    - home: /opt/tools/java/oracle/jdk-9/latest
+      name: oracle-jdk9-latest
+    - home: /opt/tools/java/oracle/jdk-8/latest
+      name: oracle-jdk8-latest
+    - home: /opt/tools/java/oracle/jdk-7/latest
+      name: oracle-jdk7-latest
+    - home: /opt/tools/java/oracle/jdk-6/latest
+      name: oracle-jdk6-latest
+    - home: /opt/tools/java/oracle/jdk-5/latest
+      name: oracle-jdk5-latest
+    - home: /opt/tools/java/oracle/jdk-1.4/latest
+      name: oracle-jdk1.4-latest
+    - home: /opt/tools/java/ibm/jdk-8/latest
+      name: ibm-jdk8-latest
+    - home: /opt/tools/java/ibm/latest
+      name: ibm-latest
+  maven:
+    installations:
+    - home: /opt/tools/apache-maven/latest
+      name: apache-maven-latest
+    - home: /opt/tools/apache-maven/3.6.1
+      name: apache-maven-3.6.1
+    - home: /opt/tools/apache-maven/3.5.4
+      name: apache-maven-3.5.4
+    - home: /opt/tools/apache-maven/3.3.9
+      name: apache-maven-3.3.9
+    - home: /opt/tools/apache-maven/3.2.5
+      name: apache-maven-3.2.5
+unclassified:
+  globalDefaultFlowDurabilityLevel:
+    durabilityHint: PERFORMANCE_OPTIMIZED
+  location:
+    adminAddress: ci-admin@eclipse.org
+    url: https://ci.eclipse.org/cdt
+  mailer:
+    adminAddress: ci-admin@eclipse.org
+    replyToAddress: ci-admin@eclipse.org
+    smtpHost: mail.eclipse.org
+  simple-theme-plugin:
+    elements:
+    - cssUrl:
+        url: /cdt/userContent/theme/quicksilver.css
+    - cssUrl:
+        url: //fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100
+    - jsUrl:
+        url: /cdt/userContent/theme/title.js
+  throttleJobProperty:
+    categories:
+    - categoryName: low-priority-jobs
+      maxConcurrentPerNode: 0
+      maxConcurrentTotal: 0

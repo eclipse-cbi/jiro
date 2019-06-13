@@ -1,0 +1,6 @@
+unclassified:
+  throttleJobProperty:
+    categories:
+    - categoryName: "low-priority-jobs"
+      maxConcurrentPerNode: 0
+      maxConcurrentTotal: 0
