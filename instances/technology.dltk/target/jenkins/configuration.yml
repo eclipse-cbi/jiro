@@ -73,7 +73,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
+        - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:b0988972cc41814d7d9299d7c2c69858716c41afb4ba1f6a30448b6da1a0a4a4"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -81,10 +81,10 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitCpu: "2375m"
-          resourceRequestCpu: "1250m"
-          resourceLimitMemory: "2560Mi"
-          resourceRequestMemory: "2560Mi"
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
           ttyEnabled: true
           command: ""
           args: ""
@@ -143,10 +143,10 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitCpu: "2375m"
-          resourceRequestCpu: "1250m"
-          resourceLimitMemory: "2560Mi"
-          resourceRequestMemory: "2560Mi"
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
           ttyEnabled: true
           command: ""
           args: ""
@@ -198,7 +198,7 @@ jenkins:
                 - key: toolchains.xml
                   path: toolchains.xml
       - containers:
-        - image: "eclipsecbijenkins/migration-fat-agent:3.27"
+        - image: "eclipsecbijenkins/migration-fat-agent:3.27@sha256:3d4b2d72e1816668dae4f4dee7322e53aa886c8689294487e49fbe7e5639a6d2"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -206,10 +206,10 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitCpu: "2375m"
-          resourceRequestCpu: "1250m"
-          resourceLimitMemory: "2560Mi"
-          resourceRequestMemory: "2560Mi"
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
           ttyEnabled: true
           command: ""
           args: ""
@@ -268,7 +268,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/dltk
+    url: https://ci.eclipse.org/dltk
 
   mailer:
     adminAddress: ci-admin@eclipse.org
@@ -359,6 +359,8 @@ tool:
     installations:
     - name: "apache-maven-latest"
       home: "/opt/tools/apache-maven/latest"
+    - name: "apache-maven-3.6.1"
+      home: "/opt/tools/apache-maven/3.6.1"
     - name: "apache-maven-3.5.4"
       home: "/opt/tools/apache-maven/3.5.4"
     - name: "apache-maven-3.3.9"

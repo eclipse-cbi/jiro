@@ -3,8 +3,5 @@
     "fullName": "technology.dltk",
     "shortName": "dltk",
     "displayName": "Eclipse Dynamic Languages Toolkit"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }
