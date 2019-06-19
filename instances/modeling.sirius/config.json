@@ -3,8 +3,5 @@
     "fullName": "modeling.sirius",
     "shortName": "sirius",
     "displayName": "Eclipse Sirius"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }
