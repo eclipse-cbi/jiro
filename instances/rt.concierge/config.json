@@ -3,8 +3,5 @@
     "fullName": "rt.concierge",
     "shortName": "concierge",
     "displayName": "Eclipse Concierge"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }

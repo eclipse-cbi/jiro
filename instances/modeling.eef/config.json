@@ -3,8 +3,5 @@
     "fullName": "modeling.eef",
     "shortName": "eef",
     "displayName": "Eclipse Extended Editing Framework"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }

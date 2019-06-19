@@ -3,8 +3,5 @@
     "fullName": "modeling.gendoc",
     "shortName": "gendoc",
     "displayName": "Eclipse Gendoc"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }
