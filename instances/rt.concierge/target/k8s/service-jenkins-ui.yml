@@ -12,7 +12,7 @@ kind: "Service"
 metadata:
   labels:
     org.eclipse.cbi.jiro/project.shortname: "concierge"
-    org.eclipse.cbi.jiro/project.fullName: "rt.concierge"
+    org.eclipse.cbi.jiro/project.fullName: "iot.concierge"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
@@ -28,4 +28,4 @@ spec:
     protocol: "TCP"
     targetPort: 8080
   selector:
-    org.eclipse.cbi.jiro/project.fullName: "rt.concierge"
+    org.eclipse.cbi.jiro/project.fullName: "iot.concierge"

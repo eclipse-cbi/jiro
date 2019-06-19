@@ -12,7 +12,7 @@ kind: ConfigMap
 metadata:
   labels:
     org.eclipse.cbi.jiro/project.shortname: "om2m"
-    org.eclipse.cbi.jiro/project.fullName: "tools.om2m"
+    org.eclipse.cbi.jiro/project.fullName: "iot.om2m"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"

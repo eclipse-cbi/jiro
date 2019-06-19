@@ -1,7 +1,7 @@
 {
   "project": {
     "shortName": "om2m",
-    "fullName": "tools.om2m",
+    "fullName": "iot.om2m",
     "displayName": "Eclipse OM2M",
     "sponsorshipLevel": "S0"
   },
@@ -31,7 +31,7 @@
         ]
       },
       {
-        "principal": "tools.om2m",
+        "principal": "iot.om2m",
         "grantedPermissions": [
           "Credentials/View",
           "Gerrit/ManualTrigger",
