@@ -65,7 +65,7 @@ jenkins:
   clouds:
   - kubernetes:
       name: "kubernetes"
-      containerCapStr: "2"
+      containerCapStr: "4"
       jenkinsUrl: "http://jenkins-ui.sirius.svc.cluster.local/sirius"
       jenkinsTunnel: "jenkins-discovery.sirius.svc.cluster.local:50000"
       maxRequestsPerHostStr: "32"

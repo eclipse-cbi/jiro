@@ -3,12 +3,12 @@
     "shortName": "sirius",
     "fullName": "modeling.sirius",
     "displayName": "Eclipse Sirius",
-    "sponsorshipLevel": "S0"
+    "sponsorshipLevel": "S1"
   },
   "jenkins": {
     "version": "latest",
     "remotingVersion": "latest",
-    "maxConcurrency": 2,
+    "maxConcurrency": 4,
     "agentConnectionTimeout": "180",
     "permissions": [
       {
