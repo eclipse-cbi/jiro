@@ -413,6 +413,8 @@ data:
         installations:
         - name: "apache-maven-latest"
           home: "/opt/tools/apache-maven/latest"
+        - name: "apache-maven-3.6.1"
+          home: "/opt/tools/apache-maven/3.6.1"
         - name: "apache-maven-3.5.4"
           home: "/opt/tools/apache-maven/3.5.4"
         - name: "apache-maven-3.3.9"
