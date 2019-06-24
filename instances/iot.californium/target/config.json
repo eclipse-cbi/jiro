@@ -82,9 +82,9 @@
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/californium",
-    "url": "https://ci-staging.eclipse.org/californium",
+    "url": "https://ci.eclipse.org/californium",
     "uiPort": 8080,
     "jnlpPort": 50000
   },

@@ -322,7 +322,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/californium
+        url: https://ci.eclipse.org/californium
     
       mailer:
         adminAddress: ci-admin@eclipse.org

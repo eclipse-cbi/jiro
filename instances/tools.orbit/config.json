@@ -3,8 +3,5 @@
     "fullName": "tools.orbit",
     "shortName": "orbit",
     "displayName": "Eclipse Orbit"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }

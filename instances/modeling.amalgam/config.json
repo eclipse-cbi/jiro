@@ -3,8 +3,5 @@
     "fullName": "modeling.amalgam",
     "shortName": "amalgam",
     "displayName": "Eclipse Amalgamation"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }

@@ -3,8 +3,5 @@
     "fullName": "technology.m2e",
     "shortName": "m2e",
     "displayName": "Eclipse Maven Integration"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }

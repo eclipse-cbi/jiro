@@ -4,9 +4,6 @@
     "shortName": "californium",
     "displayName": "Eclipse Californium"
   },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
-  },
   "maven": {
     "home": "/home/jenkins/.m2",
     "files": {
