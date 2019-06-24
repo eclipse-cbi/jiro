@@ -1,0 +1,32 @@
+# GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: v1
+kind: RoleBinding
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "swtchart"
+    org.eclipse.cbi.jiro/project.fullName: "science.swtchart"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.2"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "swtchart"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+  namespace: "swtchart"
+  name: swtchart
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: jenkins-master-owner
+  namespace: swtchart
+subjects:
+- kind: ServiceAccount
+  name: swtchart
+  namespace: swtchart
