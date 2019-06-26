@@ -59,7 +59,7 @@
   "docker": {
     "repository": "eclipsecbijenkins",
     "master": {
-      "parentImage": "{{docker.repository}}/jenkins-master-base:{{jenkins.version}}",
+      "parentImage": "{{docker.repository}}/jenkins-master-base:{{jenkins.actualVersion}}",
       "image": "{{docker.repository}}/{{project.shortName}}",
       "imageTag": "{{jenkins.version}}"
     },
