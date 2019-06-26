@@ -6,7 +6,7 @@
 # or the MIT License which is available at https://opensource.org/licenses/MIT.
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
-FROM eclipsecbijenkins/openshift-java:jdk8u202-b08-openj9
+FROM eclipsecbijenkins/openshift-java:jdk8u212-b04_openj9-0.14.2
 
 ARG JENKINS_HOME
 ENV JENKINS_HOME="${JENKINS_HOME}"
