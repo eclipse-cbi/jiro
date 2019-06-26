@@ -2,6 +2,10 @@
   "project": {
     "fullName": "ecd.codewind",
     "shortName": "codewind",
-    "displayName": "Eclipse Codewind"
+    "displayName": "Eclipse Codewind",
+    "sponsorshipLevel": "S1"
+  },
+  "jenkins": {
+    "maxConcurrency": 4
   }
 }
