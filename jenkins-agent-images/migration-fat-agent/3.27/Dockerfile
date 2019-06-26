@@ -118,6 +118,9 @@ RUN mkdir -p ${HOME}/.vnc && chmod -R 775 ${HOME} \
 COPY scripts/xstartup_mutter.sh ${HOME}/.vnc/xstartup.sh
 RUN chmod 755 ${HOME}/.vnc/xstartup.sh
 
+# explicitly set locale
+ENV LANG=en_US.UTF-8
+
 ENV JENKINS_AGENT_WORKDIR=${HOME}/agent
 ENV JAVA_OPTS=""
 ENV JNLP_PROTOCOL_OPTS="-XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true"
