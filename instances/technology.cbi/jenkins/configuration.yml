@@ -2,7 +2,7 @@ jenkins:
   nodes:
   - permanent:
       launcher:
-        sSHLauncher:
+        ssh:
           credentialsId: "78cd25b2-cbb1-4a7f-8888-5f742271148e"
           host: "centslave1.eclipse.org"
           javaPath: "/shared/common/jdk1.8.0_x64-latest/bin/java"
@@ -23,7 +23,7 @@ jenkins:
       remoteFS: "/opt/public/hipp/homes/genie.cbi/centslave1"
   - permanent:
       launcher:
-        sSHLauncher:
+        ssh:
           credentialsId: "78cd25b2-cbb1-4a7f-8888-5f742271148e"
           host: "mac-tests2"
           sshHostKeyVerificationStrategy:
@@ -48,7 +48,7 @@ jenkins:
   - permanent:
       labelString: "docker-build"
       launcher:
-        sSHLauncher:
+        ssh:
           credentialsId: "cfaf31c8-22ea-487d-9d6d-b7dd77b624f5"
           host: "13.77.107.72"
           jvmOptions: "-Xmx256m -Xms256m"
