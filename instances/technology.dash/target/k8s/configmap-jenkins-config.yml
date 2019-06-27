@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "technology.dash"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.164.1"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
+    org.eclipse.cbi.jiro/jenkins.version: "2.176.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "dash"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "dash"
@@ -44,7 +44,7 @@ data:
     
       authorizationStrategy:
         projectMatrix:
-          grantedPermissions:
+          permissions:
             - "Overall/Administer:admins"
             - "Overall/Read:anonymous"
             - "Job/ExtendedRead:common"
@@ -97,7 +97,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d"
+            - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:4e0c7e8a1f9a2fc5c1572190530c7b74135161267a55d8d7cd0a3f86db3331a6"
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -105,10 +105,10 @@ data:
                 successThreshold: 0
                 timeoutSeconds: 0
               name: "jnlp"
-              resourceLimitCpu: "2375m"
-              resourceRequestCpu: "1250m"
-              resourceLimitMemory: "2560Mi"
-              resourceRequestMemory: "2560Mi"
+              resourceLimitCpu: "2000m"
+              resourceRequestCpu: "1000m"
+              resourceLimitMemory: "4096Mi"
+              resourceRequestMemory: "4096Mi"
               ttyEnabled: true
               command: ""
               args: ""
@@ -159,7 +159,7 @@ data:
                     - key: toolchains.xml
                       path: toolchains.xml
           - containers:
-            - image: "eclipsecbijenkins/ui-test-agent:0.0.1@sha256:bbbd136234e7c669e06b3c96e35c1fa72c3a95c1de4bc7cdf8ff99b60383156c"
+            - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:7922ce62d8a0f0c95f891a5498af826ecba518ee3ad8f79729356bdee971542f"
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -167,10 +167,10 @@ data:
                 successThreshold: 0
                 timeoutSeconds: 0
               name: "jnlp"
-              resourceLimitCpu: "2375m"
-              resourceRequestCpu: "1250m"
-              resourceLimitMemory: "2560Mi"
-              resourceRequestMemory: "2560Mi"
+              resourceLimitCpu: "2000m"
+              resourceRequestCpu: "1000m"
+              resourceLimitMemory: "4096Mi"
+              resourceRequestMemory: "4096Mi"
               ttyEnabled: true
               command: ""
               args: ""
@@ -222,7 +222,7 @@ data:
                     - key: toolchains.xml
                       path: toolchains.xml
           - containers:
-            - image: "eclipsecbijenkins/migration-fat-agent:3.27"
+            - image: "eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f"
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -230,10 +230,10 @@ data:
                 successThreshold: 0
                 timeoutSeconds: 0
               name: "jnlp"
-              resourceLimitCpu: "2375m"
-              resourceRequestCpu: "1250m"
-              resourceLimitMemory: "2560Mi"
-              resourceRequestMemory: "2560Mi"
+              resourceLimitCpu: "2000m"
+              resourceRequestCpu: "1000m"
+              resourceLimitMemory: "4096Mi"
+              resourceRequestMemory: "4096Mi"
               ttyEnabled: true
               command: ""
               args: ""
@@ -284,10 +284,6 @@ data:
                     items:
                     - key: toolchains.xml
                       path: toolchains.xml
-    
-    security:
-      remotingCLI:
-        enabled: false
     
     unclassified:
       location:
@@ -373,11 +369,18 @@ data:
       ant:
         installations:
         - name: "apache-ant-latest"
-          home: "/opt/tools/apache-ant/latest"
+          home: ""
+          properties:
+          - installSource:
+              installers:
+              - antFromApache:
+                  id: "1.10.5"
       maven:
         installations:
         - name: "apache-maven-latest"
           home: "/opt/tools/apache-maven/latest"
+        - name: "apache-maven-3.6.1"
+          home: "/opt/tools/apache-maven/3.6.1"
         - name: "apache-maven-3.5.4"
           home: "/opt/tools/apache-maven/3.5.4"
         - name: "apache-maven-3.3.9"
