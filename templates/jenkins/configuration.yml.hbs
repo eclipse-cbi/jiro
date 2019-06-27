@@ -319,6 +319,20 @@ jenkins:
                   path: {{@key}}
             {{/each}}
 
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  downloadSettings:
+    useBrowser: false
+  queueItemAuthenticator:
+    authenticators:
+    - global:
+        strategy: "triggeringUsersAuthorizationStrategy"
+  sSHD:
+    port: -1
+
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org

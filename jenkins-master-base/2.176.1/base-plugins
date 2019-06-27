@@ -1,6 +1,7 @@
 analysis-core
 ant
 antisamy-markup-formatter
+authorize-project
 bouncycastle-api
 build-timeout
 cloudbees-folder
