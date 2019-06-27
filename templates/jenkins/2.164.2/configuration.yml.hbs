@@ -139,7 +139,7 @@ jenkins:
                   path: {{@key}}
             {{/each}}
       - containers:
-        - image: "eclipsecbijenkins/ui-test-agent:0.0.1@sha256:bbbd136234e7c669e06b3c96e35c1fa72c3a95c1de4bc7cdf8ff99b60383156c"
+        - image: "eclipsecbijenkins/ui-test-agent:3.27@sha256:be27a6df7a639251055d4649872ceadbf5df340f7f2df498ebd485f7b471047c"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -229,7 +229,7 @@ jenkins:
                   path: {{@key}}
             {{/each}}
       - containers:
-        - image: "eclipsecbijenkins/migration-fat-agent:3.27@sha256:3d4b2d72e1816668dae4f4dee7322e53aa886c8689294487e49fbe7e5639a6d2"
+        - image: "eclipsecbijenkins/migration-fat-agent:3.27@sha256:58f143ad6fdee4c949abbf411e315be76f971cd0359e230a7ae129c4ee3b65f9"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
