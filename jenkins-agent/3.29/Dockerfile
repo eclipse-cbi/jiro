@@ -9,11 +9,10 @@
 FROM eclipsecbijenkins/openshift-java:jdk8u212-b04_openj9-0.14.2
 
 # https://github.com/jenkinsci/remoting/blob/master/CHANGELOG.md 
-# 3.25 => Release date: July 31, 2018 => Weekly 2.138 / LTS 2.121.3
-ARG REMOTING_VERSION=3.27
+ARG REMOTING_VERSION=3.29
 
 # https://github.com/jenkinsci/docker-jnlp-slave/
-ARG JNLP_AGENT_SCRIPT_VERSION=3.27-1
+ARG JNLP_AGENT_SCRIPT_VERSION=3.29-1
 
 RUN curl --create-dirs -sSLo /usr/share/jenkins/slave.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${REMOTING_VERSION}/remoting-${REMOTING_VERSION}.jar \
   && chmod 755 /usr/share/jenkins \
