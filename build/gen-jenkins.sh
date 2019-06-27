@@ -37,8 +37,14 @@ if [[ -f "${instance}/jenkins/plugins-list" ]]; then
   cat "${instance}/jenkins/plugins-list" >> "${target}/plugins-list"
 fi
 
+jenkinsTemplateFolder="${SCRIPT_FOLDER}/../templates/jenkins"
+jenkinsActualVersion="$(jq -r '.jenkins.actualVersion' "${instance}/target/config.json")"
+if [[ -d "${jenkinsTemplateFolder}/${jenkinsActualVersion}" ]]; then
+  jenkinsTemplateFolder="${SCRIPT_FOLDER}/../templates/jenkins/${jenkinsActualVersion}"
+fi
+
 echo "/* GENERATED FILE - DO NOT EDIT */" > "${target}/quicksilver.css.override"
-hbs -s -D "${instance}/config.json" "${SCRIPT_FOLDER}/../templates/jenkins/quicksilver.css.hbs" >> "${target}/quicksilver.css.override"
+hbs -s -D "${instance}/config.json" "${jenkinsTemplateFolder}/quicksilver.css.hbs" >> "${target}/quicksilver.css.override"
 
 displayName="$(jq -r '.project.displayName' "${instance}/target/config.json")"
 cat <<EOF > ${target}/title.js
@@ -48,4 +54,4 @@ EOF
 mkdir -p "${target}/partials"
 ${SCRIPT_FOLDER}/gen-permissions.sh "${instance}/target/config.json" > "${target}/partials/permissions.hbs"
 
-${SCRIPT_FOLDER}/gen-yaml.sh "${instance}/jenkins/configuration.yml" "${SCRIPT_FOLDER}/../templates/jenkins/configuration.yml.hbs" "${instance}/target/config.json" "${target}/partials" > "${target}/configuration.yml"
+${SCRIPT_FOLDER}/gen-yaml.sh "${instance}/jenkins/configuration.yml" "${jenkinsTemplateFolder}/configuration.yml.hbs" "${instance}/target/config.json" "${target}/partials" > "${target}/configuration.yml"
