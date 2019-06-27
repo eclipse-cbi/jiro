@@ -49,6 +49,7 @@ data:
             - "Overall/Read:anonymous"
             - "Job/ExtendedRead:common"
             - "Job/Read:common"
+            - "Agent/Build:technology.dash"
             - "Credentials/View:technology.dash"
             - "Gerrit/ManualTrigger:technology.dash"
             - "Gerrit/Retrigger:technology.dash"
@@ -284,6 +285,20 @@ data:
                     items:
                     - key: toolchains.xml
                       path: toolchains.xml
+    
+    security:
+      apiToken:
+        creationOfLegacyTokenEnabled: false
+        tokenGenerationOnCreationEnabled: false
+        usageStatisticsEnabled: true
+      downloadSettings:
+        useBrowser: false
+      queueItemAuthenticator:
+        authenticators:
+        - global:
+            strategy: "triggeringUsersAuthorizationStrategy"
+      sSHD:
+        port: -1
     
     unclassified:
       location:

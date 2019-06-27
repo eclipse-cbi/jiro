@@ -44,6 +44,7 @@
           "Job/Move",
           "Job/Read",
           "Job/Workspace",
+          "Agent/Build",
           "Run/Delete",
           "Run/Replay",
           "Run/Update",
