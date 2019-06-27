@@ -34,6 +34,7 @@ data:
           - Job/Read:anonymous
           - Overall/Read:anonymous
           - Job/ExtendedRead:common
+          - Agent/Build:technology.cbi
           - Credentials/View:technology.cbi
           - Gerrit/ManualTrigger:technology.cbi
           - Gerrit/Retrigger:technology.cbi
@@ -361,6 +362,19 @@ data:
             server: ldapmaster
             userSearch: mail={0}
       systemMessage: ""
+    security:
+      apiToken:
+        creationOfLegacyTokenEnabled: false
+        tokenGenerationOnCreationEnabled: false
+        usageStatisticsEnabled: true
+      downloadSettings:
+        useBrowser: false
+      queueItemAuthenticator:
+        authenticators:
+        - global:
+            strategy: triggeringUsersAuthorizationStrategy
+      sSHD:
+        port: -1
     tool:
       ant:
         installations:
