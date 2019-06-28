@@ -3,5 +3,25 @@
     "fullName": "tools.ptp",
     "shortName": "ptp",
     "displayName": "Eclipse PTP"
+  },
+  "jenkins": {
+    "version": "2.176.1"
+  },
+  "maven": {
+    "home": "/home/jenkins/.m2",
+    "files": {
+      "settings.xml": {
+        "volumeType": "Secret",
+        "volumeName": "m2-secret-dir"
+      },
+      "settings-security.xml": {
+        "volumeType": "Secret",
+        "volumeName": "m2-secret-dir"
+      },
+      "toolchains.xml": {
+        "volumeType": "ConfigMap",
+        "volumeName": "m2-dir"
+      }
+    }
   }
 }
