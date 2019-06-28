@@ -34,7 +34,7 @@ n=0
 while ! diff "${previous}" "${new}" > /dev/null && [[ $n -lt 100 ]]; do
   cp "${new}" "${previous}"
   hbs -s -D "${previous}" "${previous}" > "${new}"
-  let n++ || :
+  n=$((n+1))
 done
 
 if diff "${previous}" "${new}" > /dev/null; then

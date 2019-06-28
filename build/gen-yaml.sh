@@ -14,7 +14,6 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
 
 yml_source="${1:-}"
 template="${2:-}"
@@ -41,10 +40,10 @@ expand_templated_yaml() {
   local template_dirname="${2}"
   local config="${3}"
   local partials="${4:-}"
-  if [[ ! -z "${partials}" ]]; then
-    hbs -s -D "${config}" -H ${template_dirname}'/helpers/*.js' -P ${template_dirname}'/partials/*.hbs' -P "${partials}"'/*.hbs' "${yml_source}"
+  if [[ -n "${partials}" ]]; then
+    hbs -s -D "${config}" -H "${template_dirname}"'/helpers/*.js' -P "${template_dirname}"'/partials/*.hbs' -P "${partials}"'/*.hbs' "${yml_source}"
   else
-    hbs -s -D "${config}" -H ${template_dirname}'/helpers/*.js' -P ${template_dirname}'/partials/*.hbs' "${yml_source}"
+    hbs -s -D "${config}" -H "${template_dirname}"'/helpers/*.js' -P "${template_dirname}"'/partials/*.hbs' "${yml_source}"
   fi
 }
 
@@ -52,9 +51,9 @@ tmp=$(mktemp)
 
 if [[ -f "${yml_source}" ]]; then
   expanded_src=$(mktemp)
-  expand_templated_yaml "${yml_source}" $(dirname "${template}") "${config}" "${partials}" > "${expanded_src}"
+  expand_templated_yaml "${yml_source}" "$(dirname "${template}")" "${config}" "${partials}" > "${expanded_src}"
   expanded_tpl=$(mktemp)
-  expand_templated_yaml "${template}" $(dirname "${template}") "${config}" "${partials}" > "${expanded_tpl}"
+  expand_templated_yaml "${template}" "$(dirname "${template}")" "${config}" "${partials}" > "${expanded_tpl}"
   yq m -a "${expanded_src}" "${expanded_tpl}" > "${tmp}"
   rm "${expanded_src}" "${expanded_tpl}"
 elif [[ -f "${yml_source}.override" ]]; then
@@ -64,6 +63,6 @@ else
 fi
 
 echo "# GENERATED FILE - DO NOT EDIT"
-expand_templated_yaml "${tmp}" "$(dirname ${template})" "${config}" "${partials}"
+expand_templated_yaml "${tmp}" "$(dirname "${template}")" "${config}" "${partials}"
 
 rm "${tmp}"

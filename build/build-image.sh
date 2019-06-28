@@ -13,7 +13,7 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
 
 instance="${1:-}"
 
@@ -29,14 +29,14 @@ fi
 
 config="${instance}/target/config.json"
 
-${SCRIPT_FOLDER}/gen-jenkins.sh "${instance}"
-${SCRIPT_FOLDER}/gen-dockerfile.sh "${instance}"
+"${SCRIPT_FOLDER}/gen-jenkins.sh" "${instance}"
+"${SCRIPT_FOLDER}/gen-dockerfile.sh" "${instance}"
 
 masterImage="$(jq -r '.docker.master.image' "${config}")"
 masterImageTag="$(jq -r '.docker.master.imageTag' "${config}")"
 
-${SCRIPT_FOLDER}/dockerw build "${masterImage}" "${masterImageTag}" "${instance}/target/Dockerfile"
+"${SCRIPT_FOLDER}/dockerw" build "${masterImage}" "${masterImageTag}" "${instance}/target/Dockerfile"
 
 if [[ "${masterImageTag}" != "latest" ]]; then
-  ${SCRIPT_FOLDER}/dockerw tag_alias "${masterImage}" "${masterImageTag}" "latest"
+  "${SCRIPT_FOLDER}/dockerw" tag_alias "${masterImage}" "${masterImageTag}" "latest"
 fi

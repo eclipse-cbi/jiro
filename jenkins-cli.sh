@@ -14,7 +14,7 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
 
 instance="${1:-}"
 
@@ -24,8 +24,8 @@ if [ -z "${instance}" ]; then
 fi
 
 if [[ ${instance} == "ALL" ]]; then
-  for i in ${SCRIPT_FOLDER}/instances/*; do 
-    >&2 echo "Calling CLI for '$(basename ${i})'..."
+  for i in "${SCRIPT_FOLDER}/instances/"*; do 
+    >&2 echo "Calling CLI for '$(basename "${i}")'..."
     "${0}" "${i}" "${@:2}" || :
   done
   exit 0
@@ -40,15 +40,15 @@ jenkinsVersion="$(jq -r '.jenkins.actualVersion' "${instance}/target/config.json
 # First download the jar for the running version (if needed)
 CLI_JAR="${SCRIPT_FOLDER}/jenkins-master-base/${jenkinsVersion}/cli.jar"
 if [[ ! -f ${CLI_JAR} ]]; then
-  curl -sfSL ${jenkinsUrl}/jnlpJars/jenkins-cli.jar -o ${CLI_JAR}
+  curl -sfSL "${jenkinsUrl}/jnlpJars/jenkins-cli.jar" -o "${CLI_JAR}"
 fi
 
 if [[ ! -f ${SCRIPT_FOLDER}/.jenkinscreds ]]; then
   echo ".jenkinscreds file is missing. Please enter your credentials, so it can be generated:"
-  read -p "Username: " username
-  read -sp "Password: " pw
-  echo "${username}:${pw}" > ${SCRIPT_FOLDER}/.jenkinscreds
+  read -rp "Username: " username
+  read -rsp "Password: " pw
+  echo "${username}:${pw}" > "${SCRIPT_FOLDER}/.jenkinscreds"
   echo ""
 fi
-java -jar ${CLI_JAR} -noKeyAuth -auth @${SCRIPT_FOLDER}/.jenkinscreds -s ${jenkinsUrl} ${@:2}
+java -jar "${CLI_JAR}" -noKeyAuth -auth @"${SCRIPT_FOLDER}/.jenkinscreds" -s "${jenkinsUrl}" "${@:2}"
 

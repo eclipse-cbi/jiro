@@ -15,7 +15,7 @@ set -o pipefail
 
 IFS=$'\n\t'
 
-SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
 templates="${SCRIPT_FOLDER}/../templates"
 
 instance="${1:-}"
@@ -38,7 +38,7 @@ mkdir -p "${target}"
 gen_resource() {
   local r="${1}"
   local t="${2:-"${r}"}"
-  ${SCRIPT_FOLDER}/gen-yaml.sh "${instance}/k8s/${r}.yml" "${templates}/k8s/${r}.yml.hbs" "${config}" > "${target}/${t}.yml"
+  "${SCRIPT_FOLDER}/gen-yaml.sh" "${instance}/k8s/${r}.yml" "${templates}/k8s/${r}.yml.hbs" "${config}" > "${target}/${t}.yml"
 }
 
 gen_resource "namespace"
@@ -55,7 +55,7 @@ gen_resource "m2-dir"
 
 ## Jenkins CaC config map filling
 echo "# GENERATED FILE - DO NOT EDIT" >> "${target}/configmap-jenkins-config.yml"
-hbs -s -D "${config}" -P ${templates}'/k8s/partials/*.hbs' -P ${instance}'/target/jenkins/*.yml' "${templates}/k8s/configmap-jenkins-config.yml.hbs" > "${target}/configmap-jenkins-config.yml"
+hbs -s -D "${config}" -P "${templates}"'/k8s/partials/*.hbs' -P "${instance}"'/target/jenkins/*.yml' "${templates}/k8s/configmap-jenkins-config.yml.hbs" > "${target}/configmap-jenkins-config.yml"
 
 sponsorshipLevel="$(jq -r '.project.sponsorshipLevel' "${config}")"
 gen_resource "limit-range-${sponsorshipLevel}" "limit-range"

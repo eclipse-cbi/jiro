@@ -14,7 +14,7 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
 
 instance="${1:-}"
 backup="${2:-}"
@@ -30,8 +30,8 @@ if [[ -z "${backup}" ]]; then
 fi
 
 if [[ ${instance} == "ALL" ]]; then
-  for i in ${SCRIPT_FOLDER}/instances/*; do 
-    >&2 echo "Backuping instance '$(basename ${i})'..."
+  for i in "${SCRIPT_FOLDER}/instances/"*; do 
+    >&2 echo "Backuping instance '$(basename "${i}")'..."
     "${0}" "${i}" "${backup}" || :
   done
   exit 0
@@ -47,18 +47,18 @@ mkdir -p "${instanceBackup}/jobs"
 mkdir -p "${instanceBackup}/views"
 
 
-for job in $(${SCRIPT_FOLDER}/jenkins-cli.sh "${instance}" list-jobs); do 
+for job in $("${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" list-jobs); do 
   >&2 echo "Backuping job '${job}'..."
-  ${SCRIPT_FOLDER}/jenkins-cli.sh "${instance}" get-job "${job}" > "${instanceBackup}/jobs/${job}.xml"
+  "${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" get-job "${job}" > "${instanceBackup}/jobs/${job}.xml"
 done
 
-for view in $(${SCRIPT_FOLDER}/jenkins-cli.sh "${instance}" groovy = < "${SCRIPT_FOLDER}/groovy/cli/list-views.groovy"); do 
+for view in $("${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" groovy = < "${SCRIPT_FOLDER}/groovy/cli/list-views.groovy"); do 
   >&2 echo "Backuping view '${view}'..."
-  ${SCRIPT_FOLDER}/jenkins-cli.sh "${instance}" get-view "${view}" > "${instanceBackup}/views/${view}.xml"
+  "${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" get-view "${view}" > "${instanceBackup}/views/${view}.xml"
 done
 
 >&2 echo "Backuping credentials..."
-${SCRIPT_FOLDER}/jenkins-cli.sh "${instance}" list-credentials-as-xml > "${instanceBackup}/credentials.xml" "system::system::jenkins"
+"${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" list-credentials-as-xml > "${instanceBackup}/credentials.xml" "system::system::jenkins"
 
 >&2 echo "Backuping plugins list..."
-${SCRIPT_FOLDER}/jenkins-cli.sh "${instance}" list-plugins > "${instanceBackup}/plugins"
+"${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" list-plugins > "${instanceBackup}/plugins"

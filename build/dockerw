@@ -20,10 +20,10 @@ push() {
   local tag="${2}"
   local retry="${3:-5}"
   n=0
-  until [ $n -ge ${retry} ]; do
+  until [[ ${n} -ge "${retry}" ]]; do
     docker push "${image}:${tag}" && break
     echo "Try #$n failed ($image:$tag)... sleeping for 15 seconds"
-    n=$[$n+1]
+    n=$((n+1))
     sleep 15
   done
 }
@@ -50,13 +50,15 @@ build_all() {
   local repo="${1}"
   local from="${2}"
   local image="${3:-}"
-  mapfile -t dockerfiles < <(find -L ${from} -iname '*Dockerfile' | sed 's|\./||' | sort -V)
-  for dockerfile in ${dockerfiles[@]}; do
-    local build_dir=$(dirname "$dockerfile")
+  mapfile -t dockerfiles < <(find -L "${from}" -iname '*Dockerfile' | sed 's|\./||' | sort -V)
+  for dockerfile in "${dockerfiles[@]}"; do
+    # Declare and assign separately https://github.com/koalaman/shellcheck/wiki/SC2155
+    local build_dir
+    build_dir=$(dirname "$dockerfile")
     local tag=${build_dir##*\/}
-    : "${image:=$(basename ${from})}"
+    : "${image:=$(basename "${from}")}"
 
-    if [[ -z "${tag:-}" ]] || [[ "$tag" == "$(basename ${from})" ]]; then
+    if [[ -z "${tag:-}" ]] || [[ "$tag" == "$(basename "${from}")" ]]; then
       tag="latest"
     fi
 
@@ -72,13 +74,15 @@ push_all() {
   local repo="${1}"
   local from="${2}"
   local image="${3:-}"
-  mapfile -t dockerfiles < <(find -L ${from} -iname '*Dockerfile' | sed 's|\./||' | sort -V)
-  for dockerfile in ${dockerfiles[@]}; do
-    local build_dir=$(dirname "$dockerfile")
+  mapfile -t dockerfiles < <(find -L "${from}" -iname '*Dockerfile' | sed 's|\./||' | sort -V)
+  for dockerfile in "${dockerfiles[@]}"; do
+    # Declare and assign separately https://github.com/koalaman/shellcheck/wiki/SC2155
+    local build_dir
+    build_dir=$(dirname "$dockerfile")
     local tag="${build_dir##*\/}"
-    : "${image:=$(basename ${from})}"
+    : "${image:=$(basename "${from}")}"
 
-    if [[ -z "${tag:-}" ]] || [[ "$tag" == "$(basename ${from})" ]]; then
+    if [[ -z "${tag:-}" ]] || [[ "$tag" == "$(basename "${from}")" ]]; then
       tag=latest
     fi
 
@@ -105,8 +109,8 @@ clean() {
 
 rmi_all() {
   local r="${1}"
-  if [[ $(docker image list ${r} | wc -l) -gt 1 ]]; then
-    docker image list ${r} | tr -s ' ' | tail -n +2 | cut -d ' ' -f 3 | sort -u | xargs docker image rm -f
+  if [[ $(docker image list "${r}" | wc -l) -gt 1 ]]; then
+    docker image list "${r}" | tr -s ' ' | tail -n +2 | cut -d ' ' -f 3 | sort -u | xargs docker image rm -f
   fi
 }
 

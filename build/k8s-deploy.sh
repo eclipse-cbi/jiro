@@ -16,7 +16,7 @@ set -o pipefail
 IFS=$'\n\t'
 
 instance="${1:-}"
-SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
 
 if [ -z "${instance}" ]; then
   echo "ERROR: you must provide an 'instance' name argument"
@@ -31,14 +31,14 @@ fi
 namespace="$(jq -r '.kubernetes.master.namespace' "${instance}/target/config.json")"
 projectShortName="$(jq -r '.project.shortName' "${instance}/target/config.json")"
 
-oc apply -f ${instance}/target/k8s/namespace.yml
+oc apply -f "${instance}/target/k8s/namespace.yml"
 
-if oc get configmap -n ${namespace} jenkins-config &> /dev/null; then
-  previousConfigMapVersion="$(oc get configmap -n ${namespace} jenkins-config -o json | jq -r '.metadata.resourceVersion')"
+if oc get configmap -n "${namespace}" jenkins-config &> /dev/null; then
+  previousConfigMapVersion="$(oc get configmap -n "${namespace}" jenkins-config -o json | jq -r '.metadata.resourceVersion')"
 fi
-oc apply -f ${instance}/target/k8s/configmap-jenkins-config.yml
-if [[ ! -z "${previousConfigMapVersion:-}" ]]; then
-  newConfigMapVersion="$(oc get configmap -n ${namespace} jenkins-config -o json | jq -r '.metadata.resourceVersion')"
+oc apply -f "${instance}/target/k8s/configmap-jenkins-config.yml"
+if [[ -n "${previousConfigMapVersion:-}" ]]; then
+  newConfigMapVersion="$(oc get configmap -n "${namespace}" jenkins-config -o json | jq -r '.metadata.resourceVersion')"
   if [[ "${previousConfigMapVersion}" != "${newConfigMapVersion}" ]]; then
     remoteConfig=$(mktemp)
     oc rsh -n "${namespace}" "${projectShortName}-0" cat "/etc/jenkins/jenkins.yaml" > "${remoteConfig}"
@@ -50,21 +50,21 @@ if [[ ! -z "${previousConfigMapVersion:-}" ]]; then
       oc rsh -n "${namespace}" "${projectShortName}-0" cat "/etc/jenkins/jenkins.yaml" > "${remoteConfig}"
     done
     echo -e "\nReloading Jenkins CasC file..."
-    ${SCRIPT_FOLDER}/../jenkins-cli.sh "${instance}" "reload-jcasc-configuration" || :
+    "${SCRIPT_FOLDER}/../jenkins-cli.sh" "${instance}" "reload-jcasc-configuration" || :
     rm "${remoteConfig}"
   fi
 fi
 
-oc apply -f ${instance}/target/k8s/role.yml
-oc apply -f ${instance}/target/k8s/service-account.yml
-oc apply -f ${instance}/target/k8s/limit-range.yml
-oc apply -f ${instance}/target/k8s/resource-quotas.yml
-oc apply -f ${instance}/target/k8s/role-binding.yml
-oc apply -f ${instance}/target/k8s/service-jenkins-ui.yml
-oc apply -f ${instance}/target/k8s/service-jenkins-discovery.yml
-oc apply -f ${instance}/target/k8s/route.yml
-oc apply -f ${instance}/target/k8s/tools-pv.yml
-oc apply -f ${instance}/target/k8s/known-hosts.yml
-oc apply -f ${instance}/target/k8s/m2-dir.yml
+oc apply -f "${instance}/target/k8s/role.yml"
+oc apply -f "${instance}/target/k8s/service-account.yml"
+oc apply -f "${instance}/target/k8s/limit-range.yml"
+oc apply -f "${instance}/target/k8s/resource-quotas.yml"
+oc apply -f "${instance}/target/k8s/role-binding.yml"
+oc apply -f "${instance}/target/k8s/service-jenkins-ui.yml"
+oc apply -f "${instance}/target/k8s/service-jenkins-discovery.yml"
+oc apply -f "${instance}/target/k8s/route.yml"
+oc apply -f "${instance}/target/k8s/tools-pv.yml"
+oc apply -f "${instance}/target/k8s/known-hosts.yml"
+oc apply -f "${instance}/target/k8s/m2-dir.yml"
 
-oc apply -f ${instance}/target/k8s/statefulset.yml
+oc apply -f "${instance}/target/k8s/statefulset.yml"

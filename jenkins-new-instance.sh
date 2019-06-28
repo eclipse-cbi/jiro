@@ -14,8 +14,8 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-script_name="$(basename ${0})"
-SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
+script_name="$(basename "${0}")"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
 
 project_name="${1:-}"
 display_name="${2:-}"
@@ -49,13 +49,15 @@ if [[ "$project_name" != *.* ]]; then
 fi
 
 mkdir -p "${SCRIPT_FOLDER}/instances/${project_name}"
->  "${SCRIPT_FOLDER}/instances/${project_name}/config.json" printf '{\n'
->> "${SCRIPT_FOLDER}/instances/${project_name}/config.json" printf '  "project": {\n'
->> "${SCRIPT_FOLDER}/instances/${project_name}/config.json" printf '    "fullName": "%s",\n' $project_name
->> "${SCRIPT_FOLDER}/instances/${project_name}/config.json" printf '    "shortName": "%s",\n' $short_name
->> "${SCRIPT_FOLDER}/instances/${project_name}/config.json" printf '    "displayName": "%s"\n' $display_name
->> "${SCRIPT_FOLDER}/instances/${project_name}/config.json" printf '  },\n'
->> "${SCRIPT_FOLDER}/instances/${project_name}/config.json" printf '  "deployment": {\n'
->> "${SCRIPT_FOLDER}/instances/${project_name}/config.json" printf '    "host": "ci-staging.eclipse.org"\n'
->> "${SCRIPT_FOLDER}/instances/${project_name}/config.json" printf '  }\n'
->> "${SCRIPT_FOLDER}/instances/${project_name}/config.json" printf '}\n'
+{
+  printf '{\n'
+  printf '  "project": {\n'
+  printf '    "fullName": "%s",\n' "${project_name}"
+  printf '    "shortName": "%s",\n' "${short_name}"
+  printf '    "displayName": "%s"\n' "${display_name}"
+  printf '  },\n'
+  printf '  "deployment": {\n'
+  printf '    "host": "ci-staging.eclipse.org"\n'
+  printf '  }\n'
+  printf '}\n'
+} >  "${SCRIPT_FOLDER}/instances/${project_name}/config.json"

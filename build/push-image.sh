@@ -13,7 +13,7 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
 
 instance="${1:-}"
 
@@ -32,12 +32,12 @@ config="${instance}/target/config.json"
 masterImage="$(jq -r '.docker.master.image' "${config}")"
 masterImageTag="$(jq -r '.docker.master.imageTag' "${config}")"
 
-${SCRIPT_FOLDER}/dockerw push "${masterImage}" "${masterImageTag}"
+"${SCRIPT_FOLDER}/dockerw" push "${masterImage}" "${masterImageTag}"
 
 if [[ "${masterImageTag}" != "latest" ]]; then
-  ./build/dockerw push "${masterImage}" "latest"
+  "${SCRIPT_FOLDER}/dockerw" push "${masterImage}" "latest"
 fi
 
 imageSha="$(docker inspect --format='{{index .RepoDigests 0}}' "${masterImage}:${masterImageTag}" | sed -E 's/.*sha256:(.*)/\1/g')"
 
-${SCRIPT_FOLDER}/merge-json.sh "${config}" '{"docker": {"master": {"imageSha256": "'${imageSha}'"}}}' "${config}"
+"${SCRIPT_FOLDER}/merge-json.sh" "${config}" '{"docker": {"master": {"imageSha256": "'"${imageSha}"'"}}}' "${config}"

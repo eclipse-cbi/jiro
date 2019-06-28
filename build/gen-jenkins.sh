@@ -15,7 +15,7 @@ set -o pipefail
 
 IFS=$'\n\t'
 
-SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
 
 instance="${1:-}"
 
@@ -47,11 +47,11 @@ echo "/* GENERATED FILE - DO NOT EDIT */" > "${target}/quicksilver.css.override"
 hbs -s -D "${instance}/config.json" "${jenkinsTemplateFolder}/quicksilver.css.hbs" >> "${target}/quicksilver.css.override"
 
 displayName="$(jq -r '.project.displayName' "${instance}/target/config.json")"
-cat <<EOF > ${target}/title.js
+cat <<EOF > "${target}/title.js"
 document.title = "${displayName} - " + document.title;
 EOF
 
 mkdir -p "${target}/partials"
-${SCRIPT_FOLDER}/gen-permissions.sh "${instance}/target/config.json" > "${target}/partials/permissions.hbs"
+"${SCRIPT_FOLDER}/gen-permissions.sh" "${instance}/target/config.json" > "${target}/partials/permissions.hbs"
 
-${SCRIPT_FOLDER}/gen-yaml.sh "${instance}/jenkins/configuration.yml" "${jenkinsTemplateFolder}/configuration.yml.hbs" "${instance}/target/config.json" "${target}/partials" > "${target}/configuration.yml"
+"${SCRIPT_FOLDER}/gen-yaml.sh" "${instance}/jenkins/configuration.yml" "${jenkinsTemplateFolder}/configuration.yml.hbs" "${instance}/target/config.json" "${target}/partials" > "${target}/configuration.yml"

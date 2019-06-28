@@ -13,7 +13,7 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
 
 instance="${1:-}"
 
@@ -30,5 +30,5 @@ fi
 config="${instance}/target/config.json"
 masterImage="$(jq -r '.docker.master.image' "${config}")"
 
-${SCRIPT_FOLDER}/dockerw rmi_all "${masterImage}"
+"${SCRIPT_FOLDER}/dockerw" rmi_all "${masterImage}"
 rm -rf "${instance}/target"

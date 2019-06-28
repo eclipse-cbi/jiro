@@ -15,7 +15,7 @@ set -o pipefail
 
 IFS=$'\n\t'
 
-SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
 templates="${SCRIPT_FOLDER}/../templates"
 
 instance="${1:-}"
@@ -36,16 +36,20 @@ mkdir -p "${target}"
 echo -e "# GENERATED FILE - DO NOT EDIT\n" > "${target}/Dockerfile"
 if [ -f "${instance}/Dockerfile.override" ]; then
   # if a Dockerfile.override exists, take it and quit
-  echo "# <instances/${instance}/Dockerfile.override>" >> "${target}/Dockerfile"
-  sed -e '$s/$/\n/' "${instance}/Dockerfile.override" >> "${target}/Dockerfile"
-  echo -e "# </instances/${instance}/Dockerfile.override>\n" >> "${target}/Dockerfile"
+  {
+    echo "# <instances/${instance}/Dockerfile.override>"
+    sed -e '$s/$/\n/' "${instance}/Dockerfile.override"
+    echo -e "# </instances/${instance}/Dockerfile.override>\n"
+  } >> "${target}/Dockerfile"
 else 
   cat "${templates}/docker/Dockerfile.hbs" >> "${target}/Dockerfile"
   # if Dockefile exists, append it to the template
   if [ -f "${instance}/Dockerfile" ]; then
-    echo "# <instances/${instance}/Dockerfile>" >> "${target}/Dockerfile"
-    sed -e '$s/$/\n/' "${instance}/Dockerfile" >> "${target}/Dockerfile"
-    echo -e "# </instances/${instance}/Dockerfile>\n" >> "${target}/Dockerfile"
+    {
+      echo "# <instances/${instance}/Dockerfile>"
+      sed -e '$s/$/\n/' "${instance}/Dockerfile"
+      echo -e "# </instances/${instance}/Dockerfile>\n"
+    } >> "${target}/Dockerfile"
   fi
 fi
 # apply template
@@ -56,8 +60,10 @@ mv "${target}/Dockerfile.gen" "${target}/Dockerfile"
 echo "# <gen-dockerfile.sh>" >> "${target}/Dockerfile"
 
 if [[ -f "${instance}/jenkins/plugins-list" ]]; then
-  echo "COPY jenkins/plugins-list /usr/share/jenkins/ref/plugins-list" >> "${target}/Dockerfile"
-  echo "RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins-list" >> "${target}/Dockerfile"
+  {
+    echo "COPY jenkins/plugins-list /usr/share/jenkins/ref/plugins-list"
+    echo "RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins-list"
+  } >> "${target}/Dockerfile"
 fi
 
 echo "USER 10001" >> "${target}/Dockerfile"

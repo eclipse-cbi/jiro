@@ -31,11 +31,11 @@ echo "Warning: you are about to delete ${instance}. This may result in data loss
 echo "To confirm that you know what you're doing, please type in the path to the"
 echo "instance (relative to current directory) you would like to remove."
 
-read -p "Instance path: " confirm
+read -rp "Instance path: " confirm
 
-if [[ "$(readlink -f ${confirm})" == "$(readlink -f ${instance})" ]]; then
+if [[ "$(readlink -f "${confirm}")" == "$(readlink -f "${instance}")" ]]; then
   echo "Deleting ${instance}..."
-  oc delete -f ${instance}/target/k8s/namespace.yml
+  oc delete -f "${instance}/target/k8s/namespace.yml"
 else
-  echo "Cannot delete, $(readlink -f ${confirm}) != $(readlink -f ${instance})"
+  echo "Cannot delete, $(readlink -f "${confirm}") != $(readlink -f "${instance}")"
 fi

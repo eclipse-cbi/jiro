@@ -13,7 +13,6 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
 
 config="${1:-}"
 template="${2:-"-"}"

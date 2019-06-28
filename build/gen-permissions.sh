@@ -34,8 +34,8 @@ EOM
 )
 
 for permObject in $(jq -c "${JQ_PROG} | .[]" "${json}"); do
-  principal=$(jq -r .principal <<<${permObject})
-  for perm in $(jq -r '.permissions[]' <<<${permObject}); do
+  principal=$(jq -r .principal <<< "${permObject}")
+  for perm in $(jq -r '.permissions[]' <<< "${permObject}"); do
     echo "- \"${perm}:${principal}\""
   done
 done
