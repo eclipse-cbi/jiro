@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "locationtech.geowave",
+    "shortName": "geowave",
+    "displayName": "Eclipse GeoWave"
+  },
+  "jenkins": {
+    "version": "2.176.1"
+  }
+}
