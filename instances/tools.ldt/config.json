@@ -4,7 +4,7 @@
     "shortName": "ldt",
     "displayName": "Eclipse Lua Development Tools"
   },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
+  "jenkins": {
+    "version": "2.176.1"
   }
 }
