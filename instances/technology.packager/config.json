@@ -3,5 +3,8 @@
     "fullName": "technology.packager",
     "shortName": "packager",
     "displayName": "Eclipse Packager"
+  },
+  "jenkins": {
+    "version": "2.176.1"
   }
 }

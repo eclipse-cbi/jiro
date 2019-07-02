@@ -20,11 +20,12 @@ jenkins:
 
   authorizationStrategy:
     projectMatrix:
-      grantedPermissions:
+      permissions:
         - "Overall/Administer:admins"
         - "Job/Read:anonymous"
         - "Overall/Read:anonymous"
         - "Job/ExtendedRead:common"
+        - "Agent/Build:technology.packager"
         - "Credentials/View:technology.packager"
         - "Gerrit/ManualTrigger:technology.packager"
         - "Gerrit/Retrigger:technology.packager"
@@ -73,7 +74,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:b0988972cc41814d7d9299d7c2c69858716c41afb4ba1f6a30448b6da1a0a4a4"
+        - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:90d0b4f1eaa744217d4cd5df8caef86dfc76ce4d38bba6bda6a40de4eb8307cd"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -135,7 +136,7 @@ jenkins:
                 - key: toolchains.xml
                   path: toolchains.xml
       - containers:
-        - image: "eclipsecbijenkins/ui-test-agent:0.0.1@sha256:bbbd136234e7c669e06b3c96e35c1fa72c3a95c1de4bc7cdf8ff99b60383156c"
+        - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:7922ce62d8a0f0c95f891a5498af826ecba518ee3ad8f79729356bdee971542f"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -198,7 +199,7 @@ jenkins:
                 - key: toolchains.xml
                   path: toolchains.xml
       - containers:
-        - image: "eclipsecbijenkins/migration-fat-agent:3.27@sha256:3d4b2d72e1816668dae4f4dee7322e53aa886c8689294487e49fbe7e5639a6d2"
+        - image: "eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -262,8 +263,18 @@ jenkins:
                   path: toolchains.xml
 
 security:
-  remotingCLI:
-    enabled: false
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  downloadSettings:
+    useBrowser: false
+  queueItemAuthenticator:
+    authenticators:
+    - global:
+        strategy: "triggeringUsersAuthorizationStrategy"
+  sSHD:
+    port: -1
 
 unclassified:
   location:
@@ -359,6 +370,8 @@ tool:
     installations:
     - name: "apache-maven-latest"
       home: "/opt/tools/apache-maven/latest"
+    - name: "apache-maven-3.6.1"
+      home: "/opt/tools/apache-maven/3.6.1"
     - name: "apache-maven-3.5.4"
       home: "/opt/tools/apache-maven/3.5.4"
     - name: "apache-maven-3.3.9"

@@ -9,7 +9,7 @@
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
 # <templates/Dockerfile.tpl>
-FROM eclipsecbijenkins/jenkins-master-base:latest
+FROM eclipsecbijenkins/jenkins-master-base:2.176.1
 
 EXPOSE 8080
 EXPOSE 50000
@@ -20,6 +20,8 @@ COPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/
 # </templates/Dockerfile.tpl>
 
 # <gen-dockerfile.sh>
+COPY jenkins/plugins-list /usr/share/jenkins/ref/plugins-list
+RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins-list
 USER 10001
 # </gen-dockerfile.sh>
 
