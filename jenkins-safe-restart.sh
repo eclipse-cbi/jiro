@@ -73,7 +73,7 @@ buildsCount=$(echo "${builds}" | jq -r 'map(.executors[]) | length')
 if [[ "${buildsCount}" -gt 0 ]]; then
   echo "INFO: There are still ${buildsCount} builds running:"
   echo "${builds}" | jq -r 'map(.executors[].name)[]'
-  echo -n "INFO: Waiting for builds to complete (timeout=${timeout_sec})"
+  echo -n "INFO: Waiting for builds to complete (timeout=${timeout_sec}s)"
 fi
 
 while [[ "${buildsCount}" -gt 0 ]]; do
@@ -94,4 +94,4 @@ echo -n "INFO: Restarting Jenkins"
 oc scale sts "${stsName}" --replicas=1 -n "${ns}" > /dev/null
 waitReadyReplicas 1
 
-echo -n "INFO: Jenkins is ready"
+echo "INFO: Jenkins is ready"
