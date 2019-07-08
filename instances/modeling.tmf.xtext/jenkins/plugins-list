@@ -4,5 +4,6 @@ envinject
 github-branch-source
 gradle
 groovy
+htmlpublisher
 show-build-parameters
 slack
