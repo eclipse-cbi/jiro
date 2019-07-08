@@ -6,7 +6,7 @@
     "sponsorshipLevel": "S0"
   },
   "jenkins": {
-    "version": "latest",
+    "version": "2.176.1",
     "remotingVersion": "latest",
     "maxConcurrency": 2,
     "agentConnectionTimeout": "180",
@@ -44,6 +44,7 @@
           "Job/Move",
           "Job/Read",
           "Job/Workspace",
+          "Agent/Build",
           "Run/Delete",
           "Run/Replay",
           "Run/Update",
@@ -55,15 +56,15 @@
         ]
       }
     ],
-    "actualVersion": "2.164.2",
-    "actualRemotingVersion": "3.27"
+    "actualVersion": "2.176.1",
+    "actualRemotingVersion": "3.29"
   },
   "docker": {
     "repository": "eclipsecbijenkins",
     "master": {
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:latest",
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.176.1",
       "image": "eclipsecbijenkins/ease",
-      "imageTag": "latest",
+      "imageTag": "2.176.1",
       "username": "jenkins",
       "home": "/var/jenkins_home",
       "ref": "/usr/share/jenkins/ref",
@@ -71,20 +72,20 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "91ca684683e2ce58120f4f749d1e643a77b8162771f76bd3112a5a8e4dcb8a7b"
+      "imageSha256": "31868e3b2a2ccd484155d26ab5a382ce0f18448ebfd8fd960fc37ec88ebe2038"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
-        "tag": "latest",
-        "sha256": "b0988972cc41814d7d9299d7c2c69858716c41afb4ba1f6a30448b6da1a0a4a4"
+        "tag": "3.29",
+        "sha256": "90d0b4f1eaa744217d4cd5df8caef86dfc76ce4d38bba6bda6a40de4eb8307cd"
       }
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/ease",
-    "url": "https://ci-staging.eclipse.org/ease",
+    "url": "https://ci.eclipse.org/ease",
     "uiPort": 8080,
     "jnlpPort": 50000
   },

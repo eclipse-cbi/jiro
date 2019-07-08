@@ -4,8 +4,8 @@
     "shortName": "ease",
     "displayName": "Eclipse Advanced Scripting Environment (EASE)"
   },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
+  "jenkins": {
+    "version": "2.176.1"
   },
   "maven": {
     "home": "/home/jenkins/.m2",

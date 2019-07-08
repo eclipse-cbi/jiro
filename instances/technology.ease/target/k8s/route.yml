@@ -15,8 +15,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "technology.ease"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.2"
+    org.eclipse.cbi.jiro/jenkins.version: "2.176.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "ease"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "ease"
@@ -24,7 +24,7 @@ metadata:
     haproxy.router.openshift.io/timeout: 60s
   name: "ease"
 spec:
-  host: "ci-staging.eclipse.org"
+  host: "ci.eclipse.org"
   path: "/ease"
   port:
     targetPort: "http"

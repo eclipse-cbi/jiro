@@ -1,3 +1,4 @@
 /.jenkinscreds
 cli.jar
 *.code-workspace
+/.project
