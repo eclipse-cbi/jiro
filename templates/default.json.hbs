@@ -62,7 +62,7 @@
     "master": {
       "parentImage": "{{docker.repository}}/jenkins-master-base:{{jenkins.actualVersion}}",
       "image": "{{docker.repository}}/{{project.shortName}}",
-      "imageTag": "{{jenkins.version}}"
+      "imageTag": "{{jenkins.actualVersion}}"
     },
     "agent": {
       "defaultImage": {

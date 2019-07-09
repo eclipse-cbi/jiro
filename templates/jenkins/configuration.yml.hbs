@@ -320,18 +320,8 @@ jenkins:
             {{/each}}
 
 security:
-  apiToken:
-    creationOfLegacyTokenEnabled: false
-    tokenGenerationOnCreationEnabled: false
-    usageStatisticsEnabled: true
-  downloadSettings:
-    useBrowser: false
-  queueItemAuthenticator:
-    authenticators:
-    - global:
-        strategy: "triggeringUsersAuthorizationStrategy"
-  sSHD:
-    port: -1
+  remotingCLI:
+    enabled: false
 
 unclassified:
   location:
