@@ -6,7 +6,7 @@
     "sponsorshipLevel": "S0"
   },
   "jenkins": {
-    "version": "2.176.1",
+    "version": "latest",
     "remotingVersion": "latest",
     "maxConcurrency": 2,
     "agentConnectionTimeout": "180",
