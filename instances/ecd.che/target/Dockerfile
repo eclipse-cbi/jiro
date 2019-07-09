@@ -9,13 +9,14 @@
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
 # <templates/Dockerfile.tpl>
-FROM eclipsecbijenkins/jenkins-master-base:latest
+FROM eclipsecbijenkins/jenkins-master-base:2.176.1
 
 EXPOSE 8080
 EXPOSE 50000
 
 RUN mkdir -p /usr/share/jenkins/ref/userContent/theme/
 COPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/
+COPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/
 # </templates/Dockerfile.tpl>
 
 # <gen-dockerfile.sh>

@@ -6,9 +6,10 @@
     "sponsorshipLevel": "S0"
   },
   "jenkins": {
-    "version": "latest",
+    "version": "2.176.1",
     "remotingVersion": "latest",
     "maxConcurrency": 2,
+    "agentConnectionTimeout": "180",
     "permissions": [
       {
         "principal": "anonymous",
@@ -43,6 +44,7 @@
           "Job/Move",
           "Job/Read",
           "Job/Workspace",
+          "Agent/Build",
           "Run/Delete",
           "Run/Replay",
           "Run/Update",
@@ -54,15 +56,15 @@
         ]
       }
     ],
-    "actualVersion": "2.164.1",
-    "actualRemotingVersion": "3.27"
+    "actualVersion": "2.176.1",
+    "actualRemotingVersion": "3.29"
   },
   "docker": {
     "repository": "eclipsecbijenkins",
     "master": {
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:latest",
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.176.1",
       "image": "eclipsecbijenkins/che",
-      "imageTag": "latest",
+      "imageTag": "2.176.1",
       "username": "jenkins",
       "home": "/var/jenkins_home",
       "ref": "/usr/share/jenkins/ref",
@@ -70,13 +72,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "ecb8daeb5789181782447c7adf8f83fc5fc059da0075bc506d4834adc3598537"
+      "imageSha256": "38d8f89e38e24cb86b8150e1ba2ebeb6204a9ca97828902f0046bebe98718824"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
-        "tag": "latest",
-        "sha256": "13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
+        "tag": "3.29",
+        "sha256": "90d0b4f1eaa744217d4cd5df8caef86dfc76ce4d38bba6bda6a40de4eb8307cd"
       }
     }
   },
@@ -126,6 +128,12 @@
         "volumeType": "ConfigMap",
         "volumeName": "m2-dir"
       }
+    }
+  },
+  "secrets": {
+    "gerrit-trigger-plugin": {
+      "username": "genie.che",
+      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
     }
   }
 }

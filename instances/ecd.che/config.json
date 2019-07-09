@@ -4,6 +4,9 @@
     "shortName": "che",
     "displayName": "Eclipse Che"
   },
+  "jenkins": {
+    "version": "2.176.1"
+  },
   "deployment": {
     "host": "ci-staging.eclipse.org"
   }
