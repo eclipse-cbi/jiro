@@ -7,12 +7,12 @@
 # or the MIT License which is available at https://opensource.org/licenses/MIT.
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
-apiVersion: v1
-kind: ResourceQuota
+apiVersion: "route.openshift.io/v1"
+kind: "Route"
 metadata:
   labels:
     org.eclipse.cbi.jiro/project.shortname: "jakartaee-spec-committee"
-    org.eclipse.cbi.jiro/project.fullName: "jakartaee.spec-committee"
+    org.eclipse.cbi.jiro/project.fullName: "foundation-internal.jakartaee-spec"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
@@ -20,18 +20,18 @@ metadata:
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jakartaee-spec-committee"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "jakartaee-spec-committee"
-  name: jenkins-instance-quota
+  annotations:
+    haproxy.router.openshift.io/timeout: 60s
+  name: "jakartaee-spec-committee"
 spec:
-  hard:
-    # Jenkins master + 2 agents
-    pods: 3
-    # Jenkins master 50Gi + 2 agents 2*20Gi = 90Gi
-    requests.storage: 90Gi
-    # Jenkins master 500m + JNLP agents 2x200m + 2*1vCPU 2x1000m
-    requests.cpu: 2900m
-    # Jenkins master 1536Mi + JNLP agents 2x256Mi + 2*4096Mi
-    requests.memory: 10240Mi
-    # Jenkins master 2000m + JNLP agents 2x300m + 2*2vCPU 2x2000m
-    limits.cpu: 6600m
-    # Jenkins master 1536Mi + JNLP agents 2x256Mi + 2*4096Mi
-    limits.memory: 10240Mi
+  host: "ci.eclipse.org"
+  path: "/jakartaee-spec-committee"
+  port:
+    targetPort: "http"
+  tls:
+    insecureEdgeTerminationPolicy: "Redirect"
+    termination: "edge"
+  to:
+    kind: "Service"
+    name: "jenkins-ui"
+    weight: 100

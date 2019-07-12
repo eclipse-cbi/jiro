@@ -12,7 +12,7 @@ kind: ConfigMap
 metadata:
   labels:
     org.eclipse.cbi.jiro/project.shortname: "jakartaee-spec-committee"
-    org.eclipse.cbi.jiro/project.fullName: "jakartaee.spec-committee"
+    org.eclipse.cbi.jiro/project.fullName: "foundation-internal.jakartaee-spec"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"

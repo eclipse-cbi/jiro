@@ -1,7 +1,7 @@
 {
   "project": {
     "shortName": "jakartaee-spec-committee",
-    "fullName": "jakartaee.spec-committee",
+    "fullName": "foundation-internal.jakartaee-spec",
     "displayName": "Jakarta EE Specification Committee",
     "sponsorshipLevel": "S0"
   },
@@ -28,6 +28,56 @@
         "principal": "admins",
         "grantedPermissions": [
           "Overall/Administer"
+        ]
+      },
+      {
+        "principal": "foundation-internal.jakartaee-spec",
+        "grantedPermissions": [
+          "Credentials/View",
+          "Gerrit/ManualTrigger",
+          "Gerrit/Retrigger",
+          "Job/Build",
+          "Job/Cancel",
+          "Job/Configure",
+          "Job/Create",
+          "Job/Delete",
+          "Job/Move",
+          "Job/Read",
+          "Job/Workspace",
+          "Agent/Build",
+          "Run/Delete",
+          "Run/Replay",
+          "Run/Update",
+          "View/Configure",
+          "View/Create",
+          "View/Delete",
+          "View/Read",
+          "SCM/Tag"
+        ]
+      },
+      {
+        "principal": "foundation-internal.jakartaee-spec",
+        "withheldPermissions": [
+          "Credentials/View",
+          "Gerrit/ManualTrigger",
+          "Gerrit/Retrigger",
+          "Job/Build",
+          "Job/Cancel",
+          "Job/Configure",
+          "Job/Create",
+          "Job/Delete",
+          "Job/Move",
+          "Job/Read",
+          "Job/Workspace",
+          "Agent/Build",
+          "Run/Delete",
+          "Run/Replay",
+          "Run/Update",
+          "View/Configure",
+          "View/Create",
+          "View/Delete",
+          "View/Read",
+          "SCM/Tag"
         ]
       },
       {

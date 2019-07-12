@@ -8,11 +8,11 @@
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
 apiVersion: v1
-kind: RoleBinding
+kind: Role
 metadata:
   labels:
     org.eclipse.cbi.jiro/project.shortname: "jakartaee-spec-committee"
-    org.eclipse.cbi.jiro/project.fullName: "jakartaee.spec-committee"
+    org.eclipse.cbi.jiro/project.fullName: "foundation-internal.jakartaee-spec"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
@@ -20,13 +20,14 @@ metadata:
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jakartaee-spec-committee"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "jakartaee-spec-committee"
-  name: jakartaee-spec-committee
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
   name: jenkins-master-owner
-  namespace: jakartaee-spec-committee
-subjects:
-- kind: ServiceAccount
-  name: jakartaee-spec-committee
-  namespace: jakartaee-spec-committee
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["create","delete","get","list","patch","update","watch"]
+- apiGroups: [""]
+  resources: ["pods/exec"]
+  verbs: ["create","delete","get","list","patch","update","watch"]
+- apiGroups: [""]
+  resources: ["pods/log"]
+  verbs: ["get","list","watch"]

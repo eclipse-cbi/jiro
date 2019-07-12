@@ -7,25 +7,16 @@
 # or the MIT License which is available at https://opensource.org/licenses/MIT.
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
-apiVersion: "v1"
-kind: "Service"
+apiVersion: v1
+kind: Namespace
 metadata:
   labels:
     org.eclipse.cbi.jiro/project.shortname: "jakartaee-spec-committee"
-    org.eclipse.cbi.jiro/project.fullName: "jakartaee.spec-committee"
+    org.eclipse.cbi.jiro/project.fullName: "foundation-internal.jakartaee-spec"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jakartaee-spec-committee"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
-  namespace: "jakartaee-spec-committee"
-  name: "jenkins-discovery"
-spec:
-  ports:
-  - name: "jnlp"
-    port: 50000
-    protocol: "TCP"
-    targetPort: 50000
-  selector:
-    org.eclipse.cbi.jiro/project.fullName: "jakartaee.spec-committee"
+  name: jakartaee-spec-committee
