@@ -1,0 +1,17 @@
+{
+  "project": {
+    "fullName": "jakartaee.spec-committee",
+    "shortName": "jakartaee-spec-committee",
+    "displayName": "Jakarta EE Specification Committee"
+  },
+  "kubernetes": {
+    "master": {
+      "namespace": "jakartaee-spec-committee"
+    }
+  },
+  "secrets": {
+    "gerrit-trigger-plugin": {
+      "username": ""
+    }
+  }
+}
