@@ -3,12 +3,12 @@
     "shortName": "xtext",
     "fullName": "modeling.tmf.xtext",
     "displayName": "Eclipse Xtext",
-    "sponsorshipLevel": "S0"
+    "sponsorshipLevel": "S1"
   },
   "jenkins": {
     "version": "2.176.1",
     "remotingVersion": "latest",
-    "maxConcurrency": 2,
+    "maxConcurrency": 4,
     "agentConnectionTimeout": "180",
     "permissions": [
       {

@@ -2,13 +2,15 @@
   "project": {
     "fullName": "modeling.tmf.xtext",
     "shortName": "xtext",
-    "displayName": "Eclipse Xtext"
+    "displayName": "Eclipse Xtext",
+    "sponsorshipLevel": "S1"
   },
   "deployment": {
     "host": "ci-staging.eclipse.org"
   },
   "jenkins": {
-    "version": "2.176.1"
+    "version": "2.176.1",
+    "maxConcurrency": 4
   },
   "maven": {
     "home": "/home/jenkins/.m2",
