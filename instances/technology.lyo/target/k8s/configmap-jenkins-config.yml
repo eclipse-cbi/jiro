@@ -146,10 +146,14 @@ data:
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
                 volumes:
                 - name: settings-xml
-                  configMap:
-                    name: m2-dir
+                  secret:
+                    secretName: m2-secret-dir
                     items:
                     - key: settings.xml
                       path: settings.xml
@@ -159,6 +163,12 @@ data:
                     items:
                     - key: toolchains.xml
                       path: toolchains.xml
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
           - containers:
             - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:7922ce62d8a0f0c95f891a5498af826ecba518ee3ad8f79729356bdee971542f"
               livenessProbe:
@@ -209,10 +219,14 @@ data:
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
                 volumes:
                 - name: settings-xml
-                  configMap:
-                    name: m2-dir
+                  secret:
+                    secretName: m2-secret-dir
                     items:
                     - key: settings.xml
                       path: settings.xml
@@ -222,6 +236,12 @@ data:
                     items:
                     - key: toolchains.xml
                       path: toolchains.xml
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
           - containers:
             - image: "eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f"
               livenessProbe:
@@ -272,10 +292,14 @@ data:
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
                 volumes:
                 - name: settings-xml
-                  configMap:
-                    name: m2-dir
+                  secret:
+                    secretName: m2-secret-dir
                     items:
                     - key: settings.xml
                       path: settings.xml
@@ -285,6 +309,12 @@ data:
                     items:
                     - key: toolchains.xml
                       path: toolchains.xml
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
     
     security:
       apiToken:
