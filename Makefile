@@ -26,10 +26,10 @@ push_openshift-java: openshift-java
 	./build/dockerw push_all ${DOCKER_REPO} $<
 
 jenkins-agent: openshift-java
-	find jenkins-agent -mindepth 1 -maxdepth 1 -type d -exec jenkins-agent/build.sh {} \;
+	find jenkins-agent-images/jenkins-agent -mindepth 1 -maxdepth 1 -type d -exec jenkins-agent-images/jenkins-agent/build.sh {} \;
 
 push_jenkins-agent: jenkins-agent
-	./build/dockerw push_all ${DOCKER_REPO} $<
+	./build/dockerw push_all ${DOCKER_REPO} jenkins-agent-images/$<
 
 jenkins-master-base: openshift-java
 	find jenkins-master-base -mindepth 1 -maxdepth 1 -type d -exec jenkins-master-base/build.sh {} \;

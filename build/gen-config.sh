@@ -44,7 +44,7 @@ actualJenkinsVersion="$(basename "$(readlink -f "jenkins-master-base/${jenkinsVe
 "${SCRIPT_FOLDER}/merge-json.sh" "${config}" '{"jenkins": {"actualVersion": "'"${actualJenkinsVersion}"'"}}' "${config}"
 
 jenkinsRemotingVersion="$(jq -r '.jenkins.remotingVersion' "${config}")"
-actualJenkinsRemotingVersion="$(basename "$(readlink -f "jenkins-agent/${jenkinsRemotingVersion}")")"
+actualJenkinsRemotingVersion="$(basename "$(readlink -f "jenkins-agent-images/jenkins-agent/${jenkinsRemotingVersion}")")"
 "${SCRIPT_FOLDER}/merge-json.sh" "${config}" '{"jenkins": {"actualRemotingVersion": "'"${actualJenkinsRemotingVersion}"'"}}' "${config}"
 
 agentImage="$("${SCRIPT_FOLDER}/expand-template.sh" "${config}" "$(jq -r '.docker.agent.defaultImage.name' "${config}")")"
