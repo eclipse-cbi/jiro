@@ -29,7 +29,8 @@ RUN apk add --no-cache \
   rsync \
   ttf-dejavu \
   unzip \
-  wget
+  wget \
+  zip
 
 COPY ./scripts /usr/local/bin
 RUN chmod_container_user "rw" /etc/passwd && \

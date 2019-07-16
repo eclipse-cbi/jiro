@@ -30,6 +30,7 @@ RUN dnf -y update && dnf -y install \
       curl \
       wget \
       unzip \
+      zip \
       gnupg \
       openssh-clients \
       java-1.8.0-openjdk.x86_64 \

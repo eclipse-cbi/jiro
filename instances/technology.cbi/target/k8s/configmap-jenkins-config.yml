@@ -67,7 +67,7 @@ data:
           - containers:
             - args: ""
               command: ""
-              image: eclipsecbijenkins/jenkins-agent:3.29@sha256:4e0c7e8a1f9a2fc5c1572190530c7b74135161267a55d8d7cd0a3f86db3331a6
+              image: eclipsecbijenkins/jenkins-agent:3.29@sha256:fa2872291c59cbdba9210e472410623f3c683549de08c9cdcb200f4ada8aae33
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -139,7 +139,7 @@ data:
           - containers:
             - args: ""
               command: ""
-              image: eclipsecbijenkins/ui-test-agent:3.29@sha256:7922ce62d8a0f0c95f891a5498af826ecba518ee3ad8f79729356bdee971542f
+              image: eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
