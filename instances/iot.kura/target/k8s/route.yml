@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "kura"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "kura"
@@ -24,7 +24,7 @@ metadata:
     haproxy.router.openshift.io/timeout: 60s
   name: "kura"
 spec:
-  host: "ci-staging.eclipse.org"
+  host: "ci.eclipse.org"
   path: "/kura"
   port:
     targetPort: "http"

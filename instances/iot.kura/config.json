@@ -4,9 +4,6 @@
     "shortName": "kura",
     "displayName": "Eclipse Kura"
   },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
-  },
   "maven": {
     "home": "/home/jenkins/.m2",
     "files": {
