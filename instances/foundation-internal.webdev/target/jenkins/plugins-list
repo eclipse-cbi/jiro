@@ -2,3 +2,4 @@
 docker-workflow
 github-branch-source
 openshift-client
+slack

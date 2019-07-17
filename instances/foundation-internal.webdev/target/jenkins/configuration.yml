@@ -81,7 +81,7 @@ jenkins:
       - containers:
         - args: ""
           command: ""
-          image: eclipsecbijenkins/jenkins-agent:3.29@sha256:fd8f6a62c66089a5f5d65c5d9b2d70a71fe84e958c63019e5be6e0da3299d2f8
+          image: eclipsecbijenkins/jenkins-agent:3.29@sha256:bec98792361aa1f3569bd59c3ceb5c42ded1939b24ff3f68dacb8e692af619ca
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -143,7 +143,7 @@ jenkins:
       - containers:
         - args: ""
           command: ""
-          image: eclipsecbijenkins/ui-test-agent:3.29@sha256:7922ce62d8a0f0c95f891a5498af826ecba518ee3ad8f79729356bdee971542f
+          image: eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -415,6 +415,8 @@ tool:
               subdir: openshift-origin-client-tools-v3.9.0-191fece-linux-64bit
               url: https://github.com/openshift/origin/releases/download/v3.9.0/openshift-origin-client-tools-v3.9.0-191fece-linux-64bit.tar.gz
 unclassified:
+  extendedEmailPublisher:
+    defaultContentType: text/html
   gitHubPluginConfig:
     configs:
     - credentialsId: 131d507e-6b2c-4358-b27c-f3d7c1da06d5
@@ -425,6 +427,26 @@ unclassified:
     hookUrl: https://foundation.eclipse.org/ci/webdev/github-webhook/
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED
+  globalLibraries:
+    libraries:
+    - defaultVersion: master
+      name: common-shared
+      retriever:
+        modernSCM:
+          scm:
+            github:
+              credentialsId: 2167ee51-24e8-4acf-8b51-ee6f68fa5bc8
+              id: a5bb4793-9722-4992-bf2e-c80dd8dd8589
+              repoOwner: eclipsefdn
+              repository: jenkins-pipeline-shared
+              traits:
+              - gitHubBranchDiscovery:
+                  strategyId: 1
+              - originPullRequestDiscoveryTrait:
+                  strategyId: 2
+              - gitHubForkDiscovery:
+                  strategyId: 2
+                  trust: gitHubTrustPermissions
   location:
     adminAddress: ci-admin@eclipse.org
     url: https://foundation.eclipse.org/ci/webdev
@@ -445,3 +467,6 @@ unclassified:
         url: //fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100
     - jsUrl:
         url: /ci/webdev/userContent/theme/title.js
+  slackNotifier:
+    teamDomain: eclipsefoundation
+    tokenCredentialId: f13af7e7-6910-4f59-b3f5-73a16ff4d98f

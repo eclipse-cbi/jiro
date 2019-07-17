@@ -30,6 +30,31 @@ unclassified:
       name: "c1-ci.eclipse.org"
       serverUrl: "https://console-int.c1-ci.eclipse.org"
 
+  globalLibraries:
+    libraries:
+    - defaultVersion: "master"
+      name: "common-shared"
+      retriever:
+        modernSCM:
+          scm:
+            github:
+              credentialsId: "2167ee51-24e8-4acf-8b51-ee6f68fa5bc8"
+              id: "a5bb4793-9722-4992-bf2e-c80dd8dd8589"
+              repoOwner: "eclipsefdn"
+              repository: "jenkins-pipeline-shared"
+              traits:
+              - gitHubBranchDiscovery:
+                  strategyId: 1
+              - originPullRequestDiscoveryTrait:
+                  strategyId: 2
+              - gitHubForkDiscovery:
+                  strategyId: 2
+                  trust: "gitHubTrustPermissions"
+
+  slackNotifier:
+    teamDomain: "eclipsefoundation"
+    tokenCredentialId: "f13af7e7-6910-4f59-b3f5-73a16ff4d98f"
+
 tool:
   oc:
     installations:
