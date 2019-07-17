@@ -5,7 +5,7 @@ jenkins:
   - Ping
   authorizationStrategy:
     projectMatrix:
-      grantedPermissions:
+      permissions:
       - Overall/Administer:admins
       - Credentials/View:chris.guindon@eclipse-foundation.org
       - Gerrit/ManualTrigger:chris.guindon@eclipse-foundation.org
@@ -47,6 +47,7 @@ jenkins:
       - View/Create:eric.poirier@eclipse-foundation.org
       - View/Delete:eric.poirier@eclipse-foundation.org
       - View/Read:eric.poirier@eclipse-foundation.org
+      - Agent/Build:foundation-internal.webdev
       - Credentials/View:martin.lowe@eclipse-foundation.org
       - Gerrit/ManualTrigger:martin.lowe@eclipse-foundation.org
       - Gerrit/Retrigger:martin.lowe@eclipse-foundation.org
@@ -80,7 +81,7 @@ jenkins:
       - containers:
         - args: ""
           command: ""
-          image: eclipsecbijenkins/jenkins-agent:latest@sha256:34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d
+          image: eclipsecbijenkins/jenkins-agent:3.29@sha256:fd8f6a62c66089a5f5d65c5d9b2d70a71fe84e958c63019e5be6e0da3299d2f8
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -88,10 +89,10 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: jnlp
-          resourceLimitCpu: 2375m
-          resourceLimitMemory: 2560Mi
-          resourceRequestCpu: 1250m
-          resourceRequestMemory: 2560Mi
+          resourceLimitCpu: 2000m
+          resourceLimitMemory: 4096Mi
+          resourceRequestCpu: 1000m
+          resourceRequestMemory: 4096Mi
           ttyEnabled: true
         instanceCap: 5
         name: default-agent
@@ -142,7 +143,7 @@ jenkins:
       - containers:
         - args: ""
           command: ""
-          image: eclipsecbijenkins/ui-test-agent:0.0.1@sha256:bbbd136234e7c669e06b3c96e35c1fa72c3a95c1de4bc7cdf8ff99b60383156c
+          image: eclipsecbijenkins/ui-test-agent:3.29@sha256:7922ce62d8a0f0c95f891a5498af826ecba518ee3ad8f79729356bdee971542f
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -150,10 +151,10 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: jnlp
-          resourceLimitCpu: 2375m
-          resourceLimitMemory: 2560Mi
-          resourceRequestCpu: 1250m
-          resourceRequestMemory: 2560Mi
+          resourceLimitCpu: 2000m
+          resourceLimitMemory: 4096Mi
+          resourceRequestCpu: 1000m
+          resourceRequestMemory: 4096Mi
           ttyEnabled: true
         instanceCap: 5
         instanceCapStr: "5"
@@ -205,7 +206,7 @@ jenkins:
       - containers:
         - args: ""
           command: ""
-          image: eclipsecbijenkins/migration-fat-agent:3.27
+          image: eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -213,10 +214,10 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: jnlp
-          resourceLimitCpu: 2375m
-          resourceLimitMemory: 2560Mi
-          resourceRequestCpu: 1250m
-          resourceRequestMemory: 2560Mi
+          resourceLimitCpu: 2000m
+          resourceLimitMemory: 4096Mi
+          resourceRequestCpu: 1000m
+          resourceRequestMemory: 4096Mi
           ttyEnabled: true
         instanceCap: 5
         instanceCapStr: "5"
@@ -275,7 +276,7 @@ jenkins:
   - permanent:
       labelString: docker-build
       launcher:
-        sSHLauncher:
+        ssh:
           credentialsId: 4057f0a8-6a32-4ba5-99d0-b34cdb0505cd
           host: 40.117.168.25
           jvmOptions: -Xmx256m -Xms256m
@@ -301,8 +302,18 @@ jenkins:
         userSearch: mail={0}
   systemMessage: ""
 security:
-  remotingCLI:
-    enabled: false
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  downloadSettings:
+    useBrowser: false
+  queueItemAuthenticator:
+    authenticators:
+    - global:
+        strategy: triggeringUsersAuthorizationStrategy
+  sSHD:
+    port: -1
 tool:
   ant:
     installations:
@@ -379,6 +390,8 @@ tool:
     installations:
     - home: /opt/tools/apache-maven/latest
       name: apache-maven-latest
+    - home: /opt/tools/apache-maven/3.6.1
+      name: apache-maven-3.6.1
     - home: /opt/tools/apache-maven/3.5.4
       name: apache-maven-3.5.4
     - home: /opt/tools/apache-maven/3.3.9
@@ -388,6 +401,13 @@ tool:
   oc:
     installations:
     - name: oc-3.9
+      properties:
+      - installSource:
+          installers:
+          - zip:
+              subdir: openshift-origin-client-tools-v3.9.0-191fece-linux-64bit
+              url: https://github.com/openshift/origin/releases/download/v3.9.0/openshift-origin-client-tools-v3.9.0-191fece-linux-64bit.tar.gz
+    - name: oc-for-c1-ci.eclipse.org
       properties:
       - installSource:
           installers:

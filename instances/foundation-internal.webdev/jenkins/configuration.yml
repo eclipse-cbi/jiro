@@ -3,7 +3,7 @@ jenkins:
   - permanent:
       labelString: "docker-build"
       launcher:
-        sSHLauncher:
+        ssh:
           credentialsId: "4057f0a8-6a32-4ba5-99d0-b34cdb0505cd"
           host: "40.117.168.25"
           jvmOptions: "-Xmx256m -Xms256m"
@@ -34,6 +34,13 @@ tool:
   oc:
     installations:
     - name: "oc-3.9"
+      properties:
+      - installSource:
+          installers:
+          - zip:
+              subdir: "openshift-origin-client-tools-v3.9.0-191fece-linux-64bit"
+              url: "https://github.com/openshift/origin/releases/download/v3.9.0/openshift-origin-client-tools-v3.9.0-191fece-linux-64bit.tar.gz"
+    - name: "oc-for-c1-ci.eclipse.org"
       properties:
       - installSource:
           installers:

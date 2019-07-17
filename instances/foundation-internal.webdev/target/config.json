@@ -44,6 +44,7 @@
           "Job/Move",
           "Job/Read",
           "Job/Workspace",
+          "Agent/Build",
           "Run/Delete",
           "Run/Replay",
           "Run/Update",
@@ -167,15 +168,15 @@
         ]
       }
     ],
-    "actualVersion": "2.164.2",
-    "actualRemotingVersion": "3.27"
+    "actualVersion": "2.176.1",
+    "actualRemotingVersion": "3.29"
   },
   "docker": {
     "repository": "eclipsecbijenkins",
     "master": {
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:latest",
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.176.1",
       "image": "eclipsecbijenkins/webdev",
-      "imageTag": "latest",
+      "imageTag": "2.176.1",
       "username": "jenkins",
       "home": "/var/jenkins_home",
       "ref": "/usr/share/jenkins/ref",
@@ -183,13 +184,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "30626eaa09a7b787120213866c5f869e0cbaa8e89b59e795d1d260f01aa62ee9"
+      "imageSha256": "7d290f0012675d1c399de372799fdacad6f72abaa0ab2ca19c934ba583c1f700"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
-        "tag": "latest",
-        "sha256": "34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d"
+        "tag": "3.29",
+        "sha256": "fd8f6a62c66089a5f5d65c5d9b2d70a71fe84e958c63019e5be6e0da3299d2f8"
       }
     }
   },
