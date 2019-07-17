@@ -1,0 +1,16 @@
+jenkins:
+  nodes:
+  - permanent:
+      labelString: "docker-build"
+      launcher:
+        ssh:
+          credentialsId: "63edf8ae-0827-46de-bbca-8c83d944311b"
+          host: "40.70.206.213"
+          jvmOptions: "-Xmx256m -Xms256m"
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDWM0A8QzZMRbB3PCKxienp/BgcD60Ma33YkhmQG5J7lzfjQWWoCfYTT5I78PEEYFA1OlIqkYmO4c+Avdot8iGgkYzwLgKQAx45hRtBN3zOGe/w7r+uVjAynNhhbjS151G3/K2O/iIfDy3L0ukZu6RL2tvcisswY8xaVK4ibp90KwbzWxH8IgOFws77aYpGZEez10YO3YTR8s58D4w7Xd7c+m6ey69LEszdmA0ak7rc+QC2LvFXzIImN7ODRRTMqqvn6w0gMk09vrNdDdxu38fSR0TiLd9vZeXmo8fL8fWduhAMBBzxuxO66PJksDYJKcKUTVD8OAbMqXk2pcJANjDb"
+      mode: EXCLUSIVE
+      name: "s8p2d-ubuntu1804"
+      nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
+      remoteFS: "/home/genie.codewind/jenkins-agent"
