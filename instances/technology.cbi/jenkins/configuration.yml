@@ -59,3 +59,8 @@ jenkins:
       name: "fmlw3-ubuntu1804"
       nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
       remoteFS: "/home/genie.cbi/jenkins-agent"
+
+unclassified:
+  slackNotifier:
+    teamDomain: "eclipsefoundation"
+    tokenCredentialId: "03a52394-e33f-46fc-be2a-222bf8e9a58f"

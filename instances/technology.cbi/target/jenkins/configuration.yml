@@ -43,7 +43,7 @@ jenkins:
       - containers:
         - args: ""
           command: ""
-          image: eclipsecbijenkins/jenkins-agent:3.29@sha256:fa2872291c59cbdba9210e472410623f3c683549de08c9cdcb200f4ada8aae33
+          image: eclipsecbijenkins/jenkins-agent:3.29@sha256:bec98792361aa1f3569bd59c3ceb5c42ded1939b24ff3f68dacb8e692af619ca
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -436,6 +436,8 @@ tool:
     - home: /opt/tools/apache-maven/3.2.5
       name: apache-maven-3.2.5
 unclassified:
+  extendedEmailPublisher:
+    defaultContentType: text/html
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED
   location:
@@ -453,3 +455,6 @@ unclassified:
         url: //fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100
     - jsUrl:
         url: /cbi/userContent/theme/title.js
+  slackNotifier:
+    teamDomain: eclipsefoundation
+    tokenCredentialId: 03a52394-e33f-46fc-be2a-222bf8e9a58f
