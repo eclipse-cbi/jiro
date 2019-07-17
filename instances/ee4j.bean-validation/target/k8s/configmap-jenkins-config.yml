@@ -1,0 +1,408 @@
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "bean-validation"
+    org.eclipse.cbi.jiro/project.fullName: "ee4j.bean-validation"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.1"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "bean-validation"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+  namespace: "bean-validation"
+  name: jenkins-config
+data:
+  jenkins.yaml: |
+    # GENERATED FILE - DO NOT EDIT
+    #*******************************************************************************
+    # Copyright (c) 2018 Eclipse Foundation and others.
+    # This program and the accompanying materials are made available
+    # under the terms of the Eclipse Public License 2.0
+    # which is available at http://www.eclipse.org/legal/epl-v20.html,
+    # or the MIT License which is available at https://opensource.org/licenses/MIT.
+    # SPDX-License-Identifier: EPL-2.0 OR MIT
+    #*******************************************************************************
+    jenkins:
+      numExecutors: 0
+      scmCheckoutRetryCount: 2
+      mode: EXCLUSIVE
+      systemMessage: ""
+    
+      disableRememberMe: false
+      agentProtocols:
+        - "JNLP4-connect"
+        - "Ping"
+    
+      authorizationStrategy:
+        projectMatrix:
+          permissions:
+            - "Overall/Administer:admins"
+            - "Job/Read:anonymous"
+            - "Overall/Read:anonymous"
+            - "Job/ExtendedRead:common"
+            - "Agent/Build:ee4j.bean-validation"
+            - "Credentials/View:ee4j.bean-validation"
+            - "Gerrit/ManualTrigger:ee4j.bean-validation"
+            - "Gerrit/Retrigger:ee4j.bean-validation"
+            - "Job/Build:ee4j.bean-validation"
+            - "Job/Cancel:ee4j.bean-validation"
+            - "Job/Configure:ee4j.bean-validation"
+            - "Job/Create:ee4j.bean-validation"
+            - "Job/Delete:ee4j.bean-validation"
+            - "Job/Move:ee4j.bean-validation"
+            - "Job/Read:ee4j.bean-validation"
+            - "Job/Workspace:ee4j.bean-validation"
+            - "Run/Delete:ee4j.bean-validation"
+            - "Run/Replay:ee4j.bean-validation"
+            - "Run/Update:ee4j.bean-validation"
+            - "SCM/Tag:ee4j.bean-validation"
+            - "View/Configure:ee4j.bean-validation"
+            - "View/Create:ee4j.bean-validation"
+            - "View/Delete:ee4j.bean-validation"
+            - "View/Read:ee4j.bean-validation"
+    
+      markupFormatter: rawHtml
+      crumbIssuer:
+        standard:
+           excludeClientIPFromCrumb: false
+      remotingSecurity:
+        enabled: true
+    
+      securityRealm:
+        ldap:
+          configurations:
+            - displayNameAttributeName: cn
+              groupSearchBase: ou=group
+              rootDN: dc=eclipse,dc=org
+              server: ldapmaster
+              userSearch: mail={0}
+              mailAddressAttributeName: mail
+    
+      clouds:
+      - kubernetes:
+          name: "kubernetes"
+          containerCapStr: "2"
+          jenkinsUrl: "http://jenkins-ui.bean-validation.svc.cluster.local/bean-validation"
+          jenkinsTunnel: "jenkins-discovery.bean-validation.svc.cluster.local:50000"
+          maxRequestsPerHostStr: "32"
+          namespace: "bean-validation"
+          podRetention: "never"
+          templates:
+          - containers:
+            - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:fa2872291c59cbdba9210e472410623f3c683549de08c9cdcb200f4ada8aae33"
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: "jnlp"
+              resourceLimitCpu: "2000m"
+              resourceRequestCpu: "1000m"
+              resourceLimitMemory: "4096Mi"
+              resourceRequestMemory: "4096Mi"
+              ttyEnabled: true
+              command: ""
+              args: ""
+            instanceCap: 5
+            name: "default-agent"
+            namespace: "bean-validation"
+            nodeUsageMode: NORMAL
+            volumes:
+            - persistentVolumeClaim:
+                claimName: "tools-claim-jiro-bean-validation"
+                mountPath: "/opt/tools"
+                readOnly: true
+            - configMapVolume:
+                configMapName: "known-hosts"
+                mountPath: "/home/jenkins/.ssh/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/repository"
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: settings-xml
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: toolchains-xml
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                volumes:
+                - name: settings-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: settings.xml
+                      path: settings.xml
+                - name: toolchains-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: toolchains.xml
+                      path: toolchains.xml
+          - containers:
+            - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59"
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: "jnlp"
+              resourceLimitCpu: "2000m"
+              resourceRequestCpu: "1000m"
+              resourceLimitMemory: "4096Mi"
+              resourceRequestMemory: "4096Mi"
+              ttyEnabled: true
+              command: ""
+              args: ""
+            instanceCap: 5
+            instanceCapStr: "5"
+            name: "ui-test-agent"
+            namespace: "bean-validation"
+            label: "ui-test"
+            volumes:
+            - persistentVolumeClaim:
+                claimName: "tools-claim-jiro-bean-validation"
+                mountPath: "/opt/tools"
+                readOnly: true
+            - configMapVolume:
+                configMapName: "known-hosts"
+                mountPath: "/home/jenkins/.ssh/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/repository"
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: settings-xml
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: toolchains-xml
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                volumes:
+                - name: settings-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: settings.xml
+                      path: settings.xml
+                - name: toolchains-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: toolchains.xml
+                      path: toolchains.xml
+          - containers:
+            - image: "eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f"
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: "jnlp"
+              resourceLimitCpu: "2000m"
+              resourceRequestCpu: "1000m"
+              resourceLimitMemory: "4096Mi"
+              resourceRequestMemory: "4096Mi"
+              ttyEnabled: true
+              command: ""
+              args: ""
+            instanceCap: 5
+            instanceCapStr: "5"
+            name: "migration-agent"
+            namespace: "bean-validation"
+            label: "migration"
+            volumes:
+            - persistentVolumeClaim:
+                claimName: "tools-claim-jiro-bean-validation"
+                mountPath: "/opt/tools"
+                readOnly: true
+            - configMapVolume:
+                configMapName: "known-hosts"
+                mountPath: "/home/jenkins/.ssh/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/repository"
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: settings-xml
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: toolchains-xml
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                volumes:
+                - name: settings-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: settings.xml
+                      path: settings.xml
+                - name: toolchains-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: toolchains.xml
+                      path: toolchains.xml
+    
+    security:
+      apiToken:
+        creationOfLegacyTokenEnabled: false
+        tokenGenerationOnCreationEnabled: false
+        usageStatisticsEnabled: true
+      downloadSettings:
+        useBrowser: false
+      queueItemAuthenticator:
+        authenticators:
+        - global:
+            strategy: "triggeringUsersAuthorizationStrategy"
+      sSHD:
+        port: -1
+    
+    unclassified:
+      location:
+        adminAddress: ci-admin@eclipse.org
+        url: https://ci.eclipse.org/bean-validation
+    
+      mailer:
+        adminAddress: ci-admin@eclipse.org
+        replyToAddress: ci-admin@eclipse.org
+        smtpHost: mail.eclipse.org
+    
+      globalDefaultFlowDurabilityLevel:
+        durabilityHint: PERFORMANCE_OPTIMIZED
+    
+      simple-theme-plugin:
+        elements:
+        - cssUrl:
+            url: "/bean-validation/userContent/theme/quicksilver.css"
+        - cssUrl:
+            url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+        - jsUrl:
+            url: "/bean-validation/userContent/theme/title.js"
+    
+    tool:
+      jdk:
+        installations:
+        - name: "openjdk-latest"
+          home: "/opt/tools/java/openjdk/latest"
+        - name: "openjdk-jdk13ea-latest"
+          home: "/opt/tools/java/openjdk/jdk-13ea/latest"
+        - name: "openjdk-jdk12-latest"
+          home: "/opt/tools/java/openjdk/jdk-12/latest"
+        - name: "openjdk-jdk11-latest"
+          home: "/opt/tools/java/openjdk/jdk-11/latest"
+        - name: "openjdk-jdk10-latest"
+          home: "/opt/tools/java/openjdk/jdk-10/latest"
+        - name: "openjdk-jdk9-latest"
+          home: "/opt/tools/java/openjdk/jdk-9/latest"
+        - name: "adoptopenjdk-hotspot-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
+        - name: "adoptopenjdk-hotspot-jdk12-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest"
+        - name: "adoptopenjdk-hotspot-jdk11-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
+        - name: "adoptopenjdk-hotspot-jdk10-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest"
+        - name: "adoptopenjdk-hotspot-jdk9-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest"
+        - name: "adoptopenjdk-hotspot-jdk8-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
+        - name: "adoptopenjdk-openj9-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-latest"
+        - name: "adoptopenjdk-openj9-jdk12-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-12/latest"
+        - name: "adoptopenjdk-openj9-jdk11-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
+        - name: "adoptopenjdk-openj9-jdk10-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-10/latest"
+        - name: "adoptopenjdk-openj9-jdk9-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-9/latest"
+        - name: "adoptopenjdk-openj9-jdk8-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
+        - name: "oracle-latest"
+          home: "/opt/tools/java/oracle/latest"
+        - name: "oracle-jdk10-latest"
+          home: "/opt/tools/java/oracle/jdk-10/latest"
+        - name: "oracle-jdk9-latest"
+          home: "/opt/tools/java/oracle/jdk-9/latest"
+        - name: "oracle-jdk8-latest"
+          home: "/opt/tools/java/oracle/jdk-8/latest"
+        - name: "oracle-jdk7-latest"
+          home: "/opt/tools/java/oracle/jdk-7/latest"
+        - name: "oracle-jdk6-latest"
+          home: "/opt/tools/java/oracle/jdk-6/latest"
+        - name: "oracle-jdk5-latest"
+          home: "/opt/tools/java/oracle/jdk-5/latest"
+        - name: "oracle-jdk1.4-latest"
+          home: "/opt/tools/java/oracle/jdk-1.4/latest"
+        - name: "ibm-jdk8-latest"
+          home: "/opt/tools/java/ibm/jdk-8/latest"
+        - name: "ibm-latest"
+          home: "/opt/tools/java/ibm/latest"
+      ant:
+        installations:
+        - name: "apache-ant-latest"
+          home: ""
+          properties:
+          - installSource:
+              installers:
+              - antFromApache:
+                  id: "1.10.5"
+      maven:
+        installations:
+        - name: "apache-maven-latest"
+          home: "/opt/tools/apache-maven/latest"
+        - name: "apache-maven-3.6.1"
+          home: "/opt/tools/apache-maven/3.6.1"
+        - name: "apache-maven-3.5.4"
+          home: "/opt/tools/apache-maven/3.5.4"
+        - name: "apache-maven-3.3.9"
+          home: "/opt/tools/apache-maven/3.3.9"
+        - name: "apache-maven-3.2.5"
+          home: "/opt/tools/apache-maven/3.2.5"
+      git:
+        installations:
+        - name: "git"
+          home: "/usr/bin/git"
