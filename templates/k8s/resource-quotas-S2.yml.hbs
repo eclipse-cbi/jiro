@@ -1,0 +1,20 @@
+{{> copyright }}
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  {{> common-metadata }}
+  name: jenkins-instance-quota
+spec:
+  hard:
+    # Jenkins master + 6 agents
+    pods: 7
+    # Jenkins master 50Gi + 4 agents 4*20Gi = 130Gi
+    requests.storage: 130Gi
+     # Jenkins master 1100m + JNLP agents 6x200m + 6*1vCPU 6x1000m
+    requests.cpu: 8300m
+     # Jenkins master 2560Mi + JNLP agents 6x256Mi + 6*4096Mi
+    requests.memory: 28672Mi
+    # Jenkins master 2200m + JNLP agents 6x300m + 6*2vCPU 6x2000m
+    limits.cpu: 16000m
+     # Jenkins master 2560Mi + JNLP agents 6x256Mi + 6*4096Mi
+    requests.memory: 28672Mi
