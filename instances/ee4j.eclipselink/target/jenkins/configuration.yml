@@ -20,11 +20,12 @@ jenkins:
 
   authorizationStrategy:
     projectMatrix:
-      grantedPermissions:
+      permissions:
         - "Overall/Administer:admins"
         - "Job/Read:anonymous"
         - "Overall/Read:anonymous"
         - "Job/ExtendedRead:common"
+        - "Agent/Build:ee4j.eclipselink"
         - "Credentials/View:ee4j.eclipselink"
         - "Gerrit/ManualTrigger:ee4j.eclipselink"
         - "Gerrit/Retrigger:ee4j.eclipselink"
@@ -65,7 +66,7 @@ jenkins:
   clouds:
   - kubernetes:
       name: "kubernetes"
-      containerCapStr: "2"
+      containerCapStr: "6"
       jenkinsUrl: "http://jenkins-ui.eclipselink.svc.cluster.local/eclipselink"
       jenkinsTunnel: "jenkins-discovery.eclipselink.svc.cluster.local:50000"
       maxRequestsPerHostStr: "32"
@@ -73,7 +74,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:b0988972cc41814d7d9299d7c2c69858716c41afb4ba1f6a30448b6da1a0a4a4"
+        - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:fa2872291c59cbdba9210e472410623f3c683549de08c9cdcb200f4ada8aae33"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -145,7 +146,7 @@ jenkins:
                 - key: settings-security.xml
                   path: settings-security.xml
       - containers:
-        - image: "eclipsecbijenkins/ui-test-agent:0.0.1@sha256:bbbd136234e7c669e06b3c96e35c1fa72c3a95c1de4bc7cdf8ff99b60383156c"
+        - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -218,7 +219,7 @@ jenkins:
                 - key: settings-security.xml
                   path: settings-security.xml
       - containers:
-        - image: "eclipsecbijenkins/migration-fat-agent:3.27"
+        - image: "eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -292,8 +293,18 @@ jenkins:
                   path: settings-security.xml
 
 security:
-  remotingCLI:
-    enabled: false
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  downloadSettings:
+    useBrowser: false
+  queueItemAuthenticator:
+    authenticators:
+    - global:
+        strategy: "triggeringUsersAuthorizationStrategy"
+  sSHD:
+    port: -1
 
 unclassified:
   location:
@@ -304,6 +315,9 @@ unclassified:
     adminAddress: ci-admin@eclipse.org
     replyToAddress: ci-admin@eclipse.org
     smtpHost: mail.eclipse.org
+
+  extendedEmailPublisher:
+    defaultContentType: "text/html"
 
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED
@@ -389,6 +403,8 @@ tool:
     installations:
     - name: "apache-maven-latest"
       home: "/opt/tools/apache-maven/latest"
+    - name: "apache-maven-3.6.1"
+      home: "/opt/tools/apache-maven/3.6.1"
     - name: "apache-maven-3.5.4"
       home: "/opt/tools/apache-maven/3.5.4"
     - name: "apache-maven-3.3.9"

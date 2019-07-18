@@ -3,12 +3,12 @@
     "shortName": "eclipselink",
     "fullName": "ee4j.eclipselink",
     "displayName": "EclipseLink",
-    "sponsorshipLevel": "S0"
+    "sponsorshipLevel": "S2"
   },
   "jenkins": {
     "version": "latest",
     "remotingVersion": "latest",
-    "maxConcurrency": 2,
+    "maxConcurrency": 6,
     "agentConnectionTimeout": "180",
     "permissions": [
       {
@@ -44,6 +44,7 @@
           "Job/Move",
           "Job/Read",
           "Job/Workspace",
+          "Agent/Build",
           "Run/Delete",
           "Run/Replay",
           "Run/Update",
@@ -55,15 +56,15 @@
         ]
       }
     ],
-    "actualVersion": "2.164.2",
-    "actualRemotingVersion": "3.27"
+    "actualVersion": "2.176.1",
+    "actualRemotingVersion": "3.29"
   },
   "docker": {
     "repository": "eclipsecbijenkins",
     "master": {
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:latest",
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.176.1",
       "image": "eclipsecbijenkins/eclipselink",
-      "imageTag": "latest",
+      "imageTag": "2.176.1",
       "username": "jenkins",
       "home": "/var/jenkins_home",
       "ref": "/usr/share/jenkins/ref",
@@ -71,13 +72,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "248e358aa8f020d6701a1dc57f4d88ec42493b0730dad3664dce2b1af7f29887"
+      "imageSha256": "aeec5f4cdb86a6f4c57c09a3ca28be990b8b91fb05f83ada1a2eea1b14d568a3"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
-        "tag": "latest",
-        "sha256": "b0988972cc41814d7d9299d7c2c69858716c41afb4ba1f6a30448b6da1a0a4a4"
+        "tag": "3.29",
+        "sha256": "fa2872291c59cbdba9210e472410623f3c683549de08c9cdcb200f4ada8aae33"
       }
     }
   },
@@ -94,11 +95,11 @@
       "stsName": "eclipselink",
       "resources": {
         "cpu": {
-          "request": "500m",
-          "limit": 2
+          "request": "1100m",
+          "limit": "2200m"
         },
         "memory": {
-          "limit": "1.5Gi"
+          "limit": "2560Mi"
         }
       },
       "probe": {
