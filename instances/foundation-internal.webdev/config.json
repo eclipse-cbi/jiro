@@ -9,6 +9,7 @@
     "prefix": "/ci/{{project.shortName}}"
   },
   "jenkins": {
+    "version": "2.176.2",
     "permissions": [
       {
         "principal": "anonymous",

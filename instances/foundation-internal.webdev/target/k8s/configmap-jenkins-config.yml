@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "foundation-internal.webdev"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.1"
+    org.eclipse.cbi.jiro/jenkins.version: "2.176.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "foundation-internal-webdev"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "foundation-internal-webdev"
