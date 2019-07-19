@@ -11,44 +11,44 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   labels:
-    org.eclipse.cbi.jiro/project.shortname: "dash"
-    org.eclipse.cbi.jiro/project.fullName: "technology.dash"
+    org.eclipse.cbi.jiro/project.shortname: "ajdt"
+    org.eclipse.cbi.jiro/project.fullName: "tools.ajdt"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.176.2"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
-    org.eclipse.cbi.jiro/kubernetes.master.namespace: "dash"
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.1"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "ajdt"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
-  namespace: "dash"
-  name: "dash"
+  namespace: "ajdt"
+  name: "ajdt"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      org.eclipse.cbi.jiro/project.fullName: "technology.dash"
-  serviceName: "dash"
+      org.eclipse.cbi.jiro/project.fullName: "tools.ajdt"
+  serviceName: "ajdt"
   template:
     metadata:
       labels:
-        org.eclipse.cbi.jiro/project.shortname: "dash"
-        org.eclipse.cbi.jiro/project.fullName: "technology.dash"
+        org.eclipse.cbi.jiro/project.shortname: "ajdt"
+        org.eclipse.cbi.jiro/project.fullName: "tools.ajdt"
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
-        org.eclipse.cbi.jiro/jenkins.version: "2.176.2"
-        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
-        org.eclipse.cbi.jiro/kubernetes.master.namespace: "dash"
+        org.eclipse.cbi.jiro/jenkins.version: "latest"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.1"
+        org.eclipse.cbi.jiro/kubernetes.master.namespace: "ajdt"
         org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
-      name: "dash"
+      name: "ajdt"
     spec:
-      serviceAccountName: dash
+      serviceAccountName: ajdt
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/dash:2.176.2@sha256:2f79aa814b1ca18ce56e5a1e75c6ea72b6015819a7be40b4dbb92af9059b9405
+        image: eclipsecbijenkins/ajdt:2.176.1@sha256:253a24f37597806269522eb4e64354350cdc444a35611a231d45401ce55425f2
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
-            path: /dash/login
+            path: /ajdt/login
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 480
@@ -57,7 +57,7 @@ spec:
           timeoutSeconds: 90
         readinessProbe:
           httpGet:
-            path: /dash/login
+            path: /ajdt/login
             port: 8080
           periodSeconds: 60
           timeoutSeconds: 90
@@ -100,7 +100,7 @@ spec:
               -Dhudson.slaves.NodeProvisioner.initialDelay=0
               -Dhudson.slaves.NodeProvisioner.MARGIN=50
               -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85
-              -Dhudson.footerURL=https://ci.eclipse.org
+              -Dhudson.footerURL=https://ci-staging.eclipse.org
               -Dhudson.model.UsageStatistics.disabled=true
               -Djenkins.model.Jenkins.slaveAgentPort=50000
               -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
@@ -112,7 +112,7 @@ spec:
               -Dkubernetes.websocket.ping.interval=30000
           - name: JENKINS_OPTS
             value: >-
-              --prefix=/dash
+              --prefix=/ajdt
               --webroot=/var/cache/jenkins/war
               --pluginroot=/var/cache/jenkins/plugins
       volumes:

@@ -5,7 +5,7 @@
     "displayName": "Eclipse Dash"
   },
   "jenkins": {
-    "version": "2.176.1",
+    "version": "2.176.2",
     "permissions": [
       {
         "principal": "anonymous",

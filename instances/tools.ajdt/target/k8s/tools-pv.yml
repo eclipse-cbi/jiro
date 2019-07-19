@@ -8,16 +8,32 @@
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
 apiVersion: v1
-kind: ServiceAccount
+kind: PersistentVolume
 metadata:
-  labels:
-    org.eclipse.cbi.jiro/project.shortname: "dash"
-    org.eclipse.cbi.jiro/project.fullName: "technology.dash"
-    org.eclipse.cbi.jiro/kind: "master"
-  annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.176.2"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
-    org.eclipse.cbi.jiro/kubernetes.master.namespace: "dash"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
-  namespace: "dash"
-  name: dash
+  name: tools-jiro-ajdt
+spec:
+  storageClassName: bbzcxird03bsb81s-tools
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadOnlyMany
+  claimRef:
+    namespace: ajdt
+    name: tools-claim-jiro-ajdt
+  nfs:
+    server: bambam
+    path: /home/data/c1-ci.eclipse.org/buildtools
+    readOnly: true
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: tools-claim-jiro-ajdt
+  namespace: ajdt
+spec:
+  storageClassName: bbzcxird03bsb81s-tools
+  accessModes:
+    - ReadOnlyMany
+  resources:
+    requests:
+      storage: 20Gi

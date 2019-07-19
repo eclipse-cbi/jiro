@@ -1,4 +1,5 @@
 # GENERATED FILE - DO NOT EDIT
+
 #*******************************************************************************
 # Copyright (c) 2018 Eclipse Foundation and others.
 # This program and the accompanying materials are made available
@@ -7,17 +8,18 @@
 # or the MIT License which is available at https://opensource.org/licenses/MIT.
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  labels:
-    org.eclipse.cbi.jiro/project.shortname: "dash"
-    org.eclipse.cbi.jiro/project.fullName: "technology.dash"
-    org.eclipse.cbi.jiro/kind: "master"
-  annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.176.2"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
-    org.eclipse.cbi.jiro/kubernetes.master.namespace: "dash"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
-  namespace: "dash"
-  name: dash
+# <templates/Dockerfile.tpl>
+FROM eclipsecbijenkins/jenkins-master-base:2.176.1
+
+EXPOSE 8080
+EXPOSE 50000
+
+RUN mkdir -p /usr/share/jenkins/ref/userContent/theme/
+COPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/
+COPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/
+# </templates/Dockerfile.tpl>
+
+# <gen-dockerfile.sh>
+USER 10001
+# </gen-dockerfile.sh>
+

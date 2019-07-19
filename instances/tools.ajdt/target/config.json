@@ -1,12 +1,12 @@
 {
   "project": {
-    "shortName": "dash",
-    "fullName": "technology.dash",
-    "displayName": "Eclipse Dash",
+    "shortName": "ajdt",
+    "fullName": "tools.ajdt",
+    "displayName": "Eclipse AJDT",
     "sponsorshipLevel": "S0"
   },
   "jenkins": {
-    "version": "2.176.2",
+    "version": "latest",
     "remotingVersion": "latest",
     "maxConcurrency": 2,
     "agentConnectionTimeout": "180",
@@ -31,7 +31,7 @@
         ]
       },
       {
-        "principal": "technology.dash",
+        "principal": "tools.ajdt",
         "grantedPermissions": [
           "Credentials/View",
           "Gerrit/ManualTrigger",
@@ -54,29 +54,17 @@
           "View/Read",
           "SCM/Tag"
         ]
-      },
-      {
-        "principal": "anonymous",
-        "withheldPermissions": [
-          "Job/Read"
-        ]
-      },
-      {
-        "principal": "common",
-        "grantedPermissions": [
-          "Job/Read"
-        ]
       }
     ],
-    "actualVersion": "2.176.2",
+    "actualVersion": "2.176.1",
     "actualRemotingVersion": "3.29"
   },
   "docker": {
     "repository": "eclipsecbijenkins",
     "master": {
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.176.2",
-      "image": "eclipsecbijenkins/dash",
-      "imageTag": "2.176.2",
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.176.1",
+      "image": "eclipsecbijenkins/ajdt",
+      "imageTag": "2.176.1",
       "username": "jenkins",
       "home": "/var/jenkins_home",
       "ref": "/usr/share/jenkins/ref",
@@ -84,7 +72,7 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "2f79aa814b1ca18ce56e5a1e75c6ea72b6015819a7be40b4dbb92af9059b9405"
+      "imageSha256": "253a24f37597806269522eb4e64354350cdc444a35611a231d45401ce55425f2"
     },
     "agent": {
       "defaultImage": {
@@ -95,16 +83,16 @@
     }
   },
   "deployment": {
-    "host": "ci.eclipse.org",
-    "prefix": "/dash",
-    "url": "https://ci.eclipse.org/dash",
+    "host": "ci-staging.eclipse.org",
+    "prefix": "/ajdt",
+    "url": "https://ci-staging.eclipse.org/ajdt",
     "uiPort": 8080,
     "jnlpPort": 50000
   },
   "kubernetes": {
     "master": {
-      "namespace": "dash",
-      "stsName": "dash",
+      "namespace": "ajdt",
+      "stsName": "ajdt",
       "resources": {
         "cpu": {
           "request": "500m",
@@ -144,7 +132,7 @@
   },
   "secrets": {
     "gerrit-trigger-plugin": {
-      "username": "genie.dash",
+      "username": "genie.ajdt",
       "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
     }
   }

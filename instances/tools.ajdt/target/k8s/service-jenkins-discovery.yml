@@ -11,15 +11,15 @@ apiVersion: "v1"
 kind: "Service"
 metadata:
   labels:
-    org.eclipse.cbi.jiro/project.shortname: "dash"
-    org.eclipse.cbi.jiro/project.fullName: "technology.dash"
+    org.eclipse.cbi.jiro/project.shortname: "ajdt"
+    org.eclipse.cbi.jiro/project.fullName: "tools.ajdt"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.176.2"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
-    org.eclipse.cbi.jiro/kubernetes.master.namespace: "dash"
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.1"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "ajdt"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
-  namespace: "dash"
+  namespace: "ajdt"
   name: "jenkins-discovery"
 spec:
   ports:
@@ -28,4 +28,4 @@ spec:
     protocol: "TCP"
     targetPort: 50000
   selector:
-    org.eclipse.cbi.jiro/project.fullName: "technology.dash"
+    org.eclipse.cbi.jiro/project.fullName: "tools.ajdt"

@@ -7,25 +7,31 @@
 # or the MIT License which is available at https://opensource.org/licenses/MIT.
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
-apiVersion: "v1"
-kind: "Service"
+apiVersion: "route.openshift.io/v1"
+kind: "Route"
 metadata:
   labels:
-    org.eclipse.cbi.jiro/project.shortname: "dash"
-    org.eclipse.cbi.jiro/project.fullName: "technology.dash"
+    org.eclipse.cbi.jiro/project.shortname: "ajdt"
+    org.eclipse.cbi.jiro/project.fullName: "tools.ajdt"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.176.2"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
-    org.eclipse.cbi.jiro/kubernetes.master.namespace: "dash"
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.1"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "ajdt"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
-  namespace: "dash"
-  name: "jenkins-discovery"
+  namespace: "ajdt"
+  annotations:
+    haproxy.router.openshift.io/timeout: 60s
+  name: "ajdt"
 spec:
-  ports:
-  - name: "jnlp"
-    port: 50000
-    protocol: "TCP"
-    targetPort: 50000
-  selector:
-    org.eclipse.cbi.jiro/project.fullName: "technology.dash"
+  host: "ci-staging.eclipse.org"
+  path: "/ajdt"
+  port:
+    targetPort: "http"
+  tls:
+    insecureEdgeTerminationPolicy: "Redirect"
+    termination: "edge"
+  to:
+    kind: "Service"
+    name: "jenkins-ui"
+    weight: 100

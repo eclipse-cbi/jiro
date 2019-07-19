@@ -22,29 +22,29 @@ jenkins:
     projectMatrix:
       permissions:
         - "Overall/Administer:admins"
+        - "Job/Read:anonymous"
         - "Overall/Read:anonymous"
         - "Job/ExtendedRead:common"
-        - "Job/Read:common"
-        - "Agent/Build:technology.dash"
-        - "Credentials/View:technology.dash"
-        - "Gerrit/ManualTrigger:technology.dash"
-        - "Gerrit/Retrigger:technology.dash"
-        - "Job/Build:technology.dash"
-        - "Job/Cancel:technology.dash"
-        - "Job/Configure:technology.dash"
-        - "Job/Create:technology.dash"
-        - "Job/Delete:technology.dash"
-        - "Job/Move:technology.dash"
-        - "Job/Read:technology.dash"
-        - "Job/Workspace:technology.dash"
-        - "Run/Delete:technology.dash"
-        - "Run/Replay:technology.dash"
-        - "Run/Update:technology.dash"
-        - "SCM/Tag:technology.dash"
-        - "View/Configure:technology.dash"
-        - "View/Create:technology.dash"
-        - "View/Delete:technology.dash"
-        - "View/Read:technology.dash"
+        - "Agent/Build:tools.ajdt"
+        - "Credentials/View:tools.ajdt"
+        - "Gerrit/ManualTrigger:tools.ajdt"
+        - "Gerrit/Retrigger:tools.ajdt"
+        - "Job/Build:tools.ajdt"
+        - "Job/Cancel:tools.ajdt"
+        - "Job/Configure:tools.ajdt"
+        - "Job/Create:tools.ajdt"
+        - "Job/Delete:tools.ajdt"
+        - "Job/Move:tools.ajdt"
+        - "Job/Read:tools.ajdt"
+        - "Job/Workspace:tools.ajdt"
+        - "Run/Delete:tools.ajdt"
+        - "Run/Replay:tools.ajdt"
+        - "Run/Update:tools.ajdt"
+        - "SCM/Tag:tools.ajdt"
+        - "View/Configure:tools.ajdt"
+        - "View/Create:tools.ajdt"
+        - "View/Delete:tools.ajdt"
+        - "View/Read:tools.ajdt"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -67,10 +67,10 @@ jenkins:
   - kubernetes:
       name: "kubernetes"
       containerCapStr: "2"
-      jenkinsUrl: "http://jenkins-ui.dash.svc.cluster.local/dash"
-      jenkinsTunnel: "jenkins-discovery.dash.svc.cluster.local:50000"
+      jenkinsUrl: "http://jenkins-ui.ajdt.svc.cluster.local/ajdt"
+      jenkinsTunnel: "jenkins-discovery.ajdt.svc.cluster.local:50000"
       maxRequestsPerHostStr: "32"
-      namespace: "dash"
+      namespace: "ajdt"
       podRetention: "never"
       templates:
       - containers:
@@ -91,11 +91,11 @@ jenkins:
           args: ""
         instanceCap: 5
         name: "default-agent"
-        namespace: "dash"
+        namespace: "ajdt"
         nodeUsageMode: NORMAL
         volumes:
         - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-dash"
+            claimName: "tools-claim-jiro-ajdt"
             mountPath: "/opt/tools"
             readOnly: true
         - configMapVolume:
@@ -154,11 +154,11 @@ jenkins:
         instanceCap: 5
         instanceCapStr: "5"
         name: "ui-test-agent"
-        namespace: "dash"
+        namespace: "ajdt"
         label: "ui-test"
         volumes:
         - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-dash"
+            claimName: "tools-claim-jiro-ajdt"
             mountPath: "/opt/tools"
             readOnly: true
         - configMapVolume:
@@ -217,11 +217,11 @@ jenkins:
         instanceCap: 5
         instanceCapStr: "5"
         name: "migration-agent"
-        namespace: "dash"
+        namespace: "ajdt"
         label: "migration"
         volumes:
         - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-dash"
+            claimName: "tools-claim-jiro-ajdt"
             mountPath: "/opt/tools"
             readOnly: true
         - configMapVolume:
@@ -279,7 +279,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci.eclipse.org/dash
+    url: https://ci-staging.eclipse.org/ajdt
 
   mailer:
     adminAddress: ci-admin@eclipse.org
@@ -295,11 +295,11 @@ unclassified:
   simple-theme-plugin:
     elements:
     - cssUrl:
-        url: "/dash/userContent/theme/quicksilver.css"
+        url: "/ajdt/userContent/theme/quicksilver.css"
     - cssUrl:
         url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
     - jsUrl:
-        url: "/dash/userContent/theme/title.js"
+        url: "/ajdt/userContent/theme/title.js"
 
 tool:
   jdk:
