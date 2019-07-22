@@ -1,0 +1,16 @@
+jenkins:
+  nodes:
+  - permanent:
+      labelString: ""
+      launcher:
+        ssh:
+          credentialsId: "d483cc19-fc32-42e0-af52-25b4a22d6aa9"
+          host: "104.154.18.211"
+          jvmOptions: "-Xmx256m -Xms256m"
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJg4m6d5/VkgRkVf8miSAtJvdEyIOdIsj7yihbydu8/jF35XayRZfVUJl4QMSYpnTrr28k6pnTtumiofnyCbPoM="
+      mode: EXCLUSIVE
+      name: "egerrit-slave"
+      nodeDescription: "Google Ubuntu machine where to perform builds and tests"
+      remoteFS: "/home/webmaster/egerrit"
