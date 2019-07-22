@@ -1,0 +1,36 @@
+# GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "chess"
+    org.eclipse.cbi.jiro/project.fullName: "polarsys.polarsys.chess"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.1"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "chess"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+  namespace: "chess"
+  name: known-hosts
+data:
+  known_hosts: |-
+    build.eclipse.org ssh-dss AAAAB3NzaC1kc3MAAACBAPk0ETW2mCBYwo4nYxBse9jhWAEVmmb+UWadxnR1Gq9X5aYHp4wjgtyclW+2l4aBO1TTT0FKqzSSGNydX9+wGM0/IGrwDhfeNBb2ELhhcdcwDa6TjNfitpFOizdvu9bx2usWpqTthAUcus/7MvRU5TIwwnOwg6ZvbLUK2gK0MhefAAAAFQDcYaAXyQzfxPw0cDI6/a5ZGWnuTQAAAIBbWG4PjvOCcrE7qRkAuMFRpv7HG0r6gXyPz9OreYEVYj8L2IVg1nG1tAkJkd8wGfxX3aN1wf3GHnYz30nqIli1n6dFxGb28zMAaCjnGSmrlJ43qzZSeOtt31de+I8Z7Ry48DQthzPr3gvtxqAUyhmra2A5//2VlVAzcrC8Vv76RQAAAIAvS0yFl4sUPuvX85sH4rIURvW/akmX27X2BDc9C1x2gmpONxz9oUOMLaS9DLKT7uq+PDMDd3xFUA/e2TRJCJB/UMVv5HaiLM4MuB81EZ5xVUFs5EmmfCON2BsW8HN+JKu2tYgIT3p+dz5Fv4fRgi6hqduCUkOTgPUQEXUSubXsbg==
+    build.eclipse.org,projects-storage.eclipse.org,198.41.30.203 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAxN2j7xgmTnwkoiM0qFR3gwL16ye4mrWkRaxirofS0Zf7T7SvSYge7wtYKvoRf8U8q2h6ZR7uJ5zIcDk6sL9BHugcZrZ/BvL/cKsewg3Q1Um/yOSDU0ay7leaalKSflEZJq7DGP/4zc2EHiwKqVlvlqslsf+8bLuSyJHnJ73bm7M=
+    build.eclipse.org,projects-storage.eclipse.org,198.41.30.203 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMnz+MH8/FQK3WODg9nYoXe35Civ/x77WYX4cCDbZxy6sIxyJDj/ggut0c05aPEfrUApcVR+UikEFM+UXcyy8Y4=
+    git.eclipse.org ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC0Huk+n/BtiCWFl+jRj7HNJZQtQeb4dntI59C6GpMX+uOhRa8PtBms2bhZByuV/pKQOVK/LDjGxEpbLikV+sPUoVB18Rnb5h+hHtIceA6qChEo2mwaSHMW2mHgmIIvLBLiKex7kLYI7Q24HrLBaUJh+AfrC+j+pzrVbhSky9nAo9hdHcdrW7bYYQz4suJnLvKoJJqC9RSSzUpPuRVwYO6CRi2ym4YWhDv9aXHmRdFoz8p0UkF12bHJK7FinE6G3rzaykfj040mcmXHz8yoZamajRwk71UWAvgbyjoHMtl+O3Fv7mOiLathdA0YG9YQfXYfdjVbe6kRgLlg/xo7cbh+XsbOj+xGdaJBKiZu4XVgo0EKbYEnVdnDFmqFIBEobUUgX6lYDV1PePCHTjNtuT/7e34Sqzd6RzmK1IP8b3wavD6//9FSraF2s7bvJofd4m0lh+0AwH01DuBAlF3X/ARmXtHNbM4L8RRoDtsn+rn1JJBKls9XIxQ+giuHoOCue9qqpmnW1fFErKTd6kTwzVs7uH6q/zmOzeXEsa3buKuGzen504KNojvZz3feeytRvapgZKh+C56/2xou2X++noc1hGHMQElqjFrMIifHxx8zJ/1GzPXq/Xdq+N/w0lTvTX+z2xPpeKMS0SOH5MYmtvGbYivTIofWmjF1gZeZcs3N1w==
+    [git.eclipse.org]:29418 ssh-dss AAAAB3NzaC1kc3MAAACBAJhl1CSP2rzgPCUPvl+jxdKcD3npSp5MNYdqLL2XoCLw/PHL2JZUN0zVV9/mCT3Im39OvyyPtAQ/KvAlMtJeX+mfHvG/33fub5P/xMJlrJhS+VrVVIZxDBGPbYktO7ySiOs/FWJE1+5pjMpJbqt4a4FhpnsojmKHsY9FEg7mufN7AAAAFQDyJAzuwliAQKXAQzqa2KqmyPFhVQAAAIAVzilOrNogcZuA3y8sUg/wjnQG2rZhyfbMhSpc7NKjkctf3fdIGjQp7HUJlNA29TnMoiThNng3KvuGm4WtOQYi3KxIxAlom+2Rxm1RR5kYyvGK0hDW86ZXnhaCiuGxctS+rNf6QjJ8FVtUEG8v84xiHtOWh5FrlkEB3UcSFFwBAAAAAIBK8vb6wXY9J/KXv7e3X1lyg81EJma/UuFXcizaZrw2bAhiJ/P+AK3TGNcOF7ypTKCoSkRZdEMeYjx9ljCFHkgGuUpO6vyABai9CG9zpyaHAMbcQ3PlBeCws0l2rqRHay0eIACvX2xMhFXxXr8n6zJy0FiVQ2aRAb6/4OFhWR9rMQ==
+    [git.eclipse.org]:29418 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAn1P3D1rGBOVnj043ArtjaJBILKuQy5LSt9LCJc0a/xLwVvHltiQtXH9fnZ6oKUNr6zacRF0fq2Bid3hdh9fQO94+l4qFOOszfX4662Z3pi3nR4yE/bmCoNswKloUiQHy7BWjM8JTJOStZuQjBI2cTvVWKzUCT8A+iyqrDsNeqKPVXfwoOCUo3+O5Tfvv0h1VrXCmNS31W7srGQRiTUEzeKa3IXuQ85UvozHNMs1vmguCZYpNeoL/3U+dYaR3xba19ijbHrNog3GZ3ku8NiNeGhcCjx/Ar+Fj2bH4X1JIls6lC7NRYZadlifu9BxvqB2tgdcqCEw9OqqzeSKo+715Hw==
+    [git.eclipse.org]:29418 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKPWcmP3foX15NodSZXwPWP/YZUDRSLAGF/1nAVDYuJIPpbhnCrsZ5imxzMyzufEZoQ4IainqYj71MFtTyeSXwc=
+    [git.eclipse.org]:29418 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA8+KrFs55Aw6ATeoTxSIQOLiYBDALPZ4qN02mvB49a2
+    github.com,192.30.253.* ssh-dss AAAAB3NzaC1kc3MAAACBANGFW2P9xlGU3zWrymJgI/lKo//ZW2WfVtmbsUZJ5uyKArtlQOT2+WRhcg4979aFxgKdcsqAYW3/LS1T2km3jYW/vr4Uzn+dXWODVk5VlUiZ1HFOHf6s6ITcZvjvdbp6ZbpM+DuJT7Bw+h5Fx8Qt8I16oCZYmAPJRtu46o9C2zk1AAAAFQC4gdFGcSbp5Gr0Wd5Ay/jtcldMewAAAIATTgn4sY4Nem/FQE+XJlyUQptPWMem5fwOcWtSXiTKaaN0lkk2p2snz+EJvAGXGq9dTSWHyLJSM2W6ZdQDqWJ1k+cL8CARAqL+UMwF84CR0m3hj+wtVGD/J4G5kW2DBAf4/bqzP4469lT+dF2FRQ2L9JKXrCWcnhMtJUvua8dvnwAAAIB6C4nQfAA7x8oLta6tT+oCk2WQcydNsyugE8vLrHlogoWEicla6cWPk7oXSspbzUcfkjN3Qa6e74PhRkc7JdSdAlFzU3m7LMkXo1MHgkqNX8glxWNVqBSc0YRdbFdTkL0C6gtpklilhvuHQCdbgB3LBAikcRkDp+FCVkUgPC/7Rw==
+    github.com,192.30.253.* ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
+    mac-tests2,172.30.206.147 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJumqZVwwDlh8rzdvPBup7/r8q0icTROzaUnpus5y2Ufe2g2HTT0hcGQ0UjL0gLbfhX877nL2KYE52qfWud/IIg=
