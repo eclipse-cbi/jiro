@@ -67,7 +67,7 @@ import_views() {
   oc exec ${short_name}-0 rm /var/jenkins_home/config.xml -n=${short_name}
   mkdir -p ${work_dir}/tmp
   cp ${work_dir}/config.xml ${work_dir}/tmp/
-  oc rsync ${work_dir}/tmp/ ${short_name}-0:/var/jenkins_home/ -n=${short_name}
+  oc rsync ${work_dir}/tmp/ ${short_name}-0:/var/jenkins_home/ -n=${short_name} --no-perms
   rm -rf ${work_dir}/tmp
 }
 
