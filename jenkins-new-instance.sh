@@ -55,9 +55,6 @@ mkdir -p "${SCRIPT_FOLDER}/instances/${project_name}"
   printf '    "fullName": "%s",\n' "${project_name}"
   printf '    "shortName": "%s",\n' "${short_name}"
   printf '    "displayName": "%s"\n' "${display_name}"
-  printf '  },\n'
-  printf '  "deployment": {\n'
-  printf '    "host": "ci-staging.eclipse.org"\n'
   printf '  }\n'
   printf '}\n'
 } >  "${SCRIPT_FOLDER}/instances/${project_name}/config.json"

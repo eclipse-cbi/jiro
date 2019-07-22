@@ -42,7 +42,30 @@ if [[ "$project_name" != *.* ]]; then
   exit 1
 fi
 
-${script_folder}/../jenkins-new-instance.sh ${project_name} ${display_name}
+new_migration_instance() {
+  mkdir -p "${script_folder}/../instances/${project_name}"
+  {
+    printf '{\n'
+    printf '  "project": {\n'
+    printf '    "fullName": "%s",\n' "${project_name}"
+    printf '    "shortName": "%s",\n' "${short_name}"
+    printf '    "displayName": "%s"\n' "${display_name}"
+    printf '  },\n'
+    printf '  "deployment": {\n'
+    printf '    "host": "ci-staging.eclipse.org"\n'
+    printf '  }\n'
+    printf '}\n'
+  } >  "${script_folder}/../instances/${project_name}/config.json"
+}
+
+read -p "Is this a migration from the old infrastructure? (Y)es, (N)o, E(x)it: " yn
+case $yn in
+  [Yy]* ) new_migration_instance;;
+  [Nn]* ) ${script_folder}/../jenkins-new-instance.sh ${project_name} ${display_name};;
+  [Xx]* ) exit;;
+      * ) echo "Please answer (Y)es, (N)ooo, E(x)it";;
+esac
+
 pushd ${ci_admin_dir}
 ./add_creds_gerrit.sh ${project_name} || : # if creds already exist, ignore exit code 1
 ./add_creds_projects-storage.sh ${project_name} || : # if creds already exist, ignore exit code 1
