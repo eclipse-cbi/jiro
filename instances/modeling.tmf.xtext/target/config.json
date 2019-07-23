@@ -72,20 +72,20 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "f611fc33a070ef5ab00005d4f746c41221732f4e247927b22398e789ba65cf5f"
+      "imageSha256": "e1871674ae62ea71a35bdb02849079d759506d6d3fdccf35a2c151cd2e8de85e"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "3.29",
-        "sha256": "90d0b4f1eaa744217d4cd5df8caef86dfc76ce4d38bba6bda6a40de4eb8307cd"
+        "sha256": "fa2872291c59cbdba9210e472410623f3c683549de08c9cdcb200f4ada8aae33"
       }
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/xtext",
-    "url": "https://ci-staging.eclipse.org/xtext",
+    "url": "https://ci.eclipse.org/xtext",
     "uiPort": 8080,
     "jnlpPort": 50000
   },

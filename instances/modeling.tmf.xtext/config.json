@@ -5,9 +5,6 @@
     "displayName": "Eclipse Xtext",
     "sponsorshipLevel": "S1"
   },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
-  },
   "jenkins": {
     "version": "2.176.1",
     "maxConcurrency": 4
