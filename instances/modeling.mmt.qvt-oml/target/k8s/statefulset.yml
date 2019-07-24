@@ -1,0 +1,137 @@
+# GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "qvt-oml"
+    org.eclipse.cbi.jiro/project.fullName: "modeling.mmt.qvt-oml"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "qvt-oml"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+  namespace: "qvt-oml"
+  name: "qvt-oml"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      org.eclipse.cbi.jiro/project.fullName: "modeling.mmt.qvt-oml"
+  serviceName: "qvt-oml"
+  template:
+    metadata:
+      labels:
+        org.eclipse.cbi.jiro/project.shortname: "qvt-oml"
+        org.eclipse.cbi.jiro/project.fullName: "modeling.mmt.qvt-oml"
+        org.eclipse.cbi.jiro/kind: "master"
+      annotations:
+        org.eclipse.cbi.jiro/jenkins.version: "latest"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
+        org.eclipse.cbi.jiro/kubernetes.master.namespace: "qvt-oml"
+        org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+      name: "qvt-oml"
+    spec:
+      serviceAccountName: qvt-oml
+      terminationGracePeriodSeconds: 1200
+      containers:
+      - name: jenkins
+        image: eclipsecbijenkins/qvt-oml:2.176.2@sha256:23bcac08db0e3a27cd465470c0d55c6f4cbc96c385e1ac8f3a72802a8a535192
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /qvt-oml/login
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 480
+          periodSeconds: 60
+          failureThreshold: 2
+          timeoutSeconds: 90
+        readinessProbe:
+          httpGet:
+            path: /qvt-oml/login
+            port: 8080
+          periodSeconds: 60
+          timeoutSeconds: 90
+          initialDelaySeconds: 15
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 50000
+          protocol: TCP
+        resources:
+          requests:
+            cpu: 500m
+          limits:
+            cpu: 2
+            memory: 1.5Gi
+        volumeMounts:
+        - mountPath: "/var/jenkins_home"
+          name: jenkins-home
+        - mountPath: "/var/cache/jenkins/war"
+          name: jenkins-war
+        - mountPath: "/var/cache/jenkins/plugins"
+          name: jenkins-plugins
+        - mountPath: "/etc/jenkins/"
+          name: jenkins-config
+          readOnly: true
+        - mountPath: "/run/secrets/jenkins/ssh"
+          name: gerrit-ssh-keys
+          readOnly: true
+        env:
+          - name: JAVA_OPTS
+              # -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle
+              # -Xshareclasses:verbose,name=jenkins,cacheDir=/var/cache/openj9/sharedclasses/jenkins,groupAccess,fatal
+              # Djdk.nativeCrypto=false is a workaround for
+              # https://github.com/eclipse/openj9/issues/3637
+            value: >-
+              -XshowSettings:vm
+              -Djdk.nativeCrypto=false
+              -Dsun.zip.disableMemoryMapping=true
+              -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle
+              -Dhudson.slaves.NodeProvisioner.initialDelay=0
+              -Dhudson.slaves.NodeProvisioner.MARGIN=50
+              -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85
+              -Dhudson.footerURL=https://ci-staging.eclipse.org
+              -Dhudson.model.UsageStatistics.disabled=true
+              -Djenkins.model.Jenkins.slaveAgentPort=50000
+              -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
+              -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
+              -Djenkins.install.runSetupWizard=false
+              -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:cf7b76045437e407bbdef33e4d8d5807cb2ffe2bb4c554c1ab28048cb3a9f4b8
+              -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
+              -Dkubernetes.websocket.ping.interval=30000
+          - name: JENKINS_OPTS
+            value: >-
+              --prefix=/qvt-oml
+              --webroot=/var/cache/jenkins/war
+              --pluginroot=/var/cache/jenkins/plugins
+      volumes:
+      - name: jenkins-war
+        emptyDir: {}
+      - name: jenkins-plugins
+        emptyDir: {}
+      - name: jenkins-config
+        configMap:
+          name: jenkins-config
+      - name: gerrit-ssh-keys
+        secret:
+          secretName: gerrit-ssh-keys
+  volumeClaimTemplates:
+  - metadata:
+      name: jenkins-home
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 50Gi

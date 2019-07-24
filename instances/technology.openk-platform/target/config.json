@@ -1,0 +1,139 @@
+{
+  "project": {
+    "shortName": "openk-platform",
+    "fullName": "technology.openk-platform",
+    "displayName": "Eclipse openK platform",
+    "sponsorshipLevel": "S0"
+  },
+  "jenkins": {
+    "version": "latest",
+    "remotingVersion": "latest",
+    "maxConcurrency": 2,
+    "agentConnectionTimeout": "180",
+    "permissions": [
+      {
+        "principal": "anonymous",
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ]
+      },
+      {
+        "principal": "common",
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ]
+      },
+      {
+        "principal": "admins",
+        "grantedPermissions": [
+          "Overall/Administer"
+        ]
+      },
+      {
+        "principal": "technology.openk-platform",
+        "grantedPermissions": [
+          "Credentials/View",
+          "Gerrit/ManualTrigger",
+          "Gerrit/Retrigger",
+          "Job/Build",
+          "Job/Cancel",
+          "Job/Configure",
+          "Job/Create",
+          "Job/Delete",
+          "Job/Move",
+          "Job/Read",
+          "Job/Workspace",
+          "Agent/Build",
+          "Run/Delete",
+          "Run/Replay",
+          "Run/Update",
+          "View/Configure",
+          "View/Create",
+          "View/Delete",
+          "View/Read",
+          "SCM/Tag"
+        ]
+      }
+    ],
+    "actualVersion": "2.176.2",
+    "actualRemotingVersion": "3.29"
+  },
+  "docker": {
+    "repository": "eclipsecbijenkins",
+    "master": {
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.176.2",
+      "image": "eclipsecbijenkins/openk-platform",
+      "imageTag": "2.176.2",
+      "username": "jenkins",
+      "home": "/var/jenkins_home",
+      "ref": "/usr/share/jenkins/ref",
+      "webroot": "/var/cache/jenkins/war",
+      "pluginroot": "/var/cache/jenkins/plugins",
+      "war": "/usr/share/jenkins/jenkins.war",
+      "updateCenter": "https://updates.jenkins.io",
+      "imageSha256": "d0b831e8682933371c08bc508b6953a199df5ed897226bc6fe15871b7e489582"
+    },
+    "agent": {
+      "defaultImage": {
+        "name": "eclipsecbijenkins/jenkins-agent",
+        "tag": "3.29",
+        "sha256": "cf7b76045437e407bbdef33e4d8d5807cb2ffe2bb4c554c1ab28048cb3a9f4b8"
+      }
+    }
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org",
+    "prefix": "/openk-platform",
+    "url": "https://ci-staging.eclipse.org/openk-platform",
+    "uiPort": 8080,
+    "jnlpPort": 50000
+  },
+  "kubernetes": {
+    "master": {
+      "namespace": "openk-platform",
+      "stsName": "openk-platform",
+      "resources": {
+        "cpu": {
+          "request": "500m",
+          "limit": 2
+        },
+        "memory": {
+          "limit": "1.5Gi"
+        }
+      },
+      "probe": {
+        "liveness": {
+          "delaySeconds": 480,
+          "periodSeconds": 60,
+          "timeoutSeconds": 90,
+          "failureThreshold": 2
+        },
+        "readiness": {
+          "delaySeconds": 15,
+          "periodSeconds": "60",
+          "timeoutSeconds": "90"
+        }
+      }
+    }
+  },
+  "maven": {
+    "home": "/home/jenkins/.m2",
+    "files": {
+      "settings.xml": {
+        "volumeType": "ConfigMap",
+        "volumeName": "m2-dir"
+      },
+      "toolchains.xml": {
+        "volumeType": "ConfigMap",
+        "volumeName": "m2-dir"
+      }
+    }
+  },
+  "secrets": {
+    "gerrit-trigger-plugin": {
+      "username": "genie.openk-platform",
+      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
+    }
+  }
+}

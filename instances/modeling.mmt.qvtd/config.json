@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "modeling.mmt.qvtd",
+    "shortName": "qvtd",
+    "displayName": "Eclipse QVTd"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
+  }
+}

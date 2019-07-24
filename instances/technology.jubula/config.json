@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "technology.jubula",
+    "shortName": "jubula",
+    "displayName": "Eclipse Jubula"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
+  }
+}
