@@ -14,6 +14,8 @@ ci_admin_dir="${script_folder}/../../ci-admin"
 project_name="${1:-}"
 display_name="${2:-}"
 short_name=${project_name##*.}
+default_host="ci.eclipse.org"
+migration_host="ci-staging.eclipse.org"
 
 usage() {
   printf "Usage: %s project_name display_name\n" "$script_name"
@@ -58,41 +60,52 @@ new_migration_instance() {
   } >  "${script_folder}/../instances/${project_name}/config.json"
 }
 
-read -p "Is this a migration from the old infrastructure? (Y)es, (N)o, E(x)it: " yn
-case $yn in
-  [Yy]* ) new_migration_instance;;
-  [Nn]* ) ${script_folder}/../jenkins-new-instance.sh ${project_name} ${display_name};;
-  [Xx]* ) exit;;
-      * ) echo "Please answer (Y)es, (N)ooo, E(x)it";;
-esac
+migration_or_not() {
+  read -p "Is this a migration from the old infrastructure? (Y)es, (N)o, E(x)it: " yn
+  case $yn in
+    [Yy]* ) new_migration_instance;hostname=${migration_host};;
+    [Nn]* ) ${script_folder}/../jenkins-new-instance.sh ${project_name} ${display_name};hostname=${default_host};;
+    [Xx]* ) exit;;
+        * ) echo "Please answer (Y)es, (N)ooo, E(x)it";;
+  esac
+}
 
-pushd ${ci_admin_dir}
-./add_creds_gerrit.sh ${project_name} || : # if creds already exist, ignore exit code 1
-./add_creds_projects-storage.sh ${project_name} || : # if creds already exist, ignore exit code 1
-popd
-if [[ $(oc get projects | grep ${short_name}) ]]; then
-  printf "Namespace ${project_name} already exists. Skipping creation...\n"
-else
-  oc create namespace ${short_name}
-fi
-${script_folder}/../secrets/create_gerrit_ssh_keys_secret.sh ${project_name}
-make -C ${script_folder}/.. deploy_${project_name}
+provisoning() {
+  pushd ${ci_admin_dir}
+  ./add_creds_gerrit.sh ${project_name} || : # if creds already exist, ignore exit code 1
+  ./add_creds_projects-storage.sh ${project_name} || : # if creds already exist, ignore exit code 1
+  popd
+  if [[ $(oc get projects | grep ${short_name}) ]]; then
+    printf "Namespace ${project_name} already exists. Skipping creation...\n"
+  else
+    oc create namespace ${short_name}
+  fi
+  ${script_folder}/../secrets/create_gerrit_ssh_keys_secret.sh ${project_name}
+  make -C ${script_folder}/.. deploy_${project_name}
+}
 
-printf "Waiting for JIPP to come online..."
-n=0
-until [ $n -ge 15 ]
-do
-  curl -sL -w "%{http_code}\n" "https://ci-staging.eclipse.org/${short_name}" -o /dev/null | grep 200 && break
-  printf "."
-  n=$[$n+1]
-  sleep 12
-done
-printf "\n"
+wait_for_jipp_post_setup() {
+  local host=$1
+  printf "Waiting for JIPP to come online..."
+  echo "host: ${host}"
+  n=0
+  until [ $n -ge 15 ]
+  do
+    curl -sL -w "%{http_code}\n" "https://${host}/${short_name}" -o /dev/null | grep 200 && break
+    printf "."
+    n=$[$n+1]
+    sleep 12
+  done
+  printf "\n"
+  
+  if [[ $(curl -sL -w "%{http_code}\n" "https://${host}/${short_name}" -o /dev/null | grep 200) ]]; then
+    printf "JIPP is online!\n"
+    ./post_setup.sh ${project_name}
+  else
+    printf "ERROR: JIPP is not online after three minutes, please investigate and run post_setup.sh manually!\n"
+  fi
+}
 
-if [[ $(curl -sL -w "%{http_code}\n" "https://ci-staging.eclipse.org/${short_name}" -o /dev/null | grep 200) ]]; then
-  printf "JIPP is online!\n"
-  ./post_setup.sh ${project_name}
-else
-  printf "ERROR: JIPP is not online after three minutes, please investigate and run post_setup.sh manually!\n"
-fi
-
+migration_or_not
+provisioning
+wait_for_jipp_post_setup ${hostname}
