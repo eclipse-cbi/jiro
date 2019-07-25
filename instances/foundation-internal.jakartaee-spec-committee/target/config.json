@@ -1,7 +1,7 @@
 {
   "project": {
     "shortName": "jakartaee-spec-committee",
-    "fullName": "foundation-internal.jakartaee-spec",
+    "fullName": "foundation-internal.jakartaee-spec-committee",
     "displayName": "Jakarta EE Specification Committee",
     "sponsorshipLevel": "S0"
   },
@@ -31,7 +31,7 @@
         ]
       },
       {
-        "principal": "foundation-internal.jakartaee-spec",
+        "principal": "foundation-internal.jakartaee-spec-committee",
         "grantedPermissions": [
           "Credentials/View",
           "Gerrit/ManualTrigger",
@@ -56,7 +56,7 @@
         ]
       },
       {
-        "principal": "foundation-internal.jakartaee-spec",
+        "principal": "foundation-internal.jakartaee-spec-committee",
         "withheldPermissions": [
           "Credentials/View",
           "Gerrit/ManualTrigger",
@@ -106,15 +106,15 @@
         ]
       }
     ],
-    "actualVersion": "2.176.1",
+    "actualVersion": "2.176.2",
     "actualRemotingVersion": "3.29"
   },
   "docker": {
     "repository": "eclipsecbijenkins",
     "master": {
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.176.1",
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.176.2",
       "image": "eclipsecbijenkins/jakartaee-spec-committee",
-      "imageTag": "2.176.1",
+      "imageTag": "2.176.2",
       "username": "jenkins",
       "home": "/var/jenkins_home",
       "ref": "/usr/share/jenkins/ref",
@@ -122,13 +122,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "e10e33e286fd2aac024f25adfcff88f35c87b9266ba05f1e33f95b9b43f094bc"
+      "imageSha256": "205c8b81122b81b1b88e4eaa763cc5665e02c5e8b666d805782849e97d300e5a"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "3.29",
-        "sha256": "fd8f6a62c66089a5f5d65c5d9b2d70a71fe84e958c63019e5be6e0da3299d2f8"
+        "sha256": "bec98792361aa1f3569bd59c3ceb5c42ded1939b24ff3f68dacb8e692af619ca"
       }
     }
   },

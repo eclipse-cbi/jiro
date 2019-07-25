@@ -74,7 +74,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:fd8f6a62c66089a5f5d65c5d9b2d70a71fe84e958c63019e5be6e0da3299d2f8"
+        - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:bec98792361aa1f3569bd59c3ceb5c42ded1939b24ff3f68dacb8e692af619ca"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -136,7 +136,7 @@ jenkins:
                 - key: toolchains.xml
                   path: toolchains.xml
       - containers:
-        - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:7922ce62d8a0f0c95f891a5498af826ecba518ee3ad8f79729356bdee971542f"
+        - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -285,6 +285,9 @@ unclassified:
     adminAddress: ci-admin@eclipse.org
     replyToAddress: ci-admin@eclipse.org
     smtpHost: mail.eclipse.org
+
+  extendedEmailPublisher:
+    defaultContentType: "text/html"
 
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED
