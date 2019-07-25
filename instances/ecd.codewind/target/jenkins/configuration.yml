@@ -43,7 +43,7 @@ jenkins:
       - containers:
         - args: ""
           command: ""
-          image: eclipsecbijenkins/jenkins-agent:3.29@sha256:fd8f6a62c66089a5f5d65c5d9b2d70a71fe84e958c63019e5be6e0da3299d2f8
+          image: eclipsecbijenkins/jenkins-agent:3.29@sha256:5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -105,7 +105,7 @@ jenkins:
       - containers:
         - args: ""
           command: ""
-          image: eclipsecbijenkins/ui-test-agent:3.29@sha256:7922ce62d8a0f0c95f891a5498af826ecba518ee3ad8f79729356bdee971542f
+          image: eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -248,6 +248,7 @@ jenkins:
       mode: EXCLUSIVE
       name: s8p2d-ubuntu1804
       nodeDescription: 2vCPU, 8GB RAM, Hosted @ Azure
+      numExecutors: 1
       remoteFS: /home/genie.codewind/jenkins-agent
   numExecutors: 0
   remotingSecurity:
@@ -361,6 +362,8 @@ tool:
     - home: /opt/tools/apache-maven/3.2.5
       name: apache-maven-3.2.5
 unclassified:
+  extendedEmailPublisher:
+    defaultContentType: text/html
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED
   location:
