@@ -78,7 +78,7 @@
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "3.29",
-        "sha256": "fa2872291c59cbdba9210e472410623f3c683549de08c9cdcb200f4ada8aae33"
+        "sha256": "cf7b76045437e407bbdef33e4d8d5807cb2ffe2bb4c554c1ab28048cb3a9f4b8"
       }
     }
   },
