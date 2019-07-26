@@ -1,0 +1,69 @@
+# GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: "error-pages"
+  name: "maintenance-sign"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "maintenance-sign"
+  template:
+    metadata:
+      labels:
+        app: "maintenance-sign"
+      name: "maintenance-sign"
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: nginx
+        image: eclipsecbijenkins/maintenance_page:latest
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /pages/maintenance.html
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          failureThreshold: 2
+          timeoutSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /pages/maintenance.html
+            port: 8080
+          periodSeconds: 10
+          timeoutSeconds: 3
+          initialDelaySeconds: 2
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources:
+          request:
+            cpu: 50m
+          limits:
+            cpu: 100m
+            memory: 64Mi
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  namespace: "error-pages"
+  name: "maintenance-sign"
+spec:
+  ports:
+  - name: "http"
+    port: 80
+    protocol: "TCP"
+    targetPort: 8080
+  selector:
+    app: "maintenance-sign"

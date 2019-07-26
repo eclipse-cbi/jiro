@@ -1,0 +1,17 @@
+html, body {
+  background-color: #404040;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+h1 {
+  color: #f7941e;
+}
+
+h1, h3, p, .btn {
+  font-weight: 300;
+}
+
+.btn {
+  font-size: 80%;
+}

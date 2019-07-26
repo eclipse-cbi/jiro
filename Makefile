@@ -17,7 +17,19 @@ CLEAN_INSTANCES=$(patsubst %,clean_%,$(INSTANCES))
 DELETE_INSTANCES=$(patsubst %,delete_%,$(INSTANCES))
 GENCONFIG_INSTANCES=$(patsubst %,genconfig_%,$(INSTANCES))
 
-.PHONY: all clean all_images push_all_images k8s_all_instances deploy_all_instances clean_all_instances tests openshift-java push_openshift-java jenkins-master-base push_jenkins-master-base jenkins-agent push_jenkins-agent $(IMAGE_INSTANCES) $(K8S_INSTANCES) $(PUSH_INSTANCES) $(DEPLOY_INSTANCES) $(CLEAN_INSTANCES) $(DELETE_INSTANCES) $(GENCONFIG_INSTANCES)
+.PHONY: all clean all_images push_all_images k8s_all_instances deploy_all_instances clean_all_instances tests openshift-java push_openshift-java jenkins-master-base push_jenkins-master-base jenkins-agent push_jenkins-agent $(IMAGE_INSTANCES) $(K8S_INSTANCES) $(PUSH_INSTANCES) $(DEPLOY_INSTANCES) $(CLEAN_INSTANCES) $(DELETE_INSTANCES) $(GENCONFIG_INSTANCES) error_resources error_pages deploy_error_pages
+
+error_resources:
+	./build/dockerw build "eclipsecbijenkins/error_resources" "latest" "./error_pages/resources.Dockerfile"
+	./build/dockerw push "eclipsecbijenkins/error_resources" "latest"
+
+error_pages: error_resources
+	./build/dockerw build "eclipsecbijenkins/maintenance_page" "latest" "./error_pages/maintenance.Dockerfile"
+	./build/dockerw push "eclipsecbijenkins/maintenance_page" "latest"
+
+deploy_error_pages: error_pages
+	oc apply -f ./error_pages/resources.pod.yml
+	oc apply -f ./error_pages/maintenance.pod.yml
 
 openshift-java:
 	./build/dockerw build_all ${DOCKER_REPO} $@
