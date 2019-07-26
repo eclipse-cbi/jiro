@@ -16,11 +16,11 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "statet"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "statet"
-  name: "jenkins-instance-limit-range" 
+  name: "jenkins-instance-limit-range"
 spec:
   limits:
     - type: "Pod"
@@ -28,18 +28,18 @@ spec:
         cpu: 200m
         memory: 8Mi
       max:
-        cpu: 2375m
-        memory: 4608Mi
+        cpu: 2200m
+        memory: 8448Mi
     - type: "Container"
       min:
         cpu: 100m
         memory: 4Mi
       default:
-        cpu: 375m
-        memory: 512Mi
+        cpu: 200m
+        memory: 256Mi
       defaultRequest:
-        cpu: 250m 
-        memory: 512Mi
+        cpu: 200m
+        memory: 256Mi
       max:
-        cpu: 2375m
-        memory: 4608Mi
+        cpu: 2000m
+        memory: 8192Mi

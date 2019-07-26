@@ -6,7 +6,7 @@
     "sponsorshipLevel": "S0"
   },
   "jenkins": {
-    "version": "2.176.1",
+    "version": "latest",
     "remotingVersion": "latest",
     "maxConcurrency": 2,
     "agentConnectionTimeout": "180",
@@ -56,15 +56,15 @@
         ]
       }
     ],
-    "actualVersion": "2.176.1",
+    "actualVersion": "2.176.2",
     "actualRemotingVersion": "3.29"
   },
   "docker": {
     "repository": "eclipsecbijenkins",
     "master": {
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.176.1",
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.176.2",
       "image": "eclipsecbijenkins/cbi",
-      "imageTag": "2.176.1",
+      "imageTag": "2.176.2",
       "username": "jenkins",
       "home": "/var/jenkins_home",
       "ref": "/usr/share/jenkins/ref",
@@ -72,13 +72,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "0f75134793c9c00261ce26aa9d75d426d85b10544622509554eb82dec8e8604c"
+      "imageSha256": "37bb7bdb38c45b721ebab208737f699e0906a883c32b63b08292c5b8b69a35c4"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "3.29",
-        "sha256": "bec98792361aa1f3569bd59c3ceb5c42ded1939b24ff3f68dacb8e692af619ca"
+        "sha256": "5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3"
       }
     }
   },

@@ -44,6 +44,7 @@
           "Job/Move",
           "Job/Read",
           "Job/Workspace",
+          "Agent/Build",
           "Run/Delete",
           "Run/Replay",
           "Run/Update",
@@ -55,15 +56,15 @@
         ]
       }
     ],
-    "actualVersion": "2.164.1",
-    "actualRemotingVersion": "3.27"
+    "actualVersion": "2.176.2",
+    "actualRemotingVersion": "3.29"
   },
   "docker": {
     "repository": "eclipsecbijenkins",
     "master": {
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:latest",
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.176.2",
       "image": "eclipsecbijenkins/swtbot",
-      "imageTag": "latest",
+      "imageTag": "2.176.2",
       "username": "jenkins",
       "home": "/var/jenkins_home",
       "ref": "/usr/share/jenkins/ref",
@@ -71,13 +72,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "3f220e67fea1df9f3c6ef34919f9c896ddc807e98c483d57b2a78e8c822600f2"
+      "imageSha256": "e4f9825c69de6d64b8d2d4131f5c040b3387d2ca460ace568d2fe5daecf71921"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
-        "tag": "latest",
-        "sha256": "34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d"
+        "tag": "3.29",
+        "sha256": "5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3"
       }
     }
   },
@@ -127,6 +128,12 @@
         "volumeType": "ConfigMap",
         "volumeName": "m2-dir"
       }
+    }
+  },
+  "secrets": {
+    "gerrit-trigger-plugin": {
+      "username": "genie.swtbot",
+      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
     }
   }
 }

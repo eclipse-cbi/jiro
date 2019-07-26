@@ -15,8 +15,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "technology.cbi"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.176.1"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.1"
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cbi"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "cbi"
@@ -34,8 +34,8 @@ spec:
         org.eclipse.cbi.jiro/project.fullName: "technology.cbi"
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
-        org.eclipse.cbi.jiro/jenkins.version: "2.176.1"
-        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.1"
+        org.eclipse.cbi.jiro/jenkins.version: "latest"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "cbi"
         org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
       name: "cbi"
@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/cbi:2.176.1@sha256:0f75134793c9c00261ce26aa9d75d426d85b10544622509554eb82dec8e8604c
+        image: eclipsecbijenkins/cbi:2.176.2@sha256:37bb7bdb38c45b721ebab208737f699e0906a883c32b63b08292c5b8b69a35c4
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -107,7 +107,7 @@ spec:
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:bec98792361aa1f3569bd59c3ceb5c42ded1939b24ff3f68dacb8e692af619ca
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3
               -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
               -Dkubernetes.websocket.ping.interval=30000
           - name: JENKINS_OPTS

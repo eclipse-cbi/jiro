@@ -56,15 +56,15 @@
         ]
       }
     ],
-    "actualVersion": "2.176.1",
+    "actualVersion": "2.176.2",
     "actualRemotingVersion": "3.29"
   },
   "docker": {
     "repository": "eclipsecbijenkins",
     "master": {
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.176.1",
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.176.2",
       "image": "eclipsecbijenkins/diffmerge",
-      "imageTag": "2.176.1",
+      "imageTag": "2.176.2",
       "username": "jenkins",
       "home": "/var/jenkins_home",
       "ref": "/usr/share/jenkins/ref",
@@ -72,13 +72,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "0c201611586ca689720136c87f0f12e276d9b23475893a67a7bcb1ff5144573c"
+      "imageSha256": "f0a7fcdbc2ab988ab03d31a72934bfc3a5df85566ce93bb1340f6ad75f8a8c09"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "3.29",
-        "sha256": "fa2872291c59cbdba9210e472410623f3c683549de08c9cdcb200f4ada8aae33"
+        "sha256": "5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3"
       }
     }
   },

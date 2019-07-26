@@ -4,9 +4,6 @@
     "shortName": "ptp",
     "displayName": "Eclipse PTP"
   },
-  "jenkins": {
-    "version": "2.176.1"
-  },
   "maven": {
     "home": "/home/jenkins/.m2",
     "files": {

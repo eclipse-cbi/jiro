@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.164.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "swtbot"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "swtbot"
@@ -44,11 +44,12 @@ data:
     
       authorizationStrategy:
         projectMatrix:
-          grantedPermissions:
+          permissions:
             - "Overall/Administer:admins"
             - "Job/Read:anonymous"
             - "Overall/Read:anonymous"
             - "Job/ExtendedRead:common"
+            - "Agent/Build:technology.swtbot"
             - "Credentials/View:technology.swtbot"
             - "Gerrit/ManualTrigger:technology.swtbot"
             - "Gerrit/Retrigger:technology.swtbot"
@@ -97,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:34d007cfdbf90099588d4548e029299f4de926cffb47a02097fd2daa1254570d"
+            - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3"
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -105,10 +106,10 @@ data:
                 successThreshold: 0
                 timeoutSeconds: 0
               name: "jnlp"
-              resourceLimitCpu: "2375m"
-              resourceRequestCpu: "1250m"
-              resourceLimitMemory: "2560Mi"
-              resourceRequestMemory: "2560Mi"
+              resourceLimitCpu: "2000m"
+              resourceRequestCpu: "1000m"
+              resourceLimitMemory: "4096Mi"
+              resourceRequestMemory: "4096Mi"
               ttyEnabled: true
               command: ""
               args: ""
@@ -159,7 +160,7 @@ data:
                     - key: toolchains.xml
                       path: toolchains.xml
           - containers:
-            - image: "eclipsecbijenkins/ui-test-agent:0.0.1@sha256:bbbd136234e7c669e06b3c96e35c1fa72c3a95c1de4bc7cdf8ff99b60383156c"
+            - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59"
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -167,10 +168,10 @@ data:
                 successThreshold: 0
                 timeoutSeconds: 0
               name: "jnlp"
-              resourceLimitCpu: "2375m"
-              resourceRequestCpu: "1250m"
-              resourceLimitMemory: "2560Mi"
-              resourceRequestMemory: "2560Mi"
+              resourceLimitCpu: "2000m"
+              resourceRequestCpu: "1000m"
+              resourceLimitMemory: "4096Mi"
+              resourceRequestMemory: "4096Mi"
               ttyEnabled: true
               command: ""
               args: ""
@@ -222,7 +223,7 @@ data:
                     - key: toolchains.xml
                       path: toolchains.xml
           - containers:
-            - image: "eclipsecbijenkins/migration-fat-agent:3.27"
+            - image: "eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f"
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -230,10 +231,10 @@ data:
                 successThreshold: 0
                 timeoutSeconds: 0
               name: "jnlp"
-              resourceLimitCpu: "2375m"
-              resourceRequestCpu: "1250m"
-              resourceLimitMemory: "2560Mi"
-              resourceRequestMemory: "2560Mi"
+              resourceLimitCpu: "2000m"
+              resourceRequestCpu: "1000m"
+              resourceLimitMemory: "4096Mi"
+              resourceRequestMemory: "4096Mi"
               ttyEnabled: true
               command: ""
               args: ""
@@ -286,8 +287,18 @@ data:
                       path: toolchains.xml
     
     security:
-      remotingCLI:
-        enabled: false
+      apiToken:
+        creationOfLegacyTokenEnabled: false
+        tokenGenerationOnCreationEnabled: false
+        usageStatisticsEnabled: true
+      downloadSettings:
+        useBrowser: false
+      queueItemAuthenticator:
+        authenticators:
+        - global:
+            strategy: "triggeringUsersAuthorizationStrategy"
+      sSHD:
+        port: -1
     
     unclassified:
       location:
@@ -298,6 +309,9 @@ data:
         adminAddress: ci-admin@eclipse.org
         replyToAddress: ci-admin@eclipse.org
         smtpHost: mail.eclipse.org
+    
+      extendedEmailPublisher:
+        defaultContentType: "text/html"
     
       globalDefaultFlowDurabilityLevel:
         durabilityHint: PERFORMANCE_OPTIMIZED
@@ -373,11 +387,18 @@ data:
       ant:
         installations:
         - name: "apache-ant-latest"
-          home: "/opt/tools/apache-ant/latest"
+          home: ""
+          properties:
+          - installSource:
+              installers:
+              - antFromApache:
+                  id: "1.10.5"
       maven:
         installations:
         - name: "apache-maven-latest"
           home: "/opt/tools/apache-maven/latest"
+        - name: "apache-maven-3.6.1"
+          home: "/opt/tools/apache-maven/3.6.1"
         - name: "apache-maven-3.5.4"
           home: "/opt/tools/apache-maven/3.5.4"
         - name: "apache-maven-3.3.9"

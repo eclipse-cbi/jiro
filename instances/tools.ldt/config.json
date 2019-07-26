@@ -3,8 +3,5 @@
     "fullName": "tools.ldt",
     "shortName": "ldt",
     "displayName": "Eclipse Lua Development Tools"
-  },
-  "jenkins": {
-    "version": "2.176.1"
   }
 }

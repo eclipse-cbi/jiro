@@ -4,9 +4,6 @@
     "shortName": "cbi",
     "displayName": "Eclipse CBI"
   },
-  "jenkins": {
-    "version": "2.176.1"
-  },
   "maven": {
     "home": "/home/jenkins/.m2",
     "files": {

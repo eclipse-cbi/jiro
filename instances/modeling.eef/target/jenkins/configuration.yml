@@ -20,11 +20,12 @@ jenkins:
 
   authorizationStrategy:
     projectMatrix:
-      grantedPermissions:
+      permissions:
         - "Overall/Administer:admins"
         - "Job/Read:anonymous"
         - "Overall/Read:anonymous"
         - "Job/ExtendedRead:common"
+        - "Agent/Build:modeling.eef"
         - "Credentials/View:modeling.eef"
         - "Gerrit/ManualTrigger:modeling.eef"
         - "Gerrit/Retrigger:modeling.eef"
@@ -73,7 +74,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:b0988972cc41814d7d9299d7c2c69858716c41afb4ba1f6a30448b6da1a0a4a4"
+        - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -135,7 +136,7 @@ jenkins:
                 - key: toolchains.xml
                   path: toolchains.xml
       - containers:
-        - image: "eclipsecbijenkins/ui-test-agent:0.0.1@sha256:bbbd136234e7c669e06b3c96e35c1fa72c3a95c1de4bc7cdf8ff99b60383156c"
+        - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -198,7 +199,7 @@ jenkins:
                 - key: toolchains.xml
                   path: toolchains.xml
       - containers:
-        - image: "eclipsecbijenkins/migration-fat-agent:3.27@sha256:3d4b2d72e1816668dae4f4dee7322e53aa886c8689294487e49fbe7e5639a6d2"
+        - image: "eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -262,8 +263,18 @@ jenkins:
                   path: toolchains.xml
 
 security:
-  remotingCLI:
-    enabled: false
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  downloadSettings:
+    useBrowser: false
+  queueItemAuthenticator:
+    authenticators:
+    - global:
+        strategy: "triggeringUsersAuthorizationStrategy"
+  sSHD:
+    port: -1
 
 unclassified:
   location:
@@ -274,6 +285,9 @@ unclassified:
     adminAddress: ci-admin@eclipse.org
     replyToAddress: ci-admin@eclipse.org
     smtpHost: mail.eclipse.org
+
+  extendedEmailPublisher:
+    defaultContentType: "text/html"
 
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED

@@ -20,11 +20,12 @@ jenkins:
 
   authorizationStrategy:
     projectMatrix:
-      grantedPermissions:
+      permissions:
         - "Overall/Administer:admins"
         - "Job/Read:anonymous"
         - "Overall/Read:anonymous"
         - "Job/ExtendedRead:common"
+        - "Agent/Build:technology.openk-usermodules"
         - "Credentials/View:technology.openk-usermodules"
         - "Gerrit/ManualTrigger:technology.openk-usermodules"
         - "Gerrit/Retrigger:technology.openk-usermodules"
@@ -73,7 +74,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:latest@sha256:13bbe1abbec678a31b8c6df906e6abb24689bf6e3b9f7caaadeaf2850a32d436"
+        - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -81,8 +82,10 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitMemory: "2.25Gi"
-          resourceRequestMemory: "2.25Gi"
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
           ttyEnabled: true
           command: ""
           args: ""
@@ -133,7 +136,7 @@ jenkins:
                 - key: toolchains.xml
                   path: toolchains.xml
       - containers:
-        - image: "eclipsecbijenkins/ui-test-agent:0.0.1@sha256:bbbd136234e7c669e06b3c96e35c1fa72c3a95c1de4bc7cdf8ff99b60383156c"
+        - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -141,8 +144,10 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitMemory: "2.25Gi"
-          resourceRequestMemory: "2.25Gi"
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
           ttyEnabled: true
           command: ""
           args: ""
@@ -194,7 +199,7 @@ jenkins:
                 - key: toolchains.xml
                   path: toolchains.xml
       - containers:
-        - image: "eclipsecbijenkins/migration-fat-agent:3.27"
+        - image: "eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -202,8 +207,10 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitMemory: "2.25Gi"
-          resourceRequestMemory: "2.25Gi"
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
           ttyEnabled: true
           command: ""
           args: ""
@@ -256,8 +263,18 @@ jenkins:
                   path: toolchains.xml
 
 security:
-  remotingCLI:
-    enabled: false
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  downloadSettings:
+    useBrowser: false
+  queueItemAuthenticator:
+    authenticators:
+    - global:
+        strategy: "triggeringUsersAuthorizationStrategy"
+  sSHD:
+    port: -1
 
 unclassified:
   location:
@@ -269,6 +286,9 @@ unclassified:
     replyToAddress: ci-admin@eclipse.org
     smtpHost: mail.eclipse.org
 
+  extendedEmailPublisher:
+    defaultContentType: "text/html"
+
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED
 
@@ -278,6 +298,8 @@ unclassified:
         url: "/openk-usermodules/userContent/theme/quicksilver.css"
     - cssUrl:
         url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+    - jsUrl:
+        url: "/openk-usermodules/userContent/theme/title.js"
 
 tool:
   jdk:
@@ -286,8 +308,8 @@ tool:
       home: "/opt/tools/java/openjdk/latest"
     - name: "openjdk-jdk13ea-latest"
       home: "/opt/tools/java/openjdk/jdk-13ea/latest"
-    - name: "openjdk-jdk12ea-latest"
-      home: "/opt/tools/java/openjdk/jdk-12ea/latest"
+    - name: "openjdk-jdk12-latest"
+      home: "/opt/tools/java/openjdk/jdk-12/latest"
     - name: "openjdk-jdk11-latest"
       home: "/opt/tools/java/openjdk/jdk-11/latest"
     - name: "openjdk-jdk10-latest"
@@ -296,6 +318,8 @@ tool:
       home: "/opt/tools/java/openjdk/jdk-9/latest"
     - name: "adoptopenjdk-hotspot-latest"
       home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
+    - name: "adoptopenjdk-hotspot-jdk12-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest"
     - name: "adoptopenjdk-hotspot-jdk11-latest"
       home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
     - name: "adoptopenjdk-hotspot-jdk10-latest"
@@ -306,6 +330,8 @@ tool:
       home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
     - name: "adoptopenjdk-openj9-latest"
       home: "/opt/tools/java/adoptopenjdk/openj9-latest"
+    - name: "adoptopenjdk-openj9-jdk12-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-12/latest"
     - name: "adoptopenjdk-openj9-jdk11-latest"
       home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
     - name: "adoptopenjdk-openj9-jdk10-latest"
@@ -328,6 +354,8 @@ tool:
       home: "/opt/tools/java/oracle/jdk-6/latest"
     - name: "oracle-jdk5-latest"
       home: "/opt/tools/java/oracle/jdk-5/latest"
+    - name: "oracle-jdk1.4-latest"
+      home: "/opt/tools/java/oracle/jdk-1.4/latest"
     - name: "ibm-jdk8-latest"
       home: "/opt/tools/java/ibm/jdk-8/latest"
     - name: "ibm-latest"
@@ -335,11 +363,18 @@ tool:
   ant:
     installations:
     - name: "apache-ant-latest"
-      home: "/opt/tools/apache-ant/latest"
+      home: ""
+      properties:
+      - installSource:
+          installers:
+          - antFromApache:
+              id: "1.10.5"
   maven:
     installations:
     - name: "apache-maven-latest"
       home: "/opt/tools/apache-maven/latest"
+    - name: "apache-maven-3.6.1"
+      home: "/opt/tools/apache-maven/3.6.1"
     - name: "apache-maven-3.5.4"
       home: "/opt/tools/apache-maven/3.5.4"
     - name: "apache-maven-3.3.9"
