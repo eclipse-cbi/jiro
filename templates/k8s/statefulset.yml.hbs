@@ -41,12 +41,12 @@ spec:
           failureThreshold: {{kubernetes.master.probe.liveness.failureThreshold}}
           timeoutSeconds: {{kubernetes.master.probe.liveness.timeoutSeconds}}
         readinessProbe:
-          httpGet:
-            path: {{deployment.prefix}}/login
+          tcpSocket:
             port: {{deployment.uiPort}}
-          periodSeconds: {{kubernetes.master.probe.readiness.periodSeconds}}
-          timeoutSeconds: {{kubernetes.master.probe.readiness.timeoutSeconds}}
           initialDelaySeconds: {{kubernetes.master.probe.readiness.delaySeconds}}
+          periodSeconds: {{kubernetes.master.probe.readiness.periodSeconds}}
+          failureThreshold: {{kubernetes.master.probe.readiness.failureThreshold}}
+          timeoutSeconds: {{kubernetes.master.probe.readiness.timeoutSeconds}}
         ports:
         - containerPort: {{deployment.uiPort}}
           protocol: TCP
