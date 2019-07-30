@@ -70,7 +70,7 @@ migration_or_not() {
   esac
 }
 
-provisoning() {
+provisioning() {
   pushd ${ci_admin_dir}
   ./add_creds_gerrit.sh ${project_name} || : # if creds already exist, ignore exit code 1
   ./add_creds_projects-storage.sh ${project_name} || : # if creds already exist, ignore exit code 1
