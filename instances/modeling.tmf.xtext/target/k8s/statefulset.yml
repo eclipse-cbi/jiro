@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/xtext:2.176.2@sha256:06b9f167d43843e5e8eb20a6038ab57b96df6f607fc604d82744b7906046aafa
+        image: eclipsecbijenkins/xtext:2.176.2@sha256:95fc934e9a84c788045fc7574b022969e0e11f3a0c34e185992aa83f018347b5
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -52,16 +52,16 @@ spec:
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 480
-          periodSeconds: 60
-          failureThreshold: 2
-          timeoutSeconds: 90
+          periodSeconds: 30
+          failureThreshold: 5
+          timeoutSeconds: 30
         readinessProbe:
-          httpGet:
-            path: /xtext/login
+          tcpSocket:
             port: 8080
-          periodSeconds: 60
-          timeoutSeconds: 90
-          initialDelaySeconds: 15
+          initialDelaySeconds: 1
+          periodSeconds: 5
+          failureThreshold: 5
+          timeoutSeconds: 10
         ports:
         - containerPort: 8080
           protocol: TCP
