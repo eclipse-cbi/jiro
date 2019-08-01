@@ -67,7 +67,7 @@ data:
           - containers:
             - args: ""
               command: ""
-              image: eclipsecbijenkins/jenkins-agent:3.29@sha256:5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3
+              image: eclipsecbijenkins/jenkins-agent:3.29@sha256:6af76b9681d7d162ea99e63b1e0b437ac50cacace5a057b0ebe11d852c9617d0
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -264,11 +264,11 @@ data:
           launcher:
             ssh:
               credentialsId: d483cc19-fc32-42e0-af52-25b4a22d6aa9
-              host: 104.154.18.211
+              host: 35.222.20.36
               jvmOptions: -Xmx256m -Xms256m
               sshHostKeyVerificationStrategy:
                 manuallyProvidedKeyVerificationStrategy:
-                  key: ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJg4m6d5/VkgRkVf8miSAtJvdEyIOdIsj7yihbydu8/jF35XayRZfVUJl4QMSYpnTrr28k6pnTtumiofnyCbPoM=
+                  key: ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFfmeEuQxcv8CrnBNFGe470JtdEEtYukrOa7QsBY02GyhCoRYsJwyKA7dGgHm/m6euRJIpMGudwUm3iOpMFazxE=
           mode: EXCLUSIVE
           name: egerrit-slave
           nodeDescription: Google Ubuntu machine where to perform builds and tests
