@@ -1,0 +1,412 @@
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "openj9"
+    org.eclipse.cbi.jiro/project.fullName: "technology.openj9"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "openj9"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+  namespace: "openj9"
+  name: jenkins-config
+data:
+  jenkins.yaml: |
+    # GENERATED FILE - DO NOT EDIT
+    jenkins:
+      agentProtocols:
+      - JNLP4-connect
+      - Ping
+      authorizationStrategy:
+        projectMatrix:
+          permissions:
+          - Overall/Administer:admins
+          - Job/Read:anonymous
+          - Overall/Read:anonymous
+          - Job/ExtendedRead:common
+          - Agent/Build:technology.openj9
+          - Credentials/View:technology.openj9
+          - Gerrit/ManualTrigger:technology.openj9
+          - Gerrit/Retrigger:technology.openj9
+          - Job/Build:technology.openj9
+          - Job/Cancel:technology.openj9
+          - Job/Configure:technology.openj9
+          - Job/Create:technology.openj9
+          - Job/Delete:technology.openj9
+          - Job/Move:technology.openj9
+          - Job/Read:technology.openj9
+          - Job/Workspace:technology.openj9
+          - Run/Delete:technology.openj9
+          - Run/Replay:technology.openj9
+          - Run/Update:technology.openj9
+          - SCM/Tag:technology.openj9
+          - View/Configure:technology.openj9
+          - View/Create:technology.openj9
+          - View/Delete:technology.openj9
+          - View/Read:technology.openj9
+      clouds:
+      - kubernetes:
+          containerCapStr: "2"
+          jenkinsTunnel: jenkins-discovery.openj9.svc.cluster.local:50000
+          jenkinsUrl: http://jenkins-ui.openj9.svc.cluster.local/openj9
+          maxRequestsPerHostStr: "32"
+          name: kubernetes
+          namespace: openj9
+          podRetention: never
+          templates:
+          - containers:
+            - args: ""
+              command: ""
+              image: eclipsecbijenkins/jenkins-agent:3.29@sha256:6af76b9681d7d162ea99e63b1e0b437ac50cacace5a057b0ebe11d852c9617d0
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: jnlp
+              resourceLimitCpu: 2000m
+              resourceLimitMemory: 4096Mi
+              resourceRequestCpu: 1000m
+              resourceRequestMemory: 4096Mi
+              ttyEnabled: true
+            instanceCap: 5
+            name: default-agent
+            namespace: openj9
+            nodeUsageMode: NORMAL
+            volumes:
+            - persistentVolumeClaim:
+                claimName: tools-claim-jiro-openj9
+                mountPath: /opt/tools
+                readOnly: true
+            - configMapVolume:
+                configMapName: known-hosts
+                mountPath: /home/jenkins/.ssh/
+            - emptyDirVolume:
+                memory: false
+                mountPath: /home/jenkins/.m2/repository
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: settings-xml
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: toolchains-xml
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                volumes:
+                - name: settings-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: settings.xml
+                      path: settings.xml
+                - name: toolchains-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: toolchains.xml
+                      path: toolchains.xml
+          - containers:
+            - args: ""
+              command: ""
+              image: eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: jnlp
+              resourceLimitCpu: 2000m
+              resourceLimitMemory: 4096Mi
+              resourceRequestCpu: 1000m
+              resourceRequestMemory: 4096Mi
+              ttyEnabled: true
+            instanceCap: 5
+            instanceCapStr: "5"
+            label: ui-test
+            name: ui-test-agent
+            namespace: openj9
+            volumes:
+            - persistentVolumeClaim:
+                claimName: tools-claim-jiro-openj9
+                mountPath: /opt/tools
+                readOnly: true
+            - configMapVolume:
+                configMapName: known-hosts
+                mountPath: /home/jenkins/.ssh/
+            - emptyDirVolume:
+                memory: false
+                mountPath: /home/jenkins/.m2/repository
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: settings-xml
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: toolchains-xml
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                volumes:
+                - name: settings-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: settings.xml
+                      path: settings.xml
+                - name: toolchains-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: toolchains.xml
+                      path: toolchains.xml
+          - containers:
+            - args: ""
+              command: ""
+              image: eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: jnlp
+              resourceLimitCpu: 2000m
+              resourceLimitMemory: 4096Mi
+              resourceRequestCpu: 1000m
+              resourceRequestMemory: 4096Mi
+              ttyEnabled: true
+            instanceCap: 5
+            instanceCapStr: "5"
+            label: migration
+            name: migration-agent
+            namespace: openj9
+            volumes:
+            - persistentVolumeClaim:
+                claimName: tools-claim-jiro-openj9
+                mountPath: /opt/tools
+                readOnly: true
+            - configMapVolume:
+                configMapName: known-hosts
+                mountPath: /home/jenkins/.ssh/
+            - emptyDirVolume:
+                memory: false
+                mountPath: /home/jenkins/.m2/repository
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: settings-xml
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: toolchains-xml
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                volumes:
+                - name: settings-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: settings.xml
+                      path: settings.xml
+                - name: toolchains-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: toolchains.xml
+                      path: toolchains.xml
+      crumbIssuer:
+        standard:
+          excludeClientIPFromCrumb: false
+      disableRememberMe: false
+      markupFormatter: rawHtml
+      mode: EXCLUSIVE
+      nodes:
+      - permanent:
+          labelString: hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test
+            ci.role.build
+          launcher:
+            command:
+              command: ssh -C -i /opt/public/hipp/homes/genie.openj9/.ssh/id_rsa.openj9
+                jenkins@140.211.168.230 "ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.156.47
+                'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
+                java -Xshareclasses:none -Xdump:none -jar slave.jar'"
+          mode: EXCLUSIVE
+          name: aix71-p8-1
+          nodeDescription: openj9_ci_1 - l490vp054_pub - AIX PPC64
+          nodeProperties:
+          - envVars:
+              env:
+              - key: LDR_CNTRL
+                value: MAXDATA=0x80000000
+          numExecutors: 1
+          remoteFS: /home/u0020236/
+          retentionStrategy: always
+      numExecutors: 0
+      remotingSecurity:
+        enabled: true
+      scmCheckoutRetryCount: 2
+      securityRealm:
+        ldap:
+          configurations:
+          - displayNameAttributeName: cn
+            groupSearchBase: ou=group
+            mailAddressAttributeName: mail
+            rootDN: dc=eclipse,dc=org
+            server: ldapmaster
+            userSearch: mail={0}
+      systemMessage: ""
+    security:
+      apiToken:
+        creationOfLegacyTokenEnabled: false
+        tokenGenerationOnCreationEnabled: false
+        usageStatisticsEnabled: true
+      downloadSettings:
+        useBrowser: false
+      queueItemAuthenticator:
+        authenticators:
+        - global:
+            strategy: triggeringUsersAuthorizationStrategy
+      sSHD:
+        port: -1
+    tool:
+      ant:
+        installations:
+        - home: ""
+          name: apache-ant-latest
+          properties:
+          - installSource:
+              installers:
+              - antFromApache:
+                  id: 1.10.5
+      git:
+        installations:
+        - home: /usr/bin/git
+          name: git
+      jdk:
+        installations:
+        - home: /opt/tools/java/openjdk/latest
+          name: openjdk-latest
+        - home: /opt/tools/java/openjdk/jdk-13ea/latest
+          name: openjdk-jdk13ea-latest
+        - home: /opt/tools/java/openjdk/jdk-12/latest
+          name: openjdk-jdk12-latest
+        - home: /opt/tools/java/openjdk/jdk-11/latest
+          name: openjdk-jdk11-latest
+        - home: /opt/tools/java/openjdk/jdk-10/latest
+          name: openjdk-jdk10-latest
+        - home: /opt/tools/java/openjdk/jdk-9/latest
+          name: openjdk-jdk9-latest
+        - home: /opt/tools/java/adoptopenjdk/hotspot-latest
+          name: adoptopenjdk-hotspot-latest
+        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest
+          name: adoptopenjdk-hotspot-jdk12-latest
+        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest
+          name: adoptopenjdk-hotspot-jdk11-latest
+        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest
+          name: adoptopenjdk-hotspot-jdk10-latest
+        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest
+          name: adoptopenjdk-hotspot-jdk9-latest
+        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest
+          name: adoptopenjdk-hotspot-jdk8-latest
+        - home: /opt/tools/java/adoptopenjdk/openj9-latest
+          name: adoptopenjdk-openj9-latest
+        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-12/latest
+          name: adoptopenjdk-openj9-jdk12-latest
+        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-11/latest
+          name: adoptopenjdk-openj9-jdk11-latest
+        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-10/latest
+          name: adoptopenjdk-openj9-jdk10-latest
+        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-9/latest
+          name: adoptopenjdk-openj9-jdk9-latest
+        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-8/latest
+          name: adoptopenjdk-openj9-jdk8-latest
+        - home: /opt/tools/java/oracle/latest
+          name: oracle-latest
+        - home: /opt/tools/java/oracle/jdk-10/latest
+          name: oracle-jdk10-latest
+        - home: /opt/tools/java/oracle/jdk-9/latest
+          name: oracle-jdk9-latest
+        - home: /opt/tools/java/oracle/jdk-8/latest
+          name: oracle-jdk8-latest
+        - home: /opt/tools/java/oracle/jdk-7/latest
+          name: oracle-jdk7-latest
+        - home: /opt/tools/java/oracle/jdk-6/latest
+          name: oracle-jdk6-latest
+        - home: /opt/tools/java/oracle/jdk-5/latest
+          name: oracle-jdk5-latest
+        - home: /opt/tools/java/oracle/jdk-1.4/latest
+          name: oracle-jdk1.4-latest
+        - home: /opt/tools/java/ibm/jdk-8/latest
+          name: ibm-jdk8-latest
+        - home: /opt/tools/java/ibm/latest
+          name: ibm-latest
+      maven:
+        installations:
+        - home: /opt/tools/apache-maven/latest
+          name: apache-maven-latest
+        - home: /opt/tools/apache-maven/3.6.1
+          name: apache-maven-3.6.1
+        - home: /opt/tools/apache-maven/3.5.4
+          name: apache-maven-3.5.4
+        - home: /opt/tools/apache-maven/3.3.9
+          name: apache-maven-3.3.9
+        - home: /opt/tools/apache-maven/3.2.5
+          name: apache-maven-3.2.5
+    unclassified:
+      extendedEmailPublisher:
+        defaultContentType: text/html
+      globalDefaultFlowDurabilityLevel:
+        durabilityHint: PERFORMANCE_OPTIMIZED
+      location:
+        adminAddress: ci-admin@eclipse.org
+        url: https://ci-staging.eclipse.org/openj9
+      mailer:
+        adminAddress: ci-admin@eclipse.org
+        replyToAddress: ci-admin@eclipse.org
+        smtpHost: mail.eclipse.org
+      simple-theme-plugin:
+        elements:
+        - cssUrl:
+            url: /openj9/userContent/theme/quicksilver.css
+        - cssUrl:
+            url: //fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100
+        - jsUrl:
+            url: /openj9/userContent/theme/title.js

@@ -1,0 +1,19 @@
+jenkins:
+  nodes:
+  - permanent:
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test ci.role.build"
+      launcher:
+        command:
+          command: "ssh -C -i /opt/public/hipp/homes/genie.openj9/.ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.156.47 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar\
+            \ ; java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+      mode: EXCLUSIVE
+      name: "aix71-p8-1"
+      nodeDescription: "openj9_ci_1 - l490vp054_pub - AIX PPC64"
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "LDR_CNTRL"
+            value: "MAXDATA=0x80000000"
+      numExecutors: 1
+      remoteFS: "/home/u0020236/"
+      retentionStrategy: "always"
