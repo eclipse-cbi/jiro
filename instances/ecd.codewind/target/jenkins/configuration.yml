@@ -43,7 +43,7 @@ jenkins:
       - containers:
         - args: ""
           command: ""
-          image: eclipsecbijenkins/jenkins-agent:3.29@sha256:5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3
+          image: eclipsecbijenkins/jenkins-agent:3.29@sha256:6af76b9681d7d162ea99e63b1e0b437ac50cacace5a057b0ebe11d852c9617d0
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
