@@ -1,128 +1,111 @@
 # GENERATED FILE - DO NOT EDIT
-#*******************************************************************************
-# Copyright (c) 2018 Eclipse Foundation and others.
-# This program and the accompanying materials are made available
-# under the terms of the Eclipse Public License 2.0
-# which is available at http://www.eclipse.org/legal/epl-v20.html,
-# or the MIT License which is available at https://opensource.org/licenses/MIT.
-# SPDX-License-Identifier: EPL-2.0 OR MIT
-#*******************************************************************************
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  labels:
-    org.eclipse.cbi.jiro/project.shortname: "openj9"
-    org.eclipse.cbi.jiro/project.fullName: "technology.openj9"
-    org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
-    org.eclipse.cbi.jiro/kubernetes.master.namespace: "openj9"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
-  namespace: "openj9"
-  name: "openj9"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: 2.176.2
+    org.eclipse.cbi.jiro/jenkins.version: latest
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: openj9
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: S0
+  labels:
+    org.eclipse.cbi.jiro/kind: master
+    org.eclipse.cbi.jiro/project.fullName: technology.openj9
+    org.eclipse.cbi.jiro/project.shortname: openj9
+  name: openj9
+  namespace: openj9
 spec:
   replicas: 1
   selector:
     matchLabels:
-      org.eclipse.cbi.jiro/project.fullName: "technology.openj9"
-  serviceName: "openj9"
+      org.eclipse.cbi.jiro/project.fullName: technology.openj9
+  serviceName: openj9
   template:
     metadata:
-      labels:
-        org.eclipse.cbi.jiro/project.shortname: "openj9"
-        org.eclipse.cbi.jiro/project.fullName: "technology.openj9"
-        org.eclipse.cbi.jiro/kind: "master"
       annotations:
-        org.eclipse.cbi.jiro/jenkins.version: "latest"
-        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
-        org.eclipse.cbi.jiro/kubernetes.master.namespace: "openj9"
-        org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
-      name: "openj9"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: 2.176.2
+        org.eclipse.cbi.jiro/jenkins.version: latest
+        org.eclipse.cbi.jiro/kubernetes.master.namespace: openj9
+        org.eclipse.cbi.jiro/project.sponsorshipLevel: S0
+      labels:
+        org.eclipse.cbi.jiro/kind: master
+        org.eclipse.cbi.jiro/project.fullName: technology.openj9
+        org.eclipse.cbi.jiro/project.shortname: openj9
+      name: openj9
     spec:
-      serviceAccountName: openj9
-      terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/openj9:2.176.2@sha256:69575178d96fbd0363391b1655b4553e99edaee59960fd07373799d7cce8615a
+        volumeMounts:
+        - mountPath: /var/jenkins_home/.ssh
+          name: master-known-hosts
+      - env:
+        - name: JAVA_OPTS
+          value: -XshowSettings:vm -Djdk.nativeCrypto=false -Dsun.zip.disableMemoryMapping=true
+            -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Dhudson.slaves.NodeProvisioner.initialDelay=0
+            -Dhudson.slaves.NodeProvisioner.MARGIN=50 -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85
+            -Dhudson.footerURL=https://ci-staging.eclipse.org -Dhudson.model.UsageStatistics.disabled=true
+            -Djenkins.model.Jenkins.slaveAgentPort=50000 -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
+            -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false -Djenkins.install.runSetupWizard=false
+            -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:4929ec01abc1ad507dcdaea823953d71395c8bac67d94d692be266969ce75bfc
+            -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
+            -Dkubernetes.websocket.ping.interval=30000
+        - name: JENKINS_OPTS
+          value: --prefix=/openj9 --webroot=/var/cache/jenkins/war --pluginroot=/var/cache/jenkins/plugins
+        image: eclipsecbijenkins/openj9:2.176.2@sha256:e19fa2496332c2e4a7957de06b76edc771d1fbdd703e85182344ea77b2ed37d3
         imagePullPolicy: IfNotPresent
         livenessProbe:
+          failureThreshold: 5
           httpGet:
             path: /openj9/login
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 480
           periodSeconds: 30
-          failureThreshold: 5
           timeoutSeconds: 30
-        readinessProbe:
-          tcpSocket:
-            port: 8080
-          initialDelaySeconds: 1
-          periodSeconds: 5
-          failureThreshold: 5
-          timeoutSeconds: 10
+        name: jenkins
         ports:
         - containerPort: 8080
           protocol: TCP
         - containerPort: 50000
           protocol: TCP
+        readinessProbe:
+          failureThreshold: 5
+          initialDelaySeconds: 1
+          periodSeconds: 5
+          tcpSocket:
+            port: 8080
+          timeoutSeconds: 10
         resources:
-          requests:
-            cpu: 500m
           limits:
             cpu: 2
             memory: 1.5Gi
+          requests:
+            cpu: 500m
         volumeMounts:
-        - mountPath: "/var/jenkins_home"
+        - mountPath: /var/jenkins_home
           name: jenkins-home
-        - mountPath: "/var/cache/jenkins/war"
+        - mountPath: /var/cache/jenkins/war
           name: jenkins-war
-        - mountPath: "/var/cache/jenkins/plugins"
+        - mountPath: /var/cache/jenkins/plugins
           name: jenkins-plugins
-        - mountPath: "/etc/jenkins/"
+        - mountPath: /etc/jenkins/
           name: jenkins-config
           readOnly: true
-        - mountPath: "/run/secrets/jenkins/ssh"
+        - mountPath: /run/secrets/jenkins/ssh
           name: gerrit-ssh-keys
           readOnly: true
-        env:
-          - name: JAVA_OPTS
-              # -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle
-              # -Xshareclasses:verbose,name=jenkins,cacheDir=/var/cache/openj9/sharedclasses/jenkins,groupAccess,fatal
-              # Djdk.nativeCrypto=false is a workaround for
-              # https://github.com/eclipse/openj9/issues/3637
-            value: >-
-              -XshowSettings:vm
-              -Djdk.nativeCrypto=false
-              -Dsun.zip.disableMemoryMapping=true
-              -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle
-              -Dhudson.slaves.NodeProvisioner.initialDelay=0
-              -Dhudson.slaves.NodeProvisioner.MARGIN=50
-              -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85
-              -Dhudson.footerURL=https://ci-staging.eclipse.org
-              -Dhudson.model.UsageStatistics.disabled=true
-              -Djenkins.model.Jenkins.slaveAgentPort=50000
-              -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
-              -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
-              -Djenkins.install.runSetupWizard=false
-              -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:6af76b9681d7d162ea99e63b1e0b437ac50cacace5a057b0ebe11d852c9617d0
-              -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
-              -Dkubernetes.websocket.ping.interval=30000
-          - name: JENKINS_OPTS
-            value: >-
-              --prefix=/openj9
-              --webroot=/var/cache/jenkins/war
-              --pluginroot=/var/cache/jenkins/plugins
+      serviceAccountName: openj9
+      terminationGracePeriodSeconds: 1200
       volumes:
-      - name: jenkins-war
-        emptyDir: {}
-      - name: jenkins-plugins
-        emptyDir: {}
-      - name: jenkins-config
-        configMap:
+      - configMap:
+          name: master-known-hosts
+        name: master-known-hosts
+      - emptyDir: {}
+        name: jenkins-war
+      - emptyDir: {}
+        name: jenkins-plugins
+      - configMap:
           name: jenkins-config
+        name: jenkins-config
       - name: gerrit-ssh-keys
         secret:
           secretName: gerrit-ssh-keys
