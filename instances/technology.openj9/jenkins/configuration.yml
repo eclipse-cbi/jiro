@@ -154,7 +154,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.152 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.152 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "osx1011-x86-2"
       nodeDescription: "osx1011vm2 - UNB mini mac OSX 10.11"
