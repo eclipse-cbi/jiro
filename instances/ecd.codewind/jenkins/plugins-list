@@ -3,3 +3,4 @@ embeddable-build-status
 github-branch-source
 golang
 nodejs
+pipeline-github
