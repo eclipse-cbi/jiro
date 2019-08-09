@@ -69,6 +69,13 @@ jenkins:
         name: "default-agent"
         namespace: "{{kubernetes.master.namespace}}"
         nodeUsageMode: NORMAL
+        envVars:
+        - envVar:
+            key: "MAVEN_OPTS"
+            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+        - envVar:
+            key: "MAVEN_CONFIG"
+            value: "-B -e"
         volumes:
         - persistentVolumeClaim:
             claimName: "tools-claim-jiro-{{project.shortName}}"
@@ -159,6 +166,13 @@ jenkins:
         name: "ui-test-agent"
         namespace: "{{kubernetes.master.namespace}}"
         label: "ui-test"
+        envVars:
+        - envVar:
+            key: "MAVEN_OPTS"
+            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+        - envVar:
+            key: "MAVEN_CONFIG"
+            value: "-B -e"
         volumes:
         - persistentVolumeClaim:
             claimName: "tools-claim-jiro-{{project.shortName}}"
@@ -248,6 +262,13 @@ jenkins:
         instanceCapStr: "5"
         name: "migration-agent"
         namespace: "{{kubernetes.master.namespace}}"
+        envVars:
+        - envVar:
+            key: "MAVEN_OPTS"
+            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+        - envVar:
+            key: "MAVEN_CONFIG"
+            value: "-B -e"
         label: "migration"
         volumes:
         - persistentVolumeClaim:
