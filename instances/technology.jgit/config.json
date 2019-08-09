@@ -6,7 +6,8 @@
     "sponsorshipLevel": "S1"
   },
   "jenkins": {
-    "maxConcurrency": 4
+    "maxConcurrency": 4,
+    "theme": "quicksilver-light"
   },
   "deployment": {
     "host": "ci-staging.eclipse.org"

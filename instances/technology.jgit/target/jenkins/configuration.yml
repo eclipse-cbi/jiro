@@ -74,7 +74,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3"
+        - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:4929ec01abc1ad507dcdaea823953d71395c8bac67d94d692be266969ce75bfc"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -93,6 +93,13 @@ jenkins:
         name: "default-agent"
         namespace: "jgit"
         nodeUsageMode: NORMAL
+        envVars:
+        - envVar:
+            key: "MAVEN_OPTS"
+            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+        - envVar:
+            key: "MAVEN_CONFIG"
+            value: "-B -e"
         volumes:
         - persistentVolumeClaim:
             claimName: "tools-claim-jiro-jgit"
@@ -166,6 +173,13 @@ jenkins:
         name: "ui-test-agent"
         namespace: "jgit"
         label: "ui-test"
+        envVars:
+        - envVar:
+            key: "MAVEN_OPTS"
+            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+        - envVar:
+            key: "MAVEN_CONFIG"
+            value: "-B -e"
         volumes:
         - persistentVolumeClaim:
             claimName: "tools-claim-jiro-jgit"
@@ -238,6 +252,13 @@ jenkins:
         instanceCapStr: "5"
         name: "migration-agent"
         namespace: "jgit"
+        envVars:
+        - envVar:
+            key: "MAVEN_OPTS"
+            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+        - envVar:
+            key: "MAVEN_CONFIG"
+            value: "-B -e"
         label: "migration"
         volumes:
         - persistentVolumeClaim:
@@ -325,7 +346,7 @@ unclassified:
   simple-theme-plugin:
     elements:
     - cssUrl:
-        url: "/jgit/userContent/theme/quicksilver.css"
+        url: "/jgit/userContent/theme/quicksilver-light.css"
     - cssUrl:
         url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
     - jsUrl:
