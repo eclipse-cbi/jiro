@@ -6,4 +6,5 @@ generic-webhook-trigger
 jira
 job-dsl
 pipeline-utility-steps
+slack
 tap

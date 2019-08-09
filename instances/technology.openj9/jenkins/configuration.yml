@@ -519,6 +519,10 @@ jenkins:
         command:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.16 \"wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
 
+  primaryView:
+    list:
+      name: "Pipelines"
+
 unclassified:
   slackNotifier:
     teamDomain: "openj9"

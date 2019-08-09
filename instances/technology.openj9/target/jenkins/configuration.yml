@@ -896,6 +896,9 @@ jenkins:
       remoteFS: /home/jenkins/jenkins-agent
       retentionStrategy: always
   numExecutors: 0
+  primaryView:
+    list:
+      name: Pipelines
   remotingSecurity:
     enabled: true
   scmCheckoutRetryCount: 2
@@ -1026,3 +1029,6 @@ unclassified:
         url: //fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100
     - jsUrl:
         url: /openj9/userContent/theme/title.js
+  slackNotifier:
+    teamDomain: openj9
+    tokenCredentialId: 515a102c-4eee-4e66-9b05-fee104ea6fc2
