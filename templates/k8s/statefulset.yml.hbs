@@ -81,6 +81,7 @@ spec:
               # https://github.com/eclipse/openj9/issues/3637
             value: >-
               -XshowSettings:vm
+              -Duser.timezone={{jenkins.timezone}}
               -Djdk.nativeCrypto=false
               -Dsun.zip.disableMemoryMapping=true
               -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle
