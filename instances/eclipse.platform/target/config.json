@@ -10,6 +10,8 @@
     "remotingVersion": "latest",
     "maxConcurrency": 2,
     "agentConnectionTimeout": "180",
+    "timezone": "America/Toronto",
+    "theme": "quicksilver",
     "permissions": [
       {
         "principal": "anonymous",
@@ -72,7 +74,7 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "484eb83d7a530fb25b7906c862c3ad0fe187ab96f7ba08ba59e0ba4e30d7adde"
+      "imageSha256": "10e69841d5bb7fe068a645c930e5fd07af0a04861bfcd8683bb9bc9967382bfd"
     },
     "agent": {
       "defaultImage": {

@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/platform:2.176.2@sha256:484eb83d7a530fb25b7906c862c3ad0fe187ab96f7ba08ba59e0ba4e30d7adde
+        image: eclipsecbijenkins/platform:2.176.2@sha256:10e69841d5bb7fe068a645c930e5fd07af0a04861bfcd8683bb9bc9967382bfd
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -94,6 +94,7 @@ spec:
               # https://github.com/eclipse/openj9/issues/3637
             value: >-
               -XshowSettings:vm
+              -Duser.timezone=America/Toronto
               -Djdk.nativeCrypto=false
               -Dsun.zip.disableMemoryMapping=true
               -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle

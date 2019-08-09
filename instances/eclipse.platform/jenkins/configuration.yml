@@ -39,9 +39,7 @@ jenkins:
           env:
           - key: "G_FILENAME_ENCODING"
             value: "@locale,UTF-8,ISO-8859-15,CP1252"
-          env:
           - key: "LANG"
             value: "en_US.UTF-8"
-          env:
           - key: "LC_ALL"
             value: "en_US.UTF-8"

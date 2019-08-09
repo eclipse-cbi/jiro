@@ -80,6 +80,13 @@ data:
               resourceRequestCpu: 1000m
               resourceRequestMemory: 4096Mi
               ttyEnabled: true
+            envVars:
+            - envVar:
+                key: MAVEN_OPTS
+                value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+            - envVar:
+                key: MAVEN_CONFIG
+                value: -B -e
             instanceCap: 5
             name: default-agent
             namespace: platform
@@ -152,6 +159,13 @@ data:
               resourceRequestCpu: 1000m
               resourceRequestMemory: 4096Mi
               ttyEnabled: true
+            envVars:
+            - envVar:
+                key: MAVEN_OPTS
+                value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+            - envVar:
+                key: MAVEN_CONFIG
+                value: -B -e
             instanceCap: 5
             instanceCapStr: "5"
             label: ui-test
@@ -225,6 +239,13 @@ data:
               resourceRequestCpu: 1000m
               resourceRequestMemory: 4096Mi
               ttyEnabled: true
+            envVars:
+            - envVar:
+                key: MAVEN_OPTS
+                value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+            - envVar:
+                key: MAVEN_CONFIG
+                value: -B -e
             instanceCap: 5
             instanceCapStr: "5"
             label: migration
@@ -323,6 +344,10 @@ data:
           nodeProperties:
           - envVars:
               env:
+              - key: G_FILENAME_ENCODING
+                value: '@locale,UTF-8,ISO-8859-15,CP1252'
+              - key: LANG
+                value: en_US.UTF-8
               - key: LC_ALL
                 value: en_US.UTF-8
           numExecutors: 3

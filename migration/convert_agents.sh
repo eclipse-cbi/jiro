@@ -97,6 +97,7 @@ create_env_variables() {
     cat <<EOH  >> ${temp_yaml_name}
       nodeProperties:
       - envVars:
+          env:
 EOH
     for (( i=1; i < ${count}; i++ ))
     do
@@ -104,7 +105,6 @@ EOH
       i=$((i+1))
       env_value=$(xmlstarlet sel -T -t -c "//envVars/tree-map/string[${i}]" ${filename})
       cat <<EOG  >> ${temp_yaml_name}
-          env:
           - key: "${env_key}"
             value: "${env_value}"
 EOG
