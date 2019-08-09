@@ -226,6 +226,11 @@ check_file_size() {
   fi
 }
 
+extract_nodes() {
+  printf "Copying agent configurations (if any exist)...\n"
+  cp -R .jenkins/nodes ${cje_tmp_dir}/ || :
+}
+
 tar_files() {
   printf "Taring files and copying to /tmp..."
   tar czf ${cje_migration_tar} -C ${cje_tmp_dir} .
@@ -241,4 +246,5 @@ convert_git_file_urls
 convert_tools
 extract_views
 checkForExtraPlugins
+extract_nodes
 tar_files
