@@ -10,6 +10,8 @@
     "remotingVersion": "latest",
     "maxConcurrency": 2,
     "agentConnectionTimeout": "180",
+    "timezone": "America/Toronto",
+    "theme": "quicksilver-light",
     "permissions": [
       {
         "principal": "anonymous",
@@ -72,13 +74,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "ec48b87879efae845871903a9893805b05f16d5f35f9cbc40b783fd637177829"
+      "imageSha256": "3a377f640ca2ac09adee1c9b6f7b71ff87dc7f4b6f1ca62eda361bce6c9a9ed9"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "3.29",
-        "sha256": "5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3"
+        "sha256": "4929ec01abc1ad507dcdaea823953d71395c8bac67d94d692be266969ce75bfc"
       }
     }
   },
@@ -105,14 +107,15 @@
       "probe": {
         "liveness": {
           "delaySeconds": 480,
-          "periodSeconds": 60,
-          "timeoutSeconds": 90,
-          "failureThreshold": 2
+          "periodSeconds": 30,
+          "timeoutSeconds": 30,
+          "failureThreshold": 5
         },
         "readiness": {
-          "delaySeconds": 15,
-          "periodSeconds": "60",
-          "timeoutSeconds": "90"
+          "delaySeconds": 1,
+          "periodSeconds": 5,
+          "timeoutSeconds": 10,
+          "failureThreshold": 5
         }
       }
     }

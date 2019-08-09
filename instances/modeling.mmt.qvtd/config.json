@@ -4,6 +4,9 @@
     "shortName": "qvtd",
     "displayName": "Eclipse QVTd"
   },
+  "jenkins": {
+    "theme": "quicksilver-light"
+  },
   "deployment": {
     "host": "ci-staging.eclipse.org"
   }
