@@ -75,7 +75,7 @@ provisioning() {
   ./add_creds_gerrit.sh ${project_name} || : # if creds already exist, ignore exit code 1
   ./add_creds_projects-storage.sh ${project_name} || : # if creds already exist, ignore exit code 1
   popd
-  if [[ $(oc get projects | grep ${short_name}) ]]; then
+  if [[ $(oc get projects | grep -e "^${short_name} ") ]]; then
     printf "Namespace ${project_name} already exists. Skipping creation...\n"
   else
     oc create namespace ${short_name}
