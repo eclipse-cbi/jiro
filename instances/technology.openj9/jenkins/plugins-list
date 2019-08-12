@@ -2,6 +2,7 @@ artifactory
 badge
 copyartifact
 generic-webhook-trigger
+groovy-postbuild
 jira
 job-dsl
 pipeline-utility-steps
