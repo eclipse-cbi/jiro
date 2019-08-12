@@ -39,18 +39,19 @@ spec:
           name: master-known-hosts
       - env:
         - name: JAVA_OPTS
-          value: -XshowSettings:vm -Djdk.nativeCrypto=false -Dsun.zip.disableMemoryMapping=true
-            -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Dhudson.slaves.NodeProvisioner.initialDelay=0
-            -Dhudson.slaves.NodeProvisioner.MARGIN=50 -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85
-            -Dhudson.footerURL=https://ci-staging.eclipse.org -Dhudson.model.UsageStatistics.disabled=true
-            -Djenkins.model.Jenkins.slaveAgentPort=50000 -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
-            -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false -Djenkins.install.runSetupWizard=false
-            -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:6af76b9681d7d162ea99e63b1e0b437ac50cacace5a057b0ebe11d852c9617d0
+          value: -XshowSettings:vm -Duser.timezone=America/Toronto -Djdk.nativeCrypto=false
+            -Dsun.zip.disableMemoryMapping=true -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle
+            -Dhudson.slaves.NodeProvisioner.initialDelay=0 -Dhudson.slaves.NodeProvisioner.MARGIN=50
+            -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85 -Dhudson.footerURL=https://ci.eclipse.org
+            -Dhudson.model.UsageStatistics.disabled=true -Djenkins.model.Jenkins.slaveAgentPort=50000
+            -Djenkins.model.Jenkins.slaveAgentPortEnforce=true -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
+            -Djenkins.install.runSetupWizard=false -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
+            -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:6af76b9681d7d162ea99e63b1e0b437ac50cacace5a057b0ebe11d852c9617d0
             -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
             -Dkubernetes.websocket.ping.interval=30000
         - name: JENKINS_OPTS
           value: --prefix=/openj9 --webroot=/var/cache/jenkins/war --pluginroot=/var/cache/jenkins/plugins
-        image: eclipsecbijenkins/openj9:2.176.2@sha256:a57f5dc41be5b5383d868276eed9c76b9b8b32b352f616c1f7a5b8cd3b199721
+        image: eclipsecbijenkins/openj9:2.176.2@sha256:55d074c446c6771359b11551a1f2660910d78f6a065f6085bf55cb319b0e4bce
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 5

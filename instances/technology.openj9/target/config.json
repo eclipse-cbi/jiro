@@ -10,6 +10,8 @@
     "remotingVersion": "latest",
     "maxConcurrency": 2,
     "agentConnectionTimeout": "180",
+    "timezone": "America/Toronto",
+    "theme": "quicksilver",
     "permissions": [
       {
         "principal": "anonymous",
@@ -72,7 +74,7 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "a57f5dc41be5b5383d868276eed9c76b9b8b32b352f616c1f7a5b8cd3b199721"
+      "imageSha256": "55d074c446c6771359b11551a1f2660910d78f6a065f6085bf55cb319b0e4bce"
     },
     "agent": {
       "defaultImage": {
@@ -83,9 +85,9 @@
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/openj9",
-    "url": "https://ci-staging.eclipse.org/openj9",
+    "url": "https://ci.eclipse.org/openj9",
     "uiPort": 8080,
     "jnlpPort": 50000
   },

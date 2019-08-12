@@ -3,8 +3,5 @@
     "fullName": "technology.openj9",
     "shortName": "openj9",
     "displayName": "Eclipse OpenJ9"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }

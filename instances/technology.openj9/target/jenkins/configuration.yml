@@ -56,6 +56,13 @@ jenkins:
           resourceRequestCpu: 1000m
           resourceRequestMemory: 4096Mi
           ttyEnabled: true
+        envVars:
+        - envVar:
+            key: MAVEN_OPTS
+            value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+        - envVar:
+            key: MAVEN_CONFIG
+            value: -B -e
         instanceCap: 5
         name: default-agent
         namespace: openj9
@@ -118,6 +125,13 @@ jenkins:
           resourceRequestCpu: 1000m
           resourceRequestMemory: 4096Mi
           ttyEnabled: true
+        envVars:
+        - envVar:
+            key: MAVEN_OPTS
+            value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+        - envVar:
+            key: MAVEN_CONFIG
+            value: -B -e
         instanceCap: 5
         instanceCapStr: "5"
         label: ui-test
@@ -181,6 +195,13 @@ jenkins:
           resourceRequestCpu: 1000m
           resourceRequestMemory: 4096Mi
           ttyEnabled: true
+        envVars:
+        - envVar:
+            key: MAVEN_OPTS
+            value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+        - envVar:
+            key: MAVEN_CONFIG
+            value: -B -e
         instanceCap: 5
         instanceCapStr: "5"
         label: migration
@@ -241,7 +262,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.156.47 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.156.47 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'"
       mode: EXCLUSIVE
       name: aix71-p8-1
@@ -261,8 +282,8 @@ jenkins:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
             "ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.157.108 'rm -f slave.jar ; wget
-            -O slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'"
+            -O slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java
+            -Xshareclasses:none -Xdump:none -jar slave.jar'"
       mode: EXCLUSIVE
       name: aix71-p8-2
       nodeDescription: openj9_ci_2 - l490vp018_pub - AIX PPC64
@@ -280,7 +301,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.155.67 'wget -O slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.155.67 'wget -O slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'"
       mode: EXCLUSIVE
       name: aix71-p8-3
@@ -299,7 +320,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.156.34 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.156.34 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'"
       mode: EXCLUSIVE
       name: aix71-p8-4
@@ -318,7 +339,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.188 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.188 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: cent6-x64-1
@@ -332,7 +353,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.189 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.189 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: cent6-x64-2
@@ -346,7 +367,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.190 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.190 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: cent6-x64-3
@@ -360,7 +381,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.191 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.191 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: cent6-x64-4
@@ -374,7 +395,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.192 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.192 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: cent6-x64-5
@@ -388,7 +409,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.193 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.193 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: cent6-x64-6
@@ -402,7 +423,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.194 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.194 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: cent6-x64-7
@@ -416,7 +437,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.152 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.152 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: osx1011-x86-1
@@ -430,7 +451,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.153 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.153 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: osx1011-x86-2
@@ -444,7 +465,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.131 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.131 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: osx1013-x86-3
@@ -458,7 +479,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.124 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.124 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: osx1013-x86-4
@@ -472,8 +493,8 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.33.172
-            "wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar"
+            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
+            exec java -jar slave.jar"
       mode: EXCLUSIVE
       name: ub16-390-1
       nodeDescription: LXEOJ901 - Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
@@ -486,8 +507,8 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.33.173
-            "wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar"
+            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
+            exec java -jar slave.jar"
       mode: EXCLUSIVE
       name: ub16-390-2
       nodeDescription: LXEOJ902 Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
@@ -500,8 +521,8 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.33.174
-            "wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar"
+            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
+            exec java -jar slave.jar"
       mode: EXCLUSIVE
       name: ub16-390-3
       nodeDescription: LXEOJ903 Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
@@ -514,8 +535,8 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.33.175
-            "wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar"
+            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
+            exec java -jar slave.jar"
       mode: EXCLUSIVE
       name: ub16-390-4
       nodeDescription: LXEOJ904 Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
@@ -528,7 +549,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.174 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.174 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16p8j91
@@ -542,7 +563,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.175 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.175 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16p8j92
@@ -556,7 +577,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.176 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.176 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16p8j93
@@ -570,7 +591,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.177 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.177 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16p8j94
@@ -584,7 +605,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.178 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.178 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16p8j95
@@ -598,7 +619,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.179 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.179 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16p8j96
@@ -612,8 +633,8 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.13
-            "wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar"
+            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
+            exec java -jar slave.jar"
       mode: EXCLUSIVE
       name: ub16-ppcle-1
       nodeDescription: eclipse-openj9-1 Linux PPC64LE Ubuntu 16.04. 4CPU 8GB Ram 78GB
@@ -627,8 +648,8 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.14
-            "wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar"
+            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
+            exec java -jar slave.jar"
       mode: EXCLUSIVE
       name: ub16-ppcle-2
       nodeDescription: eclipse-openj9-2 Linux PPC64LE Ubuntu 16.04. 4CPU 8GB Ram 78GB
@@ -642,8 +663,8 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.49
-            "wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec /home/jenkins/openj9/jdk-9+181/bin/java -jar slave.jar"
+            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
+            exec /home/jenkins/openj9/jdk-9+181/bin/java -jar slave.jar"
       mode: EXCLUSIVE
       name: ub16-ppcle-3
       nodeDescription: eclipse-openj9-3 Linux PPC64LE Ubuntu 16.04. 4CPU 8GB Ram 78GB
@@ -657,7 +678,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.182 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.182 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16x64j91
@@ -671,7 +692,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.187 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.187 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16x64j910
@@ -685,7 +706,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.252 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.252 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16x64j92
@@ -699,7 +720,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.156 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.156 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16x64j94
@@ -713,7 +734,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.157 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.157 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16x64j95
@@ -727,7 +748,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.158 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.158 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16x64j96
@@ -741,7 +762,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.195 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.195 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16x64j97
@@ -755,7 +776,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.184 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.184 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16x64j98
@@ -769,7 +790,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.185 'wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.185 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16x64j99
@@ -783,7 +804,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.170.69
-            "curl --output slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar"
       mode: EXCLUSIVE
       name: win2012r2-x86-1
@@ -798,7 +819,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.150.148
-            "curl --output slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar"
       mode: EXCLUSIVE
       name: win2012r2-x86-2
@@ -813,7 +834,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.170.74
-            "curl --output slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar"
       mode: EXCLUSIVE
       name: win2012r2-x86-3
@@ -828,7 +849,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.150.158
-            "curl --output slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar"
       mode: EXCLUSIVE
       name: win2012r2-x86-4
@@ -843,7 +864,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.170.78
-            "curl --output slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar"
       mode: EXCLUSIVE
       name: win2012r2-x86-5
@@ -858,7 +879,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.170.76
-            "curl --output slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
+            "curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar"
       mode: EXCLUSIVE
       name: win2012r2-x86-6
@@ -872,8 +893,8 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar"
+            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
+            exec java -jar slave.jar"
       mode: EXCLUSIVE
       name: worker-1
       nodeDescription: eclipse-openj9-proxy Linux PPC64LE Ubuntu 16.04. 4CPU 8GB Ram
@@ -886,8 +907,8 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.16
-            "wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar"
+            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
+            exec java -jar slave.jar"
       mode: EXCLUSIVE
       name: worker-2
       nodeDescription: eclipse-openj9-4 Linux PPC64LE Ubuntu 16.04. 4CPU 8GB Ram 78GB
@@ -1016,7 +1037,7 @@ unclassified:
     durabilityHint: PERFORMANCE_OPTIMIZED
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/openj9
+    url: https://ci.eclipse.org/openj9
   mailer:
     adminAddress: ci-admin@eclipse.org
     replyToAddress: ci-admin@eclipse.org
