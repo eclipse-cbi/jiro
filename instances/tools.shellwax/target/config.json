@@ -1,0 +1,142 @@
+{
+  "project": {
+    "shortName": "shellwax",
+    "fullName": "tools.shellwax",
+    "displayName": "Eclipse ShellWax",
+    "sponsorshipLevel": "S0"
+  },
+  "jenkins": {
+    "version": "latest",
+    "remotingVersion": "latest",
+    "maxConcurrency": 2,
+    "agentConnectionTimeout": "180",
+    "timezone": "America/Toronto",
+    "theme": "quicksilver",
+    "permissions": [
+      {
+        "principal": "anonymous",
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ]
+      },
+      {
+        "principal": "common",
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ]
+      },
+      {
+        "principal": "admins",
+        "grantedPermissions": [
+          "Overall/Administer"
+        ]
+      },
+      {
+        "principal": "tools.shellwax",
+        "grantedPermissions": [
+          "Credentials/View",
+          "Gerrit/ManualTrigger",
+          "Gerrit/Retrigger",
+          "Job/Build",
+          "Job/Cancel",
+          "Job/Configure",
+          "Job/Create",
+          "Job/Delete",
+          "Job/Move",
+          "Job/Read",
+          "Job/Workspace",
+          "Agent/Build",
+          "Run/Delete",
+          "Run/Replay",
+          "Run/Update",
+          "View/Configure",
+          "View/Create",
+          "View/Delete",
+          "View/Read",
+          "SCM/Tag"
+        ]
+      }
+    ],
+    "actualVersion": "2.176.2",
+    "actualRemotingVersion": "3.29"
+  },
+  "docker": {
+    "repository": "eclipsecbijenkins",
+    "master": {
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.176.2",
+      "image": "eclipsecbijenkins/shellwax",
+      "imageTag": "2.176.2",
+      "username": "jenkins",
+      "home": "/var/jenkins_home",
+      "ref": "/usr/share/jenkins/ref",
+      "webroot": "/var/cache/jenkins/war",
+      "pluginroot": "/var/cache/jenkins/plugins",
+      "war": "/usr/share/jenkins/jenkins.war",
+      "updateCenter": "https://updates.jenkins.io",
+      "imageSha256": "9bd003b08ce113dba16d41bfd36265570376bcef3163fb249e2482d6d12600e8"
+    },
+    "agent": {
+      "defaultImage": {
+        "name": "eclipsecbijenkins/jenkins-agent",
+        "tag": "3.29",
+        "sha256": "6af76b9681d7d162ea99e63b1e0b437ac50cacace5a057b0ebe11d852c9617d0"
+      }
+    }
+  },
+  "deployment": {
+    "host": "ci.eclipse.org",
+    "prefix": "/shellwax",
+    "url": "https://ci.eclipse.org/shellwax",
+    "uiPort": 8080,
+    "jnlpPort": 50000
+  },
+  "kubernetes": {
+    "master": {
+      "namespace": "shellwax",
+      "stsName": "shellwax",
+      "resources": {
+        "cpu": {
+          "request": "500m",
+          "limit": 2
+        },
+        "memory": {
+          "limit": "1.5Gi"
+        }
+      },
+      "probe": {
+        "liveness": {
+          "delaySeconds": 480,
+          "periodSeconds": 30,
+          "timeoutSeconds": 30,
+          "failureThreshold": 5
+        },
+        "readiness": {
+          "delaySeconds": 1,
+          "periodSeconds": 5,
+          "timeoutSeconds": 10,
+          "failureThreshold": 5
+        }
+      }
+    }
+  },
+  "maven": {
+    "home": "/home/jenkins/.m2",
+    "files": {
+      "settings.xml": {
+        "volumeType": "ConfigMap",
+        "volumeName": "m2-dir"
+      },
+      "toolchains.xml": {
+        "volumeType": "ConfigMap",
+        "volumeName": "m2-dir"
+      }
+    }
+  },
+  "secrets": {
+    "gerrit-trigger-plugin": {
+      "username": "genie.shellwax",
+      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
+    }
+  }
+}
