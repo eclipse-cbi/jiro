@@ -2,6 +2,7 @@
 artifactory
 badge
 copyartifact
+embeddable-build-status
 generic-webhook-trigger
 groovy-postbuild
 jira
