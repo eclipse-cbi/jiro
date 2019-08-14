@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/webdev:2.176.2@sha256:fbebbacba006d621dff14e1ab992f680bf5751bcc23d09281cb39a3e31c80bf5
+        image: eclipsecbijenkins/webdev:2.176.2@sha256:6050ac13025520c2cb2c30d3daec9a01318674af85efd58d25b7f3e627b46cd5
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -52,16 +52,16 @@ spec:
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 480
-          periodSeconds: 60
-          failureThreshold: 2
-          timeoutSeconds: 90
+          periodSeconds: 30
+          failureThreshold: 5
+          timeoutSeconds: 30
         readinessProbe:
-          httpGet:
-            path: /ci/webdev/login
+          tcpSocket:
             port: 8080
-          periodSeconds: 60
-          timeoutSeconds: 90
-          initialDelaySeconds: 15
+          initialDelaySeconds: 1
+          periodSeconds: 5
+          failureThreshold: 5
+          timeoutSeconds: 10
         ports:
         - containerPort: 8080
           protocol: TCP
@@ -91,6 +91,7 @@ spec:
               # https://github.com/eclipse/openj9/issues/3637
             value: >-
               -XshowSettings:vm
+              -Duser.timezone=America/Toronto
               -Djdk.nativeCrypto=false
               -Dsun.zip.disableMemoryMapping=true
               -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle
@@ -104,7 +105,7 @@ spec:
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:4929ec01abc1ad507dcdaea823953d71395c8bac67d94d692be266969ce75bfc
               -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
               -Dkubernetes.websocket.ping.interval=30000
           - name: JENKINS_OPTS

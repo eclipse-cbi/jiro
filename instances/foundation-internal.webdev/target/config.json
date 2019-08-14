@@ -10,6 +10,8 @@
     "remotingVersion": "latest",
     "maxConcurrency": 2,
     "agentConnectionTimeout": "180",
+    "timezone": "America/Toronto",
+    "theme": "quicksilver",
     "permissions": [
       {
         "principal": "anonymous",
@@ -74,6 +76,7 @@
           "Credentials/View",
           "Gerrit/ManualTrigger",
           "Gerrit/Retrigger",
+          "Agent/Build",
           "Job/Build",
           "Job/Cancel",
           "Job/Configure",
@@ -99,6 +102,7 @@
           "Credentials/View",
           "Gerrit/ManualTrigger",
           "Gerrit/Retrigger",
+          "Agent/Build",
           "Job/Build",
           "Job/Cancel",
           "Job/Configure",
@@ -124,6 +128,7 @@
           "Credentials/View",
           "Gerrit/ManualTrigger",
           "Gerrit/Retrigger",
+          "Agent/Build",
           "Job/Build",
           "Job/Cancel",
           "Job/Configure",
@@ -149,6 +154,7 @@
           "Credentials/View",
           "Gerrit/ManualTrigger",
           "Gerrit/Retrigger",
+          "Agent/Build",
           "Job/Build",
           "Job/Cancel",
           "Job/Configure",
@@ -184,13 +190,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "fbebbacba006d621dff14e1ab992f680bf5751bcc23d09281cb39a3e31c80bf5"
+      "imageSha256": "6050ac13025520c2cb2c30d3daec9a01318674af85efd58d25b7f3e627b46cd5"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "3.29",
-        "sha256": "5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3"
+        "sha256": "4929ec01abc1ad507dcdaea823953d71395c8bac67d94d692be266969ce75bfc"
       }
     }
   },
@@ -217,14 +223,15 @@
       "probe": {
         "liveness": {
           "delaySeconds": 480,
-          "periodSeconds": 60,
-          "timeoutSeconds": 90,
-          "failureThreshold": 2
+          "periodSeconds": 30,
+          "timeoutSeconds": 30,
+          "failureThreshold": 5
         },
         "readiness": {
-          "delaySeconds": 15,
-          "periodSeconds": "60",
-          "timeoutSeconds": "90"
+          "delaySeconds": 1,
+          "periodSeconds": 5,
+          "timeoutSeconds": 10,
+          "failureThreshold": 5
         }
       }
     }

@@ -7,6 +7,7 @@ jenkins:
     projectMatrix:
       permissions:
       - Overall/Administer:admins
+      - Agent/Build:chris.guindon@eclipse-foundation.org
       - Credentials/View:chris.guindon@eclipse-foundation.org
       - Gerrit/ManualTrigger:chris.guindon@eclipse-foundation.org
       - Gerrit/Retrigger:chris.guindon@eclipse-foundation.org
@@ -27,6 +28,7 @@ jenkins:
       - View/Create:chris.guindon@eclipse-foundation.org
       - View/Delete:chris.guindon@eclipse-foundation.org
       - View/Read:chris.guindon@eclipse-foundation.org
+      - Agent/Build:eric.poirier@eclipse-foundation.org
       - Credentials/View:eric.poirier@eclipse-foundation.org
       - Gerrit/ManualTrigger:eric.poirier@eclipse-foundation.org
       - Gerrit/Retrigger:eric.poirier@eclipse-foundation.org
@@ -47,7 +49,7 @@ jenkins:
       - View/Create:eric.poirier@eclipse-foundation.org
       - View/Delete:eric.poirier@eclipse-foundation.org
       - View/Read:eric.poirier@eclipse-foundation.org
-      - Agent/Build:foundation-internal.webdev
+      - Agent/Build:martin.lowe@eclipse-foundation.org
       - Credentials/View:martin.lowe@eclipse-foundation.org
       - Gerrit/ManualTrigger:martin.lowe@eclipse-foundation.org
       - Gerrit/Retrigger:martin.lowe@eclipse-foundation.org
@@ -81,7 +83,7 @@ jenkins:
       - containers:
         - args: ""
           command: ""
-          image: eclipsecbijenkins/jenkins-agent:3.29@sha256:5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3
+          image: eclipsecbijenkins/jenkins-agent:3.29@sha256:4929ec01abc1ad507dcdaea823953d71395c8bac67d94d692be266969ce75bfc
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -94,6 +96,13 @@ jenkins:
           resourceRequestCpu: 1000m
           resourceRequestMemory: 4096Mi
           ttyEnabled: true
+        envVars:
+        - envVar:
+            key: MAVEN_OPTS
+            value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+        - envVar:
+            key: MAVEN_CONFIG
+            value: -B -e
         instanceCap: 5
         name: default-agent
         namespace: foundation-internal-webdev
@@ -156,6 +165,13 @@ jenkins:
           resourceRequestCpu: 1000m
           resourceRequestMemory: 4096Mi
           ttyEnabled: true
+        envVars:
+        - envVar:
+            key: MAVEN_OPTS
+            value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+        - envVar:
+            key: MAVEN_CONFIG
+            value: -B -e
         instanceCap: 5
         instanceCapStr: "5"
         label: ui-test
@@ -219,6 +235,13 @@ jenkins:
           resourceRequestCpu: 1000m
           resourceRequestMemory: 4096Mi
           ttyEnabled: true
+        envVars:
+        - envVar:
+            key: MAVEN_OPTS
+            value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+        - envVar:
+            key: MAVEN_CONFIG
+            value: -B -e
         instanceCap: 5
         instanceCapStr: "5"
         label: migration
