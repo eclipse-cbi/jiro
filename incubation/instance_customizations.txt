@@ -24,6 +24,9 @@ technology.cbi
   - Slack plugin:
     - Slack configuration
 
+technology.openj9
+  - GHPRB General config
+
 technology.openk-usermodules
   - node.js plugin
     - node.js installation in Global Tool Configuration
