@@ -43,7 +43,7 @@ jenkins:
       - containers:
         - args: ""
           command: ""
-          image: eclipsecbijenkins/jenkins-agent:3.29@sha256:7ed40e42a47fc792227d6259ce09d9f8e04a85df538d40c5903effa7346dca2f
+          image: eclipsecbijenkins/jenkins-agent:3.29@sha256:3dbc231fbe975b5e9ce83f5ea55d0456963e4cc1b21fb4e63e742eabcf16a807
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -56,6 +56,13 @@ jenkins:
           resourceRequestCpu: 1000m
           resourceRequestMemory: 4096Mi
           ttyEnabled: true
+        envVars:
+        - envVar:
+            key: MAVEN_OPTS
+            value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+        - envVar:
+            key: MAVEN_CONFIG
+            value: -B -e
         instanceCap: 5
         name: default-agent
         namespace: cbi
@@ -128,6 +135,13 @@ jenkins:
           resourceRequestCpu: 1000m
           resourceRequestMemory: 4096Mi
           ttyEnabled: true
+        envVars:
+        - envVar:
+            key: MAVEN_OPTS
+            value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+        - envVar:
+            key: MAVEN_CONFIG
+            value: -B -e
         instanceCap: 5
         instanceCapStr: "5"
         label: ui-test
@@ -201,6 +215,13 @@ jenkins:
           resourceRequestCpu: 1000m
           resourceRequestMemory: 4096Mi
           ttyEnabled: true
+        envVars:
+        - envVar:
+            key: MAVEN_OPTS
+            value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+        - envVar:
+            key: MAVEN_CONFIG
+            value: -B -e
         instanceCap: 5
         instanceCapStr: "5"
         label: migration
