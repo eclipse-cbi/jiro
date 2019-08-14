@@ -3,9 +3,9 @@
     "fullName": "ecd.codewind",
     "shortName": "codewind",
     "displayName": "Eclipse Codewind",
-    "sponsorshipLevel": "S1"
+    "sponsorshipLevel": "S2"
   },
   "jenkins": {
-    "maxConcurrency": 4
+    "maxConcurrency": 6
   }
 }

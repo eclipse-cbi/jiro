@@ -17,7 +17,7 @@ metadata:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "codewind"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S1"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S2"
   namespace: "codewind"
   name: jenkins-config
 data:
@@ -56,7 +56,7 @@ data:
           - View/Read:ecd.codewind
       clouds:
       - kubernetes:
-          containerCapStr: "4"
+          containerCapStr: "6"
           jenkinsTunnel: jenkins-discovery.codewind.svc.cluster.local:50000
           jenkinsUrl: http://jenkins-ui.codewind.svc.cluster.local/codewind
           maxRequestsPerHostStr: "32"
@@ -67,7 +67,7 @@ data:
           - containers:
             - args: ""
               command: ""
-              image: eclipsecbijenkins/jenkins-agent:3.29@sha256:4929ec01abc1ad507dcdaea823953d71395c8bac67d94d692be266969ce75bfc
+              image: eclipsecbijenkins/jenkins-agent:3.29@sha256:6af76b9681d7d162ea99e63b1e0b437ac50cacace5a057b0ebe11d852c9617d0
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -80,6 +80,13 @@ data:
               resourceRequestCpu: 1000m
               resourceRequestMemory: 4096Mi
               ttyEnabled: true
+            envVars:
+            - envVar:
+                key: MAVEN_OPTS
+                value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+            - envVar:
+                key: MAVEN_CONFIG
+                value: -B -e
             instanceCap: 5
             name: default-agent
             namespace: codewind
@@ -142,6 +149,13 @@ data:
               resourceRequestCpu: 1000m
               resourceRequestMemory: 4096Mi
               ttyEnabled: true
+            envVars:
+            - envVar:
+                key: MAVEN_OPTS
+                value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+            - envVar:
+                key: MAVEN_CONFIG
+                value: -B -e
             instanceCap: 5
             instanceCapStr: "5"
             label: ui-test
@@ -205,6 +219,13 @@ data:
               resourceRequestCpu: 1000m
               resourceRequestMemory: 4096Mi
               ttyEnabled: true
+            envVars:
+            - envVar:
+                key: MAVEN_OPTS
+                value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+            - envVar:
+                key: MAVEN_CONFIG
+                value: -B -e
             instanceCap: 5
             instanceCapStr: "5"
             label: migration

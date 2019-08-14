@@ -3,13 +3,15 @@
     "shortName": "codewind",
     "fullName": "ecd.codewind",
     "displayName": "Eclipse Codewind",
-    "sponsorshipLevel": "S1"
+    "sponsorshipLevel": "S2"
   },
   "jenkins": {
     "version": "latest",
     "remotingVersion": "latest",
-    "maxConcurrency": 4,
+    "maxConcurrency": 6,
     "agentConnectionTimeout": "180",
+    "timezone": "America/Toronto",
+    "theme": "quicksilver",
     "permissions": [
       {
         "principal": "anonymous",
@@ -72,13 +74,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "f1f6a528a083181518de1df8dd1072de572ded570e5b89e61eeea618f4959eeb"
+      "imageSha256": "0c29341c3793114bbbdeb51033d5c2e9fa236b127419d2780d3db207f727a8e6"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "3.29",
-        "sha256": "4929ec01abc1ad507dcdaea823953d71395c8bac67d94d692be266969ce75bfc"
+        "sha256": "6af76b9681d7d162ea99e63b1e0b437ac50cacace5a057b0ebe11d852c9617d0"
       }
     }
   },

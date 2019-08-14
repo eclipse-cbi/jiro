@@ -18,7 +18,7 @@ metadata:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "codewind"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S1"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S2"
   namespace: "codewind"
   name: "jenkins-instance-limit-range"
 spec:
@@ -28,7 +28,7 @@ spec:
         cpu: 200m
         memory: 8Mi
       max:
-        cpu: 4200m
+        cpu: 6200m
         memory: 16640Mi
     - type: "Container"
       min:
@@ -41,5 +41,5 @@ spec:
         cpu: 200m
         memory: 256Mi
       max:
-        cpu: 4000m
+        cpu: 6000m
         memory: 16384Mi
