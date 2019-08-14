@@ -19,7 +19,15 @@ short_name="${1:-}"
 temp_yaml_name="temp.yml"
 result_yaml_name="nodes.yml"
 
+# the executable name is different on some OSes (e.g. it's 'xml' on SuSE)
+xmlstarlet_bin=xmlstarlet
+
 #TODO: check parameters
+
+xmlstarlet_wrapper() {
+  # hide "Unsupported version '1.1'" errors
+  ${xmlstarlet_bin} "$@" 2>/dev/null
+}
 
 create_node() {
   local name=$1
@@ -42,13 +50,13 @@ EOF
 create_launcher() {
   local filename=$1
 
-  class=$(xmlstarlet sel -T -t -v "/slave/launcher/@class" ${filename})
+  class=$(xmlstarlet_wrapper sel -T -t -v "/slave/launcher/@class" ${filename})
   
   if [[ ${class} == "hudson.plugins.sshslaves.SSHLauncher" ]]; then
-    host=$(xmlstarlet sel -T -t -c "/slave/launcher/host" ${filename})
-    port=$(xmlstarlet sel -T -t -c "/slave/launcher/port" ${filename})
-    credentials_id=$(xmlstarlet sel -T -t -c "/slave/launcher/credentialsId" ${filename})
-    java_path=$(xmlstarlet sel -T -t -c "/slave/launcher/javaPath" ${filename})
+    host=$(xmlstarlet_wrapper sel -T -t -c "/slave/launcher/host" ${filename})
+    port=$(xmlstarlet_wrapper sel -T -t -c "/slave/launcher/port" ${filename})
+    credentials_id=$(xmlstarlet_wrapper sel -T -t -c "/slave/launcher/credentialsId" ${filename})
+    java_path=$(xmlstarlet_wrapper sel -T -t -c "/slave/launcher/javaPath" ${filename})
     #fix javapath
 #    java_path=${java_path/shared\/common/opt\/tools}
 #    java_path=${java_path/jdk1.5.0-latest/oracle-jdk5-latest}
@@ -77,7 +85,7 @@ create_launcher() {
               key: "${key}"
 EOJ
   elif [[ ${class} == "hudson.slaves.CommandLauncher" ]]; then
-    command=$(xmlstarlet sel -T -t -c "/slave/launcher/agentCommand" ${filename})
+    command=$(xmlstarlet_wrapper sel -T -t -c "/slave/launcher/agentCommand" ${filename})
     #fix host
     command=${command/ci.eclipse.org/ci-staging.eclipse.org}
 
@@ -91,7 +99,7 @@ EOK
 
 create_env_variables() {
   local filename=$1
-  count=$(xmlstarlet sel -t -v "count(//envVars/tree-map/string)" ${filename})
+  count=$(xmlstarlet_wrapper sel -t -v "count(//envVars/tree-map/string)" ${filename})
 
   if [[ ${count} > 0 ]]; then
     cat <<EOH  >> ${temp_yaml_name}
@@ -101,9 +109,9 @@ create_env_variables() {
 EOH
     for (( i=1; i < ${count}; i++ ))
     do
-      env_key=$(xmlstarlet sel -T -t -c "//envVars/tree-map/string[${i}]" ${filename})
+      env_key=$(xmlstarlet_wrapper sel -T -t -c "//envVars/tree-map/string[${i}]" ${filename})
       i=$((i+1))
-      env_value=$(xmlstarlet sel -T -t -c "//envVars/tree-map/string[${i}]" ${filename})
+      env_value=$(xmlstarlet_wrapper sel -T -t -c "//envVars/tree-map/string[${i}]" ${filename})
       cat <<EOG  >> ${temp_yaml_name}
           - key: "${env_key}"
             value: "${env_value}"
@@ -114,11 +122,11 @@ EOG
 
 read_xml() {
   local filename=$1
-  name=$(xmlstarlet sel -T -t -c "/slave/name" ${filename})
-  description=$(xmlstarlet sel -T -t -c "/slave/description" ${filename})
-  label=$(xmlstarlet sel -T -t -c "/slave/label" ${filename})
-  remotefs=$(xmlstarlet sel -T -t -c "/slave/remoteFS" ${filename})
-  executors=$(xmlstarlet sel -T -t -c "/slave/numExecutors" ${filename})
+  name=$(xmlstarlet_wrapper sel -T -t -c "/slave/name" ${filename})
+  description=$(xmlstarlet_wrapper sel -T -t -c "/slave/description" ${filename})
+  label=$(xmlstarlet_wrapper sel -T -t -c "/slave/label" ${filename})
+  remotefs=$(xmlstarlet_wrapper sel -T -t -c "/slave/remoteFS" ${filename})
+  executors=$(xmlstarlet_wrapper sel -T -t -c "/slave/numExecutors" ${filename})
 
   create_node ${name} ${description} ${label} ${remotefs} ${executors}
  
