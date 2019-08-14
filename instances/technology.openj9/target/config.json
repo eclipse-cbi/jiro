@@ -3,7 +3,7 @@
     "shortName": "openj9",
     "fullName": "technology.openj9",
     "displayName": "Eclipse OpenJ9",
-    "sponsorshipLevel": "S0"
+    "sponsorshipLevel": "SP2"
   },
   "jenkins": {
     "version": "latest",
@@ -74,13 +74,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "d92fb2ff047085d0bbd2c21b11b9ac9b8dab3782abb3c9535a958f1cd97c5ba8"
+      "imageSha256": "6daf2a11192d719081ce516ee052daecd1767a7554bfa2cc3575252f11400cdc"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "3.29",
-        "sha256": "6af76b9681d7d162ea99e63b1e0b437ac50cacace5a057b0ebe11d852c9617d0"
+        "sha256": "4929ec01abc1ad507dcdaea823953d71395c8bac67d94d692be266969ce75bfc"
       }
     }
   },
@@ -97,11 +97,11 @@
       "stsName": "openj9",
       "resources": {
         "cpu": {
-          "request": "500m",
-          "limit": 2
+          "request": "4000m",
+          "limit": "8000m"
         },
         "memory": {
-          "limit": "1.5Gi"
+          "limit": "8Gi"
         }
       },
       "probe": {

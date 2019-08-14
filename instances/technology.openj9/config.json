@@ -2,6 +2,22 @@
   "project": {
     "fullName": "technology.openj9",
     "shortName": "openj9",
-    "displayName": "Eclipse OpenJ9"
+    "displayName": "Eclipse OpenJ9",
+    "sponsorshipLevel": "SP2"
+  },
+  "kubernetes": {
+    "master": {
+      "namespace": "{{project.shortName}}",
+      "stsName": "{{project.shortName}}",
+      "resources": {
+        "cpu": {
+          "request": "4000m",
+          "limit": "8000m"
+        },
+        "memory": {
+          "limit": "8Gi"
+        }
+      }
+    }
   }
 }
