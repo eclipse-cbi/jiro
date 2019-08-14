@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/jubula:2.176.2@sha256:218e322c391e262c5bd336b25f7d0233fa96125e1f5e10befa99de63b3c2ee03
+        image: eclipsecbijenkins/jubula:2.176.2@sha256:514ac950a3e3a9c28ec96405db1db4aef5affd7d8b0ea10ae7d524af5ec63a1a
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -94,13 +94,14 @@ spec:
               # https://github.com/eclipse/openj9/issues/3637
             value: >-
               -XshowSettings:vm
+              -Duser.timezone=America/Toronto
               -Djdk.nativeCrypto=false
               -Dsun.zip.disableMemoryMapping=true
               -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle
               -Dhudson.slaves.NodeProvisioner.initialDelay=0
               -Dhudson.slaves.NodeProvisioner.MARGIN=50
               -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85
-              -Dhudson.footerURL=https://ci-staging.eclipse.org
+              -Dhudson.footerURL=https://ci.eclipse.org
               -Dhudson.model.UsageStatistics.disabled=true
               -Djenkins.model.Jenkins.slaveAgentPort=50000
               -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
