@@ -527,3 +527,10 @@ unclassified:
   slackNotifier:
     teamDomain: "openj9"
     tokenCredentialId: "515a102c-4eee-4e66-9b05-fee104ea6fc2"
+
+  githubpluginconfig:
+    configs:
+      - name: "GitHub"
+        apiUrl: "https://api.github.com"
+        credentialsId: "ce2c6536-6771-4fae-844e-de0fda7dbcc1"
+        manageHooks: true
