@@ -67,7 +67,7 @@ data:
           - containers:
             - args: ""
               command: ""
-              image: eclipsecbijenkins/jenkins-agent:3.29@sha256:4929ec01abc1ad507dcdaea823953d71395c8bac67d94d692be266969ce75bfc
+              image: eclipsecbijenkins/jenkins-agent:3.29@sha256:3dbc231fbe975b5e9ce83f5ea55d0456963e4cc1b21fb4e63e742eabcf16a807
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -1057,6 +1057,12 @@ data:
     unclassified:
       extendedEmailPublisher:
         defaultContentType: text/html
+      githubpluginconfig:
+        configs:
+        - apiUrl: https://api.github.com
+          credentialsId: ce2c6536-6771-4fae-844e-de0fda7dbcc1
+          manageHooks: false
+          name: GitHub
       globalDefaultFlowDurabilityLevel:
         durabilityHint: PERFORMANCE_OPTIMIZED
       location:

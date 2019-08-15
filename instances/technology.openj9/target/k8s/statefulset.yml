@@ -46,12 +46,12 @@ spec:
             -Dhudson.model.UsageStatistics.disabled=true -Djenkins.model.Jenkins.slaveAgentPort=50000
             -Djenkins.model.Jenkins.slaveAgentPortEnforce=true -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
             -Djenkins.install.runSetupWizard=false -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-            -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:4929ec01abc1ad507dcdaea823953d71395c8bac67d94d692be266969ce75bfc
+            -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:3dbc231fbe975b5e9ce83f5ea55d0456963e4cc1b21fb4e63e742eabcf16a807
             -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
             -Dkubernetes.websocket.ping.interval=30000
         - name: JENKINS_OPTS
           value: --prefix=/openj9 --webroot=/var/cache/jenkins/war --pluginroot=/var/cache/jenkins/plugins
-        image: eclipsecbijenkins/openj9:2.176.2@sha256:6daf2a11192d719081ce516ee052daecd1767a7554bfa2cc3575252f11400cdc
+        image: eclipsecbijenkins/openj9:2.176.2@sha256:ca447fbe70efd95fde2d30e335a31c8bf14f142320d85f735ed17a44cef1ade3
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 5
