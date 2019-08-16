@@ -523,6 +523,12 @@ jenkins:
     list:
       name: "Pipelines"
 
+tool:
+  git:
+    installations:
+      - name: Git
+        home: git
+
 unclassified:
   slackNotifier:
     teamDomain: "openj9"
