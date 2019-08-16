@@ -189,6 +189,39 @@ jenkins:
         command:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.124 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
+      name: "osx1014-x86-1"
+      nodeDescription: "UNB mini mac OSX 10.14"
+      labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_13 ci.role.test ci.geo.unb"
+      remoteFS: '/Users/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.145 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "osx1014-x86-2"
+      nodeDescription: "UNB mini mac OSX 10.14"
+      labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_13 ci.role.test ci.geo.unb"
+      remoteFS: '/Users/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.146 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "osx1014-x86-3"
+      nodeDescription: "UNB mini mac OSX 10.14"
+      labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_13 ci.role.test ci.geo.unb"
+      remoteFS: '/Users/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.147 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+  - permanent:
       name: "ub16-390-1"
       nodeDescription: "LXEOJ901 - Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk"
       labelString: "hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
