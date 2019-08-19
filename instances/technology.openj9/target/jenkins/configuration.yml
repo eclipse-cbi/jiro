@@ -488,6 +488,45 @@ jenkins:
       remoteFS: /Users/jenkins
       retentionStrategy: always
   - permanent:
+      labelString: hw.arch.x86 sw.os.osx sw.os.osx.10_13 ci.role.test ci.geo.unb
+      launcher:
+        command:
+          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.145 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'"
+      mode: EXCLUSIVE
+      name: osx1014-x86-1
+      nodeDescription: UNB mini mac OSX 10.14
+      numExecutors: 1
+      remoteFS: /Users/jenkins
+      retentionStrategy: always
+  - permanent:
+      labelString: hw.arch.x86 sw.os.osx sw.os.osx.10_13 ci.role.test ci.geo.unb
+      launcher:
+        command:
+          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.146 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'"
+      mode: EXCLUSIVE
+      name: osx1014-x86-2
+      nodeDescription: UNB mini mac OSX 10.14
+      numExecutors: 1
+      remoteFS: /Users/jenkins
+      retentionStrategy: always
+  - permanent:
+      labelString: hw.arch.x86 sw.os.osx sw.os.osx.10_13 ci.role.test ci.geo.unb
+      launcher:
+        command:
+          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.147 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'"
+      mode: EXCLUSIVE
+      name: osx1014-x86-3
+      nodeDescription: UNB mini mac OSX 10.14
+      numExecutors: 1
+      remoteFS: /Users/jenkins
+      retentionStrategy: always
+  - permanent:
       labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
         ci.role.test sw.tool.docker ci.geo.marist
       launcher:
@@ -958,8 +997,8 @@ tool:
               id: 1.10.5
   git:
     installations:
-    - home: /usr/bin/git
-      name: git
+    - home: git
+      name: Default
   jdk:
     installations:
     - home: /opt/tools/java/openjdk/latest

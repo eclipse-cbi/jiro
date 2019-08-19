@@ -1,6 +1,7 @@
 # GENERATED FILE - DO NOT EDIT
 artifactory
 badge
+build-user-vars-plugin
 copyartifact
 embeddable-build-status
 generic-webhook-trigger
