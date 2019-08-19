@@ -9,9 +9,6 @@
     "maxConcurrency": 4,
     "theme": "quicksilver-light"
   },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
-  },
   "maven": {
     "home": "/home/jenkins/.m2",
     "files": {
