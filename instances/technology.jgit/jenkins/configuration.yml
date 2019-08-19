@@ -1,0 +1,20 @@
+jenkins:
+  nodes:
+  - permanent:
+      name: "wai7c-windows-10"
+      labelString: "windows"
+      remoteFS: "c:\\Users\\genie.jgit\\ci"
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          credentialsId: "acfebd23-498b-43e0-a04a-6f95e4f84ece"
+          host: "13.82.26.39"
+          port: 22
+          sshHostKeyVerificationStrategy: "knownHostsFileKeyVerificationStrategy"
+      nodeProperties:
+      - toolLocation:
+          locations:
+          - home: "C:\\Program Files\\AdoptOpenJDK\\jdk8u202-b08\\"
+            key: "hudson.model.JDK$DescriptorImpl@oracle-jdk8-latest"
