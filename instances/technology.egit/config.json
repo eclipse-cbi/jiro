@@ -6,7 +6,8 @@
     "sponsorshipLevel": "S1"
   },
   "jenkins": {
-    "maxConcurrency": 4
+    "maxConcurrency": 4,
+    "theme": "quicksilver-light"
   },
   "maven": {
     "home": "/home/jenkins/.m2",
