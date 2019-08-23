@@ -74,7 +74,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:6af76b9681d7d162ea99e63b1e0b437ac50cacace5a057b0ebe11d852c9617d0"
+        - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:3dbc231fbe975b5e9ce83f5ea55d0456963e4cc1b21fb4e63e742eabcf16a807"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -404,5 +404,5 @@ tool:
       home: "/opt/tools/apache-maven/3.2.5"
   git:
     installations:
-    - name: "git"
-      home: "/usr/bin/git"
+    - name: "Default"
+      home: "git"

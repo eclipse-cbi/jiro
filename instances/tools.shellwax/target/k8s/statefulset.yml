@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/shellwax:2.176.2@sha256:9bd003b08ce113dba16d41bfd36265570376bcef3163fb249e2482d6d12600e8
+        image: eclipsecbijenkins/shellwax:2.176.2@sha256:e2823ff4b1e07d0363f0949f0f6dcc36ae709ca053e8d72190dd4c27f935c229
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -108,7 +108,7 @@ spec:
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:6af76b9681d7d162ea99e63b1e0b437ac50cacace5a057b0ebe11d852c9617d0
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:3dbc231fbe975b5e9ce83f5ea55d0456963e4cc1b21fb4e63e742eabcf16a807
               -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
               -Dkubernetes.websocket.ping.interval=30000
           - name: JENKINS_OPTS
