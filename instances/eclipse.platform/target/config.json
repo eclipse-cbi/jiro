@@ -3,12 +3,12 @@
     "shortName": "platform",
     "fullName": "eclipse.platform",
     "displayName": "Eclipse Platform",
-    "sponsorshipLevel": "S0"
+    "sponsorshipLevel": "S3"
   },
   "jenkins": {
     "version": "latest",
     "remotingVersion": "latest",
-    "maxConcurrency": 2,
+    "maxConcurrency": 8,
     "agentConnectionTimeout": "180",
     "timezone": "America/Toronto",
     "theme": "quicksilver",
@@ -74,13 +74,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "10e69841d5bb7fe068a645c930e5fd07af0a04861bfcd8683bb9bc9967382bfd"
+      "imageSha256": "a1c4e66402e898d98e4b47ee0e09a480a5161f81add630d571050bc0118c2cba"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "3.29",
-        "sha256": "6af76b9681d7d162ea99e63b1e0b437ac50cacace5a057b0ebe11d852c9617d0"
+        "sha256": "4929ec01abc1ad507dcdaea823953d71395c8bac67d94d692be266969ce75bfc"
       }
     }
   },
@@ -97,11 +97,11 @@
       "stsName": "platform",
       "resources": {
         "cpu": {
-          "request": "500m",
-          "limit": 2
+          "request": "1400m",
+          "limit": "2800m"
         },
         "memory": {
-          "limit": "1.5Gi"
+          "limit": "3Gi"
         }
       },
       "probe": {
