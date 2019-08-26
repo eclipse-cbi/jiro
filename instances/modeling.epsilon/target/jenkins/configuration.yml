@@ -74,7 +74,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3"
+        - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:3dbc231fbe975b5e9ce83f5ea55d0456963e4cc1b21fb4e63e742eabcf16a807"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -93,6 +93,13 @@ jenkins:
         name: "default-agent"
         namespace: "epsilon"
         nodeUsageMode: NORMAL
+        envVars:
+        - envVar:
+            key: "MAVEN_OPTS"
+            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+        - envVar:
+            key: "MAVEN_CONFIG"
+            value: "-B -e"
         volumes:
         - persistentVolumeClaim:
             claimName: "tools-claim-jiro-epsilon"
@@ -166,6 +173,13 @@ jenkins:
         name: "ui-test-agent"
         namespace: "epsilon"
         label: "ui-test"
+        envVars:
+        - envVar:
+            key: "MAVEN_OPTS"
+            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+        - envVar:
+            key: "MAVEN_CONFIG"
+            value: "-B -e"
         volumes:
         - persistentVolumeClaim:
             claimName: "tools-claim-jiro-epsilon"
@@ -238,6 +252,13 @@ jenkins:
         instanceCapStr: "5"
         name: "migration-agent"
         namespace: "epsilon"
+        envVars:
+        - envVar:
+            key: "MAVEN_OPTS"
+            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+        - envVar:
+            key: "MAVEN_CONFIG"
+            value: "-B -e"
         label: "migration"
         volumes:
         - persistentVolumeClaim:
@@ -309,7 +330,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/epsilon
+    url: https://ci.eclipse.org/epsilon
 
   mailer:
     adminAddress: ci-admin@eclipse.org
@@ -413,5 +434,5 @@ tool:
       home: "/opt/tools/apache-maven/3.2.5"
   git:
     installations:
-    - name: "git"
-      home: "/usr/bin/git"
+    - name: "Default"
+      home: "git"
