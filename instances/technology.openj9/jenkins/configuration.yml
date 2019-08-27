@@ -202,7 +202,7 @@ jenkins:
   - permanent:
       name: "osx1014-x86-1"
       nodeDescription: "UNB mini mac OSX 10.14"
-      labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_13 ci.role.test ci.geo.unb"
+      labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_14 ci.role.test ci.geo.unb"
       remoteFS: '/Users/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -213,7 +213,7 @@ jenkins:
   - permanent:
       name: "osx1014-x86-2"
       nodeDescription: "UNB mini mac OSX 10.14"
-      labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_13 ci.role.test ci.geo.unb"
+      labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_14 ci.role.test ci.geo.unb"
       remoteFS: '/Users/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -224,7 +224,7 @@ jenkins:
   - permanent:
       name: "osx1014-x86-3"
       nodeDescription: "UNB mini mac OSX 10.14"
-      labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_13 ci.role.test ci.geo.unb"
+      labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_14 ci.role.test ci.geo.unb"
       remoteFS: '/Users/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
