@@ -433,12 +433,12 @@ jenkins:
       labelString: hw.arch.aarch64 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build
       launcher:
         command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@147.75.97.121
+          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@147.75.97.122
             "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
             exec java -jar slave.jar"
       mode: EXCLUSIVE
       name: cent7-aarch64-1
-      nodeDescription: cent7-aarch64-1 - Packet.net CentOS 7 128 GB 2CPU - 147.75.97.121
+      nodeDescription: cent7-aarch64-1 - Packet.net CentOS 7 128 GB 2CPU - 147.75.97.122
       numExecutors: 1
       remoteFS: /home/jenkins
       retentionStrategy: always
@@ -499,7 +499,7 @@ jenkins:
       remoteFS: /Users/jenkins
       retentionStrategy: always
   - permanent:
-      labelString: hw.arch.x86 sw.os.osx sw.os.osx.10_13 ci.role.test ci.geo.unb
+      labelString: hw.arch.x86 sw.os.osx sw.os.osx.10_14 ci.role.test ci.geo.unb
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
@@ -512,7 +512,7 @@ jenkins:
       remoteFS: /Users/jenkins
       retentionStrategy: always
   - permanent:
-      labelString: hw.arch.x86 sw.os.osx sw.os.osx.10_13 ci.role.test ci.geo.unb
+      labelString: hw.arch.x86 sw.os.osx sw.os.osx.10_14 ci.role.test ci.geo.unb
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
@@ -525,7 +525,7 @@ jenkins:
       remoteFS: /Users/jenkins
       retentionStrategy: always
   - permanent:
-      labelString: hw.arch.x86 sw.os.osx sw.os.osx.10_13 ci.role.test ci.geo.unb
+      labelString: hw.arch.x86 sw.os.osx sw.os.osx.10_14 ci.role.test ci.geo.unb
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
