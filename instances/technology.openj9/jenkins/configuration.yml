@@ -146,7 +146,7 @@ jenkins:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.194 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "cent7-aarch64-1"
-      nodeDescription: "cent7-aarch64-1 - Packet.net CentOS 7 128 GB 2CPU - 147.75.97.121"
+      nodeDescription: "cent7-aarch64-1 - Packet.net CentOS 7 128 GB 2CPU - 147.75.97.122"
       labelString: "hw.arch.aarch64 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build"
       remoteFS: '/home/jenkins'
       numExecutors: 1
@@ -154,7 +154,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@147.75.97.121 \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@147.75.97.122 \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
   - permanent:
       name: "osx1011-x86-1"
       nodeDescription: "osx1011vm1 - UNB mini mac OSX 10.11"
