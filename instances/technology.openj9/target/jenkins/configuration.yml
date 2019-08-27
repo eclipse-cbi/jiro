@@ -12,8 +12,6 @@ jenkins:
       - Job/ExtendedRead:common
       - Agent/Build:technology.openj9
       - Credentials/View:technology.openj9
-      - Gerrit/ManualTrigger:technology.openj9
-      - Gerrit/Retrigger:technology.openj9
       - Job/Build:technology.openj9
       - Job/Cancel:technology.openj9
       - Job/Configure:technology.openj9
@@ -428,6 +426,19 @@ jenkins:
       mode: EXCLUSIVE
       name: cent6-x64-7
       nodeDescription: cent6-x64-7 - UNB CentOS 6 8 GB 4CPU - 192.168.10.194
+      numExecutors: 1
+      remoteFS: /home/jenkins
+      retentionStrategy: always
+  - permanent:
+      labelString: hw.arch.aarch64 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build
+      launcher:
+        command:
+          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@147.75.97.121
+            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
+            exec java -jar slave.jar"
+      mode: EXCLUSIVE
+      name: cent7-aarch64-1
+      nodeDescription: cent7-aarch64-1 - Packet.net CentOS 7 128 GB 2CPU - 147.75.97.121
       numExecutors: 1
       remoteFS: /home/jenkins
       retentionStrategy: always

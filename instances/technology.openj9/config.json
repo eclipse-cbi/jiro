@@ -5,6 +5,17 @@
     "displayName": "Eclipse OpenJ9",
     "sponsorshipLevel": "SP2"
   },
+    "jenkins": {
+    "permissions": [
+      {
+        "principal": "technology.openj9",
+        "withheldPermissions": [
+          "Gerrit/ManualTrigger",
+          "Gerrit/Retrigger"
+        ]
+      }
+    ]
+  },
   "kubernetes": {
     "master": {
       "namespace": "{{project.shortName}}",

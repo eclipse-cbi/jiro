@@ -56,6 +56,13 @@
           "View/Read",
           "SCM/Tag"
         ]
+      },
+      {
+        "principal": "technology.openj9",
+        "withheldPermissions": [
+          "Gerrit/ManualTrigger",
+          "Gerrit/Retrigger"
+        ]
       }
     ],
     "actualVersion": "2.176.2",
