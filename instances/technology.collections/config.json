@@ -1,0 +1,27 @@
+{
+  "project": {
+    "fullName": "technology.collections",
+    "shortName": "collections",
+    "displayName": "Eclipse Collections"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
+  },
+  "maven": {
+    "home": "/home/jenkins/.m2",
+    "files": {
+      "settings.xml": {
+        "volumeType": "Secret",
+        "volumeName": "m2-secret-dir"
+      },
+      "settings-security.xml": {
+        "volumeType": "Secret",
+        "volumeName": "m2-secret-dir"
+      },
+      "toolchains.xml": {
+        "volumeType": "ConfigMap",
+        "volumeName": "m2-dir"
+      }
+    }
+  }
+}
