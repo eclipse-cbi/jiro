@@ -147,7 +147,7 @@ jenkins:
   - permanent:
       name: "cent7-aarch64-1"
       nodeDescription: "cent7-aarch64-1 - Packet.net CentOS 7 128 GB 2CPU - 147.75.97.122"
-      labelString: "hw.arch.aarch64 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build"
+      labelString: "hw.arch.aarch64 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build ci.role.test"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
