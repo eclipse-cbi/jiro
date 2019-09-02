@@ -431,6 +431,7 @@ jenkins:
       retentionStrategy: always
   - permanent:
       labelString: hw.arch.aarch64 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build
+        ci.role.test
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@147.75.97.122
