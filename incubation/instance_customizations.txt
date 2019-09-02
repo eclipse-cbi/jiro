@@ -5,8 +5,15 @@ ecd.orion
     - set up with config file provider plugin
     - contains credentials for orion test server
 
+eclipse.jdt.ls
+  - GHPRB General config
+  - Build Timestamp
+  - Issue Linker
+  - HipChat
+  - Mattermost
+
 iot.californium
-    - centslave1 config + credentials
+  - centslave1 config + credentials
 
 modeling.amalgam
   - zentimestamp
@@ -26,6 +33,7 @@ technology.cbi
 
 technology.openj9
   - GHPRB General config
+  - artifactory settings (artifactory plugin has issues with JCasC)
 
 technology.openk-usermodules
   - node.js plugin

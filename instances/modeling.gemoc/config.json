@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "modeling.gemoc",
+    "shortName": "gemoc",
+    "displayName": "Eclipse GEMOC Studio"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
+  }
+}
