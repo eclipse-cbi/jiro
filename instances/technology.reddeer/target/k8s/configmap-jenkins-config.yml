@@ -1,0 +1,432 @@
+#*******************************************************************************
+# Copyright (c) 2019 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "reddeer"
+    org.eclipse.cbi.jiro/project.fullName: "technology.reddeer"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "reddeer"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+  namespace: "reddeer"
+  name: jenkins-config
+data:
+  jenkins.yaml: |
+    # GENERATED FILE - DO NOT EDIT
+    jenkins:
+      agentProtocols:
+      - JNLP4-connect
+      - Ping
+      authorizationStrategy:
+        projectMatrix:
+          permissions:
+          - Overall/Administer:admins
+          - Job/Read:anonymous
+          - Overall/Read:anonymous
+          - Job/ExtendedRead:common
+          - Agent/Build:technology.reddeer
+          - Credentials/View:technology.reddeer
+          - Gerrit/ManualTrigger:technology.reddeer
+          - Gerrit/Retrigger:technology.reddeer
+          - Job/Build:technology.reddeer
+          - Job/Cancel:technology.reddeer
+          - Job/Configure:technology.reddeer
+          - Job/Create:technology.reddeer
+          - Job/Delete:technology.reddeer
+          - Job/Move:technology.reddeer
+          - Job/Read:technology.reddeer
+          - Job/Workspace:technology.reddeer
+          - Run/Delete:technology.reddeer
+          - Run/Replay:technology.reddeer
+          - Run/Update:technology.reddeer
+          - SCM/Tag:technology.reddeer
+          - View/Configure:technology.reddeer
+          - View/Create:technology.reddeer
+          - View/Delete:technology.reddeer
+          - View/Read:technology.reddeer
+      clouds:
+      - kubernetes:
+          containerCapStr: "2"
+          jenkinsTunnel: jenkins-discovery.reddeer.svc.cluster.local:50000
+          jenkinsUrl: http://jenkins-ui.reddeer.svc.cluster.local/reddeer
+          maxRequestsPerHostStr: "32"
+          name: kubernetes
+          namespace: reddeer
+          podRetention: never
+          templates:
+          - containers:
+            - args: ""
+              command: ""
+              image: eclipsecbijenkins/jenkins-agent:3.29@sha256:3dbc231fbe975b5e9ce83f5ea55d0456963e4cc1b21fb4e63e742eabcf16a807
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: jnlp
+              resourceLimitCpu: 2000m
+              resourceLimitMemory: 4096Mi
+              resourceRequestCpu: 1000m
+              resourceRequestMemory: 4096Mi
+              ttyEnabled: true
+            envVars:
+            - envVar:
+                key: MAVEN_OPTS
+                value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+            - envVar:
+                key: MAVEN_CONFIG
+                value: -B -e
+            instanceCap: 5
+            name: default-agent
+            namespace: reddeer
+            nodeUsageMode: NORMAL
+            volumes:
+            - persistentVolumeClaim:
+                claimName: tools-claim-jiro-reddeer
+                mountPath: /opt/tools
+                readOnly: true
+            - configMapVolume:
+                configMapName: known-hosts
+                mountPath: /home/jenkins/.ssh/
+            - emptyDirVolume:
+                memory: false
+                mountPath: /home/jenkins/.m2/repository
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: settings-xml
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: toolchains-xml
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                volumes:
+                - name: settings-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: settings.xml
+                      path: settings.xml
+                - name: toolchains-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: toolchains.xml
+                      path: toolchains.xml
+          - containers:
+            - args: ""
+              command: ""
+              image: eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: jnlp
+              resourceLimitCpu: 2000m
+              resourceLimitMemory: 4096Mi
+              resourceRequestCpu: 1000m
+              resourceRequestMemory: 4096Mi
+              ttyEnabled: true
+            envVars:
+            - envVar:
+                key: MAVEN_OPTS
+                value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+            - envVar:
+                key: MAVEN_CONFIG
+                value: -B -e
+            instanceCap: 5
+            instanceCapStr: "5"
+            label: ui-test
+            name: ui-test-agent
+            namespace: reddeer
+            volumes:
+            - persistentVolumeClaim:
+                claimName: tools-claim-jiro-reddeer
+                mountPath: /opt/tools
+                readOnly: true
+            - configMapVolume:
+                configMapName: known-hosts
+                mountPath: /home/jenkins/.ssh/
+            - emptyDirVolume:
+                memory: false
+                mountPath: /home/jenkins/.m2/repository
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: settings-xml
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: toolchains-xml
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                volumes:
+                - name: settings-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: settings.xml
+                      path: settings.xml
+                - name: toolchains-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: toolchains.xml
+                      path: toolchains.xml
+          - containers:
+            - args: ""
+              command: ""
+              image: eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: jnlp
+              resourceLimitCpu: 2000m
+              resourceLimitMemory: 4096Mi
+              resourceRequestCpu: 1000m
+              resourceRequestMemory: 4096Mi
+              ttyEnabled: true
+            envVars:
+            - envVar:
+                key: MAVEN_OPTS
+                value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+            - envVar:
+                key: MAVEN_CONFIG
+                value: -B -e
+            instanceCap: 5
+            instanceCapStr: "5"
+            label: migration
+            name: migration-agent
+            namespace: reddeer
+            volumes:
+            - persistentVolumeClaim:
+                claimName: tools-claim-jiro-reddeer
+                mountPath: /opt/tools
+                readOnly: true
+            - configMapVolume:
+                configMapName: known-hosts
+                mountPath: /home/jenkins/.ssh/
+            - emptyDirVolume:
+                memory: false
+                mountPath: /home/jenkins/.m2/repository
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: settings-xml
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: toolchains-xml
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                volumes:
+                - name: settings-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: settings.xml
+                      path: settings.xml
+                - name: toolchains-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: toolchains.xml
+                      path: toolchains.xml
+      crumbIssuer:
+        standard:
+          excludeClientIPFromCrumb: false
+      disableRememberMe: false
+      markupFormatter: rawHtml
+      mode: EXCLUSIVE
+      nodes:
+      - permanent:
+          launcher:
+            ssh:
+              credentialsId: c4c56361-9601-44bf-a81b-4f8c5ffd83cb
+              host: centslave1.eclipse.org
+              javaPath: /shared/common/jdk1.8.0_x64-latest/bin/java
+              sshHostKeyVerificationStrategy:
+                manuallyProvidedKeyVerificationStrategy:
+                  key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDa23PeYP41r8dTo5CW5/zls1eg0f9euBTxdmu4Tyf/UmfVV3/1s/gdSm9pm6pJQJiGOgjk9in+KkN5QFX7uTobwedZztWV4YRERQe7pZO4iF7fCbFIEECDTN86ZMlFTwS16kgUTsa6n/5WYiSWYljJF4sZZfDZAkpvvRGwBFuuVA3AKNxkJ9NrPcWF4S8iPeGLe+n4sGpRmE4tEiZCWzhPqhayNQxos3KMmihrGu8wKtqwvWftL/sRzNoXuecqbRcEk6c+Cm3K7rqmPpZ1KJ6bqDPe3YrP1EwrgXujZBT05/GvIhn7OEkpDnCoCK0lb9xH/gG8kkZGbOwAXeeJA47D
+          mode: EXCLUSIVE
+          name: centslave1
+          nodeDescription: CentOS
+          nodeProperties:
+          - toolLocation:
+              locations:
+              - home: /shared/common/jdk1.8.0_x64-latest
+                key: hudson.model.JDK$DescriptorImpl@oracle-jdk8-latest
+          numExecutors: 1
+          remoteFS: /opt/public/hipp/homes/genie.reddeer/centslave1
+      numExecutors: 0
+      remotingSecurity:
+        enabled: true
+      scmCheckoutRetryCount: 2
+      securityRealm:
+        ldap:
+          configurations:
+          - displayNameAttributeName: cn
+            groupSearchBase: ou=group
+            mailAddressAttributeName: mail
+            rootDN: dc=eclipse,dc=org
+            server: ldapmaster
+            userSearch: mail={0}
+      systemMessage: ""
+    security:
+      apiToken:
+        creationOfLegacyTokenEnabled: false
+        tokenGenerationOnCreationEnabled: false
+        usageStatisticsEnabled: true
+      downloadSettings:
+        useBrowser: false
+      queueItemAuthenticator:
+        authenticators:
+        - global:
+            strategy: triggeringUsersAuthorizationStrategy
+      sSHD:
+        port: -1
+    tool:
+      ant:
+        installations:
+        - home: ""
+          name: apache-ant-latest
+          properties:
+          - installSource:
+              installers:
+              - antFromApache:
+                  id: 1.10.5
+      git:
+        installations:
+        - home: git
+          name: Default
+      jdk:
+        installations:
+        - home: /opt/tools/java/openjdk/latest
+          name: openjdk-latest
+        - home: /opt/tools/java/openjdk/jdk-13ea/latest
+          name: openjdk-jdk13ea-latest
+        - home: /opt/tools/java/openjdk/jdk-12/latest
+          name: openjdk-jdk12-latest
+        - home: /opt/tools/java/openjdk/jdk-11/latest
+          name: openjdk-jdk11-latest
+        - home: /opt/tools/java/openjdk/jdk-10/latest
+          name: openjdk-jdk10-latest
+        - home: /opt/tools/java/openjdk/jdk-9/latest
+          name: openjdk-jdk9-latest
+        - home: /opt/tools/java/adoptopenjdk/hotspot-latest
+          name: adoptopenjdk-hotspot-latest
+        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest
+          name: adoptopenjdk-hotspot-jdk12-latest
+        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest
+          name: adoptopenjdk-hotspot-jdk11-latest
+        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest
+          name: adoptopenjdk-hotspot-jdk10-latest
+        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest
+          name: adoptopenjdk-hotspot-jdk9-latest
+        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest
+          name: adoptopenjdk-hotspot-jdk8-latest
+        - home: /opt/tools/java/adoptopenjdk/openj9-latest
+          name: adoptopenjdk-openj9-latest
+        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-12/latest
+          name: adoptopenjdk-openj9-jdk12-latest
+        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-11/latest
+          name: adoptopenjdk-openj9-jdk11-latest
+        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-10/latest
+          name: adoptopenjdk-openj9-jdk10-latest
+        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-9/latest
+          name: adoptopenjdk-openj9-jdk9-latest
+        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-8/latest
+          name: adoptopenjdk-openj9-jdk8-latest
+        - home: /opt/tools/java/oracle/latest
+          name: oracle-latest
+        - home: /opt/tools/java/oracle/jdk-10/latest
+          name: oracle-jdk10-latest
+        - home: /opt/tools/java/oracle/jdk-9/latest
+          name: oracle-jdk9-latest
+        - home: /opt/tools/java/oracle/jdk-8/latest
+          name: oracle-jdk8-latest
+        - home: /opt/tools/java/oracle/jdk-7/latest
+          name: oracle-jdk7-latest
+        - home: /opt/tools/java/oracle/jdk-6/latest
+          name: oracle-jdk6-latest
+        - home: /opt/tools/java/oracle/jdk-5/latest
+          name: oracle-jdk5-latest
+        - home: /opt/tools/java/oracle/jdk-1.4/latest
+          name: oracle-jdk1.4-latest
+        - home: /opt/tools/java/ibm/jdk-8/latest
+          name: ibm-jdk8-latest
+        - home: /opt/tools/java/ibm/latest
+          name: ibm-latest
+      maven:
+        installations:
+        - home: /opt/tools/apache-maven/latest
+          name: apache-maven-latest
+        - home: /opt/tools/apache-maven/3.6.1
+          name: apache-maven-3.6.1
+        - home: /opt/tools/apache-maven/3.5.4
+          name: apache-maven-3.5.4
+        - home: /opt/tools/apache-maven/3.3.9
+          name: apache-maven-3.3.9
+        - home: /opt/tools/apache-maven/3.2.5
+          name: apache-maven-3.2.5
+    unclassified:
+      extendedEmailPublisher:
+        defaultContentType: text/html
+      globalDefaultFlowDurabilityLevel:
+        durabilityHint: PERFORMANCE_OPTIMIZED
+      location:
+        adminAddress: ci-admin@eclipse.org
+        url: https://ci-staging.eclipse.org/reddeer
+      mailer:
+        adminAddress: ci-admin@eclipse.org
+        replyToAddress: ci-admin@eclipse.org
+        smtpHost: mail.eclipse.org
+      simple-theme-plugin:
+        elements:
+        - cssUrl:
+            url: /reddeer/userContent/theme/quicksilver.css
+        - cssUrl:
+            url: //fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100
+        - jsUrl:
+            url: /reddeer/userContent/theme/title.js
