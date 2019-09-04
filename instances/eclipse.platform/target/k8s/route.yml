@@ -24,7 +24,7 @@ metadata:
     haproxy.router.openshift.io/timeout: 60s
   name: "platform"
 spec:
-  host: "ci-staging.eclipse.org"
+  host: "ci.eclipse.org"
   path: "/platform"
   port:
     targetPort: "http"
