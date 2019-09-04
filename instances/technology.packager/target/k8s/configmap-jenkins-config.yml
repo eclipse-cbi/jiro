@@ -1,5 +1,5 @@
 #*******************************************************************************
-# Copyright (c) 2018 Eclipse Foundation and others.
+# Copyright (c) 2019 Eclipse Foundation and others.
 # This program and the accompanying materials are made available
 # under the terms of the Eclipse Public License 2.0
 # which is available at http://www.eclipse.org/legal/epl-v20.html,
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3"
+            - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:3dbc231fbe975b5e9ce83f5ea55d0456963e4cc1b21fb4e63e742eabcf16a807"
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -117,6 +117,13 @@ data:
             name: "default-agent"
             namespace: "packager"
             nodeUsageMode: NORMAL
+            envVars:
+            - envVar:
+                key: "MAVEN_OPTS"
+                value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+            - envVar:
+                key: "MAVEN_CONFIG"
+                value: "-B -e"
             volumes:
             - persistentVolumeClaim:
                 claimName: "tools-claim-jiro-packager"
@@ -146,10 +153,14 @@ data:
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
                 volumes:
                 - name: settings-xml
-                  configMap:
-                    name: m2-dir
+                  secret:
+                    secretName: m2-secret-dir
                     items:
                     - key: settings.xml
                       path: settings.xml
@@ -159,6 +170,12 @@ data:
                     items:
                     - key: toolchains.xml
                       path: toolchains.xml
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
           - containers:
             - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59"
               livenessProbe:
@@ -180,6 +197,13 @@ data:
             name: "ui-test-agent"
             namespace: "packager"
             label: "ui-test"
+            envVars:
+            - envVar:
+                key: "MAVEN_OPTS"
+                value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+            - envVar:
+                key: "MAVEN_CONFIG"
+                value: "-B -e"
             volumes:
             - persistentVolumeClaim:
                 claimName: "tools-claim-jiro-packager"
@@ -209,10 +233,14 @@ data:
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
                 volumes:
                 - name: settings-xml
-                  configMap:
-                    name: m2-dir
+                  secret:
+                    secretName: m2-secret-dir
                     items:
                     - key: settings.xml
                       path: settings.xml
@@ -222,6 +250,12 @@ data:
                     items:
                     - key: toolchains.xml
                       path: toolchains.xml
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
           - containers:
             - image: "eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f"
               livenessProbe:
@@ -242,6 +276,13 @@ data:
             instanceCapStr: "5"
             name: "migration-agent"
             namespace: "packager"
+            envVars:
+            - envVar:
+                key: "MAVEN_OPTS"
+                value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+            - envVar:
+                key: "MAVEN_CONFIG"
+                value: "-B -e"
             label: "migration"
             volumes:
             - persistentVolumeClaim:
@@ -272,10 +313,14 @@ data:
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
                 volumes:
                 - name: settings-xml
-                  configMap:
-                    name: m2-dir
+                  secret:
+                    secretName: m2-secret-dir
                     items:
                     - key: settings.xml
                       path: settings.xml
@@ -285,6 +330,12 @@ data:
                     items:
                     - key: toolchains.xml
                       path: toolchains.xml
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
     
     security:
       apiToken:
@@ -407,5 +458,5 @@ data:
           home: "/opt/tools/apache-maven/3.2.5"
       git:
         installations:
-        - name: "git"
-          home: "/usr/bin/git"
+        - name: "Default"
+          home: "git"
