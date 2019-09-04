@@ -275,6 +275,11 @@ data:
         standard:
           excludeClientIPFromCrumb: false
       disableRememberMe: false
+      globalNodeProperties:
+      - envVars:
+          env:
+          - key: KNOWN_HOSTS
+            value: github.com github.ibm.com
       markupFormatter: rawHtml
       mode: EXCLUSIVE
       nodes:
