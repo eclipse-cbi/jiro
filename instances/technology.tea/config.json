@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "technology.tea",
+    "shortName": "tea",
+    "displayName": "Eclipse TEA"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
+  }
+}
