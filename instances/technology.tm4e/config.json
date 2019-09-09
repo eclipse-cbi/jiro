@@ -6,5 +6,16 @@
   },
   "deployment": {
     "host": "ci-staging.eclipse.org"
+  },
+    "jenkins": {
+    "permissions": [
+      {
+        "principal": "technology.tm4e",
+        "withheldPermissions": [
+          "Gerrit/ManualTrigger",
+          "Gerrit/Retrigger"
+        ]
+      }
+    ]
   }
 }

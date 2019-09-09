@@ -27,8 +27,6 @@ jenkins:
         - "Job/ExtendedRead:common"
         - "Agent/Build:technology.tm4e"
         - "Credentials/View:technology.tm4e"
-        - "Gerrit/ManualTrigger:technology.tm4e"
-        - "Gerrit/Retrigger:technology.tm4e"
         - "Job/Build:technology.tm4e"
         - "Job/Cancel:technology.tm4e"
         - "Job/Configure:technology.tm4e"
@@ -303,7 +301,6 @@ unclassified:
     url: https://ci-staging.eclipse.org/tm4e
 
   mailer:
-    adminAddress: ci-admin@eclipse.org
     replyToAddress: ci-admin@eclipse.org
     smtpHost: mail.eclipse.org
 
