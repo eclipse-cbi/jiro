@@ -34,4 +34,4 @@ spec:
     # Jenkins master 2000m + JNLP agents 4x300m + 4*2vCPU 4x2000m
     limits.cpu: 11200m
      # Jenkins master 2048Mi + JNLP agents 4x256Mi + 4*4096Mi
-    requests.memory: 19456Mi
+    limits.memory: 19456Mi
