@@ -1,0 +1,110 @@
+# GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2019 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "chemclipse"
+    org.eclipse.cbi.jiro/project.fullName: "science.chemclipse"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "chemclipse"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+  namespace: "chemclipse"
+  name: m2-dir
+data:
+  settings.xml: |
+    <?xml version="1.0" encoding="UTF-8"?>
+    <settings>
+      <mirrors>
+        <mirror>
+          <id>eclipse.maven.central.mirror</id>
+          <name>Eclipse Central Proxy</name>
+          <url>https://repo.eclipse.org/content/repositories/maven_central/</url>
+          <mirrorOf>central</mirrorOf>
+        </mirror>
+      </mirrors>
+    </settings>
+  toolchains.xml: |
+    <?xml version="1.0" encoding="UTF-8"?>
+    <toolchains>
+      <toolchain>
+        <type>jdk</type>
+        <provides><id>CDC-1.0/Foundation-1.0</id></provides>
+        <configuration><jdkHome>/opt/tools/ee/CDC-1.0_Foundation-1.0</jdkHome></configuration>
+      </toolchain>
+      <toolchain>
+        <type>jdk</type>
+        <provides><id>CDC-1.1/Foundation-1.1</id></provides>
+        <configuration><jdkHome>/opt/tools/ee/CDC-1.1_Foundation-1.1</jdkHome></configuration>
+      </toolchain>
+      <toolchain>
+        <type>jdk</type>
+        <provides><id>OSGi/Minimum-1.0</id></provides>
+        <configuration><jdkHome>/opt/tools/ee/OSGi_Minimum-1.0</jdkHome></configuration>
+      </toolchain>
+      <toolchain>
+        <type>jdk</type>
+        <provides><id>OSGi/Minimum-1.1</id></provides>
+        <configuration><jdkHome>/opt/tools/ee/OSGi_Minimum-1.1</jdkHome></configuration>
+      </toolchain>
+      <toolchain>
+        <type>jdk</type>
+        <provides><id>OSGi/Minimum-1.2</id></provides>
+        <configuration><jdkHome>/opt/tools/ee/OSGi_Minimum-1.2</jdkHome></configuration>
+      </toolchain>
+      <toolchain>
+        <type>jdk</type>
+        <provides><id>J2SE-1.4</id></provides>
+        <configuration><jdkHome>/opt/tools/java/oracle/jdk-1.4/latest/jre</jdkHome></configuration>
+      </toolchain>
+      <toolchain>
+        <type>jdk</type>
+        <provides><id>J2SE-1.5</id></provides>
+        <configuration><jdkHome>/opt/tools/java/oracle/jdk-5/latest/jre</jdkHome></configuration>
+      </toolchain>
+      <toolchain>
+        <type>jdk</type>
+        <provides><id>JavaSE-1.6</id></provides>
+        <configuration><jdkHome>/opt/tools/java/oracle/jdk-6/latest/jre</jdkHome></configuration>
+      </toolchain>
+      <toolchain>
+        <type>jdk</type>
+        <provides><id>JavaSE-1.7</id></provides>
+        <configuration><jdkHome>/opt/tools/java/oracle/jdk-7/latest/jre</jdkHome></configuration>
+      </toolchain>
+      <toolchain>
+        <type>jdk</type>
+        <provides><id>JavaSE-1.8</id></provides>
+        <configuration><jdkHome>/opt/tools/java/oracle/jdk-8/latest/jre</jdkHome></configuration>
+      </toolchain>
+      <toolchain>
+        <type>jdk</type>
+        <provides><id>JavaSE-9</id></provides>
+        <configuration><jdkHome>/opt/tools/java/oracle/jdk-9/latest</jdkHome></configuration>
+      </toolchain>
+      <toolchain>
+        <type>jdk</type>
+        <provides><id>JavaSE-10</id></provides>
+        <configuration><jdkHome>/opt/tools/java/oracle/jdk-10/latest</jdkHome></configuration>
+      </toolchain>
+      <toolchain>
+        <type>jdk</type>
+        <provides><id>JavaSE-11</id></provides>
+        <configuration><jdkHome>/opt/tools/java/openjdk/jdk-11/latest</jdkHome></configuration>
+      </toolchain>
+      <toolchain>
+        <type>jdk</type>
+        <provides><id>JavaSE-12</id></provides>
+        <configuration><jdkHome>/opt/tools/java/openjdk/jdk-12/latest</jdkHome></configuration>
+      </toolchain>
+    </toolchains>
