@@ -3,8 +3,5 @@
     "fullName": "soa.bpel",
     "shortName": "bpel",
     "displayName": "Eclipse BPEL Designer"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }

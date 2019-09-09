@@ -92,9 +92,9 @@
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/tm4e",
-    "url": "https://ci-staging.eclipse.org/tm4e",
+    "url": "https://ci.eclipse.org/tm4e",
     "uiPort": 8080,
     "jnlpPort": 50000
   },

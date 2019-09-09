@@ -324,10 +324,9 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/tigerstripe
+        url: https://ci.eclipse.org/tigerstripe
     
       mailer:
-        adminAddress: ci-admin@eclipse.org
         replyToAddress: ci-admin@eclipse.org
         smtpHost: mail.eclipse.org
     

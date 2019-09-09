@@ -300,10 +300,9 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/bpel
+    url: https://ci.eclipse.org/bpel
 
   mailer:
-    adminAddress: ci-admin@eclipse.org
     replyToAddress: ci-admin@eclipse.org
     smtpHost: mail.eclipse.org
 

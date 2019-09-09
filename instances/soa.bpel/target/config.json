@@ -74,7 +74,7 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "cfd695f812db726decd81f4113fadf3c9360406cea8cd963cce7a57d55093210"
+      "imageSha256": "5a2b6baf922c3d7034b08cbde3d553855a7d68b92b750180959f457b53ba2bf0"
     },
     "agent": {
       "defaultImage": {
@@ -85,9 +85,9 @@
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/bpel",
-    "url": "https://ci-staging.eclipse.org/bpel",
+    "url": "https://ci.eclipse.org/bpel",
     "uiPort": 8080,
     "jnlpPort": 50000
   },
