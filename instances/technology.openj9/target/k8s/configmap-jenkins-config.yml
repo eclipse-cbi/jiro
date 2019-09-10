@@ -1125,7 +1125,6 @@ data:
         adminAddress: ci-admin@eclipse.org
         url: https://ci.eclipse.org/openj9
       mailer:
-        adminAddress: ci-admin@eclipse.org
         replyToAddress: ci-admin@eclipse.org
         smtpHost: mail.eclipse.org
       simple-theme-plugin:

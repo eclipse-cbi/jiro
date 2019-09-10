@@ -6,6 +6,7 @@ copyartifact
 embeddable-build-status
 generic-webhook-trigger
 groovy-postbuild
+http_request
 jira
 job-dsl
 pipeline-utility-steps
