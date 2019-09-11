@@ -51,8 +51,6 @@ data:
             - "Job/ExtendedRead:common"
             - "Agent/Build:ecd.che.che4z"
             - "Credentials/View:ecd.che.che4z"
-            - "Gerrit/ManualTrigger:ecd.che.che4z"
-            - "Gerrit/Retrigger:ecd.che.che4z"
             - "Job/Build:ecd.che.che4z"
             - "Job/Cancel:ecd.che.che4z"
             - "Job/Configure:ecd.che.che4z"
@@ -327,7 +325,6 @@ data:
         url: https://ci.eclipse.org/che4z
     
       mailer:
-        adminAddress: ci-admin@eclipse.org
         replyToAddress: ci-admin@eclipse.org
         smtpHost: mail.eclipse.org
     
