@@ -74,7 +74,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:4929ec01abc1ad507dcdaea823953d71395c8bac67d94d692be266969ce75bfc"
+        - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:3dbc231fbe975b5e9ce83f5ea55d0456963e4cc1b21fb4e63e742eabcf16a807"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -93,6 +93,13 @@ jenkins:
         name: "default-agent"
         namespace: "dash"
         nodeUsageMode: NORMAL
+        envVars:
+        - envVar:
+            key: "MAVEN_OPTS"
+            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+        - envVar:
+            key: "MAVEN_CONFIG"
+            value: "-B -e"
         volumes:
         - persistentVolumeClaim:
             claimName: "tools-claim-jiro-dash"
@@ -101,6 +108,9 @@ jenkins:
         - configMapVolume:
             configMapName: "known-hosts"
             mountPath: "/home/jenkins/.ssh/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/"
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
@@ -156,6 +166,13 @@ jenkins:
         name: "ui-test-agent"
         namespace: "dash"
         label: "ui-test"
+        envVars:
+        - envVar:
+            key: "MAVEN_OPTS"
+            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+        - envVar:
+            key: "MAVEN_CONFIG"
+            value: "-B -e"
         volumes:
         - persistentVolumeClaim:
             claimName: "tools-claim-jiro-dash"
@@ -164,6 +181,9 @@ jenkins:
         - configMapVolume:
             configMapName: "known-hosts"
             mountPath: "/home/jenkins/.ssh/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/"
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
@@ -218,6 +238,13 @@ jenkins:
         instanceCapStr: "5"
         name: "migration-agent"
         namespace: "dash"
+        envVars:
+        - envVar:
+            key: "MAVEN_OPTS"
+            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+        - envVar:
+            key: "MAVEN_CONFIG"
+            value: "-B -e"
         label: "migration"
         volumes:
         - persistentVolumeClaim:
@@ -227,6 +254,9 @@ jenkins:
         - configMapVolume:
             configMapName: "known-hosts"
             mountPath: "/home/jenkins/.ssh/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/"
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
@@ -282,7 +312,6 @@ unclassified:
     url: https://ci.eclipse.org/dash
 
   mailer:
-    adminAddress: ci-admin@eclipse.org
     replyToAddress: ci-admin@eclipse.org
     smtpHost: mail.eclipse.org
 
@@ -383,5 +412,5 @@ tool:
       home: "/opt/tools/apache-maven/3.2.5"
   git:
     installations:
-    - name: "git"
-      home: "/usr/bin/git"
+    - name: "Default"
+      home: "git"
