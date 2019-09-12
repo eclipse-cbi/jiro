@@ -84,6 +84,9 @@ jenkins:
         - configMapVolume:
             configMapName: "known-hosts"
             mountPath: "/home/jenkins/.ssh/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/"
         {{#if maven}}
         - emptyDirVolume:
             memory: false
@@ -181,6 +184,9 @@ jenkins:
         - configMapVolume:
             configMapName: "known-hosts"
             mountPath: "/home/jenkins/.ssh/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/"
         {{#if maven}}
         - emptyDirVolume:
             memory: false
@@ -278,6 +284,9 @@ jenkins:
         - configMapVolume:
             configMapName: "known-hosts"
             mountPath: "/home/jenkins/.ssh/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/"
         {{#if maven}}
         - emptyDirVolume:
             memory: false
