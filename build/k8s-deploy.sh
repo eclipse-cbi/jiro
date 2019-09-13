@@ -66,5 +66,6 @@ oc apply -f "${instance}/target/k8s/route.yml"
 oc apply -f "${instance}/target/k8s/tools-pv.yml"
 oc apply -f "${instance}/target/k8s/known-hosts.yml"
 oc apply -f "${instance}/target/k8s/m2-dir.yml"
+oc apply -f "${instance}/target/k8s/m2-secret-dir.yml"
 
 oc apply -f "${instance}/target/k8s/statefulset.yml"
