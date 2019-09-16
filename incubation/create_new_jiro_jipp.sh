@@ -84,6 +84,17 @@ provisioning() {
   make -C ${script_folder}/.. deploy_${project_name}
 }
 
+create_m2_secret_dir() {
+  local project_name="${1:-}"
+  build="${script_folder}/../build"
+  instance="${script_folder}/../instances/${project_name}"
+  templates="${script_folder}/../templates"
+  config="${instance}/target/config.json"
+  target="${instance}/target/k8s"
+  "${build}/gen-yaml.sh" "${instance}/k8s/m2-secret-dir.yml" "${templates}/k8s/m2-secret-dir.yml.hbs" "${config}" > "${target}/m2-secret-dir.yml"
+  oc apply -f "${instance}/target/k8s/m2-secret-dir.yml"
+}
+
 wait_for_jipp_post_setup() {
   local host=$1
   printf "Waiting for JIPP to come online..."
@@ -108,4 +119,5 @@ wait_for_jipp_post_setup() {
 
 migration_or_not
 provisioning
+create_m2_secret_dir ${project_name}
 wait_for_jipp_post_setup ${hostname}
