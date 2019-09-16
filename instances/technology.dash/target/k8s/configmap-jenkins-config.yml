@@ -152,17 +152,27 @@ data:
                     mountPath: /home/jenkins/.m2/settings.xml
                     subPath: settings.xml
                     readOnly: true
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
                   - name: toolchains-xml
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
                 volumes:
                 - name: settings-xml
-                  configMap:
-                    name: m2-dir
+                  secret:
+                    secretName: m2-secret-dir
                     items:
                     - key: settings.xml
                       path: settings.xml
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
                 - name: toolchains-xml
                   configMap:
                     name: m2-dir
@@ -225,17 +235,27 @@ data:
                     mountPath: /home/jenkins/.m2/settings.xml
                     subPath: settings.xml
                     readOnly: true
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
                   - name: toolchains-xml
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
                 volumes:
                 - name: settings-xml
-                  configMap:
-                    name: m2-dir
+                  secret:
+                    secretName: m2-secret-dir
                     items:
                     - key: settings.xml
                       path: settings.xml
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
                 - name: toolchains-xml
                   configMap:
                     name: m2-dir
@@ -298,17 +318,27 @@ data:
                     mountPath: /home/jenkins/.m2/settings.xml
                     subPath: settings.xml
                     readOnly: true
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
                   - name: toolchains-xml
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
                 volumes:
                 - name: settings-xml
-                  configMap:
-                    name: m2-dir
+                  secret:
+                    secretName: m2-secret-dir
                     items:
                     - key: settings.xml
                       path: settings.xml
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
                 - name: toolchains-xml
                   configMap:
                     name: m2-dir
@@ -426,8 +456,8 @@ data:
         installations:
         - name: "apache-maven-latest"
           home: "/opt/tools/apache-maven/latest"
-        - name: "apache-maven-3.6.1"
-          home: "/opt/tools/apache-maven/3.6.1"
+        - name: "apache-maven-3.6.2"
+          home: "/opt/tools/apache-maven/3.6.2"
         - name: "apache-maven-3.5.4"
           home: "/opt/tools/apache-maven/3.5.4"
         - name: "apache-maven-3.3.9"
