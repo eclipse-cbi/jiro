@@ -90,9 +90,10 @@ create_m2_secret_dir() {
   instance="${script_folder}/../instances/${project_name}"
   templates="${script_folder}/../templates"
   config="${instance}/target/config.json"
-  target="${instance}/target/k8s"
+  target="$(mktemp -d)"
   "${build}/gen-yaml.sh" "${instance}/k8s/m2-secret-dir.yml" "${templates}/k8s/m2-secret-dir.yml.hbs" "${config}" > "${target}/m2-secret-dir.yml"
   oc apply -f "${instance}/target/k8s/m2-secret-dir.yml"
+  rm -rf ${target}
 }
 
 wait_for_jipp_post_setup() {
