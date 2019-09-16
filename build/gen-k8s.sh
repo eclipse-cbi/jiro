@@ -52,7 +52,6 @@ gen_resource "statefulset"
 gen_resource "tools-pv"
 gen_resource "known-hosts"
 gen_resource "m2-dir"
-gen_resource "m2-secret-dir"
 
 ## Jenkins CaC config map filling
 echo "# GENERATED FILE - DO NOT EDIT" >> "${target}/configmap-jenkins-config.yml"
