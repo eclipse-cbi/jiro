@@ -127,13 +127,13 @@
         "volumeType": "Secret",
         "volumeName": "m2-secret-dir"
       },
-      "toolchains.xml": {
-        "volumeType": "ConfigMap",
-        "volumeName": "m2-dir"
-      },
       "settings-security.xml": {
         "volumeType": "Secret",
         "volumeName": "m2-secret-dir"
+      },
+      "toolchains.xml": {
+        "volumeType": "ConfigMap",
+        "volumeName": "m2-dir"
       }
     }
   },
