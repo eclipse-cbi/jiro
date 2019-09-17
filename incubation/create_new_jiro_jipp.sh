@@ -86,13 +86,14 @@ provisioning() {
 
 create_m2_secret_dir() {
   local project_name="${1:-}"
+  printf "Creating M2 secret dir...\n"
   build="${script_folder}/../build"
   instance="${script_folder}/../instances/${project_name}"
   templates="${script_folder}/../templates"
   config="${instance}/target/config.json"
   target="$(mktemp -d)"
   "${build}/gen-yaml.sh" "${instance}/k8s/m2-secret-dir.yml" "${templates}/k8s/m2-secret-dir.yml.hbs" "${config}" > "${target}/m2-secret-dir.yml"
-  oc apply -f "${instance}/target/k8s/m2-secret-dir.yml"
+  oc apply -f "${target}/m2-secret-dir.yml"
   rm -rf ${target}
 }
 
