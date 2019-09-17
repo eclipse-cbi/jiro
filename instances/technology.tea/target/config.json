@@ -74,7 +74,7 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "ed492d1722315e7356bb9fb04141ebeb34b39012b1b3dd7d585b4ee5e3ba2603"
+      "imageSha256": "902de1b88ae9033921ec17b5db34b9581e0a3201a173cd4fbedeb12af46178ed"
     },
     "agent": {
       "defaultImage": {
@@ -85,9 +85,9 @@
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/tea",
-    "url": "https://ci-staging.eclipse.org/tea",
+    "url": "https://ci.eclipse.org/tea",
     "uiPort": 8080,
     "jnlpPort": 50000
   },
@@ -124,8 +124,12 @@
     "home": "/home/jenkins/.m2",
     "files": {
       "settings.xml": {
-        "volumeType": "ConfigMap",
-        "volumeName": "m2-dir"
+        "volumeType": "Secret",
+        "volumeName": "m2-secret-dir"
+      },
+      "settings-security.xml": {
+        "volumeType": "Secret",
+        "volumeName": "m2-secret-dir"
       },
       "toolchains.xml": {
         "volumeType": "ConfigMap",
