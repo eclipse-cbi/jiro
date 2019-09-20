@@ -1,0 +1,20 @@
+jenkins:
+  nodes:
+  - permanent:
+      labelString: "docker-build"
+      launcher:
+        ssh:
+          credentialsId: "f3c8f3db-205e-4c99-9fbf-bb1da9e804a0"
+          host: "52.191.195.224"
+          jvmOptions: "-Xmx256m -Xms256m"
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDL8Aa786HyCSHYcj/dSwRpaO5als+/j4YxsbGbuXVZsKsVhJLHZvnihntnvPter9UdodsPF/RjnJXdUsKar1qExhq0uVMPgXSEQlUPd7incDz/cL/yfWEYX1N7PL9cevtYfySTmNpoa7I0khrrfReiR4wr4BbX2CaTE0QAVHYJf5qtylqay3mf7HX1oCjpzp+FbAV5e+RY+rjRg5qdhP9fXVH35cdQh0OhRt1Kr8rrmENdJyyU9ZrLMgIAinfhvmx6anOPIu5MLz+awdfn1/uMkQguWX8Smurs3WYsVvdFwfq5t0PgAUrrOKXcTL/rLAXGeqL1OFdPAWlvs97hMsyn"
+      mode: EXCLUSIVE
+      name: "mlv8w-ubuntu1804"
+      nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
+      remoteFS: "/home/genie.infra/jenkins-agent"
+
+unclassified:
+  gitHubPluginConfig:
+    configs:
