@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/glassfish-tools:2.176.2@sha256:7c9650a897b5187e8379150c0b46168a672fb5d36889ed15fc7019cd699f6586
+        image: eclipsecbijenkins/glassfish-tools:2.176.2@sha256:ab04f54daeab7693cca00dcaf3f8276714830edf29b80d70caca40e61a941260
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -52,16 +52,16 @@ spec:
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 480
-          periodSeconds: 60
-          failureThreshold: 2
-          timeoutSeconds: 90
+          periodSeconds: 30
+          failureThreshold: 5
+          timeoutSeconds: 30
         readinessProbe:
-          httpGet:
-            path: /glassfish-tools/login
+          tcpSocket:
             port: 8080
-          periodSeconds: 60
-          timeoutSeconds: 90
-          initialDelaySeconds: 15
+          initialDelaySeconds: 1
+          periodSeconds: 5
+          failureThreshold: 5
+          timeoutSeconds: 10
         ports:
         - containerPort: 8080
           protocol: TCP
@@ -94,20 +94,21 @@ spec:
               # https://github.com/eclipse/openj9/issues/3637
             value: >-
               -XshowSettings:vm
+              -Duser.timezone=America/Toronto
               -Djdk.nativeCrypto=false
               -Dsun.zip.disableMemoryMapping=true
               -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle
               -Dhudson.slaves.NodeProvisioner.initialDelay=0
               -Dhudson.slaves.NodeProvisioner.MARGIN=50
               -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85
-              -Dhudson.footerURL=https://ci-staging.eclipse.org
+              -Dhudson.footerURL=https://ci.eclipse.org
               -Dhudson.model.UsageStatistics.disabled=true
               -Djenkins.model.Jenkins.slaveAgentPort=50000
               -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:3dbc231fbe975b5e9ce83f5ea55d0456963e4cc1b21fb4e63e742eabcf16a807
               -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
               -Dkubernetes.websocket.ping.interval=30000
           - name: JENKINS_OPTS
