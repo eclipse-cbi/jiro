@@ -6,8 +6,5 @@
   },
   "jenkins": {
     "theme": "quicksilver-light"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }

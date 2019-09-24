@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:4929ec01abc1ad507dcdaea823953d71395c8bac67d94d692be266969ce75bfc"
+            - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:3dbc231fbe975b5e9ce83f5ea55d0456963e4cc1b21fb4e63e742eabcf16a807"
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -134,6 +134,9 @@ data:
                 mountPath: "/home/jenkins/.ssh/"
             - emptyDirVolume:
                 memory: false
+                mountPath: "/home/jenkins/"
+            - emptyDirVolume:
+                memory: false
                 mountPath: "/home/jenkins/.m2/repository"
             workspaceVolume:
               emptyDirWorkspaceVolume:
@@ -149,17 +152,27 @@ data:
                     mountPath: /home/jenkins/.m2/settings.xml
                     subPath: settings.xml
                     readOnly: true
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
                   - name: toolchains-xml
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
                 volumes:
                 - name: settings-xml
-                  configMap:
-                    name: m2-dir
+                  secret:
+                    secretName: m2-secret-dir
                     items:
                     - key: settings.xml
                       path: settings.xml
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
                 - name: toolchains-xml
                   configMap:
                     name: m2-dir
@@ -204,6 +217,9 @@ data:
                 mountPath: "/home/jenkins/.ssh/"
             - emptyDirVolume:
                 memory: false
+                mountPath: "/home/jenkins/"
+            - emptyDirVolume:
+                memory: false
                 mountPath: "/home/jenkins/.m2/repository"
             workspaceVolume:
               emptyDirWorkspaceVolume:
@@ -219,17 +235,27 @@ data:
                     mountPath: /home/jenkins/.m2/settings.xml
                     subPath: settings.xml
                     readOnly: true
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
                   - name: toolchains-xml
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
                 volumes:
                 - name: settings-xml
-                  configMap:
-                    name: m2-dir
+                  secret:
+                    secretName: m2-secret-dir
                     items:
                     - key: settings.xml
                       path: settings.xml
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
                 - name: toolchains-xml
                   configMap:
                     name: m2-dir
@@ -274,6 +300,9 @@ data:
                 mountPath: "/home/jenkins/.ssh/"
             - emptyDirVolume:
                 memory: false
+                mountPath: "/home/jenkins/"
+            - emptyDirVolume:
+                memory: false
                 mountPath: "/home/jenkins/.m2/repository"
             workspaceVolume:
               emptyDirWorkspaceVolume:
@@ -289,17 +318,27 @@ data:
                     mountPath: /home/jenkins/.m2/settings.xml
                     subPath: settings.xml
                     readOnly: true
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
                   - name: toolchains-xml
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
                 volumes:
                 - name: settings-xml
-                  configMap:
-                    name: m2-dir
+                  secret:
+                    secretName: m2-secret-dir
                     items:
                     - key: settings.xml
                       path: settings.xml
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
                 - name: toolchains-xml
                   configMap:
                     name: m2-dir
@@ -324,10 +363,9 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/qvtd
+        url: https://ci.eclipse.org/qvtd
     
       mailer:
-        adminAddress: ci-admin@eclipse.org
         replyToAddress: ci-admin@eclipse.org
         smtpHost: mail.eclipse.org
     
@@ -418,8 +456,8 @@ data:
         installations:
         - name: "apache-maven-latest"
           home: "/opt/tools/apache-maven/latest"
-        - name: "apache-maven-3.6.1"
-          home: "/opt/tools/apache-maven/3.6.1"
+        - name: "apache-maven-3.6.2"
+          home: "/opt/tools/apache-maven/3.6.2"
         - name: "apache-maven-3.5.4"
           home: "/opt/tools/apache-maven/3.5.4"
         - name: "apache-maven-3.3.9"
@@ -428,5 +466,5 @@ data:
           home: "/opt/tools/apache-maven/3.2.5"
       git:
         installations:
-        - name: "git"
-          home: "/usr/bin/git"
+        - name: "Default"
+          home: "git"
