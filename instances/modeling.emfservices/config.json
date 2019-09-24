@@ -3,8 +3,5 @@
     "fullName": "modeling.emfservices",
     "shortName": "emfservices",
     "displayName": "Eclipse EMF Services"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }

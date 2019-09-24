@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/emfservices:2.176.2@sha256:affa8befdbf18af7a13eddd3ebb94b284b6810d8e87cd7e5b811687c91428408
+        image: eclipsecbijenkins/emfservices:2.176.2@sha256:5ffd24c027507103aa40bb0832aaf109f1c32dc08bfa3e47666a406c69b9d626
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -101,7 +101,7 @@ spec:
               -Dhudson.slaves.NodeProvisioner.initialDelay=0
               -Dhudson.slaves.NodeProvisioner.MARGIN=50
               -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85
-              -Dhudson.footerURL=https://ci-staging.eclipse.org
+              -Dhudson.footerURL=https://ci.eclipse.org
               -Dhudson.model.UsageStatistics.disabled=true
               -Djenkins.model.Jenkins.slaveAgentPort=50000
               -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
