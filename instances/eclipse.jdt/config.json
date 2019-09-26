@@ -1,0 +1,10 @@
+{
+  "project": {
+    "fullName": "eclipse.jdt",
+    "shortName": "jdt",
+    "displayName": "Eclipse Java Development Tools (JDT)"
+  },
+  "deployment": {
+    "host": "ci-staging.eclipse.org"
+  }
+}
