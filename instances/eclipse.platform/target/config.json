@@ -74,7 +74,7 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "541949c37be19d369333a4ce803089d653057c0165fd678743210f25e0056662"
+      "imageSha256": "8f9574985c8c2810b6bea784e39c76aa8a450d88f09b0a72ff185897dd15ff34"
     },
     "agent": {
       "defaultImage": {
@@ -127,13 +127,13 @@
         "volumeType": "Secret",
         "volumeName": "m2-secret-dir"
       },
-      "toolchains.xml": {
-        "volumeType": "ConfigMap",
-        "volumeName": "m2-dir"
-      },
       "settings-security.xml": {
         "volumeType": "Secret",
         "volumeName": "m2-secret-dir"
+      },
+      "toolchains.xml": {
+        "volumeType": "ConfigMap",
+        "volumeName": "m2-dir"
       }
     }
   },
