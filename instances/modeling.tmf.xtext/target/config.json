@@ -10,6 +10,8 @@
     "remotingVersion": "latest",
     "maxConcurrency": 4,
     "agentConnectionTimeout": "180",
+    "timezone": "America/Toronto",
+    "theme": "quicksilver",
     "permissions": [
       {
         "principal": "anonymous",
@@ -72,13 +74,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "95fc934e9a84c788045fc7574b022969e0e11f3a0c34e185992aa83f018347b5"
+      "imageSha256": "328a8317b994011baf0a1934f66027bf842b1368d5372c1448ddd0c54d9a980f"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "3.29",
-        "sha256": "5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3"
+        "sha256": "3dbc231fbe975b5e9ce83f5ea55d0456963e4cc1b21fb4e63e742eabcf16a807"
       }
     }
   },
@@ -125,13 +127,13 @@
         "volumeType": "Secret",
         "volumeName": "m2-secret-dir"
       },
-      "toolchains.xml": {
-        "volumeType": "ConfigMap",
-        "volumeName": "m2-dir"
-      },
       "settings-security.xml": {
         "volumeType": "Secret",
         "volumeName": "m2-secret-dir"
+      },
+      "toolchains.xml": {
+        "volumeType": "ConfigMap",
+        "volumeName": "m2-dir"
       }
     }
   },
