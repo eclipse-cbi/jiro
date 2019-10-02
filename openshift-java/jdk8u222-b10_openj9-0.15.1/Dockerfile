@@ -6,7 +6,7 @@
 # or the MIT License which is available at https://opensource.org/licenses/MIT.
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
-FROM adoptopenjdk/openjdk8-openj9:jdk8u202-b08-alpine-slim
+FROM adoptopenjdk/openjdk8-openj9:jdk8u222-b10_openj9-0.15.1-alpine-slim
 
 # Workaround for https://github.com/AdoptOpenJDK/openjdk-docker/issues/75
 # SEVERE: Failed to initialize Jenkins
@@ -29,7 +29,8 @@ RUN apk add --no-cache \
   rsync \
   ttf-dejavu \
   unzip \
-  wget
+  wget \
+  zip
 
 COPY ./scripts /usr/local/bin
 RUN chmod_container_user "rw" /etc/passwd && \
