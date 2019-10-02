@@ -3,18 +3,5 @@
     "fullName": "technology.jubula",
     "shortName": "jubula",
     "displayName": "Eclipse Jubula"
-  },
-  "maven": {
-    "home": "/home/jenkins/.m2",
-    "files": {
-      "settings.xml": {
-        "volumeType": "Secret",
-        "volumeName": "m2-secret-dir"
-      },
-      "settings-security.xml": {
-        "volumeType": "Secret",
-        "volumeName": "m2-secret-dir"
-      }
-    }
   }
 }

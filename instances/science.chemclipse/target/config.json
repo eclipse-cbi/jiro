@@ -120,19 +120,6 @@
       }
     }
   },
-  "maven": {
-    "home": "/home/jenkins/.m2",
-    "files": {
-      "settings.xml": {
-        "volumeType": "ConfigMap",
-        "volumeName": "m2-dir"
-      },
-      "toolchains.xml": {
-        "volumeType": "ConfigMap",
-        "volumeName": "m2-dir"
-      }
-    }
-  },
   "secrets": {
     "gerrit-trigger-plugin": {
       "username": "genie.chemclipse",
