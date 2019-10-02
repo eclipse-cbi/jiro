@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   annotations:
-    org.eclipse.cbi.jiro/jenkins.actualVersion: 2.176.2
+    org.eclipse.cbi.jiro/jenkins.actualVersion: 2.190.1
     org.eclipse.cbi.jiro/jenkins.version: latest
     org.eclipse.cbi.jiro/kubernetes.master.namespace: openj9
     org.eclipse.cbi.jiro/project.sponsorshipLevel: SP2
@@ -22,7 +22,7 @@ spec:
   template:
     metadata:
       annotations:
-        org.eclipse.cbi.jiro/jenkins.actualVersion: 2.176.2
+        org.eclipse.cbi.jiro/jenkins.actualVersion: 2.190.1
         org.eclipse.cbi.jiro/jenkins.version: latest
         org.eclipse.cbi.jiro/kubernetes.master.namespace: openj9
         org.eclipse.cbi.jiro/project.sponsorshipLevel: SP2
@@ -46,12 +46,12 @@ spec:
             -Dhudson.model.UsageStatistics.disabled=true -Djenkins.model.Jenkins.slaveAgentPort=50000
             -Djenkins.model.Jenkins.slaveAgentPortEnforce=true -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
             -Djenkins.install.runSetupWizard=false -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-            -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:3dbc231fbe975b5e9ce83f5ea55d0456963e4cc1b21fb4e63e742eabcf16a807
+            -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1
             -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
             -Dkubernetes.websocket.ping.interval=30000
         - name: JENKINS_OPTS
           value: --prefix=/openj9 --webroot=/var/cache/jenkins/war --pluginroot=/var/cache/jenkins/plugins
-        image: eclipsecbijenkins/openj9:2.176.2@sha256:fc7a38240673ca37fe2574f0590e2b586d631f0593dcacb0ee46203f770fc821
+        image: eclipsecbijenkins/openj9:2.190.1@sha256:d5cda62a6a795acd4f87f98d53c1f2a396781439b80eae7f379c3283dcca5fb4
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 5

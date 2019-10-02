@@ -43,7 +43,7 @@ jenkins:
       - containers:
         - args: ""
           command: ""
-          image: eclipsecbijenkins/jenkins-agent:3.29@sha256:5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3
+          image: eclipsecbijenkins/jenkins-agent:3.29@sha256:d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -56,6 +56,13 @@ jenkins:
           resourceRequestCpu: 1000m
           resourceRequestMemory: 4096Mi
           ttyEnabled: true
+        envVars:
+        - envVar:
+            key: MAVEN_OPTS
+            value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+        - envVar:
+            key: MAVEN_CONFIG
+            value: -B -e
         instanceCap: 5
         name: default-agent
         namespace: cdt
@@ -68,6 +75,9 @@ jenkins:
         - configMapVolume:
             configMapName: known-hosts
             mountPath: /home/jenkins/.ssh/
+        - emptyDirVolume:
+            memory: false
+            mountPath: /home/jenkins/
         - emptyDirVolume:
             memory: false
             mountPath: /home/jenkins/.m2/repository
@@ -85,17 +95,27 @@ jenkins:
                 mountPath: /home/jenkins/.m2/settings.xml
                 subPath: settings.xml
                 readOnly: true
+              - name: settings-security-xml
+                mountPath: /home/jenkins/.m2/settings-security.xml
+                subPath: settings-security.xml
+                readOnly: true
               - name: toolchains-xml
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
             volumes:
             - name: settings-xml
-              configMap:
-                name: m2-dir
+              secret:
+                secretName: m2-secret-dir
                 items:
                 - key: settings.xml
                   path: settings.xml
+            - name: settings-security-xml
+              secret:
+                secretName: m2-secret-dir
+                items:
+                - key: settings-security.xml
+                  path: settings-security.xml
             - name: toolchains-xml
               configMap:
                 name: m2-dir
@@ -118,6 +138,13 @@ jenkins:
           resourceRequestCpu: 1000m
           resourceRequestMemory: 4096Mi
           ttyEnabled: true
+        envVars:
+        - envVar:
+            key: MAVEN_OPTS
+            value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+        - envVar:
+            key: MAVEN_CONFIG
+            value: -B -e
         instanceCap: 5
         instanceCapStr: "5"
         label: ui-test
@@ -131,6 +158,9 @@ jenkins:
         - configMapVolume:
             configMapName: known-hosts
             mountPath: /home/jenkins/.ssh/
+        - emptyDirVolume:
+            memory: false
+            mountPath: /home/jenkins/
         - emptyDirVolume:
             memory: false
             mountPath: /home/jenkins/.m2/repository
@@ -148,17 +178,27 @@ jenkins:
                 mountPath: /home/jenkins/.m2/settings.xml
                 subPath: settings.xml
                 readOnly: true
+              - name: settings-security-xml
+                mountPath: /home/jenkins/.m2/settings-security.xml
+                subPath: settings-security.xml
+                readOnly: true
               - name: toolchains-xml
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
             volumes:
             - name: settings-xml
-              configMap:
-                name: m2-dir
+              secret:
+                secretName: m2-secret-dir
                 items:
                 - key: settings.xml
                   path: settings.xml
+            - name: settings-security-xml
+              secret:
+                secretName: m2-secret-dir
+                items:
+                - key: settings-security.xml
+                  path: settings-security.xml
             - name: toolchains-xml
               configMap:
                 name: m2-dir
@@ -181,6 +221,13 @@ jenkins:
           resourceRequestCpu: 1000m
           resourceRequestMemory: 4096Mi
           ttyEnabled: true
+        envVars:
+        - envVar:
+            key: MAVEN_OPTS
+            value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+        - envVar:
+            key: MAVEN_CONFIG
+            value: -B -e
         instanceCap: 5
         instanceCapStr: "5"
         label: migration
@@ -194,6 +241,9 @@ jenkins:
         - configMapVolume:
             configMapName: known-hosts
             mountPath: /home/jenkins/.ssh/
+        - emptyDirVolume:
+            memory: false
+            mountPath: /home/jenkins/
         - emptyDirVolume:
             memory: false
             mountPath: /home/jenkins/.m2/repository
@@ -211,17 +261,27 @@ jenkins:
                 mountPath: /home/jenkins/.m2/settings.xml
                 subPath: settings.xml
                 readOnly: true
+              - name: settings-security-xml
+                mountPath: /home/jenkins/.m2/settings-security.xml
+                subPath: settings-security.xml
+                readOnly: true
               - name: toolchains-xml
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
             volumes:
             - name: settings-xml
-              configMap:
-                name: m2-dir
+              secret:
+                secretName: m2-secret-dir
                 items:
                 - key: settings.xml
                   path: settings.xml
+            - name: settings-security-xml
+              secret:
+                secretName: m2-secret-dir
+                items:
+                - key: settings-security.xml
+                  path: settings-security.xml
             - name: toolchains-xml
               configMap:
                 name: m2-dir
@@ -273,14 +333,16 @@ tool:
               id: 1.10.5
   git:
     installations:
-    - home: /usr/bin/git
-      name: git
+    - home: git
+      name: Default
   jdk:
     installations:
     - home: /opt/tools/java/openjdk/latest
       name: openjdk-latest
-    - home: /opt/tools/java/openjdk/jdk-13ea/latest
-      name: openjdk-jdk13ea-latest
+    - home: /opt/tools/java/openjdk/jdk-14/latest
+      name: openjdk-jdk14-latest
+    - home: /opt/tools/java/openjdk/jdk-13/latest
+      name: openjdk-jdk13-latest
     - home: /opt/tools/java/openjdk/jdk-12/latest
       name: openjdk-jdk12-latest
     - home: /opt/tools/java/openjdk/jdk-11/latest
@@ -327,8 +389,6 @@ tool:
       name: oracle-jdk6-latest
     - home: /opt/tools/java/oracle/jdk-5/latest
       name: oracle-jdk5-latest
-    - home: /opt/tools/java/oracle/jdk-1.4/latest
-      name: oracle-jdk1.4-latest
     - home: /opt/tools/java/ibm/jdk-8/latest
       name: ibm-jdk8-latest
     - home: /opt/tools/java/ibm/latest
@@ -337,8 +397,8 @@ tool:
     installations:
     - home: /opt/tools/apache-maven/latest
       name: apache-maven-latest
-    - home: /opt/tools/apache-maven/3.6.1
-      name: apache-maven-3.6.1
+    - home: /opt/tools/apache-maven/3.6.2
+      name: apache-maven-3.6.2
     - home: /opt/tools/apache-maven/3.5.4
       name: apache-maven-3.5.4
     - home: /opt/tools/apache-maven/3.3.9
@@ -354,7 +414,6 @@ unclassified:
     adminAddress: ci-admin@eclipse.org
     url: https://ci.eclipse.org/cdt
   mailer:
-    adminAddress: ci-admin@eclipse.org
     replyToAddress: ci-admin@eclipse.org
     smtpHost: mail.eclipse.org
   simple-theme-plugin:

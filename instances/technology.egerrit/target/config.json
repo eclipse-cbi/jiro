@@ -10,6 +10,8 @@
     "remotingVersion": "latest",
     "maxConcurrency": 2,
     "agentConnectionTimeout": "180",
+    "timezone": "America/Toronto",
+    "theme": "quicksilver",
     "permissions": [
       {
         "principal": "anonymous",
@@ -56,15 +58,15 @@
         ]
       }
     ],
-    "actualVersion": "2.176.2",
+    "actualVersion": "2.190.1",
     "actualRemotingVersion": "3.29"
   },
   "docker": {
     "repository": "eclipsecbijenkins",
     "master": {
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.176.2",
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.190.1",
       "image": "eclipsecbijenkins/egerrit",
-      "imageTag": "2.176.2",
+      "imageTag": "2.190.1",
       "username": "jenkins",
       "home": "/var/jenkins_home",
       "ref": "/usr/share/jenkins/ref",
@@ -72,13 +74,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "634727d9fef45a07246a12ac3006b2c40c913e2c806957ec1241509a8e2b2262"
+      "imageSha256": "8ce0f434580a51a28eb9975274e6f2ee8cf6cfbd741a75a905c3483c0b3b8126"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "3.29",
-        "sha256": "6af76b9681d7d162ea99e63b1e0b437ac50cacace5a057b0ebe11d852c9617d0"
+        "sha256": "d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1"
       }
     }
   },
@@ -122,8 +124,12 @@
     "home": "/home/jenkins/.m2",
     "files": {
       "settings.xml": {
-        "volumeType": "ConfigMap",
-        "volumeName": "m2-dir"
+        "volumeType": "Secret",
+        "volumeName": "m2-secret-dir"
+      },
+      "settings-security.xml": {
+        "volumeType": "Secret",
+        "volumeName": "m2-secret-dir"
       },
       "toolchains.xml": {
         "volumeType": "ConfigMap",

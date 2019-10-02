@@ -74,7 +74,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:3dbc231fbe975b5e9ce83f5ea55d0456963e4cc1b21fb4e63e742eabcf16a807"
+        - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -110,6 +110,9 @@ jenkins:
             mountPath: "/home/jenkins/.ssh/"
         - emptyDirVolume:
             memory: false
+            mountPath: "/home/jenkins/"
+        - emptyDirVolume:
+            memory: false
             mountPath: "/home/jenkins/.m2/repository"
         workspaceVolume:
           emptyDirWorkspaceVolume:
@@ -125,17 +128,27 @@ jenkins:
                 mountPath: /home/jenkins/.m2/settings.xml
                 subPath: settings.xml
                 readOnly: true
+              - name: settings-security-xml
+                mountPath: /home/jenkins/.m2/settings-security.xml
+                subPath: settings-security.xml
+                readOnly: true
               - name: toolchains-xml
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
             volumes:
             - name: settings-xml
-              configMap:
-                name: m2-dir
+              secret:
+                secretName: m2-secret-dir
                 items:
                 - key: settings.xml
                   path: settings.xml
+            - name: settings-security-xml
+              secret:
+                secretName: m2-secret-dir
+                items:
+                - key: settings-security.xml
+                  path: settings-security.xml
             - name: toolchains-xml
               configMap:
                 name: m2-dir
@@ -180,6 +193,9 @@ jenkins:
             mountPath: "/home/jenkins/.ssh/"
         - emptyDirVolume:
             memory: false
+            mountPath: "/home/jenkins/"
+        - emptyDirVolume:
+            memory: false
             mountPath: "/home/jenkins/.m2/repository"
         workspaceVolume:
           emptyDirWorkspaceVolume:
@@ -195,17 +211,27 @@ jenkins:
                 mountPath: /home/jenkins/.m2/settings.xml
                 subPath: settings.xml
                 readOnly: true
+              - name: settings-security-xml
+                mountPath: /home/jenkins/.m2/settings-security.xml
+                subPath: settings-security.xml
+                readOnly: true
               - name: toolchains-xml
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
             volumes:
             - name: settings-xml
-              configMap:
-                name: m2-dir
+              secret:
+                secretName: m2-secret-dir
                 items:
                 - key: settings.xml
                   path: settings.xml
+            - name: settings-security-xml
+              secret:
+                secretName: m2-secret-dir
+                items:
+                - key: settings-security.xml
+                  path: settings-security.xml
             - name: toolchains-xml
               configMap:
                 name: m2-dir
@@ -250,6 +276,9 @@ jenkins:
             mountPath: "/home/jenkins/.ssh/"
         - emptyDirVolume:
             memory: false
+            mountPath: "/home/jenkins/"
+        - emptyDirVolume:
+            memory: false
             mountPath: "/home/jenkins/.m2/repository"
         workspaceVolume:
           emptyDirWorkspaceVolume:
@@ -265,17 +294,27 @@ jenkins:
                 mountPath: /home/jenkins/.m2/settings.xml
                 subPath: settings.xml
                 readOnly: true
+              - name: settings-security-xml
+                mountPath: /home/jenkins/.m2/settings-security.xml
+                subPath: settings-security.xml
+                readOnly: true
               - name: toolchains-xml
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
             volumes:
             - name: settings-xml
-              configMap:
-                name: m2-dir
+              secret:
+                secretName: m2-secret-dir
                 items:
                 - key: settings.xml
                   path: settings.xml
+            - name: settings-security-xml
+              secret:
+                secretName: m2-secret-dir
+                items:
+                - key: settings-security.xml
+                  path: settings-security.xml
             - name: toolchains-xml
               configMap:
                 name: m2-dir
@@ -303,7 +342,6 @@ unclassified:
     url: https://ci-staging.eclipse.org/golo
 
   mailer:
-    adminAddress: ci-admin@eclipse.org
     replyToAddress: ci-admin@eclipse.org
     smtpHost: mail.eclipse.org
 
@@ -327,8 +365,10 @@ tool:
     installations:
     - name: "openjdk-latest"
       home: "/opt/tools/java/openjdk/latest"
-    - name: "openjdk-jdk13ea-latest"
-      home: "/opt/tools/java/openjdk/jdk-13ea/latest"
+    - name: "openjdk-jdk14-latest"
+      home: "/opt/tools/java/openjdk/jdk-14/latest"
+    - name: "openjdk-jdk13-latest"
+      home: "/opt/tools/java/openjdk/jdk-13/latest"
     - name: "openjdk-jdk12-latest"
       home: "/opt/tools/java/openjdk/jdk-12/latest"
     - name: "openjdk-jdk11-latest"
@@ -375,8 +415,6 @@ tool:
       home: "/opt/tools/java/oracle/jdk-6/latest"
     - name: "oracle-jdk5-latest"
       home: "/opt/tools/java/oracle/jdk-5/latest"
-    - name: "oracle-jdk1.4-latest"
-      home: "/opt/tools/java/oracle/jdk-1.4/latest"
     - name: "ibm-jdk8-latest"
       home: "/opt/tools/java/ibm/jdk-8/latest"
     - name: "ibm-latest"
@@ -394,8 +432,8 @@ tool:
     installations:
     - name: "apache-maven-latest"
       home: "/opt/tools/apache-maven/latest"
-    - name: "apache-maven-3.6.1"
-      home: "/opt/tools/apache-maven/3.6.1"
+    - name: "apache-maven-3.6.2"
+      home: "/opt/tools/apache-maven/3.6.2"
     - name: "apache-maven-3.5.4"
       home: "/opt/tools/apache-maven/3.5.4"
     - name: "apache-maven-3.3.9"

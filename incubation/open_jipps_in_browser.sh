@@ -24,7 +24,12 @@ do
   project_name=$(basename ${f})
   short_name=${project_name##*.}
   echo "${short_name}"
-  open_url "https://${default_host}/${short_name}"
+  if [[ $(grep -e '"host": "ci-staging.eclipse.org"' ../instances/${project_name}/config.json) ]]; then
+    host="ci-staging.eclipse.org"
+  else
+    host="${default_host}"
+  fi
+  open_url "https://${host}/${short_name}"
 done 
 # check if staging or not
 # check if project name or short name

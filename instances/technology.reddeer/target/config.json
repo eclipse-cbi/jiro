@@ -58,15 +58,15 @@
         ]
       }
     ],
-    "actualVersion": "2.176.2",
+    "actualVersion": "2.190.1",
     "actualRemotingVersion": "3.29"
   },
   "docker": {
     "repository": "eclipsecbijenkins",
     "master": {
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.176.2",
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.190.1",
       "image": "eclipsecbijenkins/reddeer",
-      "imageTag": "2.176.2",
+      "imageTag": "2.190.1",
       "username": "jenkins",
       "home": "/var/jenkins_home",
       "ref": "/usr/share/jenkins/ref",
@@ -74,13 +74,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "c7bb58a3550c401bbeba80c4b20aac3ed56beb78f9f879be2af69c71d0a45e23"
+      "imageSha256": "c480d35af5fa03d9badb1279a4ac93e3e5c4a1cf359c09b6b035fca94fe57c5f"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "3.29",
-        "sha256": "3dbc231fbe975b5e9ce83f5ea55d0456963e4cc1b21fb4e63e742eabcf16a807"
+        "sha256": "d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1"
       }
     }
   },
@@ -124,8 +124,12 @@
     "home": "/home/jenkins/.m2",
     "files": {
       "settings.xml": {
-        "volumeType": "ConfigMap",
-        "volumeName": "m2-dir"
+        "volumeType": "Secret",
+        "volumeName": "m2-secret-dir"
+      },
+      "settings-security.xml": {
+        "volumeType": "Secret",
+        "volumeName": "m2-secret-dir"
       },
       "toolchains.xml": {
         "volumeType": "ConfigMap",

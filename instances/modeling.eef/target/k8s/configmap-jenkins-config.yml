@@ -1,5 +1,5 @@
 #*******************************************************************************
-# Copyright (c) 2018 Eclipse Foundation and others.
+# Copyright (c) 2019 Eclipse Foundation and others.
 # This program and the accompanying materials are made available
 # under the terms of the Eclipse Public License 2.0
 # which is available at http://www.eclipse.org/legal/epl-v20.html,
@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "eef"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "eef"
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3"
+            - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1"
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -117,6 +117,13 @@ data:
             name: "default-agent"
             namespace: "eef"
             nodeUsageMode: NORMAL
+            envVars:
+            - envVar:
+                key: "MAVEN_OPTS"
+                value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+            - envVar:
+                key: "MAVEN_CONFIG"
+                value: "-B -e"
             volumes:
             - persistentVolumeClaim:
                 claimName: "tools-claim-jiro-eef"
@@ -125,6 +132,9 @@ data:
             - configMapVolume:
                 configMapName: "known-hosts"
                 mountPath: "/home/jenkins/.ssh/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/"
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/repository"
@@ -142,17 +152,27 @@ data:
                     mountPath: /home/jenkins/.m2/settings.xml
                     subPath: settings.xml
                     readOnly: true
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
                   - name: toolchains-xml
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
                 volumes:
                 - name: settings-xml
-                  configMap:
-                    name: m2-dir
+                  secret:
+                    secretName: m2-secret-dir
                     items:
                     - key: settings.xml
                       path: settings.xml
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
                 - name: toolchains-xml
                   configMap:
                     name: m2-dir
@@ -180,6 +200,13 @@ data:
             name: "ui-test-agent"
             namespace: "eef"
             label: "ui-test"
+            envVars:
+            - envVar:
+                key: "MAVEN_OPTS"
+                value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+            - envVar:
+                key: "MAVEN_CONFIG"
+                value: "-B -e"
             volumes:
             - persistentVolumeClaim:
                 claimName: "tools-claim-jiro-eef"
@@ -188,6 +215,9 @@ data:
             - configMapVolume:
                 configMapName: "known-hosts"
                 mountPath: "/home/jenkins/.ssh/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/"
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/repository"
@@ -205,17 +235,27 @@ data:
                     mountPath: /home/jenkins/.m2/settings.xml
                     subPath: settings.xml
                     readOnly: true
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
                   - name: toolchains-xml
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
                 volumes:
                 - name: settings-xml
-                  configMap:
-                    name: m2-dir
+                  secret:
+                    secretName: m2-secret-dir
                     items:
                     - key: settings.xml
                       path: settings.xml
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
                 - name: toolchains-xml
                   configMap:
                     name: m2-dir
@@ -242,6 +282,13 @@ data:
             instanceCapStr: "5"
             name: "migration-agent"
             namespace: "eef"
+            envVars:
+            - envVar:
+                key: "MAVEN_OPTS"
+                value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+            - envVar:
+                key: "MAVEN_CONFIG"
+                value: "-B -e"
             label: "migration"
             volumes:
             - persistentVolumeClaim:
@@ -251,6 +298,9 @@ data:
             - configMapVolume:
                 configMapName: "known-hosts"
                 mountPath: "/home/jenkins/.ssh/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/"
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/repository"
@@ -268,17 +318,27 @@ data:
                     mountPath: /home/jenkins/.m2/settings.xml
                     subPath: settings.xml
                     readOnly: true
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
                   - name: toolchains-xml
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
                 volumes:
                 - name: settings-xml
-                  configMap:
-                    name: m2-dir
+                  secret:
+                    secretName: m2-secret-dir
                     items:
                     - key: settings.xml
                       path: settings.xml
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
                 - name: toolchains-xml
                   configMap:
                     name: m2-dir
@@ -306,7 +366,6 @@ data:
         url: https://ci.eclipse.org/eef
     
       mailer:
-        adminAddress: ci-admin@eclipse.org
         replyToAddress: ci-admin@eclipse.org
         smtpHost: mail.eclipse.org
     
@@ -330,8 +389,10 @@ data:
         installations:
         - name: "openjdk-latest"
           home: "/opt/tools/java/openjdk/latest"
-        - name: "openjdk-jdk13ea-latest"
-          home: "/opt/tools/java/openjdk/jdk-13ea/latest"
+        - name: "openjdk-jdk14-latest"
+          home: "/opt/tools/java/openjdk/jdk-14/latest"
+        - name: "openjdk-jdk13-latest"
+          home: "/opt/tools/java/openjdk/jdk-13/latest"
         - name: "openjdk-jdk12-latest"
           home: "/opt/tools/java/openjdk/jdk-12/latest"
         - name: "openjdk-jdk11-latest"
@@ -378,8 +439,6 @@ data:
           home: "/opt/tools/java/oracle/jdk-6/latest"
         - name: "oracle-jdk5-latest"
           home: "/opt/tools/java/oracle/jdk-5/latest"
-        - name: "oracle-jdk1.4-latest"
-          home: "/opt/tools/java/oracle/jdk-1.4/latest"
         - name: "ibm-jdk8-latest"
           home: "/opt/tools/java/ibm/jdk-8/latest"
         - name: "ibm-latest"
@@ -397,8 +456,8 @@ data:
         installations:
         - name: "apache-maven-latest"
           home: "/opt/tools/apache-maven/latest"
-        - name: "apache-maven-3.6.1"
-          home: "/opt/tools/apache-maven/3.6.1"
+        - name: "apache-maven-3.6.2"
+          home: "/opt/tools/apache-maven/3.6.2"
         - name: "apache-maven-3.5.4"
           home: "/opt/tools/apache-maven/3.5.4"
         - name: "apache-maven-3.3.9"
@@ -407,5 +466,5 @@ data:
           home: "/opt/tools/apache-maven/3.2.5"
       git:
         installations:
-        - name: "git"
-          home: "/usr/bin/git"
+        - name: "Default"
+          home: "git"

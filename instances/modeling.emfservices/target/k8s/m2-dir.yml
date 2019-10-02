@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "emfservices"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "emfservices"
@@ -49,11 +49,6 @@ data:
         <type>jdk</type>
         <provides><id>OSGi/Minimum-1.2</id></provides>
         <configuration><jdkHome>/opt/tools/ee/OSGi_Minimum-1.2</jdkHome></configuration>
-      </toolchain>
-      <toolchain>
-        <type>jdk</type>
-        <provides><id>J2SE-1.4</id></provides>
-        <configuration><jdkHome>/opt/tools/java/oracle/jdk-1.4/latest/jre</jdkHome></configuration>
       </toolchain>
       <toolchain>
         <type>jdk</type>
@@ -94,5 +89,15 @@ data:
         <type>jdk</type>
         <provides><id>JavaSE-12</id></provides>
         <configuration><jdkHome>/opt/tools/java/openjdk/jdk-12/latest</jdkHome></configuration>
+      </toolchain>
+      <toolchain>
+        <type>jdk</type>
+        <provides><id>JavaSE-13</id></provides>
+        <configuration><jdkHome>/opt/tools/java/openjdk/jdk-13/latest</jdkHome></configuration>
+      </toolchain>
+      <toolchain>
+        <type>jdk</type>
+        <provides><id>JavaSE-14</id></provides>
+        <configuration><jdkHome>/opt/tools/java/openjdk/jdk-14/latest</jdkHome></configuration>
       </toolchain>
     </toolchains>

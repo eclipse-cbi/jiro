@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "vorto"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "vorto"
@@ -35,7 +35,7 @@ spec:
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
-        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "vorto"
         org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
       name: "vorto"
@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/vorto:2.176.2@sha256:59e63133954e194ea76d68b8f6ae9b73a4ddb9eee031d1e4f76f75beddc954d1
+        image: eclipsecbijenkins/vorto:2.190.1@sha256:5494f6f3a5b7b767ab4f878df0537b042ed4411131718b57474ca0f388b1088b
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -108,7 +108,7 @@ spec:
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:3dbc231fbe975b5e9ce83f5ea55d0456963e4cc1b21fb4e63e742eabcf16a807
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1
               -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
               -Dkubernetes.websocket.ping.interval=30000
           - name: JENKINS_OPTS

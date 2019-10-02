@@ -1,6 +1,6 @@
 # GENERATED FILE - DO NOT EDIT
 #*******************************************************************************
-# Copyright (c) 2018 Eclipse Foundation and others.
+# Copyright (c) 2019 Eclipse Foundation and others.
 # This program and the accompanying materials are made available
 # under the terms of the Eclipse Public License 2.0
 # which is available at http://www.eclipse.org/legal/epl-v20.html,
@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "eclipselink"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S2"
   namespace: "eclipselink"
@@ -34,4 +34,4 @@ spec:
     # Jenkins master 2200m + JNLP agents 6x300m + 6*2vCPU 6x2000m
     limits.cpu: 16000m
      # Jenkins master 2560Mi + JNLP agents 6x256Mi + 6*4096Mi
-    requests.memory: 28672Mi
+    limits.memory: 28672Mi

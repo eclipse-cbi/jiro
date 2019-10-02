@@ -16,7 +16,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "app4mc"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "app4mc"
@@ -35,7 +35,7 @@ spec:
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
-        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "app4mc"
         org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
       name: "app4mc"
@@ -44,7 +44,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/app4mc:2.176.2@sha256:b31e08a4107f4f4f3870562af79d27ce8cfd6b286a56f4b9e92d09c1682bad1e
+        image: eclipsecbijenkins/app4mc:2.190.1@sha256:d1c3087be8dd0edc8c195bccc7a4dc0a1dfde9d4aa7a7ddd9a7aae0c7d72f1bf
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -52,16 +52,16 @@ spec:
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 480
-          periodSeconds: 60
-          failureThreshold: 2
-          timeoutSeconds: 90
+          periodSeconds: 30
+          failureThreshold: 5
+          timeoutSeconds: 30
         readinessProbe:
-          httpGet:
-            path: /app4mc/login
+          tcpSocket:
             port: 8080
-          periodSeconds: 60
-          timeoutSeconds: 90
-          initialDelaySeconds: 15
+          initialDelaySeconds: 1
+          periodSeconds: 5
+          failureThreshold: 5
+          timeoutSeconds: 10
         ports:
         - containerPort: 8080
           protocol: TCP
@@ -94,6 +94,7 @@ spec:
               # https://github.com/eclipse/openj9/issues/3637
             value: >-
               -XshowSettings:vm
+              -Duser.timezone=America/Toronto
               -Djdk.nativeCrypto=false
               -Dsun.zip.disableMemoryMapping=true
               -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle
@@ -107,7 +108,7 @@ spec:
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1
               -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
               -Dkubernetes.websocket.ping.interval=30000
           - name: JENKINS_OPTS

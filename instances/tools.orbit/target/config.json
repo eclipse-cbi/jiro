@@ -10,6 +10,8 @@
     "remotingVersion": "latest",
     "maxConcurrency": 2,
     "agentConnectionTimeout": "180",
+    "timezone": "America/Toronto",
+    "theme": "quicksilver",
     "permissions": [
       {
         "principal": "anonymous",
@@ -56,15 +58,15 @@
         ]
       }
     ],
-    "actualVersion": "2.176.2",
+    "actualVersion": "2.190.1",
     "actualRemotingVersion": "3.29"
   },
   "docker": {
     "repository": "eclipsecbijenkins",
     "master": {
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.176.2",
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.190.1",
       "image": "eclipsecbijenkins/orbit",
-      "imageTag": "2.176.2",
+      "imageTag": "2.190.1",
       "username": "jenkins",
       "home": "/var/jenkins_home",
       "ref": "/usr/share/jenkins/ref",
@@ -72,13 +74,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "a6e8d0144178b4e594cdb01505cd1ed89a8e68ba9a805f1d03fc3578498bb15e"
+      "imageSha256": "f9462942df7adfa7debeabbe540122de0237869d15ff0357fbe73d73a8733a6c"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "3.29",
-        "sha256": "5e2449faafc9c1662697946057b511572fa666289255069526c1d5057be0c0f3"
+        "sha256": "d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1"
       }
     }
   },
@@ -105,14 +107,15 @@
       "probe": {
         "liveness": {
           "delaySeconds": 480,
-          "periodSeconds": 60,
-          "timeoutSeconds": 90,
-          "failureThreshold": 2
+          "periodSeconds": 30,
+          "timeoutSeconds": 30,
+          "failureThreshold": 5
         },
         "readiness": {
-          "delaySeconds": 15,
-          "periodSeconds": "60",
-          "timeoutSeconds": "90"
+          "delaySeconds": 1,
+          "periodSeconds": 5,
+          "timeoutSeconds": 10,
+          "failureThreshold": 5
         }
       }
     }
@@ -121,8 +124,12 @@
     "home": "/home/jenkins/.m2",
     "files": {
       "settings.xml": {
-        "volumeType": "ConfigMap",
-        "volumeName": "m2-dir"
+        "volumeType": "Secret",
+        "volumeName": "m2-secret-dir"
+      },
+      "settings-security.xml": {
+        "volumeType": "Secret",
+        "volumeName": "m2-secret-dir"
       },
       "toolchains.xml": {
         "volumeType": "ConfigMap",

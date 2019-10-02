@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.176.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jgit"
     org.eclipse.cbi.jiro/project.sponsorshipLevel: "S1"
   namespace: "jgit"
@@ -67,7 +67,7 @@ data:
           - containers:
             - args: ""
               command: ""
-              image: eclipsecbijenkins/jenkins-agent:3.29@sha256:4929ec01abc1ad507dcdaea823953d71395c8bac67d94d692be266969ce75bfc
+              image: eclipsecbijenkins/jenkins-agent:3.29@sha256:d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -382,8 +382,10 @@ data:
         installations:
         - home: /opt/tools/java/openjdk/latest
           name: openjdk-latest
-        - home: /opt/tools/java/openjdk/jdk-13ea/latest
-          name: openjdk-jdk13ea-latest
+        - home: /opt/tools/java/openjdk/jdk-14/latest
+          name: openjdk-jdk14-latest
+        - home: /opt/tools/java/openjdk/jdk-13/latest
+          name: openjdk-jdk13-latest
         - home: /opt/tools/java/openjdk/jdk-12/latest
           name: openjdk-jdk12-latest
         - home: /opt/tools/java/openjdk/jdk-11/latest
@@ -430,8 +432,6 @@ data:
           name: oracle-jdk6-latest
         - home: /opt/tools/java/oracle/jdk-5/latest
           name: oracle-jdk5-latest
-        - home: /opt/tools/java/oracle/jdk-1.4/latest
-          name: oracle-jdk1.4-latest
         - home: /opt/tools/java/ibm/jdk-8/latest
           name: ibm-jdk8-latest
         - home: /opt/tools/java/ibm/latest
