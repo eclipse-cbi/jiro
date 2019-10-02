@@ -6,7 +6,7 @@
 # or the MIT License which is available at https://opensource.org/licenses/MIT.
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
-FROM eclipsecbijenkins/openshift-java:jdk8u212-b04_openj9-0.14.2
+FROM eclipsecbijenkins/openshift-java:jdk8u222-b10_openj9-0.15.1
 
 # https://github.com/jenkinsci/remoting/blob/master/CHANGELOG.md 
 ARG REMOTING_VERSION=3.29
