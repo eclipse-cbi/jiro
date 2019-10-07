@@ -56,13 +56,6 @@
           "View/Read",
           "SCM/Tag"
         ]
-      },
-      {
-        "principal": "ecd.codewind",
-        "grantedPermissions": [
-          "Agent/Connect",
-          "Agent/Disconnect"
-        ]
       }
     ],
     "actualVersion": "2.190.1",
@@ -81,13 +74,13 @@
       "pluginroot": "/var/cache/jenkins/plugins",
       "war": "/usr/share/jenkins/jenkins.war",
       "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "316639c4efb060f892911c600a43406cc67f790fb650adc6b9d2521b4fd42417"
+      "imageSha256": "eeeea1a8ce81f6915ff4e7f7849b6d346a9a2d460e8f7e1462218cb327c4f374"
     },
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
         "tag": "3.35",
-        "sha256": "b8378db77911373b6de441b39c2148d776a424abe67459cd1918322e65cfffd1"
+        "sha256": "5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340"
       }
     }
   },

@@ -13,6 +13,13 @@
           "Gerrit/ManualTrigger",
           "Gerrit/Retrigger"
         ]
+      },
+      {
+        "principal": "technology.openj9",
+        "grantedPermissions": [
+          "Agent/Connect",
+          "Agent/Disconnect"
+        ]
       }
     ]
   },

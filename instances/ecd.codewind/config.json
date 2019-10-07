@@ -6,15 +6,6 @@
     "sponsorshipLevel": "S2"
   },
   "jenkins": {
-    "maxConcurrency": 6,
-    "permissions": [
-      {
-        "principal": "ecd.codewind",
-        "grantedPermissions": [
-          "Agent/Connect",
-          "Agent/Disconnect"
-        ]
-      }
-    ]
+    "maxConcurrency": 6
   }
 }
