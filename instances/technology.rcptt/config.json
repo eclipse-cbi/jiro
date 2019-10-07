@@ -3,8 +3,5 @@
     "fullName": "technology.rcptt",
     "shortName": "rcptt",
     "displayName": "Eclipse RCP Testing Tool"
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }
