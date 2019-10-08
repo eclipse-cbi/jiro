@@ -35,7 +35,7 @@ get_job_configs() {
   printf "Collecting job configs..."
   mkdir -p ${cje_tmp_dir}/jobs/
   # collect and filter job configs
-  tar czf ${cje_tmp_dir}/${job_config_tar} -C ${jobs_dir}/ . --exclude='*/workspace*' --exclude='*/javadoc' --exclude='*/builds/*/jacoco' --exclude='*/builds/*/archive'
+  tar czf ${cje_tmp_dir}/${job_config_tar} -C ${jobs_dir}/ . --exclude='*/workspace*' --exclude='*/javadoc' --exclude='*/builds/*/jacoco' --exclude='*/builds/*/archive' --exclude='*/branches/*/builds/*/archive'
   # extract again
   tar xzf ${cje_tmp_dir}/${job_config_tar} -C ${cje_tmp_dir}/jobs/
   rm ${cje_tmp_dir}/${job_config_tar}
