@@ -1,0 +1,26 @@
+local default = import '../../templates/default.libsonnet';
+
+default+ {
+  project+: {
+    fullName: "eclipse.platform",
+    shortName: "platform",
+    displayName: "Eclipse Platform",
+    "sponsorshipLevel": "S3"
+  },
+  jenkins: {
+    maxConcurrency: 8
+  },
+  "kubernetes": {
+    "master": {
+      "resources": {
+        "cpu": {
+          "request": "1400m",
+          "limit": "2800m"
+        },
+        "memory": {
+          "limit": "3Gi"
+        }
+      }
+    }
+  }
+}
