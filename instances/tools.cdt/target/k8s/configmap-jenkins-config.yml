@@ -17,7 +17,7 @@ metadata:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cdt"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S1"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S3"
   namespace: "cdt"
   name: jenkins-config
 data:
@@ -56,7 +56,7 @@ data:
           - View/Read:tools.cdt
       clouds:
       - kubernetes:
-          containerCapStr: "4"
+          containerCapStr: "8"
           jenkinsTunnel: jenkins-discovery.cdt.svc.cluster.local:50000
           jenkinsUrl: http://jenkins-ui.cdt.svc.cluster.local/cdt
           maxRequestsPerHostStr: "32"
@@ -67,7 +67,7 @@ data:
           - containers:
             - args: ""
               command: ""
-              image: eclipsecbijenkins/jenkins-agent:3.35@sha256:b8378db77911373b6de441b39c2148d776a424abe67459cd1918322e65cfffd1
+              image: eclipsecbijenkins/jenkins-agent:3.35@sha256:5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0

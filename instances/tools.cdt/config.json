@@ -3,9 +3,9 @@
     "fullName": "tools.cdt",
     "shortName": "cdt",
     "displayName": "Eclipse CDT",
-    "sponsorshipLevel": "S1"
+    "sponsorshipLevel": "S3"
   },
   "jenkins": {
-    "maxConcurrency": 4
+    "maxConcurrency": 8
   }
 }

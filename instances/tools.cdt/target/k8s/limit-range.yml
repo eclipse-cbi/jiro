@@ -18,7 +18,7 @@ metadata:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cdt"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S1"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S3"
   namespace: "cdt"
   name: "jenkins-instance-limit-range"
 spec:
@@ -28,8 +28,8 @@ spec:
         cpu: 200m
         memory: 8Mi
       max:
-        cpu: 4200m
-        memory: 16640Mi
+        cpu: 8250m
+        memory: 16896Mi
     - type: "Container"
       min:
         cpu: 100m
@@ -41,5 +41,5 @@ spec:
         cpu: 200m
         memory: 256Mi
       max:
-        cpu: 4000m
+        cpu: 8000m
         memory: 16384Mi
