@@ -1,4 +1,5 @@
 local default = import '../../templates/default.libsonnet';
+local permissionsTemplates = import '../../templates/permissions.libsonnet';
 
 default+ {
   project+: {
@@ -6,31 +7,12 @@ default+ {
     shortName: "ecf",
     displayName: "Eclipse Communication Framework"
   },
-  jenkins: {
-    permissions: [
+  jenkins+: {
+    permissions+: [
       {
-        principal: "mat.booth@redhat.com",
-        "grantedPermissions": [
-          "Credentials/View",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger",
-          "Job/Build",
-          "Job/Cancel",
-          "Job/Configure",
-          "Job/Create",
-          "Job/Delete",
-          "Job/Move",
-          "Job/Read",
-          "Job/Workspace",
-          "Run/Delete",
-          "Run/Replay",
-          "Run/Update",
-          "View/Configure",
-          "View/Create",
-          "View/Delete",
-          "View/Read",
-          "SCM/Tag"
-        ]
+        // https://bugs.eclipse.org/bugs/show_bug.cgi?id=546758
+        principal: "mat.booth@redhat.com", 
+        grantedPermissions: permissionsTemplates.projectPermissionsWithGerrit
       }
     ]
   }

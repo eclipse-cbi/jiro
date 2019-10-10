@@ -6,7 +6,7 @@ default+ {
     shortName: "osee",
     displayName: "Eclipse OSEE"
   },
-  jenkins: {
+  jenkins+: {
     maxConcurrency: 1
   }
 }

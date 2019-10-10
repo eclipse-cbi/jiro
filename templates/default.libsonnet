@@ -1,4 +1,5 @@
 local jenkinsReleases = import '../jenkins-master-base/releases.libsonnet';
+local permissions = import 'permissions.libsonnet';
 {
   local config = self,
   local jenkinsRelease = 
@@ -12,6 +13,7 @@ local jenkinsReleases = import '../jenkins-master-base/releases.libsonnet';
     shortName: error 'Must set "project.shortName"',
     fullName: error 'Must set "project.fullName"',
     displayName: error 'Must set "project.displayName"',
+    unixGroupName: config.project.fullName,
     sponsorshipLevel: "S0",
     resourcePacks: 1,
   },
@@ -45,30 +47,9 @@ local jenkinsReleases = import '../jenkins-master-base/releases.libsonnet';
         ]
       },
       {
-        principal: config.project.fullName,
-        grantedPermissions: [
-          "Credentials/View",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger",
-          "Job/Build",
-          "Job/Cancel",
-          "Job/Configure",
-          "Job/Create",
-          "Job/Delete",
-          "Job/Move",
-          "Job/Read",
-          "Job/Workspace",
-          "Agent/Build",
-          "Run/Delete",
-          "Run/Replay",
-          "Run/Update",
-          "View/Configure",
-          "View/Create",
-          "View/Delete",
-          "View/Read",
-          "SCM/Tag"
-        ]
-      }
+        principal: config.project.unixGroupName,
+        grantedPermissions: permissions.projectPermissionsWithGerrit,
+      },
     ]
   },
   docker: std.mergePatch(jenkinsRelease.docker, {

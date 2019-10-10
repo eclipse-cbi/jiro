@@ -4,34 +4,6 @@ default+ {
   project+: {
     fullName: "technology.basyx",
     shortName: "basyx",
-    displayName: "Eclipse BaSyx"
-  }, 
-  jenkins: {
-    permissions: [
-      {
-        principal: "susan.iwai@eclipse.org",
-        "grantedPermissions": [
-          "Credentials/View",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger",
-          "Job/Build",
-          "Job/Cancel",
-          "Job/Configure",
-          "Job/Create",
-          "Job/Delete",
-          "Job/Move",
-          "Job/Read",
-          "Job/Workspace",
-          "Run/Delete",
-          "Run/Replay",
-          "Run/Update",
-          "View/Configure",
-          "View/Create",
-          "View/Delete",
-          "View/Read",
-          "SCM/Tag"
-        ]
-      }
-    ]
-  }
+    displayName: "Eclipse BaSyx",
+  },
 }

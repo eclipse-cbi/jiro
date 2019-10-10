@@ -6,7 +6,7 @@ default+ {
     shortName: "qvt-oml",
     displayName: "Eclipse QVT Operational"
   },
-  jenkins: {
+  jenkins+: {
     theme: "quicksilver-light"
   }
 }

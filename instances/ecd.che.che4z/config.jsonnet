@@ -1,4 +1,5 @@
 local default = import '../../templates/default.libsonnet';
+local permissionsTemplates = import '../../templates/permissions.libsonnet';
 
 default+ {
   project+: {
@@ -6,15 +7,16 @@ default+ {
     shortName: "che4z",
     displayName: "Eclipse Che4z"
   },
-    jenkins: {
+    jenkins+: {
     permissions: [
       {
-        principal: config.project.fullName,
-        withheldPermissions: [
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger"
-        ]
-      }
+        grantedPermissions:
+          if perm.principal == $.project.fullName then
+            permissionsTemplates.projectPermissions
+          else
+            perm.grantedPermissions,
+        principal: perm.principal
+      } for perm in super.permissions
     ]
   }
 }

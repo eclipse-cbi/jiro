@@ -1,4 +1,5 @@
 local default = import '../../templates/default.libsonnet';
+local permissionsTemplates = import '../../templates/permissions.libsonnet';
 
 default+ {
   project+: {
@@ -12,19 +13,13 @@ default+ {
     staticAgentCount: 50,
     permissions: [
       {
-        principal: config.project.fullName,
-        withheldPermissions: [
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger"
-        ]
-      },
-      {
-        principal: config.project.fullName,
-        "grantedPermissions": [
-          "Agent/Connect",
-          "Agent/Disconnect"
-        ]
-      }
+        grantedPermissions:
+          if perm.principal == $.project.fullName then
+            std.sort(permissionsTemplates.projectPermissions + ["Agent/Connect", "Agent/Disconnect"])
+          else
+            perm.grantedPermissions,
+        principal: perm.principal
+      } for perm in super.permissions
     ]
   },
 }

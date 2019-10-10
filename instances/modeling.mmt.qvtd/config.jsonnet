@@ -6,7 +6,7 @@ default+ {
     shortName: "qvtd",
     displayName: "Eclipse QVTd"
   },
-  jenkins: {
+  jenkins+: {
     theme: "quicksilver-light"
   }
 }

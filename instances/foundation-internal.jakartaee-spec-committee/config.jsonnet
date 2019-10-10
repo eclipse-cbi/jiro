@@ -4,61 +4,8 @@ default+ {
   project+: {
     shortName: "jakartaee-spec-committee",
     fullName: "foundation-internal.jakartaee-spec-committee",
-    displayName: "Jakarta EE Specification Committee"
-  },
-  jenkins: {
-    permissions: [
-      {
-        principal: config.project.fullName,
-        withheldPermissions: [
-          "Credentials/View",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger",
-          "Job/Build",
-          "Job/Cancel",
-          "Job/Configure",
-          "Job/Create",
-          "Job/Delete",
-          "Job/Move",
-          "Job/Read",
-          "Job/Workspace",
-          "Agent/Build",
-          "Run/Delete",
-          "Run/Replay",
-          "Run/Update",
-          "View/Configure",
-          "View/Create",
-          "View/Delete",
-          "View/Read",
-          "SCM/Tag"
-        ]
-      },
-      {
-        principal: "jakartaee.spec-committee",
-        "grantedPermissions": [
-          "Credentials/View",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger",
-          "Job/Build",
-          "Job/Cancel",
-          "Job/Configure",
-          "Job/Create",
-          "Job/Delete",
-          "Job/Move",
-          "Job/Read",
-          "Job/Workspace",
-          "Agent/Build",
-          "Run/Delete",
-          "Run/Replay",
-          "Run/Update",
-          "View/Configure",
-          "View/Create",
-          "View/Delete",
-          "View/Read",
-          "SCM/Tag"
-        ]
-      }
-    ]
+    displayName: "Jakarta EE Specification Committee",
+    unixGroupName: "jakartaee.spec-committee"
   },
   "secrets": {
     "gerrit-trigger-plugin": {
