@@ -50,7 +50,7 @@ push_jenkins-master-base: jenkins-master-base
 	./build/dockerw push_all ${DOCKER_REPO} $<
 
 # requires push_jenkins-agent to get jenkins-agent sha
-$(GENCONFIG_INSTANCES): genconfig_% : .jsonnet/jsonnet templates/default.libsonnet instances/%/config.jsonnet push_jenkins-agent
+$(GENCONFIG_INSTANCES): genconfig_% : .jsonnet/jsonnet templates/default.libsonnet templates/permissions.libsonnet instances/%/config.jsonnet push_jenkins-agent
 	./build/gen-config.sh instances/$(patsubst genconfig_%,%,$@)
 
 $(IMAGE_INSTANCES): image_% : jenkins-master-base genconfig_%
