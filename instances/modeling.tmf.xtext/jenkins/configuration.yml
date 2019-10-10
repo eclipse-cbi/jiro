@@ -28,3 +28,7 @@ jenkins:
       name: "external-agent-02"
       numExecutors: 1
       remoteFS: "/home/xtextbot"
+
+unclassified:
+  timestamperConfig:
+    allPipelines: true
