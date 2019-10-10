@@ -22,8 +22,5 @@
         }
       }
     }
-  },
-  "deployment": {
-    "host": "ci-staging.eclipse.org"
   }
 }
