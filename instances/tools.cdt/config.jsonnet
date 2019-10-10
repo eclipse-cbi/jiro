@@ -5,9 +5,7 @@ default+ {
     fullName: "tools.cdt",
     shortName: "cdt",
     displayName: "Eclipse CDT",
-    "sponsorshipLevel": "S3"
-  },
-  jenkins: {
-    maxConcurrency: 8
+    resourcePacks: 4,
+    sponsorshipLevel: "S3"
   }
 }

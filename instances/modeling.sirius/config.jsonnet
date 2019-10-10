@@ -5,9 +5,7 @@ default+ {
     fullName: "modeling.sirius",
     shortName: "sirius",
     displayName: "Eclipse Sirius",
-    "sponsorshipLevel": "S1"
+    sponsorshipLevel: "S1",
+    resourcePacks: 2,
   },
-  jenkins: {
-    maxConcurrency: 4
-  }
 }

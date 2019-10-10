@@ -6,12 +6,12 @@ default+ {
     shortName: "webdev",
     displayName: "Eclipse Foundation WebDev"
   },
-  deployment: {
+  deployment+: {
     host: "foundation.eclipse.org",
-    "prefix": "/ci/{{project.shortName}}"
+    prefix: "/ci/{{project.shortName}}"
   },
-  jenkins: {
-    "version": "2.190.1",
+  jenkins+: {
+    staticAgentCount: 1,
     permissions: [
       {
         principal: "anonymous",
@@ -27,7 +27,7 @@ default+ {
         ]
       },
       {
-        principal: "{{project.fullName}}",
+        principal: config.project.fullName,
         withheldPermissions: [
           "Credentials/View",
           "Gerrit/ManualTrigger",

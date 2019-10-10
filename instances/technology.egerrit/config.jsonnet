@@ -6,7 +6,10 @@ default+ {
     shortName: "egerrit",
     displayName: "Eclipse EGerrit"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
-  }
+  },
+  jenkins+: {
+    staticAgentCount: 1,
+  },
 }

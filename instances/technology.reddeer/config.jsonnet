@@ -6,7 +6,10 @@ default+ {
     shortName: "reddeer",
     displayName: "Eclipse RedDeer"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
-  }
+  },
+  jenkins+: {
+    staticAgentCount: 1,
+  },
 }

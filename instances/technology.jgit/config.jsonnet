@@ -5,10 +5,11 @@ default+ {
     fullName: "technology.jgit",
     shortName: "jgit",
     displayName: "Eclipse JGit",
-    "sponsorshipLevel": "S1"
+    sponsorshipLevel: "S1",
+    resourcePacks: 2,
   },
-  jenkins: {
-    maxConcurrency: 4,
-    theme: "quicksilver-light"
+  jenkins+: {
+    theme: "quicksilver-light",
+    staticAgentCount: 1,
   }
 }

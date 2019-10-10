@@ -6,11 +6,12 @@ default+ {
     shortName: "infra",
     displayName: "Eclipse Foundation Infra"
   },
-  deployment: {
+  deployment+: {
     host: "foundation.eclipse.org",
-    "prefix": "/ci/{{project.shortName}}"
+    prefix: "/ci/{{project.shortName}}"
   },
-  jenkins: {
+  jenkins+: {
+    staticAgentCount: 1,
     permissions: [
       {
         principal: "anonymous",
@@ -26,7 +27,7 @@ default+ {
         ]
       },
       {
-        principal: "{{project.fullName}}",
+        principal: config.project.fullName,
         withheldPermissions: [
           "Credentials/View",
           "Gerrit/ManualTrigger",

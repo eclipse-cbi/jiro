@@ -9,7 +9,7 @@ default+ {
     jenkins: {
     permissions: [
       {
-        principal: "ee4j.nosql",
+        principal: config.project.fullName,
         withheldPermissions: [
           "Gerrit/ManualTrigger",
           "Gerrit/Retrigger"

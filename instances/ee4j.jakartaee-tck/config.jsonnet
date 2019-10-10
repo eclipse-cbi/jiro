@@ -5,9 +5,9 @@ default+ {
     fullName: "ee4j.jakartaee-tck",
     shortName: "jakartaee-tck",
     displayName: "Eclipse Jakarta EE TCK",
-    "sponsorshipLevel": "SP1"
+    sponsorshipLevel: "SP1"
   },
-  jenkins: {
+  jenkins+: {
     maxConcurrency: 25,
     "agentConnectionTimeout": 300
   },

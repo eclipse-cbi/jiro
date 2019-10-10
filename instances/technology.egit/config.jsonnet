@@ -5,10 +5,10 @@ default+ {
     fullName: "technology.egit",
     shortName: "egit",
     displayName: "Eclipse EGit",
-    "sponsorshipLevel": "S1"
+    sponsorshipLevel: "S1",
+    resourcePacks: 2,
   },
-  jenkins: {
-    maxConcurrency: 4,
+  jenkins+: {
     theme: "quicksilver-light"
   }
 }

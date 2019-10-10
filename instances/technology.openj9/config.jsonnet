@@ -5,19 +5,21 @@ default+ {
     fullName: "technology.openj9",
     shortName: "openj9",
     displayName: "Eclipse OpenJ9",
-    "sponsorshipLevel": "SP2"
+    sponsorshipLevel: "SP2",
+    
   },
-    jenkins: {
+  jenkins+: {
+    staticAgentCount: 50,
     permissions: [
       {
-        principal: "technology.openj9",
+        principal: config.project.fullName,
         withheldPermissions: [
           "Gerrit/ManualTrigger",
           "Gerrit/Retrigger"
         ]
       },
       {
-        principal: "technology.openj9",
+        principal: config.project.fullName,
         "grantedPermissions": [
           "Agent/Connect",
           "Agent/Disconnect"
@@ -25,19 +27,4 @@ default+ {
       }
     ]
   },
-  "kubernetes": {
-    "master": {
-      "namespace": "{{project.shortName}}",
-      "stsName": "{{project.shortName}}",
-      "resources": {
-        "cpu": {
-          "request": "4000m",
-          "limit": "8000m"
-        },
-        "memory": {
-          "limit": "8Gi"
-        }
-      }
-    }
-  }
 }

@@ -2,9 +2,9 @@ local default = import '../../templates/default.libsonnet';
 
 default+ {
   project+: {
-    fullName: "technology.tm4e",
-    shortName: "tm4e",
-    displayName: "Eclipse TM4E"
+    fullName: "tools.wildwebdeveloper",
+    shortName: "wildwebdeveloper",
+    displayName: "Eclipse Wild Web Developer"
   },
     jenkins: {
     permissions: [

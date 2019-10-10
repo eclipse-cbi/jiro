@@ -9,7 +9,7 @@ default+ {
     jenkins: {
     permissions: [
       {
-        principal: "ecd.che.che4z",
+        principal: config.project.fullName,
         withheldPermissions: [
           "Gerrit/ManualTrigger",
           "Gerrit/Retrigger"

@@ -9,7 +9,7 @@ default+ {
   jenkins: {
     permissions: [
       {
-        principal: "{{project.fullName}}",
+        principal: config.project.fullName,
         withheldPermissions: [
           "Credentials/View",
           "Gerrit/ManualTrigger",
