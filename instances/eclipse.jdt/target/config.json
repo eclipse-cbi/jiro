@@ -59,7 +59,7 @@
       }
     ],
     "actualVersion": "2.190.1",
-    "actualRemotingVersion": "3.29"
+    "actualRemotingVersion": "3.35"
   },
   "docker": {
     "repository": "eclipsecbijenkins",
@@ -79,15 +79,15 @@
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
-        "tag": "3.29",
-        "sha256": "d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1"
+        "tag": "3.35",
+        "sha256": "5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340"
       }
     }
   },
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "prefix": "/jdt",
-    "url": "https://ci-staging.eclipse.org/jdt",
+    "url": "https://ci.eclipse.org/jdt",
     "uiPort": 8080,
     "jnlpPort": 50000
   },
