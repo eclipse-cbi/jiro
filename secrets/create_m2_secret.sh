@@ -24,6 +24,7 @@ pw_store_root_dir=~/.password-store
 pw_store_path=cbi-pass/bots/${project_name}
 nexus_creds_path=cbi-pass/nexus
 mvn_master_pw_path=${pw_store_path}/apache-maven-security-settings/master-password
+secret_name="m2-secret-dir"
 
 usage() {
   printf "Usage: %s project_name\n" "$script_name"
@@ -181,9 +182,17 @@ EOF4
   cat ${mvn_settings_file}
 }
 
+delete_m2secret() {
+  oc delete secret ${secret_name} -n=${short_name}
+}
+
 add_secret_to_k8s() {
   if [ -f ${mvn_settings_file} ] && [ -f ${mvn_security_file} ]; then
-    oc create secret generic m2-secret-dir --namespace=${short_name} --from-file=${mvn_settings_file} --from-file=${mvn_security_file}
+    if [[ $(oc get secrets -n=${short_name} | grep -e ${secret_name}) ]]; then
+      echo "Secret ${secret_name} already exists."
+      yes_no_exit "delete the existing secret" delete_m2secret :
+    fi
+    oc create secret generic ${secret_name} --namespace=${short_name} --from-file=${mvn_settings_file} --from-file=${mvn_security_file}
   else
     echo "ERROR: ${mvn_settings_file} and/or ${mvn_security_file} do not exist."
   fi
