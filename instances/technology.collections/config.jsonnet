@@ -6,7 +6,7 @@ default+ {
     shortName: "collections",
     displayName: "Eclipse Collections"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

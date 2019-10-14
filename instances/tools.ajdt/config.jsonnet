@@ -6,7 +6,7 @@ default+ {
     shortName: "ajdt",
     displayName: "Eclipse AJDT"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

@@ -6,7 +6,7 @@ default+ {
     shortName: "ls",
     displayName: "Eclipse JDT Language Server"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

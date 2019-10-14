@@ -6,7 +6,7 @@ default+ {
     shortName: "keti",
     displayName: "Eclipse Keti"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

@@ -6,7 +6,7 @@ default+ {
     shortName: "apogy",
     displayName: "Eclipse Apogy"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

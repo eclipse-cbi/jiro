@@ -6,7 +6,7 @@ default+ {
     shortName: "capella",
     displayName: "Eclipse Capella"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

@@ -6,7 +6,7 @@ default+ {
     shortName: "golo",
     displayName: "Eclipse Golo"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

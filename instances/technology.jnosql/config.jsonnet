@@ -6,7 +6,7 @@ default+ {
     shortName: "jnosql",
     displayName: "Eclipse JNoSQL"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

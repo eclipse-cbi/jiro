@@ -6,7 +6,7 @@ default+ {
     shortName: "osbp",
     displayName: "Eclipse Open Standard Business Platform"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

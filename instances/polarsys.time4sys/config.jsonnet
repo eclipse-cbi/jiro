@@ -6,7 +6,7 @@ default+ {
     shortName: "time4sys",
     displayName: "Eclipse Time4Sys"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

@@ -6,7 +6,7 @@ default+ {
     shortName: "mdht",
     displayName: "Eclipse Model Driven Health Tools"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

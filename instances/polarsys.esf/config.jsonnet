@@ -6,7 +6,7 @@ default+ {
     shortName: "esf",
     displayName: "Eclipse Safety Framework"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

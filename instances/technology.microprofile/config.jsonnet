@@ -6,7 +6,7 @@ default+ {
     shortName: "microprofile",
     displayName: "Eclipse MicroProfile"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

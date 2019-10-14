@@ -6,7 +6,7 @@ default+ {
     shortName: "tracecompass",
     displayName: "Eclipse Trace Compass"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

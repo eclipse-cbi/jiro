@@ -6,7 +6,7 @@ default+ {
     shortName: "chess",
     displayName: "Eclipse Chess"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

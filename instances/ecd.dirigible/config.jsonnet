@@ -6,7 +6,7 @@ default+ {
     shortName: "dirigible",
     displayName: "Eclipse Dirigible"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

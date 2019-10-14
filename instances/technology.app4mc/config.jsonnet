@@ -6,7 +6,7 @@ default+ {
     shortName: "app4mc",
     displayName: "Eclipse APP4MC"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

@@ -6,7 +6,7 @@ default+ {
     shortName: "package-drone",
     displayName: "Eclipse Package Drone"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

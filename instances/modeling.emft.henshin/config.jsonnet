@@ -6,7 +6,7 @@ default+ {
     shortName: "henshin",
     displayName: "Eclipse Henshin"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

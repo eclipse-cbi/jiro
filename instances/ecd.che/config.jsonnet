@@ -6,7 +6,7 @@ default+ {
     shortName: "che",
     displayName: "Eclipse Che"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

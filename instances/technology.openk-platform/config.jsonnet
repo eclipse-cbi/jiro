@@ -6,7 +6,7 @@ default+ {
     shortName: "openk-platform",
     displayName: "Eclipse openK platform"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }

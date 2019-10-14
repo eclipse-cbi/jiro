@@ -6,7 +6,7 @@ default+ {
     shortName: "sensinact",
     displayName: "Eclipse sensiNact"
   },
-  deployment: {
+  deployment+: {
     host: "ci-staging.eclipse.org"
   }
 }
