@@ -31,7 +31,23 @@ if [[ "$project_name" != *.* ]]; then
   exit 1
 fi
 
-copy_jobs() {
+copy_export_script_to_pod() {
+  local short_name=$1
+  echo "Copying export script to pod ${short_name}-0..."
+  mkdir -p tmp
+  cp cje_jipp_export.sh tmp/
+  oc rsync tmp/ ${short_name}-0:/tmp/ -n=cje
+}
+
+run_export_script_on_pod() {
+  local local_short_name=$1
+  local local_project_name=$2
+  echo "Executing export script on pod ${short_name}-0..."
+  oc exec -n=cje ${local_short_name}-0 chmod +x /tmp/cje_jipp_export.sh
+  oc exec -n=cje ${local_short_name}-0 /tmp/cje_jipp_export.sh ${local_project_name}
+}
+
+copy_jobs_from_pod() {
   local work_dir=${short_name}
   echo "Generate migration work directory for ${short_name}..."
   mkdir -p ${work_dir}
@@ -63,9 +79,8 @@ import_views() {
   rm -rf ${work_dir}/tmp
 }
 
-#TODO: scp oi_jipp_export.sh hipp1:/tmp/
-# pause
-
-copy_jobs
+copy_export_script_to_pod ${short_name}
+run_export_script_on_pod ${short_name} ${project_name}
+copy_jobs_from_pod
 #TODO:
 #import_views

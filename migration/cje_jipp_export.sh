@@ -19,7 +19,7 @@ fi
 
 printf "Project name: ${project_name}\n"
 
-cje_tmp_dir=cje_tmp
+cje_tmp_dir=/tmp/cje_tmp
 jenkins_home=/var/jenkins_home
 jobs_dir=${jenkins_home}/jobs
 job_config_tar="jenkins-${project_name}-jobs.tar.gz"
@@ -166,7 +166,7 @@ xvnc
 
 tar_files() {
   printf "Taring files..."
-  tar czf ${cje_migration_tar} -C ${cje_tmp_dir} .
+  tar czf /tmp/${cje_migration_tar} -C ${cje_tmp_dir} .
   printf "Done.\n"
 }
 
