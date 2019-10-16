@@ -27,11 +27,12 @@ if [ ! -d "${instance}" ]; then
   exit 1
 fi
 
-config="${instance}/target/config.json"
+target="${instance}/target"
+config="${target}/config.json"
 
 mkdir -p "$(dirname "${config}")"
 
-"${SCRIPT_FOLDER}/../.jsonnet/jsonnet" -o "${config}" "${instance}/config.jsonnet"
+"${SCRIPT_FOLDER}/../.jsonnet/jsonnet" -m "${target}" "${instance}/jiro.jsonnet"
 
 agentImage="$(jq -r '.docker.agent.defaultImage.name' "${config}")"
 agentImageTag="$(jq -r '.docker.agent.defaultImage.tag' "${config}")"

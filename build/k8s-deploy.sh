@@ -31,7 +31,7 @@ fi
 namespace="$(jq -r '.kubernetes.master.namespace' "${instance}/target/config.json")"
 projectShortName="$(jq -r '.project.shortName' "${instance}/target/config.json")"
 
-oc apply -f "${instance}/target/k8s/namespace.yml"
+oc apply -f "${instance}/target/k8s/namespace.json"
 
 if oc get configmap -n "${namespace}" jenkins-config &> /dev/null; then
   previousConfigMapVersion="$(oc get configmap -n "${namespace}" jenkins-config -o json | jq -r '.metadata.resourceVersion')"
@@ -57,8 +57,8 @@ fi
 
 oc apply -f "${instance}/target/k8s/role.yml"
 oc apply -f "${instance}/target/k8s/service-account.yml"
-oc apply -f "${instance}/target/k8s/limit-range.yml"
-oc apply -f "${instance}/target/k8s/resource-quotas.yml"
+oc apply -f "${instance}/target/k8s/limit-range.json"
+oc apply -f "${instance}/target/k8s/resource-quotas.json"
 oc apply -f "${instance}/target/k8s/role-binding.yml"
 oc apply -f "${instance}/target/k8s/service-jenkins-ui.yml"
 oc apply -f "${instance}/target/k8s/service-jenkins-discovery.yml"

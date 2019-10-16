@@ -41,7 +41,9 @@ gen_resource() {
   "${SCRIPT_FOLDER}/gen-yaml.sh" "${instance}/k8s/${r}.yml" "${templates}/k8s/${r}.yml.hbs" "${config}" > "${target}/${t}.yml"
 }
 
-gen_resource "namespace"
+# gen_resource "namespace"
+rm -f "${target}/namespace.yml"
+
 gen_resource "route"
 gen_resource "service-jenkins-ui"
 gen_resource "service-jenkins-discovery"
@@ -57,6 +59,9 @@ gen_resource "m2-dir"
 echo "# GENERATED FILE - DO NOT EDIT" >> "${target}/configmap-jenkins-config.yml"
 hbs -s -D "${config}" -P "${templates}"'/k8s/partials/*.hbs' -P "${instance}"'/target/jenkins/*.yml' "${templates}/k8s/configmap-jenkins-config.yml.hbs" > "${target}/configmap-jenkins-config.yml"
 
-sponsorshipLevel="$(jq -r '.project.sponsorshipLevel' "${config}")"
-gen_resource "limit-range-${sponsorshipLevel}" "limit-range"
-gen_resource "resource-quotas-${sponsorshipLevel}" "resource-quotas"
+# sponsorshipLevel="$(jq -r '.project.sponsorshipLevel' "${config}")"
+# gen_resource "limit-range-${sponsorshipLevel}" "limit-range"
+rm -f "${target}/limit-range.yml"
+
+# gen_resource "resource-quotas-${sponsorshipLevel}" "resource-quotas"
+rm -f "${target}/resource-quotas.yml"

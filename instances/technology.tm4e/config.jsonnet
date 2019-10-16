@@ -1,4 +1,4 @@
-local default = import '../../templates/default.libsonnet';
+local default = import '../../templates/config.libsonnet';
 local permissionsTemplates = import '../../templates/permissions.libsonnet';
 
 default+ {

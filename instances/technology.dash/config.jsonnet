@@ -1,11 +1,8 @@
-local default = import '../../templates/default.libsonnet';
-
-default+ {
+{
   project+: {
     fullName: "technology.dash",
     shortName: "dash",
     displayName: "Eclipse Dash",
-    resourcePacks: 1,
   },
   jenkins+: {
     version: "2.190.1",
