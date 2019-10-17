@@ -1,7 +1,6 @@
-local default = import '../../templates/config.libsonnet';
 local permissionsTemplates = import '../../templates/permissions.libsonnet';
 
-default+ {
+{
   project+: {
     fullName: "foundation-internal.webdev",
     shortName: "webdev",

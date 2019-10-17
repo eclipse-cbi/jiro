@@ -1,7 +1,6 @@
-local default = import '../../templates/config.libsonnet';
 local permissionsTemplates = import '../../templates/permissions.libsonnet';
 
-default+ {
+{
   project+: {
     fullName: "technology.openj9",
     shortName: "openj9",
@@ -14,7 +13,7 @@ default+ {
     permissions: [
       {
         grantedPermissions:
-          if perm.principal == $.project.fullName then
+          if perm.principal == $.project.unixGroupName then
             std.sort(permissionsTemplates.projectPermissions + ["Agent/Connect", "Agent/Disconnect"])
           else
             perm.grantedPermissions,

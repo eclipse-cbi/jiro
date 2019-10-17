@@ -1,7 +1,6 @@
-local default = import '../../templates/config.libsonnet';
 local permissionsTemplates = import '../../templates/permissions.libsonnet';
 
-default+ {
+{
   project+: {
     fullName: "ee4j.nosql",
     shortName: "nosql",
@@ -11,7 +10,7 @@ default+ {
     permissions: [
       {
         grantedPermissions:
-          if perm.principal == $.project.fullName then
+          if perm.principal == $.project.unixGroupName then
             permissionsTemplates.projectPermissions
           else
             perm.grantedPermissions,

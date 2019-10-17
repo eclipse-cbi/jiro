@@ -9,19 +9,4 @@
     maxConcurrency: 25,
     "agentConnectionTimeout": 300
   },
-  "kubernetes": {
-    "master": {
-      "namespace": "{{project.shortName}}",
-      "stsName": "{{project.shortName}}",
-      "resources": {
-        "cpu": {
-          "request": "4000m",
-          "limit": "8000m"
-        },
-        "memory": {
-          "limit": "16384Mi"
-        }
-      }
-    }
-  }
 }
