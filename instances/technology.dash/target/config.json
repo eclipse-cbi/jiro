@@ -56,6 +56,7 @@
       },
       {
         "grantedPermissions": [
+          "Agent/Build",
           "Credentials/View",
           "Gerrit/ManualTrigger",
           "Gerrit/Retrigger",
@@ -67,15 +68,14 @@
           "Job/Move",
           "Job/Read",
           "Job/Workspace",
-          "Agent/Build",
           "Run/Delete",
           "Run/Replay",
           "Run/Update",
+          "SCM/Tag",
           "View/Configure",
           "View/Create",
           "View/Delete",
-          "View/Read",
-          "SCM/Tag"
+          "View/Read"
         ],
         "principal": "technology.dash"
       },
@@ -92,6 +92,19 @@
     "version": "2.190.1"
   },
   "kubernetes": {
+    "agents": {
+      "defaultResources": {
+        "cpu": {
+          "limit": "2000m",
+          "request": "1000m"
+        },
+        "memory": {
+          "limit": "4096Mi",
+          "request": "4096Mi"
+        }
+      },
+      "namespace": "dash"
+    },
     "master": {
       "namespace": "dash",
       "probe": {
@@ -114,7 +127,8 @@
           "request": "500m"
         },
         "memory": {
-          "limit": "1536Mi"
+          "limit": "1536Mi",
+          "request": "1536Mi"
         }
       },
       "stsName": "dash"
@@ -142,7 +156,8 @@
     "fullName": "technology.dash",
     "resourcePacks": 1,
     "shortName": "dash",
-    "sponsorshipLevel": "S0"
+    "sponsorshipLevel": "S0",
+    "unixGroupName": "technology.dash"
   },
   "secrets": {
     "gerrit-trigger-plugin": {
