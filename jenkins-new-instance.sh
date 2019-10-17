@@ -49,12 +49,21 @@ if [[ "$project_name" != *.* ]]; then
 fi
 
 mkdir -p "${SCRIPT_FOLDER}/instances/${project_name}"
+
+cat <<EOF > "${SCRIPT_FOLDER}/instances/${project_name}/config.json"
 {
-  printf '{\n'
-  printf '  "project": {\n'
-  printf '    "fullName": "%s",\n' "${project_name}"
-  printf '    "shortName": "%s",\n' "${short_name}"
-  printf '    "displayName": "%s"\n' "${display_name}"
-  printf '  }\n'
-  printf '}\n'
-} >  "${SCRIPT_FOLDER}/instances/${project_name}/config.json"
+  project+: {
+    fullName: "${project_name}",
+    shortName: "${short_name}",
+    displayName: "${display_name}",
+  }
+}
+EOF
+
+cat <<EOG > "${SCRIPT_FOLDER}/instances/${project_name}//jiro.jsonnet"
+local jiro = import '../../templates/jiro.libsonnet';
+
+jiro+ {
+  "config.json"+: import "config.jsonnet",
+}
+EOG

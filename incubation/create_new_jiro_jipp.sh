@@ -46,18 +46,27 @@ fi
 
 new_migration_instance() {
   mkdir -p "${script_folder}/../instances/${project_name}"
-  {
-    printf '{\n'
-    printf '  "project": {\n'
-    printf '    "fullName": "%s",\n' "${project_name}"
-    printf '    "shortName": "%s",\n' "${short_name}"
-    printf '    "displayName": "%s"\n' "${display_name}"
-    printf '  },\n'
-    printf '  "deployment": {\n'
-    printf '    "host": "ci-staging.eclipse.org"\n'
-    printf '  }\n'
-    printf '}\n'
-  } >  "${script_folder}/../instances/${project_name}/config.json"
+  cat <<EOF > "${script_folder}/../instances/${project_name}/config.json"
+{
+  project+: {
+    fullName: "${project_name}",
+    shortName: "${short_name}",
+    displayName: "${display_name}",
+  },
+  deployment+: {
+    host: "ci-staging.eclipse.org"
+  }
+}
+EOF
+
+  cat <<EOG > "${script_folder}/../instances/${project_name}/jiro.jsonnet"
+local jiro = import '../../templates/jiro.libsonnet';
+
+jiro+ {
+  "config.json"+: import "config.jsonnet",
+}
+EOG
+ 
 }
 
 migration_or_not() {
