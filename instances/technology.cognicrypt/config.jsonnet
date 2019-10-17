@@ -1,7 +1,7 @@
 {
   project+: {
-    "fullName": "technology.cognicrypt",
-    "shortName": "cognicrypt",
-    "displayName": "Eclipse CogniCrypt"
+    fullName: "technology.cognicrypt",
+    shortName: "cognicrypt",
+    displayName: "Eclipse CogniCrypt"
   }
 }

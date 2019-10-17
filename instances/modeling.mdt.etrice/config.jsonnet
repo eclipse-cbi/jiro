@@ -4,12 +4,12 @@
     shortName: "etrice",
     displayName: "Eclipse eTrice"
   },
-  "gradle": {
-    "home": "/home/jenkins/.gradle",
-    "files": {
+  gradle+: {
+    home: "/home/jenkins/.gradle",
+    files+: {
       "gradle.properties": {
-        "volumeType": "Secret",
-        "volumeName": "gradle-secret-dir"
+        volumeType: "Secret",
+        volumeName: "gradle-secret-dir"
       }
     }
   }

@@ -1,7 +1,7 @@
 {
   project+: {
-    "fullName": "ee4j.ejb",
-    "shortName": "ejb",
-    "displayName": "Jakarta Enterprise Beans"
+    fullName: "ee4j.ejb",
+    shortName: "ejb",
+    displayName: "Jakarta Enterprise Beans"
   }
 }

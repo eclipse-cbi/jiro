@@ -20,7 +20,7 @@
     ] + [
       {
         principal: "frederic.gurr@eclipse-foundation.org",
-        "grantedPermissions": [
+        grantedPermissions: [
           "Overall/Administer"
         ]
       }

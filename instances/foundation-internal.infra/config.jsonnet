@@ -19,14 +19,14 @@
       }
     ]
   },
-  "kubernetes": {
-    "master": {
-      "namespace": "foundation-internal-infra"
+  kubernetes+: {
+    master+: {
+      namespace: "foundation-internal-infra"
     }
   },
-  "secrets": {
-    "gerrit-trigger-plugin": {
-      "username": ""
+  secrets+: {
+    "gerrit-trigger-plugin"+: {
+      username: ""
     }
   }
 }

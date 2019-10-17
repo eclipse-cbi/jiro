@@ -1,7 +1,7 @@
 {
   project+: {
-    "fullName": "ee4j.krazo",
-    "shortName": "krazo",
-    "displayName": "Eclipse Krazo"
+    fullName: "ee4j.krazo",
+    shortName: "krazo",
+    displayName: "Eclipse Krazo"
   }
 }

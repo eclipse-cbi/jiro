@@ -7,6 +7,6 @@
   },
   jenkins+: {
     maxConcurrency: 25,
-    "agentConnectionTimeout": 300
+    agentConnectionTimeout: 300
   },
 }

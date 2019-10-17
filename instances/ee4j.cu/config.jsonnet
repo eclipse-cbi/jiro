@@ -1,7 +1,7 @@
 {
   project+: {
-    "fullName": "ee4j.cu",
-    "shortName": "cu",
-    "displayName": "Jakarta Concurrency"
+    fullName: "ee4j.cu",
+    shortName: "cu",
+    displayName: "Jakarta Concurrency"
   }
 }

@@ -35,9 +35,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       namespace: "foundation-internal-webdev"
     }
   },
-  "secrets": {
-    "gerrit-trigger-plugin": {
-      "username": ""
+  secrets+: {
+    "gerrit-trigger-plugin"+: {
+      username: ""
     }
   }
 }
