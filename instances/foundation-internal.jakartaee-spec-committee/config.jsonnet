@@ -1,6 +1,4 @@
-local default = import '../../templates/config.libsonnet';
-
-default+ {
+{
   project+: {
     shortName: "jakartaee-spec-committee",
     fullName: "foundation-internal.jakartaee-spec-committee",

@@ -1,6 +1,4 @@
-local default = import '../../templates/config.libsonnet';
-
-default+ {
+{
   project+: {
     fullName: "eclipse.jdt.ls",
     shortName: "ls",

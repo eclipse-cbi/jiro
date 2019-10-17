@@ -1,6 +1,4 @@
-local default = import '../../templates/config.libsonnet';
-
-default+ {
+{
   project+: {
     fullName: "foundation-internal.infra",
     shortName: "infra",
