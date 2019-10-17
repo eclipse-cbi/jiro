@@ -58,8 +58,6 @@
         "grantedPermissions": [
           "Agent/Build",
           "Credentials/View",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger",
           "Job/Build",
           "Job/Cancel",
           "Job/Configure",
@@ -75,7 +73,9 @@
           "View/Configure",
           "View/Create",
           "View/Delete",
-          "View/Read"
+          "View/Read",
+          "Gerrit/ManualTrigger",
+          "Gerrit/Retrigger"
         ],
         "principal": "technology.dash"
       },
@@ -156,7 +156,6 @@
     "fullName": "technology.dash",
     "resourcePacks": 1,
     "shortName": "dash",
-    "sponsorshipLevel": "S0",
     "unixGroupName": "technology.dash"
   },
   "secrets": {

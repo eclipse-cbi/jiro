@@ -1,0 +1,22 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.dash",
+         "org.eclipse.cbi.jiro/project.shortname": "dash"
+      },
+      "name": "dash"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "dash"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "dash",
+         "namespace": "dash"
+      }
+   ]
+}
