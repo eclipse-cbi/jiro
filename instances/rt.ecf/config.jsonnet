@@ -11,7 +11,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       {
         // https://bugs.eclipse.org/bugs/show_bug.cgi?id=546758
         principal: "mat.booth@redhat.com", 
-        grantedPermissions: permissionsTemplates.projectPermissionsWithGerrit
+        grantedPermissions: permissionsTemplates.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger"],
       }
     ]
   }

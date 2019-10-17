@@ -6,16 +6,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     shortName: "wildwebdeveloper",
     displayName: "Eclipse Wild Web Developer"
   },
-    jenkins+: {
-    permissions: [
-      {
-        grantedPermissions:
-          if perm.principal == $.project.unixGroupName then
-            permissionsTemplates.projectPermissions
-          else
-            perm.grantedPermissions,
-        principal: perm.principal
-      } for perm in super.permissions
-    ]
+  jenkins+: {
+    permissions: permissionsTemplates.projectPermissions($.project.unixGroupName, permissionsTemplates.committerPermissionsList)
   }
 }

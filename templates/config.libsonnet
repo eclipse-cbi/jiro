@@ -24,31 +24,8 @@ local permissions = import 'permissions.libsonnet';
     agentConnectionTimeout: 180,
     timezone: "America/Toronto",
     theme: "quicksilver",
-    permissions: [
-      {
-        principal: "anonymous",
-        grantedPermissions: [
-          "Overall/Read",
-          "Job/Read"
-        ]
-      },
-      {
-        principal: "common",
-        grantedPermissions: [
-          "Job/ExtendedRead"
-        ]
-      },
-      {
-        principal: "admins",
-        grantedPermissions: [
-          "Overall/Administer"
-        ]
-      },
-      {
-        principal: $.project.unixGroupName,
-        grantedPermissions: permissions.projectPermissionsWithGerrit,
-      },
-    ]
+    permissions: permissions.projectPermissions($.project.unixGroupName, 
+      permissions.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger",]),
   },
   docker: std.mergePatch(jenkinsRelease.docker, {
     master: {

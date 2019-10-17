@@ -1,32 +1,34 @@
 {
-  projectPermissions::
-  [
-    "Agent/Build",
-    "Credentials/View",
-    "Job/Build",
-    "Job/Cancel",
-    "Job/Configure",
-    "Job/Create",
-    "Job/Delete",
-    "Job/Move",
-    "Job/Read",
-    "Job/Workspace",
-    "Run/Delete",
-    "Run/Replay",
-    "SCM/Tag",
-    "Run/Update",
-    "View/Configure",
-    "View/Create",
-    "View/Delete",
-    "View/Read",
+  projectPermissions(unixGroupName, projectGroupPermissionsList): [
+    {
+      principal: "anonymous",
+      grantedPermissions: [
+        "Overall/Read",
+        "Job/Read"
+      ]
+    },
+    {
+      principal: "common",
+      grantedPermissions: [
+        "Job/ExtendedRead"
+      ]
+    },
+    {
+      principal: "admins",
+      grantedPermissions: [
+        "Overall/Administer"
+      ]
+    },
+    {
+      principal: unixGroupName,
+      grantedPermissions: projectGroupPermissionsList,
+    },
   ],
 
-  projectPermissionsWithGerrit::
+  committerPermissionsList::
   [
     "Agent/Build",
     "Credentials/View",
-    "Gerrit/ManualTrigger",
-    "Gerrit/Retrigger",
     "Job/Build",
     "Job/Cancel",
     "Job/Configure",
@@ -37,8 +39,8 @@
     "Job/Workspace",
     "Run/Delete",
     "Run/Replay",
-    "Run/Update",
     "SCM/Tag",
+    "Run/Update",
     "View/Configure",
     "View/Create",
     "View/Delete",

@@ -8,15 +8,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   },
   jenkins+: {
     staticAgentCount: 50,
-    permissions: [
-      {
-        grantedPermissions:
-          if perm.principal == $.project.unixGroupName then
-            std.sort(permissionsTemplates.projectPermissions + ["Agent/Connect", "Agent/Disconnect"])
-          else
-            perm.grantedPermissions,
-        principal: perm.principal
-      } for perm in super.permissions
-    ]
+    permissions: permissionsTemplates.projectPermissions($.project.unixGroupName, permissionsTemplates.committerPermissionsList + ["Agent/Connect", "Agent/Disconnect"])
   },
 }

@@ -14,7 +14,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     staticAgentCount: 1,
     permissions: [
       {
-        grantedPermissions: permissionsTemplates.projectPermissionsWithGerrit,
+        grantedPermissions: permissionsTemplates.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger"],
         principal: principal
       } for principal in [
         "chris.guindon@eclipse-foundation.org", 
