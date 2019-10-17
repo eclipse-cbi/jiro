@@ -23,8 +23,9 @@
   LimitRange(name, config): $.__.KubeNSObject("v1", "LimitRange", name, config),
   ResourceQuota(name, config): $.__.KubeNSObject("v1", "ResourceQuota", name, config),
   Namespace(name, config): $.__.KubeObject("v1", "Namespace", name, config),
-  RoleBinding(name, config): $.__.KubeObject("v1", "RoleBinding", name, config),
-  Role(name, config): $.__.KubeObject("v1", "Role", name, config),
+  RoleBinding(name, config): $.__.KubeNSObject("v1", "RoleBinding", name, config),
+  Role(name, config): $.__.KubeNSObject("v1", "Role", name, config),
+  Route(name, config): $.__.KubeNSObject("route.openshift.io/v1", "Route", name, config),
 
   stripSI(n):: (
     local suffix_len =

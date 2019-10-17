@@ -6,7 +6,8 @@
          "org.eclipse.cbi.jiro/project.fullName": "technology.dash",
          "org.eclipse.cbi.jiro/project.shortname": "dash"
       },
-      "name": "dash"
+      "name": "dash",
+      "namespace": "dash"
    },
    "roleRef": {
       "name": "jenkins-master-owner",

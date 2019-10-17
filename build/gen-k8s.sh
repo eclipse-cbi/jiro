@@ -44,7 +44,8 @@ gen_resource() {
 # gen_resource "namespace"
 rm -f "${target}/namespace.yml"
 
-gen_resource "route"
+rm -f "${target}/route.yml"
+# gen_resource "route"
 gen_resource "service-jenkins-ui"
 gen_resource "service-jenkins-discovery"
 gen_resource "service-account"

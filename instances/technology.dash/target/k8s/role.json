@@ -6,7 +6,8 @@
          "org.eclipse.cbi.jiro/project.fullName": "technology.dash",
          "org.eclipse.cbi.jiro/project.shortname": "dash"
       },
-      "name": "jenkins-master-owner"
+      "name": "jenkins-master-owner",
+      "namespace": "dash"
    },
    "rules": [
       {

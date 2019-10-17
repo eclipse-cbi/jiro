@@ -1,0 +1,31 @@
+{
+   "apiVersion": "route.openshift.io/v1",
+   "kind": "Route",
+   "metadata": {
+      "annotations": {
+         "haproxy.router.openshift.io/timeout": "60s"
+      },
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.dash",
+         "org.eclipse.cbi.jiro/project.shortname": "dash"
+      },
+      "name": "dash",
+      "namespace": "dash"
+   },
+   "spec": {
+      "host": "ci.eclipse.org",
+      "path": "/dash",
+      "port": {
+         "targetPort": "http"
+      },
+      "tls": {
+         "insecureEdgeTerminationPolicy": "Redirect",
+         "termination": "edge"
+      },
+      "to": {
+         "kind": "Service",
+         "name": "jenkins-ui",
+         "weight": 100
+      }
+   }
+}
