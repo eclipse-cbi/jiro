@@ -30,8 +30,3 @@ IMAGE="${DOCKER_REPO}/$(basename $(readlink -f ${SCRIPT_FOLDER}))"
 
 docker build --rm -t ${IMAGE}:${VERSION} \
   -f "${CONTEXT_PATH}/Dockerfile" "${CONTEXT_PATH}"
-
-latest_version=$(find ${SCRIPT_FOLDER} -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort -V | tail -n 1)
-if [[ "${latest_version}" = "${VERSION}" ]]; then
-  docker tag "${IMAGE}:${VERSION}" "${IMAGE}:latest"
-fi
