@@ -55,11 +55,11 @@ if [[ -n "${previousConfigMapVersion:-}" ]]; then
   fi
 fi
 
-oc apply -f "${instance}/target/k8s/role.yml"
+oc apply -f "${instance}/target/k8s/role.json"
 oc apply -f "${instance}/target/k8s/service-account.yml"
 oc apply -f "${instance}/target/k8s/limit-range.json"
 oc apply -f "${instance}/target/k8s/resource-quotas.json"
-oc apply -f "${instance}/target/k8s/role-binding.yml"
+oc apply -f "${instance}/target/k8s/role-binding.json"
 oc apply -f "${instance}/target/k8s/service-jenkins-ui.yml"
 oc apply -f "${instance}/target/k8s/service-jenkins-discovery.yml"
 oc apply -f "${instance}/target/k8s/route.yml"

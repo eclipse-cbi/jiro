@@ -1,5 +1,4 @@
 {
-
   __:: {
     KubeObject(apiVersion, kind, name, config):: {
       local this = self,
@@ -24,6 +23,8 @@
   LimitRange(name, config): $.__.KubeNSObject("v1", "LimitRange", name, config),
   ResourceQuota(name, config): $.__.KubeNSObject("v1", "ResourceQuota", name, config),
   Namespace(name, config): $.__.KubeObject("v1", "Namespace", name, config),
+  RoleBinding(name, config): $.__.KubeObject("v1", "RoleBinding", name, config),
+  Role(name, config): $.__.KubeObject("v1", "Role", name, config),
 
   stripSI(n):: (
     local suffix_len =
