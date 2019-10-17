@@ -1,0 +1,146 @@
+{
+  "project": {
+    "shortName": "ejb",
+    "fullName": "ee4j.ejb",
+    "displayName": "Jakarta Enterprise Beans",
+    "sponsorshipLevel": "S0"
+  },
+  "jenkins": {
+    "version": "latest",
+    "remotingVersion": "latest",
+    "maxConcurrency": 2,
+    "agentConnectionTimeout": "180",
+    "timezone": "America/Toronto",
+    "theme": "quicksilver",
+    "permissions": [
+      {
+        "principal": "anonymous",
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ]
+      },
+      {
+        "principal": "common",
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ]
+      },
+      {
+        "principal": "admins",
+        "grantedPermissions": [
+          "Overall/Administer"
+        ]
+      },
+      {
+        "principal": "ee4j.ejb",
+        "grantedPermissions": [
+          "Credentials/View",
+          "Gerrit/ManualTrigger",
+          "Gerrit/Retrigger",
+          "Job/Build",
+          "Job/Cancel",
+          "Job/Configure",
+          "Job/Create",
+          "Job/Delete",
+          "Job/Move",
+          "Job/Read",
+          "Job/Workspace",
+          "Agent/Build",
+          "Run/Delete",
+          "Run/Replay",
+          "Run/Update",
+          "View/Configure",
+          "View/Create",
+          "View/Delete",
+          "View/Read",
+          "SCM/Tag"
+        ]
+      }
+    ],
+    "actualVersion": "2.190.1",
+    "actualRemotingVersion": "3.35"
+  },
+  "docker": {
+    "repository": "eclipsecbijenkins",
+    "master": {
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.190.1",
+      "image": "eclipsecbijenkins/ejb",
+      "imageTag": "2.190.1",
+      "username": "jenkins",
+      "home": "/var/jenkins_home",
+      "ref": "/usr/share/jenkins/ref",
+      "webroot": "/var/cache/jenkins/war",
+      "pluginroot": "/var/cache/jenkins/plugins",
+      "war": "/usr/share/jenkins/jenkins.war",
+      "updateCenter": "https://updates.jenkins.io",
+      "imageSha256": "f8181b3b8cd425f4aabea2fa5180f3cd0a67d18fb982b2c2c4eb5b998fa21f53"
+    },
+    "agent": {
+      "defaultImage": {
+        "name": "eclipsecbijenkins/jenkins-agent",
+        "tag": "3.35",
+        "sha256": "5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340"
+      }
+    }
+  },
+  "deployment": {
+    "host": "ci.eclipse.org",
+    "prefix": "/ejb",
+    "url": "https://ci.eclipse.org/ejb",
+    "uiPort": 8080,
+    "jnlpPort": 50000
+  },
+  "kubernetes": {
+    "master": {
+      "namespace": "ejb",
+      "stsName": "ejb",
+      "resources": {
+        "cpu": {
+          "request": "500m",
+          "limit": 2
+        },
+        "memory": {
+          "limit": "1.5Gi"
+        }
+      },
+      "probe": {
+        "liveness": {
+          "delaySeconds": 480,
+          "periodSeconds": 30,
+          "timeoutSeconds": 30,
+          "failureThreshold": 5
+        },
+        "readiness": {
+          "delaySeconds": 1,
+          "periodSeconds": 5,
+          "timeoutSeconds": 10,
+          "failureThreshold": 5
+        }
+      }
+    }
+  },
+  "maven": {
+    "home": "/home/jenkins/.m2",
+    "files": {
+      "settings.xml": {
+        "volumeType": "Secret",
+        "volumeName": "m2-secret-dir"
+      },
+      "settings-security.xml": {
+        "volumeType": "Secret",
+        "volumeName": "m2-secret-dir"
+      },
+      "toolchains.xml": {
+        "volumeType": "ConfigMap",
+        "volumeName": "m2-dir"
+      }
+    }
+  },
+  "secrets": {
+    "gerrit-trigger-plugin": {
+      "username": "genie.ejb",
+      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
+    }
+  }
+}
