@@ -50,7 +50,7 @@ fi
 
 mkdir -p "${SCRIPT_FOLDER}/instances/${project_name}"
 
-cat <<EOF > "${SCRIPT_FOLDER}/instances/${project_name}/config.json"
+cat <<EOF > "${SCRIPT_FOLDER}/instances/${project_name}/config.jsonnet"
 {
   project+: {
     fullName: "${project_name}",

@@ -46,7 +46,7 @@ fi
 
 new_migration_instance() {
   mkdir -p "${script_folder}/../instances/${project_name}"
-  cat <<EOF > "${script_folder}/../instances/${project_name}/config.json"
+  cat <<EOF > "${script_folder}/../instances/${project_name}/config.jsonnet"
 {
   project+: {
     fullName: "${project_name}",
