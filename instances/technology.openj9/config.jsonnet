@@ -5,8 +5,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     fullName: "technology.openj9",
     shortName: "openj9",
     displayName: "Eclipse OpenJ9",
-    sponsorshipLevel: "SP2",
-    
   },
   jenkins+: {
     staticAgentCount: 50,

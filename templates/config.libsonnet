@@ -13,7 +13,6 @@ local permissions = import 'permissions.libsonnet';
     fullName: error 'Must set "project.fullName"',
     displayName: error 'Must set "project.displayName"',
     unixGroupName: $.project.fullName,
-    sponsorshipLevel: "S0",
     resourcePacks: 1,
   },
   jenkins: {

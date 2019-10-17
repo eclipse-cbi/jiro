@@ -3,7 +3,6 @@
     fullName: "ecd.codewind",
     shortName: "codewind",
     displayName: "Eclipse Codewind",
-    sponsorshipLevel: "S2",
     resourcePacks: 3,
   },
   jenkins+: {

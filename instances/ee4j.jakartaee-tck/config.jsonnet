@@ -3,7 +3,7 @@
     fullName: "ee4j.jakartaee-tck",
     shortName: "jakartaee-tck",
     displayName: "Eclipse Jakarta EE TCK",
-    sponsorshipLevel: "SP1"
+    resourcePacks: 50,
   },
   jenkins+: {
     maxConcurrency: 25,

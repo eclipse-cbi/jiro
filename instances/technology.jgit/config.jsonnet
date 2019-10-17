@@ -3,7 +3,6 @@
     fullName: "technology.jgit",
     shortName: "jgit",
     displayName: "Eclipse JGit",
-    sponsorshipLevel: "S1",
     resourcePacks: 2,
   },
   jenkins+: {
