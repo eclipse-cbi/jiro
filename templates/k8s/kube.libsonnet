@@ -20,6 +20,12 @@
     },
   },
 
+  List(items): {
+    apiVersion: "v1",
+    kind: "List",
+    items: [] + items,
+  },
+
   LimitRange(name, config): $.__.KubeNSObject("v1", "LimitRange", name, config),
   ResourceQuota(name, config): $.__.KubeNSObject("v1", "ResourceQuota", name, config),
   Namespace(name, config): $.__.KubeObject("v1", "Namespace", name, config),
@@ -30,6 +36,8 @@
   Service(name, config): $.__.KubeNSObject("v1", "Service", name, config),
   ConfigMap(name, config): $.__.KubeNSObject("v1", "ConfigMap", name, config),
   Secret(name, config): $.__.KubeNSObject("v1", "Secret", name, config),
+  PersistentVolume(name, config): $.__.KubeObject("v1", "PersistentVolume", name, config),
+  PersistentVolumeClaim(name, config): $.__.KubeNSObject("v1", "PersistentVolumeClaim", name, config),
 
   stripSI(n):: (
     local suffix_len =
