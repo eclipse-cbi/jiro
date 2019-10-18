@@ -63,7 +63,7 @@ create_launcher() {
     host=$(xmlstarlet_wrapper sel -T -t -c "/slave/launcher/host" ${filename})
     port=$(xmlstarlet_wrapper sel -T -t -c "/slave/launcher/port" ${filename})
     credentials_id=$(xmlstarlet_wrapper sel -T -t -c "/slave/launcher/credentialsId" ${filename})
-    java_path=$(xmlstarlet_wrapper sel -T -t -c "/slave/launcher/javaPath" ${filename})
+    java_path=$(xmlstarlet_wrapper sel -T -t -c "/slave/launcher/javaPath" ${filename} || true)
     #fix javapath
 #    java_path=${java_path/shared\/common/opt\/tools}
 #    java_path=${java_path/jdk1.5.0-latest/oracle-jdk5-latest}
@@ -203,7 +203,7 @@ EOI
   do
     echo $node
     > ${temp_yaml_name}
-    read_xml ${node}/config.xml >> ${shortname}/${result_yaml_name}
+    read_xml ${node}config.xml >> ${shortname}/${result_yaml_name}
   done
 }
 
