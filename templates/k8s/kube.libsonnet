@@ -28,6 +28,7 @@
   Route(name, config): $.__.KubeNSObject("route.openshift.io/v1", "Route", name, config),
   ServiceAccount(name, config): $.__.KubeNSObject("v1", "ServiceAccount", name, config),
   Service(name, config): $.__.KubeNSObject("v1", "Service", name, config),
+  ConfigMap(name, config): $.__.KubeNSObject("v1", "ConfigMap", name, config),
 
   stripSI(n):: (
     local suffix_len =
