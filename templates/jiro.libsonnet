@@ -8,4 +8,6 @@
   "k8s/namespace.json": (import "k8s/namespace.libsonnet").gen($["config.json"]),
   "k8s/route.json": (import "k8s/route.libsonnet").gen($["config.json"]),
   "k8s/service-account.json": (import "k8s/service-account.libsonnet").gen($["config.json"]),
+  "k8s/service-jenkins-ui.json": (import "k8s/service-jenkins-ui.libsonnet").gen($["config.json"]),
+  "k8s/service-jenkins-discovery.json": (import "k8s/service-jenkins-discovery.libsonnet").gen($["config.json"]),
 }
