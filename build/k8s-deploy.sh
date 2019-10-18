@@ -42,6 +42,6 @@ oc apply -f "${instance}/target/k8s/service-jenkins-discovery.json"
 oc apply -f "${instance}/target/k8s/route.json"
 oc apply -f "${instance}/target/k8s/tools-pv.yml"
 oc apply -f "${instance}/target/k8s/known-hosts.json"
-oc apply -f "${instance}/target/k8s/m2-dir.yml"
+oc apply -f "${instance}/target/k8s/m2-dir.json"
 
 oc apply -f "${instance}/target/k8s/statefulset.yml"

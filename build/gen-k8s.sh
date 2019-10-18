@@ -60,7 +60,8 @@ gen_resource "statefulset"
 gen_resource "tools-pv"
 # gen_resource "known-hosts"
 rm -rf "${target}/known-hosts.yml"
-gen_resource "m2-dir"
+# gen_resource "m2-dir"
+rm -rf "${target}/m2-dir.yml"
 
 ## Jenkins CaC config map filling
 echo "# GENERATED FILE - DO NOT EDIT" >> "${target}/configmap-jenkins-config.yml"
