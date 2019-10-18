@@ -58,7 +58,8 @@ rm -f "${target}/role.yml"
 rm -f "${target}/role-binding.yml"
 gen_resource "statefulset"
 gen_resource "tools-pv"
-gen_resource "known-hosts"
+# gen_resource "known-hosts"
+rm -rf "${target}/known-hosts.yml"
 gen_resource "m2-dir"
 
 ## Jenkins CaC config map filling

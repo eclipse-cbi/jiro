@@ -10,4 +10,5 @@
   "k8s/service-account.json": (import "k8s/service-account.libsonnet").gen($["config.json"]),
   "k8s/service-jenkins-ui.json": (import "k8s/service-jenkins-ui.libsonnet").gen($["config.json"]),
   "k8s/service-jenkins-discovery.json": (import "k8s/service-jenkins-discovery.libsonnet").gen($["config.json"]),
+  "k8s/known-hosts.json": (import "k8s/known-hosts.libsonnet").gen($["config.json"]),
 }
