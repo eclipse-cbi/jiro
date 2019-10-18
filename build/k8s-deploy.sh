@@ -33,7 +33,7 @@ oc apply -f "${instance}/target/k8s/namespace.json"
 "${SCRIPT_FOLDER}/../jenkins-reload-jcasc.sh" "${instance}" || :
 
 oc apply -f "${instance}/target/k8s/role.json"
-oc apply -f "${instance}/target/k8s/service-account.yml"
+oc apply -f "${instance}/target/k8s/service-account.json"
 oc apply -f "${instance}/target/k8s/limit-range.json"
 oc apply -f "${instance}/target/k8s/resource-quotas.json"
 oc apply -f "${instance}/target/k8s/role-binding.json"
