@@ -1,3 +1,4 @@
+local Kube = import "k8s/kube.libsonnet";
 {
   "config.json": import "config.libsonnet",
   // Kubernetes files
@@ -12,4 +13,8 @@
   "k8s/service-jenkins-discovery.json": (import "k8s/service-jenkins-discovery.libsonnet").gen($["config.json"]),
   "k8s/known-hosts.json": (import "k8s/known-hosts.libsonnet").gen($["config.json"]),
   "k8s/m2-dir.json": (import "k8s/m2-dir.libsonnet").gen($["config.json"]),
+  "k8s/tools-pv.json": Kube.List([ 
+      (import "k8s/tools-pv.libsonnet").gen_pv($["config.json"]), 
+      (import "k8s/tools-pv.libsonnet").gen_pvc($["config.json"]) 
+  ]),
 }
