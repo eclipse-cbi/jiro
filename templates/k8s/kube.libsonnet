@@ -29,6 +29,7 @@
   ServiceAccount(name, config): $.__.KubeNSObject("v1", "ServiceAccount", name, config),
   Service(name, config): $.__.KubeNSObject("v1", "Service", name, config),
   ConfigMap(name, config): $.__.KubeNSObject("v1", "ConfigMap", name, config),
+  Secret(name, config): $.__.KubeNSObject("v1", "Secret", name, config),
 
   stripSI(n):: (
     local suffix_len =

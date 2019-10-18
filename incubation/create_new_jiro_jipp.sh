@@ -95,14 +95,17 @@ provisioning() {
 create_m2_secret_dir() {
   local project_name="${1:-}"
   printf "Creating M2 secret dir...\n"
-  build="${script_folder}/../build"
   instance="${script_folder}/../instances/${project_name}"
   templates="${script_folder}/../templates"
   config="${instance}/target/config.json"
   target="$(mktemp -d)"
-  "${build}/gen-yaml.sh" "${instance}/k8s/m2-secret-dir.yml" "${templates}/k8s/m2-secret-dir.yml.hbs" "${config}" > "${target}/m2-secret-dir.yml"
-  oc apply -f "${target}/m2-secret-dir.yml"
-  rm -rf ${target}
+
+  cat <<EOF | "${script_folder}/../.jsonnet/jsonnet" -o "${target}/m2-secret-dir.yml" -
+  (import "${templates}/k8s/m2-secret-dir.libsonnet").gen((import "${config}"))
+EOF
+
+  oc apply -f "${target}/m2-secret-dir.json"
+  rm -rf "${target}"
 }
 
 wait_for_jipp_post_setup() {
