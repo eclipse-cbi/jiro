@@ -26,6 +26,7 @@
   RoleBinding(name, config): $.__.KubeNSObject("v1", "RoleBinding", name, config),
   Role(name, config): $.__.KubeNSObject("v1", "Role", name, config),
   Route(name, config): $.__.KubeNSObject("route.openshift.io/v1", "Route", name, config),
+  ServiceAccount(name, config): $.__.KubeNSObject("v1", "ServiceAccount", name, config),
 
   stripSI(n):: (
     local suffix_len =
