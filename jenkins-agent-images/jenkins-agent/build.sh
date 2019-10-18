@@ -15,18 +15,18 @@ set -o pipefail
 
 IFS=$'\n\t'
 
-SCRIPT_FOLDER="$(dirname $(readlink -f "${0}"))"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
 
 CONTEXT_PATH="${1:-}"
 if [[ ! -d "${CONTEXT_PATH}" ]]; then
   echo "ERROR: invalid argument '${CONTEXT_PATH}'. Must be a subfolder of '${SCRIPT_FOLDER}'}"
   exit 1
 fi
-VERSION=$(basename ${CONTEXT_PATH})
+VERSION=$(basename "${CONTEXT_PATH}")
 BUILD_ARGS="${CONTEXT_PATH}/build-args.json"
 
 DOCKER_REPO="$(jq -r '.docker.repository' "${BUILD_ARGS}")"
-IMAGE="${DOCKER_REPO}/$(basename $(readlink -f ${SCRIPT_FOLDER}))"
+IMAGE="${DOCKER_REPO}/$(basename "$(readlink -f "${SCRIPT_FOLDER}")")"
 
-docker build --rm -t ${IMAGE}:${VERSION} \
+docker build --rm -t "${IMAGE}:${VERSION}" \
   -f "${CONTEXT_PATH}/Dockerfile" "${CONTEXT_PATH}"
