@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.openj9",
+         "org.eclipse.cbi.jiro/project.shortname": "openj9"
+      },
+      "name": "openj9",
+      "namespace": "openj9"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "openj9"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "openj9",
+         "namespace": "openj9"
+      }
+   ]
+}

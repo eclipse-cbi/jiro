@@ -6,7 +6,6 @@ metadata:
     org.eclipse.cbi.jiro/jenkins.actualVersion: 2.190.1
     org.eclipse.cbi.jiro/jenkins.version: latest
     org.eclipse.cbi.jiro/kubernetes.master.namespace: openj9
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: SP2
   labels:
     org.eclipse.cbi.jiro/kind: master
     org.eclipse.cbi.jiro/project.fullName: technology.openj9
@@ -25,7 +24,6 @@ spec:
         org.eclipse.cbi.jiro/jenkins.actualVersion: 2.190.1
         org.eclipse.cbi.jiro/jenkins.version: latest
         org.eclipse.cbi.jiro/kubernetes.master.namespace: openj9
-        org.eclipse.cbi.jiro/project.sponsorshipLevel: SP2
       labels:
         org.eclipse.cbi.jiro/kind: master
         org.eclipse.cbi.jiro/project.fullName: technology.openj9
@@ -51,7 +49,7 @@ spec:
             -Dkubernetes.websocket.ping.interval=30000
         - name: JENKINS_OPTS
           value: --prefix=/openj9 --webroot=/var/cache/jenkins/war --pluginroot=/var/cache/jenkins/plugins
-        image: eclipsecbijenkins/openj9:2.190.1@sha256:d5cda62a6a795acd4f87f98d53c1f2a396781439b80eae7f379c3283dcca5fb4
+        image: eclipsecbijenkins/openj9:2.190.1@sha256:7fcad5bee67afd7b5d8a9457ab2329bea70bec8404eb275e1d66c2ad6c92e6e1
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 5
@@ -78,7 +76,7 @@ spec:
         resources:
           limits:
             cpu: 8000m
-            memory: 8Gi
+            memory: 8192Mi
           requests:
             cpu: 4000m
         volumeMounts:

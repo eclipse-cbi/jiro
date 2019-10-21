@@ -13,3 +13,4 @@ pipeline-utility-steps
 slack
 tap
 build-with-parameters
+xvfb
