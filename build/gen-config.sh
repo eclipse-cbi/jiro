@@ -31,6 +31,7 @@ target="${instance}/target"
 config="${target}/config.json"
 
 mkdir -p "$(dirname "${config}")"
+mkdir -p "$(dirname "${config}")/k8s"
 
 "${SCRIPT_FOLDER}/../.jsonnet/jsonnet" -m "${target}" "${instance}/jiro.jsonnet"
 
