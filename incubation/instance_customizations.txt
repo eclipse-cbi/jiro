@@ -12,6 +12,9 @@ eclipse.jdt.ls
   - HipChat
   - Mattermost
 
+eclipse.platform.releng
+  - /run/secrets/jenkins/ssh/id_rsa.releng => for external agents
+
 iot.californium
   - centslave1 config + credentials
 
@@ -34,6 +37,8 @@ technology.cbi
 technology.openj9
   - GHPRB General config
   - artifactory settings (artifactory plugin has issues with JCasC)
+  - /run/secrets/jenkins/ssh/id_rsa.openj9 => for external agents
+  - special known_hosts for master (see instances/technology.openj9/k8s)
 
 technology.openk-usermodules
   - node.js plugin

@@ -1,0 +1,666 @@
+#*******************************************************************************
+# Copyright (c) 2019 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "releng"
+    org.eclipse.cbi.jiro/project.fullName: "eclipse.platform.releng"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "releng"
+  namespace: "releng"
+  name: jenkins-config
+data:
+  jenkins.yaml: |
+    # GENERATED FILE - DO NOT EDIT
+    jenkins:
+      agentProtocols:
+      - JNLP4-connect
+      - Ping
+      authorizationStrategy:
+        projectMatrix:
+          permissions:
+          - Overall/Administer:admins
+          - Job/Read:anonymous
+          - Overall/Read:anonymous
+          - Job/ExtendedRead:common
+          - Agent/Build:eclipse.platform.releng
+          - Credentials/View:eclipse.platform.releng
+          - Gerrit/ManualTrigger:eclipse.platform.releng
+          - Gerrit/Retrigger:eclipse.platform.releng
+          - Job/Build:eclipse.platform.releng
+          - Job/Cancel:eclipse.platform.releng
+          - Job/Configure:eclipse.platform.releng
+          - Job/Create:eclipse.platform.releng
+          - Job/Delete:eclipse.platform.releng
+          - Job/Move:eclipse.platform.releng
+          - Job/Read:eclipse.platform.releng
+          - Job/Workspace:eclipse.platform.releng
+          - Run/Delete:eclipse.platform.releng
+          - Run/Replay:eclipse.platform.releng
+          - Run/Update:eclipse.platform.releng
+          - SCM/Tag:eclipse.platform.releng
+          - View/Configure:eclipse.platform.releng
+          - View/Create:eclipse.platform.releng
+          - View/Delete:eclipse.platform.releng
+          - View/Read:eclipse.platform.releng
+      clouds:
+      - kubernetes:
+          containerCapStr: "2"
+          jenkinsTunnel: jenkins-discovery.releng.svc.cluster.local:50000
+          jenkinsUrl: http://jenkins-ui.releng.svc.cluster.local/releng
+          maxRequestsPerHostStr: "32"
+          name: kubernetes
+          namespace: releng
+          podRetention: never
+          templates:
+          - containers:
+            - args: ""
+              command: ""
+              image: eclipsecbijenkins/jenkins-agent:3.35@sha256:5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: jnlp
+              resourceLimitCpu: 2000m
+              resourceLimitMemory: 4096Mi
+              resourceRequestCpu: 1000m
+              resourceRequestMemory: 4096Mi
+              ttyEnabled: true
+            envVars:
+            - envVar:
+                key: MAVEN_OPTS
+                value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+            - envVar:
+                key: MAVEN_CONFIG
+                value: -B -e
+            instanceCap: 5
+            name: default-agent
+            namespace: releng
+            nodeUsageMode: NORMAL
+            volumes:
+            - persistentVolumeClaim:
+                claimName: tools-claim-jiro-releng
+                mountPath: /opt/tools
+                readOnly: true
+            - configMapVolume:
+                configMapName: known-hosts
+                mountPath: /home/jenkins/.ssh/
+            - emptyDirVolume:
+                memory: false
+                mountPath: /home/jenkins/
+            - emptyDirVolume:
+                memory: false
+                mountPath: /home/jenkins/.m2/repository
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
+                  - name: settings-xml
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: toolchains-xml
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                volumes:
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
+                - name: settings-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings.xml
+                      path: settings.xml
+                - name: toolchains-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: toolchains.xml
+                      path: toolchains.xml
+          - containers:
+            - args: ""
+              command: ""
+              image: eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: jnlp
+              resourceLimitCpu: 2000m
+              resourceLimitMemory: 4096Mi
+              resourceRequestCpu: 1000m
+              resourceRequestMemory: 4096Mi
+              ttyEnabled: true
+            envVars:
+            - envVar:
+                key: MAVEN_OPTS
+                value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+            - envVar:
+                key: MAVEN_CONFIG
+                value: -B -e
+            instanceCap: 5
+            instanceCapStr: "5"
+            label: ui-test
+            name: ui-test-agent
+            namespace: releng
+            volumes:
+            - persistentVolumeClaim:
+                claimName: tools-claim-jiro-releng
+                mountPath: /opt/tools
+                readOnly: true
+            - configMapVolume:
+                configMapName: known-hosts
+                mountPath: /home/jenkins/.ssh/
+            - emptyDirVolume:
+                memory: false
+                mountPath: /home/jenkins/
+            - emptyDirVolume:
+                memory: false
+                mountPath: /home/jenkins/.m2/repository
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
+                  - name: settings-xml
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: toolchains-xml
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                volumes:
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
+                - name: settings-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings.xml
+                      path: settings.xml
+                - name: toolchains-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: toolchains.xml
+                      path: toolchains.xml
+          - containers:
+            - args: ""
+              command: ""
+              image: eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: jnlp
+              resourceLimitCpu: 2000m
+              resourceLimitMemory: 4096Mi
+              resourceRequestCpu: 1000m
+              resourceRequestMemory: 4096Mi
+              ttyEnabled: true
+            envVars:
+            - envVar:
+                key: MAVEN_OPTS
+                value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+            - envVar:
+                key: MAVEN_CONFIG
+                value: -B -e
+            instanceCap: 5
+            instanceCapStr: "5"
+            label: migration
+            name: migration-agent
+            namespace: releng
+            volumes:
+            - persistentVolumeClaim:
+                claimName: tools-claim-jiro-releng
+                mountPath: /opt/tools
+                readOnly: true
+            - configMapVolume:
+                configMapName: known-hosts
+                mountPath: /home/jenkins/.ssh/
+            - emptyDirVolume:
+                memory: false
+                mountPath: /home/jenkins/
+            - emptyDirVolume:
+                memory: false
+                mountPath: /home/jenkins/.m2/repository
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
+                  - name: settings-xml
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: toolchains-xml
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                volumes:
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
+                - name: settings-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings.xml
+                      path: settings.xml
+                - name: toolchains-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: toolchains.xml
+                      path: toolchains.xml
+      crumbIssuer:
+        standard:
+          excludeClientIPFromCrumb: false
+      disableRememberMe: false
+      markupFormatter: rawHtml
+      mode: EXCLUSIVE
+      nodes:
+      - permanent:
+          labelString: windows permanent-vnc windows10
+          launcher:
+            jnlp:
+              tunnel: 198.41.30.194:50016
+              workDirSettings:
+                disabled: false
+                failIfWorkDirIsMissing: false
+                internalDir: remoting
+          mode: EXCLUSIVE
+          name: 6mnjf-windows-10-vnc
+          nodeDescription: Windows 10 Pro N, with permanent VNC, hosted on Azure
+          nodeProperties:
+          - toolLocation:
+              locations:
+              - home: C:\ProgramData\chocolatey\lib\ant\apache-ant-1.10.5
+                key: hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-1.9.6
+          numExecutors: 1
+          remoteFS: C:\jenkins_agent
+          retentionStrategy: always
+      - permanent:
+          labelString: macos macos-10.14
+          launcher:
+            command:
+              command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@208.52.161.179
+                "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > /Users/genie.releng/jenkins_agent/remoting/slave.jar;
+                java -jar /Users/genie.releng/jenkins_agent/remoting/slave.jar"
+          mode: EXCLUSIVE
+          name: b9h15-macos10.12
+          nodeDescription: macOS 10.12 (Sierra), no login session, hosted on MacStadium
+          numExecutors: 1
+          remoteFS: /Users/genie.releng/jenkins_agent/
+          retentionStrategy: always
+      - permanent:
+          labelString: ppc64le
+          launcher:
+            command:
+              command: ssh -vv -C -i /run/secrets/jenkins/ssh/id_rsa.releng -p 2256 genie.releng@rh-power2.fit.vutbr.cz
+                "curl -sSL https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar >
+                slave.jar; which java; java -version; java -jar slave.jar"
+          mode: EXCLUSIVE
+          name: fedora-28-ppc64le
+          nodeDescription: ""
+          numExecutors: 1
+          remoteFS: /home/genie.releng/ci
+          retentionStrategy: always
+      - permanent:
+          labelString: ppc64le
+          launcher:
+            command:
+              command: ssh -vv -C -i /run/secrets/jenkins/ssh/id_rsa.releng -p 2256 genie.releng@rh-power2.fit.vutbr.cz
+                "curl -sSL https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar >
+                slave.jar; which java; java -version; java -jar slave.jar"
+          mode: EXCLUSIVE
+          name: fedora-ppc64le
+          nodeDescription: ""
+          numExecutors: 1
+          remoteFS: /home/genie.releng/ci
+          retentionStrategy: always
+      - permanent:
+          labelString: centos
+          launcher:
+            ssh:
+              credentialsId: 134ec0f1-5bf1-4738-9057-3e4387880c9f
+              host: hippcentos.eclipse.org
+              javaPath: /shared/common/jdk1.8.0_x64-latest/bin/java
+              port: "22"
+              sshHostKeyVerificationStrategy:
+                manuallyProvidedKeyVerificationStrategy:
+                  key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDldgJ5lA4pZ3gXQ6CS4b/F5XjT/HqFTRF9Fy4Ozne8BloiIoqTb9PH3Rvvjo2xZAkwFggE+eV0YP/HvrLB9N7HH1UfATencTtFMrSVQgNKkBqzRlghQ41XS+4mDcUenjKJhkhkW1RYRbnEfNGfkRHjY3xLZYAdSxa9dH0H/XNIw+Ge3+w+nb+qqsDgM0234MVJEsDxj8hGnys5QgGL3tGRCcoXP/lIEumad7lh6AjWOpzrsaUGbkwfIjlLJlbj07HfCEQ23rMUIDqSBdShAhY882YfRwR20hIcz9MeFit0KGPOXEju2T7fnKqYzZmR55lTaqd50yT03ljSTcqRYjfp
+          mode: EXCLUSIVE
+          name: hippcentos
+          nodeDescription: ""
+          nodeProperties:
+          - envVars:
+              env:
+              - key: G_FILENAME_ENCODING
+                value: '@locale,UTF-8,ISO-8859-15,CP1252'
+              - key: LANG
+                value: en_US.UTF-8
+              - key: LC_ALL
+                value: en_US.UTF-8
+          numExecutors: 3
+          remoteFS: /home/cbi/genie.releng
+          retentionStrategy: always
+      - permanent:
+          labelString: macos
+          launcher:
+            command:
+              command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@199.229.252.222
+                "curl https://hudson.eclipse.org/releng/jnlpJars/slave.jar > slave.jar;
+                java -jar slave.jar"
+          mode: EXCLUSIVE
+          name: macos-10.12-1
+          nodeDescription: ""
+          numExecutors: 1
+          remoteFS: /Users/genie.releng/ci
+          retentionStrategy: always
+      - permanent:
+          labelString: macos
+          launcher:
+            command:
+              command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@199.229.252.231
+                "curl https://hudson.eclipse.org/releng/jnlpJars/slave.jar > slave.jar;
+                java -jar slave.jar"
+          mode: EXCLUSIVE
+          name: r74dp-macos-10.13
+          nodeDescription: ""
+          numExecutors: 1
+          remoteFS: /Users/genie.releng/ci/
+          retentionStrategy: always
+      - permanent:
+          labelString: rhel-7, x86_64
+          launcher:
+            command:
+              command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@35.196.120.228
+                "curl https://hudson.eclipse.org/releng/jnlpJars/slave.jar > slave.jar;
+                java -jar slave.jar"
+          mode: EXCLUSIVE
+          name: rhel-7-1
+          nodeDescription: ""
+          nodeProperties:
+          - toolLocation:
+              locations:
+              - home: /usr/bin/ant
+                key: hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest
+              - home: /usr/bin/git
+                key: hudson.plugins.git.GitTool$DescriptorImpl@Default
+          numExecutors: 1
+          remoteFS: /home/genie.releng/ci
+          retentionStrategy: always
+      - permanent:
+          labelString: macos macos-10.14
+          launcher:
+            command:
+              command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@207.254.46.148
+                "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > /Users/genie.releng/jenkins_agent/remoting/slave.jar;
+                java -jar /Users/genie.releng/jenkins_agent/remoting/slave.jar"
+          mode: EXCLUSIVE
+          name: ta9y0-macos-10.14
+          nodeDescription: macOS 10.14 (Mojave), with login session, hosted on MacStadium
+          numExecutors: 1
+          remoteFS: /Users/genie.releng/jenkins_agent/
+          retentionStrategy: always
+      - permanent:
+          labelString: windows
+          launcher:
+            command:
+              command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie_releng@35.196.82.59
+                "W:\Java\Oracle\jdk1.8.0-latest\x64\bin\java.exe -Djava.io.tmpdir=c:\Users\genie_releng\temp
+                -jar c:\Users\genie_releng\slave.jar"
+          mode: EXCLUSIVE
+          name: windows-server-2016-1
+          nodeDescription: ""
+          nodeProperties:
+          - envVars:
+              env:
+              - key: JAVA_HOME
+                value: W:\Java\Oracle\jdk1.8.0-latest\x64
+              - key: MSSDK2003SP1
+                value: W:\Microsoft\Platform SDK\Windows Server 2003 SP1
+              - key: PATH
+                value: C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program
+                  Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin;C:\ProgramData\GooGet;C:\Program
+                  Files\Google\Compute Engine\metadata_scripts;C:\Program Files\Google\Compute
+                  Engine\sysprep;C:\Users\SSHD\AppData\Local\Microsoft\WindowsApps;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program
+                  Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin;C:\ProgramData\GooGet;C:\Program
+                  Files\Google\Compute Engine\metadata_scripts;C:\Program Files\Google\Compute
+                  Engine\sysprep;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program
+                  Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin;C:\ProgramData\GooGet;C:\Program
+                  Files\Google\Compute Engine\metadata_scripts;C:\Program Files\Google\Compute
+                  Engine\sysprep;W:\Git\latest\x64\bin;W:\Java\Oracle\jdk1.8.0-latest\x64\bin;W:\Microsoft\Visual
+                  Studio\9.0\VC\bin;P:\apache-ant\latest\bin;P:\apache-maven\latest\bin;C:\Users\genie_shared\AppData\Local\Microsoft\WindowsApps
+              - key: VS90_HOME
+                value: W:\Microsoft\Visual Studio\9.0
+              - key: VS90COMNTOOLS
+                value: W:\Microsoft\Visual Studio\9.0\Common7\Tools
+          - toolLocation:
+              locations:
+              - home: P:\apache-maven\latest\bin\mvn.cmd
+                key: hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest
+              - home: P:\apache-ant\latest\bin\ant.bat
+                key: hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-1.9.6
+              - home: W:\Java\Oracle\jdk1.8.0-latest\x64\bin\java
+                key: hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest
+              - home: W:\Git\latest\x64\bin\git
+                key: hudson.plugins.git.GitTool$DescriptorImpl@Default
+          numExecutors: 1
+          remoteFS: C:\Users\genie_releng\ci
+          retentionStrategy: always
+      - permanent:
+          labelString: performance
+          launcher:
+            ssh:
+              credentialsId: 7b792838-4358-45dd-8309-e47b8a10e3c2
+              host: 13.72.66.232
+              javaPath: ""
+              port: "22"
+              sshHostKeyVerificationStrategy:
+                manuallyProvidedKeyVerificationStrategy:
+                  key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCg6mNlOLk+bA8MY+gyttjCmVujsq0I/Bjvur/eon8Rrg4AHt+ug37NiFX1hknY3WyOrWSMS/2iyxJlgAByYAQth0FKh+d441PSafVan5H3jI0+nCLGCkYEtNpSrvKH1jjHKybtYX6zGQscEcNA74KxHPPDPnvp14kpWIFnt4mhC1uqbfbQf0eY5lJeMwPrpR+RwAEYJu/zk+LITuh5na9h1c77ENc9OUjTsmFMW7S1bLkx7v0PRpZeSmY0AXnHZ0aWH0KqU4AMe/gRkB+JTDJzJeks9vFko3yGVpuC4ePzbr5df9junbN6WiUf1bs33t0hGKvzVzPQSJ9YpDECFhI7
+          mode: EXCLUSIVE
+          name: zyt5z-centos76
+          nodeDescription: Dedicated agent for performance tests, hosted on Azure
+          nodeProperties:
+          - toolLocation:
+              locations:
+              - home: /usr/bin/ant
+                key: hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-1.9.6
+              - home: /usr/bin/mvn
+                key: hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest
+              - home: /usr/bin/java
+                key: hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest
+          numExecutors: 1
+          remoteFS: /home/genie.releng/jenkins
+          retentionStrategy: always
+      numExecutors: 0
+      remotingSecurity:
+        enabled: true
+      scmCheckoutRetryCount: 2
+      securityRealm:
+        ldap:
+          configurations:
+          - displayNameAttributeName: cn
+            groupSearchBase: ou=group
+            mailAddressAttributeName: mail
+            rootDN: dc=eclipse,dc=org
+            server: ldapmaster
+            userSearch: mail={0}
+      systemMessage: ""
+    security:
+      apiToken:
+        creationOfLegacyTokenEnabled: false
+        tokenGenerationOnCreationEnabled: false
+        usageStatisticsEnabled: true
+      downloadSettings:
+        useBrowser: false
+      queueItemAuthenticator:
+        authenticators:
+        - global:
+            strategy: triggeringUsersAuthorizationStrategy
+      sSHD:
+        port: -1
+    tool:
+      ant:
+        installations:
+        - home: ""
+          name: apache-ant-latest
+          properties:
+          - installSource:
+              installers:
+              - antFromApache:
+                  id: 1.10.5
+      git:
+        installations:
+        - home: git
+          name: Default
+      jdk:
+        installations:
+        - home: /opt/tools/java/openjdk/latest
+          name: openjdk-latest
+        - home: /opt/tools/java/openjdk/jdk-14/latest
+          name: openjdk-jdk14-latest
+        - home: /opt/tools/java/openjdk/jdk-13/latest
+          name: openjdk-jdk13-latest
+        - home: /opt/tools/java/openjdk/jdk-12/latest
+          name: openjdk-jdk12-latest
+        - home: /opt/tools/java/openjdk/jdk-11/latest
+          name: openjdk-jdk11-latest
+        - home: /opt/tools/java/openjdk/jdk-10/latest
+          name: openjdk-jdk10-latest
+        - home: /opt/tools/java/openjdk/jdk-9/latest
+          name: openjdk-jdk9-latest
+        - home: /opt/tools/java/adoptopenjdk/hotspot-latest
+          name: adoptopenjdk-hotspot-latest
+        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest
+          name: adoptopenjdk-hotspot-jdk12-latest
+        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest
+          name: adoptopenjdk-hotspot-jdk11-latest
+        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest
+          name: adoptopenjdk-hotspot-jdk10-latest
+        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest
+          name: adoptopenjdk-hotspot-jdk9-latest
+        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest
+          name: adoptopenjdk-hotspot-jdk8-latest
+        - home: /opt/tools/java/adoptopenjdk/openj9-latest
+          name: adoptopenjdk-openj9-latest
+        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-12/latest
+          name: adoptopenjdk-openj9-jdk12-latest
+        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-11/latest
+          name: adoptopenjdk-openj9-jdk11-latest
+        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-10/latest
+          name: adoptopenjdk-openj9-jdk10-latest
+        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-9/latest
+          name: adoptopenjdk-openj9-jdk9-latest
+        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-8/latest
+          name: adoptopenjdk-openj9-jdk8-latest
+        - home: /opt/tools/java/oracle/latest
+          name: oracle-latest
+        - home: /opt/tools/java/oracle/jdk-10/latest
+          name: oracle-jdk10-latest
+        - home: /opt/tools/java/oracle/jdk-9/latest
+          name: oracle-jdk9-latest
+        - home: /opt/tools/java/oracle/jdk-8/latest
+          name: oracle-jdk8-latest
+        - home: /opt/tools/java/oracle/jdk-7/latest
+          name: oracle-jdk7-latest
+        - home: /opt/tools/java/oracle/jdk-6/latest
+          name: oracle-jdk6-latest
+        - home: /opt/tools/java/oracle/jdk-5/latest
+          name: oracle-jdk5-latest
+        - home: /opt/tools/java/ibm/jdk-8/latest
+          name: ibm-jdk8-latest
+        - home: /opt/tools/java/ibm/latest
+          name: ibm-latest
+      maven:
+        installations:
+        - home: /opt/tools/apache-maven/latest
+          name: apache-maven-latest
+        - home: /opt/tools/apache-maven/3.6.2
+          name: apache-maven-3.6.2
+        - home: /opt/tools/apache-maven/3.5.4
+          name: apache-maven-3.5.4
+        - home: /opt/tools/apache-maven/3.3.9
+          name: apache-maven-3.3.9
+        - home: /opt/tools/apache-maven/3.2.5
+          name: apache-maven-3.2.5
+    unclassified:
+      extendedEmailPublisher:
+        defaultContentType: text/html
+      globalDefaultFlowDurabilityLevel:
+        durabilityHint: PERFORMANCE_OPTIMIZED
+      location:
+        adminAddress: ci-admin@eclipse.org
+        url: https://ci-staging.eclipse.org/releng
+      mailer:
+        replyToAddress: ci-admin@eclipse.org
+        smtpHost: mail.eclipse.org
+      simple-theme-plugin:
+        elements:
+        - cssUrl:
+            url: /releng/userContent/theme/quicksilver.css
+        - cssUrl:
+            url: //fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100
+        - jsUrl:
+            url: /releng/userContent/theme/title.js

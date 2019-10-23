@@ -1,0 +1,192 @@
+jenkins:
+  nodes:
+  - permanent:
+      name: "6mnjf-windows-10-vnc"
+      nodeDescription: "Windows 10 Pro N, with permanent VNC, hosted on Azure"
+      labelString: "windows permanent-vnc windows10"
+      remoteFS: 'C:\jenkins_agent'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        jnlp:
+          tunnel: "198.41.30.194:50016"
+          workDirSettings:
+            disabled: false
+            internalDir: "remoting"
+            failIfWorkDirIsMissing: false
+      nodeProperties:
+      - toolLocation:
+          locations:
+          - home: 'C:\ProgramData\chocolatey\lib\ant\apache-ant-1.10.5'
+            key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-1.9.6"
+  - permanent:
+      name: "b9h15-macos10.12"
+      nodeDescription: "macOS 10.12 (Sierra), no login session, hosted on MacStadium"
+      labelString: "macos macos-10.14"
+      remoteFS: '/Users/genie.releng/jenkins_agent/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@208.52.161.179 "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > /Users/genie.releng/jenkins_agent/remoting/slave.jar; java -jar /Users/genie.releng/jenkins_agent/remoting/slave.jar"'
+  - permanent:
+      name: "fedora-28-ppc64le"
+      nodeDescription: ""
+      labelString: "ppc64le"
+      remoteFS: '/home/genie.releng/ci'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: 'ssh -vv -C -i /run/secrets/jenkins/ssh/id_rsa.releng -p 2256 genie.releng@rh-power2.fit.vutbr.cz "curl -sSL https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > slave.jar; which java; java -version; java -jar slave.jar"'
+  - permanent:
+      name: "fedora-ppc64le"
+      nodeDescription: ""
+      labelString: "ppc64le"
+      remoteFS: '/home/genie.releng/ci'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: 'ssh -vv -C -i /run/secrets/jenkins/ssh/id_rsa.releng -p 2256 genie.releng@rh-power2.fit.vutbr.cz "curl -sSL https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > slave.jar; which java; java -version; java -jar slave.jar"'
+  - permanent:
+      name: "hippcentos"
+      nodeDescription: ""
+      labelString: "centos"
+      remoteFS: '/home/cbi/genie.releng'
+      numExecutors: 3
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "hippcentos.eclipse.org"
+          port: "22"
+          credentialsId: "134ec0f1-5bf1-4738-9057-3e4387880c9f"
+          javaPath: "/shared/common/jdk1.8.0_x64-latest/bin/java"
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDldgJ5lA4pZ3gXQ6CS4b/F5XjT/HqFTRF9Fy4Ozne8BloiIoqTb9PH3Rvvjo2xZAkwFggE+eV0YP/HvrLB9N7HH1UfATencTtFMrSVQgNKkBqzRlghQ41XS+4mDcUenjKJhkhkW1RYRbnEfNGfkRHjY3xLZYAdSxa9dH0H/XNIw+Ge3+w+nb+qqsDgM0234MVJEsDxj8hGnys5QgGL3tGRCcoXP/lIEumad7lh6AjWOpzrsaUGbkwfIjlLJlbj07HfCEQ23rMUIDqSBdShAhY882YfRwR20hIcz9MeFit0KGPOXEju2T7fnKqYzZmR55lTaqd50yT03ljSTcqRYjfp"
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "G_FILENAME_ENCODING"
+            value: '@locale,UTF-8,ISO-8859-15,CP1252'
+          - key: "LANG"
+            value: 'en_US.UTF-8'
+          - key: "LC_ALL"
+            value: 'en_US.UTF-8'
+  - permanent:
+      name: "macos-10.12-1"
+      nodeDescription: ""
+      labelString: "macos"
+      remoteFS: '/Users/genie.releng/ci'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@199.229.252.222 "curl https://hudson.eclipse.org/releng/jnlpJars/slave.jar > slave.jar; java -jar slave.jar"'
+  - permanent:
+      name: "r74dp-macos-10.13"
+      nodeDescription: ""
+      labelString: "macos"
+      remoteFS: '/Users/genie.releng/ci/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@199.229.252.231 "curl https://hudson.eclipse.org/releng/jnlpJars/slave.jar > slave.jar; java -jar slave.jar"'
+  - permanent:
+      name: "rhel-7-1"
+      nodeDescription: ""
+      labelString: "rhel-7, x86_64"
+      remoteFS: '/home/genie.releng/ci'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@35.196.120.228 "curl https://hudson.eclipse.org/releng/jnlpJars/slave.jar > slave.jar; java -jar slave.jar"'
+      nodeProperties:
+      - toolLocation:
+          locations:
+          - home: '/usr/bin/ant'
+            key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest"
+          - home: '/usr/bin/git'
+            key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+  - permanent:
+      name: "ta9y0-macos-10.14"
+      nodeDescription: "macOS 10.14 (Mojave), with login session, hosted on MacStadium"
+      labelString: "macos macos-10.14"
+      remoteFS: '/Users/genie.releng/jenkins_agent/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@207.254.46.148 "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > /Users/genie.releng/jenkins_agent/remoting/slave.jar; java -jar /Users/genie.releng/jenkins_agent/remoting/slave.jar"'
+  - permanent:
+      name: "windows-server-2016-1"
+      nodeDescription: ""
+      labelString: "windows"
+      remoteFS: 'C:\Users\genie_releng\ci'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie_releng@35.196.82.59 "W:\Java\Oracle\jdk1.8.0-latest\x64\bin\java.exe -Djava.io.tmpdir=c:\Users\genie_releng\temp -jar c:\Users\genie_releng\slave.jar"'
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "JAVA_HOME"
+            value: 'W:\Java\Oracle\jdk1.8.0-latest\x64'
+          - key: "MSSDK2003SP1"
+            value: 'W:\Microsoft\Platform SDK\Windows Server 2003 SP1'
+          - key: "PATH"
+            value: 'C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin;C:\ProgramData\GooGet;C:\Program Files\Google\Compute Engine\metadata_scripts;C:\Program Files\Google\Compute Engine\sysprep;C:\Users\SSHD\AppData\Local\Microsoft\WindowsApps;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin;C:\ProgramData\GooGet;C:\Program Files\Google\Compute Engine\metadata_scripts;C:\Program Files\Google\Compute Engine\sysprep;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin;C:\ProgramData\GooGet;C:\Program Files\Google\Compute Engine\metadata_scripts;C:\Program Files\Google\Compute Engine\sysprep;W:\Git\latest\x64\bin;W:\Java\Oracle\jdk1.8.0-latest\x64\bin;W:\Microsoft\Visual Studio\9.0\VC\bin;P:\apache-ant\latest\bin;P:\apache-maven\latest\bin;C:\Users\genie_shared\AppData\Local\Microsoft\WindowsApps'
+          - key: "VS90_HOME"
+            value: 'W:\Microsoft\Visual Studio\9.0'
+          - key: "VS90COMNTOOLS"
+            value: 'W:\Microsoft\Visual Studio\9.0\Common7\Tools'
+      - toolLocation:
+          locations:
+          - home: 'P:\apache-maven\latest\bin\mvn.cmd'
+            key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
+          - home: 'P:\apache-ant\latest\bin\ant.bat'
+            key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-1.9.6"
+          - home: 'W:\Java\Oracle\jdk1.8.0-latest\x64\bin\java'
+            key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
+          - home: 'W:\Git\latest\x64\bin\git'
+            key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+  - permanent:
+      name: "zyt5z-centos76"
+      nodeDescription: "Dedicated agent for performance tests, hosted on Azure"
+      labelString: "performance"
+      remoteFS: '/home/genie.releng/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "13.72.66.232"
+          port: "22"
+          credentialsId: "7b792838-4358-45dd-8309-e47b8a10e3c2"
+          javaPath: ""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCg6mNlOLk+bA8MY+gyttjCmVujsq0I/Bjvur/eon8Rrg4AHt+ug37NiFX1hknY3WyOrWSMS/2iyxJlgAByYAQth0FKh+d441PSafVan5H3jI0+nCLGCkYEtNpSrvKH1jjHKybtYX6zGQscEcNA74KxHPPDPnvp14kpWIFnt4mhC1uqbfbQf0eY5lJeMwPrpR+RwAEYJu/zk+LITuh5na9h1c77ENc9OUjTsmFMW7S1bLkx7v0PRpZeSmY0AXnHZ0aWH0KqU4AMe/gRkB+JTDJzJeks9vFko3yGVpuC4ePzbr5df9junbN6WiUf1bs33t0hGKvzVzPQSJ9YpDECFhI7"
+      nodeProperties:
+      - toolLocation:
+          locations:
+          - home: '/usr/bin/ant'
+            key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-1.9.6"
+          - home: '/usr/bin/mvn'
+            key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
+          - home: '/usr/bin/java'
+            key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
