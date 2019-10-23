@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.egerrit",
+         "org.eclipse.cbi.jiro/project.shortname": "egerrit"
+      },
+      "name": "egerrit",
+      "namespace": "egerrit"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "egerrit"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "egerrit",
+         "namespace": "egerrit"
+      }
+   ]
+}

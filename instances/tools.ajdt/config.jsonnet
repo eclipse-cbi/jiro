@@ -3,8 +3,5 @@
     fullName: "tools.ajdt",
     shortName: "ajdt",
     displayName: "Eclipse AJDT"
-  },
-  deployment+: {
-    host: "ci-staging.eclipse.org"
   }
 }
