@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "polarsys.esf",
+         "org.eclipse.cbi.jiro/project.shortname": "esf"
+      },
+      "name": "esf",
+      "namespace": "esf"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "esf"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "esf",
+         "namespace": "esf"
+      }
+   ]
+}

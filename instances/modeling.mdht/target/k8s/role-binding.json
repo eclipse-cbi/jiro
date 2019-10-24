@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.mdht",
+         "org.eclipse.cbi.jiro/project.shortname": "mdht"
+      },
+      "name": "mdht",
+      "namespace": "mdht"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "mdht"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "mdht",
+         "namespace": "mdht"
+      }
+   ]
+}
