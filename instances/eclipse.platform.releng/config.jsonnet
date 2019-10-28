@@ -1,3 +1,5 @@
+local permissionsTemplates = import '../../templates/permissions.libsonnet';
+
 {
   project+: {
     fullName: "eclipse.platform.releng",
@@ -6,5 +8,13 @@
   },
   deployment+: {
     host: "ci-staging.eclipse.org"
+  },
+  jenkins+: {
+    permissions+: [
+      {
+        principal: "eclipse.platform",
+        grantedPermissions: permissionsTemplates.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger"],
+      }
+    ]
   }
 }

@@ -33,6 +33,26 @@ data:
           - Job/Read:anonymous
           - Overall/Read:anonymous
           - Job/ExtendedRead:common
+          - Agent/Build:eclipse.platform
+          - Credentials/View:eclipse.platform
+          - Gerrit/ManualTrigger:eclipse.platform
+          - Gerrit/Retrigger:eclipse.platform
+          - Job/Build:eclipse.platform
+          - Job/Cancel:eclipse.platform
+          - Job/Configure:eclipse.platform
+          - Job/Create:eclipse.platform
+          - Job/Delete:eclipse.platform
+          - Job/Move:eclipse.platform
+          - Job/Read:eclipse.platform
+          - Job/Workspace:eclipse.platform
+          - Run/Delete:eclipse.platform
+          - Run/Replay:eclipse.platform
+          - Run/Update:eclipse.platform
+          - SCM/Tag:eclipse.platform
+          - View/Configure:eclipse.platform
+          - View/Create:eclipse.platform
+          - View/Delete:eclipse.platform
+          - View/Read:eclipse.platform
           - Agent/Build:eclipse.platform.releng
           - Credentials/View:eclipse.platform.releng
           - Gerrit/ManualTrigger:eclipse.platform.releng
