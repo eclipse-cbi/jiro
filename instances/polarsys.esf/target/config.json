@@ -77,7 +77,7 @@
           "Gerrit/ManualTrigger",
           "Gerrit/Retrigger"
         ],
-        "principal": "polarsys.esf"
+        "principal": "polarsys.polarsys.esf"
       }
     ],
     "staticAgentCount": 0,
@@ -147,10 +147,10 @@
   },
   "project": {
     "displayName": "Eclipse Safety Framework",
-    "fullName": "polarsys.esf",
+    "fullName": "polarsys.polarsys.esf",
     "resourcePacks": 1,
     "shortName": "esf",
-    "unixGroupName": "polarsys.esf"
+    "unixGroupName": "polarsys.polarsys.esf"
   },
   "secrets": {
     "gerrit-trigger-plugin": {

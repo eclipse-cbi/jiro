@@ -12,13 +12,12 @@ kind: ConfigMap
 metadata:
   labels:
     org.eclipse.cbi.jiro/project.shortname: "time4sys"
-    org.eclipse.cbi.jiro/project.fullName: "polarsys.time4sys"
+    org.eclipse.cbi.jiro/project.fullName: "polarsys.polarsys.time4sys"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "time4sys"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "time4sys"
   name: m2-dir
 data:

@@ -1,0 +1,21 @@
+{
+   "apiVersion": "v1",
+   "kind": "ResourceQuota",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "polarsys.polarsys.time4sys",
+         "org.eclipse.cbi.jiro/project.shortname": "time4sys"
+      },
+      "name": "jenkins-instance-quota",
+      "namespace": "time4sys"
+   },
+   "spec": {
+      "hard": {
+         "limits.cpu": "6600m",
+         "limits.memory": "10240Mi",
+         "pods": 3,
+         "requests.cpu": "2900m",
+         "requests.memory": "10240Mi"
+      }
+   }
+}

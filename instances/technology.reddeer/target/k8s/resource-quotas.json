@@ -1,0 +1,21 @@
+{
+   "apiVersion": "v1",
+   "kind": "ResourceQuota",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.reddeer",
+         "org.eclipse.cbi.jiro/project.shortname": "reddeer"
+      },
+      "name": "jenkins-instance-quota",
+      "namespace": "reddeer"
+   },
+   "spec": {
+      "hard": {
+         "limits.cpu": "6600m",
+         "limits.memory": "10496Mi",
+         "pods": 3,
+         "requests.cpu": "3050m",
+         "requests.memory": "10496Mi"
+      }
+   }
+}

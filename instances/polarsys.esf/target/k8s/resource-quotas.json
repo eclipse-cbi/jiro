@@ -3,7 +3,7 @@
    "kind": "ResourceQuota",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "polarsys.esf",
+         "org.eclipse.cbi.jiro/project.fullName": "polarsys.polarsys.esf",
          "org.eclipse.cbi.jiro/project.shortname": "esf"
       },
       "name": "jenkins-instance-quota",

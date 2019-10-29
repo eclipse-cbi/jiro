@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.microprofile",
+         "org.eclipse.cbi.jiro/project.shortname": "microprofile"
+      },
+      "name": "microprofile",
+      "namespace": "microprofile"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "microprofile"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "microprofile",
+         "namespace": "microprofile"
+      }
+   ]
+}

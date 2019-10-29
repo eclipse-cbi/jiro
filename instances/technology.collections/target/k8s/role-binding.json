@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.collections",
+         "org.eclipse.cbi.jiro/project.shortname": "collections"
+      },
+      "name": "collections",
+      "namespace": "collections"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "collections"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "collections",
+         "namespace": "collections"
+      }
+   ]
+}

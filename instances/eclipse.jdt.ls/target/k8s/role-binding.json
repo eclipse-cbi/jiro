@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "eclipse.jdt.ls",
+         "org.eclipse.cbi.jiro/project.shortname": "ls"
+      },
+      "name": "ls",
+      "namespace": "ls"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "ls"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "ls",
+         "namespace": "ls"
+      }
+   ]
+}

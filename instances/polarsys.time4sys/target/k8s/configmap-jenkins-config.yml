@@ -11,13 +11,12 @@ kind: ConfigMap
 metadata:
   labels:
     org.eclipse.cbi.jiro/project.shortname: "time4sys"
-    org.eclipse.cbi.jiro/project.fullName: "polarsys.time4sys"
+    org.eclipse.cbi.jiro/project.fullName: "polarsys.polarsys.time4sys"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "time4sys"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "time4sys"
   name: jenkins-config
 data:
@@ -49,6 +48,26 @@ data:
             - "Job/Read:anonymous"
             - "Overall/Read:anonymous"
             - "Job/ExtendedRead:common"
+            - "Agent/Build:polarsys.polarsys.time4sys"
+            - "Credentials/View:polarsys.polarsys.time4sys"
+            - "Gerrit/ManualTrigger:polarsys.polarsys.time4sys"
+            - "Gerrit/Retrigger:polarsys.polarsys.time4sys"
+            - "Job/Build:polarsys.polarsys.time4sys"
+            - "Job/Cancel:polarsys.polarsys.time4sys"
+            - "Job/Configure:polarsys.polarsys.time4sys"
+            - "Job/Create:polarsys.polarsys.time4sys"
+            - "Job/Delete:polarsys.polarsys.time4sys"
+            - "Job/Move:polarsys.polarsys.time4sys"
+            - "Job/Read:polarsys.polarsys.time4sys"
+            - "Job/Workspace:polarsys.polarsys.time4sys"
+            - "Run/Delete:polarsys.polarsys.time4sys"
+            - "Run/Replay:polarsys.polarsys.time4sys"
+            - "Run/Update:polarsys.polarsys.time4sys"
+            - "SCM/Tag:polarsys.polarsys.time4sys"
+            - "View/Configure:polarsys.polarsys.time4sys"
+            - "View/Create:polarsys.polarsys.time4sys"
+            - "View/Delete:polarsys.polarsys.time4sys"
+            - "View/Read:polarsys.polarsys.time4sys"
             - "Agent/Build:polarsys.time4sys"
             - "Credentials/View:polarsys.time4sys"
             - "Gerrit/ManualTrigger:polarsys.time4sys"
@@ -98,7 +117,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1"
+            - image: "eclipsecbijenkins/jenkins-agent:3.35@sha256:5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340"
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -148,31 +167,31 @@ data:
                 containers:
                 - name: jnlp
                   volumeMounts:
-                  - name: settings-xml
-                    mountPath: /home/jenkins/.m2/settings.xml
-                    subPath: settings.xml
-                    readOnly: true
                   - name: settings-security-xml
                     mountPath: /home/jenkins/.m2/settings-security.xml
                     subPath: settings-security.xml
+                    readOnly: true
+                  - name: settings-xml
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
                     readOnly: true
                   - name: toolchains-xml
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
                 volumes:
-                - name: settings-xml
-                  secret:
-                    secretName: m2-secret-dir
-                    items:
-                    - key: settings.xml
-                      path: settings.xml
                 - name: settings-security-xml
                   secret:
                     secretName: m2-secret-dir
                     items:
                     - key: settings-security.xml
                       path: settings-security.xml
+                - name: settings-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings.xml
+                      path: settings.xml
                 - name: toolchains-xml
                   configMap:
                     name: m2-dir
@@ -231,31 +250,31 @@ data:
                 containers:
                 - name: jnlp
                   volumeMounts:
-                  - name: settings-xml
-                    mountPath: /home/jenkins/.m2/settings.xml
-                    subPath: settings.xml
-                    readOnly: true
                   - name: settings-security-xml
                     mountPath: /home/jenkins/.m2/settings-security.xml
                     subPath: settings-security.xml
+                    readOnly: true
+                  - name: settings-xml
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
                     readOnly: true
                   - name: toolchains-xml
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
                 volumes:
-                - name: settings-xml
-                  secret:
-                    secretName: m2-secret-dir
-                    items:
-                    - key: settings.xml
-                      path: settings.xml
                 - name: settings-security-xml
                   secret:
                     secretName: m2-secret-dir
                     items:
                     - key: settings-security.xml
                       path: settings-security.xml
+                - name: settings-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings.xml
+                      path: settings.xml
                 - name: toolchains-xml
                   configMap:
                     name: m2-dir
@@ -314,31 +333,31 @@ data:
                 containers:
                 - name: jnlp
                   volumeMounts:
-                  - name: settings-xml
-                    mountPath: /home/jenkins/.m2/settings.xml
-                    subPath: settings.xml
-                    readOnly: true
                   - name: settings-security-xml
                     mountPath: /home/jenkins/.m2/settings-security.xml
                     subPath: settings-security.xml
+                    readOnly: true
+                  - name: settings-xml
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
                     readOnly: true
                   - name: toolchains-xml
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
                 volumes:
-                - name: settings-xml
-                  secret:
-                    secretName: m2-secret-dir
-                    items:
-                    - key: settings.xml
-                      path: settings.xml
                 - name: settings-security-xml
                   secret:
                     secretName: m2-secret-dir
                     items:
                     - key: settings-security.xml
                       path: settings-security.xml
+                - name: settings-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings.xml
+                      path: settings.xml
                 - name: toolchains-xml
                   configMap:
                     name: m2-dir
@@ -363,7 +382,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/time4sys
+        url: https://ci.eclipse.org/time4sys
     
       mailer:
         replyToAddress: ci-admin@eclipse.org

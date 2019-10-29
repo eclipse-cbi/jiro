@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.sensinact",
+         "org.eclipse.cbi.jiro/project.shortname": "sensinact"
+      },
+      "name": "sensinact",
+      "namespace": "sensinact"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "sensinact"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "sensinact",
+         "namespace": "sensinact"
+      }
+   ]
+}

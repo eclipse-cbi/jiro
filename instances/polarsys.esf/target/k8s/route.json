@@ -6,7 +6,7 @@
          "haproxy.router.openshift.io/timeout": "60s"
       },
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "polarsys.esf",
+         "org.eclipse.cbi.jiro/project.fullName": "polarsys.polarsys.esf",
          "org.eclipse.cbi.jiro/project.shortname": "esf"
       },
       "name": "esf",

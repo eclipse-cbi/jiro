@@ -1,0 +1,31 @@
+{
+   "apiVersion": "route.openshift.io/v1",
+   "kind": "Route",
+   "metadata": {
+      "annotations": {
+         "haproxy.router.openshift.io/timeout": "60s"
+      },
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "eclipse.jdt.ls",
+         "org.eclipse.cbi.jiro/project.shortname": "ls"
+      },
+      "name": "ls",
+      "namespace": "ls"
+   },
+   "spec": {
+      "host": "ci.eclipse.org",
+      "path": "/ls",
+      "port": {
+         "targetPort": "http"
+      },
+      "tls": {
+         "insecureEdgeTerminationPolicy": "Redirect",
+         "termination": "edge"
+      },
+      "to": {
+         "kind": "Service",
+         "name": "jenkins-ui",
+         "weight": 100
+      }
+   }
+}
