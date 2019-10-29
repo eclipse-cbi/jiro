@@ -82,5 +82,9 @@ import_views() {
 copy_export_script_to_pod ${short_name}
 run_export_script_on_pod ${short_name} ${project_name}
 copy_jobs_from_pod
+
+echo "Force restart of Jenkins..."
+oc delete pod ${short_name}-0 -n=${short_name}
+
 #TODO:
 #import_views
