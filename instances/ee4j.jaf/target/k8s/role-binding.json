@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jaf",
+         "org.eclipse.cbi.jiro/project.shortname": "jaf"
+      },
+      "name": "jaf",
+      "namespace": "jaf"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "jaf"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "jaf",
+         "namespace": "jaf"
+      }
+   ]
+}
