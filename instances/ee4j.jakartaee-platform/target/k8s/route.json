@@ -1,0 +1,31 @@
+{
+   "apiVersion": "route.openshift.io/v1",
+   "kind": "Route",
+   "metadata": {
+      "annotations": {
+         "haproxy.router.openshift.io/timeout": "60s"
+      },
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jakartaee-platform",
+         "org.eclipse.cbi.jiro/project.shortname": "jakartaee-platform"
+      },
+      "name": "jakartaee-platform",
+      "namespace": "jakartaee-platform"
+   },
+   "spec": {
+      "host": "ci.eclipse.org",
+      "path": "/jakartaee-platform",
+      "port": {
+         "targetPort": "http"
+      },
+      "tls": {
+         "insecureEdgeTerminationPolicy": "Redirect",
+         "termination": "edge"
+      },
+      "to": {
+         "kind": "Service",
+         "name": "jenkins-ui",
+         "weight": 100
+      }
+   }
+}

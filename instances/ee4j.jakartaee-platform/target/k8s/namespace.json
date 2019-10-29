@@ -1,0 +1,11 @@
+{
+   "apiVersion": "v1",
+   "kind": "Namespace",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jakartaee-platform",
+         "org.eclipse.cbi.jiro/project.shortname": "jakartaee-platform"
+      },
+      "name": "jakartaee-platform"
+   }
+}
