@@ -1,0 +1,21 @@
+{
+   "apiVersion": "v1",
+   "kind": "ResourceQuota",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jakartaee-stable",
+         "org.eclipse.cbi.jiro/project.shortname": "jakartaee-stable"
+      },
+      "name": "jenkins-instance-quota",
+      "namespace": "jakartaee-stable"
+   },
+   "spec": {
+      "hard": {
+         "limits.cpu": "6600m",
+         "limits.memory": "10240Mi",
+         "pods": 3,
+         "requests.cpu": "2900m",
+         "requests.memory": "10240Mi"
+      }
+   }
+}

@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jakartaee-stable",
+         "org.eclipse.cbi.jiro/project.shortname": "jakartaee-stable"
+      },
+      "name": "jakartaee-stable",
+      "namespace": "jakartaee-stable"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "jakartaee-stable"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "jakartaee-stable",
+         "namespace": "jakartaee-stable"
+      }
+   ]
+}
