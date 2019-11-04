@@ -1,0 +1,31 @@
+{
+   "apiVersion": "route.openshift.io/v1",
+   "kind": "Route",
+   "metadata": {
+      "annotations": {
+         "haproxy.router.openshift.io/timeout": "60s"
+      },
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ecd.emfcloud",
+         "org.eclipse.cbi.jiro/project.shortname": "emfcloud"
+      },
+      "name": "emfcloud",
+      "namespace": "emfcloud"
+   },
+   "spec": {
+      "host": "ci.eclipse.org",
+      "path": "/emfcloud",
+      "port": {
+         "targetPort": "http"
+      },
+      "tls": {
+         "insecureEdgeTerminationPolicy": "Redirect",
+         "termination": "edge"
+      },
+      "to": {
+         "kind": "Service",
+         "name": "jenkins-ui",
+         "weight": 100
+      }
+   }
+}
