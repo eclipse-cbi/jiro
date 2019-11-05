@@ -378,7 +378,7 @@ jenkins:
       remoteFS: /home/u0020236/
       retentionStrategy: always
   - permanent:
-      labelString: hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+      labelString: hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
@@ -391,13 +391,13 @@ jenkins:
       nodeProperties:
       - envVars:
           env:
-          - key: PERL5LIB
-            value: /opt/freeware/lib/perl5
+          - key: LIBPATH
+            value: /opt/freeware/lib:/opt/freeware/lib64:$LIBPATH
       numExecutors: 1
       remoteFS: /home/u0020236/
       retentionStrategy: always
   - permanent:
-      labelString: hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+      labelString: hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
@@ -410,8 +410,8 @@ jenkins:
       nodeProperties:
       - envVars:
           env:
-          - key: PERL5LIB
-            value: /opt/freeware/lib/perl5
+          - key: LIBPATH
+            value: /opt/freeware/lib:/opt/freeware/lib64:$LIBPATH
       numExecutors: 1
       remoteFS: /home/u0020236/
       retentionStrategy: always
