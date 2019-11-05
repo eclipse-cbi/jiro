@@ -86,6 +86,9 @@ jenkins:
           env:
           - key: "PERL5LIB"
             value: "/opt/freeware/lib/perl5"
+          env:
+          - key: "LIBPATH"
+            value: "/opt/freeware/lib:/opt/freeware/lib64:$LIBPATH"
   - permanent:
       name: "aix71-p8-6"
       nodeDescription: "openj9_ci_6 - l490vp082_pub - AIX PPC64"
@@ -105,6 +108,9 @@ jenkins:
           env:
           - key: "PERL5LIB"
             value: "/opt/freeware/lib/perl5"
+          env:
+          - key: "LIBPATH"
+            value: "/opt/freeware/lib:/opt/freeware/lib64:$LIBPATH"
   - permanent:
       name: "cent6-x64-1"
       nodeDescription: "cent6-x64-1 - UNB CentOS 6 8 GB 4CPU - 192.168.10.188"
