@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jaxb-impl",
+         "org.eclipse.cbi.jiro/project.shortname": "jaxb-impl"
+      },
+      "name": "jaxb-impl",
+      "namespace": "jaxb-impl"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "jaxb-impl"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "jaxb-impl",
+         "namespace": "jaxb-impl"
+      }
+   ]
+}

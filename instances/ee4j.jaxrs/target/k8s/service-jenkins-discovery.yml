@@ -1,0 +1,30 @@
+# GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2019 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "jaxrs"
+    org.eclipse.cbi.jiro/project.fullName: "ee4j.jaxrs"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "jaxrs"
+  namespace: "jaxrs"
+  name: "jenkins-discovery"
+spec:
+  ports:
+  - name: "jnlp"
+    port: 50000
+    protocol: "TCP"
+    targetPort: 50000
+  selector:
+    org.eclipse.cbi.jiro/project.fullName: "ee4j.jaxrs"
