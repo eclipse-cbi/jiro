@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.app4mc",
+         "org.eclipse.cbi.jiro/project.shortname": "app4mc"
+      },
+      "name": "app4mc",
+      "namespace": "app4mc"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "app4mc"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "app4mc",
+         "namespace": "app4mc"
+      }
+   ]
+}
