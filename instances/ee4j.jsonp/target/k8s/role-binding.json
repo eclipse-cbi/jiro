@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jsonp",
+         "org.eclipse.cbi.jiro/project.shortname": "jsonp"
+      },
+      "name": "jsonp",
+      "namespace": "jsonp"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "jsonp"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "jsonp",
+         "namespace": "jsonp"
+      }
+   ]
+}

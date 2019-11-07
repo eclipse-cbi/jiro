@@ -1,0 +1,31 @@
+{
+   "apiVersion": "route.openshift.io/v1",
+   "kind": "Route",
+   "metadata": {
+      "annotations": {
+         "haproxy.router.openshift.io/timeout": "60s"
+      },
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jpa",
+         "org.eclipse.cbi.jiro/project.shortname": "jpa"
+      },
+      "name": "jpa",
+      "namespace": "jpa"
+   },
+   "spec": {
+      "host": "ci.eclipse.org",
+      "path": "/jpa",
+      "port": {
+         "targetPort": "http"
+      },
+      "tls": {
+         "insecureEdgeTerminationPolicy": "Redirect",
+         "termination": "edge"
+      },
+      "to": {
+         "kind": "Service",
+         "name": "jenkins-ui",
+         "weight": 100
+      }
+   }
+}
