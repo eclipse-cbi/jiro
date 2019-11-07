@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jersey",
+         "org.eclipse.cbi.jiro/project.shortname": "jersey"
+      },
+      "name": "jersey",
+      "namespace": "jersey"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "jersey"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "jersey",
+         "namespace": "jersey"
+      }
+   ]
+}
