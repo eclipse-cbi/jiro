@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jsp",
+         "org.eclipse.cbi.jiro/project.shortname": "jsp"
+      },
+      "name": "jsp",
+      "namespace": "jsp"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "jsp"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "jsp",
+         "namespace": "jsp"
+      }
+   ]
+}

@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jta",
+         "org.eclipse.cbi.jiro/project.shortname": "jta"
+      },
+      "name": "jta",
+      "namespace": "jta"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "jta"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "jta",
+         "namespace": "jta"
+      }
+   ]
+}
