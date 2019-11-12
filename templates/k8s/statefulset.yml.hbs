@@ -94,6 +94,8 @@ spec:
               -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
+              -DexecutableWar.jetty.disableCustomSessionIdCookieName=false
+              -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.{{project.shortName}}
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
               -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage={{docker.agent.defaultImage.name}}:{{docker.agent.defaultImage.tag}}@sha256:{{docker.agent.defaultImage.sha256}}
               -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout={{jenkins.agentConnectionTimeout}}
