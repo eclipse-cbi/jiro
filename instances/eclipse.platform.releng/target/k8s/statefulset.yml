@@ -43,13 +43,14 @@ spec:
             -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85 -Dhudson.footerURL=https://ci-staging.eclipse.org
             -Dhudson.model.UsageStatistics.disabled=true -Djenkins.model.Jenkins.slaveAgentPort=50000
             -Djenkins.model.Jenkins.slaveAgentPortEnforce=true -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
-            -Djenkins.install.runSetupWizard=false -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-            -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.35@sha256:5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340
+            -Djenkins.install.runSetupWizard=false -DexecutableWar.jetty.disableCustomSessionIdCookieName=false
+            -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.releng -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
+            -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.35@sha256:b8378db77911373b6de441b39c2148d776a424abe67459cd1918322e65cfffd1
             -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
             -Dkubernetes.websocket.ping.interval=30000
         - name: JENKINS_OPTS
           value: --prefix=/releng --webroot=/var/cache/jenkins/war --pluginroot=/var/cache/jenkins/plugins
-        image: eclipsecbijenkins/releng:2.190.1@sha256:b4cc823653694138dd2041e1154dcb078a9ac1ab65bc1971034cb764b5dbe447
+        image: eclipsecbijenkins/releng:2.190.1@sha256:c301a887019190872ca83a7b7bd1be3b73f91c0591d39854b241357857fe9cb3
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 5
@@ -76,9 +77,9 @@ spec:
         resources:
           limits:
             cpu: 2000m
-            memory: 1536Mi
+            memory: 2048Mi
           requests:
-            cpu: 500m
+            cpu: 800m
         volumeMounts:
         - mountPath: /var/jenkins_home
           name: jenkins-home
