@@ -52,7 +52,7 @@ jenkins:
       - View/Read:eclipse.platform.releng
   clouds:
   - kubernetes:
-      containerCapStr: "4"
+      containerCapStr: "8"
       jenkinsTunnel: jenkins-discovery.releng.svc.cluster.local:50000
       jenkinsUrl: http://jenkins-ui.releng.svc.cluster.local/releng
       maxRequestsPerHostStr: "32"

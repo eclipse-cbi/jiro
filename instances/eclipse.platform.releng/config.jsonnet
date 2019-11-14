@@ -5,7 +5,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     fullName: "eclipse.platform.releng",
     shortName: "releng",
     displayName: "Eclipse Platform Releng",
-    resourcePacks: 2,
+    resourcePacks: 4,
   },
   deployment+: {
     host: "ci-staging.eclipse.org"

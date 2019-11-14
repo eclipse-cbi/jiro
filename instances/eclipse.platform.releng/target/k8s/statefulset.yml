@@ -76,10 +76,10 @@ spec:
           timeoutSeconds: 10
         resources:
           limits:
-            cpu: 2000m
-            memory: 2048Mi
+            cpu: 2800m
+            memory: 3072Mi
           requests:
-            cpu: 800m
+            cpu: 1400m
         volumeMounts:
         - mountPath: /var/jenkins_home
           name: jenkins-home
