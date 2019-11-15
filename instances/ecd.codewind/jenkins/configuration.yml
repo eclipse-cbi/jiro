@@ -15,6 +15,20 @@ jenkins:
       numExecutors: 1
       nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
       remoteFS: "/home/genie.codewind/jenkins-agent"
+  - permanent:
+      launcher:
+        ssh:
+          credentialsId: "codewind-bot-ub18-01"
+          host: "169.45.82.155"
+          port: 22
+          sshHostKeyVerificationStrategy:
+            manuallyTrustedKeyVerificationStrategy:
+              requireInitialManualTrust: false
+      mode: EXCLUSIVE
+      name: "ub18-01"
+      numExecutors: 1
+      remoteFS: "/home/root"
+      retentionStrategy: "always
 unclassified:
   gitHubPluginConfig:
     configs:
