@@ -70,7 +70,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-5"
       nodeDescription: "openj9_ci_5 - l490vp082_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -86,13 +86,10 @@ jenkins:
           env:
           - key: "PERL5LIB"
             value: "/opt/freeware/lib/perl5"
-          env:
-          - key: "LIBPATH"
-            value: "/opt/freeware/lib:/opt/freeware/lib64:$LIBPATH"
   - permanent:
       name: "aix71-p8-6"
       nodeDescription: "openj9_ci_6 - l490vp082_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -108,9 +105,82 @@ jenkins:
           env:
           - key: "PERL5LIB"
             value: "/opt/freeware/lib/perl5"
+  - permanent:
+      name: "aix71-p8-7"
+      nodeDescription: "openj9_ci_7 - l490vp083_pub - AIX PPC64"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      remoteFS: '/home/u0020236/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.157.132 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+      nodeProperties:
+      - envVars:
           env:
-          - key: "LIBPATH"
-            value: "/opt/freeware/lib:/opt/freeware/lib64:$LIBPATH"
+          - key: "LDR_CNTRL"
+            value: "MAXDATA=0x80000000"
+          env:
+          - key: "PERL5LIB"
+            value: "/opt/freeware/lib/perl5"
+  - permanent:
+      name: "aix71-p8-8"
+      nodeDescription: "openj9_ci_8 - l490vp084_pub - AIX PPC64"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      remoteFS: '/home/u0020236/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.157.138 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "LDR_CNTRL"
+            value: "MAXDATA=0x80000000"
+          env:
+          - key: "PERL5LIB"
+            value: "/opt/freeware/lib/perl5"
+  - permanent:
+      name: "aix71-p8-9"
+      nodeDescription: "openj9_ci_9 - l490vp086_pub - AIX PPC64"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      remoteFS: '/home/u0020236/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.157.143 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "LDR_CNTRL"
+            value: "MAXDATA=0x80000000"
+          env:
+          - key: "PERL5LIB"
+            value: "/opt/freeware/lib/perl5"
+  - permanent:
+      name: "aix71-p8-10"
+      nodeDescription: "openj9_ci_10 - l490vp087_pub - AIX PPC64"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      remoteFS: '/home/u0020236/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.157.145 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "LDR_CNTRL"
+            value: "MAXDATA=0x80000000"
+          env:
+          - key: "PERL5LIB"
+            value: "/opt/freeware/lib/perl5"
   - permanent:
       name: "cent6-x64-1"
       nodeDescription: "cent6-x64-1 - UNB CentOS 6 8 GB 4CPU - 192.168.10.188"
