@@ -354,7 +354,7 @@ unclassified:
   simple-theme-plugin:
     elements:
     - cssUrl:
-        url: "/modisco/userContent/theme/quicksilver.css"
+        url: "/modisco/userContent/theme/quicksilver-light.css"
     - cssUrl:
         url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
     - jsUrl:

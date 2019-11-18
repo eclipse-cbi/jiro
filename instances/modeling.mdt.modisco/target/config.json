@@ -25,7 +25,7 @@
       "username": "jenkins",
       "war": "/usr/share/jenkins/jenkins.war",
       "webroot": "/var/cache/jenkins/war",
-      "imageSha256": "ee15e0cdd8106f37fec94894dad1f3fe2211a7c7c4788f81df9f00f122dae072"
+      "imageSha256": "2e6368fe277e953bbe251d8f2dda7eafab99a3332e2309d772bb1d1ebe651295"
     },
     "repository": "eclipsecbijenkins"
   },
@@ -81,7 +81,7 @@
       }
     ],
     "staticAgentCount": 0,
-    "theme": "quicksilver",
+    "theme": "quicksilver-light",
     "timezone": "America/Toronto",
     "version": "latest"
   },
