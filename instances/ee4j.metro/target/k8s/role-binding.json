@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.metro",
+         "org.eclipse.cbi.jiro/project.shortname": "metro"
+      },
+      "name": "metro",
+      "namespace": "metro"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "metro"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "metro",
+         "namespace": "metro"
+      }
+   ]
+}
