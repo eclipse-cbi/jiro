@@ -1,0 +1,31 @@
+{
+   "apiVersion": "route.openshift.io/v1",
+   "kind": "Route",
+   "metadata": {
+      "annotations": {
+         "haproxy.router.openshift.io/timeout": "60s"
+      },
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.mojarra",
+         "org.eclipse.cbi.jiro/project.shortname": "mojarra"
+      },
+      "name": "mojarra",
+      "namespace": "mojarra"
+   },
+   "spec": {
+      "host": "ci.eclipse.org",
+      "path": "/mojarra",
+      "port": {
+         "targetPort": "http"
+      },
+      "tls": {
+         "insecureEdgeTerminationPolicy": "Redirect",
+         "termination": "edge"
+      },
+      "to": {
+         "kind": "Service",
+         "name": "jenkins-ui",
+         "weight": 100
+      }
+   }
+}
