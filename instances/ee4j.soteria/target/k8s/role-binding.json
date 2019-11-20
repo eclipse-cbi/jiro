@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.soteria",
+         "org.eclipse.cbi.jiro/project.shortname": "soteria"
+      },
+      "name": "soteria",
+      "namespace": "soteria"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "soteria"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "soteria",
+         "namespace": "soteria"
+      }
+   ]
+}

@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ecd.sprotty",
+         "org.eclipse.cbi.jiro/project.shortname": "sprotty"
+      },
+      "name": "sprotty",
+      "namespace": "sprotty"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "sprotty"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "sprotty",
+         "namespace": "sprotty"
+      }
+   ]
+}
