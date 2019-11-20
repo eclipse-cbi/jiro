@@ -191,7 +191,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.188 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-1 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "cent6-x64-2"
       nodeDescription: "cent6-x64-2 - UNB CentOS 6 8 GB 4CPU - 192.168.10.189"
@@ -202,7 +202,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.189 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-2 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "cent6-x64-3"
       nodeDescription: "cent6-x64-3 - UNB CentOS 6 8 GB 4CPU - 192.168.10.190 "
@@ -213,7 +213,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.190 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-3 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "cent6-x64-4"
       nodeDescription: "cent6-x64-4 - UNB CentOS 6 8 GB 4CPU - 192.168.10.191"
@@ -224,7 +224,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.191 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-4 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "cent6-x64-5"
       nodeDescription: "cent6-x64-5 - UNB CentOS 6 8 GB 4CPU - 192.168.10.192"
@@ -235,7 +235,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.192 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-5 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "cent6-x64-6"
       nodeDescription: "cent6-x64-6 - UNB CentOS 6 8 GB 4CPU - 192.168.10.193"
@@ -246,7 +246,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.193 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-6 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "cent6-x64-7"
       nodeDescription: "cent6-x64-7 - UNB CentOS 6 8 GB 4CPU - 192.168.10.194"
@@ -257,7 +257,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.194 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-7 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "cent7-aarch64-1"
       nodeDescription: "cent7-aarch64-1 - Packet.net CentOS 7 128 GB 2CPU - 147.75.97.122"
@@ -279,7 +279,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.110 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@osx1011-x86-1 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "osx1011-x86-2"
       nodeDescription: "osx1011vm2 - UNB mini mac OSX 10.11"
@@ -290,7 +290,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.112 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@osx1011-x86-2 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "osx1013-x86-3"
       nodeDescription: "osx1013vm3 - UNB mini mac OSX 10.13"
@@ -301,7 +301,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.106 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@osx1013-x86-3 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "osx1013-x86-4"
       nodeDescription: "osx1013vm4 - UNB mini mac OSX 10.13"
@@ -312,7 +312,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.111 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@osx1013-x86-4 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "osx1014-x86-1"
       nodeDescription: "UNB mini mac OSX 10.14"
@@ -323,7 +323,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.102 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@ osx1014-x86-1 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "osx1014-x86-2"
       nodeDescription: "UNB mini mac OSX 10.14"
@@ -334,7 +334,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.101 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@osx1014-x86-2 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "osx1014-x86-3"
       nodeDescription: "UNB mini mac OSX 10.14"
@@ -345,7 +345,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.109 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@osx1014-x86-3 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "ub16-390-1"
       nodeDescription: "LXEOJ901 - Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk"
@@ -499,7 +499,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.182 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j91 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "ub16x64j910"
       nodeDescription: "ub16x64j91 - UNB Ubuntu 16"
@@ -510,7 +510,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.187 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j910 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "ub16x64j92"
       nodeDescription: "ub16x64j92 - UNB Ubuntu 16"
@@ -521,7 +521,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.252 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j92 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "ub16x64j94"
       nodeDescription: "ub16x64j94 - UNB Ubuntu 16"
@@ -532,7 +532,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.156 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j94 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "ub16x64j95"
       nodeDescription: "ub16x64j95 - UNB Ubuntu 16"
@@ -543,7 +543,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.157 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j95 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "ub16x64j96"
       nodeDescription: "ub16x64j96 - UNB Ubuntu 16"
@@ -554,7 +554,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.158 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j96 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "ub16x64j97"
       nodeDescription: "ub16x64j91 - UNB Ubuntu 16"
@@ -565,7 +565,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.195 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j97 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "ub16x64j98"
       nodeDescription: "ub16x64j91 - UNB Ubuntu 16"
@@ -576,7 +576,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.184 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j98 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "ub16x64j99"
       nodeDescription: "ub16x64j91 - UNB Ubuntu 16"
@@ -587,7 +587,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.185 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j99 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "win2012r2-x86-1"
       nodeDescription: "oj9-win2012r2-1 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
