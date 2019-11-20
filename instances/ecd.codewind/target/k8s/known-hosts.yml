@@ -18,7 +18,6 @@ metadata:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "codewind"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S2"
   namespace: "codewind"
   name: known-hosts
 data:

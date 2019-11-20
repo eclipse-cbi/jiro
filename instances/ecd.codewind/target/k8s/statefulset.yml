@@ -18,7 +18,6 @@ metadata:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "codewind"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S2"
   namespace: "codewind"
   name: "codewind"
 spec:
@@ -37,7 +36,6 @@ spec:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
         org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "codewind"
-        org.eclipse.cbi.jiro/project.sponsorshipLevel: "S2"
       name: "codewind"
     spec:
       serviceAccountName: codewind
@@ -69,10 +67,10 @@ spec:
           protocol: TCP
         resources:
           requests:
-            cpu: 500m
+            cpu: 1250m
           limits:
-            cpu: 2
-            memory: 1.5Gi
+            cpu: 2500m
+            memory: 2816Mi
         volumeMounts:
         - mountPath: "/var/jenkins_home"
           name: jenkins-home
@@ -107,6 +105,8 @@ spec:
               -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
+              -DexecutableWar.jetty.disableCustomSessionIdCookieName=false
+              -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.codewind
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
               -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.35@sha256:5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340
               -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180

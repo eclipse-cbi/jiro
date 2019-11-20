@@ -28,7 +28,7 @@ jenkins:
       name: "ub18-01"
       numExecutors: 1
       remoteFS: "/home/root"
-      retentionStrategy: "always
+      retentionStrategy: "always"
 unclassified:
   gitHubPluginConfig:
     configs:

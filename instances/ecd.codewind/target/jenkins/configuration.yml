@@ -91,31 +91,31 @@ jenkins:
             containers:
             - name: jnlp
               volumeMounts:
-              - name: settings-xml
-                mountPath: /home/jenkins/.m2/settings.xml
-                subPath: settings.xml
-                readOnly: true
               - name: settings-security-xml
                 mountPath: /home/jenkins/.m2/settings-security.xml
                 subPath: settings-security.xml
+                readOnly: true
+              - name: settings-xml
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
                 readOnly: true
               - name: toolchains-xml
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
             volumes:
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
             - name: settings-security-xml
               secret:
                 secretName: m2-secret-dir
                 items:
                 - key: settings-security.xml
                   path: settings-security.xml
+            - name: settings-xml
+              secret:
+                secretName: m2-secret-dir
+                items:
+                - key: settings.xml
+                  path: settings.xml
             - name: toolchains-xml
               configMap:
                 name: m2-dir
@@ -174,31 +174,31 @@ jenkins:
             containers:
             - name: jnlp
               volumeMounts:
-              - name: settings-xml
-                mountPath: /home/jenkins/.m2/settings.xml
-                subPath: settings.xml
-                readOnly: true
               - name: settings-security-xml
                 mountPath: /home/jenkins/.m2/settings-security.xml
                 subPath: settings-security.xml
+                readOnly: true
+              - name: settings-xml
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
                 readOnly: true
               - name: toolchains-xml
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
             volumes:
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
             - name: settings-security-xml
               secret:
                 secretName: m2-secret-dir
                 items:
                 - key: settings-security.xml
                   path: settings-security.xml
+            - name: settings-xml
+              secret:
+                secretName: m2-secret-dir
+                items:
+                - key: settings.xml
+                  path: settings.xml
             - name: toolchains-xml
               configMap:
                 name: m2-dir
@@ -257,31 +257,31 @@ jenkins:
             containers:
             - name: jnlp
               volumeMounts:
-              - name: settings-xml
-                mountPath: /home/jenkins/.m2/settings.xml
-                subPath: settings.xml
-                readOnly: true
               - name: settings-security-xml
                 mountPath: /home/jenkins/.m2/settings-security.xml
                 subPath: settings-security.xml
+                readOnly: true
+              - name: settings-xml
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
                 readOnly: true
               - name: toolchains-xml
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
             volumes:
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
             - name: settings-security-xml
               secret:
                 secretName: m2-secret-dir
                 items:
                 - key: settings-security.xml
                   path: settings-security.xml
+            - name: settings-xml
+              secret:
+                secretName: m2-secret-dir
+                items:
+                - key: settings.xml
+                  path: settings.xml
             - name: toolchains-xml
               configMap:
                 name: m2-dir
@@ -310,6 +310,20 @@ jenkins:
       nodeDescription: 2vCPU, 8GB RAM, Hosted @ Azure
       numExecutors: 1
       remoteFS: /home/genie.codewind/jenkins-agent
+  - permanent:
+      launcher:
+        ssh:
+          credentialsId: codewind-bot-ub18-01
+          host: 169.45.82.155
+          port: 22
+          sshHostKeyVerificationStrategy:
+            manuallyTrustedKeyVerificationStrategy:
+              requireInitialManualTrust: false
+      mode: EXCLUSIVE
+      name: ub18-01
+      numExecutors: 1
+      remoteFS: /home/root
+      retentionStrategy: always
   numExecutors: 0
   remotingSecurity:
     enabled: true
