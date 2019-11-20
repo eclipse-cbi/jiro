@@ -24,6 +24,8 @@ pw_store_root_dir=~/.password-store
 pw_store_path=cbi-pass/bots/${project_name}
 nexus_creds_path=cbi-pass/nexus
 mvn_master_pw_path=${pw_store_path}/apache-maven-security-settings/master-password
+ossrh_pw_path=${pw_store_path}/oss.sonatype.org/password
+gpg_pw_path=${pw_store_path}/gpg/passphrase
 secret_name="m2-secret-dir"
 
 usage() {
@@ -57,7 +59,7 @@ pw_gen() {
   if hash pwgen 2>/dev/null; then
     pwgen -1 -s -y $1
   else
-    </dev/urandom tr -dc 'A-Za-z0-9!"#$%&'\''()*+,-./:;<=>?@[\]^_`{|}~' | head -c $1
+    </dev/urandom tr -dc 'A-Za-z0-9!"#$%&()*+,-./:;<=>?@[\]^_{|}~' | head -c $1
   fi
 }
 
@@ -103,13 +105,6 @@ EOG
 }
 
 generate_ossrh_settings() {
-  ossrh_pw_path=${pw_store_path}/oss.sonatype.org/password
-  # check if pw exists in pass
-  if [ ! -f ${pw_store_root_dir}/${ossrh_pw_path}.gpg ]; then
-    printf "ERROR: OSSRH password is missing in pass.\n"
-    exit 1
-  fi
-
   # encrypt ossrh pw
   ossrh_user=$(pass ${pw_store_path}/oss.sonatype.org/username)
   ossrh_pw=$(pass ${ossrh_pw_path})
@@ -126,12 +121,6 @@ EOF2
 }
 
 generate_gpg_settings() {
-  gpg_pw_path=${pw_store_path}/gpg/passphrase
-  # check if pw exists in pass
-  if [ ! -f ${pw_store_root_dir}/${gpg_pw_path}.gpg ]; then
-    printf "ERROR: GPG passphrase is missing in pass.\n"
-    exit 1
-  fi
   # encrypt gpg passphrase
   gpg_pw=$(pass ${gpg_pw_path})
   gpg_pw_enc=$(mvn --encrypt-password "$(printf "%s" ${gpg_pw})" -Dsettings.security=${mvn_security_file})
@@ -161,9 +150,18 @@ generate_mvn_settings() {
     </server>
 EOF1
 
-yes_no_exit "add OSSRH credentials" generate_ossrh_settings :
+# check if pw exists in pass
+if [ -f ${pw_store_root_dir}/${ossrh_pw_path}.gpg ]; then
+  yes_no_exit "add OSSRH credentials" generate_ossrh_settings :
+else
+  printf "OSSRH password is missing in pass. Skipping...\n"
+fi
 
-yes_no_exit "add GPG credentials" generate_gpg_settings :
+if [ -f ${pw_store_root_dir}/${gpg_pw_path}.gpg ]; then
+  yes_no_exit "add GPG credentials" generate_gpg_settings :
+else
+  printf "GPG passphrase is missing in pass. Skipping...\n"
+fi
 
   cat <<EOF4 >> ${mvn_settings_file}
   </servers>
