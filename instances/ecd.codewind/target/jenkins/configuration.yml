@@ -311,6 +311,7 @@ jenkins:
       numExecutors: 1
       remoteFS: /home/genie.codewind/jenkins-agent
   - permanent:
+      labelString: docker-build
       launcher:
         ssh:
           credentialsId: codewind-bot-ub18-01
