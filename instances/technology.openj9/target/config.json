@@ -10,7 +10,7 @@
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
-        "sha256": "5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340",
+        "sha256": "b8378db77911373b6de441b39c2148d776a424abe67459cd1918322e65cfffd1",
         "tag": "3.35"
       }
     },
@@ -25,7 +25,7 @@
       "username": "jenkins",
       "war": "/usr/share/jenkins/jenkins.war",
       "webroot": "/var/cache/jenkins/war",
-      "imageSha256": "7fcad5bee67afd7b5d8a9457ab2329bea70bec8404eb275e1d66c2ad6c92e6e1"
+      "imageSha256": "59746bd83379a1c5d6ffe42befd726fed5da11841d07433404985c165b12f60d"
     },
     "repository": "eclipsecbijenkins"
   },
@@ -78,6 +78,106 @@
           "Agent/Disconnect"
         ],
         "principal": "technology.openj9"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ],
+        "principal": "anonymous"
+      },
+      {
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ],
+        "principal": "common"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Administer"
+        ],
+        "principal": "admins"
+      },
+      {
+        "grantedPermissions": [
+          "Agent/Configure"
+        ],
+        "principal": "peter_shipton@ca.ibm.com"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ],
+        "principal": "anonymous"
+      },
+      {
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ],
+        "principal": "common"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Administer"
+        ],
+        "principal": "admins"
+      },
+      {
+        "grantedPermissions": [
+          "Agent/Configure"
+        ],
+        "principal": "daniel_heidinga@ca.ibm.com"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ],
+        "principal": "anonymous"
+      },
+      {
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ],
+        "principal": "common"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Administer"
+        ],
+        "principal": "admins"
+      },
+      {
+        "grantedPermissions": [
+          "Agent/Configure"
+        ],
+        "principal": "adam.brousseau88@gmail.com"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ],
+        "principal": "anonymous"
+      },
+      {
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ],
+        "principal": "common"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Administer"
+        ],
+        "principal": "admins"
+      },
+      {
+        "grantedPermissions": [
+          "Agent/Configure"
+        ],
+        "principal": "joe_dekoning@ca.ibm.com"
       }
     ],
     "staticAgentCount": 50,
