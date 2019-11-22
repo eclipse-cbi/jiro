@@ -1,0 +1,11 @@
+{
+   "apiVersion": "v1",
+   "kind": "Namespace",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.glassfish",
+         "org.eclipse.cbi.jiro/project.shortname": "glassfish"
+      },
+      "name": "glassfish"
+   }
+}
