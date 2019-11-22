@@ -34,6 +34,10 @@ technology.cbi
   - Slack plugin:
     - Slack configuration
 
+technology.collections
+  - ConfigFileProvider
+    - gradle.properties
+
 technology.openj9
   - GHPRB General config
   - artifactory settings (artifactory plugin has issues with JCasC)
