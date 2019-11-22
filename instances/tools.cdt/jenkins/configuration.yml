@@ -4,3 +4,5 @@ unclassified:
     - categoryName: "low-priority-jobs"
       maxConcurrentPerNode: 0
       maxConcurrentTotal: 0
+  timestamperConfig:
+    allPipelines: true
