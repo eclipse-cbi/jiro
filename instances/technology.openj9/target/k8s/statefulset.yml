@@ -50,7 +50,7 @@ spec:
             -Dkubernetes.websocket.ping.interval=30000
         - name: JENKINS_OPTS
           value: --prefix=/openj9 --webroot=/var/cache/jenkins/war --pluginroot=/var/cache/jenkins/plugins
-        image: eclipsecbijenkins/openj9:2.190.1@sha256:59746bd83379a1c5d6ffe42befd726fed5da11841d07433404985c165b12f60d
+        image: eclipsecbijenkins/openj9:2.190.1@sha256:7fcad5bee67afd7b5d8a9457ab2329bea70bec8404eb275e1d66c2ad6c92e6e1
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 5
