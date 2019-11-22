@@ -400,7 +400,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.174 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j91 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "ub16p8j92"
       nodeDescription: "ub16p8j92 - UNB Ubuntu 16 p8le"
@@ -411,7 +411,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.175 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j92 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "ub16p8j93"
       nodeDescription: "ub16p8j93 - UNB Ubuntu 16 p8le"
@@ -422,7 +422,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.176 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j93 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "ub16p8j94"
       nodeDescription: "ub16p8j94 - UNB Ubuntu 16 p8le"
@@ -433,7 +433,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.177 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j94 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "ub16p8j95"
       nodeDescription: "ub16p8j95 - UNB Ubuntu 16 p8le ci.role.build"
@@ -444,7 +444,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.178 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j95 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "ub16p8j96"
       nodeDescription: "ub16p8j96 - UNB Ubuntu 16 p8le"
@@ -455,7 +455,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.179 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j96 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
       name: "ub16-ppcle-1"
       nodeDescription: "eclipse-openj9-1 Linux PPC64LE Ubuntu 16.04. 4CPU 8GB Ram 78GB Disk"
