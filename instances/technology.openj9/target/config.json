@@ -10,7 +10,7 @@
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
-        "sha256": "b8378db77911373b6de441b39c2148d776a424abe67459cd1918322e65cfffd1",
+        "sha256": "5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340",
         "tag": "3.35"
       }
     },
@@ -25,7 +25,7 @@
       "username": "jenkins",
       "war": "/usr/share/jenkins/jenkins.war",
       "webroot": "/var/cache/jenkins/war",
-      "imageSha256": "59746bd83379a1c5d6ffe42befd726fed5da11841d07433404985c165b12f60d"
+      "imageSha256": "4a6f6d9a0d1b4d9a407ab059a0d64a7408a7c7b2b4cd206eab0fe74ee80cad34"
     },
     "repository": "eclipsecbijenkins"
   },
@@ -78,6 +78,58 @@
           "Agent/Disconnect"
         ],
         "principal": "technology.openj9"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ],
+        "principal": "anonymous"
+      },
+      {
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ],
+        "principal": "common"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Administer"
+        ],
+        "principal": "admins"
+      },
+      {
+        "grantedPermissions": [
+          "Agent/Connect",
+          "Agent/Disconnect"
+        ],
+        "principal": "adam.brousseau88@gmail.com"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ],
+        "principal": "anonymous"
+      },
+      {
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ],
+        "principal": "common"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Administer"
+        ],
+        "principal": "admins"
+      },
+      {
+        "grantedPermissions": [
+          "Agent/Connect",
+          "Agent/Disconnect"
+        ],
+        "principal": "joe_dekoning@ca.ibm.com"
       },
       {
         "grantedPermissions": [

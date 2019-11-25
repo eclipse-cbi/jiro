@@ -7,12 +7,16 @@ jenkins:
     projectMatrix:
       permissions:
       - Agent/Configure:adam.brousseau88@gmail.com
+      - Agent/Connect:adam.brousseau88@gmail.com
+      - Agent/Disconnect:adam.brousseau88@gmail.com
       - Overall/Administer:admins
       - Job/Read:anonymous
       - Overall/Read:anonymous
       - Job/ExtendedRead:common
       - Agent/Configure:daniel_heidinga@ca.ibm.com
       - Agent/Configure:joe_dekoning@ca.ibm.com
+      - Agent/Connect:joe_dekoning@ca.ibm.com
+      - Agent/Disconnect:joe_dekoning@ca.ibm.com
       - Agent/Configure:peter_shipton@ca.ibm.com
       - Agent/Build:technology.openj9
       - Agent/Connect:technology.openj9
@@ -47,7 +51,7 @@ jenkins:
       - containers:
         - args: ""
           command: ""
-          image: eclipsecbijenkins/jenkins-agent:3.35@sha256:b8378db77911373b6de441b39c2148d776a424abe67459cd1918322e65cfffd1
+          image: eclipsecbijenkins/jenkins-agent:3.35@sha256:5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -764,7 +768,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.174 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j91 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16p8j91
@@ -778,7 +782,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.175 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j92 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16p8j92
@@ -792,7 +796,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.176 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j93 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16p8j93
@@ -806,7 +810,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.177 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j94 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16p8j94
@@ -820,7 +824,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.178 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j95 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16p8j95
@@ -834,7 +838,7 @@ jenkins:
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.179 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j96 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'"
       mode: EXCLUSIVE
       name: ub16p8j96
