@@ -12,7 +12,7 @@ kind: "Service"
 metadata:
   labels:
     org.eclipse.cbi.jiro/project.shortname: "modisco"
-    org.eclipse.cbi.jiro/project.fullName: "modeling.mdt.modisco"
+    org.eclipse.cbi.jiro/project.fullName: "modeling.modisco"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
@@ -27,4 +27,4 @@ spec:
     protocol: "TCP"
     targetPort: 8080
   selector:
-    org.eclipse.cbi.jiro/project.fullName: "modeling.mdt.modisco"
+    org.eclipse.cbi.jiro/project.fullName: "modeling.modisco"

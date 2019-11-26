@@ -12,7 +12,7 @@ kind: StatefulSet
 metadata:
   labels:
     org.eclipse.cbi.jiro/project.shortname: "modisco"
-    org.eclipse.cbi.jiro/project.fullName: "modeling.mdt.modisco"
+    org.eclipse.cbi.jiro/project.fullName: "modeling.modisco"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
@@ -24,13 +24,13 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      org.eclipse.cbi.jiro/project.fullName: "modeling.mdt.modisco"
+      org.eclipse.cbi.jiro/project.fullName: "modeling.modisco"
   serviceName: "modisco"
   template:
     metadata:
       labels:
         org.eclipse.cbi.jiro/project.shortname: "modisco"
-        org.eclipse.cbi.jiro/project.fullName: "modeling.mdt.modisco"
+        org.eclipse.cbi.jiro/project.fullName: "modeling.modisco"
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
         org.eclipse.cbi.jiro/jenkins.version: "latest"

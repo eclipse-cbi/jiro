@@ -1,6 +1,6 @@
 {
   project+: {
-    fullName: "modeling.mdt.modisco",
+    fullName: "modeling.modisco",
     shortName: "modisco",
     displayName: "Eclipse MoDisco",
   },

@@ -77,7 +77,7 @@
           "Gerrit/ManualTrigger",
           "Gerrit/Retrigger"
         ],
-        "principal": "modeling.mdt.modisco"
+        "principal": "modeling.modisco"
       }
     ],
     "staticAgentCount": 0,
@@ -147,10 +147,10 @@
   },
   "project": {
     "displayName": "Eclipse MoDisco",
-    "fullName": "modeling.mdt.modisco",
+    "fullName": "modeling.modisco",
     "resourcePacks": 1,
     "shortName": "modisco",
-    "unixGroupName": "modeling.mdt.modisco"
+    "unixGroupName": "modeling.modisco"
   },
   "secrets": {
     "gerrit-trigger-plugin": {

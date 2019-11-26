@@ -6,7 +6,7 @@
          "haproxy.router.openshift.io/timeout": "60s"
       },
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "modeling.mdt.modisco",
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.modisco",
          "org.eclipse.cbi.jiro/project.shortname": "modisco"
       },
       "name": "modisco",

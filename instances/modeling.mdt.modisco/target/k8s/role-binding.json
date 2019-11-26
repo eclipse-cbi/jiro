@@ -3,7 +3,7 @@
    "kind": "RoleBinding",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "modeling.mdt.modisco",
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.modisco",
          "org.eclipse.cbi.jiro/project.shortname": "modisco"
       },
       "name": "modisco",
