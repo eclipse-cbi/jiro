@@ -10,7 +10,7 @@
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
-        "sha256": "b8378db77911373b6de441b39c2148d776a424abe67459cd1918322e65cfffd1",
+        "sha256": "5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340",
         "tag": "3.35"
       }
     },
@@ -25,7 +25,7 @@
       "username": "jenkins",
       "war": "/usr/share/jenkins/jenkins.war",
       "webroot": "/var/cache/jenkins/war",
-      "imageSha256": "c301a887019190872ca83a7b7bd1be3b73f91c0591d39854b241357857fe9cb3"
+      "imageSha256": "b4cc823653694138dd2041e1154dcb078a9ac1ab65bc1971034cb764b5dbe447"
     },
     "repository": "eclipsecbijenkins"
   },
@@ -81,6 +81,25 @@
       },
       {
         "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ],
+        "principal": "anonymous"
+      },
+      {
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ],
+        "principal": "common"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Administer"
+        ],
+        "principal": "admins"
+      },
+      {
+        "grantedPermissions": [
           "Agent/Build",
           "Credentials/View",
           "Job/Build",
@@ -103,6 +122,32 @@
           "Gerrit/Retrigger"
         ],
         "principal": "eclipse.platform"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ],
+        "principal": "anonymous"
+      },
+      {
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ],
+        "principal": "common"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Administer"
+        ],
+        "principal": "admins"
+      },
+      {
+        "grantedPermissions": [
+          "Agent/Connect",
+          "Agent/Disconnect"
+        ],
+        "principal": "sravankumarl@in.ibm.com"
       }
     ],
     "staticAgentCount": 0,

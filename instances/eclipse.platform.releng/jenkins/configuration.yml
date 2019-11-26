@@ -89,7 +89,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@199.229.252.222 "curl https://hudson.eclipse.org/releng/jnlpJars/slave.jar > slave.jar; java -jar slave.jar"'
+          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@199.229.252.222 "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > slave.jar; java -jar slave.jar"'
   - permanent:
       name: "r74dp-macos-10.13"
       nodeDescription: ""
@@ -100,7 +100,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@199.229.252.231 "curl https://hudson.eclipse.org/releng/jnlpJars/slave.jar > slave.jar; java -jar slave.jar"'
+          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@199.229.252.231 "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > slave.jar; java -jar slave.jar"'
   - permanent:
       name: "rhel-7-1"
       nodeDescription: ""
@@ -111,7 +111,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@35.196.120.228 "curl https://hudson.eclipse.org/releng/jnlpJars/slave.jar > slave.jar; java -jar slave.jar"'
+          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@35.196.120.228 "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > slave.jar; java -jar slave.jar"'
       nodeProperties:
       - toolLocation:
           locations:

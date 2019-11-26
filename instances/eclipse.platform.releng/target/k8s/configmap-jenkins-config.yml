@@ -73,6 +73,8 @@ data:
           - View/Create:eclipse.platform.releng
           - View/Delete:eclipse.platform.releng
           - View/Read:eclipse.platform.releng
+          - Agent/Connect:sravankumarl@in.ibm.com
+          - Agent/Disconnect:sravankumarl@in.ibm.com
       clouds:
       - kubernetes:
           containerCapStr: "8"
@@ -86,7 +88,7 @@ data:
           - containers:
             - args: ""
               command: ""
-              image: eclipsecbijenkins/jenkins-agent:3.35@sha256:b8378db77911373b6de441b39c2148d776a424abe67459cd1918322e65cfffd1
+              image: eclipsecbijenkins/jenkins-agent:3.35@sha256:5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -428,7 +430,7 @@ data:
           launcher:
             command:
               command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@199.229.252.222
-                "curl https://hudson.eclipse.org/releng/jnlpJars/slave.jar > slave.jar;
+                "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > slave.jar;
                 java -jar slave.jar"
           mode: EXCLUSIVE
           name: macos-10.12-1
@@ -441,7 +443,7 @@ data:
           launcher:
             command:
               command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@199.229.252.231
-                "curl https://hudson.eclipse.org/releng/jnlpJars/slave.jar > slave.jar;
+                "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > slave.jar;
                 java -jar slave.jar"
           mode: EXCLUSIVE
           name: r74dp-macos-10.13
@@ -454,7 +456,7 @@ data:
           launcher:
             command:
               command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@35.196.120.228
-                "curl https://hudson.eclipse.org/releng/jnlpJars/slave.jar > slave.jar;
+                "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > slave.jar;
                 java -jar slave.jar"
           mode: EXCLUSIVE
           name: rhel-7-1
