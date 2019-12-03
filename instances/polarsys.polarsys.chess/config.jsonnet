@@ -1,7 +1,0 @@
-{
-  project+: {
-    fullName: "polarsys.polarsys.chess",
-    shortName: "chess",
-    displayName: "Eclipse Chess"
-  }
-}

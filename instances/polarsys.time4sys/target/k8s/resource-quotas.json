@@ -3,7 +3,7 @@
    "kind": "ResourceQuota",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "polarsys.polarsys.time4sys",
+         "org.eclipse.cbi.jiro/project.fullName": "polarsys.time4sys",
          "org.eclipse.cbi.jiro/project.shortname": "time4sys"
       },
       "name": "jenkins-instance-quota",

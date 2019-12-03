@@ -77,31 +77,6 @@
           "Gerrit/ManualTrigger",
           "Gerrit/Retrigger"
         ],
-        "principal": "polarsys.polarsys.time4sys"
-      },
-      {
-        "grantedPermissions": [
-          "Agent/Build",
-          "Credentials/View",
-          "Job/Build",
-          "Job/Cancel",
-          "Job/Configure",
-          "Job/Create",
-          "Job/Delete",
-          "Job/Move",
-          "Job/Read",
-          "Job/Workspace",
-          "Run/Delete",
-          "Run/Replay",
-          "Run/Update",
-          "SCM/Tag",
-          "View/Configure",
-          "View/Create",
-          "View/Delete",
-          "View/Read",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger"
-        ],
         "principal": "polarsys.time4sys"
       }
     ],
@@ -172,10 +147,10 @@
   },
   "project": {
     "displayName": "Eclipse Time4Sys",
-    "fullName": "polarsys.polarsys.time4sys",
+    "fullName": "polarsys.time4sys",
     "resourcePacks": 1,
     "shortName": "time4sys",
-    "unixGroupName": "polarsys.polarsys.time4sys"
+    "unixGroupName": "polarsys.time4sys"
   },
   "secrets": {
     "gerrit-trigger-plugin": {

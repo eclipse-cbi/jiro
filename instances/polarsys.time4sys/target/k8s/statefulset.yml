@@ -12,7 +12,7 @@ kind: StatefulSet
 metadata:
   labels:
     org.eclipse.cbi.jiro/project.shortname: "time4sys"
-    org.eclipse.cbi.jiro/project.fullName: "polarsys.polarsys.time4sys"
+    org.eclipse.cbi.jiro/project.fullName: "polarsys.time4sys"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
@@ -24,13 +24,13 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      org.eclipse.cbi.jiro/project.fullName: "polarsys.polarsys.time4sys"
+      org.eclipse.cbi.jiro/project.fullName: "polarsys.time4sys"
   serviceName: "time4sys"
   template:
     metadata:
       labels:
         org.eclipse.cbi.jiro/project.shortname: "time4sys"
-        org.eclipse.cbi.jiro/project.fullName: "polarsys.polarsys.time4sys"
+        org.eclipse.cbi.jiro/project.fullName: "polarsys.time4sys"
         org.eclipse.cbi.jiro/kind: "master"
       annotations:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
@@ -105,6 +105,8 @@ spec:
               -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
+              -DexecutableWar.jetty.disableCustomSessionIdCookieName=false
+              -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.time4sys
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
               -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.35@sha256:5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340
               -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
