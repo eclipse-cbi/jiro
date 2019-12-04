@@ -42,7 +42,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/jta:2.190.1@sha256:02e935cfd9f5bc4ce8c81ee0b44986e96eccf4e3c91fc189bbc75215589edb59
+        image: eclipsecbijenkins/jta:2.190.1@sha256:94b570d2b7c2027fe7146bede0ce87c120afd12550b9c219a03365a18cb9876e
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -105,6 +105,8 @@ spec:
               -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
+              -DexecutableWar.jetty.disableCustomSessionIdCookieName=false
+              -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.jta
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
               -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.35@sha256:5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340
               -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
