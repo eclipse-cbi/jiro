@@ -362,7 +362,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/capella
+        url: https://ci.eclipse.org/capella
     
       mailer:
         replyToAddress: ci-admin@eclipse.org

@@ -1,10 +1,10 @@
 {
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "jnlpPort": 50000,
     "prefix": "/capella",
     "uiPort": 8080,
-    "url": "https://ci-staging.eclipse.org/capella"
+    "url": "https://ci.eclipse.org/capella"
   },
   "docker": {
     "agent": {
