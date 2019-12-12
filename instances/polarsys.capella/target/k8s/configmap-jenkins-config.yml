@@ -89,7 +89,7 @@ data:
       clouds:
       - kubernetes:
           name: "kubernetes"
-          containerCapStr: "2"
+          containerCapStr: "4"
           jenkinsUrl: "http://jenkins-ui.capella.svc.cluster.local/capella"
           jenkinsTunnel: "jenkins-discovery.capella.svc.cluster.local:50000"
           maxRequestsPerHostStr: "32"

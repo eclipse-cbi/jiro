@@ -2,6 +2,7 @@
   project+: {
     fullName: "polarsys.capella",
     shortName: "capella",
-    displayName: "Eclipse Capella"
+    displayName: "Eclipse Capella",
+    resourcePacks: 2
   }
 }

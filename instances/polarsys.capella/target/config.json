@@ -33,7 +33,7 @@
     "actualRemotingVersion": "3.35",
     "actualVersion": "2.190.1",
     "agentConnectionTimeout": 180,
-    "maxConcurrency": 2,
+    "maxConcurrency": 4,
     "permissions": [
       {
         "grantedPermissions": [
@@ -118,11 +118,11 @@
       "resources": {
         "cpu": {
           "limit": "2000m",
-          "request": "500m"
+          "request": "800m"
         },
         "memory": {
-          "limit": "1536Mi",
-          "request": "1536Mi"
+          "limit": "2048Mi",
+          "request": "2048Mi"
         }
       },
       "stsName": "capella"
@@ -148,7 +148,7 @@
   "project": {
     "displayName": "Eclipse Capella",
     "fullName": "polarsys.capella",
-    "resourcePacks": 1,
+    "resourcePacks": 2,
     "shortName": "capella",
     "unixGroupName": "polarsys.capella"
   },
