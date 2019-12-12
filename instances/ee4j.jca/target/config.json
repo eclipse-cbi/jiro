@@ -25,7 +25,7 @@
       "username": "jenkins",
       "war": "/usr/share/jenkins/jenkins.war",
       "webroot": "/var/cache/jenkins/war",
-      "imageSha256": "858c373ce1136842f839eb025911d20c67fd08bc4b6667803c500ea94ea4b2f4"
+      "imageSha256": "579faac90312234796fe450110ce093d4374d4054ccb3e6ea1fcee46f3d8749a"
     },
     "repository": "eclipsecbijenkins"
   },
