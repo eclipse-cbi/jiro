@@ -1,0 +1,161 @@
+{
+  "deployment": {
+    "host": "ci.eclipse.org",
+    "jnlpPort": 50000,
+    "prefix": "/jkube",
+    "uiPort": 8080,
+    "url": "https://ci.eclipse.org/jkube"
+  },
+  "docker": {
+    "agent": {
+      "defaultImage": {
+        "name": "eclipsecbijenkins/jenkins-agent",
+        "sha256": "5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340",
+        "tag": "3.35"
+      }
+    },
+    "master": {
+      "home": "/var/jenkins_home",
+      "image": "eclipsecbijenkins/jkube",
+      "imageTag": "2.190.1",
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.190.1",
+      "pluginroot": "/var/cache/jenkins/plugins",
+      "ref": "/usr/share/jenkins/ref",
+      "updateCenter": "https://updates.jenkins.io",
+      "username": "jenkins",
+      "war": "/usr/share/jenkins/jenkins.war",
+      "webroot": "/var/cache/jenkins/war",
+      "imageSha256": "bf567fb2c075d1cdc9cd88eb1939f48a6e47cbe110550a5b658d34a06e6f93ac"
+    },
+    "repository": "eclipsecbijenkins"
+  },
+  "jenkins": {
+    "actualRemotingVersion": "3.35",
+    "actualVersion": "2.190.1",
+    "agentConnectionTimeout": 180,
+    "maxConcurrency": 2,
+    "permissions": [
+      {
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ],
+        "principal": "anonymous"
+      },
+      {
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ],
+        "principal": "common"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Administer"
+        ],
+        "principal": "admins"
+      },
+      {
+        "grantedPermissions": [
+          "Agent/Build",
+          "Credentials/View",
+          "Job/Build",
+          "Job/Cancel",
+          "Job/Configure",
+          "Job/Create",
+          "Job/Delete",
+          "Job/Move",
+          "Job/Read",
+          "Job/Workspace",
+          "Run/Delete",
+          "Run/Replay",
+          "Run/Update",
+          "SCM/Tag",
+          "View/Configure",
+          "View/Create",
+          "View/Delete",
+          "View/Read",
+          "Gerrit/ManualTrigger",
+          "Gerrit/Retrigger"
+        ],
+        "principal": "ecd.jkube"
+      }
+    ],
+    "staticAgentCount": 0,
+    "theme": "quicksilver",
+    "timezone": "America/Toronto",
+    "version": "latest"
+  },
+  "kubernetes": {
+    "agents": {
+      "defaultResources": {
+        "cpu": {
+          "limit": "2000m",
+          "request": "1000m"
+        },
+        "memory": {
+          "limit": "4096Mi",
+          "request": "4096Mi"
+        }
+      },
+      "namespace": "jkube"
+    },
+    "master": {
+      "namespace": "jkube",
+      "probe": {
+        "liveness": {
+          "delaySeconds": 480,
+          "failureThreshold": 5,
+          "periodSeconds": 30,
+          "timeoutSeconds": 30
+        },
+        "readiness": {
+          "delaySeconds": 1,
+          "failureThreshold": 5,
+          "periodSeconds": 5,
+          "timeoutSeconds": 10
+        }
+      },
+      "resources": {
+        "cpu": {
+          "limit": "2000m",
+          "request": "500m"
+        },
+        "memory": {
+          "limit": "1536Mi",
+          "request": "1536Mi"
+        }
+      },
+      "stsName": "jkube"
+    }
+  },
+  "maven": {
+    "files": {
+      "settings-security.xml": {
+        "volumeName": "m2-secret-dir",
+        "volumeType": "Secret"
+      },
+      "settings.xml": {
+        "volumeName": "m2-secret-dir",
+        "volumeType": "Secret"
+      },
+      "toolchains.xml": {
+        "volumeName": "m2-dir",
+        "volumeType": "ConfigMap"
+      }
+    },
+    "home": "/home/jenkins/.m2"
+  },
+  "project": {
+    "displayName": "Eclipse JKube",
+    "fullName": "ecd.jkube",
+    "resourcePacks": 1,
+    "shortName": "jkube",
+    "unixGroupName": "ecd.jkube"
+  },
+  "secrets": {
+    "gerrit-trigger-plugin": {
+      "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
+      "username": "genie.jkube"
+    }
+  }
+}
