@@ -1,9 +1,14 @@
+// https://wiki.jenkins.io/display/JENKINS/Remove+Git+Plugin+BuildsByBranch+BuildData
 import hudson.matrix.*
 import hudson.model.*
  
 hudsonInstance = hudson.model.Hudson.instance
-allItems = hudsonInstance.getAllItems(AbstractProject.class);
- 
+jobNames = hudsonInstance.getJobNames()
+allItems = []
+for (name in jobNames) {
+  allItems += hudsonInstance.getItemByFullName(name)
+}
+  
 // Iterate over all jobs and find the ones that have a hudson.plugins.git.util.BuildData
 // as an action.
 //
