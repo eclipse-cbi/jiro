@@ -6,6 +6,7 @@
     resourcePacks: 15
   },
   jenkins+: {
-    agentConnectionTimeout: 300
+    agentConnectionTimeout: 300,
+    theme: "quicksilver-light"
   }
 }
