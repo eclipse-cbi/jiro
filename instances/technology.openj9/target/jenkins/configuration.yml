@@ -51,7 +51,7 @@ jenkins:
       - containers:
         - args: ""
           command: ""
-          image: eclipsecbijenkins/jenkins-agent:3.35@sha256:5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340
+          image: eclipsecbijenkins/jenkins-agent:3.35@sha256:dff125e05404688a78bd67d5b47d107d98ec7583282e8ed9ca6646a2a76874e2
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -707,8 +707,7 @@ jenkins:
       remoteFS: /Users/jenkins
       retentionStrategy: always
   - permanent:
-      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
-        ci.role.test sw.tool.docker ci.geo.marist
+      labelString: ""
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.33.172
@@ -721,8 +720,7 @@ jenkins:
       remoteFS: /home/jenkins/jenkins-agent
       retentionStrategy: always
   - permanent:
-      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
-        ci.role.test sw.tool.docker ci.geo.marist
+      labelString: ""
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.33.173
@@ -735,8 +733,7 @@ jenkins:
       remoteFS: /home/jenkins/jenkins-agent
       retentionStrategy: always
   - permanent:
-      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
-        ci.role.test sw.tool.docker ci.geo.marist
+      labelString: ""
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.33.174
@@ -749,8 +746,7 @@ jenkins:
       remoteFS: /home/jenkins/jenkins-agent
       retentionStrategy: always
   - permanent:
-      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 sw.tool.docker
-        ci.geo.marist ci.role.build ci.role.test
+      labelString: ""
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.33.175
@@ -761,6 +757,62 @@ jenkins:
       nodeDescription: LXEOJ904 Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
       numExecutors: 1
       remoteFS: /home/jenkins/jenkins-agent
+      retentionStrategy: always
+  - permanent:
+      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
+        ci.role.test sw.tool.docker ci.geo.marist
+      launcher:
+        command:
+          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.113.51
+            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
+            exec java -jar slave.jar"
+      mode: EXCLUSIVE
+      name: ub16-390-5
+      nodeDescription: Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
+      numExecutors: 1
+      remoteFS: /home/jenkins
+      retentionStrategy: always
+  - permanent:
+      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
+        ci.role.test sw.tool.docker ci.geo.marist
+      launcher:
+        command:
+          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.113.62
+            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
+            exec java -jar slave.jar"
+      mode: EXCLUSIVE
+      name: ub16-390-6
+      nodeDescription: Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
+      numExecutors: 1
+      remoteFS: /home/jenkins
+      retentionStrategy: always
+  - permanent:
+      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
+        ci.role.test sw.tool.docker ci.geo.marist
+      launcher:
+        command:
+          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.113.73
+            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
+            exec java -jar slave.jar"
+      mode: EXCLUSIVE
+      name: ub16-390-7
+      nodeDescription: Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
+      numExecutors: 1
+      remoteFS: /home/jenkins
+      retentionStrategy: always
+  - permanent:
+      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
+        ci.role.test sw.tool.docker ci.geo.marist
+      launcher:
+        command:
+          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.113.63
+            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
+            exec java -jar slave.jar"
+      mode: EXCLUSIVE
+      name: ub16-390-8
+      nodeDescription: Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
+      numExecutors: 1
+      remoteFS: /home/jenkins
       retentionStrategy: always
   - permanent:
       labelString: ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
