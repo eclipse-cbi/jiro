@@ -18,7 +18,6 @@ metadata:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jakartaee-tck"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "SP1"
   namespace: "jakartaee-tck"
   name: "jakartaee-tck"
 spec:
@@ -37,14 +36,13 @@ spec:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
         org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "jakartaee-tck"
-        org.eclipse.cbi.jiro/project.sponsorshipLevel: "SP1"
       name: "jakartaee-tck"
     spec:
       serviceAccountName: jakartaee-tck
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/jakartaee-tck:2.190.1@sha256:cbbb8ee5c07986d37f7f2e8f9d762d985773d918640813964d8fd5c1f870c471
+        image: eclipsecbijenkins/jakartaee-tck:2.190.1@sha256:faf72aea4c7d1053bde1d270b43775d9e93b18e9260f21dc18aa4951a62fed06
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -69,10 +67,10 @@ spec:
           protocol: TCP
         resources:
           requests:
-            cpu: 4000m
+            cpu: 3950m
           limits:
-            cpu: 8000m
-            memory: 16384Mi
+            cpu: 7900m
+            memory: 7424Mi
         volumeMounts:
         - mountPath: "/var/jenkins_home"
           name: jenkins-home
@@ -107,8 +105,10 @@ spec:
               -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
+              -DexecutableWar.jetty.disableCustomSessionIdCookieName=false
+              -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.jakartaee-tck
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.35@sha256:0d309710872c3a12f22394f2015b8764e039391b2c91801d53ed4f9ef76cb2fe
               -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=300
               -Dkubernetes.websocket.ping.interval=30000
           - name: JENKINS_OPTS

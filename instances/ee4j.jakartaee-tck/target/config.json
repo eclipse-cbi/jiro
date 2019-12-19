@@ -1,43 +1,63 @@
 {
-  "project": {
-    "shortName": "jakartaee-tck",
-    "fullName": "ee4j.jakartaee-tck",
-    "displayName": "Eclipse Jakarta EE TCK",
-    "sponsorshipLevel": "SP1"
+  "deployment": {
+    "host": "ci.eclipse.org",
+    "jnlpPort": 50000,
+    "prefix": "/jakartaee-tck",
+    "uiPort": 8080,
+    "url": "https://ci.eclipse.org/jakartaee-tck"
+  },
+  "docker": {
+    "agent": {
+      "defaultImage": {
+        "name": "eclipsecbijenkins/jenkins-agent",
+        "sha256": "0d309710872c3a12f22394f2015b8764e039391b2c91801d53ed4f9ef76cb2fe",
+        "tag": "3.35"
+      }
+    },
+    "master": {
+      "home": "/var/jenkins_home",
+      "image": "eclipsecbijenkins/jakartaee-tck",
+      "imageTag": "2.190.1",
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.190.1",
+      "pluginroot": "/var/cache/jenkins/plugins",
+      "ref": "/usr/share/jenkins/ref",
+      "updateCenter": "https://updates.jenkins.io",
+      "username": "jenkins",
+      "war": "/usr/share/jenkins/jenkins.war",
+      "webroot": "/var/cache/jenkins/war",
+      "imageSha256": "faf72aea4c7d1053bde1d270b43775d9e93b18e9260f21dc18aa4951a62fed06"
+    },
+    "repository": "eclipsecbijenkins"
   },
   "jenkins": {
-    "version": "latest",
-    "remotingVersion": "latest",
-    "maxConcurrency": 25,
+    "actualRemotingVersion": "3.35",
+    "actualVersion": "2.190.1",
     "agentConnectionTimeout": 300,
-    "timezone": "America/Toronto",
-    "theme": "quicksilver",
+    "maxConcurrency": 25,
     "permissions": [
       {
-        "principal": "anonymous",
         "grantedPermissions": [
           "Overall/Read",
           "Job/Read"
-        ]
+        ],
+        "principal": "anonymous"
       },
       {
-        "principal": "common",
         "grantedPermissions": [
           "Job/ExtendedRead"
-        ]
+        ],
+        "principal": "common"
       },
       {
-        "principal": "admins",
         "grantedPermissions": [
           "Overall/Administer"
-        ]
+        ],
+        "principal": "admins"
       },
       {
-        "principal": "ee4j.jakartaee-tck",
         "grantedPermissions": [
+          "Agent/Build",
           "Credentials/View",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger",
           "Job/Build",
           "Job/Cancel",
           "Job/Configure",
@@ -46,101 +66,96 @@
           "Job/Move",
           "Job/Read",
           "Job/Workspace",
-          "Agent/Build",
           "Run/Delete",
           "Run/Replay",
           "Run/Update",
+          "SCM/Tag",
           "View/Configure",
           "View/Create",
           "View/Delete",
           "View/Read",
-          "SCM/Tag"
-        ]
+          "Gerrit/ManualTrigger",
+          "Gerrit/Retrigger"
+        ],
+        "principal": "ee4j.jakartaee-tck"
       }
     ],
-    "actualVersion": "2.190.1",
-    "actualRemotingVersion": "3.29"
-  },
-  "docker": {
-    "repository": "eclipsecbijenkins",
-    "master": {
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.190.1",
-      "image": "eclipsecbijenkins/jakartaee-tck",
-      "imageTag": "2.190.1",
-      "username": "jenkins",
-      "home": "/var/jenkins_home",
-      "ref": "/usr/share/jenkins/ref",
-      "webroot": "/var/cache/jenkins/war",
-      "pluginroot": "/var/cache/jenkins/plugins",
-      "war": "/usr/share/jenkins/jenkins.war",
-      "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "cbbb8ee5c07986d37f7f2e8f9d762d985773d918640813964d8fd5c1f870c471"
-    },
-    "agent": {
-      "defaultImage": {
-        "name": "eclipsecbijenkins/jenkins-agent",
-        "tag": "3.29",
-        "sha256": "d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1"
-      }
-    }
-  },
-  "deployment": {
-    "host": "ci.eclipse.org",
-    "prefix": "/jakartaee-tck",
-    "url": "https://ci.eclipse.org/jakartaee-tck",
-    "uiPort": 8080,
-    "jnlpPort": 50000
+    "staticAgentCount": 0,
+    "theme": "quicksilver-light",
+    "timezone": "America/Toronto",
+    "version": "latest"
   },
   "kubernetes": {
-    "master": {
-      "namespace": "jakartaee-tck",
-      "stsName": "jakartaee-tck",
-      "resources": {
+    "agents": {
+      "defaultResources": {
         "cpu": {
-          "request": "4000m",
-          "limit": "8000m"
+          "limit": "4300m",
+          "request": "4000m"
         },
         "memory": {
-          "limit": "16384Mi"
+          "limit": "16384Mi",
+          "request": "16384Mi"
         }
       },
+      "namespace": "jakartaee-tck"
+    },
+    "master": {
+      "namespace": "jakartaee-tck",
       "probe": {
         "liveness": {
           "delaySeconds": 480,
+          "failureThreshold": 5,
           "periodSeconds": 30,
-          "timeoutSeconds": 30,
-          "failureThreshold": 5
+          "timeoutSeconds": 30
         },
         "readiness": {
           "delaySeconds": 1,
+          "failureThreshold": 5,
           "periodSeconds": 5,
-          "timeoutSeconds": 10,
-          "failureThreshold": 5
+          "timeoutSeconds": 10
         }
-      }
+      },
+      "resources": {
+        "cpu": {
+          "limit": "7900m",
+          "request": "3950m"
+        },
+        "memory": {
+          "limit": "7424Mi",
+          "request": "7424Mi"
+        }
+      },
+      "stsName": "jakartaee-tck"
     }
   },
   "maven": {
-    "home": "/home/jenkins/.m2",
     "files": {
-      "settings.xml": {
-        "volumeType": "Secret",
-        "volumeName": "m2-secret-dir"
-      },
       "settings-security.xml": {
-        "volumeType": "Secret",
-        "volumeName": "m2-secret-dir"
+        "volumeName": "m2-secret-dir",
+        "volumeType": "Secret"
+      },
+      "settings.xml": {
+        "volumeName": "m2-secret-dir",
+        "volumeType": "Secret"
       },
       "toolchains.xml": {
-        "volumeType": "ConfigMap",
-        "volumeName": "m2-dir"
+        "volumeName": "m2-dir",
+        "volumeType": "ConfigMap"
       }
-    }
+    },
+    "home": "/home/jenkins/.m2"
+  },
+  "project": {
+    "displayName": "Eclipse Jakarta EE TCK",
+    "fullName": "ee4j.jakartaee-tck",
+    "resourcePacks": 50,
+    "shortName": "jakartaee-tck",
+    "unixGroupName": "ee4j.jakartaee-tck"
   },
   "secrets": {
     "gerrit-trigger-plugin": {
-      "username": "genie.jakartaee-tck",
-      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
+      "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
+      "username": "genie.jakartaee-tck"
     }
   }
 }

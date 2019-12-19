@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jakartaee-tck",
+         "org.eclipse.cbi.jiro/project.shortname": "jakartaee-tck"
+      },
+      "name": "jakartaee-tck",
+      "namespace": "jakartaee-tck"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "jakartaee-tck"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "jakartaee-tck",
+         "namespace": "jakartaee-tck"
+      }
+   ]
+}

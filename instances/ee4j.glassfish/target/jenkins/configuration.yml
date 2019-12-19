@@ -74,7 +74,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:3.35@sha256:5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340"
+        - image: "eclipsecbijenkins/jenkins-agent:3.35@sha256:0d309710872c3a12f22394f2015b8764e039391b2c91801d53ed4f9ef76cb2fe"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -354,7 +354,7 @@ unclassified:
   simple-theme-plugin:
     elements:
     - cssUrl:
-        url: "/glassfish/userContent/theme/quicksilver.css"
+        url: "/glassfish/userContent/theme/quicksilver-light.css"
     - cssUrl:
         url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
     - jsUrl:
