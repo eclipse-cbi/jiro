@@ -18,7 +18,6 @@ metadata:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "tracecompass"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "tracecompass"
   name: "tracecompass"
 spec:
@@ -37,14 +36,13 @@ spec:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
         org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "tracecompass"
-        org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
       name: "tracecompass"
     spec:
       serviceAccountName: tracecompass
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/tracecompass:2.190.1@sha256:dbfc6c3db67ff6723f343ed9621098069da44f8b1651b174ff1a7381c3ffe9f4
+        image: eclipsecbijenkins/tracecompass:2.190.1@sha256:c26a051a6c34be5847c7c9e7d7b9156fe582ee691d4c8c1a75eea7a89d672ecd
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -69,10 +67,10 @@ spec:
           protocol: TCP
         resources:
           requests:
-            cpu: 500m
+            cpu: 800m
           limits:
-            cpu: 2
-            memory: 1.5Gi
+            cpu: 2000m
+            memory: 2048Mi
         volumeMounts:
         - mountPath: "/var/jenkins_home"
           name: jenkins-home
@@ -101,14 +99,16 @@ spec:
               -Dhudson.slaves.NodeProvisioner.initialDelay=0
               -Dhudson.slaves.NodeProvisioner.MARGIN=50
               -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85
-              -Dhudson.footerURL=https://ci-staging.eclipse.org
+              -Dhudson.footerURL=https://ci.eclipse.org
               -Dhudson.model.UsageStatistics.disabled=true
               -Djenkins.model.Jenkins.slaveAgentPort=50000
               -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
+              -DexecutableWar.jetty.disableCustomSessionIdCookieName=false
+              -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.tracecompass
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.29@sha256:d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.35@sha256:dff125e05404688a78bd67d5b47d107d98ec7583282e8ed9ca6646a2a76874e2
               -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
               -Dkubernetes.websocket.ping.interval=30000
           - name: JENKINS_OPTS

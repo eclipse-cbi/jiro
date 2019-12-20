@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "tools.tracecompass",
+         "org.eclipse.cbi.jiro/project.shortname": "tracecompass"
+      },
+      "name": "tracecompass",
+      "namespace": "tracecompass"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "tracecompass"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "tracecompass",
+         "namespace": "tracecompass"
+      }
+   ]
+}
