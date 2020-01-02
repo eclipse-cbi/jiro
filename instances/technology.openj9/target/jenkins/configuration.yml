@@ -707,7 +707,8 @@ jenkins:
       remoteFS: /Users/jenkins
       retentionStrategy: always
   - permanent:
-      labelString: ""
+      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
+        ci.role.test sw.tool.docker ci.geo.marist
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.33.172
@@ -720,7 +721,8 @@ jenkins:
       remoteFS: /home/jenkins/jenkins-agent
       retentionStrategy: always
   - permanent:
-      labelString: ""
+      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
+        ci.role.test sw.tool.docker ci.geo.marist
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.33.173
@@ -733,7 +735,8 @@ jenkins:
       remoteFS: /home/jenkins/jenkins-agent
       retentionStrategy: always
   - permanent:
-      labelString: ""
+      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
+        ci.role.test sw.tool.docker ci.geo.marist
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.33.174
@@ -746,7 +749,8 @@ jenkins:
       remoteFS: /home/jenkins/jenkins-agent
       retentionStrategy: always
   - permanent:
-      labelString: ""
+      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
+        ci.role.test sw.tool.docker ci.geo.marist
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.33.175
