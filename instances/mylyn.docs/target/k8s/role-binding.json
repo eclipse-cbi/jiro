@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "mylyn.docs",
+         "org.eclipse.cbi.jiro/project.shortname": "docs"
+      },
+      "name": "docs",
+      "namespace": "docs"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "docs"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "docs",
+         "namespace": "docs"
+      }
+   ]
+}
