@@ -1,0 +1,31 @@
+{
+   "apiVersion": "route.openshift.io/v1",
+   "kind": "Route",
+   "metadata": {
+      "annotations": {
+         "haproxy.router.openshift.io/timeout": "60s"
+      },
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.rdf4j",
+         "org.eclipse.cbi.jiro/project.shortname": "rdf4j"
+      },
+      "name": "rdf4j",
+      "namespace": "rdf4j"
+   },
+   "spec": {
+      "host": "ci-staging.eclipse.org",
+      "path": "/rdf4j",
+      "port": {
+         "targetPort": "http"
+      },
+      "tls": {
+         "insecureEdgeTerminationPolicy": "Redirect",
+         "termination": "edge"
+      },
+      "to": {
+         "kind": "Service",
+         "name": "jenkins-ui",
+         "weight": 100
+      }
+   }
+}
