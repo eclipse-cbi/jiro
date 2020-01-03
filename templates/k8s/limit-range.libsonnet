@@ -14,7 +14,7 @@ local Const = import "resource-packs.libsonnet";
             memory: "8Mi",
           },
           max: {
-            cpu: "%dm" % std.max(Kube.stripSI(config.kubernetes.master.resources.cpu.limit), std.min(Const.agent_max_cpu_per_pod_or_container, spec.quotas_cpu) + Const.jnlp_cpu),
+            cpu: "%dm" % std.max(Kube.stripSI(config.kubernetes.master.resources.cpu.limit), std.min(Const.agent_max_cpu_per_pod_or_container, spec.quotas_cpu) + (Const.jnlp_cpu * Const.jnlp_cpu_burst)),
             memory: "%dMi" % std.max(Kube.stripSI(config.kubernetes.master.resources.memory.limit), std.min(Const.agent_max_mem_per_pod_or_container, spec.quotas_mem) + Const.jnlp_mem),
           },
         }, {
