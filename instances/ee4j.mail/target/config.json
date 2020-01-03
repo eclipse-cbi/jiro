@@ -10,7 +10,7 @@
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
-        "sha256": "0d309710872c3a12f22394f2015b8764e039391b2c91801d53ed4f9ef76cb2fe",
+        "sha256": "dff125e05404688a78bd67d5b47d107d98ec7583282e8ed9ca6646a2a76874e2",
         "tag": "3.35"
       }
     },
@@ -25,7 +25,7 @@
       "username": "jenkins",
       "war": "/usr/share/jenkins/jenkins.war",
       "webroot": "/var/cache/jenkins/war",
-      "imageSha256": "35a5db32d839e39811a26b580733ca97b829117051da050cc515db176e298f6e"
+      "imageSha256": "abae1a011f4508dfb7bfb6beaf05a85799a60550069faa6f7c547d5b192cd8e3"
     },
     "repository": "eclipsecbijenkins"
   },
@@ -73,9 +73,7 @@
           "View/Configure",
           "View/Create",
           "View/Delete",
-          "View/Read",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger"
+          "View/Read"
         ],
         "principal": "ee4j.mail"
       }

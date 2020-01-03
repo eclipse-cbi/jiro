@@ -42,7 +42,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/mail:2.190.1@sha256:35a5db32d839e39811a26b580733ca97b829117051da050cc515db176e298f6e
+        image: eclipsecbijenkins/mail:2.190.1@sha256:abae1a011f4508dfb7bfb6beaf05a85799a60550069faa6f7c547d5b192cd8e3
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -108,7 +108,7 @@ spec:
               -DexecutableWar.jetty.disableCustomSessionIdCookieName=false
               -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.mail
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.35@sha256:0d309710872c3a12f22394f2015b8764e039391b2c91801d53ed4f9ef76cb2fe
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.35@sha256:dff125e05404688a78bd67d5b47d107d98ec7583282e8ed9ca6646a2a76874e2
               -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
               -Dkubernetes.websocket.ping.interval=30000
           - name: JENKINS_OPTS
