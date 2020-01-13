@@ -1,16 +1,16 @@
 {
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "jnlpPort": 50000,
     "prefix": "/docs",
     "uiPort": 8080,
-    "url": "https://ci-staging.eclipse.org/docs"
+    "url": "https://ci.eclipse.org/docs"
   },
   "docker": {
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
-        "sha256": "dff125e05404688a78bd67d5b47d107d98ec7583282e8ed9ca6646a2a76874e2",
+        "sha256": "3a435ef365c8324c274331a21fc8816cc7ebd9e2d70009ec9959b2c4f074d78b",
         "tag": "3.35"
       }
     },
@@ -25,7 +25,7 @@
       "username": "jenkins",
       "war": "/usr/share/jenkins/jenkins.war",
       "webroot": "/var/cache/jenkins/war",
-      "imageSha256": "96915d096c108297ef76355307569be0a22e82b87cecd41333c90fbc19869ece"
+      "imageSha256": "27b0788a3c6bae41d6c5ee763f2198575b75b4bd53f1c66ecf5e301b7e9ff0d9"
     },
     "repository": "eclipsecbijenkins"
   },

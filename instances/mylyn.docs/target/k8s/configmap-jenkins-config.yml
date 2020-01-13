@@ -97,7 +97,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: "eclipsecbijenkins/jenkins-agent:3.35@sha256:dff125e05404688a78bd67d5b47d107d98ec7583282e8ed9ca6646a2a76874e2"
+            - image: "eclipsecbijenkins/jenkins-agent:3.35@sha256:3a435ef365c8324c274331a21fc8816cc7ebd9e2d70009ec9959b2c4f074d78b"
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -362,7 +362,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/docs
+        url: https://ci.eclipse.org/docs
     
       mailer:
         replyToAddress: ci-admin@eclipse.org
