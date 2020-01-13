@@ -32,12 +32,12 @@ config="${instance}/target/config.json"
 masterImage="$(jq -r '.docker.master.image' "${config}")"
 masterImageTag="$(jq -r '.docker.master.imageTag' "${config}")"
 
-"${SCRIPT_FOLDER}/dockerw" push "${masterImage}" "${masterImageTag}"
+"${SCRIPT_FOLDER}/../.dockertools/dockerw" push "${masterImage}" "${masterImageTag}"
 
 if [[ "${masterImageTag}" != "latest" ]]; then
-  "${SCRIPT_FOLDER}/dockerw" push "${masterImage}" "latest"
+  "${SCRIPT_FOLDER}/../.dockertools/dockerw" push "${masterImage}" "latest"
 fi
 
-imageSha="$(docker inspect --format='{{index .RepoDigests 0}}' "${masterImage}:${masterImageTag}" | sed -E 's/.*sha256:(.*)/\1/g')"
+imageSha="$("${SCRIPT_FOLDER}/../.dockertools/dockerw" digest "${masterImage}:${masterImageTag}")"
 
-"${SCRIPT_FOLDER}/merge-json.sh" "${config}" '{"docker": {"master": {"imageSha256": "'"${imageSha}"'"}}}' "${config}"
+"${SCRIPT_FOLDER}/merge-json.sh" "${config}" '{"docker": {"master": {"imageDigest": "'"${imageSha}"'"}}}' "${config}"

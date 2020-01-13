@@ -35,8 +35,8 @@ config="${instance}/target/config.json"
 masterImage="$(jq -r '.docker.master.image' "${config}")"
 masterImageTag="$(jq -r '.docker.master.imageTag' "${config}")"
 
-"${SCRIPT_FOLDER}/dockerw" build "${masterImage}" "${masterImageTag}" "${instance}/target/Dockerfile"
+"${SCRIPT_FOLDER}/../.dockertools/dockerw" build "${masterImage}" "${masterImageTag}" "${instance}/target/Dockerfile"
 
 if [[ "${masterImageTag}" != "latest" ]]; then
-  "${SCRIPT_FOLDER}/dockerw" tag_alias "${masterImage}" "${masterImageTag}" "latest"
+  "${SCRIPT_FOLDER}/../.dockertools/dockerw" tag_alias "${masterImage}" "${masterImageTag}" "latest"
 fi
