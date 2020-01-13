@@ -37,7 +37,7 @@ mkdir -p "$(dirname "${config}")/k8s"
 
 agentImage="$(jq -r '.docker.agent.defaultImage.name' "${config}")"
 agentImageTag="$(jq -r '.docker.agent.defaultImage.tag' "${config}")"
-agentImageSha="$(docker inspect --format='{{index .RepoDigests 0}}' "${agentImage}:${agentImageTag}" | sed -E 's/.*sha256:(.*)/\1/g')"
+agentImageSha="$("${SCRIPT_FOLDER}/../.dockertools/dockerw" digest "${agentImage}:${agentImageTag}")"
 
-patch='{"docker": {"agent": {"defaultImage": {"sha256": "'"${agentImageSha}"'"}}}}'
+patch='{"docker": {"agent": {"defaultImage": {"digest": "'"${agentImageSha}"'"}}}}'
 "${SCRIPT_FOLDER}/../.jsonnet/jsonnet" -e 'std.mergePatch(import "'"${config}"'", '"${patch}"')' -o "${config}"

@@ -16,38 +16,53 @@ DEPLOY_INSTANCES=$(patsubst %,deploy_%,$(INSTANCES))
 CLEAN_INSTANCES=$(patsubst %,clean_%,$(INSTANCES))
 DELETE_INSTANCES=$(patsubst %,delete_%,$(INSTANCES))
 GENCONFIG_INSTANCES=$(patsubst %,genconfig_%,$(INSTANCES))
+DOCKERTOOLS_PATH=.dockertools
 
-.PHONY: all clean all_images push_all_images k8s_all_instances deploy_all_instances clean_all_instances tests openshift-java push_openshift-java jenkins-master-base push_jenkins-master-base jenkins-agent push_jenkins-agent $(IMAGE_INSTANCES) $(K8S_INSTANCES) $(PUSH_INSTANCES) $(DEPLOY_INSTANCES) $(CLEAN_INSTANCES) $(DELETE_INSTANCES) $(GENCONFIG_INSTANCES) error_resources error_pages deploy_error_pages clone_jsonnet
+.PHONY: all clean all_images push_all_images k8s_all_instances deploy_all_instances clean_all_instances tests openshift-java push_openshift-java jenkins-master-base push_jenkins-master-base jenkins-agent push_jenkins-agent $(IMAGE_INSTANCES) $(K8S_INSTANCES) $(PUSH_INSTANCES) $(DEPLOY_INSTANCES) $(CLEAN_INSTANCES) $(DELETE_INSTANCES) $(GENCONFIG_INSTANCES) error_resources error_pages deploy_error_pages clone_jsonnet dockertools
 
-error_resources:
-	./build/dockerw build "eclipsecbijenkins/error_resources" "latest" "./error_pages/resources.Dockerfile"
-	./build/dockerw push "eclipsecbijenkins/error_resources" "latest"
+dockertools:
+	if [[ -d "${DOCKERTOOLS_PATH}" ]]; then \
+	  git -C "${DOCKERTOOLS_PATH}" fetch -f --no-tags --progress --depth 1 https://github.com/eclipse-cbi/dockertools.git +refs/heads/master:refs/remotes/origin/master; \
+	  git -C "${DOCKERTOOLS_PATH}" checkout -f "$$(git -C "${DOCKERTOOLS_PATH}" rev-parse refs/remotes/origin/master)"; \
+	else \
+	  git init "${DOCKERTOOLS_PATH}"; \
+	  git -C "${DOCKERTOOLS_PATH}" fetch --no-tags --progress --depth 1 https://github.com/eclipse-cbi/dockertools.git +refs/heads/master:refs/remotes/origin/master; \
+	  git -C "${DOCKERTOOLS_PATH}" config remote.origin.url https://github.com/eclipse-cbi/dockertools.git; \
+	  git -C "${DOCKERTOOLS_PATH}" config --add remote.origin.fetch +refs/heads/master:refs/remotes/origin/master; \
+	  git -C "${DOCKERTOOLS_PATH}" config core.sparsecheckout true; \
+	  git -C "${DOCKERTOOLS_PATH}" config advice.detachedHead false; \
+	  git -C "${DOCKERTOOLS_PATH}" checkout -f "$$(git -C "${DOCKERTOOLS_PATH}" rev-parse refs/remotes/origin/master)"; \
+	fi
+
+error_resources: dockertools
+	.dockertools/dockerw build "eclipsecbijenkins/error_resources" "latest" "./error_pages/resources.Dockerfile"
+	.dockertools/dockerw push "eclipsecbijenkins/error_resources" "latest"
 
 error_pages: error_resources
-	./build/dockerw build "eclipsecbijenkins/maintenance_page" "latest" "./error_pages/maintenance.Dockerfile"
-	./build/dockerw push "eclipsecbijenkins/maintenance_page" "latest"
+	.dockertools/dockerw build "eclipsecbijenkins/maintenance_page" "latest" "./error_pages/maintenance.Dockerfile"
+	.dockertools/dockerw push "eclipsecbijenkins/maintenance_page" "latest"
 
 deploy_error_pages: error_pages
 	oc apply -f ./error_pages/resources.pod.yml
 	oc apply -f ./error_pages/maintenance.pod.yml
 
-openshift-java:
-	./build/dockerw build_all ${DOCKER_REPO} $@
+openshift-java: dockertools
+	.dockertools/dockerw build_all ${DOCKER_REPO} $@
 
 push_openshift-java: openshift-java
-	./build/dockerw push_all ${DOCKER_REPO} $<
+	.dockertools/dockerw push_all ${DOCKER_REPO} $<
 
 jenkins-agent: openshift-java
 	find jenkins-agent-images/jenkins-agent -mindepth 1 -maxdepth 1 -type d -exec jenkins-agent-images/jenkins-agent/build.sh {} \;
 
 push_jenkins-agent: jenkins-agent
-	./build/dockerw push_all ${DOCKER_REPO} jenkins-agent-images/$<
+	.dockertools/dockerw push_all ${DOCKER_REPO} jenkins-agent-images/$<
 
 jenkins-master-base: openshift-java
 	find jenkins-master-base -mindepth 1 -maxdepth 1 -type d -exec jenkins-master-base/build.sh {} \;
 
 push_jenkins-master-base: jenkins-master-base
-	./build/dockerw push_all ${DOCKER_REPO} $<
+	.dockertools/dockerw push_all ${DOCKER_REPO} $<
 
 # requires push_jenkins-agent to get jenkins-agent sha
 $(GENCONFIG_INSTANCES): genconfig_% : .jsonnet/jsonnet $(wildcard templates/**/*) instances/%/jiro.jsonnet instances/%/config.jsonnet push_jenkins-agent
@@ -77,8 +92,8 @@ $(CLEAN_INSTANCES): clean_% : genconfig_%
 	./build/clean-instance.sh instances/$(patsubst clean_%,%,$@)
 
 clean_all_instances: $(CLEAN_INSTANCES)
-	./build/dockerw rmi_all ${DOCKER_REPO}/jenkins-master-base
-	./build/dockerw rmi_all ${DOCKER_REPO}/openshift-java
+	.dockertools/dockerw rmi_all ${DOCKER_REPO}/jenkins-master-base
+	.dockertools/dockerw rmi_all ${DOCKER_REPO}/openshift-java
 
 $(DELETE_INSTANCES):
 	./build/k8s-delete.sh instances/$(patsubst delete_%,%,$@)
@@ -96,4 +111,4 @@ tests: jenkins-master-base
 all: deploy_all_instances
 
 clean: clean_all_instances
-	./build/dockerw clean
+	.dockertools/dockerw clean

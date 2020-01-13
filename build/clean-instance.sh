@@ -30,5 +30,5 @@ fi
 config="${instance}/target/config.json"
 masterImage="$(jq -r '.docker.master.image' "${config}")"
 
-"${SCRIPT_FOLDER}/dockerw" rmi_all "${masterImage}"
+"${SCRIPT_FOLDER}/../.dockertools/dockerw" rmi_all "${masterImage}"
 rm -rf "${instance}/target"
