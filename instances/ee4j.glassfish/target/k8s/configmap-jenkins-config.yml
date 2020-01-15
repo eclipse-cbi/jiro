@@ -50,8 +50,6 @@ data:
             - "Job/ExtendedRead:common"
             - "Agent/Build:ee4j.glassfish"
             - "Credentials/View:ee4j.glassfish"
-            - "Gerrit/ManualTrigger:ee4j.glassfish"
-            - "Gerrit/Retrigger:ee4j.glassfish"
             - "Job/Build:ee4j.glassfish"
             - "Job/Cancel:ee4j.glassfish"
             - "Job/Configure:ee4j.glassfish"
@@ -97,7 +95,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: "eclipsecbijenkins/jenkins-agent:3.35@sha256:0d309710872c3a12f22394f2015b8764e039391b2c91801d53ed4f9ef76cb2fe"
+            - image: "eclipsecbijenkins/jenkins-agent:3.35@sha256:dff125e05404688a78bd67d5b47d107d98ec7583282e8ed9ca6646a2a76874e2"
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
