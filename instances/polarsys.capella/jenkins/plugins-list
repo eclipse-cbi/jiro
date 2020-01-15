@@ -2,3 +2,4 @@ analysis-collector
 description-setter
 jacoco
 performance
+pipeline-github
