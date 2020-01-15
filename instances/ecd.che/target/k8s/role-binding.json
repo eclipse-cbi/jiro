@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ecd.che",
+         "org.eclipse.cbi.jiro/project.shortname": "che"
+      },
+      "name": "che",
+      "namespace": "che"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "che"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "che",
+         "namespace": "che"
+      }
+   ]
+}
