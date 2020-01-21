@@ -362,7 +362,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/rdf4j
+        url: https://ci.eclipse.org/rdf4j
     
       mailer:
         replyToAddress: ci-admin@eclipse.org

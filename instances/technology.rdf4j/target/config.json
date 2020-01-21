@@ -1,10 +1,10 @@
 {
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "jnlpPort": 50000,
     "prefix": "/rdf4j",
     "uiPort": 8080,
-    "url": "https://ci-staging.eclipse.org/rdf4j"
+    "url": "https://ci.eclipse.org/rdf4j"
   },
   "docker": {
     "agent": {

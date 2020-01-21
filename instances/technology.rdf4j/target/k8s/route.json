@@ -13,7 +13,7 @@
       "namespace": "rdf4j"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/rdf4j",
       "port": {
          "targetPort": "http"
