@@ -1,43 +1,63 @@
 {
-  "project": {
-    "shortName": "ca",
-    "fullName": "ee4j.ca",
-    "displayName": "Jakarta Annotations",
-    "sponsorshipLevel": "S0"
+  "deployment": {
+    "host": "ci.eclipse.org",
+    "jnlpPort": 50000,
+    "prefix": "/ca",
+    "uiPort": 8080,
+    "url": "https://ci.eclipse.org/ca"
+  },
+  "docker": {
+    "agent": {
+      "defaultImage": {
+        "name": "eclipsecbijenkins/jenkins-agent",
+        "sha256": "dff125e05404688a78bd67d5b47d107d98ec7583282e8ed9ca6646a2a76874e2",
+        "tag": "3.35"
+      }
+    },
+    "master": {
+      "home": "/var/jenkins_home",
+      "image": "eclipsecbijenkins/ca",
+      "imageTag": "2.190.1",
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.190.1",
+      "pluginroot": "/var/cache/jenkins/plugins",
+      "ref": "/usr/share/jenkins/ref",
+      "updateCenter": "https://updates.jenkins.io",
+      "username": "jenkins",
+      "war": "/usr/share/jenkins/jenkins.war",
+      "webroot": "/var/cache/jenkins/war",
+      "imageSha256": "3851d3073dfdccef7506e4e674541ed426be9eb0fb40647cea7077e0ebe6bdb5"
+    },
+    "repository": "eclipsecbijenkins"
   },
   "jenkins": {
-    "version": "latest",
-    "remotingVersion": "latest",
+    "actualRemotingVersion": "3.35",
+    "actualVersion": "2.190.1",
+    "agentConnectionTimeout": 180,
     "maxConcurrency": 2,
-    "agentConnectionTimeout": "180",
-    "timezone": "America/Toronto",
-    "theme": "quicksilver",
     "permissions": [
       {
-        "principal": "anonymous",
         "grantedPermissions": [
           "Overall/Read",
           "Job/Read"
-        ]
+        ],
+        "principal": "anonymous"
       },
       {
-        "principal": "common",
         "grantedPermissions": [
           "Job/ExtendedRead"
-        ]
+        ],
+        "principal": "common"
       },
       {
-        "principal": "admins",
         "grantedPermissions": [
           "Overall/Administer"
-        ]
+        ],
+        "principal": "admins"
       },
       {
-        "principal": "ee4j.ca",
         "grantedPermissions": [
+          "Agent/Build",
           "Credentials/View",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger",
           "Job/Build",
           "Job/Cancel",
           "Job/Configure",
@@ -46,101 +66,96 @@
           "Job/Move",
           "Job/Read",
           "Job/Workspace",
-          "Agent/Build",
           "Run/Delete",
           "Run/Replay",
           "Run/Update",
+          "SCM/Tag",
           "View/Configure",
           "View/Create",
           "View/Delete",
           "View/Read",
-          "SCM/Tag"
-        ]
+          "Gerrit/ManualTrigger",
+          "Gerrit/Retrigger"
+        ],
+        "principal": "ee4j.ca"
       }
     ],
-    "actualVersion": "2.190.1",
-    "actualRemotingVersion": "3.35"
-  },
-  "docker": {
-    "repository": "eclipsecbijenkins",
-    "master": {
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.190.1",
-      "image": "eclipsecbijenkins/ca",
-      "imageTag": "2.190.1",
-      "username": "jenkins",
-      "home": "/var/jenkins_home",
-      "ref": "/usr/share/jenkins/ref",
-      "webroot": "/var/cache/jenkins/war",
-      "pluginroot": "/var/cache/jenkins/plugins",
-      "war": "/usr/share/jenkins/jenkins.war",
-      "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "043b232efed030231c9993627ff9d32623516876217e074326ca407cf9f5b47f"
-    },
-    "agent": {
-      "defaultImage": {
-        "name": "eclipsecbijenkins/jenkins-agent",
-        "tag": "3.35",
-        "sha256": "5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340"
-      }
-    }
-  },
-  "deployment": {
-    "host": "ci.eclipse.org",
-    "prefix": "/ca",
-    "url": "https://ci.eclipse.org/ca",
-    "uiPort": 8080,
-    "jnlpPort": 50000
+    "staticAgentCount": 0,
+    "theme": "quicksilver",
+    "timezone": "America/Toronto",
+    "version": "latest"
   },
   "kubernetes": {
-    "master": {
-      "namespace": "ca",
-      "stsName": "ca",
-      "resources": {
+    "agents": {
+      "defaultResources": {
         "cpu": {
-          "request": "500m",
-          "limit": 2
+          "limit": "2000m",
+          "request": "1000m"
         },
         "memory": {
-          "limit": "1.5Gi"
+          "limit": "4096Mi",
+          "request": "4096Mi"
         }
       },
+      "namespace": "ca"
+    },
+    "master": {
+      "namespace": "ca",
       "probe": {
         "liveness": {
           "delaySeconds": 480,
+          "failureThreshold": 5,
           "periodSeconds": 30,
-          "timeoutSeconds": 30,
-          "failureThreshold": 5
+          "timeoutSeconds": 30
         },
         "readiness": {
           "delaySeconds": 1,
+          "failureThreshold": 5,
           "periodSeconds": 5,
-          "timeoutSeconds": 10,
-          "failureThreshold": 5
+          "timeoutSeconds": 10
         }
-      }
+      },
+      "resources": {
+        "cpu": {
+          "limit": "2000m",
+          "request": "500m"
+        },
+        "memory": {
+          "limit": "1536Mi",
+          "request": "1536Mi"
+        }
+      },
+      "stsName": "ca"
     }
   },
   "maven": {
-    "home": "/home/jenkins/.m2",
     "files": {
-      "settings.xml": {
-        "volumeType": "Secret",
-        "volumeName": "m2-secret-dir"
-      },
       "settings-security.xml": {
-        "volumeType": "Secret",
-        "volumeName": "m2-secret-dir"
+        "volumeName": "m2-secret-dir",
+        "volumeType": "Secret"
+      },
+      "settings.xml": {
+        "volumeName": "m2-secret-dir",
+        "volumeType": "Secret"
       },
       "toolchains.xml": {
-        "volumeType": "ConfigMap",
-        "volumeName": "m2-dir"
+        "volumeName": "m2-dir",
+        "volumeType": "ConfigMap"
       }
-    }
+    },
+    "home": "/home/jenkins/.m2"
+  },
+  "project": {
+    "displayName": "Jakarta Annotations",
+    "fullName": "ee4j.ca",
+    "resourcePacks": 1,
+    "shortName": "ca",
+    "unixGroupName": "ee4j.ca"
   },
   "secrets": {
     "gerrit-trigger-plugin": {
-      "username": "genie.ca",
-      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
+      "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
+      "username": "genie.ca"
     }
   }
 }

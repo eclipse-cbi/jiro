@@ -18,7 +18,6 @@ metadata:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "ca"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "ca"
   name: "ca"
 spec:
@@ -37,14 +36,13 @@ spec:
         org.eclipse.cbi.jiro/jenkins.version: "latest"
         org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
         org.eclipse.cbi.jiro/kubernetes.master.namespace: "ca"
-        org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
       name: "ca"
     spec:
       serviceAccountName: ca
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/ca:2.190.1@sha256:043b232efed030231c9993627ff9d32623516876217e074326ca407cf9f5b47f
+        image: eclipsecbijenkins/ca:2.190.1@sha256:3851d3073dfdccef7506e4e674541ed426be9eb0fb40647cea7077e0ebe6bdb5
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -71,8 +69,8 @@ spec:
           requests:
             cpu: 500m
           limits:
-            cpu: 2
-            memory: 1.5Gi
+            cpu: 2000m
+            memory: 1536Mi
         volumeMounts:
         - mountPath: "/var/jenkins_home"
           name: jenkins-home
@@ -107,8 +105,10 @@ spec:
               -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
               -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
               -Djenkins.install.runSetupWizard=false
+              -DexecutableWar.jetty.disableCustomSessionIdCookieName=false
+              -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.ca
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.35@sha256:5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.35@sha256:dff125e05404688a78bd67d5b47d107d98ec7583282e8ed9ca6646a2a76874e2
               -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
               -Dkubernetes.websocket.ping.interval=30000
           - name: JENKINS_OPTS

@@ -18,7 +18,6 @@ metadata:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "ca"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "ca"
   name: "jenkins-ui"
 spec:
