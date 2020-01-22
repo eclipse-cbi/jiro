@@ -1,0 +1,10 @@
+tool:
+  nodejs:
+    installations:
+    - name: "node"
+      properties:
+      - installSource:
+          installers:
+          - nodeJSInstaller:
+              id: "10.18.1"
+              npmPackagesRefreshHours: 72

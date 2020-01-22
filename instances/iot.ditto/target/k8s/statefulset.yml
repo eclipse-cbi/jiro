@@ -42,7 +42,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/ditto:2.190.1@sha256:6987354a29be364f096e9a73db78d9192537ff93db16153e5aebfa540cdff3ec
+        image: eclipsecbijenkins/ditto:2.190.1@sha256:9a7c2ee1579e51e4ff9c589e50dc140dda33f577ff9d7c67db0001f3a37b1a80
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
