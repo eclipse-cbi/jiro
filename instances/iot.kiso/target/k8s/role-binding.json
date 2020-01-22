@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.kiso",
+         "org.eclipse.cbi.jiro/project.shortname": "kiso"
+      },
+      "name": "kiso",
+      "namespace": "kiso"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "kiso"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "kiso",
+         "namespace": "kiso"
+      }
+   ]
+}
