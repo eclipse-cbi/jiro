@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.emfstore",
+         "org.eclipse.cbi.jiro/project.shortname": "emfstore"
+      },
+      "name": "emfstore",
+      "namespace": "emfstore"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "emfstore"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "emfstore",
+         "namespace": "emfstore"
+      }
+   ]
+}
