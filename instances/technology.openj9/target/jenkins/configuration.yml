@@ -714,67 +714,11 @@ jenkins:
         ci.role.test sw.tool.docker ci.geo.marist
       launcher:
         command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.33.172
-            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
-            exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: ub16-390-1
-      nodeDescription: LXEOJ901 - Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
-      numExecutors: 1
-      remoteFS: /home/jenkins/jenkins-agent
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
-        ci.role.test sw.tool.docker ci.geo.marist
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.33.173
-            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
-            exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: ub16-390-2
-      nodeDescription: LXEOJ902 Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
-      numExecutors: 1
-      remoteFS: /home/jenkins/jenkins-agent
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
-        ci.role.test sw.tool.docker ci.geo.marist
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.33.174
-            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
-            exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: ub16-390-3
-      nodeDescription: LXEOJ903 Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
-      numExecutors: 1
-      remoteFS: /home/jenkins/jenkins-agent
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
-        ci.role.test sw.tool.docker ci.geo.marist
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.33.175
-            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
-            exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: ub16-390-4
-      nodeDescription: LXEOJ904 Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
-      numExecutors: 1
-      remoteFS: /home/jenkins/jenkins-agent
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
-        ci.role.test sw.tool.docker ci.geo.marist
-      launcher:
-        command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.113.51
             "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
             exec java -jar slave.jar"
       mode: EXCLUSIVE
-      name: ub16-390-5
+      name: ub16-390-1
       nodeDescription: Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
       numExecutors: 1
       remoteFS: /home/jenkins
@@ -788,7 +732,7 @@ jenkins:
             "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
             exec java -jar slave.jar"
       mode: EXCLUSIVE
-      name: ub16-390-6
+      name: ub16-390-2
       nodeDescription: Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
       numExecutors: 1
       remoteFS: /home/jenkins
@@ -802,7 +746,7 @@ jenkins:
             "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
             exec java -jar slave.jar"
       mode: EXCLUSIVE
-      name: ub16-390-7
+      name: ub16-390-3
       nodeDescription: Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
       numExecutors: 1
       remoteFS: /home/jenkins
@@ -816,7 +760,7 @@ jenkins:
             "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
             exec java -jar slave.jar"
       mode: EXCLUSIVE
-      name: ub16-390-8
+      name: ub16-390-4
       nodeDescription: Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
       numExecutors: 1
       remoteFS: /home/jenkins
