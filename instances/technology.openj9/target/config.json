@@ -230,6 +230,106 @@
           "Agent/Configure"
         ],
         "principal": "joe_dekoning@ca.ibm.com"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ],
+        "principal": "anonymous"
+      },
+      {
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ],
+        "principal": "common"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Administer"
+        ],
+        "principal": "admins"
+      },
+      {
+        "grantedPermissions": [
+          "Job/Configure"
+        ],
+        "principal": "adam.brousseau88@gmail.com"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ],
+        "principal": "anonymous"
+      },
+      {
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ],
+        "principal": "common"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Administer"
+        ],
+        "principal": "admins"
+      },
+      {
+        "grantedPermissions": [
+          "Job/Configure"
+        ],
+        "principal": "adam.brousseau88@gmail.com"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ],
+        "principal": "anonymous"
+      },
+      {
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ],
+        "principal": "common"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Administer"
+        ],
+        "principal": "admins"
+      },
+      {
+        "grantedPermissions": [
+          "Job/Configure"
+        ],
+        "principal": "joe_dekoning@ca.ibm.com"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ],
+        "principal": "anonymous"
+      },
+      {
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ],
+        "principal": "common"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Administer"
+        ],
+        "principal": "admins"
+      },
+      {
+        "grantedPermissions": [
+          "Job/Configure"
+        ],
+        "principal": "vsebe@ca.ibm.com"
       }
     ],
     "staticAgentCount": 50,
