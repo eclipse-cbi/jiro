@@ -349,7 +349,7 @@ jenkins:
   - permanent:
       name: "ub16-390-1"
       nodeDescription: "Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk"
-      labelString: "hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -360,7 +360,7 @@ jenkins:
   - permanent:
       name: "ub16-390-2"
       nodeDescription: "Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk"
-      labelString: "hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -371,7 +371,7 @@ jenkins:
   - permanent:
       name: "ub16-390-3"
       nodeDescription: "Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk"
-      labelString: "hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -382,7 +382,7 @@ jenkins:
   - permanent:
       name: "ub16-390-4"
       nodeDescription: "Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk"
-      labelString: "hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
