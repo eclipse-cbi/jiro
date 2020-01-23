@@ -13,7 +13,7 @@
       "namespace": "ditto"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/ditto",
       "port": {
          "targetPort": "http"

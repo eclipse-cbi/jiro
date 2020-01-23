@@ -1,10 +1,10 @@
 {
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "jnlpPort": 50000,
     "prefix": "/ditto",
     "uiPort": 8080,
-    "url": "https://ci-staging.eclipse.org/ditto"
+    "url": "https://ci.eclipse.org/ditto"
   },
   "docker": {
     "agent": {

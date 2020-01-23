@@ -421,7 +421,7 @@ unclassified:
     durabilityHint: PERFORMANCE_OPTIMIZED
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/ditto
+    url: https://ci.eclipse.org/ditto
   mailer:
     replyToAddress: ci-admin@eclipse.org
     smtpHost: mail.eclipse.org
