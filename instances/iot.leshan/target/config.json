@@ -1,0 +1,161 @@
+{
+  "deployment": {
+    "host": "ci-staging.eclipse.org",
+    "jnlpPort": 50000,
+    "prefix": "/leshan",
+    "uiPort": 8080,
+    "url": "https://ci-staging.eclipse.org/leshan"
+  },
+  "docker": {
+    "agent": {
+      "defaultImage": {
+        "name": "eclipsecbijenkins/jenkins-agent",
+        "sha256": "dff125e05404688a78bd67d5b47d107d98ec7583282e8ed9ca6646a2a76874e2",
+        "tag": "3.35"
+      }
+    },
+    "master": {
+      "home": "/var/jenkins_home",
+      "image": "eclipsecbijenkins/leshan",
+      "imageTag": "2.190.1",
+      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.190.1",
+      "pluginroot": "/var/cache/jenkins/plugins",
+      "ref": "/usr/share/jenkins/ref",
+      "updateCenter": "https://updates.jenkins.io",
+      "username": "jenkins",
+      "war": "/usr/share/jenkins/jenkins.war",
+      "webroot": "/var/cache/jenkins/war",
+      "imageSha256": "e7db9aaac6c199f98587ec2391d97fa66dce9499c381a071dcdeadd732270478"
+    },
+    "repository": "eclipsecbijenkins"
+  },
+  "jenkins": {
+    "actualRemotingVersion": "3.35",
+    "actualVersion": "2.190.1",
+    "agentConnectionTimeout": 180,
+    "maxConcurrency": 2,
+    "permissions": [
+      {
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ],
+        "principal": "anonymous"
+      },
+      {
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ],
+        "principal": "common"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Administer"
+        ],
+        "principal": "admins"
+      },
+      {
+        "grantedPermissions": [
+          "Agent/Build",
+          "Credentials/View",
+          "Job/Build",
+          "Job/Cancel",
+          "Job/Configure",
+          "Job/Create",
+          "Job/Delete",
+          "Job/Move",
+          "Job/Read",
+          "Job/Workspace",
+          "Run/Delete",
+          "Run/Replay",
+          "Run/Update",
+          "SCM/Tag",
+          "View/Configure",
+          "View/Create",
+          "View/Delete",
+          "View/Read",
+          "Gerrit/ManualTrigger",
+          "Gerrit/Retrigger"
+        ],
+        "principal": "iot.leshan"
+      }
+    ],
+    "staticAgentCount": 0,
+    "theme": "quicksilver",
+    "timezone": "America/Toronto",
+    "version": "latest"
+  },
+  "kubernetes": {
+    "agents": {
+      "defaultResources": {
+        "cpu": {
+          "limit": "2000m",
+          "request": "1000m"
+        },
+        "memory": {
+          "limit": "4096Mi",
+          "request": "4096Mi"
+        }
+      },
+      "namespace": "leshan"
+    },
+    "master": {
+      "namespace": "leshan",
+      "probe": {
+        "liveness": {
+          "delaySeconds": 480,
+          "failureThreshold": 5,
+          "periodSeconds": 30,
+          "timeoutSeconds": 30
+        },
+        "readiness": {
+          "delaySeconds": 1,
+          "failureThreshold": 5,
+          "periodSeconds": 5,
+          "timeoutSeconds": 10
+        }
+      },
+      "resources": {
+        "cpu": {
+          "limit": "2000m",
+          "request": "500m"
+        },
+        "memory": {
+          "limit": "1536Mi",
+          "request": "1536Mi"
+        }
+      },
+      "stsName": "leshan"
+    }
+  },
+  "maven": {
+    "files": {
+      "settings-security.xml": {
+        "volumeName": "m2-secret-dir",
+        "volumeType": "Secret"
+      },
+      "settings.xml": {
+        "volumeName": "m2-secret-dir",
+        "volumeType": "Secret"
+      },
+      "toolchains.xml": {
+        "volumeName": "m2-dir",
+        "volumeType": "ConfigMap"
+      }
+    },
+    "home": "/home/jenkins/.m2"
+  },
+  "project": {
+    "displayName": "Eclipse Leshan",
+    "fullName": "iot.leshan",
+    "resourcePacks": 1,
+    "shortName": "leshan",
+    "unixGroupName": "iot.leshan"
+  },
+  "secrets": {
+    "gerrit-trigger-plugin": {
+      "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
+      "username": "genie.leshan"
+    }
+  }
+}

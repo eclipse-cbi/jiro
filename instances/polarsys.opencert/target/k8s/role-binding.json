@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "polarsys.opencert",
+         "org.eclipse.cbi.jiro/project.shortname": "opencert"
+      },
+      "name": "opencert",
+      "namespace": "opencert"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "opencert"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "opencert",
+         "namespace": "opencert"
+      }
+   ]
+}

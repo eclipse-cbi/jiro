@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.scout",
+         "org.eclipse.cbi.jiro/project.shortname": "scout"
+      },
+      "name": "scout",
+      "namespace": "scout"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "scout"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "scout",
+         "namespace": "scout"
+      }
+   ]
+}

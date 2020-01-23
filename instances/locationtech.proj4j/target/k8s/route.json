@@ -1,0 +1,31 @@
+{
+   "apiVersion": "route.openshift.io/v1",
+   "kind": "Route",
+   "metadata": {
+      "annotations": {
+         "haproxy.router.openshift.io/timeout": "60s"
+      },
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "locationtech.proj4j",
+         "org.eclipse.cbi.jiro/project.shortname": "proj4j"
+      },
+      "name": "proj4j",
+      "namespace": "proj4j"
+   },
+   "spec": {
+      "host": "ci-staging.eclipse.org",
+      "path": "/proj4j",
+      "port": {
+         "targetPort": "http"
+      },
+      "tls": {
+         "insecureEdgeTerminationPolicy": "Redirect",
+         "termination": "edge"
+      },
+      "to": {
+         "kind": "Service",
+         "name": "jenkins-ui",
+         "weight": 100
+      }
+   }
+}

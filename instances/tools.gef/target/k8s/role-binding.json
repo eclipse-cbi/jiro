@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "tools.gef",
+         "org.eclipse.cbi.jiro/project.shortname": "gef"
+      },
+      "name": "gef",
+      "namespace": "gef"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "gef"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "gef",
+         "namespace": "gef"
+      }
+   ]
+}

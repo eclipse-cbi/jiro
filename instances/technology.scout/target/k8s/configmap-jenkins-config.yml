@@ -1,0 +1,469 @@
+#*******************************************************************************
+# Copyright (c) 2019 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "scout"
+    org.eclipse.cbi.jiro/project.fullName: "technology.scout"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "scout"
+  namespace: "scout"
+  name: jenkins-config
+data:
+  jenkins.yaml: |
+    # GENERATED FILE - DO NOT EDIT
+    #*******************************************************************************
+    # Copyright (c) 2018 Eclipse Foundation and others.
+    # This program and the accompanying materials are made available
+    # under the terms of the Eclipse Public License 2.0
+    # which is available at http://www.eclipse.org/legal/epl-v20.html,
+    # or the MIT License which is available at https://opensource.org/licenses/MIT.
+    # SPDX-License-Identifier: EPL-2.0 OR MIT
+    #*******************************************************************************
+    jenkins:
+      numExecutors: 0
+      scmCheckoutRetryCount: 2
+      mode: EXCLUSIVE
+      systemMessage: ""
+    
+      disableRememberMe: false
+      agentProtocols:
+        - "JNLP4-connect"
+        - "Ping"
+    
+      authorizationStrategy:
+        projectMatrix:
+          permissions:
+            - "Overall/Administer:admins"
+            - "Job/Read:anonymous"
+            - "Overall/Read:anonymous"
+            - "Job/ExtendedRead:common"
+            - "Agent/Build:technology.scout"
+            - "Credentials/View:technology.scout"
+            - "Gerrit/ManualTrigger:technology.scout"
+            - "Gerrit/Retrigger:technology.scout"
+            - "Job/Build:technology.scout"
+            - "Job/Cancel:technology.scout"
+            - "Job/Configure:technology.scout"
+            - "Job/Create:technology.scout"
+            - "Job/Delete:technology.scout"
+            - "Job/Move:technology.scout"
+            - "Job/Read:technology.scout"
+            - "Job/Workspace:technology.scout"
+            - "Run/Delete:technology.scout"
+            - "Run/Replay:technology.scout"
+            - "Run/Update:technology.scout"
+            - "SCM/Tag:technology.scout"
+            - "View/Configure:technology.scout"
+            - "View/Create:technology.scout"
+            - "View/Delete:technology.scout"
+            - "View/Read:technology.scout"
+    
+      markupFormatter: rawHtml
+      crumbIssuer:
+        standard:
+           excludeClientIPFromCrumb: false
+      remotingSecurity:
+        enabled: true
+    
+      securityRealm:
+        ldap:
+          configurations:
+            - displayNameAttributeName: cn
+              groupSearchBase: ou=group
+              rootDN: dc=eclipse,dc=org
+              server: ldapmaster
+              userSearch: mail={0}
+              mailAddressAttributeName: mail
+    
+      clouds:
+      - kubernetes:
+          name: "kubernetes"
+          containerCapStr: "2"
+          jenkinsUrl: "http://jenkins-ui.scout.svc.cluster.local/scout"
+          jenkinsTunnel: "jenkins-discovery.scout.svc.cluster.local:50000"
+          maxRequestsPerHostStr: "32"
+          namespace: "scout"
+          podRetention: "never"
+          templates:
+          - containers:
+            - image: "eclipsecbijenkins/jenkins-agent:3.35@sha256:dff125e05404688a78bd67d5b47d107d98ec7583282e8ed9ca6646a2a76874e2"
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: "jnlp"
+              resourceLimitCpu: "2000m"
+              resourceRequestCpu: "1000m"
+              resourceLimitMemory: "4096Mi"
+              resourceRequestMemory: "4096Mi"
+              ttyEnabled: true
+              command: ""
+              args: ""
+            instanceCap: 5
+            name: "default-agent"
+            namespace: "scout"
+            nodeUsageMode: NORMAL
+            envVars:
+            - envVar:
+                key: "MAVEN_OPTS"
+                value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+            - envVar:
+                key: "MAVEN_CONFIG"
+                value: "-B -e"
+            volumes:
+            - persistentVolumeClaim:
+                claimName: "tools-claim-jiro-scout"
+                mountPath: "/opt/tools"
+                readOnly: true
+            - configMapVolume:
+                configMapName: "known-hosts"
+                mountPath: "/home/jenkins/.ssh/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/repository"
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
+                  - name: settings-xml
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: toolchains-xml
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                volumes:
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
+                - name: settings-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings.xml
+                      path: settings.xml
+                - name: toolchains-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: toolchains.xml
+                      path: toolchains.xml
+          - containers:
+            - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59"
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: "jnlp"
+              resourceLimitCpu: "2000m"
+              resourceRequestCpu: "1000m"
+              resourceLimitMemory: "4096Mi"
+              resourceRequestMemory: "4096Mi"
+              ttyEnabled: true
+              command: ""
+              args: ""
+            instanceCap: 5
+            instanceCapStr: "5"
+            name: "ui-test-agent"
+            namespace: "scout"
+            label: "ui-test"
+            envVars:
+            - envVar:
+                key: "MAVEN_OPTS"
+                value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+            - envVar:
+                key: "MAVEN_CONFIG"
+                value: "-B -e"
+            volumes:
+            - persistentVolumeClaim:
+                claimName: "tools-claim-jiro-scout"
+                mountPath: "/opt/tools"
+                readOnly: true
+            - configMapVolume:
+                configMapName: "known-hosts"
+                mountPath: "/home/jenkins/.ssh/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/repository"
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
+                  - name: settings-xml
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: toolchains-xml
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                volumes:
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
+                - name: settings-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings.xml
+                      path: settings.xml
+                - name: toolchains-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: toolchains.xml
+                      path: toolchains.xml
+          - containers:
+            - image: "eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f"
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: "jnlp"
+              resourceLimitCpu: "2000m"
+              resourceRequestCpu: "1000m"
+              resourceLimitMemory: "4096Mi"
+              resourceRequestMemory: "4096Mi"
+              ttyEnabled: true
+              command: ""
+              args: ""
+            instanceCap: 5
+            instanceCapStr: "5"
+            name: "migration-agent"
+            namespace: "scout"
+            envVars:
+            - envVar:
+                key: "MAVEN_OPTS"
+                value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+            - envVar:
+                key: "MAVEN_CONFIG"
+                value: "-B -e"
+            label: "migration"
+            volumes:
+            - persistentVolumeClaim:
+                claimName: "tools-claim-jiro-scout"
+                mountPath: "/opt/tools"
+                readOnly: true
+            - configMapVolume:
+                configMapName: "known-hosts"
+                mountPath: "/home/jenkins/.ssh/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/repository"
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: settings-security-xml
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
+                  - name: settings-xml
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: toolchains-xml
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                volumes:
+                - name: settings-security-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings-security.xml
+                      path: settings-security.xml
+                - name: settings-xml
+                  secret:
+                    secretName: m2-secret-dir
+                    items:
+                    - key: settings.xml
+                      path: settings.xml
+                - name: toolchains-xml
+                  configMap:
+                    name: m2-dir
+                    items:
+                    - key: toolchains.xml
+                      path: toolchains.xml
+    
+    security:
+      apiToken:
+        creationOfLegacyTokenEnabled: false
+        tokenGenerationOnCreationEnabled: false
+        usageStatisticsEnabled: true
+      downloadSettings:
+        useBrowser: false
+      queueItemAuthenticator:
+        authenticators:
+        - global:
+            strategy: "triggeringUsersAuthorizationStrategy"
+      sSHD:
+        port: -1
+    
+    unclassified:
+      location:
+        adminAddress: ci-admin@eclipse.org
+        url: https://ci-staging.eclipse.org/scout
+    
+      mailer:
+        replyToAddress: ci-admin@eclipse.org
+        smtpHost: mail.eclipse.org
+    
+      extendedEmailPublisher:
+        defaultContentType: "text/html"
+    
+      globalDefaultFlowDurabilityLevel:
+        durabilityHint: PERFORMANCE_OPTIMIZED
+    
+      simple-theme-plugin:
+        elements:
+        - cssUrl:
+            url: "/scout/userContent/theme/quicksilver.css"
+        - cssUrl:
+            url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+        - jsUrl:
+            url: "/scout/userContent/theme/title.js"
+    
+    tool:
+      jdk:
+        installations:
+        - name: "openjdk-latest"
+          home: "/opt/tools/java/openjdk/latest"
+        - name: "openjdk-jdk14-latest"
+          home: "/opt/tools/java/openjdk/jdk-14/latest"
+        - name: "openjdk-jdk13-latest"
+          home: "/opt/tools/java/openjdk/jdk-13/latest"
+        - name: "openjdk-jdk12-latest"
+          home: "/opt/tools/java/openjdk/jdk-12/latest"
+        - name: "openjdk-jdk11-latest"
+          home: "/opt/tools/java/openjdk/jdk-11/latest"
+        - name: "openjdk-jdk10-latest"
+          home: "/opt/tools/java/openjdk/jdk-10/latest"
+        - name: "openjdk-jdk9-latest"
+          home: "/opt/tools/java/openjdk/jdk-9/latest"
+        - name: "adoptopenjdk-hotspot-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
+        - name: "adoptopenjdk-hotspot-jdk12-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest"
+        - name: "adoptopenjdk-hotspot-jdk11-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
+        - name: "adoptopenjdk-hotspot-jdk10-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest"
+        - name: "adoptopenjdk-hotspot-jdk9-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest"
+        - name: "adoptopenjdk-hotspot-jdk8-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
+        - name: "adoptopenjdk-openj9-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-latest"
+        - name: "adoptopenjdk-openj9-jdk12-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-12/latest"
+        - name: "adoptopenjdk-openj9-jdk11-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
+        - name: "adoptopenjdk-openj9-jdk10-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-10/latest"
+        - name: "adoptopenjdk-openj9-jdk9-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-9/latest"
+        - name: "adoptopenjdk-openj9-jdk8-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
+        - name: "oracle-latest"
+          home: "/opt/tools/java/oracle/latest"
+        - name: "oracle-jdk10-latest"
+          home: "/opt/tools/java/oracle/jdk-10/latest"
+        - name: "oracle-jdk9-latest"
+          home: "/opt/tools/java/oracle/jdk-9/latest"
+        - name: "oracle-jdk8-latest"
+          home: "/opt/tools/java/oracle/jdk-8/latest"
+        - name: "oracle-jdk7-latest"
+          home: "/opt/tools/java/oracle/jdk-7/latest"
+        - name: "oracle-jdk6-latest"
+          home: "/opt/tools/java/oracle/jdk-6/latest"
+        - name: "oracle-jdk5-latest"
+          home: "/opt/tools/java/oracle/jdk-5/latest"
+        - name: "ibm-jdk8-latest"
+          home: "/opt/tools/java/ibm/jdk-8/latest"
+        - name: "ibm-latest"
+          home: "/opt/tools/java/ibm/latest"
+      ant:
+        installations:
+        - name: "apache-ant-latest"
+          home: ""
+          properties:
+          - installSource:
+              installers:
+              - antFromApache:
+                  id: "1.10.5"
+      maven:
+        installations:
+        - name: "apache-maven-latest"
+          home: "/opt/tools/apache-maven/latest"
+        - name: "apache-maven-3.6.2"
+          home: "/opt/tools/apache-maven/3.6.2"
+        - name: "apache-maven-3.5.4"
+          home: "/opt/tools/apache-maven/3.5.4"
+        - name: "apache-maven-3.3.9"
+          home: "/opt/tools/apache-maven/3.3.9"
+        - name: "apache-maven-3.2.5"
+          home: "/opt/tools/apache-maven/3.2.5"
+      git:
+        installations:
+        - name: "Default"
+          home: "git"
