@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.efbt",
+         "org.eclipse.cbi.jiro/project.shortname": "efbt"
+      },
+      "name": "efbt",
+      "namespace": "efbt"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "efbt"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "efbt",
+         "namespace": "efbt"
+      }
+   ]
+}
