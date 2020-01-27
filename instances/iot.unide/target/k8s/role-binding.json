@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.unide",
+         "org.eclipse.cbi.jiro/project.shortname": "unide"
+      },
+      "name": "unide",
+      "namespace": "unide"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "unide"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "unide",
+         "namespace": "unide"
+      }
+   ]
+}

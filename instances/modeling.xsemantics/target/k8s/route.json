@@ -1,0 +1,31 @@
+{
+   "apiVersion": "route.openshift.io/v1",
+   "kind": "Route",
+   "metadata": {
+      "annotations": {
+         "haproxy.router.openshift.io/timeout": "60s"
+      },
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.xsemantics",
+         "org.eclipse.cbi.jiro/project.shortname": "xsemantics"
+      },
+      "name": "xsemantics",
+      "namespace": "xsemantics"
+   },
+   "spec": {
+      "host": "ci-staging.eclipse.org",
+      "path": "/xsemantics",
+      "port": {
+         "targetPort": "http"
+      },
+      "tls": {
+         "insecureEdgeTerminationPolicy": "Redirect",
+         "termination": "edge"
+      },
+      "to": {
+         "kind": "Service",
+         "name": "jenkins-ui",
+         "weight": 100
+      }
+   }
+}
