@@ -23,13 +23,6 @@ if [[ -z "${project_name}" ]]; then
  exit 1
 fi
 
-# check that project name contains a dot
-if [[ "$project_name" != *.* ]]; then
-  printf "ERROR: the full project name with a dot must be given (e.g. technology.cbi).\n"
-  usage
-  exit 1
-fi
-
 create_and_copy_templates() {
   mkdir -p tmp
   echo "Creating SonarQube config template..."
