@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.skills",
+         "org.eclipse.cbi.jiro/project.shortname": "skills"
+      },
+      "name": "skills",
+      "namespace": "skills"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "skills"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "skills",
+         "namespace": "skills"
+      }
+   ]
+}
