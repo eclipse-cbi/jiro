@@ -3,7 +3,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-1"
       nodeDescription: "openj9_ci_1 - l490vp054_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test ci.role.build"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
