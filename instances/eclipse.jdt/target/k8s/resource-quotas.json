@@ -1,0 +1,21 @@
+{
+   "apiVersion": "v1",
+   "kind": "ResourceQuota",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "eclipse.jdt",
+         "org.eclipse.cbi.jiro/project.shortname": "jdt"
+      },
+      "name": "jenkins-instance-quota",
+      "namespace": "jdt"
+   },
+   "spec": {
+      "hard": {
+         "limits.cpu": "11200m",
+         "limits.memory": "19456Mi",
+         "pods": 5,
+         "requests.cpu": "5600m",
+         "requests.memory": "19456Mi"
+      }
+   }
+}
