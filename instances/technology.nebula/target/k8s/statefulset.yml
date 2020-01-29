@@ -42,7 +42,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/nebula:2.190.1@sha256:d1740d7ae9c4a18d3a5de9783aa6d95fcad266cd7cf2e5aba1258b28a34c8eee
+        image: eclipsecbijenkins/nebula:2.190.1@sha256:0797af91869cfc60d239579e6bff9340af74f8a4be4d9bfde095e414941bd771
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
