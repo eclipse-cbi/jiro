@@ -330,6 +330,33 @@
           "Job/Configure"
         ],
         "principal": "vsebe@ca.ibm.com"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Read",
+          "Job/Read"
+        ],
+        "principal": "anonymous"
+      },
+      {
+        "grantedPermissions": [
+          "Job/ExtendedRead"
+        ],
+        "principal": "common"
+      },
+      {
+        "grantedPermissions": [
+          "Overall/Administer"
+        ],
+        "principal": "admins"
+      },
+      {
+        "grantedPermissions": [
+          "Agent/Configure",
+          "Agent/Connect",
+          "Agent/Disconnect"
+        ],
+        "principal": "rajdeep.singh@ibm.com"
       }
     ],
     "staticAgentCount": 50,

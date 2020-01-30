@@ -20,6 +20,9 @@ jenkins:
       - Agent/Disconnect:joe_dekoning@ca.ibm.com
       - Job/Configure:joe_dekoning@ca.ibm.com
       - Agent/Configure:peter_shipton@ca.ibm.com
+      - Agent/Configure:rajdeep.singh@ibm.com
+      - Agent/Connect:rajdeep.singh@ibm.com
+      - Agent/Disconnect:rajdeep.singh@ibm.com
       - Agent/Build:technology.openj9
       - Agent/Connect:technology.openj9
       - Agent/Disconnect:technology.openj9
@@ -312,8 +315,7 @@ jenkins:
   mode: EXCLUSIVE
   nodes:
   - permanent:
-      labelString: hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test
-        ci.role.build
+      labelString: hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
@@ -710,8 +712,8 @@ jenkins:
       remoteFS: /Users/jenkins
       retentionStrategy: always
   - permanent:
-      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
-        ci.role.test sw.tool.docker ci.geo.marist
+      labelString: hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
+        ci.role.build ci.role.test sw.tool.docker ci.geo.marist
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.113.51
@@ -724,8 +726,8 @@ jenkins:
       remoteFS: /home/jenkins
       retentionStrategy: always
   - permanent:
-      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
-        ci.role.test sw.tool.docker ci.geo.marist
+      labelString: hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
+        ci.role.build ci.role.test sw.tool.docker ci.geo.marist
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.113.62
@@ -738,8 +740,8 @@ jenkins:
       remoteFS: /home/jenkins
       retentionStrategy: always
   - permanent:
-      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
-        ci.role.test sw.tool.docker ci.geo.marist
+      labelString: hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
+        ci.role.build ci.role.test sw.tool.docker ci.geo.marist
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.113.73
@@ -752,8 +754,8 @@ jenkins:
       remoteFS: /home/jenkins
       retentionStrategy: always
   - permanent:
-      labelString: hw.arch.s390x sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
-        ci.role.test sw.tool.docker ci.geo.marist
+      labelString: hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
+        ci.role.build ci.role.test sw.tool.docker ci.geo.marist
       launcher:
         command:
           command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.113.63
@@ -1032,6 +1034,11 @@ jenkins:
       name: win2012r2-x86-1
       nodeDescription: oj9-win2012r2-1 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
         Disk
+      nodeProperties:
+      - envVars:
+          env:
+          - key: TEMP
+            value: "c:\temp"
       numExecutors: 1
       remoteFS: C:\Users\jenkins
       retentionStrategy: always
@@ -1047,6 +1054,11 @@ jenkins:
       name: win2012r2-x86-2
       nodeDescription: oj9-win2012r2-2 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
         Disk
+      nodeProperties:
+      - envVars:
+          env:
+          - key: TEMP
+            value: "c:\temp"
       numExecutors: 1
       remoteFS: C:\Users\jenkins
       retentionStrategy: always
@@ -1062,6 +1074,11 @@ jenkins:
       name: win2012r2-x86-3
       nodeDescription: oj9-win2012r2-3 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
         Disk
+      nodeProperties:
+      - envVars:
+          env:
+          - key: TEMP
+            value: "c:\temp"
       numExecutors: 1
       remoteFS: C:\Users\jenkins
       retentionStrategy: always
@@ -1077,6 +1094,11 @@ jenkins:
       name: win2012r2-x86-4
       nodeDescription: oj9-win2012r2-4 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
         Disk
+      nodeProperties:
+      - envVars:
+          env:
+          - key: TEMP
+            value: "c:\temp"
       numExecutors: 1
       remoteFS: C:\Users\jenkins
       retentionStrategy: always
@@ -1092,6 +1114,11 @@ jenkins:
       name: win2012r2-x86-5
       nodeDescription: oj9-win2012r2-5 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
         Disk
+      nodeProperties:
+      - envVars:
+          env:
+          - key: TEMP
+            value: "c:\temp"
       numExecutors: 1
       remoteFS: C:\Users\jenkins
       retentionStrategy: always
@@ -1107,6 +1134,11 @@ jenkins:
       name: win2012r2-x86-6
       nodeDescription: oj9-win2012r2-6 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
         Disk
+      nodeProperties:
+      - envVars:
+          env:
+          - key: TEMP
+            value: "c:\temp"
       numExecutors: 1
       remoteFS: C:\Users\jenkins
       retentionStrategy: always
