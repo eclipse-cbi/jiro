@@ -603,7 +603,7 @@ jenkins:
       - envVars:
           env:
           - key: "TEMP"
-            value: "c:\temp"
+            value: "c:\\temp"
   - permanent:
       name: "win2012r2-x86-2"
       nodeDescription: "oj9-win2012r2-2 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
@@ -619,7 +619,7 @@ jenkins:
       - envVars:
           env:
           - key: "TEMP"
-            value: "c:\temp"
+            value: "c:\\temp"
   - permanent:
       name: "win2012r2-x86-3"
       nodeDescription: "oj9-win2012r2-3 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
@@ -635,7 +635,7 @@ jenkins:
       - envVars:
           env:
           - key: "TEMP"
-            value: "c:\temp"
+            value: "c:\\temp"
   - permanent:
       name: "win2012r2-x86-4"
       nodeDescription: "oj9-win2012r2-4 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
@@ -651,7 +651,7 @@ jenkins:
       - envVars:
           env:
           - key: "TEMP"
-            value: "c:\temp"
+            value: "c:\\temp"
   - permanent:
       name: "win2012r2-x86-5"
       nodeDescription: "oj9-win2012r2-5 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
@@ -667,7 +667,7 @@ jenkins:
       - envVars:
           env:
           - key: "TEMP"
-            value: "c:\temp"
+            value: "c:\\temp"
   - permanent:
       name: "win2012r2-x86-6"
       nodeDescription: "oj9-win2012r2-6 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
@@ -683,7 +683,7 @@ jenkins:
       - envVars:
           env:
           - key: "TEMP"
-            value: "c:\temp"
+            value: "c:\\temp"
   - permanent:
       name: "worker-1"
       nodeDescription: "eclipse-openj9-proxy Linux PPC64LE Ubuntu 16.04. 4CPU 8GB Ram 78GB Disk"
