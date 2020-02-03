@@ -13,7 +13,7 @@
       "namespace": "ecoretools"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/ecoretools",
       "port": {
          "targetPort": "http"

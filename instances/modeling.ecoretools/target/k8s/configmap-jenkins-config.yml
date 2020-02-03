@@ -362,7 +362,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/ecoretools
+        url: https://ci.eclipse.org/ecoretools
     
       mailer:
         replyToAddress: ci-admin@eclipse.org
