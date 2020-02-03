@@ -1061,7 +1061,7 @@ data:
           - envVars:
               env:
               - key: TEMP
-                value: "c:\temp"
+                value: c:\temp
           numExecutors: 1
           remoteFS: C:\Users\jenkins
           retentionStrategy: always
@@ -1081,7 +1081,7 @@ data:
           - envVars:
               env:
               - key: TEMP
-                value: "c:\temp"
+                value: c:\temp
           numExecutors: 1
           remoteFS: C:\Users\jenkins
           retentionStrategy: always
@@ -1101,7 +1101,7 @@ data:
           - envVars:
               env:
               - key: TEMP
-                value: "c:\temp"
+                value: c:\temp
           numExecutors: 1
           remoteFS: C:\Users\jenkins
           retentionStrategy: always
@@ -1121,7 +1121,7 @@ data:
           - envVars:
               env:
               - key: TEMP
-                value: "c:\temp"
+                value: c:\temp
           numExecutors: 1
           remoteFS: C:\Users\jenkins
           retentionStrategy: always
@@ -1141,7 +1141,7 @@ data:
           - envVars:
               env:
               - key: TEMP
-                value: "c:\temp"
+                value: c:\temp
           numExecutors: 1
           remoteFS: C:\Users\jenkins
           retentionStrategy: always
@@ -1161,7 +1161,7 @@ data:
           - envVars:
               env:
               - key: TEMP
-                value: "c:\temp"
+                value: c:\temp
           numExecutors: 1
           remoteFS: C:\Users\jenkins
           retentionStrategy: always
