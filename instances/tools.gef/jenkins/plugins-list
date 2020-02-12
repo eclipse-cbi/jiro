@@ -1,1 +1,5 @@
 build-name-setter
+copyartifact
+github-branch-source
+parameterized-scheduler
+slack
