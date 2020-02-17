@@ -3,3 +3,4 @@ cli.jar
 *.code-workspace
 /.project
 /.jsonnet
+/.dockertools

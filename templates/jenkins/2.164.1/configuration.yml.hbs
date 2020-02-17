@@ -50,7 +50,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "{{docker.agent.defaultImage.name}}:{{docker.agent.defaultImage.tag}}@sha256:{{docker.agent.defaultImage.sha256}}"
+        - image: "{{docker.agent.defaultImage.name}}:{{docker.agent.defaultImage.tag}}@{{docker.agent.defaultImage.digest}}"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0

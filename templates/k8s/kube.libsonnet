@@ -6,10 +6,7 @@
       kind: kind,
       metadata: {
         name: name,
-        labels: {
-          "org.eclipse.cbi.jiro/project.shortname": config.project.shortName,
-          "org.eclipse.cbi.jiro/project.fullName": config.project.fullName,
-        },
+        labels: $.JiroLabels(config),
       },
     },
 
@@ -26,9 +23,16 @@
     items: [] + items,
   },
 
+  JiroLabels(config):: {
+    "org.eclipse.cbi.jiro/project.shortname": config.project.shortName,
+    "org.eclipse.cbi.jiro/project.fullName": config.project.fullName,
+  },
+
+  Namespace(name, config): $.__.KubeObject("v1", "Namespace", name, config),
+  PersistentVolume(name, config): $.__.KubeObject("v1", "PersistentVolume", name, config),
+  
   LimitRange(name, config): $.__.KubeNSObject("v1", "LimitRange", name, config),
   ResourceQuota(name, config): $.__.KubeNSObject("v1", "ResourceQuota", name, config),
-  Namespace(name, config): $.__.KubeObject("v1", "Namespace", name, config),
   RoleBinding(name, config): $.__.KubeNSObject("v1", "RoleBinding", name, config),
   Role(name, config): $.__.KubeNSObject("v1", "Role", name, config),
   Route(name, config): $.__.KubeNSObject("route.openshift.io/v1", "Route", name, config),
@@ -36,8 +40,8 @@
   Service(name, config): $.__.KubeNSObject("v1", "Service", name, config),
   ConfigMap(name, config): $.__.KubeNSObject("v1", "ConfigMap", name, config),
   Secret(name, config): $.__.KubeNSObject("v1", "Secret", name, config),
-  PersistentVolume(name, config): $.__.KubeObject("v1", "PersistentVolume", name, config),
   PersistentVolumeClaim(name, config): $.__.KubeNSObject("v1", "PersistentVolumeClaim", name, config),
+  StatefulSet(name, config): $.__.KubeNSObject("v1", "StatefulSet", name, config),
 
   stripSI(n):: (
     local suffix_len =
