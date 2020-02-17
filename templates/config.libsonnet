@@ -1,13 +1,8 @@
 local jenkinsReleases = import '../jenkins-master-base/releases.libsonnet';
 local permissions = import 'permissions.libsonnet';
 {
-  local jenkinsRelease = 
-    if $.jenkins.version == 'latest' then 
-      jenkinsReleases.latest 
-    else
-      std.filter(function(r) if r.jenkins.version == $.jenkins.version then true else false, jenkinsReleases.releases)[0]
-    ,
-
+  local jenkinsRelease = jenkinsReleases.releases[$.jenkins.version],
+  
   project: {
     shortName: error 'Must set "project.shortName"',
     fullName: error 'Must set "project.fullName"',
@@ -18,7 +13,7 @@ local permissions = import 'permissions.libsonnet';
   jenkins: {
     version: "latest",
     actualVersion: jenkinsRelease.jenkins.version,
-    actualRemotingVersion: jenkinsRelease.jenkins.remoting.version,
+    remotingVersion: jenkinsRelease.jenkins.remoting.version,
     maxConcurrency: 2 * $.project.resourcePacks,
     staticAgentCount: 0,
     agentConnectionTimeout: 180,
@@ -49,8 +44,8 @@ local permissions = import 'permissions.libsonnet';
   },
   kubernetes: {
     master: {
-      namespace: "" + $.project.shortName,
-      stsName: "" + $.project.shortName,
+      namespace: $.project.shortName,
+      stsName: $.project.shortName,
       resources: { 
         local Const = import "k8s/resource-packs.libsonnet",
         cpu: {
@@ -78,7 +73,7 @@ local permissions = import 'permissions.libsonnet';
       }
     },
     agents: {
-      namespace: "" + $.project.shortName,
+      namespace: $.project.shortName,
       defaultResources: {
         local Const = import "k8s/resource-packs.libsonnet",
         local Kube = import "k8s/kube.libsonnet",
@@ -98,22 +93,22 @@ local permissions = import 'permissions.libsonnet';
     files: {
       "settings.xml": {
         "volumeType": "Secret",
-        "volumeName": "m2-secret-dir"
+        "volumeName": "m2-secret-dir",
       },
       "settings-security.xml": {
         "volumeType": "Secret",
-        "volumeName": "m2-secret-dir"
+        "volumeName": "m2-secret-dir",
       },
       "toolchains.xml": {
         volumeType: "ConfigMap",
-        volumeName: "m2-dir"
+        volumeName: "m2-dir",
       }
     }
   },
-  "secrets": {
+  secrets: {
     "gerrit-trigger-plugin": {
-      "username": "genie." + $.project.shortName,
-      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
+      username: "genie." + $.project.shortName,
+      identityFile: "/run/secrets/jenkins/ssh/id_rsa",
     }
   }
 }

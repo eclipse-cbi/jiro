@@ -17,4 +17,5 @@ local Kube = import "k8s/kube.libsonnet";
       (import "k8s/tools-pv.libsonnet").gen_pv($["config.json"]), 
       (import "k8s/tools-pv.libsonnet").gen_pvc($["config.json"]) 
   ]),
+  "k8s/statefulset.json": (import "k8s/statefulset.libsonnet").gen($["config.json"]),
 }

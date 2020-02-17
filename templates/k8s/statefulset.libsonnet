@@ -1,8 +1,8 @@
 local Kube = import "kube.libsonnet";
 {
   gen(config): Kube.StatefulSet(config.kubernetes.master.stsName, config) {
-    local agents = import "../../jenkins-agent-images/jenkins-agent/releases.jsonnet",
-    local defaultJnlpAgent = agents.releases[config.jenkins.actualRemotingVersion],
+    local agents = import "../../../jiro-agents/remoting.libsonnet",
+    local defaultJnlpAgent = agents.agents["basic-agent"].versions[config.jenkins.remotingVersion],
     spec: {
       replicas: 1,
       selector: {
@@ -22,7 +22,7 @@ local Kube = import "kube.libsonnet";
           containers: [
             {
               name: "jenkins",
-              image: "%s:%s@sha256:%s" % [config.docker.master.image, config.docker.master.imageTag, config.docker.master.imageSha256, ],
+              image: "%s:%s" % [config.docker.master.image, config.docker.master.imageTag ],
               imagePullPolicy: "IfNotPresent",
               livenessProbe: {
                 httpGet: {
@@ -112,7 +112,7 @@ local Kube = import "kube.libsonnet";
                     "-DexecutableWar.jetty.disableCustomSessionIdCookieName=false",
                     "-DexecutableWar.jetty.sessionIdCookieName=JSESSIONID." + config.project.shortName,
                     "-Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml",
-                    "-Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=%s:%s@sha256:%s" % [defaultJnlpAgent.docker.agent.defaultImage.name, config.docker.agent.defaultImage.tag, config.docker.agent.defaultImage.sha256],
+                    "-Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=%s:%s" % [defaultJnlpAgent.docker.image.name, defaultJnlpAgent.docker.image.tag],
                     "-Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=" + config.jenkins.agentConnectionTimeout,
                     "-Dkubernetes.websocket.ping.interval=30000",
                     ])

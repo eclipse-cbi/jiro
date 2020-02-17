@@ -50,7 +50,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "{{docker.agent.defaultImage.name}}:{{docker.agent.defaultImage.tag}}@sha256:{{docker.agent.defaultImage.sha256}}"
+        - image: "{{docker.agent.defaultImage.name}}:{{docker.agent.defaultImage.tag}}"
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -91,6 +91,9 @@ jenkins:
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/wrapper"
         {{/if}}
         {{#if gradle}}
         - emptyDirVolume:
@@ -191,6 +194,9 @@ jenkins:
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/wrapper"
         {{/if}}
         {{#if gradle}}
         - emptyDirVolume:
@@ -291,6 +297,9 @@ jenkins:
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/wrapper"
         {{/if}}
         {{#if gradle}}
         - emptyDirVolume:
