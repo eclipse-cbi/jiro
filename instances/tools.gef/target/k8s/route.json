@@ -13,7 +13,7 @@
       "namespace": "gef"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/gef",
       "port": {
          "targetPort": "http"

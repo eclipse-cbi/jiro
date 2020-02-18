@@ -1,16 +1,16 @@
 {
   "deployment": {
-    "host": "ci-staging.eclipse.org",
+    "host": "ci.eclipse.org",
     "jnlpPort": 50000,
     "prefix": "/gef",
     "uiPort": 8080,
-    "url": "https://ci-staging.eclipse.org/gef"
+    "url": "https://ci.eclipse.org/gef"
   },
   "docker": {
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
-        "sha256": "dff125e05404688a78bd67d5b47d107d98ec7583282e8ed9ca6646a2a76874e2",
+        "sha256": "399fbc3bd69ebc1b60231bf7bdb9f9a9fe9518d0b2540dbef7ee19c89559b83d",
         "tag": "3.35"
       }
     },
@@ -25,7 +25,7 @@
       "username": "jenkins",
       "war": "/usr/share/jenkins/jenkins.war",
       "webroot": "/var/cache/jenkins/war",
-      "imageSha256": "880395a487f098f28ae1715458203232be9ae4dfea1affb380eafa8f305a7811"
+      "imageSha256": "36f179f035ca57ad6c53d80f66c8dafe48aca04cc20a8a61ab60b1b107161a79"
     },
     "repository": "eclipsecbijenkins"
   },
