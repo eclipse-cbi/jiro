@@ -391,6 +391,50 @@ jenkins:
         command:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.113.63 \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
   - permanent:
+      name: "ub16-390-5"
+      nodeDescription: "Linux 390 Red Hat 7. 4CPU 8GB Ram  91GB Disk"
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.redhat sw.os.redhat.7 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.245.9 \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
+  - permanent:
+      name: "ub16-390-6"
+      nodeDescription: "Linux 390 Red Hat 7. 4CPU 8GB Ram  91GB Disk"
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.redhat sw.os.redhat.7 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.244.2 \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
+  - permanent:
+      name: "ub16-390-7"
+      nodeDescription: "Linux 390 Red Hat 7. 4CPU 8GB Ram  91GB Disk"
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.redhat sw.os.redhat.7 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.244.25 \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
+  - permanent:
+      name: "ub16-390-8"
+      nodeDescription: "Linux 390 Red Hat 7. 4CPU 8GB Ram  91GB Disk"
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.redhat sw.os.redhat.7 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.245.61 \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
+  - permanent:
       name: "ub16p8j91"
       nodeDescription: "ub16p8j91 - UNB Ubuntu 16 p8le"
       labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker"
