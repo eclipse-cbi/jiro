@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.zenoh",
+         "org.eclipse.cbi.jiro/project.shortname": "zenoh"
+      },
+      "name": "zenoh",
+      "namespace": "zenoh"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "zenoh"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "zenoh",
+         "namespace": "zenoh"
+      }
+   ]
+}
