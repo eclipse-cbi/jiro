@@ -40,6 +40,7 @@ download() {
     plugin="$1"
     version="${2:-latest}"
     ignoreLockFile="${3:-}"
+    url="${4:-}"
     lock="$(getLockFile "$plugin")"
 
     if [[ $ignoreLockFile ]] || mkdir "$lock" &>/dev/null; then
@@ -278,7 +279,7 @@ main() {
     fi
 
     echo "Cleaning up locks"
-    find "$REF_DIR" -regex ".*.lock" | while read -r filepath; do
+    find "$JENKINS_PLUGIN_REF" -regex ".*.lock" | while read -r filepath; do
         rm -r "$filepath"
     done
 

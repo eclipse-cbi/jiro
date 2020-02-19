@@ -27,12 +27,12 @@ if [ ! -d "${instance}" ]; then
   exit 1
 fi
 
-config="${instance}/target/config.json"
-
 "${SCRIPT_FOLDER}/gen-jenkins.sh" "${instance}"
 "${SCRIPT_FOLDER}/gen-dockerfile.sh" "${instance}"
 
-masterImage="$(jq -r '.docker.master.image' "${config}")"
-masterImageTag="$(jq -r '.docker.master.imageTag' "${config}")"
+config="${instance}/target/config.json"
+image="$(jq -r '.docker.master.image' "${config}")"
+tag="$(jq -r '.docker.master.imageTag' "${config}")"
 
-"${SCRIPT_FOLDER}/../.dockertools/dockerw" build "${masterImage}" "${masterImageTag}" "${instance}/target/Dockerfile"
+dockerfile="${instance}/target/Dockerfile"
+"${SCRIPT_FOLDER}/../.dockertools/dockerw" build "${image}" "${tag}" "${dockerfile}" "$(dirname "${dockerfile}")" true true

@@ -6,7 +6,7 @@
 # or the MIT License which is available at https://opensource.org/licenses/MIT.
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
-FROM eclipsecbijenkins/openshift-java:jdk8u222-b10_openj9-0.15.1
+FROM eclipsecbi/adoptopenjdk-coreutils:openjdk8-openj9-alpine-slim
 
 ARG JENKINS_HOME
 ENV JENKINS_HOME="${JENKINS_HOME}"
@@ -31,12 +31,9 @@ ARG JENKINS_PLUGIN_ROOT
 ARG JENKINS_UC
 ENV JENKINS_UC="${JENKINS_UC}"
 
-RUN mkdir -p $JENKINS_HOME && \
-  chmod_container_user rwx $JENKINS_HOME && \ 
-  mkdir -p ${JENKINS_WEB_ROOT} && \
-  chmod_container_user rwx ${JENKINS_WEB_ROOT} && \
-  mkdir -p ${JENKINS_PLUGIN_ROOT} && \
-  chmod_container_user rwx ${JENKINS_PLUGIN_ROOT} && \
+RUN mkdir -p ${JENKINS_HOME} && chmod g+w ${JENKINS_HOME} && \ 
+  mkdir -p ${JENKINS_WEB_ROOT} && chmod g+w ${JENKINS_WEB_ROOT} && \ 
+  mkdir -p ${JENKINS_PLUGIN_ROOT} && chmod g+w ${JENKINS_PLUGIN_ROOT} && \ 
   mkdir -p ${JENKINS_REF} && \
   mkdir -p $(dirname ${JENKINS_WAR})
 
@@ -54,7 +51,6 @@ RUN curl -sfSL "${JENKINS_WAR_BASE_URL}/jenkins-war-${JENKINS_VERSION}.war.asc" 
 
 COPY ./scripts /usr/local/bin
 RUN chmod ug+x /usr/local/bin/*
-RUN chmod_container_user "rx" /usr/local/bin/install-plugins.sh
 
 COPY base-plugins ${JENKINS_REF}/
 RUN /usr/local/bin/install-plugins.sh < ${JENKINS_REF}/base-plugins

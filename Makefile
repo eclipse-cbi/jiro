@@ -6,7 +6,7 @@
 # or the MIT License which is available at https://opensource.org/licenses/MIT.
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
-DOCKER_REPO=`cat repositoryName`
+DOCKER_REPO=`.jsonnet/jsonnet globals.jsonnet | jq -r .docker.repository`
 
 INSTANCES=$(patsubst instances/%,%,$(wildcard instances/*))
 IMAGE_INSTANCES=$(patsubst %,image_%,$(INSTANCES))
@@ -18,7 +18,7 @@ DELETE_INSTANCES=$(patsubst %,delete_%,$(INSTANCES))
 GENCONFIG_INSTANCES=$(patsubst %,genconfig_%,$(INSTANCES))
 DOCKERTOOLS_PATH=.dockertools
 
-.PHONY: all clean all_images push_all_images k8s_all_instances deploy_all_instances clean_all_instances tests openshift-java push_openshift-java jenkins-master-base push_jenkins-master-base jenkins-agent push_jenkins-agent $(IMAGE_INSTANCES) $(K8S_INSTANCES) $(PUSH_INSTANCES) $(DEPLOY_INSTANCES) $(CLEAN_INSTANCES) $(DELETE_INSTANCES) $(GENCONFIG_INSTANCES) error_resources error_pages deploy_error_pages clone_jsonnet dockertools
+.PHONY: all clean all_images push_all_images k8s_all_instances deploy_all_instances clean_all_instances tests jenkins-master-base push_jenkins-master-base $(IMAGE_INSTANCES) $(K8S_INSTANCES) $(PUSH_INSTANCES) $(DEPLOY_INSTANCES) $(CLEAN_INSTANCES) $(DELETE_INSTANCES) $(GENCONFIG_INSTANCES) error_resources error_pages deploy_error_pages clone_jsonnet dockertools
 
 dockertools:
 	if [[ -d "${DOCKERTOOLS_PATH}" ]]; then \
@@ -46,39 +46,21 @@ deploy_error_pages: error_pages
 	oc apply -f ./error_pages/resources.pod.yml
 	oc apply -f ./error_pages/maintenance.pod.yml
 
-openshift-java: dockertools
-	.dockertools/dockerw build_all ${DOCKER_REPO} $@
-
-push_openshift-java: openshift-java
-	.dockertools/dockerw push_all ${DOCKER_REPO} $<
-
-jenkins-agent: openshift-java
-	find jenkins-agent-images/jenkins-agent -mindepth 1 -maxdepth 1 -type d -exec jenkins-agent-images/jenkins-agent/build.sh {} \;
-
-push_jenkins-agent: jenkins-agent
-	.dockertools/dockerw push_all ${DOCKER_REPO} jenkins-agent-images/$<
-
-jenkins-master-base: openshift-java
+jenkins-master-base: dockertools
 	find jenkins-master-base -mindepth 1 -maxdepth 1 -type d -exec jenkins-master-base/build.sh {} \;
 
 push_jenkins-master-base: jenkins-master-base
-	.dockertools/dockerw push_all ${DOCKER_REPO} $<
+	find jenkins-master-base -mindepth 1 -maxdepth 1 -type d -exec jenkins-master-base/push.sh {} \;
 
-# requires push_jenkins-agent to get jenkins-agent sha
-$(GENCONFIG_INSTANCES): genconfig_% : .jsonnet/jsonnet $(wildcard templates/**/*) instances/%/jiro.jsonnet instances/%/config.jsonnet push_jenkins-agent
+$(GENCONFIG_INSTANCES): genconfig_% : .jsonnet/jsonnet $(wildcard templates/**/*) instances/%/jiro.jsonnet instances/%/config.jsonnet
 	./build/gen-config.sh instances/$(patsubst genconfig_%,%,$@)
 
-$(IMAGE_INSTANCES): image_% : jenkins-master-base genconfig_%
+$(IMAGE_INSTANCES): image_% : push_jenkins-master-base genconfig_%
 	./build/build-image.sh instances/$(patsubst image_%,%,$@)
 
 all_images: $(IMAGE_INSTANCES)
 
-$(PUSH_INSTANCES): push_% : image_%
-	./build/push-image.sh instances/$(patsubst push_%,%,$@)
-
-push_all_images: push_openshift-java push_jenkins-master-base push_jenkins-agent $(PUSH_INSTANCES)
-
-$(K8S_INSTANCES): k8s_% : push_%
+$(K8S_INSTANCES): k8s_% : image_%
 	./build/gen-k8s.sh instances/$(patsubst k8s_%,%,$@)
 
 k8s_all_instances: $(K8S_INSTANCES)
@@ -93,7 +75,6 @@ $(CLEAN_INSTANCES): clean_% : genconfig_%
 
 clean_all_instances: $(CLEAN_INSTANCES)
 	.dockertools/dockerw rmi_all ${DOCKER_REPO}/jenkins-master-base
-	.dockertools/dockerw rmi_all ${DOCKER_REPO}/openshift-java
 
 $(DELETE_INSTANCES):
 	./build/k8s-delete.sh instances/$(patsubst delete_%,%,$@)
