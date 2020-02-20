@@ -49,8 +49,10 @@ jenkins:
       namespace: "{{kubernetes.master.namespace}}"
       podRetention: "never"
       templates:
+      {{#each agents}}
       - containers:
-        - image: "{{docker.agent.defaultImage.name}}:{{docker.agent.defaultImage.tag}}"
+        - image: {{this.docker.name}}:{{this.docker.tag}}
+          alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -58,17 +60,18 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitCpu: "2000m"
-          resourceRequestCpu: "1000m"
-          resourceLimitMemory: "4096Mi"
-          resourceRequestMemory: "4096Mi"
+          resourceLimitCpu: "{{this.kubernetes.resources.cpu.limit}}"
+          resourceRequestCpu: "{{this.kubernetes.resources.cpu.request}}"
+          resourceLimitMemory: "{{this.kubernetes.resources.memory.limit}}"
+          resourceRequestMemory: "{{this.kubernetes.resources.memory.request}}"
           ttyEnabled: true
           command: ""
           args: ""
         instanceCap: 5
-        name: "default-agent"
-        namespace: "{{kubernetes.master.namespace}}"
-        nodeUsageMode: NORMAL
+        name: "{{this.name}}"
+        namespace: "{{../kubernetes.master.namespace}}"
+        nodeUsageMode: {{this.mode}}
+        label: "{{#each this.labels}}{{this}}{{#unless @last}} {{/unless}}{{/each}}"
         envVars:
         - envVar:
             key: "MAVEN_OPTS"
@@ -78,7 +81,7 @@ jenkins:
             value: "-B -e"
         volumes:
         - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-{{project.shortName}}"
+            claimName: "tools-claim-jiro-{{../project.shortName}}"
             mountPath: "/opt/tools"
             readOnly: true
         - configMapVolume:
@@ -87,7 +90,7 @@ jenkins:
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/"
-        {{#if maven}}
+        {{#if ../maven}}
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
@@ -95,7 +98,7 @@ jenkins:
             memory: false
             mountPath: "/home/jenkins/.m2/wrapper"
         {{/if}}
-        {{#if gradle}}
+        {{#if ../gradle}}
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.gradle/caches"
@@ -122,123 +125,20 @@ jenkins:
             containers:
             - name: jnlp
               volumeMounts:
-              {{#each maven.files}}
+              {{#each ../maven.files}}
               - name: {{dns1123 @key}}
-                mountPath: {{../maven.home}}/{{@key}}
+                mountPath: {{../../maven.home}}/{{@key}}
                 subPath: {{@key}}
                 readOnly: true
               {{/each}}
-              {{#each gradle.files}}
+              {{#each ../gradle.files}}
               - name: {{dns1123 @key}}
-                mountPath: {{../gradle.home}}/{{@key}}
-                subPath: {{@key}}
-                readOnly: true
-              {{/each}}
-            volumes:
-            {{#each maven.files}}
-            - name: {{dns1123 @key}}
-              {{#ifeq volumeType "ConfigMap"}}configMap{{/ifeq}}{{#ifeq volumeType "Secret"}}secret{{/ifeq}}:
-                {{#ifeq volumeType "ConfigMap"}}name{{/ifeq}}{{#ifeq volumeType "Secret"}}secretName{{/ifeq}}: {{volumeName}}
-                items:
-                - key: {{#if entryName}}{{entryName}}{{else}}{{@key}}{{/if}}
-                  path: {{@key}}
-            {{/each}}
-            {{#each gradle.files}}
-            - name: {{dns1123 @key}}
-              {{#ifeq volumeType "ConfigMap"}}configMap{{/ifeq}}{{#ifeq volumeType "Secret"}}secret{{/ifeq}}:
-                {{#ifeq volumeType "ConfigMap"}}name{{/ifeq}}{{#ifeq volumeType "Secret"}}secretName{{/ifeq}}: {{volumeName}}
-                items:
-                - key: {{#if entryName}}{{entryName}}{{else}}{{@key}}{{/if}}
-                  path: {{@key}}
-            {{/each}}
-      - containers:
-        - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59"
-          livenessProbe:
-            failureThreshold: 0
-            initialDelaySeconds: 0
-            periodSeconds: 0
-            successThreshold: 0
-            timeoutSeconds: 0
-          name: "jnlp"
-          resourceLimitCpu: "2000m"
-          resourceRequestCpu: "1000m"
-          resourceLimitMemory: "4096Mi"
-          resourceRequestMemory: "4096Mi"
-          ttyEnabled: true
-          command: ""
-          args: ""
-        instanceCap: 5
-        instanceCapStr: "5"
-        name: "ui-test-agent"
-        namespace: "{{kubernetes.master.namespace}}"
-        label: "ui-test"
-        envVars:
-        - envVar:
-            key: "MAVEN_OPTS"
-            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
-        - envVar:
-            key: "MAVEN_CONFIG"
-            value: "-B -e"
-        volumes:
-        - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-{{project.shortName}}"
-            mountPath: "/opt/tools"
-            readOnly: true
-        - configMapVolume:
-            configMapName: "known-hosts"
-            mountPath: "/home/jenkins/.ssh/"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/"
-        {{#if maven}}
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.m2/repository"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.m2/wrapper"
-        {{/if}}
-        {{#if gradle}}
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.gradle/caches"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.gradle/daemon"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.gradle/native"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.gradle/workers"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.gradle/wrapper"
-        {{/if}}
-        workspaceVolume:
-          emptyDirWorkspaceVolume:
-            memory: false
-        yaml: |
-          apiVersion: v1
-          kind: Pod
-          spec:
-            containers:
-            - name: jnlp
-              volumeMounts:
-              {{#each maven.files}}
-              - name: {{dns1123 @key}}
-                mountPath: {{../maven.home}}/{{@key}}
-                subPath: {{@key}}
-                readOnly: true
-              {{/each}}
-              {{#each gradle.files}}
-              - name: {{dns1123 @key}}
-                mountPath: {{../gradle.home}}/{{@key}}
+                mountPath: {{../../gradle.home}}/{{@key}}
                 subPath: {{@key}}
                 readOnly: true
               {{/each}}
             volumes:
-            {{#each maven.files}}
+            {{#each ../maven.files}}
             - name: {{dns1123 @key}}
               {{#ifeq volumeType "ConfigMap"}}configMap{{/ifeq}}{{#ifeq volumeType "Secret"}}secret{{/ifeq}}:
                 {{#ifeq volumeType "ConfigMap"}}name{{/ifeq}}{{#ifeq volumeType "Secret"}}secretName{{/ifeq}}: {{volumeName}}
@@ -246,7 +146,7 @@ jenkins:
                 - key: {{#if entryName}}{{entryName}}{{else}}{{@key}}{{/if}}
                   path: {{@key}}
             {{/each}}
-            {{#each gradle.files}}
+            {{#each ../gradle.files}}
             - name: {{dns1123 @key}}
               {{#ifeq volumeType "ConfigMap"}}configMap{{/ifeq}}{{#ifeq volumeType "Secret"}}secret{{/ifeq}}:
                 {{#ifeq volumeType "ConfigMap"}}name{{/ifeq}}{{#ifeq volumeType "Secret"}}secretName{{/ifeq}}: {{volumeName}}
@@ -254,109 +154,7 @@ jenkins:
                 - key: {{#if entryName}}{{entryName}}{{else}}{{@key}}{{/if}}
                   path: {{@key}}
             {{/each}}
-      - containers:
-        - image: "eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f"
-          livenessProbe:
-            failureThreshold: 0
-            initialDelaySeconds: 0
-            periodSeconds: 0
-            successThreshold: 0
-            timeoutSeconds: 0
-          name: "jnlp"
-          resourceLimitCpu: "2000m"
-          resourceRequestCpu: "1000m"
-          resourceLimitMemory: "4096Mi"
-          resourceRequestMemory: "4096Mi"
-          ttyEnabled: true
-          command: ""
-          args: ""
-        instanceCap: 5
-        instanceCapStr: "5"
-        name: "migration-agent"
-        namespace: "{{kubernetes.master.namespace}}"
-        envVars:
-        - envVar:
-            key: "MAVEN_OPTS"
-            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
-        - envVar:
-            key: "MAVEN_CONFIG"
-            value: "-B -e"
-        label: "migration"
-        volumes:
-        - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-{{project.shortName}}"
-            mountPath: "/opt/tools"
-            readOnly: true
-        - configMapVolume:
-            configMapName: "known-hosts"
-            mountPath: "/home/jenkins/.ssh/"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/"
-        {{#if maven}}
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.m2/repository"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.m2/wrapper"
-        {{/if}}
-        {{#if gradle}}
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.gradle/caches"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.gradle/daemon"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.gradle/native"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.gradle/workers"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.gradle/wrapper"
-        {{/if}}
-        workspaceVolume:
-          emptyDirWorkspaceVolume:
-            memory: false
-        yaml: |
-          apiVersion: v1
-          kind: Pod
-          spec:
-            containers:
-            - name: jnlp
-              volumeMounts:
-              {{#each maven.files}}
-              - name: {{dns1123 @key}}
-                mountPath: {{../maven.home}}/{{@key}}
-                subPath: {{@key}}
-                readOnly: true
-              {{/each}}
-              {{#each gradle.files}}
-              - name: {{dns1123 @key}}
-                mountPath: {{../gradle.home}}/{{@key}}
-                subPath: {{@key}}
-                readOnly: true
-              {{/each}}
-            volumes:
-            {{#each maven.files}}
-            - name: {{dns1123 @key}}
-              {{#ifeq volumeType "ConfigMap"}}configMap{{/ifeq}}{{#ifeq volumeType "Secret"}}secret{{/ifeq}}:
-                {{#ifeq volumeType "ConfigMap"}}name{{/ifeq}}{{#ifeq volumeType "Secret"}}secretName{{/ifeq}}: {{volumeName}}
-                items:
-                - key: {{#if entryName}}{{entryName}}{{else}}{{@key}}{{/if}}
-                  path: {{@key}}
-            {{/each}}
-            {{#each gradle.files}}
-            - name: {{dns1123 @key}}
-              {{#ifeq volumeType "ConfigMap"}}configMap{{/ifeq}}{{#ifeq volumeType "Secret"}}secret{{/ifeq}}:
-                {{#ifeq volumeType "ConfigMap"}}name{{/ifeq}}{{#ifeq volumeType "Secret"}}secretName{{/ifeq}}: {{volumeName}}
-                items:
-                - key: {{#if entryName}}{{entryName}}{{else}}{{@key}}{{/if}}
-                  path: {{@key}}
-            {{/each}}
+      {{/each}}
 
 security:
   apiToken:

@@ -41,7 +41,7 @@
   ConfigMap(name, config): $.__.KubeNSObject("v1", "ConfigMap", name, config),
   Secret(name, config): $.__.KubeNSObject("v1", "Secret", name, config),
   PersistentVolumeClaim(name, config): $.__.KubeNSObject("v1", "PersistentVolumeClaim", name, config),
-  StatefulSet(name, config): $.__.KubeNSObject("v1", "StatefulSet", name, config),
+  StatefulSet(name, config): $.__.KubeNSObject("apps/v1", "StatefulSet", name, config),
 
   stripSI(n):: (
     local suffix_len =
