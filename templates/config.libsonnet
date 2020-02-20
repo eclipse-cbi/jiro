@@ -1,4 +1,5 @@
 local jenkinsReleases = import '../jenkins-master-base/releases.libsonnet';
+local jenkinsAgents = import '../../jiro-agents/remoting.libsonnet';
 local permissions = import 'permissions.libsonnet';
 {
   local jenkinsRelease = jenkinsReleases.releases[$.jenkins.version],
@@ -28,13 +29,24 @@ local permissions = import 'permissions.libsonnet';
       image: $.docker.repository + "/" + $.project.shortName,
       imageTag: jenkinsRelease.jenkins.version,
     },
-    agent: {
-      defaultImage: {
-        name: $.docker.repository + "/jenkins-agent",
-        tag: jenkinsRelease.jenkins.remoting.version,
-      }
-    }
   }),
+  agents: [ {
+      name: agent.name, 
+      mode: if std.objectHas(agent, "mode") then std.asciiUpper(agent.mode) else std.asciiUpper("exclusive"),
+      labels: if std.objectHas(agent, "labels") then agent.labels else [],
+      docker: {
+        local versionSpecificAgent = jenkinsAgents.agents[agent.name].versions[jenkinsRelease.jenkins.remoting.version],
+        name: versionSpecificAgent.docker.repository + "/" + versionSpecificAgent.docker.image.name,
+        tag: versionSpecificAgent.docker.image.tag,
+      },
+      kubernetes: {
+        resources: {
+          cpu: $.kubernetes.agents.defaultResources.cpu,
+          memory: $.kubernetes.agents.defaultResources.memory,
+        },
+      },
+    } for agent in jenkinsAgents.providedAgents
+  ],
   deployment: {
     host: "ci.eclipse.org",
     prefix: "/" + $.project.shortName,

@@ -35,9 +35,3 @@ mkdir -p "$(dirname "${config}")/k8s"
 
 "${SCRIPT_FOLDER}/../.jsonnet/jsonnet" -m "${target}" "${instance}/jiro.jsonnet"
 
-agentImage="$(jq -r '.docker.agent.defaultImage.name' "${config}")"
-agentImageTag="$(jq -r '.docker.agent.defaultImage.tag' "${config}")"
-agentImageSha="$("${SCRIPT_FOLDER}/../.dockertools/dockerw" digest "${agentImage}" "${agentImageTag}")"
-
-patch='{"docker": {"agent": {"defaultImage": {"digest": "'"${agentImageSha}"'"}}}}'
-"${SCRIPT_FOLDER}/../.jsonnet/jsonnet" -e 'std.mergePatch(import "'"${config}"'", '"${patch}"')' -o "${config}"

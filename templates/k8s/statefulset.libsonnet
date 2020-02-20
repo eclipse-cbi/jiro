@@ -23,7 +23,7 @@ local Kube = import "kube.libsonnet";
             {
               name: "jenkins",
               image: "%s:%s" % [config.docker.master.image, config.docker.master.imageTag ],
-              imagePullPolicy: "IfNotPresent",
+              imagePullPolicy: "Always",
               livenessProbe: {
                 httpGet: {
                   path: config.deployment.prefix + "/login",
@@ -120,9 +120,9 @@ local Kube = import "kube.libsonnet";
                 {
                   name: "JENKINS_OPTS",
                   value: std.join(" ", [
-                    "--prefix=config.deployment.prefix",
-                    "--webroot=config.docker.master.webroot",
-                    "--pluginroot=config.docker.master.pluginroot",
+                    "--prefix=" + config.deployment.prefix,
+                    "--webroot=" + config.docker.master.webroot,
+                    "--pluginroot=" + config.docker.master.pluginroot,
                   ]),
                 },
               ],
@@ -151,22 +151,22 @@ local Kube = import "kube.libsonnet";
             }
           ],
         },
-        volumeClaimTemplates: [
-          {
-            metadata: {
-              name: "jenkins-home",
-            },
-            spec: {
-              accessModes: [ "ReadWriteOnce", ],
-              resources: {
-                requests: {
-                  storage: "50Gi",
-                },
+      },
+      volumeClaimTemplates: [
+        {
+          metadata: {
+            name: "jenkins-home",
+          },
+          spec: {
+            accessModes: [ "ReadWriteOnce", ],
+            resources: {
+              requests: {
+                storage: "50Gi",
               },
             },
           },
-        ],
-      },
+        },
+      ],
     },
   },
 }
