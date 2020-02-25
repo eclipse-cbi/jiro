@@ -1,43 +1,63 @@
 # GENERATED FILE - DO NOT EDIT
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  annotations:
-    org.eclipse.cbi.jiro/jenkins.actualVersion: 2.190.1
-    org.eclipse.cbi.jiro/jenkins.version: latest
-    org.eclipse.cbi.jiro/kubernetes.master.namespace: openj9
-  labels:
-    org.eclipse.cbi.jiro/kind: master
-    org.eclipse.cbi.jiro/project.fullName: technology.openj9
-    org.eclipse.cbi.jiro/project.shortname: openj9
-  name: openj9
-  namespace: openj9
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      org.eclipse.cbi.jiro/project.fullName: technology.openj9
-  serviceName: openj9
   template:
-    metadata:
-      annotations:
-        org.eclipse.cbi.jiro/jenkins.actualVersion: 2.190.1
-        org.eclipse.cbi.jiro/jenkins.version: latest
-        org.eclipse.cbi.jiro/kubernetes.master.namespace: openj9
-      labels:
-        org.eclipse.cbi.jiro/kind: master
-        org.eclipse.cbi.jiro/project.fullName: technology.openj9
-        org.eclipse.cbi.jiro/project.shortname: openj9
-      name: openj9
     spec:
       containers:
       - name: jenkins
         volumeMounts:
         - mountPath: /var/jenkins_home/.ssh
           name: master-known-hosts
-      - env:
+      - name: jenkins
+        image: eclipsecbijenkins/openj9:2.190.1@sha256:3c381b1aba3a1c3d7272752aad8aa6ebe6c2f14113ff7eb1d92f79cb976ca745
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /openj9/login
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 480
+          periodSeconds: 30
+          failureThreshold: 5
+          timeoutSeconds: 30
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 1
+          periodSeconds: 5
+          failureThreshold: 5
+          timeoutSeconds: 10
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 50000
+          protocol: TCP
+        resources:
+          requests:
+            cpu: 4000m
+          limits:
+            cpu: 8000m
+            memory: 8192Mi
+        volumeMounts:
+        - mountPath: "/var/jenkins_home"
+          name: jenkins-home
+        - mountPath: "/var/cache/jenkins/war"
+          name: jenkins-war
+        - mountPath: "/var/cache/jenkins/plugins"
+          name: jenkins-plugins
+        - mountPath: "/etc/jenkins/"
+          name: jenkins-config
+          readOnly: true
+        - mountPath: "/run/secrets/jenkins/ssh"
+          name: gerrit-ssh-keys
+          readOnly: true
+        env:
         - name: JAVA_OPTS
-          value: -XshowSettings:vm -Duser.timezone=America/Toronto -Djdk.nativeCrypto=false
+          # -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle
+          # -Xshareclasses:verbose,name=jenkins,cacheDir=/var/cache/openj9/sharedclasses/jenkins,groupAccess,fatal
+          # Djdk.nativeCrypto=false is a workaround for
+          # https://github.com/eclipse/openj9/issues/3637
+          value: >-
+            -XshowSettings:vm -Duser.timezone=America/Toronto -Djdk.nativeCrypto=false
             -Dsun.zip.disableMemoryMapping=true -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle
             -Dhudson.slaves.NodeProvisioner.initialDelay=0 -Dhudson.slaves.NodeProvisioner.MARGIN=50
             -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85 -Dhudson.footerURL=https://ci.eclipse.org
@@ -45,70 +65,43 @@ spec:
             -Djenkins.model.Jenkins.slaveAgentPortEnforce=true -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false
             -Djenkins.install.runSetupWizard=false -DexecutableWar.jetty.disableCustomSessionIdCookieName=false
             -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.openj9 -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-            -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.35@sha256:dff125e05404688a78bd67d5b47d107d98ec7583282e8ed9ca6646a2a76874e2
+            -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.35@sha256:399fbc3bd69ebc1b60231bf7bdb9f9a9fe9518d0b2540dbef7ee19c89559b83d
             -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
             -Dkubernetes.websocket.ping.interval=30000
         - name: JENKINS_OPTS
-          value: --prefix=/openj9 --webroot=/var/cache/jenkins/war --pluginroot=/var/cache/jenkins/plugins
-        image: eclipsecbijenkins/openj9:2.190.1@sha256:3b238833acdfe9aaac6c6b369f07de7edf888bc5ab1fd92cb4319bfc210cb2c3
-        imagePullPolicy: IfNotPresent
-        livenessProbe:
-          failureThreshold: 5
-          httpGet:
-            path: /openj9/login
-            port: 8080
-            scheme: HTTP
-          initialDelaySeconds: 480
-          periodSeconds: 30
-          timeoutSeconds: 30
-        name: jenkins
-        ports:
-        - containerPort: 8080
-          protocol: TCP
-        - containerPort: 50000
-          protocol: TCP
-        readinessProbe:
-          failureThreshold: 5
-          initialDelaySeconds: 1
-          periodSeconds: 5
-          tcpSocket:
-            port: 8080
-          timeoutSeconds: 10
-        resources:
-          limits:
-            cpu: 8000m
-            memory: 8192Mi
-          requests:
-            cpu: 4000m
-        volumeMounts:
-        - mountPath: /var/jenkins_home
-          name: jenkins-home
-        - mountPath: /var/cache/jenkins/war
-          name: jenkins-war
-        - mountPath: /var/cache/jenkins/plugins
-          name: jenkins-plugins
-        - mountPath: /etc/jenkins/
-          name: jenkins-config
-          readOnly: true
-        - mountPath: /run/secrets/jenkins/ssh
-          name: gerrit-ssh-keys
-          readOnly: true
-      serviceAccountName: openj9
-      terminationGracePeriodSeconds: 1200
+          value: >-
+            --prefix=/openj9 --webroot=/var/cache/jenkins/war --pluginroot=/var/cache/jenkins/plugins
       volumes:
-      - configMap:
+      - name: master-known-hosts
+        configMap:
           name: master-known-hosts
-        name: master-known-hosts
-      - emptyDir: {}
-        name: jenkins-war
-      - emptyDir: {}
-        name: jenkins-plugins
-      - configMap:
+      - name: jenkins-war
+        emptyDir: {}
+      - name: jenkins-plugins
+        emptyDir: {}
+      - name: jenkins-config
+        configMap:
           name: jenkins-config
-        name: jenkins-config
       - name: gerrit-ssh-keys
         secret:
           secretName: gerrit-ssh-keys
+      serviceAccountName: openj9
+      terminationGracePeriodSeconds: 1200
+    metadata:
+      labels:
+        org.eclipse.cbi.jiro/project.shortname: "openj9"
+        org.eclipse.cbi.jiro/project.fullName: "technology.openj9"
+        org.eclipse.cbi.jiro/kind: "master"
+      annotations:
+        org.eclipse.cbi.jiro/jenkins.version: "latest"
+        org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
+        org.eclipse.cbi.jiro/kubernetes.master.namespace: "openj9"
+      name: "openj9"
+  replicas: 1
+  selector:
+    matchLabels:
+      org.eclipse.cbi.jiro/project.fullName: "technology.openj9"
+  serviceName: "openj9"
   volumeClaimTemplates:
   - metadata:
       name: jenkins-home
@@ -118,3 +111,16 @@ spec:
       resources:
         requests:
           storage: 50Gi
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "openj9"
+    org.eclipse.cbi.jiro/project.fullName: "technology.openj9"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "openj9"
+  namespace: "openj9"
+  name: "openj9"

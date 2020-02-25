@@ -10,7 +10,7 @@
     "agent": {
       "defaultImage": {
         "name": "eclipsecbijenkins/jenkins-agent",
-        "sha256": "dff125e05404688a78bd67d5b47d107d98ec7583282e8ed9ca6646a2a76874e2",
+        "sha256": "399fbc3bd69ebc1b60231bf7bdb9f9a9fe9518d0b2540dbef7ee19c89559b83d",
         "tag": "3.35"
       }
     },
@@ -25,7 +25,7 @@
       "username": "jenkins",
       "war": "/usr/share/jenkins/jenkins.war",
       "webroot": "/var/cache/jenkins/war",
-      "imageSha256": "3b238833acdfe9aaac6c6b369f07de7edf888bc5ab1fd92cb4319bfc210cb2c3"
+      "imageSha256": "3c381b1aba3a1c3d7272752aad8aa6ebe6c2f14113ff7eb1d92f79cb976ca745"
     },
     "repository": "eclipsecbijenkins"
   },

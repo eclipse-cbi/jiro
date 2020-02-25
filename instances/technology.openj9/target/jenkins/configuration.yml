@@ -1,1192 +1,1278 @@
 # GENERATED FILE - DO NOT EDIT
 jenkins:
-  agentProtocols:
-  - JNLP4-connect
-  - Ping
-  authorizationStrategy:
-    projectMatrix:
-      permissions:
-      - Agent/Configure:adam.brousseau88@gmail.com
-      - Agent/Connect:adam.brousseau88@gmail.com
-      - Agent/Disconnect:adam.brousseau88@gmail.com
-      - Job/Configure:adam.brousseau88@gmail.com
-      - Overall/Administer:admins
-      - Job/Read:anonymous
-      - Overall/Read:anonymous
-      - Job/ExtendedRead:common
-      - Agent/Configure:daniel_heidinga@ca.ibm.com
-      - Agent/Configure:joe_dekoning@ca.ibm.com
-      - Agent/Connect:joe_dekoning@ca.ibm.com
-      - Agent/Disconnect:joe_dekoning@ca.ibm.com
-      - Job/Configure:joe_dekoning@ca.ibm.com
-      - Agent/Configure:peter_shipton@ca.ibm.com
-      - Agent/Configure:rajdeep.singh@ibm.com
-      - Agent/Connect:rajdeep.singh@ibm.com
-      - Agent/Disconnect:rajdeep.singh@ibm.com
-      - Agent/Build:technology.openj9
-      - Agent/Connect:technology.openj9
-      - Agent/Disconnect:technology.openj9
-      - Credentials/View:technology.openj9
-      - Job/Build:technology.openj9
-      - Job/Cancel:technology.openj9
-      - Job/Configure:technology.openj9
-      - Job/Create:technology.openj9
-      - Job/Delete:technology.openj9
-      - Job/Move:technology.openj9
-      - Job/Read:technology.openj9
-      - Job/Workspace:technology.openj9
-      - Run/Delete:technology.openj9
-      - Run/Replay:technology.openj9
-      - Run/Update:technology.openj9
-      - SCM/Tag:technology.openj9
-      - View/Configure:technology.openj9
-      - View/Create:technology.openj9
-      - View/Delete:technology.openj9
-      - View/Read:technology.openj9
-      - Job/Configure:vsebe@ca.ibm.com
-  clouds:
-  - kubernetes:
-      containerCapStr: "2"
-      jenkinsTunnel: jenkins-discovery.openj9.svc.cluster.local:50000
-      jenkinsUrl: http://jenkins-ui.openj9.svc.cluster.local/openj9
-      maxRequestsPerHostStr: "32"
-      name: kubernetes
-      namespace: openj9
-      podRetention: never
-      templates:
-      - containers:
-        - args: ""
-          command: ""
-          image: eclipsecbijenkins/jenkins-agent:3.35@sha256:dff125e05404688a78bd67d5b47d107d98ec7583282e8ed9ca6646a2a76874e2
-          livenessProbe:
-            failureThreshold: 0
-            initialDelaySeconds: 0
-            periodSeconds: 0
-            successThreshold: 0
-            timeoutSeconds: 0
-          name: jnlp
-          resourceLimitCpu: 2000m
-          resourceLimitMemory: 4096Mi
-          resourceRequestCpu: 1000m
-          resourceRequestMemory: 4096Mi
-          ttyEnabled: true
-        envVars:
-        - envVar:
-            key: MAVEN_OPTS
-            value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
-        - envVar:
-            key: MAVEN_CONFIG
-            value: -B -e
-        instanceCap: 5
-        name: default-agent
-        namespace: openj9
-        nodeUsageMode: NORMAL
-        volumes:
-        - persistentVolumeClaim:
-            claimName: tools-claim-jiro-openj9
-            mountPath: /opt/tools
-            readOnly: true
-        - configMapVolume:
-            configMapName: known-hosts
-            mountPath: /home/jenkins/.ssh/
-        - emptyDirVolume:
-            memory: false
-            mountPath: /home/jenkins/
-        - emptyDirVolume:
-            memory: false
-            mountPath: /home/jenkins/.m2/repository
-        workspaceVolume:
-          emptyDirWorkspaceVolume:
-            memory: false
-        yaml: |
-          apiVersion: v1
-          kind: Pod
-          spec:
-            containers:
-            - name: jnlp
-              volumeMounts:
-              - name: settings-security-xml
-                mountPath: /home/jenkins/.m2/settings-security.xml
-                subPath: settings-security.xml
-                readOnly: true
-              - name: settings-xml
-                mountPath: /home/jenkins/.m2/settings.xml
-                subPath: settings.xml
-                readOnly: true
-              - name: toolchains-xml
-                mountPath: /home/jenkins/.m2/toolchains.xml
-                subPath: toolchains.xml
-                readOnly: true
-            volumes:
-            - name: settings-security-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: toolchains-xml
-              configMap:
-                name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
-      - containers:
-        - args: ""
-          command: ""
-          image: eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59
-          livenessProbe:
-            failureThreshold: 0
-            initialDelaySeconds: 0
-            periodSeconds: 0
-            successThreshold: 0
-            timeoutSeconds: 0
-          name: jnlp
-          resourceLimitCpu: 2000m
-          resourceLimitMemory: 4096Mi
-          resourceRequestCpu: 1000m
-          resourceRequestMemory: 4096Mi
-          ttyEnabled: true
-        envVars:
-        - envVar:
-            key: MAVEN_OPTS
-            value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
-        - envVar:
-            key: MAVEN_CONFIG
-            value: -B -e
-        instanceCap: 5
-        instanceCapStr: "5"
-        label: ui-test
-        name: ui-test-agent
-        namespace: openj9
-        volumes:
-        - persistentVolumeClaim:
-            claimName: tools-claim-jiro-openj9
-            mountPath: /opt/tools
-            readOnly: true
-        - configMapVolume:
-            configMapName: known-hosts
-            mountPath: /home/jenkins/.ssh/
-        - emptyDirVolume:
-            memory: false
-            mountPath: /home/jenkins/
-        - emptyDirVolume:
-            memory: false
-            mountPath: /home/jenkins/.m2/repository
-        workspaceVolume:
-          emptyDirWorkspaceVolume:
-            memory: false
-        yaml: |
-          apiVersion: v1
-          kind: Pod
-          spec:
-            containers:
-            - name: jnlp
-              volumeMounts:
-              - name: settings-security-xml
-                mountPath: /home/jenkins/.m2/settings-security.xml
-                subPath: settings-security.xml
-                readOnly: true
-              - name: settings-xml
-                mountPath: /home/jenkins/.m2/settings.xml
-                subPath: settings.xml
-                readOnly: true
-              - name: toolchains-xml
-                mountPath: /home/jenkins/.m2/toolchains.xml
-                subPath: toolchains.xml
-                readOnly: true
-            volumes:
-            - name: settings-security-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: toolchains-xml
-              configMap:
-                name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
-      - containers:
-        - args: ""
-          command: ""
-          image: eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f
-          livenessProbe:
-            failureThreshold: 0
-            initialDelaySeconds: 0
-            periodSeconds: 0
-            successThreshold: 0
-            timeoutSeconds: 0
-          name: jnlp
-          resourceLimitCpu: 2000m
-          resourceLimitMemory: 4096Mi
-          resourceRequestCpu: 1000m
-          resourceRequestMemory: 4096Mi
-          ttyEnabled: true
-        envVars:
-        - envVar:
-            key: MAVEN_OPTS
-            value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
-        - envVar:
-            key: MAVEN_CONFIG
-            value: -B -e
-        instanceCap: 5
-        instanceCapStr: "5"
-        label: migration
-        name: migration-agent
-        namespace: openj9
-        volumes:
-        - persistentVolumeClaim:
-            claimName: tools-claim-jiro-openj9
-            mountPath: /opt/tools
-            readOnly: true
-        - configMapVolume:
-            configMapName: known-hosts
-            mountPath: /home/jenkins/.ssh/
-        - emptyDirVolume:
-            memory: false
-            mountPath: /home/jenkins/
-        - emptyDirVolume:
-            memory: false
-            mountPath: /home/jenkins/.m2/repository
-        workspaceVolume:
-          emptyDirWorkspaceVolume:
-            memory: false
-        yaml: |
-          apiVersion: v1
-          kind: Pod
-          spec:
-            containers:
-            - name: jnlp
-              volumeMounts:
-              - name: settings-security-xml
-                mountPath: /home/jenkins/.m2/settings-security.xml
-                subPath: settings-security.xml
-                readOnly: true
-              - name: settings-xml
-                mountPath: /home/jenkins/.m2/settings.xml
-                subPath: settings.xml
-                readOnly: true
-              - name: toolchains-xml
-                mountPath: /home/jenkins/.m2/toolchains.xml
-                subPath: toolchains.xml
-                readOnly: true
-            volumes:
-            - name: settings-security-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: toolchains-xml
-              configMap:
-                name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
-  crumbIssuer:
-    standard:
-      excludeClientIPFromCrumb: false
-  disableRememberMe: false
+  nodes:
+  - permanent:
+      name: "aix71-p8-1"
+      nodeDescription: "openj9_ci_1 - l490vp054_pub - AIX PPC64"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build"
+      remoteFS: '/home/u0020236/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.156.47 'wget -qO slave.jar
+            https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none
+            -Xdump:none -jar slave.jar'\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "LDR_CNTRL"
+            value: "MAXDATA=0x80000000"
+  - permanent:
+      name: "aix71-p8-2"
+      nodeDescription: "openj9_ci_2 - l490vp018_pub - AIX PPC64"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
+      remoteFS: '/home/jenkins/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@172.29.156.83 'rm -f slave.jar ; wget
+            -O slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java
+            -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "LDR_CNTRL"
+            value: "MAXDATA=0x80000000"
+  - permanent:
+      name: "aix71-p8-3"
+      nodeDescription: "openj9_ci_3 - l490vp027_pub - AIX PPC64"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
+      remoteFS: '/home/jenkins/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@172.29.155.138 'wget -O slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "LDR_CNTRL"
+            value: "MAXDATA=0x80000000"
+  - permanent:
+      name: "aix71-p8-4"
+      nodeDescription: "openj9_ci_4 - l490vp041_pub - AIX PPC64"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
+      remoteFS: '/home/jenkins/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@172.29.155.137 'wget -qO slave.jar
+            https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none
+            -Xdump:none -jar slave.jar'\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "LDR_CNTRL"
+            value: "MAXDATA=0x80000000"
+  - permanent:
+      name: "aix71-p8-5"
+      nodeDescription: "openj9_ci_5 - l490vp082_pub - AIX PPC64"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      remoteFS: '/home/u0020236/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.151.179 'wget -qO slave.jar
+            https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none
+            -Xdump:none -jar slave.jar'\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "LDR_CNTRL"
+            value: "MAXDATA=0x80000000"
+  - permanent:
+      name: "aix71-p8-6"
+      nodeDescription: "openj9_ci_6 - l490vp082_pub - AIX PPC64"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      remoteFS: '/home/jenkins/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@172.29.153.171 'wget -qO slave.jar
+            https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none
+            -Xdump:none -jar slave.jar'\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "LDR_CNTRL"
+            value: "MAXDATA=0x80000000"
+  - permanent:
+      name: "aix71-p8-7"
+      nodeDescription: "openj9_ci_7 - l490vp083_pub - AIX PPC64"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      remoteFS: '/home/u0020236/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.157.132 'wget -qO slave.jar
+            https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none
+            -Xdump:none -jar slave.jar'\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "LDR_CNTRL"
+            value: "MAXDATA=0x80000000"
+  - permanent:
+      name: "aix71-p8-8"
+      nodeDescription: "openj9_ci_8 - l490vp084_pub - AIX PPC64"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      remoteFS: '/home/u0020236/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.157.138 'wget -qO slave.jar
+            https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none
+            -Xdump:none -jar slave.jar'\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "LDR_CNTRL"
+            value: "MAXDATA=0x80000000"
+  - permanent:
+      name: "aix71-p8-9"
+      nodeDescription: "openj9_ci_9 - l490vp086_pub - AIX PPC64"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      remoteFS: '/home/u0020236/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.157.143 'wget -qO slave.jar
+            https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none
+            -Xdump:none -jar slave.jar'\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "LDR_CNTRL"
+            value: "MAXDATA=0x80000000"
+  - permanent:
+      name: "aix71-p8-10"
+      nodeDescription: "openj9_ci_10 - l490vp087_pub - AIX PPC64"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      remoteFS: '/home/jenkins/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@172.29.156.189 'wget -qO slave.jar
+            https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none
+            -Xdump:none -jar slave.jar'\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "LDR_CNTRL"
+            value: "MAXDATA=0x80000000"
+  - permanent:
+      name: "cent6-x64-1"
+      nodeDescription: "cent6-x64-1 - UNB CentOS 6 8 GB 4CPU - 192.168.10.188"
+      labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.geo.unb ci.role.test
+        ci.role.build"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-1 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "cent6-x64-2"
+      nodeDescription: "cent6-x64-2 - UNB CentOS 6 8 GB 4CPU - 192.168.10.189"
+      labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.role.test ci.role.build
+        ci.geo.unb"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-2 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "cent6-x64-3"
+      nodeDescription: "cent6-x64-3 - UNB CentOS 6 8 GB 4CPU - 192.168.10.190 "
+      labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.role.test ci.role.build
+        ci.geo.unb"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-3 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "cent6-x64-4"
+      nodeDescription: "cent6-x64-4 - UNB CentOS 6 8 GB 4CPU - 192.168.10.191"
+      labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.role.test ci.role.build
+        ci.geo.unb"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-4 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "cent6-x64-5"
+      nodeDescription: "cent6-x64-5 - UNB CentOS 6 8 GB 4CPU - 192.168.10.192"
+      labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.geo.unb ci.role.test
+        ci.role.build"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-5 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "cent6-x64-6"
+      nodeDescription: "cent6-x64-6 - UNB CentOS 6 8 GB 4CPU - 192.168.10.193"
+      labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.role.test ci.role.build
+        ci.geo.unb"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-6 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "cent6-x64-7"
+      nodeDescription: "cent6-x64-7 - UNB CentOS 6 8 GB 4CPU - 192.168.10.194"
+      labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.role.test ci.role.build
+        ci.geo.unb"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-7 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "cent7-aarch64-1"
+      nodeDescription: "cent7-aarch64-1 - Packet.net CentOS 7 128 GB 2CPU - 147.75.97.122"
+      labelString: "hw.arch.aarch64 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build
+        ci.role.test"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@147.75.97.122
+            \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+  - permanent:
+      name: "osx1011-x86-1"
+      nodeDescription: "osx1011vm1 - UNB mini mac OSX 10.11"
+      labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_11 ci.role.build ci.role.test
+        ci.geo.unb"
+      remoteFS: '/Users/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@osx1011-x86-1 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "osx1011-x86-2"
+      nodeDescription: "osx1011vm2 - UNB mini mac OSX 10.11"
+      labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_11 ci.role.build ci.role.test
+        ci.geo.unb"
+      remoteFS: '/Users/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@osx1011-x86-2 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "osx1013-x86-3"
+      nodeDescription: "osx1013vm3 - UNB mini mac OSX 10.13"
+      labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_13 ci.role.build ci.geo.unb
+        ci.role.test"
+      remoteFS: '/Users/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@osx1013-x86-3 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "osx1013-x86-4"
+      nodeDescription: "osx1013vm4 - UNB mini mac OSX 10.13"
+      labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_13 ci.role.build ci.role.test
+        ci.geo.unb"
+      remoteFS: '/Users/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@osx1013-x86-4 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "osx1014-x86-1"
+      nodeDescription: "UNB mini mac OSX 10.14"
+      labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_14 ci.role.test ci.geo.unb"
+      remoteFS: '/Users/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@osx1014-x86-1 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "osx1014-x86-2"
+      nodeDescription: "UNB mini mac OSX 10.14"
+      labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_14 ci.role.test ci.geo.unb"
+      remoteFS: '/Users/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@osx1014-x86-2 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "osx1014-x86-3"
+      nodeDescription: "UNB mini mac OSX 10.14"
+      labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_14 ci.role.test ci.geo.unb"
+      remoteFS: '/Users/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@osx1014-x86-3 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "ub16-390-1"
+      nodeDescription: "Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk"
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
+        ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.113.51
+            \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+  - permanent:
+      name: "ub16-390-2"
+      nodeDescription: "Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk"
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
+        ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.113.62
+            \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+  - permanent:
+      name: "ub16-390-3"
+      nodeDescription: "Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk"
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
+        ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.113.73
+            \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+  - permanent:
+      name: "ub16-390-4"
+      nodeDescription: "Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk"
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
+        ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.113.63
+            \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+  - permanent:
+      name: "ub16-390-5"
+      nodeDescription: "Linux 390 Red Hat 7. 4CPU 8GB Ram  91GB Disk"
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.redhat sw.os.redhat.7
+        ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.245.9
+            \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+  - permanent:
+      name: "ub16-390-6"
+      nodeDescription: "Linux 390 Red Hat 7. 4CPU 8GB Ram  91GB Disk"
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.redhat sw.os.redhat.7
+        ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.244.2
+            \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+  - permanent:
+      name: "ub16-390-7"
+      nodeDescription: "Linux 390 Red Hat 7. 4CPU 8GB Ram  91GB Disk"
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.redhat sw.os.redhat.7
+        ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.244.25
+            \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+  - permanent:
+      name: "ub16-390-8"
+      nodeDescription: "Linux 390 Red Hat 7. 4CPU 8GB Ram  91GB Disk"
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.redhat sw.os.redhat.7
+        ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.245.61
+            \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+  - permanent:
+      name: "ub16p8j91"
+      nodeDescription: "ub16p8j91 - UNB Ubuntu 16 p8le"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
+        ci.role.build ci.role.test sw.tool.docker"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j91 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "ub16p8j92"
+      nodeDescription: "ub16p8j92 - UNB Ubuntu 16 p8le"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
+        ci.role.build ci.role.test sw.tool.docker"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j92 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "ub16p8j93"
+      nodeDescription: "ub16p8j93 - UNB Ubuntu 16 p8le"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
+        ci.role.build ci.role.test sw.tool.docker"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j93 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "ub16p8j94"
+      nodeDescription: "ub16p8j94 - UNB Ubuntu 16 p8le"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
+        ci.role.build ci.role.test sw.tool.docker"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j94 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "ub16p8j95"
+      nodeDescription: "ub16p8j95 - UNB Ubuntu 16 p8le ci.role.build"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
+        ci.role.build ci.role.test sw.tool.docker"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j95 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "ub16p8j96"
+      nodeDescription: "ub16p8j96 - UNB Ubuntu 16 p8le"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
+        ci.role.build ci.role.test sw.tool.docker"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j96 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "ub16-ppcle-1"
+      nodeDescription: "eclipse-openj9-1 Linux PPC64LE Ubuntu 16.04. 4CPU 8GB Ram
+        78GB Disk"
+      labelString: "hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 sw.tool.docker
+        ci.geo.osu ci.role.build ci.role.test"
+      remoteFS: '/home/jenkins/jenkins-agent'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.13
+            \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+  - permanent:
+      name: "ub16-ppcle-2"
+      nodeDescription: "eclipse-openj9-2 Linux PPC64LE Ubuntu 16.04. 4CPU 8GB Ram
+        78GB Disk"
+      labelString: "hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
+        ci.role.test sw.tool.docker ci.geo.osu"
+      remoteFS: '/home/jenkins/jenkins-agent'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.14
+            \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+  - permanent:
+      name: "ub16-ppcle-3"
+      nodeDescription: "eclipse-openj9-3 Linux PPC64LE Ubuntu 16.04. 4CPU 8GB Ram
+        78GB Disk"
+      labelString: "hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
+        ci.role.test sw.tool.docker ci.geo.osu"
+      remoteFS: '/home/jenkins/jenkins-agent'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.49
+            \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec /home/jenkins/openj9/jdk-9+181/bin/java -jar slave.jar\""
+  - permanent:
+      name: "ub16x64j91"
+      nodeDescription: "ub16x64j91 - UNB Ubuntu 16 "
+      labelString: "ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu
+        sw.os.ubuntu.16 ci.role.test ci.role.build"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j91 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "ub16x64j910"
+      nodeDescription: "ub16x64j91 - UNB Ubuntu 16"
+      labelString: "ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu
+        sw.os.ubuntu.16 ci.role.test ci.role.build"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j910 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "ub16x64j92"
+      nodeDescription: "ub16x64j92 - UNB Ubuntu 16"
+      labelString: "ci.geo.unb hw.arch.x86 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
+        ci.role.test sw.tool.docker ci.role.build"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j92 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "ub16x64j94"
+      nodeDescription: "ub16x64j94 - UNB Ubuntu 16"
+      labelString: "ci.geo.unb hw.arch.x86 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
+        ci.role.test sw.tool.docker ci.role.build"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j94 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "ub16x64j95"
+      nodeDescription: "ub16x64j95 - UNB Ubuntu 16"
+      labelString: "ci.geo.unb hw.arch.x86 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
+        ci.role.build ci.role.test sw.tool.docker"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j95 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "ub16x64j96"
+      nodeDescription: "ub16x64j96 - UNB Ubuntu 16"
+      labelString: "ci.geo.unb hw.arch.x86 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
+        ci.role.build ci.role.test"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j96 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "ub16x64j97"
+      nodeDescription: "ub16x64j91 - UNB Ubuntu 16"
+      labelString: "ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu
+        sw.os.ubuntu.16 ci.role.build ci.role.test"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j97 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "ub16x64j98"
+      nodeDescription: "ub16x64j91 - UNB Ubuntu 16"
+      labelString: "ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu
+        sw.os.ubuntu.16 ci.role.build ci.role.test"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j98 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "ub16x64j99"
+      nodeDescription: "ub16x64j91 - UNB Ubuntu 16"
+      labelString: "ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu
+        sw.os.ubuntu.16 ci.role.build ci.role.test"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j99 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "win2012r2-x86-1"
+      nodeDescription: "oj9-win2012r2-1 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
+        Disk"
+      labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.role.build ci.role.test
+        ci.geo.softlayer"
+      remoteFS: 'C:\Users\jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.170.69
+            \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "TEMP"
+            value: "c:\\temp"
+  - permanent:
+      name: "win2012r2-x86-2"
+      nodeDescription: "oj9-win2012r2-2 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
+        Disk"
+      labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.role.build ci.role.test
+        ci.geo.softlayer"
+      remoteFS: 'C:\Users\jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.150.148
+            \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "TEMP"
+            value: "c:\\temp"
+  - permanent:
+      name: "win2012r2-x86-3"
+      nodeDescription: "oj9-win2012r2-3 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
+        Disk"
+      labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.role.build ci.role.test
+        ci.geo.softlayer"
+      remoteFS: 'C:\Users\jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.170.74
+            \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "TEMP"
+            value: "c:\\temp"
+  - permanent:
+      name: "win2012r2-x86-4"
+      nodeDescription: "oj9-win2012r2-4 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
+        Disk"
+      labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.role.build ci.role.test
+        ci.geo.softlayer"
+      remoteFS: 'C:\Users\jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.150.158
+            \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "TEMP"
+            value: "c:\\temp"
+  - permanent:
+      name: "win2012r2-x86-5"
+      nodeDescription: "oj9-win2012r2-5 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
+        Disk"
+      labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer
+        ci.role.build ci.role.test"
+      remoteFS: 'C:\Users\jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.170.78
+            \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "TEMP"
+            value: "c:\\temp"
+  - permanent:
+      name: "win2012r2-x86-6"
+      nodeDescription: "oj9-win2012r2-6 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
+        Disk"
+      labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer
+        ci.role.build ci.role.test"
+      remoteFS: 'C:\Users\jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.170.76
+            \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "TEMP"
+            value: "c:\\temp"
+  - permanent:
+      name: "worker-1"
+      nodeDescription: "eclipse-openj9-proxy Linux PPC64LE Ubuntu 16.04. 4CPU 8GB
+        Ram 78GB Disk"
+      labelString: "docker proxy worker ci.geo.osu proxy artifactory"
+      remoteFS: '/home/jenkins/jenkins-agent'
+      numExecutors: 3
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+  - permanent:
+      name: "worker-2"
+      nodeDescription: "eclipse-openj9-4 Linux PPC64LE Ubuntu 16.04. 4CPU 8GB Ram
+        78GB Disk"
+      labelString: "docker worker ci.geo.osu"
+      remoteFS: '/home/jenkins/jenkins-agent'
+      numExecutors: 3
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.16
+            \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar\""
+  primaryView:
+    list:
+      name: "Pipelines"
   globalNodeProperties:
   - envVars:
       env:
-      - key: KNOWN_HOSTS
-        value: github.com github.ibm.com
-  markupFormatter: rawHtml
-  mode: EXCLUSIVE
-  nodes:
-  - permanent:
-      labelString: hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.156.47 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: aix71-p8-1
-      nodeDescription: openj9_ci_1 - l490vp054_pub - AIX PPC64
-      nodeProperties:
-      - envVars:
-          env:
-          - key: LDR_CNTRL
-            value: MAXDATA=0x80000000
-      numExecutors: 1
-      remoteFS: /home/u0020236/
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
-        ci.role.test
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.157.108 'rm -f slave.jar ; wget
-            -O slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java
-            -Xshareclasses:none -Xdump:none -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: aix71-p8-2
-      nodeDescription: openj9_ci_2 - l490vp018_pub - AIX PPC64
-      nodeProperties:
-      - envVars:
-          env:
-          - key: LDR_CNTRL
-            value: MAXDATA=0x80000000
-      numExecutors: 1
-      remoteFS: /home/u0020236/
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
-        ci.role.test
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.155.67 'wget -O slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: aix71-p8-3
-      nodeDescription: openj9_ci_3 - l490vp027_pub - AIX PPC64
-      nodeProperties:
-      - envVars:
-          env:
-          - key: LDR_CNTRL
-            value: MAXDATA=0x80000000
-      numExecutors: 1
-      remoteFS: /home/u0020236/
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
-        ci.role.test
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.156.34 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: aix71-p8-4
-      nodeDescription: openj9_ci_4 - l490vp041_pub - AIX PPC64
-      nodeProperties:
-      - envVars:
-          env:
-          - key: PERL5LIB
-            value: /home/u0020236/lib/perl5
-      numExecutors: 1
-      remoteFS: /home/u0020236/
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.151.179 'wget -qO slave.jar
-            https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none
-            -Xdump:none -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: aix71-p8-5
-      nodeDescription: openj9_ci_5 - l490vp082_pub - AIX PPC64
-      nodeProperties:
-      - envVars:
-          env:
-          - key: PERL5LIB
-            value: /opt/freeware/lib/perl5
-      numExecutors: 1
-      remoteFS: /home/u0020236/
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.156.119 'wget -qO slave.jar
-            https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none
-            -Xdump:none -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: aix71-p8-6
-      nodeDescription: openj9_ci_6 - l490vp082_pub - AIX PPC64
-      nodeProperties:
-      - envVars:
-          env:
-          - key: PERL5LIB
-            value: /opt/freeware/lib/perl5
-      numExecutors: 1
-      remoteFS: /home/u0020236/
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.157.132 'wget -qO slave.jar
-            https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none
-            -Xdump:none -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: aix71-p8-7
-      nodeDescription: openj9_ci_7 - l490vp083_pub - AIX PPC64
-      nodeProperties:
-      - envVars:
-          env:
-          - key: PERL5LIB
-            value: /opt/freeware/lib/perl5
-      numExecutors: 1
-      remoteFS: /home/u0020236/
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.157.138 'wget -qO slave.jar
-            https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none
-            -Xdump:none -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: aix71-p8-8
-      nodeDescription: openj9_ci_8 - l490vp084_pub - AIX PPC64
-      nodeProperties:
-      - envVars:
-          env:
-          - key: PERL5LIB
-            value: /opt/freeware/lib/perl5
-      numExecutors: 1
-      remoteFS: /home/u0020236/
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.157.143 'wget -qO slave.jar
-            https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none
-            -Xdump:none -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: aix71-p8-9
-      nodeDescription: openj9_ci_9 - l490vp086_pub - AIX PPC64
-      nodeProperties:
-      - envVars:
-          env:
-          - key: PERL5LIB
-            value: /opt/freeware/lib/perl5
-      numExecutors: 1
-      remoteFS: /home/u0020236/
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix u0020236@172.29.157.145 'wget -qO slave.jar
-            https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none
-            -Xdump:none -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: aix71-p8-10
-      nodeDescription: openj9_ci_10 - l490vp087_pub - AIX PPC64
-      nodeProperties:
-      - envVars:
-          env:
-          - key: PERL5LIB
-            value: /opt/freeware/lib/perl5
-      numExecutors: 1
-      remoteFS: /home/u0020236/
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.geo.unb ci.role.test
-        ci.role.build
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-1 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: cent6-x64-1
-      nodeDescription: cent6-x64-1 - UNB CentOS 6 8 GB 4CPU - 192.168.10.188
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.role.test ci.role.build
-        ci.geo.unb
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-2 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: cent6-x64-2
-      nodeDescription: cent6-x64-2 - UNB CentOS 6 8 GB 4CPU - 192.168.10.189
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.role.test ci.role.build
-        ci.geo.unb
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-3 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: cent6-x64-3
-      nodeDescription: 'cent6-x64-3 - UNB CentOS 6 8 GB 4CPU - 192.168.10.190 '
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.role.test ci.role.build
-        ci.geo.unb
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-4 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: cent6-x64-4
-      nodeDescription: cent6-x64-4 - UNB CentOS 6 8 GB 4CPU - 192.168.10.191
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.geo.unb ci.role.test
-        ci.role.build
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-5 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: cent6-x64-5
-      nodeDescription: cent6-x64-5 - UNB CentOS 6 8 GB 4CPU - 192.168.10.192
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.role.test ci.role.build
-        ci.geo.unb
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-6 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: cent6-x64-6
-      nodeDescription: cent6-x64-6 - UNB CentOS 6 8 GB 4CPU - 192.168.10.193
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.role.test ci.role.build
-        ci.geo.unb
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-7 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: cent6-x64-7
-      nodeDescription: cent6-x64-7 - UNB CentOS 6 8 GB 4CPU - 192.168.10.194
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.aarch64 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build
-        ci.role.test
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@147.75.97.122
-            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
-            exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: cent7-aarch64-1
-      nodeDescription: cent7-aarch64-1 - Packet.net CentOS 7 128 GB 2CPU - 147.75.97.122
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.osx sw.os.osx.10_11 ci.role.build ci.role.test
-        ci.geo.unb
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@osx1011-x86-1 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: osx1011-x86-1
-      nodeDescription: osx1011vm1 - UNB mini mac OSX 10.11
-      numExecutors: 1
-      remoteFS: /Users/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.osx sw.os.osx.10_11 ci.role.build ci.role.test
-        ci.geo.unb
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@osx1011-x86-2 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: osx1011-x86-2
-      nodeDescription: osx1011vm2 - UNB mini mac OSX 10.11
-      numExecutors: 1
-      remoteFS: /Users/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.osx sw.os.osx.10_13 ci.role.build ci.geo.unb
-        ci.role.test
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@osx1013-x86-3 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: osx1013-x86-3
-      nodeDescription: osx1013vm3 - UNB mini mac OSX 10.13
-      numExecutors: 1
-      remoteFS: /Users/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.osx sw.os.osx.10_13 ci.role.build ci.role.test
-        ci.geo.unb
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@osx1013-x86-4 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: osx1013-x86-4
-      nodeDescription: osx1013vm4 - UNB mini mac OSX 10.13
-      numExecutors: 1
-      remoteFS: /Users/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.osx sw.os.osx.10_14 ci.role.test ci.geo.unb
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@osx1014-x86-1 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: osx1014-x86-1
-      nodeDescription: UNB mini mac OSX 10.14
-      numExecutors: 1
-      remoteFS: /Users/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.osx sw.os.osx.10_14 ci.role.test ci.geo.unb
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@osx1014-x86-2 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: osx1014-x86-2
-      nodeDescription: UNB mini mac OSX 10.14
-      numExecutors: 1
-      remoteFS: /Users/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.osx sw.os.osx.10_14 ci.role.test ci.geo.unb
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@osx1014-x86-3 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: osx1014-x86-3
-      nodeDescription: UNB mini mac OSX 10.14
-      numExecutors: 1
-      remoteFS: /Users/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
-        ci.role.build ci.role.test sw.tool.docker ci.geo.marist
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.113.51
-            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
-            exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: ub16-390-1
-      nodeDescription: Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
-        ci.role.build ci.role.test sw.tool.docker ci.geo.marist
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.113.62
-            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
-            exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: ub16-390-2
-      nodeDescription: Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
-        ci.role.build ci.role.test sw.tool.docker ci.geo.marist
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.113.73
-            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
-            exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: ub16-390-3
-      nodeDescription: Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
-        ci.role.build ci.role.test sw.tool.docker ci.geo.marist
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.113.63
-            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
-            exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: ub16-390-4
-      nodeDescription: Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
-        ci.role.build ci.role.test sw.tool.docker
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j91 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: ub16p8j91
-      nodeDescription: ub16p8j91 - UNB Ubuntu 16 p8le
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
-        ci.role.build ci.role.test sw.tool.docker
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j92 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: ub16p8j92
-      nodeDescription: ub16p8j92 - UNB Ubuntu 16 p8le
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
-        ci.role.build ci.role.test sw.tool.docker
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j93 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: ub16p8j93
-      nodeDescription: ub16p8j93 - UNB Ubuntu 16 p8le
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
-        ci.role.build ci.role.test sw.tool.docker
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j94 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: ub16p8j94
-      nodeDescription: ub16p8j94 - UNB Ubuntu 16 p8le
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
-        ci.role.build ci.role.test sw.tool.docker
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j95 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: ub16p8j95
-      nodeDescription: ub16p8j95 - UNB Ubuntu 16 p8le ci.role.build
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
-        ci.role.build ci.role.test sw.tool.docker
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j96 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: ub16p8j96
-      nodeDescription: ub16p8j96 - UNB Ubuntu 16 p8le
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 sw.tool.docker
-        ci.geo.osu ci.role.build ci.role.test
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.13
-            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
-            exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: ub16-ppcle-1
-      nodeDescription: eclipse-openj9-1 Linux PPC64LE Ubuntu 16.04. 4CPU 8GB Ram 78GB
-        Disk
-      numExecutors: 1
-      remoteFS: /home/jenkins/jenkins-agent
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
-        ci.role.test sw.tool.docker ci.geo.osu
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.14
-            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
-            exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: ub16-ppcle-2
-      nodeDescription: eclipse-openj9-2 Linux PPC64LE Ubuntu 16.04. 4CPU 8GB Ram 78GB
-        Disk
-      numExecutors: 1
-      remoteFS: /home/jenkins/jenkins-agent
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build
-        ci.role.test sw.tool.docker ci.geo.osu
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.49
-            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
-            exec /home/jenkins/openj9/jdk-9+181/bin/java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: ub16-ppcle-3
-      nodeDescription: eclipse-openj9-3 Linux PPC64LE Ubuntu 16.04. 4CPU 8GB Ram 78GB
-        Disk
-      numExecutors: 1
-      remoteFS: /home/jenkins/jenkins-agent
-      retentionStrategy: always
-  - permanent:
-      labelString: ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu
-        sw.os.ubuntu.16 ci.role.test ci.role.build
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j91 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: ub16x64j91
-      nodeDescription: 'ub16x64j91 - UNB Ubuntu 16 '
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu
-        sw.os.ubuntu.16 ci.role.test ci.role.build
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j910 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: ub16x64j910
-      nodeDescription: ub16x64j91 - UNB Ubuntu 16
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: ci.geo.unb hw.arch.x86 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
-        ci.role.test sw.tool.docker ci.role.build
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j92 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: ub16x64j92
-      nodeDescription: ub16x64j92 - UNB Ubuntu 16
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: ci.geo.unb hw.arch.x86 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
-        ci.role.test sw.tool.docker ci.role.build
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j94 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: ub16x64j94
-      nodeDescription: ub16x64j94 - UNB Ubuntu 16
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: ci.geo.unb hw.arch.x86 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
-        ci.role.build ci.role.test sw.tool.docker
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j95 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: ub16x64j95
-      nodeDescription: ub16x64j95 - UNB Ubuntu 16
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: ci.geo.unb hw.arch.x86 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
-        ci.role.build ci.role.test
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j96 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: ub16x64j96
-      nodeDescription: ub16x64j96 - UNB Ubuntu 16
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu
-        sw.os.ubuntu.16 ci.role.build ci.role.test
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j97 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: ub16x64j97
-      nodeDescription: ub16x64j91 - UNB Ubuntu 16
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu
-        sw.os.ubuntu.16 ci.role.build ci.role.test
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j98 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: ub16x64j98
-      nodeDescription: ub16x64j91 - UNB Ubuntu 16
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu
-        sw.os.ubuntu.16 ci.role.build ci.role.test
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j99 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'"
-      mode: EXCLUSIVE
-      name: ub16x64j99
-      nodeDescription: ub16x64j91 - UNB Ubuntu 16
-      numExecutors: 1
-      remoteFS: /home/jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.role.build ci.role.test
-        ci.geo.softlayer
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.170.69
-            "curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: win2012r2-x86-1
-      nodeDescription: oj9-win2012r2-1 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
-        Disk
-      nodeProperties:
-      - envVars:
-          env:
-          - key: TEMP
-            value: c:\temp
-      numExecutors: 1
-      remoteFS: C:\Users\jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.role.build ci.role.test
-        ci.geo.softlayer
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.150.148
-            "curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: win2012r2-x86-2
-      nodeDescription: oj9-win2012r2-2 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
-        Disk
-      nodeProperties:
-      - envVars:
-          env:
-          - key: TEMP
-            value: c:\temp
-      numExecutors: 1
-      remoteFS: C:\Users\jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.role.build ci.role.test
-        ci.geo.softlayer
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.170.74
-            "curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: win2012r2-x86-3
-      nodeDescription: oj9-win2012r2-3 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
-        Disk
-      nodeProperties:
-      - envVars:
-          env:
-          - key: TEMP
-            value: c:\temp
-      numExecutors: 1
-      remoteFS: C:\Users\jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.role.build ci.role.test
-        ci.geo.softlayer
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.150.158
-            "curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: win2012r2-x86-4
-      nodeDescription: oj9-win2012r2-4 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
-        Disk
-      nodeProperties:
-      - envVars:
-          env:
-          - key: TEMP
-            value: c:\temp
-      numExecutors: 1
-      remoteFS: C:\Users\jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build
-        ci.role.test
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.170.78
-            "curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: win2012r2-x86-5
-      nodeDescription: oj9-win2012r2-5 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
-        Disk
-      nodeProperties:
-      - envVars:
-          env:
-          - key: TEMP
-            value: c:\temp
-      numExecutors: 1
-      remoteFS: C:\Users\jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build
-        ci.role.test
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.170.76
-            "curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: win2012r2-x86-6
-      nodeDescription: oj9-win2012r2-6 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
-        Disk
-      nodeProperties:
-      - envVars:
-          env:
-          - key: TEMP
-            value: c:\temp
-      numExecutors: 1
-      remoteFS: C:\Users\jenkins
-      retentionStrategy: always
-  - permanent:
-      labelString: docker proxy worker ci.geo.osu proxy artifactory
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
-            exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: worker-1
-      nodeDescription: eclipse-openj9-proxy Linux PPC64LE Ubuntu 16.04. 4CPU 8GB Ram
-        78GB Disk
-      numExecutors: 3
-      remoteFS: /home/jenkins/jenkins-agent
-      retentionStrategy: always
-  - permanent:
-      labelString: docker worker ci.geo.osu
-      launcher:
-        command:
-          command: ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.16
-            "wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ;
-            exec java -jar slave.jar"
-      mode: EXCLUSIVE
-      name: worker-2
-      nodeDescription: eclipse-openj9-4 Linux PPC64LE Ubuntu 16.04. 4CPU 8GB Ram 78GB
-        Disk
-      numExecutors: 3
-      remoteFS: /home/jenkins/jenkins-agent
-      retentionStrategy: always
+      - key: "KNOWN_HOSTS"
+        value: "github.com github.ibm.com"
   numExecutors: 0
-  primaryView:
-    list:
-      name: Pipelines
+  scmCheckoutRetryCount: 2
+  mode: EXCLUSIVE
+  systemMessage: ""
+  disableRememberMe: false
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  authorizationStrategy:
+    projectMatrix:
+      permissions:
+      - "Agent/Configure:adam.brousseau88@gmail.com"
+      - "Agent/Connect:adam.brousseau88@gmail.com"
+      - "Agent/Disconnect:adam.brousseau88@gmail.com"
+      - "Job/Configure:adam.brousseau88@gmail.com"
+      - "Overall/Administer:admins"
+      - "Job/Read:anonymous"
+      - "Overall/Read:anonymous"
+      - "Job/ExtendedRead:common"
+      - "Agent/Configure:daniel_heidinga@ca.ibm.com"
+      - "Agent/Configure:joe_dekoning@ca.ibm.com"
+      - "Agent/Connect:joe_dekoning@ca.ibm.com"
+      - "Agent/Disconnect:joe_dekoning@ca.ibm.com"
+      - "Job/Configure:joe_dekoning@ca.ibm.com"
+      - "Agent/Configure:peter_shipton@ca.ibm.com"
+      - "Agent/Configure:rajdeep.singh@ibm.com"
+      - "Agent/Connect:rajdeep.singh@ibm.com"
+      - "Agent/Disconnect:rajdeep.singh@ibm.com"
+      - "Agent/Build:technology.openj9"
+      - "Agent/Connect:technology.openj9"
+      - "Agent/Disconnect:technology.openj9"
+      - "Credentials/View:technology.openj9"
+      - "Job/Build:technology.openj9"
+      - "Job/Cancel:technology.openj9"
+      - "Job/Configure:technology.openj9"
+      - "Job/Create:technology.openj9"
+      - "Job/Delete:technology.openj9"
+      - "Job/Move:technology.openj9"
+      - "Job/Read:technology.openj9"
+      - "Job/Workspace:technology.openj9"
+      - "Run/Delete:technology.openj9"
+      - "Run/Replay:technology.openj9"
+      - "Run/Update:technology.openj9"
+      - "SCM/Tag:technology.openj9"
+      - "View/Configure:technology.openj9"
+      - "View/Create:technology.openj9"
+      - "View/Delete:technology.openj9"
+      - "View/Read:technology.openj9"
+      - "Job/Configure:vsebe@ca.ibm.com"
+  markupFormatter: rawHtml
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
   remotingSecurity:
     enabled: true
-  scmCheckoutRetryCount: 2
   securityRealm:
     ldap:
       configurations:
       - displayNameAttributeName: cn
         groupSearchBase: ou=group
-        mailAddressAttributeName: mail
         rootDN: dc=eclipse,dc=org
         server: ldapmaster
         userSearch: mail={0}
-  systemMessage: ""
+        mailAddressAttributeName: mail
+  clouds:
+  - kubernetes:
+      name: "kubernetes"
+      containerCapStr: "2"
+      jenkinsUrl: "http://jenkins-ui.openj9.svc.cluster.local/openj9"
+      jenkinsTunnel: "jenkins-discovery.openj9.svc.cluster.local:50000"
+      maxRequestsPerHostStr: "32"
+      namespace: "openj9"
+      podRetention: "never"
+      templates:
+      - containers:
+        - image: "eclipsecbijenkins/jenkins-agent:3.35@sha256:399fbc3bd69ebc1b60231bf7bdb9f9a9fe9518d0b2540dbef7ee19c89559b83d"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
+          ttyEnabled: true
+          command: ""
+          args: ""
+        instanceCap: 5
+        name: "default-agent"
+        namespace: "openj9"
+        nodeUsageMode: NORMAL
+        envVars:
+        - envVar:
+            key: "MAVEN_OPTS"
+            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+        - envVar:
+            key: "MAVEN_CONFIG"
+            value: "-B -e"
+        volumes:
+        - persistentVolumeClaim:
+            claimName: "tools-claim-jiro-openj9"
+            mountPath: "/opt/tools"
+            readOnly: true
+        - configMapVolume:
+            configMapName: "known-hosts"
+            mountPath: "/home/jenkins/.ssh/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/repository"
+        workspaceVolume:
+          emptyDirWorkspaceVolume:
+            memory: false
+        yaml: |
+          apiVersion: v1
+          kind: Pod
+          spec:
+            containers:
+            - name: jnlp
+              volumeMounts:
+              - name: settings-security-xml
+                mountPath: /home/jenkins/.m2/settings-security.xml
+                subPath: settings-security.xml
+                readOnly: true
+              - name: settings-xml
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
+                readOnly: true
+              - name: toolchains-xml
+                mountPath: /home/jenkins/.m2/toolchains.xml
+                subPath: toolchains.xml
+                readOnly: true
+            volumes:
+            - name: settings-security-xml
+              secret:
+                secretName: m2-secret-dir
+                items:
+                - key: settings-security.xml
+                  path: settings-security.xml
+            - name: settings-xml
+              secret:
+                secretName: m2-secret-dir
+                items:
+                - key: settings.xml
+                  path: settings.xml
+            - name: toolchains-xml
+              configMap:
+                name: m2-dir
+                items:
+                - key: toolchains.xml
+                  path: toolchains.xml
+      - containers:
+        - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
+          ttyEnabled: true
+          command: ""
+          args: ""
+        instanceCap: 5
+        instanceCapStr: "5"
+        name: "ui-test-agent"
+        namespace: "openj9"
+        label: "ui-test"
+        envVars:
+        - envVar:
+            key: "MAVEN_OPTS"
+            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+        - envVar:
+            key: "MAVEN_CONFIG"
+            value: "-B -e"
+        volumes:
+        - persistentVolumeClaim:
+            claimName: "tools-claim-jiro-openj9"
+            mountPath: "/opt/tools"
+            readOnly: true
+        - configMapVolume:
+            configMapName: "known-hosts"
+            mountPath: "/home/jenkins/.ssh/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/repository"
+        workspaceVolume:
+          emptyDirWorkspaceVolume:
+            memory: false
+        yaml: |
+          apiVersion: v1
+          kind: Pod
+          spec:
+            containers:
+            - name: jnlp
+              volumeMounts:
+              - name: settings-security-xml
+                mountPath: /home/jenkins/.m2/settings-security.xml
+                subPath: settings-security.xml
+                readOnly: true
+              - name: settings-xml
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
+                readOnly: true
+              - name: toolchains-xml
+                mountPath: /home/jenkins/.m2/toolchains.xml
+                subPath: toolchains.xml
+                readOnly: true
+            volumes:
+            - name: settings-security-xml
+              secret:
+                secretName: m2-secret-dir
+                items:
+                - key: settings-security.xml
+                  path: settings-security.xml
+            - name: settings-xml
+              secret:
+                secretName: m2-secret-dir
+                items:
+                - key: settings.xml
+                  path: settings.xml
+            - name: toolchains-xml
+              configMap:
+                name: m2-dir
+                items:
+                - key: toolchains.xml
+                  path: toolchains.xml
+      - containers:
+        - image: "eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
+          ttyEnabled: true
+          command: ""
+          args: ""
+        instanceCap: 5
+        instanceCapStr: "5"
+        name: "migration-agent"
+        namespace: "openj9"
+        envVars:
+        - envVar:
+            key: "MAVEN_OPTS"
+            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+        - envVar:
+            key: "MAVEN_CONFIG"
+            value: "-B -e"
+        label: "migration"
+        volumes:
+        - persistentVolumeClaim:
+            claimName: "tools-claim-jiro-openj9"
+            mountPath: "/opt/tools"
+            readOnly: true
+        - configMapVolume:
+            configMapName: "known-hosts"
+            mountPath: "/home/jenkins/.ssh/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/repository"
+        workspaceVolume:
+          emptyDirWorkspaceVolume:
+            memory: false
+        yaml: |
+          apiVersion: v1
+          kind: Pod
+          spec:
+            containers:
+            - name: jnlp
+              volumeMounts:
+              - name: settings-security-xml
+                mountPath: /home/jenkins/.m2/settings-security.xml
+                subPath: settings-security.xml
+                readOnly: true
+              - name: settings-xml
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
+                readOnly: true
+              - name: toolchains-xml
+                mountPath: /home/jenkins/.m2/toolchains.xml
+                subPath: toolchains.xml
+                readOnly: true
+            volumes:
+            - name: settings-security-xml
+              secret:
+                secretName: m2-secret-dir
+                items:
+                - key: settings-security.xml
+                  path: settings-security.xml
+            - name: settings-xml
+              secret:
+                secretName: m2-secret-dir
+                items:
+                - key: settings.xml
+                  path: settings.xml
+            - name: toolchains-xml
+              configMap:
+                name: m2-dir
+                items:
+                - key: toolchains.xml
+                  path: toolchains.xml
+unclassified:
+  slackNotifier:
+    teamDomain: "openj9"
+    tokenCredentialId: "515a102c-4eee-4e66-9b05-fee104ea6fc2"
+  githubpluginconfig:
+    configs:
+    - name: "GitHub"
+      apiUrl: "https://api.github.com"
+      credentialsId: "b87c83da-2209-4958-9666-6a5b0e9a071b"
+      manageHooks: false
+  location:
+    adminAddress: ci-admin@eclipse.org
+    url: https://ci.eclipse.org/openj9
+  mailer:
+    replyToAddress: ci-admin@eclipse.org
+    smtpHost: mail.eclipse.org
+  extendedEmailPublisher:
+    defaultContentType: "text/html"
+  globalDefaultFlowDurabilityLevel:
+    durabilityHint: PERFORMANCE_OPTIMIZED
+  simple-theme-plugin:
+    elements:
+    - cssUrl:
+        url: "/openj9/userContent/theme/quicksilver.css"
+    - cssUrl:
+        url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+    - jsUrl:
+        url: "/openj9/userContent/theme/title.js"
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
@@ -1197,118 +1283,90 @@ security:
   queueItemAuthenticator:
     authenticators:
     - global:
-        strategy: triggeringUsersAuthorizationStrategy
+        strategy: "triggeringUsersAuthorizationStrategy"
   sSHD:
     port: -1
 tool:
+  jdk:
+    installations:
+    - name: "openjdk-latest"
+      home: "/opt/tools/java/openjdk/latest"
+    - name: "openjdk-jdk14-latest"
+      home: "/opt/tools/java/openjdk/jdk-14/latest"
+    - name: "openjdk-jdk13-latest"
+      home: "/opt/tools/java/openjdk/jdk-13/latest"
+    - name: "openjdk-jdk12-latest"
+      home: "/opt/tools/java/openjdk/jdk-12/latest"
+    - name: "openjdk-jdk11-latest"
+      home: "/opt/tools/java/openjdk/jdk-11/latest"
+    - name: "openjdk-jdk10-latest"
+      home: "/opt/tools/java/openjdk/jdk-10/latest"
+    - name: "openjdk-jdk9-latest"
+      home: "/opt/tools/java/openjdk/jdk-9/latest"
+    - name: "adoptopenjdk-hotspot-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
+    - name: "adoptopenjdk-hotspot-jdk12-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest"
+    - name: "adoptopenjdk-hotspot-jdk11-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
+    - name: "adoptopenjdk-hotspot-jdk10-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest"
+    - name: "adoptopenjdk-hotspot-jdk9-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest"
+    - name: "adoptopenjdk-hotspot-jdk8-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
+    - name: "adoptopenjdk-openj9-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-latest"
+    - name: "adoptopenjdk-openj9-jdk12-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-12/latest"
+    - name: "adoptopenjdk-openj9-jdk11-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
+    - name: "adoptopenjdk-openj9-jdk10-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-10/latest"
+    - name: "adoptopenjdk-openj9-jdk9-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-9/latest"
+    - name: "adoptopenjdk-openj9-jdk8-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
+    - name: "oracle-latest"
+      home: "/opt/tools/java/oracle/latest"
+    - name: "oracle-jdk10-latest"
+      home: "/opt/tools/java/oracle/jdk-10/latest"
+    - name: "oracle-jdk9-latest"
+      home: "/opt/tools/java/oracle/jdk-9/latest"
+    - name: "oracle-jdk8-latest"
+      home: "/opt/tools/java/oracle/jdk-8/latest"
+    - name: "oracle-jdk7-latest"
+      home: "/opt/tools/java/oracle/jdk-7/latest"
+    - name: "oracle-jdk6-latest"
+      home: "/opt/tools/java/oracle/jdk-6/latest"
+    - name: "oracle-jdk5-latest"
+      home: "/opt/tools/java/oracle/jdk-5/latest"
+    - name: "ibm-jdk8-latest"
+      home: "/opt/tools/java/ibm/jdk-8/latest"
+    - name: "ibm-latest"
+      home: "/opt/tools/java/ibm/latest"
   ant:
     installations:
-    - home: ""
-      name: apache-ant-latest
+    - name: "apache-ant-latest"
+      home: ""
       properties:
       - installSource:
           installers:
           - antFromApache:
-              id: 1.10.5
-  git:
-    installations:
-    - home: git
-      name: Default
-  jdk:
-    installations:
-    - home: /opt/tools/java/openjdk/latest
-      name: openjdk-latest
-    - home: /opt/tools/java/openjdk/jdk-14/latest
-      name: openjdk-jdk14-latest
-    - home: /opt/tools/java/openjdk/jdk-13/latest
-      name: openjdk-jdk13-latest
-    - home: /opt/tools/java/openjdk/jdk-12/latest
-      name: openjdk-jdk12-latest
-    - home: /opt/tools/java/openjdk/jdk-11/latest
-      name: openjdk-jdk11-latest
-    - home: /opt/tools/java/openjdk/jdk-10/latest
-      name: openjdk-jdk10-latest
-    - home: /opt/tools/java/openjdk/jdk-9/latest
-      name: openjdk-jdk9-latest
-    - home: /opt/tools/java/adoptopenjdk/hotspot-latest
-      name: adoptopenjdk-hotspot-latest
-    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest
-      name: adoptopenjdk-hotspot-jdk12-latest
-    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest
-      name: adoptopenjdk-hotspot-jdk11-latest
-    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest
-      name: adoptopenjdk-hotspot-jdk10-latest
-    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest
-      name: adoptopenjdk-hotspot-jdk9-latest
-    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest
-      name: adoptopenjdk-hotspot-jdk8-latest
-    - home: /opt/tools/java/adoptopenjdk/openj9-latest
-      name: adoptopenjdk-openj9-latest
-    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-12/latest
-      name: adoptopenjdk-openj9-jdk12-latest
-    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-11/latest
-      name: adoptopenjdk-openj9-jdk11-latest
-    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-10/latest
-      name: adoptopenjdk-openj9-jdk10-latest
-    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-9/latest
-      name: adoptopenjdk-openj9-jdk9-latest
-    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-8/latest
-      name: adoptopenjdk-openj9-jdk8-latest
-    - home: /opt/tools/java/oracle/latest
-      name: oracle-latest
-    - home: /opt/tools/java/oracle/jdk-10/latest
-      name: oracle-jdk10-latest
-    - home: /opt/tools/java/oracle/jdk-9/latest
-      name: oracle-jdk9-latest
-    - home: /opt/tools/java/oracle/jdk-8/latest
-      name: oracle-jdk8-latest
-    - home: /opt/tools/java/oracle/jdk-7/latest
-      name: oracle-jdk7-latest
-    - home: /opt/tools/java/oracle/jdk-6/latest
-      name: oracle-jdk6-latest
-    - home: /opt/tools/java/oracle/jdk-5/latest
-      name: oracle-jdk5-latest
-    - home: /opt/tools/java/ibm/jdk-8/latest
-      name: ibm-jdk8-latest
-    - home: /opt/tools/java/ibm/latest
-      name: ibm-latest
+              id: "1.10.5"
   maven:
     installations:
-    - home: /opt/tools/apache-maven/latest
-      name: apache-maven-latest
-    - home: /opt/tools/apache-maven/3.6.2
-      name: apache-maven-3.6.2
-    - home: /opt/tools/apache-maven/3.5.4
-      name: apache-maven-3.5.4
-    - home: /opt/tools/apache-maven/3.3.9
-      name: apache-maven-3.3.9
-    - home: /opt/tools/apache-maven/3.2.5
-      name: apache-maven-3.2.5
-unclassified:
-  extendedEmailPublisher:
-    defaultContentType: text/html
-  githubpluginconfig:
-    configs:
-    - apiUrl: https://api.github.com
-      credentialsId: b87c83da-2209-4958-9666-6a5b0e9a071b
-      manageHooks: false
-      name: GitHub
-  globalDefaultFlowDurabilityLevel:
-    durabilityHint: PERFORMANCE_OPTIMIZED
-  location:
-    adminAddress: ci-admin@eclipse.org
-    url: https://ci.eclipse.org/openj9
-  mailer:
-    replyToAddress: ci-admin@eclipse.org
-    smtpHost: mail.eclipse.org
-  simple-theme-plugin:
-    elements:
-    - cssUrl:
-        url: /openj9/userContent/theme/quicksilver.css
-    - cssUrl:
-        url: //fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100
-    - jsUrl:
-        url: /openj9/userContent/theme/title.js
-  slackNotifier:
-    teamDomain: openj9
-    tokenCredentialId: 515a102c-4eee-4e66-9b05-fee104ea6fc2
+    - name: "apache-maven-latest"
+      home: "/opt/tools/apache-maven/latest"
+    - name: "apache-maven-3.6.2"
+      home: "/opt/tools/apache-maven/3.6.2"
+    - name: "apache-maven-3.5.4"
+      home: "/opt/tools/apache-maven/3.5.4"
+    - name: "apache-maven-3.3.9"
+      home: "/opt/tools/apache-maven/3.3.9"
+    - name: "apache-maven-3.2.5"
+      home: "/opt/tools/apache-maven/3.2.5"
+  git:
+    installations:
+    - name: "Default"
+      home: "git"
