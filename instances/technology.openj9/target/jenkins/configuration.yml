@@ -457,9 +457,9 @@ jenkins:
             \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar\""
   - permanent:
-      name: "ub16-390-5"
+      name: "rh7-390-1"
       nodeDescription: "Linux 390 Red Hat 7. 4CPU 8GB Ram  91GB Disk"
-      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.redhat sw.os.redhat.7
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.rhel sw.os.rhel.7
         ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
       remoteFS: '/home/jenkins'
       numExecutors: 1
@@ -471,9 +471,9 @@ jenkins:
             \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar\""
   - permanent:
-      name: "ub16-390-6"
+      name: "rh7-390-2"
       nodeDescription: "Linux 390 Red Hat 7. 4CPU 8GB Ram  91GB Disk"
-      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.redhat sw.os.redhat.7
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.rhel sw.os.rhel.7
         ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
       remoteFS: '/home/jenkins'
       numExecutors: 1
@@ -485,9 +485,9 @@ jenkins:
             \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar\""
   - permanent:
-      name: "ub16-390-7"
+      name: "rh7-390-3"
       nodeDescription: "Linux 390 Red Hat 7. 4CPU 8GB Ram  91GB Disk"
-      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.redhat sw.os.redhat.7
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.rhel sw.os.rhel.7
         ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
       remoteFS: '/home/jenkins'
       numExecutors: 1
@@ -499,9 +499,9 @@ jenkins:
             \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar\""
   - permanent:
-      name: "ub16-390-8"
+      name: "rh7-390-4"
       nodeDescription: "Linux 390 Red Hat 7. 4CPU 8GB Ram  91GB Disk"
-      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.redhat sw.os.redhat.7
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.rhel sw.os.rhel.7
         ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
       remoteFS: '/home/jenkins'
       numExecutors: 1
