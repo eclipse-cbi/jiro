@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.lemminx",
+         "org.eclipse.cbi.jiro/project.shortname": "lemminx"
+      },
+      "name": "lemminx",
+      "namespace": "lemminx"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "lemminx"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "lemminx",
+         "namespace": "lemminx"
+      }
+   ]
+}
