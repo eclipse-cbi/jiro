@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.tyrus",
+         "org.eclipse.cbi.jiro/project.shortname": "tyrus"
+      },
+      "name": "tyrus",
+      "namespace": "tyrus"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "tyrus"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "tyrus",
+         "namespace": "tyrus"
+      }
+   ]
+}
