@@ -45,3 +45,5 @@ oc apply -f "${instance}/target/k8s/known-hosts.json"
 oc apply -f "${instance}/target/k8s/m2-dir.json"
 
 oc apply -f "${instance}/target/k8s/statefulset.json"
+
+"${SCRIPT_FOLDER}/../jenkins-safe-restart.sh" "${instance}" || :
