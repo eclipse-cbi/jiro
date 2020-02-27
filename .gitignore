@@ -4,3 +4,4 @@ cli.jar
 /.project
 /.jsonnet
 /.dockertools
+Dockerfile.buildlog
