@@ -42,7 +42,7 @@ spec:
       terminationGracePeriodSeconds: 1200
       containers:
       - name: jenkins
-        image: eclipsecbijenkins/leshan:2.190.1@sha256:e7db9aaac6c199f98587ec2391d97fa66dce9499c381a071dcdeadd732270478
+        image: eclipsecbijenkins/leshan:2.190.1@sha256:256c1ef6a886b964a94dafd1b13459c4eb73c21a241f6ae4df84666cd0f424f2
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -99,7 +99,7 @@ spec:
               -Dhudson.slaves.NodeProvisioner.initialDelay=0
               -Dhudson.slaves.NodeProvisioner.MARGIN=50
               -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85
-              -Dhudson.footerURL=https://ci-staging.eclipse.org
+              -Dhudson.footerURL=https://ci.eclipse.org
               -Dhudson.model.UsageStatistics.disabled=true
               -Djenkins.model.Jenkins.slaveAgentPort=50000
               -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
@@ -108,7 +108,7 @@ spec:
               -DexecutableWar.jetty.disableCustomSessionIdCookieName=false
               -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.leshan
               -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml
-              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.35@sha256:dff125e05404688a78bd67d5b47d107d98ec7583282e8ed9ca6646a2a76874e2
+              -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/jenkins-agent:3.35@sha256:399fbc3bd69ebc1b60231bf7bdb9f9a9fe9518d0b2540dbef7ee19c89559b83d
               -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180
               -Dkubernetes.websocket.ping.interval=30000
           - name: JENKINS_OPTS

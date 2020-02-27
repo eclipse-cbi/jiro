@@ -13,7 +13,7 @@
       "namespace": "leshan"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/leshan",
       "port": {
          "targetPort": "http"
