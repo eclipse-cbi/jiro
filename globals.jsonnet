@@ -1,5 +1,5 @@
 {
   docker: {
-    repository: "mbarbero",
+    repository: "docker.io/eclipsecbijenkins",
   }
 }
