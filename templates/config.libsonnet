@@ -52,7 +52,8 @@ local permissions = import 'permissions.libsonnet';
     prefix: "/" + $.project.shortName,
     url: "https://" + $.deployment.host + $.deployment.prefix,
     uiPort: 8080,
-    jnlpPort: 50000
+    jnlpPort: 50000,
+    controlPort: 8081,
   },
   kubernetes: {
     master: {

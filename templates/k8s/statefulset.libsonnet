@@ -63,6 +63,13 @@ local Kube = import "kube.libsonnet";
                   memory: config.kubernetes.master.resources.memory.limit,
                 },
               },
+              lifecycle: {
+                preStop: {
+                  exec: {
+                    command: ["/bin/sh","-c","java -cp /var/cache/jenkins/war/winstone.jar winstone.tools.WinstoneControl shutdown --host=localhost --port=" + config.deployment.controlPort + " >/dev/termination-log 2>&1"],
+                  },
+                },
+              },
               volumeMounts: [
                 {
                   mountPath: config.docker.master.home,
@@ -124,6 +131,7 @@ local Kube = import "kube.libsonnet";
                     "--prefix=" + config.deployment.prefix,
                     "--webroot=" + config.docker.master.webroot,
                     "--pluginroot=" + config.docker.master.pluginroot,
+                    "--controlPort=" + config.deployment.controlPort,
                   ]),
                 },
               ],
