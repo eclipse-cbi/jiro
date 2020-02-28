@@ -74,24 +74,36 @@ if [[ "${buildsCount}" -gt 0 ]]; then
   echo "INFO: There are still ${buildsCount} builds running:"
   echo "${builds}" | jq -r 'map(.executors[].name)[]'
   echo -n "INFO: Waiting for builds to complete (timeout=${timeout_sec}s)"
+
+  startTime=$(date +%s)
+  while [[ "${buildsCount}" -gt 0 ]]; do
+    buildsCount=$(runningBuilds "${url}" | jq -r 'map(.executors[]) | length')
+    sleep 10
+    if [[ $((startTime + timeout_sec)) -lt $(date +%s) ]]; then
+      echo ""
+      echo "INFO: Timeout after ${timeout_sec}s, still ${buildsCount} builds running. The following builds will be forcibly terminated"
+      runningBuilds "${url}" | jq -r 'map(.executors[].name)[]'
+      break
+    fi
+    echo -n "."
+  done
+
+  if [[ "${buildsCount}" -eq 0 ]]; then
+    # Running builds have completed before the end of the timeout
+    echo ""
+  fi
 fi
 
-while [[ "${buildsCount}" -gt 0 ]]; do
-  buildsCount=$(runningBuilds "${url}" | jq -r 'map(.executors[]) | length')
-  sleep 10
-  echo -n "."
-done
-
-if [[ $(echo "${builds}" | jq -r 'map(.executors[]) | length') -gt 0 ]]; then
-  echo ""
-fi
+"${SCRIPT_FOLDER}/jenkins-switch-maintenance.sh" "${instance}"
 
 echo -n "INFO: Shutting down Jenkins"
 oc scale sts "${stsName}" --replicas=0 -n "${ns}" > /dev/null
 waitReadyReplicas 0
 
-echo -n "INFO: Restarting Jenkins"
+echo -n "INFO: Starting Jenkins"
 oc scale sts "${stsName}" --replicas=1 -n "${ns}" > /dev/null
 waitReadyReplicas 1
+
+"${SCRIPT_FOLDER}/jenkins-switch-maintenance.sh" "${instance}"
 
 echo "INFO: Jenkins is ready"
