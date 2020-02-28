@@ -114,6 +114,7 @@ local Kube = import "kube.libsonnet";
                     "-Dhudson.model.UsageStatistics.disabled=true",
                     "-Djenkins.model.Jenkins.slaveAgentPort=" + config.deployment.jnlpPort,
                     "-Djenkins.model.Jenkins.slaveAgentPortEnforce=true",
+                    "-Djenkins.model.Jenkins.exitCodeOnRestart=0",
                     "-Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false",
                     "-Djenkins.install.runSetupWizard=false",
                     "-DexecutableWar.jetty.disableCustomSessionIdCookieName=false",

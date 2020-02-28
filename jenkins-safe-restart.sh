@@ -88,10 +88,7 @@ if [[ "${buildsCount}" -gt 0 ]]; then
     echo -n "."
   done
 
-  if [[ "${buildsCount}" -eq 0 ]]; then
-    # Running builds have completed before the end of the timeout
-    echo ""
-  fi
+  echo -e "\b."
 fi
 
 "${SCRIPT_FOLDER}/jenkins-switch-maintenance.sh" "${instance}"
