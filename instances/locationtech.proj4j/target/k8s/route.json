@@ -13,7 +13,7 @@
       "namespace": "proj4j"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/proj4j",
       "port": {
          "targetPort": "http"
