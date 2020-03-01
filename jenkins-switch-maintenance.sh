@@ -47,11 +47,6 @@ maintenance_on() {
   oc create route "${route_spec_tls_termination}" "maintenance-cli" --service="jenkins-ui" -n "${instance_ns}" --hostname="${route_spec_host}" --path="${route_spec_path}/cli" --port="${route_spec_port}" --insecure-policy="${route_spec_tls_insecure_policy}"
   # refresh cache 
   curl -sSLH "X-Cache-Bypass: true" "https://${route_spec_host}/${route_spec_path}" -o /dev/null
-
-  # wait for the cli route to be available again
-  while ! "${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" version &> /dev/null; do
-    sleep 1
-  done
 }
 
 maintenance_off() {
@@ -60,10 +55,6 @@ maintenance_off() {
   oc apply -f "${route_json}"
   # refresh cache 
   curl -sSLH "X-Cache-Bypass: true" "https://${route_spec_host}/${route_spec_path}" -o /dev/null
-  # wait for the cli route to be available again
-  while ! "${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" version &> /dev/null; do
-    sleep 1
-  done
 }
 
 if [[ -z "${2:-}" ]]; then
