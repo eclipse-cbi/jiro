@@ -41,7 +41,7 @@ waitReadyReplicas() {
     sleep 2
     echo -n "."
   done
-  echo ""
+  echo -e "\b."
 }
 
 oc apply -f "${instance}/target/k8s/namespace.json"
@@ -60,26 +60,23 @@ oc apply -f "${instance}/target/k8s/tools-pv.json"
 oc apply -f "${instance}/target/k8s/known-hosts.json"
 oc apply -f "${instance}/target/k8s/m2-dir.json"
 
-statefulset_json_old=$(mktemp)
-oc get sts -n "$(jq -r '.metadata.name' "${instance}/target/k8s/namespace.json")" "$(jq -r '.metadata.name' "${instance}/target/k8s/statefulset.json")" -o json > "${statefulset_json_old}"
+sts_as_json() {
+  oc get sts -n "$(jq -r '.metadata.name' "${instance}/target/k8s/namespace.json")" "$(jq -r '.metadata.name' "${instance}/target/k8s/statefulset.json")" -o json
+}
 
-statefulset_json="${instance}/target/k8s/statefulset.json"
+old_gen=""
+old_gen=$(sts_as_json | jq -r '.metadata.generation')
 
-sts_image_jq='.spec.template.spec.containers[].image'
-sts_resources_jq='.spec.template.spec.containers[].resources'
-sts_annotations_jq='.spec.template.metadata.annotations'
-if [[ "$(jq -r "${sts_image_jq}" "${statefulset_json}")" == "$(jq -r "${sts_image_jq}" "${statefulset_json_old}")" ]] || \
-   [[ "$(jq -r "${sts_resources_jq}" "${statefulset_json}")" == "$(jq -r "${sts_resources_jq}" "${statefulset_json_old}")" ]] || \
-   [[ "$(jq -r "${sts_annotations_jq}" "${statefulset_json}")" == "$(jq -r "${sts_annotations_jq}" "${statefulset_json_old}")" ]]; then
-   oc apply -f "${statefulset_json}"
-   echo "Cluster does not rollout StatefulSet changes when container images, resource requests and/or limits, labels, and annotations of the Pods in a StatefulSet are identical to the deployed one. Forcing safe restart now!"
-  "${SCRIPT_FOLDER}/../jenkins-safe-restart.sh" "${instance}" || :
-else 
-  "${SCRIPT_FOLDER}/jenkins-switch-maintenance.sh" "${instance}" || :
-  oc apply -f "${statefulset_json}"
-  echo "Cluster is rolling out StatefulSet changes"
+oc apply -f "${instance}/target/k8s/statefulset.json"
+
+if [[ $(sts_as_json | jq -r '.metadata.generation') -gt ${old_gen} ]]; then
+  echo "INFO: Cluster is rolling out StatefulSet changes"
+  "${SCRIPT_FOLDER}/../jenkins-switch-maintenance.sh" "${instance}" || :
   waitReadyReplicas "$(jq -r '.metadata.name' "${instance}/target/k8s/namespace.json")" "$(jq -r '.metadata.name' "${instance}/target/k8s/statefulset.json")" 1
+  "${SCRIPT_FOLDER}/../jenkins-switch-maintenance.sh" "${instance}" || :
+else 
+  echo "INFO: StatefulSet has no change that Kubernetes consider as requiring a restart."
+  echo "INFO: Safe restarting Jenkins to take into account (potential) new image"
+  ## TODO: compare pod .status.containerStatuses[].imageID vs latest pull from docker registry and check if restart is required.
+  "${SCRIPT_FOLDER}/../jenkins-safe-restart.sh" "${instance}" || :
 fi
-
-rm -f "${statefulset_json_old}"
-
