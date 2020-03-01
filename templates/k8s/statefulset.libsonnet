@@ -66,7 +66,8 @@ local Kube = import "kube.libsonnet";
               lifecycle: {
                 preStop: {
                   exec: {
-                    command: ["/bin/sh","-c","java -cp /var/cache/jenkins/war/winstone.jar winstone.tools.WinstoneControl shutdown --host=localhost --port=" + config.deployment.controlPort + " >/dev/termination-log 2>&1"],
+                    # be even smarter and implement this in a script with a wait for job to complete. Adjust terminationGracePeriodSeconds accordingly
+                    command: ["/bin/sh","-c","java -cp " + config.docker.master.webroot + "/winstone.jar winstone.tools.WinstoneControl shutdown --host=localhost --port=" + config.deployment.controlPort + " >/dev/termination-log 2>&1"],
                   },
                 },
               },
