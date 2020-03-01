@@ -1,167 +1,231 @@
 {
-  "deployment": {
-    "host": "ci.eclipse.org",
-    "jnlpPort": 50000,
-    "prefix": "/dash",
-    "uiPort": 8080,
-    "url": "https://ci.eclipse.org/dash"
-  },
-  "docker": {
-    "agent": {
-      "defaultImage": {
-        "name": "eclipsecbijenkins/jenkins-agent",
-        "sha256": "b8378db77911373b6de441b39c2148d776a424abe67459cd1918322e65cfffd1",
-        "tag": "3.35"
+   "agents": [
+      {
+         "docker": {
+            "name": "eclipsecbijenkins/basic-agent",
+            "tag": "3.36"
+         },
+         "kubernetes": {
+            "resources": {
+               "cpu": {
+                  "limit": "2000m",
+                  "request": "1000m"
+               },
+               "memory": {
+                  "limit": "4096Mi",
+                  "request": "4096Mi"
+               }
+            }
+         },
+         "labels": [ ],
+         "mode": "NORMAL",
+         "name": "basic-agent"
+      },
+      {
+         "docker": {
+            "name": "eclipsecbijenkins/jipp-migration-agent",
+            "tag": "3.36"
+         },
+         "kubernetes": {
+            "resources": {
+               "cpu": {
+                  "limit": "2000m",
+                  "request": "1000m"
+               },
+               "memory": {
+                  "limit": "4096Mi",
+                  "request": "4096Mi"
+               }
+            }
+         },
+         "labels": [
+            "migration",
+            "jipp-migration"
+         ],
+         "mode": "EXCLUSIVE",
+         "name": "jipp-migration-agent"
+      },
+      {
+         "docker": {
+            "name": "eclipsecbijenkins/ui-tests-agent",
+            "tag": "3.36"
+         },
+         "kubernetes": {
+            "resources": {
+               "cpu": {
+                  "limit": "2000m",
+                  "request": "1000m"
+               },
+               "memory": {
+                  "limit": "4096Mi",
+                  "request": "4096Mi"
+               }
+            }
+         },
+         "labels": [
+            "ui-test",
+            "ui-tests"
+         ],
+         "mode": "EXCLUSIVE",
+         "name": "ui-tests-agent"
       }
-    },
-    "master": {
-      "home": "/var/jenkins_home",
-      "image": "eclipsecbijenkins/dash",
-      "imageTag": "2.190.1",
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.190.1",
-      "pluginroot": "/var/cache/jenkins/plugins",
-      "ref": "/usr/share/jenkins/ref",
-      "updateCenter": "https://updates.jenkins.io",
-      "username": "jenkins",
-      "war": "/usr/share/jenkins/jenkins.war",
-      "webroot": "/var/cache/jenkins/war",
-      "imageSha256": "c2b493b67f702bb4c4d984df8b08eefe3f8c1c6f88a0a4ffac1d93aec414e745"
-    },
-    "repository": "eclipsecbijenkins"
-  },
-  "jenkins": {
-    "actualRemotingVersion": "3.35",
-    "actualVersion": "2.190.1",
-    "agentConnectionTimeout": 180,
-    "maxConcurrency": 2,
-    "permissions": [
-      {
-        "grantedPermissions": [
-          "Overall/Read"
-        ],
-        "principal": "anonymous"
+   ],
+   "deployment": {
+      "controlPort": 8081,
+      "host": "ci.eclipse.org",
+      "jnlpPort": 50000,
+      "prefix": "/dash",
+      "uiPort": 8080,
+      "url": "https://ci.eclipse.org/dash"
+   },
+   "docker": {
+      "master": {
+         "home": "/var/jenkins_home",
+         "image": "docker.io/eclipsecbijenkins/dash",
+         "imageTag": "2.204.3",
+         "parentImage": "docker.io/eclipsecbijenkins/jenkins-master-base:2.204.3",
+         "pluginroot": "/var/cache/jenkins/plugins",
+         "ref": "/usr/share/jenkins/ref",
+         "updateCenter": "https://updates.jenkins.io",
+         "username": "jenkins",
+         "war": "/usr/share/jenkins/jenkins.war",
+         "webroot": "/var/cache/jenkins/war"
       },
-      {
-        "grantedPermissions": [
-          "Job/ExtendedRead",
-          "Job/Read"
-        ],
-        "principal": "common"
+      "repository": "docker.io/eclipsecbijenkins"
+   },
+   "jenkins": {
+      "actualVersion": "2.204.3",
+      "agentConnectionTimeout": 180,
+      "maxConcurrency": 2,
+      "permissions": [
+         {
+            "grantedPermissions": [
+               "Overall/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead",
+               "Job/Read"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Build",
+               "Credentials/View",
+               "Job/Build",
+               "Job/Cancel",
+               "Job/Configure",
+               "Job/Create",
+               "Job/Delete",
+               "Job/Move",
+               "Job/Read",
+               "Job/Workspace",
+               "Run/Delete",
+               "Run/Replay",
+               "Run/Update",
+               "SCM/Tag",
+               "View/Configure",
+               "View/Create",
+               "View/Delete",
+               "View/Read",
+               "Gerrit/ManualTrigger",
+               "Gerrit/Retrigger"
+            ],
+            "principal": "technology.dash"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "frederic.gurr@eclipse-foundation.org"
+         }
+      ],
+      "remotingVersion": "3.36",
+      "staticAgentCount": 0,
+      "theme": "quicksilver",
+      "timezone": "America/Toronto",
+      "version": "2.204.3"
+   },
+   "kubernetes": {
+      "agents": {
+         "defaultResources": {
+            "cpu": {
+               "limit": "2000m",
+               "request": "1000m"
+            },
+            "memory": {
+               "limit": "4096Mi",
+               "request": "4096Mi"
+            }
+         },
+         "namespace": "dash"
       },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "admins"
-      },
-      {
-        "grantedPermissions": [
-          "Agent/Build",
-          "Credentials/View",
-          "Job/Build",
-          "Job/Cancel",
-          "Job/Configure",
-          "Job/Create",
-          "Job/Delete",
-          "Job/Move",
-          "Job/Read",
-          "Job/Workspace",
-          "Run/Delete",
-          "Run/Replay",
-          "Run/Update",
-          "SCM/Tag",
-          "View/Configure",
-          "View/Create",
-          "View/Delete",
-          "View/Read",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger"
-        ],
-        "principal": "technology.dash"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "frederic.gurr@eclipse-foundation.org"
+      "master": {
+         "namespace": "dash",
+         "probe": {
+            "liveness": {
+               "delaySeconds": 480,
+               "failureThreshold": 5,
+               "periodSeconds": 30,
+               "timeoutSeconds": 30
+            },
+            "readiness": {
+               "delaySeconds": 1,
+               "failureThreshold": 5,
+               "periodSeconds": 5,
+               "timeoutSeconds": 10
+            }
+         },
+         "resources": {
+            "cpu": {
+               "limit": "2000m",
+               "request": "500m"
+            },
+            "memory": {
+               "limit": "1536Mi",
+               "request": "1536Mi"
+            }
+         },
+         "stsName": "dash"
       }
-    ],
-    "staticAgentCount": 0,
-    "theme": "quicksilver",
-    "timezone": "America/Toronto",
-    "version": "2.190.1"
-  },
-  "kubernetes": {
-    "agents": {
-      "defaultResources": {
-        "cpu": {
-          "limit": "2000m",
-          "request": "1000m"
-        },
-        "memory": {
-          "limit": "4096Mi",
-          "request": "4096Mi"
-        }
+   },
+   "maven": {
+      "files": {
+         "settings-security.xml": {
+            "volumeName": "m2-secret-dir",
+            "volumeType": "Secret"
+         },
+         "settings.xml": {
+            "volumeName": "m2-secret-dir",
+            "volumeType": "Secret"
+         },
+         "toolchains.xml": {
+            "volumeName": "m2-dir",
+            "volumeType": "ConfigMap"
+         }
       },
-      "namespace": "dash"
-    },
-    "master": {
-      "namespace": "dash",
-      "probe": {
-        "liveness": {
-          "delaySeconds": 480,
-          "failureThreshold": 5,
-          "periodSeconds": 30,
-          "timeoutSeconds": 30
-        },
-        "readiness": {
-          "delaySeconds": 1,
-          "failureThreshold": 5,
-          "periodSeconds": 5,
-          "timeoutSeconds": 10
-        }
-      },
-      "resources": {
-        "cpu": {
-          "limit": "2000m",
-          "request": "500m"
-        },
-        "memory": {
-          "limit": "1536Mi",
-          "request": "1536Mi"
-        }
-      },
-      "stsName": "dash"
-    }
-  },
-  "maven": {
-    "files": {
-      "settings-security.xml": {
-        "volumeName": "m2-secret-dir",
-        "volumeType": "Secret"
-      },
-      "settings.xml": {
-        "volumeName": "m2-secret-dir",
-        "volumeType": "Secret"
-      },
-      "toolchains.xml": {
-        "volumeName": "m2-dir",
-        "volumeType": "ConfigMap"
+      "home": "/home/jenkins/.m2"
+   },
+   "project": {
+      "displayName": "Eclipse Dash",
+      "fullName": "technology.dash",
+      "resourcePacks": 1,
+      "shortName": "dash",
+      "unixGroupName": "technology.dash"
+   },
+   "secrets": {
+      "gerrit-trigger-plugin": {
+         "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
+         "username": "genie.dash"
       }
-    },
-    "home": "/home/jenkins/.m2"
-  },
-  "project": {
-    "displayName": "Eclipse Dash",
-    "fullName": "technology.dash",
-    "resourcePacks": 1,
-    "shortName": "dash",
-    "unixGroupName": "technology.dash"
-  },
-  "secrets": {
-    "gerrit-trigger-plugin": {
-      "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-      "username": "genie.dash"
-    }
-  }
+   }
 }

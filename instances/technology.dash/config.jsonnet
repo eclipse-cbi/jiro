@@ -5,7 +5,7 @@
     displayName: "Eclipse Dash",
   },
   jenkins+: {
-    version: "2.190.1",
+    version: "2.204.3",
     permissions: [
       {
         grantedPermissions: 
