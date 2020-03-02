@@ -14,7 +14,6 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
 
 maintenance_ns="${maintenance_ns:-"error-pages"}"
 maintenance_service="${maintenance_service:-maintenance-sign}"
