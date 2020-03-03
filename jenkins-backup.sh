@@ -15,6 +15,7 @@ set -o pipefail
 
 IFS=$'\n\t'
 SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
+CLI="${SCRIPT_FOLDER}/jenkins-cli.sh"
 
 instance="${1:-}"
 backup="${2:-}"
@@ -31,7 +32,7 @@ fi
 
 if [[ ${instance} == "ALL" ]]; then
   for i in "${SCRIPT_FOLDER}/instances/"*; do 
-    >&2 echo "Backuping instance '$(basename "${i}")'..."
+    >&2 echo "** Backuping instance '$(basename "${i}")'..."
     "${0}" "${i}" "${backup}" || :
   done
   exit 0
@@ -40,25 +41,25 @@ elif [[ ! -d "${instance}" ]]; then
   exit 1
 fi
 
-instanceBackup="${backup}/$(basename "${instance}")"
+backupInstance="${backup}/$(basename "${instance}")"
 
-rm -rf "${instanceBackup}"
-mkdir -p "${instanceBackup}/jobs"
-mkdir -p "${instanceBackup}/views"
+rm -rf "${backupInstance}"
+mkdir -p "${backupInstance}/jobs"
+mkdir -p "${backupInstance}/views"
 
 
-for job in $("${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" list-jobs); do 
+for job in $("${CLI}" "${instance}" list-jobs); do 
   >&2 echo "Backuping job '${job}'..."
-  "${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" get-job "${job}" > "${instanceBackup}/jobs/${job}.xml"
+  "${CLI}" "${instance}" get-job "${job}" > "${backupInstance}/jobs/${job}.xml"
 done
 
-for view in $("${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" groovy = < "${SCRIPT_FOLDER}/groovy/cli/list-views.groovy"); do 
+for view in $("${CLI}" "${instance}" groovy = < "${SCRIPT_FOLDER}/groovy/cli/list-views.groovy"); do 
   >&2 echo "Backuping view '${view}'..."
-  "${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" get-view "${view}" > "${instanceBackup}/views/${view}.xml"
+  "${CLI}" "${instance}" get-view "${view}" > "${backupInstance}/views/${view}.xml"
 done
 
 >&2 echo "Backuping credentials..."
-"${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" list-credentials-as-xml > "${instanceBackup}/credentials.xml" "system::system::jenkins"
+"${CLI}" "${instance}" list-credentials-as-xml > "${backupInstance}/credentials.xml" "system::system::jenkins"
 
 >&2 echo "Backuping plugins list..."
-"${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" list-plugins > "${instanceBackup}/plugins"
+"${CLI}" "${instance}" list-plugins > "${backupInstance}/plugins"
