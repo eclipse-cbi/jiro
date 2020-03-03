@@ -103,6 +103,39 @@ local permissions = import 'permissions.libsonnet';
   },
   maven: {
     home: "/home/jenkins/.m2",
+    "settings.xml": {
+      servers: {
+        "repo.eclipse.org": {
+          username: {
+            pass: "nexus/username",
+          },
+          password: {
+            pass: "nexus/password",
+          },
+        },
+        ossrh: {
+          nexusProUrl: if std.startsWith($.project.fullName, "ee4j") then "https://jakarta.oss.sonatype.org" else "https://oss.sonatype.org",
+          username: {
+            pass: "bots/" + $.project.fullName + "/oss.sonatype.org/username",
+          },
+          password: {
+            pass: "bots/" + $.project.fullName + "/oss.sonatype.org/password",
+          },
+        },
+      },
+      mirrors: {
+        "eclipse.maven.central.mirror": {
+          name: "Eclipse Central Proxy",
+          url: "https://repo.eclipse.org/content/repositories/maven_central/",
+          mirrorOf: "central",
+        },
+      },
+    },
+    "settings-security.xml": {
+      master: {
+        pass: "bots/" + $.project.fullName + "/apache-maven-security-settings"
+      },
+    },
     files: {
       "settings.xml": {
         "volumeType": "Secret",

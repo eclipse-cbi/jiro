@@ -5,3 +5,5 @@ cli.jar
 /.jsonnet
 /.dockertools
 Dockerfile.buildlog
+**/target/.secrets
+/.localconfig
