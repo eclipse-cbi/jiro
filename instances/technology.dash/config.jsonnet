@@ -1,7 +1,6 @@
 {
   project+: {
     fullName: "technology.dash",
-    shortName: "dash",
     displayName: "Eclipse Dash",
   },
   jenkins+: {

@@ -5,7 +5,7 @@ local permissions = import 'permissions.libsonnet';
   local jenkinsRelease = jenkinsReleases.releases[$.jenkins.version],
   
   project: {
-    shortName: error 'Must set "project.shortName"',
+    shortName: std.split(self.fullName, ".")[std.length(std.split(self.fullName, "."))-1],
     fullName: error 'Must set "project.fullName"',
     displayName: error 'Must set "project.displayName"',
     unixGroupName: $.project.fullName,

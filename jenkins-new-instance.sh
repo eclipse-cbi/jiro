@@ -19,7 +19,6 @@ SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
 
 project_name="${1:-}"
 display_name="${2:-}"
-short_name=${project_name##*.}
 
 usage() {
   printf "Usage: %s project_name display_name\n" "$script_name"
@@ -54,7 +53,6 @@ cat <<EOF > "${SCRIPT_FOLDER}/instances/${project_name}/config.jsonnet"
 {
   project+: {
     fullName: "${project_name}",
-    shortName: "${short_name}",
     displayName: "${display_name}",
   }
 }
