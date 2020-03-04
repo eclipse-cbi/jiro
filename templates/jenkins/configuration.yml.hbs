@@ -40,18 +40,19 @@ jenkins:
           mailAddressAttributeName: mail
 
   clouds:
+  {{#each clouds}}
   - kubernetes:
-      name: "kubernetes"
-      containerCapStr: "{{jenkins.maxConcurrency}}"
-      jenkinsUrl: "http://jenkins-ui.{{kubernetes.master.namespace}}.svc.cluster.local{{deployment.prefix}}"
-      jenkinsTunnel: "jenkins-discovery.{{kubernetes.master.namespace}}.svc.cluster.local:{{deployment.jnlpPort}}"
+      name: "{{this.name}}"
+      containerCapStr: "{{../jenkins.maxConcurrency}}"
+      jenkinsUrl: "http://jenkins-ui.{{../kubernetes.master.namespace}}.svc.cluster.local{{../deployment.prefix}}"
+      jenkinsTunnel: "jenkins-discovery.{{../kubernetes.master.namespace}}.svc.cluster.local:{{../deployment.jnlpPort}}"
       maxRequestsPerHostStr: "32"
-      namespace: "{{kubernetes.master.namespace}}"
+      namespace: "{{this.namespace}}"
       podRetention: "never"
       templates:
-      {{#each agents}}
+      {{#each templates}}
       - containers:
-        - image: {{this.docker.name}}:{{this.docker.tag}}
+        - image: {{this.docker.repository}}/{{this.docker.image.name}}:{{this.docker.image.tag}}
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -69,7 +70,7 @@ jenkins:
           args: ""
         instanceCap: 5
         name: "{{this.name}}"
-        namespace: "{{../kubernetes.master.namespace}}"
+        namespace: "{{../namespace}}"
         nodeUsageMode: {{this.mode}}
         label: "{{#each this.labels}}{{this}}{{#unless @last}} {{/unless}}{{/each}}"
         envVars:
@@ -81,7 +82,7 @@ jenkins:
             value: "-B -e"
         volumes:
         - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-{{../project.shortName}}"
+            claimName: "tools-claim-jiro-{{../../project.shortName}}"
             mountPath: "/opt/tools"
             readOnly: true
         - configMapVolume:
@@ -90,7 +91,7 @@ jenkins:
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/"
-        {{#if ../maven}}
+        {{#if ../../maven}}
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
@@ -98,7 +99,7 @@ jenkins:
             memory: false
             mountPath: "/home/jenkins/.m2/wrapper"
         {{/if}}
-        {{#if ../gradle}}
+        {{#if ../../gradle}}
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.gradle/caches"
@@ -125,37 +126,22 @@ jenkins:
             containers:
             - name: jnlp
               volumeMounts:
-              {{#each ../maven.files}}
-              - name: {{dns1123 @key}}
-                mountPath: {{../../maven.home}}/{{@key}}
-                subPath: {{@key}}
+              {{#each kubernetes.volumes}}
+              {{#each mounts}}
+              - name: {{../name}}
+                mountPath: {{mountPath}}
+                subPath: {{subPath}}
                 readOnly: true
               {{/each}}
-              {{#each ../gradle.files}}
-              - name: {{dns1123 @key}}
-                mountPath: {{../../gradle.home}}/{{@key}}
-                subPath: {{@key}}
-                readOnly: true
               {{/each}}
             volumes:
-            {{#each ../maven.files}}
-            - name: {{dns1123 @key}}
-              {{#ifeq volumeType "ConfigMap"}}configMap{{/ifeq}}{{#ifeq volumeType "Secret"}}secret{{/ifeq}}:
-                {{#ifeq volumeType "ConfigMap"}}name{{/ifeq}}{{#ifeq volumeType "Secret"}}secretName{{/ifeq}}: {{volumeName}}
-                items:
-                - key: {{#if entryName}}{{entryName}}{{else}}{{@key}}{{/if}}
-                  path: {{@key}}
-            {{/each}}
-            {{#each ../gradle.files}}
-            - name: {{dns1123 @key}}
-              {{#ifeq volumeType "ConfigMap"}}configMap{{/ifeq}}{{#ifeq volumeType "Secret"}}secret{{/ifeq}}:
-                {{#ifeq volumeType "ConfigMap"}}name{{/ifeq}}{{#ifeq volumeType "Secret"}}secretName{{/ifeq}}: {{volumeName}}
-                items:
-                - key: {{#if entryName}}{{entryName}}{{else}}{{@key}}{{/if}}
-                  path: {{@key}}
+            {{#each kubernetes.volumes}}
+            - name: {{name}}
+              {{#if configMap}}configMap{{/if}}{{#if secret}}secret{{/if}}:
+                {{#if configMap}}name: {{configMap.name}}{{/if}}{{#if secret}}secretName: {{secret.name}}{{/if}}
             {{/each}}
       {{/each}}
-
+  {{/each}}
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
