@@ -1,5 +1,5 @@
 local jenkinsReleases = import '../jenkins-master-base/releases.libsonnet';
-local jenkinsAgents = import '../../jiro-agents/remoting.libsonnet';
+local jiroAgents = import '../../jiro-agents/remoting.libsonnet';
 local permissions = import 'permissions.libsonnet';
 {
   local jenkinsRelease = jenkinsReleases.releases[$.jenkins.version],
@@ -30,22 +30,53 @@ local permissions = import 'permissions.libsonnet';
       imageTag: jenkinsRelease.jenkins.version,
     },
   }),
-  agents: [ {
-      name: agent.name, 
-      mode: if std.objectHas(agent, "mode") then std.asciiUpper(agent.mode) else std.asciiUpper("exclusive"),
-      labels: if std.objectHas(agent, "labels") then agent.labels else [],
-      docker: {
-        local versionSpecificAgent = jenkinsAgents.agents[agent.name].versions[jenkinsRelease.jenkins.remoting.version],
-        name: versionSpecificAgent.docker.repository + "/" + versionSpecificAgent.docker.image.name,
-        tag: versionSpecificAgent.docker.image.tag,
-      },
-      kubernetes: {
-        resources: {
-          cpu: $.kubernetes.agents.defaultResources.cpu,
-          memory: $.kubernetes.agents.defaultResources.memory,
-        },
-      },
-    } for agent in jenkinsAgents.providedAgents
+  clouds: [
+    {
+      name: "kubernetes",
+      namespace: $.kubernetes.master.namespace, # should be changed to something agent-specific to fix #5
+      podRetention: "never",
+      templates: [
+        {
+          name: agent.name, 
+          mode: if std.objectHas(agent, "mode") then std.asciiUpper(agent.mode) else std.asciiUpper("exclusive"),
+          labels: if std.objectHas(agent, "labels") then agent.labels else [],
+          local versionSpecificAgent=jiroAgents.agents[agent.name].versions[jenkinsRelease.jenkins.remoting.version],
+          maven: {
+            home: versionSpecificAgent.home + "/.m2",
+          },
+          local currentAgent=self,
+          kubernetes: {
+            resources: $.kubernetes.agents.defaultResources,
+            volumes: [
+              {
+                name: "m2-secret-dir",
+                secret: { name: "m2-secret-dir", },
+                mounts: [
+                  {
+                    mountPath: currentAgent.maven.home + "/" + self.subPath,
+                    subPath: "settings-security.xml"
+                  },
+                  {
+                    mountPath: currentAgent.maven.home + "/" + self.subPath,
+                    subPath: "settings.xml"
+                  },
+                ],
+              },
+              {
+                name: "m2-dir",
+                configMap: { name: "m2-dir", },
+                mounts: [
+                  {
+                    mountPath: currentAgent.maven.home + "/" + self.subPath,
+                    subPath: "toolchains.xml"
+                  },
+                ],
+              },
+            ],
+          },
+        } + jiroAgents.agents[agent.name].versions[jenkinsRelease.jenkins.remoting.version] for agent in jiroAgents.providedAgents
+      ],
+    },
   ],
   deployment: {
     host: "ci.eclipse.org",
@@ -102,54 +133,43 @@ local permissions = import 'permissions.libsonnet';
     },
   },
   maven: {
-    home: "/home/jenkins/.m2",
-    "settings.xml": {
-      servers: {
-        "repo.eclipse.org": {
-          username: {
-            pass: "nexus/username",
+    files: [
+      {
+        name: "settings.xml",
+        servers: {
+          "repo.eclipse.org": {
+            username: {
+              pass: "nexus/username",
+            },
+            password: {
+              pass: "nexus/password",
+            },
           },
-          password: {
-            pass: "nexus/password",
+          ossrh: {
+            nexusProUrl: if std.startsWith($.project.fullName, "ee4j") then "https://jakarta.oss.sonatype.org" else "https://oss.sonatype.org",
+            username: {
+              pass: "bots/" + $.project.fullName + "/oss.sonatype.org/username",
+            },
+            password: {
+              pass: "bots/" + $.project.fullName + "/oss.sonatype.org/password",
+            },
           },
         },
-        ossrh: {
-          nexusProUrl: if std.startsWith($.project.fullName, "ee4j") then "https://jakarta.oss.sonatype.org" else "https://oss.sonatype.org",
-          username: {
-            pass: "bots/" + $.project.fullName + "/oss.sonatype.org/username",
-          },
-          password: {
-            pass: "bots/" + $.project.fullName + "/oss.sonatype.org/password",
+        mirrors: {
+          "eclipse.maven.central.mirror": {
+            name: "Eclipse Central Proxy",
+            url: "https://repo.eclipse.org/content/repositories/maven_central/",
+            mirrorOf: "central",
           },
         },
       },
-      mirrors: {
-        "eclipse.maven.central.mirror": {
-          name: "Eclipse Central Proxy",
-          url: "https://repo.eclipse.org/content/repositories/maven_central/",
-          mirrorOf: "central",
+      {
+        name: "settings-security.xml",
+        master: {
+          pass: "bots/" + $.project.fullName + "/apache-maven-security-settings"
         },
       },
-    },
-    "settings-security.xml": {
-      master: {
-        pass: "bots/" + $.project.fullName + "/apache-maven-security-settings"
-      },
-    },
-    files: {
-      "settings.xml": {
-        "volumeType": "Secret",
-        "volumeName": "m2-secret-dir",
-      },
-      "settings-security.xml": {
-        "volumeType": "Secret",
-        "volumeName": "m2-secret-dir",
-      },
-      "toolchains.xml": {
-        volumeType: "ConfigMap",
-        volumeName: "m2-dir",
-      }
-    }
+    ], 
   },
   secrets: {
     "gerrit-trigger-plugin": {
