@@ -13,7 +13,7 @@
       "namespace": "tyrus"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/tyrus",
       "port": {
          "targetPort": "http"
