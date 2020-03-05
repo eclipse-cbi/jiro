@@ -1,0 +1,58 @@
+{
+   "apiVersion": "v1",
+   "items": [
+      {
+         "apiVersion": "v1",
+         "kind": "PersistentVolume",
+         "metadata": {
+            "labels": {
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j",
+               "org.eclipse.cbi.jiro/project.shortname": "ee4j"
+            },
+            "name": "tools-jiro-ee4j"
+         },
+         "spec": {
+            "accessModes": [
+               "ReadOnlyMany"
+            ],
+            "capacity": {
+               "storage": "20Gi"
+            },
+            "claimRef": {
+               "name": "tools-claim-jiro-ee4j",
+               "namespace": "ee4j"
+            },
+            "nfs": {
+               "path": "/home/data/c1-ci.eclipse.org/buildtools",
+               "readOnly": true,
+               "server": "bambam"
+            },
+            "storageClassName": "bbzcxird03bsb81s-tools"
+         }
+      },
+      {
+         "apiVersion": "v1",
+         "kind": "PersistentVolumeClaim",
+         "metadata": {
+            "labels": {
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j",
+               "org.eclipse.cbi.jiro/project.shortname": "ee4j"
+            },
+            "name": "tools-claim-jiro-ee4j",
+            "namespace": "ee4j"
+         },
+         "spec": {
+            "accessModes": [
+               "ReadOnlyMany"
+            ],
+            "resources": {
+               "requests": {
+                  "storage": "20Gi"
+               }
+            },
+            "storageClassName": "bbzcxird03bsb81s-tools"
+         }
+      }
+   ],
+   "kind": "List"
+}

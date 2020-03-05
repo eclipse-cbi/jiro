@@ -1,161 +1,225 @@
 {
-  "deployment": {
-    "host": "ci-staging.eclipse.org",
-    "jnlpPort": 50000,
-    "prefix": "/ee4j",
-    "uiPort": 8080,
-    "url": "https://ci-staging.eclipse.org/ee4j"
-  },
-  "docker": {
-    "agent": {
-      "defaultImage": {
-        "name": "eclipsecbijenkins/jenkins-agent",
-        "sha256": "dff125e05404688a78bd67d5b47d107d98ec7583282e8ed9ca6646a2a76874e2",
-        "tag": "3.35"
+   "agents": [
+      {
+         "docker": {
+            "name": "eclipsecbijenkins/basic-agent",
+            "tag": "3.35"
+         },
+         "kubernetes": {
+            "resources": {
+               "cpu": {
+                  "limit": "2000m",
+                  "request": "1000m"
+               },
+               "memory": {
+                  "limit": "4096Mi",
+                  "request": "4096Mi"
+               }
+            }
+         },
+         "labels": [ ],
+         "mode": "NORMAL",
+         "name": "basic-agent"
+      },
+      {
+         "docker": {
+            "name": "eclipsecbijenkins/jipp-migration-agent",
+            "tag": "3.35"
+         },
+         "kubernetes": {
+            "resources": {
+               "cpu": {
+                  "limit": "2000m",
+                  "request": "1000m"
+               },
+               "memory": {
+                  "limit": "4096Mi",
+                  "request": "4096Mi"
+               }
+            }
+         },
+         "labels": [
+            "migration",
+            "jipp-migration"
+         ],
+         "mode": "EXCLUSIVE",
+         "name": "jipp-migration-agent"
+      },
+      {
+         "docker": {
+            "name": "eclipsecbijenkins/ui-tests-agent",
+            "tag": "3.35"
+         },
+         "kubernetes": {
+            "resources": {
+               "cpu": {
+                  "limit": "2000m",
+                  "request": "1000m"
+               },
+               "memory": {
+                  "limit": "4096Mi",
+                  "request": "4096Mi"
+               }
+            }
+         },
+         "labels": [
+            "ui-test",
+            "ui-tests"
+         ],
+         "mode": "EXCLUSIVE",
+         "name": "ui-tests-agent"
       }
-    },
-    "master": {
-      "home": "/var/jenkins_home",
-      "image": "eclipsecbijenkins/ee4j",
-      "imageTag": "2.190.1",
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.190.1",
-      "pluginroot": "/var/cache/jenkins/plugins",
-      "ref": "/usr/share/jenkins/ref",
-      "updateCenter": "https://updates.jenkins.io",
-      "username": "jenkins",
-      "war": "/usr/share/jenkins/jenkins.war",
-      "webroot": "/var/cache/jenkins/war",
-      "imageSha256": "4d150c254a25e0a075ccdf648a47697bb0b95511d937f35086ed2a0c9470d11a"
-    },
-    "repository": "eclipsecbijenkins"
-  },
-  "jenkins": {
-    "actualRemotingVersion": "3.35",
-    "actualVersion": "2.190.1",
-    "agentConnectionTimeout": 180,
-    "maxConcurrency": 2,
-    "permissions": [
-      {
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ],
-        "principal": "anonymous"
+   ],
+   "deployment": {
+      "controlPort": 8081,
+      "host": "ci.eclipse.org",
+      "jnlpPort": 50000,
+      "prefix": "/ee4j",
+      "uiPort": 8080,
+      "url": "https://ci.eclipse.org/ee4j"
+   },
+   "docker": {
+      "master": {
+         "home": "/var/jenkins_home",
+         "image": "docker.io/eclipsecbijenkins/ee4j",
+         "imageTag": "2.190.1",
+         "parentImage": "docker.io/eclipsecbijenkins/jenkins-master-base:2.190.1",
+         "pluginroot": "/var/cache/jenkins/plugins",
+         "ref": "/usr/share/jenkins/ref",
+         "updateCenter": "https://updates.jenkins.io",
+         "username": "jenkins",
+         "war": "/usr/share/jenkins/jenkins.war",
+         "webroot": "/var/cache/jenkins/war"
       },
-      {
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ],
-        "principal": "common"
+      "repository": "docker.io/eclipsecbijenkins"
+   },
+   "jenkins": {
+      "actualVersion": "2.190.1",
+      "agentConnectionTimeout": 180,
+      "maxConcurrency": 2,
+      "permissions": [
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Build",
+               "Credentials/View",
+               "Job/Build",
+               "Job/Cancel",
+               "Job/Configure",
+               "Job/Create",
+               "Job/Delete",
+               "Job/Move",
+               "Job/Read",
+               "Job/Workspace",
+               "Run/Delete",
+               "Run/Replay",
+               "Run/Update",
+               "SCM/Tag",
+               "View/Configure",
+               "View/Create",
+               "View/Delete",
+               "View/Read",
+               "Gerrit/ManualTrigger",
+               "Gerrit/Retrigger"
+            ],
+            "principal": "ee4j"
+         }
+      ],
+      "remotingVersion": "3.35",
+      "staticAgentCount": 0,
+      "theme": "quicksilver",
+      "timezone": "America/Toronto",
+      "version": "latest"
+   },
+   "kubernetes": {
+      "agents": {
+         "defaultResources": {
+            "cpu": {
+               "limit": "2000m",
+               "request": "1000m"
+            },
+            "memory": {
+               "limit": "4096Mi",
+               "request": "4096Mi"
+            }
+         },
+         "namespace": "ee4j"
       },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "admins"
-      },
-      {
-        "grantedPermissions": [
-          "Agent/Build",
-          "Credentials/View",
-          "Job/Build",
-          "Job/Cancel",
-          "Job/Configure",
-          "Job/Create",
-          "Job/Delete",
-          "Job/Move",
-          "Job/Read",
-          "Job/Workspace",
-          "Run/Delete",
-          "Run/Replay",
-          "Run/Update",
-          "SCM/Tag",
-          "View/Configure",
-          "View/Create",
-          "View/Delete",
-          "View/Read",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger"
-        ],
-        "principal": "ee4j"
+      "master": {
+         "namespace": "ee4j",
+         "probe": {
+            "liveness": {
+               "delaySeconds": 480,
+               "failureThreshold": 5,
+               "periodSeconds": 30,
+               "timeoutSeconds": 30
+            },
+            "readiness": {
+               "delaySeconds": 1,
+               "failureThreshold": 5,
+               "periodSeconds": 5,
+               "timeoutSeconds": 10
+            }
+         },
+         "resources": {
+            "cpu": {
+               "limit": "2000m",
+               "request": "500m"
+            },
+            "memory": {
+               "limit": "1536Mi",
+               "request": "1536Mi"
+            }
+         },
+         "stsName": "ee4j"
       }
-    ],
-    "staticAgentCount": 0,
-    "theme": "quicksilver",
-    "timezone": "America/Toronto",
-    "version": "latest"
-  },
-  "kubernetes": {
-    "agents": {
-      "defaultResources": {
-        "cpu": {
-          "limit": "2000m",
-          "request": "1000m"
-        },
-        "memory": {
-          "limit": "4096Mi",
-          "request": "4096Mi"
-        }
+   },
+   "maven": {
+      "files": {
+         "settings-security.xml": {
+            "volumeName": "m2-secret-dir",
+            "volumeType": "Secret"
+         },
+         "settings.xml": {
+            "volumeName": "m2-secret-dir",
+            "volumeType": "Secret"
+         },
+         "toolchains.xml": {
+            "volumeName": "m2-dir",
+            "volumeType": "ConfigMap"
+         }
       },
-      "namespace": "ee4j"
-    },
-    "master": {
-      "namespace": "ee4j",
-      "probe": {
-        "liveness": {
-          "delaySeconds": 480,
-          "failureThreshold": 5,
-          "periodSeconds": 30,
-          "timeoutSeconds": 30
-        },
-        "readiness": {
-          "delaySeconds": 1,
-          "failureThreshold": 5,
-          "periodSeconds": 5,
-          "timeoutSeconds": 10
-        }
-      },
-      "resources": {
-        "cpu": {
-          "limit": "2000m",
-          "request": "500m"
-        },
-        "memory": {
-          "limit": "1536Mi",
-          "request": "1536Mi"
-        }
-      },
-      "stsName": "ee4j"
-    }
-  },
-  "maven": {
-    "files": {
-      "settings-security.xml": {
-        "volumeName": "m2-secret-dir",
-        "volumeType": "Secret"
-      },
-      "settings.xml": {
-        "volumeName": "m2-secret-dir",
-        "volumeType": "Secret"
-      },
-      "toolchains.xml": {
-        "volumeName": "m2-dir",
-        "volumeType": "ConfigMap"
+      "home": "/home/jenkins/.m2"
+   },
+   "project": {
+      "displayName": "Eclipse EE4J",
+      "fullName": "ee4j",
+      "resourcePacks": 1,
+      "shortName": "ee4j",
+      "unixGroupName": "ee4j"
+   },
+   "secrets": {
+      "gerrit-trigger-plugin": {
+         "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
+         "username": "genie.ee4j"
       }
-    },
-    "home": "/home/jenkins/.m2"
-  },
-  "project": {
-    "displayName": "Eclipse EE4J",
-    "fullName": "ee4j",
-    "resourcePacks": 1,
-    "shortName": "ee4j",
-    "unixGroupName": "ee4j"
-  },
-  "secrets": {
-    "gerrit-trigger-plugin": {
-      "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-      "username": "genie.ee4j"
-    }
-  }
+   }
 }

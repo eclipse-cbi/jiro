@@ -13,7 +13,7 @@
       "namespace": "ee4j"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/ee4j",
       "port": {
          "targetPort": "http"
