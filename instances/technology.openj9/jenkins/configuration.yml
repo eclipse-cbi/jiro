@@ -3,7 +3,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-1"
       nodeDescription: "openj9_ci_1 - l490vp054_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -67,7 +67,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-5"
       nodeDescription: "openj9_ci_5 - l490vp082_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -83,14 +83,14 @@ jenkins:
   - permanent:
       name: "aix71-p8-6"
       nodeDescription: "openj9_ci_6 - l490vp082_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@172.29.153.171 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@172.29.156.149 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
       nodeProperties:
       - envVars:
           env:
@@ -99,7 +99,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-7"
       nodeDescription: "openj9_ci_7 - l490vp083_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -115,7 +115,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-8"
       nodeDescription: "openj9_ci_8 - l490vp084_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -131,7 +131,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-9"
       nodeDescription: "openj9_ci_9 - l490vp086_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -147,7 +147,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-10"
       nodeDescription: "openj9_ci_10 - l490vp087_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
