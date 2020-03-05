@@ -122,7 +122,7 @@ local Kube = import "kube.libsonnet";
                     "-DexecutableWar.jetty.sessionIdCookieName=JSESSIONID." + config.project.shortName,
                     "-Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml",
                     "-Dio.jenkins.plugins.casc.ConfigurationAsCode.initialDelay=5000",
-                    "-Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=%s:%s" % [defaultJnlpAgent.docker.image.name, defaultJnlpAgent.docker.image.tag],
+                    "-Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=%s/%s:%s" % [defaultJnlpAgent.docker.repository, defaultJnlpAgent.docker.image.name, defaultJnlpAgent.docker.image.tag],
                     "-Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=" + config.jenkins.agentConnectionTimeout,
                     "-Dkubernetes.websocket.ping.interval=30000",
                     ])
