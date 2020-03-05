@@ -95,7 +95,8 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: "eclipsecbijenkins/jenkins-agent:3.35@sha256:dff125e05404688a78bd67d5b47d107d98ec7583282e8ed9ca6646a2a76874e2"
+            - image: eclipsecbijenkins/basic-agent:3.35
+              alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -111,9 +112,10 @@ data:
               command: ""
               args: ""
             instanceCap: 5
-            name: "default-agent"
+            name: "basic-agent"
             namespace: "mail"
             nodeUsageMode: NORMAL
+            label: ""
             envVars:
             - envVar:
                 key: "MAVEN_OPTS"
@@ -135,6 +137,9 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/repository"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/wrapper"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -177,7 +182,8 @@ data:
                     - key: toolchains.xml
                       path: toolchains.xml
           - containers:
-            - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59"
+            - image: eclipsecbijenkins/jipp-migration-agent:3.35
+              alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -193,10 +199,10 @@ data:
               command: ""
               args: ""
             instanceCap: 5
-            instanceCapStr: "5"
-            name: "ui-test-agent"
+            name: "jipp-migration-agent"
             namespace: "mail"
-            label: "ui-test"
+            nodeUsageMode: EXCLUSIVE
+            label: "migration jipp-migration"
             envVars:
             - envVar:
                 key: "MAVEN_OPTS"
@@ -218,6 +224,9 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/repository"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/wrapper"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -260,7 +269,8 @@ data:
                     - key: toolchains.xml
                       path: toolchains.xml
           - containers:
-            - image: "eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f"
+            - image: eclipsecbijenkins/ui-tests-agent:3.35
+              alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -276,9 +286,10 @@ data:
               command: ""
               args: ""
             instanceCap: 5
-            instanceCapStr: "5"
-            name: "migration-agent"
+            name: "ui-tests-agent"
             namespace: "mail"
+            nodeUsageMode: EXCLUSIVE
+            label: "ui-test ui-tests"
             envVars:
             - envVar:
                 key: "MAVEN_OPTS"
@@ -286,7 +297,6 @@ data:
             - envVar:
                 key: "MAVEN_CONFIG"
                 value: "-B -e"
-            label: "migration"
             volumes:
             - persistentVolumeClaim:
                 claimName: "tools-claim-jiro-mail"
@@ -301,6 +311,9 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/repository"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/wrapper"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -348,8 +361,6 @@ data:
         creationOfLegacyTokenEnabled: false
         tokenGenerationOnCreationEnabled: false
         usageStatisticsEnabled: true
-      downloadSettings:
-        useBrowser: false
       queueItemAuthenticator:
         authenticators:
         - global:
