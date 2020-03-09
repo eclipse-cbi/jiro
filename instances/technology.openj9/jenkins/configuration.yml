@@ -414,6 +414,17 @@ jenkins:
         command:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.245.61 \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
   - permanent:
+      name: "cent7p8j91"
+      nodeDescription: "cent7p8j91 - UNB CentOS 7 p8le"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent7p8j91 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+  - permanent:
       name: "ub16p8j91"
       nodeDescription: "ub16p8j91 - UNB Ubuntu 16 p8le"
       labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker"
