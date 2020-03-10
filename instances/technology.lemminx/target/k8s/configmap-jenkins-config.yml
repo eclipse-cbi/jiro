@@ -97,7 +97,8 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: "eclipsecbijenkins/jenkins-agent:3.35@sha256:399fbc3bd69ebc1b60231bf7bdb9f9a9fe9518d0b2540dbef7ee19c89559b83d"
+            - image: eclipsecbijenkins/basic-agent:3.35
+              alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -113,9 +114,10 @@ data:
               command: ""
               args: ""
             instanceCap: 5
-            name: "default-agent"
+            name: "basic-agent"
             namespace: "lemminx"
             nodeUsageMode: NORMAL
+            label: ""
             envVars:
             - envVar:
                 key: "MAVEN_OPTS"
@@ -137,6 +139,9 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/repository"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/wrapper"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -179,7 +184,8 @@ data:
                     - key: toolchains.xml
                       path: toolchains.xml
           - containers:
-            - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59"
+            - image: eclipsecbijenkins/jipp-migration-agent:3.35
+              alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -195,10 +201,10 @@ data:
               command: ""
               args: ""
             instanceCap: 5
-            instanceCapStr: "5"
-            name: "ui-test-agent"
+            name: "jipp-migration-agent"
             namespace: "lemminx"
-            label: "ui-test"
+            nodeUsageMode: EXCLUSIVE
+            label: "migration jipp-migration"
             envVars:
             - envVar:
                 key: "MAVEN_OPTS"
@@ -220,6 +226,9 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/repository"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/wrapper"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -262,7 +271,8 @@ data:
                     - key: toolchains.xml
                       path: toolchains.xml
           - containers:
-            - image: "eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f"
+            - image: eclipsecbijenkins/ui-tests-agent:3.35
+              alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -278,9 +288,10 @@ data:
               command: ""
               args: ""
             instanceCap: 5
-            instanceCapStr: "5"
-            name: "migration-agent"
+            name: "ui-tests-agent"
             namespace: "lemminx"
+            nodeUsageMode: EXCLUSIVE
+            label: "ui-test ui-tests"
             envVars:
             - envVar:
                 key: "MAVEN_OPTS"
@@ -288,7 +299,6 @@ data:
             - envVar:
                 key: "MAVEN_CONFIG"
                 value: "-B -e"
-            label: "migration"
             volumes:
             - persistentVolumeClaim:
                 claimName: "tools-claim-jiro-lemminx"
@@ -303,6 +313,9 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/repository"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/wrapper"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -350,8 +363,6 @@ data:
         creationOfLegacyTokenEnabled: false
         tokenGenerationOnCreationEnabled: false
         usageStatisticsEnabled: true
-      downloadSettings:
-        useBrowser: false
       queueItemAuthenticator:
         authenticators:
         - global:
