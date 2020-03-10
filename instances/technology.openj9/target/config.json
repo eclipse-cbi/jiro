@@ -1,440 +1,531 @@
 {
-  "deployment": {
-    "host": "ci.eclipse.org",
-    "jnlpPort": 50000,
-    "prefix": "/openj9",
-    "uiPort": 8080,
-    "url": "https://ci.eclipse.org/openj9"
-  },
-  "docker": {
-    "agent": {
-      "defaultImage": {
-        "name": "eclipsecbijenkins/jenkins-agent",
-        "sha256": "399fbc3bd69ebc1b60231bf7bdb9f9a9fe9518d0b2540dbef7ee19c89559b83d",
-        "tag": "3.35"
+   "agents": [
+      {
+         "docker": {
+            "name": "eclipsecbijenkins/basic-agent",
+            "tag": "3.35"
+         },
+         "kubernetes": {
+            "resources": {
+               "cpu": {
+                  "limit": "2000m",
+                  "request": "1000m"
+               },
+               "memory": {
+                  "limit": "4096Mi",
+                  "request": "4096Mi"
+               }
+            }
+         },
+         "labels": [ ],
+         "mode": "NORMAL",
+         "name": "basic-agent"
+      },
+      {
+         "docker": {
+            "name": "eclipsecbijenkins/jipp-migration-agent",
+            "tag": "3.35"
+         },
+         "kubernetes": {
+            "resources": {
+               "cpu": {
+                  "limit": "2000m",
+                  "request": "1000m"
+               },
+               "memory": {
+                  "limit": "4096Mi",
+                  "request": "4096Mi"
+               }
+            }
+         },
+         "labels": [
+            "migration",
+            "jipp-migration"
+         ],
+         "mode": "EXCLUSIVE",
+         "name": "jipp-migration-agent"
+      },
+      {
+         "docker": {
+            "name": "eclipsecbijenkins/ui-tests-agent",
+            "tag": "3.35"
+         },
+         "kubernetes": {
+            "resources": {
+               "cpu": {
+                  "limit": "2000m",
+                  "request": "1000m"
+               },
+               "memory": {
+                  "limit": "4096Mi",
+                  "request": "4096Mi"
+               }
+            }
+         },
+         "labels": [
+            "ui-test",
+            "ui-tests"
+         ],
+         "mode": "EXCLUSIVE",
+         "name": "ui-tests-agent"
       }
-    },
-    "master": {
-      "home": "/var/jenkins_home",
-      "image": "eclipsecbijenkins/openj9",
-      "imageTag": "2.190.1",
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.190.1",
-      "pluginroot": "/var/cache/jenkins/plugins",
-      "ref": "/usr/share/jenkins/ref",
-      "updateCenter": "https://updates.jenkins.io",
-      "username": "jenkins",
-      "war": "/usr/share/jenkins/jenkins.war",
-      "webroot": "/var/cache/jenkins/war",
-      "imageSha256": "3c381b1aba3a1c3d7272752aad8aa6ebe6c2f14113ff7eb1d92f79cb976ca745"
-    },
-    "repository": "eclipsecbijenkins"
-  },
-  "jenkins": {
-    "actualRemotingVersion": "3.35",
-    "actualVersion": "2.190.1",
-    "agentConnectionTimeout": 180,
-    "maxConcurrency": 2,
-    "permissions": [
-      {
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ],
-        "principal": "anonymous"
+   ],
+   "deployment": {
+      "controlPort": 8081,
+      "host": "ci.eclipse.org",
+      "jnlpPort": 50000,
+      "prefix": "/openj9",
+      "uiPort": 8080,
+      "url": "https://ci.eclipse.org/openj9"
+   },
+   "docker": {
+      "master": {
+         "home": "/var/jenkins_home",
+         "image": "docker.io/eclipsecbijenkins/openj9",
+         "imageTag": "2.190.1",
+         "parentImage": "docker.io/eclipsecbijenkins/jenkins-master-base:2.190.1",
+         "pluginroot": "/var/cache/jenkins/plugins",
+         "ref": "/usr/share/jenkins/ref",
+         "updateCenter": "https://updates.jenkins.io",
+         "username": "jenkins",
+         "war": "/usr/share/jenkins/jenkins.war",
+         "webroot": "/var/cache/jenkins/war"
       },
-      {
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ],
-        "principal": "common"
+      "repository": "docker.io/eclipsecbijenkins"
+   },
+   "jenkins": {
+      "actualVersion": "2.190.1",
+      "agentConnectionTimeout": 180,
+      "maxConcurrency": 2,
+      "permissions": [
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Build",
+               "Credentials/View",
+               "Job/Build",
+               "Job/Cancel",
+               "Job/Configure",
+               "Job/Create",
+               "Job/Delete",
+               "Job/Move",
+               "Job/Read",
+               "Job/Workspace",
+               "Run/Delete",
+               "Run/Replay",
+               "Run/Update",
+               "SCM/Tag",
+               "View/Configure",
+               "View/Create",
+               "View/Delete",
+               "View/Read",
+               "Agent/Connect",
+               "Agent/Disconnect"
+            ],
+            "principal": "technology.openj9"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Connect",
+               "Agent/Disconnect"
+            ],
+            "principal": "adam.brousseau88@gmail.com"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Connect",
+               "Agent/Disconnect"
+            ],
+            "principal": "joe_dekoning@ca.ibm.com"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Configure"
+            ],
+            "principal": "peter_shipton@ca.ibm.com"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Configure"
+            ],
+            "principal": "daniel_heidinga@ca.ibm.com"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Configure"
+            ],
+            "principal": "adam.brousseau88@gmail.com"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Configure"
+            ],
+            "principal": "joe_dekoning@ca.ibm.com"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Job/Configure"
+            ],
+            "principal": "adam.brousseau88@gmail.com"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Job/Configure"
+            ],
+            "principal": "adam.brousseau88@gmail.com"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Job/Configure"
+            ],
+            "principal": "joe_dekoning@ca.ibm.com"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Job/Configure"
+            ],
+            "principal": "vsebe@ca.ibm.com"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Configure",
+               "Agent/Connect",
+               "Agent/Disconnect"
+            ],
+            "principal": "rajdeep.singh@ibm.com"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Configure",
+               "Agent/Connect",
+               "Agent/Disconnect"
+            ],
+            "principal": "vsebe@ca.ibm.com"
+         }
+      ],
+      "remotingVersion": "3.35",
+      "staticAgentCount": 50,
+      "theme": "quicksilver",
+      "timezone": "America/Toronto",
+      "version": "latest"
+   },
+   "kubernetes": {
+      "agents": {
+         "defaultResources": {
+            "cpu": {
+               "limit": "2000m",
+               "request": "1000m"
+            },
+            "memory": {
+               "limit": "4096Mi",
+               "request": "4096Mi"
+            }
+         },
+         "namespace": "openj9"
       },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "admins"
-      },
-      {
-        "grantedPermissions": [
-          "Agent/Build",
-          "Credentials/View",
-          "Job/Build",
-          "Job/Cancel",
-          "Job/Configure",
-          "Job/Create",
-          "Job/Delete",
-          "Job/Move",
-          "Job/Read",
-          "Job/Workspace",
-          "Run/Delete",
-          "Run/Replay",
-          "Run/Update",
-          "SCM/Tag",
-          "View/Configure",
-          "View/Create",
-          "View/Delete",
-          "View/Read",
-          "Agent/Connect",
-          "Agent/Disconnect"
-        ],
-        "principal": "technology.openj9"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ],
-        "principal": "anonymous"
-      },
-      {
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ],
-        "principal": "common"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "admins"
-      },
-      {
-        "grantedPermissions": [
-          "Agent/Connect",
-          "Agent/Disconnect"
-        ],
-        "principal": "adam.brousseau88@gmail.com"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ],
-        "principal": "anonymous"
-      },
-      {
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ],
-        "principal": "common"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "admins"
-      },
-      {
-        "grantedPermissions": [
-          "Agent/Connect",
-          "Agent/Disconnect"
-        ],
-        "principal": "joe_dekoning@ca.ibm.com"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ],
-        "principal": "anonymous"
-      },
-      {
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ],
-        "principal": "common"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "admins"
-      },
-      {
-        "grantedPermissions": [
-          "Agent/Configure"
-        ],
-        "principal": "peter_shipton@ca.ibm.com"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ],
-        "principal": "anonymous"
-      },
-      {
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ],
-        "principal": "common"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "admins"
-      },
-      {
-        "grantedPermissions": [
-          "Agent/Configure"
-        ],
-        "principal": "daniel_heidinga@ca.ibm.com"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ],
-        "principal": "anonymous"
-      },
-      {
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ],
-        "principal": "common"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "admins"
-      },
-      {
-        "grantedPermissions": [
-          "Agent/Configure"
-        ],
-        "principal": "adam.brousseau88@gmail.com"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ],
-        "principal": "anonymous"
-      },
-      {
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ],
-        "principal": "common"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "admins"
-      },
-      {
-        "grantedPermissions": [
-          "Agent/Configure"
-        ],
-        "principal": "joe_dekoning@ca.ibm.com"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ],
-        "principal": "anonymous"
-      },
-      {
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ],
-        "principal": "common"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "admins"
-      },
-      {
-        "grantedPermissions": [
-          "Job/Configure"
-        ],
-        "principal": "adam.brousseau88@gmail.com"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ],
-        "principal": "anonymous"
-      },
-      {
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ],
-        "principal": "common"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "admins"
-      },
-      {
-        "grantedPermissions": [
-          "Job/Configure"
-        ],
-        "principal": "adam.brousseau88@gmail.com"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ],
-        "principal": "anonymous"
-      },
-      {
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ],
-        "principal": "common"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "admins"
-      },
-      {
-        "grantedPermissions": [
-          "Job/Configure"
-        ],
-        "principal": "joe_dekoning@ca.ibm.com"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ],
-        "principal": "anonymous"
-      },
-      {
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ],
-        "principal": "common"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "admins"
-      },
-      {
-        "grantedPermissions": [
-          "Job/Configure"
-        ],
-        "principal": "vsebe@ca.ibm.com"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ],
-        "principal": "anonymous"
-      },
-      {
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ],
-        "principal": "common"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "admins"
-      },
-      {
-        "grantedPermissions": [
-          "Agent/Configure",
-          "Agent/Connect",
-          "Agent/Disconnect"
-        ],
-        "principal": "rajdeep.singh@ibm.com"
+      "master": {
+         "namespace": "openj9",
+         "probe": {
+            "liveness": {
+               "delaySeconds": 480,
+               "failureThreshold": 5,
+               "periodSeconds": 30,
+               "timeoutSeconds": 30
+            },
+            "readiness": {
+               "delaySeconds": 1,
+               "failureThreshold": 5,
+               "periodSeconds": 5,
+               "timeoutSeconds": 10
+            }
+         },
+         "resources": {
+            "cpu": {
+               "limit": "8000m",
+               "request": "4000m"
+            },
+            "memory": {
+               "limit": "8192Mi",
+               "request": "8192Mi"
+            }
+         },
+         "stsName": "openj9"
       }
-    ],
-    "staticAgentCount": 50,
-    "theme": "quicksilver",
-    "timezone": "America/Toronto",
-    "version": "latest"
-  },
-  "kubernetes": {
-    "agents": {
-      "defaultResources": {
-        "cpu": {
-          "limit": "2000m",
-          "request": "1000m"
-        },
-        "memory": {
-          "limit": "4096Mi",
-          "request": "4096Mi"
-        }
+   },
+   "maven": {
+      "files": {
+         "settings-security.xml": {
+            "volumeName": "m2-secret-dir",
+            "volumeType": "Secret"
+         },
+         "settings.xml": {
+            "volumeName": "m2-secret-dir",
+            "volumeType": "Secret"
+         },
+         "toolchains.xml": {
+            "volumeName": "m2-dir",
+            "volumeType": "ConfigMap"
+         }
       },
-      "namespace": "openj9"
-    },
-    "master": {
-      "namespace": "openj9",
-      "probe": {
-        "liveness": {
-          "delaySeconds": 480,
-          "failureThreshold": 5,
-          "periodSeconds": 30,
-          "timeoutSeconds": 30
-        },
-        "readiness": {
-          "delaySeconds": 1,
-          "failureThreshold": 5,
-          "periodSeconds": 5,
-          "timeoutSeconds": 10
-        }
-      },
-      "resources": {
-        "cpu": {
-          "limit": "8000m",
-          "request": "4000m"
-        },
-        "memory": {
-          "limit": "8192Mi",
-          "request": "8192Mi"
-        }
-      },
-      "stsName": "openj9"
-    }
-  },
-  "maven": {
-    "files": {
-      "settings-security.xml": {
-        "volumeName": "m2-secret-dir",
-        "volumeType": "Secret"
-      },
-      "settings.xml": {
-        "volumeName": "m2-secret-dir",
-        "volumeType": "Secret"
-      },
-      "toolchains.xml": {
-        "volumeName": "m2-dir",
-        "volumeType": "ConfigMap"
+      "home": "/home/jenkins/.m2"
+   },
+   "project": {
+      "displayName": "Eclipse OpenJ9",
+      "fullName": "technology.openj9",
+      "resourcePacks": 1,
+      "shortName": "openj9",
+      "unixGroupName": "technology.openj9"
+   },
+   "secrets": {
+      "gerrit-trigger-plugin": {
+         "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
+         "username": "genie.openj9"
       }
-    },
-    "home": "/home/jenkins/.m2"
-  },
-  "project": {
-    "displayName": "Eclipse OpenJ9",
-    "fullName": "technology.openj9",
-    "resourcePacks": 1,
-    "shortName": "openj9",
-    "unixGroupName": "technology.openj9"
-  },
-  "secrets": {
-    "gerrit-trigger-plugin": {
-      "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-      "username": "genie.openj9"
-    }
-  }
+   }
 }

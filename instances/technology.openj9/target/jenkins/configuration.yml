@@ -4,7 +4,8 @@ jenkins:
   - permanent:
       name: "aix71-p8-1"
       nodeDescription: "openj9_ci_1 - l490vp054_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -82,7 +83,8 @@ jenkins:
   - permanent:
       name: "aix71-p8-5"
       nodeDescription: "openj9_ci_5 - l490vp082_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -101,7 +103,8 @@ jenkins:
   - permanent:
       name: "aix71-p8-6"
       nodeDescription: "openj9_ci_6 - l490vp082_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -109,7 +112,7 @@ jenkins:
       launcher:
         command:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            \"ssh -i ~/.ssh/id_rsa.aix jenkins@172.29.153.171 'wget -qO slave.jar
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@172.29.156.149 'wget -qO slave.jar
             https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none
             -Xdump:none -jar slave.jar'\""
       nodeProperties:
@@ -120,7 +123,8 @@ jenkins:
   - permanent:
       name: "aix71-p8-7"
       nodeDescription: "openj9_ci_7 - l490vp083_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -139,7 +143,8 @@ jenkins:
   - permanent:
       name: "aix71-p8-8"
       nodeDescription: "openj9_ci_8 - l490vp084_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -158,7 +163,8 @@ jenkins:
   - permanent:
       name: "aix71-p8-9"
       nodeDescription: "openj9_ci_9 - l490vp086_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -177,7 +183,8 @@ jenkins:
   - permanent:
       name: "aix71-p8-10"
       nodeDescription: "openj9_ci_10 - l490vp087_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -512,6 +519,20 @@ jenkins:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@148.100.245.61
             \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar\""
+  - permanent:
+      name: "cent7p8j91"
+      nodeDescription: "cent7p8j91 - UNB CentOS 7 p8le"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7
+        ci.role.build"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent7p8j91 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
   - permanent:
       name: "ub16p8j91"
       nodeDescription: "ub16p8j91 - UNB Ubuntu 16 p8le"
@@ -971,6 +992,9 @@ jenkins:
       - "View/Create:technology.openj9"
       - "View/Delete:technology.openj9"
       - "View/Read:technology.openj9"
+      - "Agent/Configure:vsebe@ca.ibm.com"
+      - "Agent/Connect:vsebe@ca.ibm.com"
+      - "Agent/Disconnect:vsebe@ca.ibm.com"
       - "Job/Configure:vsebe@ca.ibm.com"
   markupFormatter: rawHtml
   crumbIssuer:
@@ -998,7 +1022,8 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:3.35@sha256:399fbc3bd69ebc1b60231bf7bdb9f9a9fe9518d0b2540dbef7ee19c89559b83d"
+        - image: eclipsecbijenkins/basic-agent:3.35
+          alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -1014,9 +1039,10 @@ jenkins:
           command: ""
           args: ""
         instanceCap: 5
-        name: "default-agent"
+        name: "basic-agent"
         namespace: "openj9"
         nodeUsageMode: NORMAL
+        label: ""
         envVars:
         - envVar:
             key: "MAVEN_OPTS"
@@ -1038,6 +1064,9 @@ jenkins:
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/wrapper"
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
@@ -1080,7 +1109,8 @@ jenkins:
                 - key: toolchains.xml
                   path: toolchains.xml
       - containers:
-        - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59"
+        - image: eclipsecbijenkins/jipp-migration-agent:3.35
+          alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -1096,10 +1126,10 @@ jenkins:
           command: ""
           args: ""
         instanceCap: 5
-        instanceCapStr: "5"
-        name: "ui-test-agent"
+        name: "jipp-migration-agent"
         namespace: "openj9"
-        label: "ui-test"
+        nodeUsageMode: EXCLUSIVE
+        label: "migration jipp-migration"
         envVars:
         - envVar:
             key: "MAVEN_OPTS"
@@ -1121,6 +1151,9 @@ jenkins:
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/wrapper"
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
@@ -1163,7 +1196,8 @@ jenkins:
                 - key: toolchains.xml
                   path: toolchains.xml
       - containers:
-        - image: "eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f"
+        - image: eclipsecbijenkins/ui-tests-agent:3.35
+          alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -1179,9 +1213,10 @@ jenkins:
           command: ""
           args: ""
         instanceCap: 5
-        instanceCapStr: "5"
-        name: "migration-agent"
+        name: "ui-tests-agent"
         namespace: "openj9"
+        nodeUsageMode: EXCLUSIVE
+        label: "ui-test ui-tests"
         envVars:
         - envVar:
             key: "MAVEN_OPTS"
@@ -1189,7 +1224,6 @@ jenkins:
         - envVar:
             key: "MAVEN_CONFIG"
             value: "-B -e"
-        label: "migration"
         volumes:
         - persistentVolumeClaim:
             claimName: "tools-claim-jiro-openj9"
@@ -1204,6 +1238,9 @@ jenkins:
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/wrapper"
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
@@ -1278,8 +1315,6 @@ security:
     creationOfLegacyTokenEnabled: false
     tokenGenerationOnCreationEnabled: false
     usageStatisticsEnabled: true
-  downloadSettings:
-    useBrowser: false
   queueItemAuthenticator:
     authenticators:
     - global:

@@ -22,6 +22,8 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       permissionsTemplates.projectPermissions("joe_dekoning@ca.ibm.com", ["Job/Configure"]) +
       permissionsTemplates.projectPermissions("vsebe@ca.ibm.com", ["Job/Configure"]) +
       // https://bugs.eclipse.org/bugs/show_bug.cgi?id=553268
-      permissionsTemplates.projectPermissions("rajdeep.singh@ibm.com", ["Agent/Configure", "Agent/Connect", "Agent/Disconnect"])
+      permissionsTemplates.projectPermissions("rajdeep.singh@ibm.com", ["Agent/Configure", "Agent/Connect", "Agent/Disconnect"]) +
+      // https://bugs.eclipse.org/bugs/show_bug.cgi?id=559384#c3
+      permissionsTemplates.projectPermissions("vsebe@ca.ibm.com", ["Agent/Configure", "Agent/Connect", "Agent/Disconnect"])
   },
 }
