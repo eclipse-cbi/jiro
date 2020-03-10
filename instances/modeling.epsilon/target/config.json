@@ -1,146 +1,225 @@
 {
-  "project": {
-    "shortName": "epsilon",
-    "fullName": "modeling.epsilon",
-    "displayName": "Eclipse Epsilon",
-    "sponsorshipLevel": "S0"
-  },
-  "jenkins": {
-    "version": "latest",
-    "remotingVersion": "latest",
-    "maxConcurrency": 2,
-    "agentConnectionTimeout": "180",
-    "timezone": "America/Toronto",
-    "theme": "quicksilver",
-    "permissions": [
+   "agents": [
       {
-        "principal": "anonymous",
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ]
-      },
-      {
-        "principal": "common",
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ]
+         "docker": {
+            "name": "eclipsecbijenkins/basic-agent",
+            "tag": "3.35"
+         },
+         "kubernetes": {
+            "resources": {
+               "cpu": {
+                  "limit": "2000m",
+                  "request": "1000m"
+               },
+               "memory": {
+                  "limit": "4096Mi",
+                  "request": "4096Mi"
+               }
+            }
+         },
+         "labels": [ ],
+         "mode": "NORMAL",
+         "name": "basic-agent"
       },
       {
-        "principal": "admins",
-        "grantedPermissions": [
-          "Overall/Administer"
-        ]
+         "docker": {
+            "name": "eclipsecbijenkins/jipp-migration-agent",
+            "tag": "3.35"
+         },
+         "kubernetes": {
+            "resources": {
+               "cpu": {
+                  "limit": "2000m",
+                  "request": "1000m"
+               },
+               "memory": {
+                  "limit": "4096Mi",
+                  "request": "4096Mi"
+               }
+            }
+         },
+         "labels": [
+            "migration",
+            "jipp-migration"
+         ],
+         "mode": "EXCLUSIVE",
+         "name": "jipp-migration-agent"
       },
       {
-        "principal": "modeling.epsilon",
-        "grantedPermissions": [
-          "Credentials/View",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger",
-          "Job/Build",
-          "Job/Cancel",
-          "Job/Configure",
-          "Job/Create",
-          "Job/Delete",
-          "Job/Move",
-          "Job/Read",
-          "Job/Workspace",
-          "Agent/Build",
-          "Run/Delete",
-          "Run/Replay",
-          "Run/Update",
-          "View/Configure",
-          "View/Create",
-          "View/Delete",
-          "View/Read",
-          "SCM/Tag"
-        ]
+         "docker": {
+            "name": "eclipsecbijenkins/ui-tests-agent",
+            "tag": "3.35"
+         },
+         "kubernetes": {
+            "resources": {
+               "cpu": {
+                  "limit": "2000m",
+                  "request": "1000m"
+               },
+               "memory": {
+                  "limit": "4096Mi",
+                  "request": "4096Mi"
+               }
+            }
+         },
+         "labels": [
+            "ui-test",
+            "ui-tests"
+         ],
+         "mode": "EXCLUSIVE",
+         "name": "ui-tests-agent"
       }
-    ],
-    "actualVersion": "2.190.1",
-    "actualRemotingVersion": "3.29"
-  },
-  "docker": {
-    "repository": "eclipsecbijenkins",
-    "master": {
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.190.1",
-      "image": "eclipsecbijenkins/epsilon",
-      "imageTag": "2.190.1",
-      "username": "jenkins",
-      "home": "/var/jenkins_home",
-      "ref": "/usr/share/jenkins/ref",
-      "webroot": "/var/cache/jenkins/war",
-      "pluginroot": "/var/cache/jenkins/plugins",
-      "war": "/usr/share/jenkins/jenkins.war",
-      "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "aeabede74b12e081831cd4c1ac3e9f7bd5aef080a5a033f3df8462fbdf023f84"
-    },
-    "agent": {
-      "defaultImage": {
-        "name": "eclipsecbijenkins/jenkins-agent",
-        "tag": "3.29",
-        "sha256": "d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1"
-      }
-    }
-  },
-  "deployment": {
-    "host": "ci.eclipse.org",
-    "prefix": "/epsilon",
-    "url": "https://ci.eclipse.org/epsilon",
-    "uiPort": 8080,
-    "jnlpPort": 50000
-  },
-  "kubernetes": {
-    "master": {
-      "namespace": "epsilon",
-      "stsName": "epsilon",
-      "resources": {
-        "cpu": {
-          "request": "500m",
-          "limit": 2
-        },
-        "memory": {
-          "limit": "1.5Gi"
-        }
+   ],
+   "deployment": {
+      "controlPort": 8081,
+      "host": "ci.eclipse.org",
+      "jnlpPort": 50000,
+      "prefix": "/epsilon",
+      "uiPort": 8080,
+      "url": "https://ci.eclipse.org/epsilon"
+   },
+   "docker": {
+      "master": {
+         "home": "/var/jenkins_home",
+         "image": "docker.io/eclipsecbijenkins/epsilon",
+         "imageTag": "2.190.1",
+         "parentImage": "docker.io/eclipsecbijenkins/jenkins-master-base:2.190.1",
+         "pluginroot": "/var/cache/jenkins/plugins",
+         "ref": "/usr/share/jenkins/ref",
+         "updateCenter": "https://updates.jenkins.io",
+         "username": "jenkins",
+         "war": "/usr/share/jenkins/jenkins.war",
+         "webroot": "/var/cache/jenkins/war"
       },
-      "probe": {
-        "liveness": {
-          "delaySeconds": 480,
-          "periodSeconds": 30,
-          "timeoutSeconds": 30,
-          "failureThreshold": 5
-        },
-        "readiness": {
-          "delaySeconds": 1,
-          "periodSeconds": 5,
-          "timeoutSeconds": 10,
-          "failureThreshold": 5
-        }
-      }
-    }
-  },
-  "maven": {
-    "home": "/home/jenkins/.m2",
-    "files": {
-      "settings.xml": {
-        "volumeType": "Secret",
-        "volumeName": "m2-secret-dir"
+      "repository": "docker.io/eclipsecbijenkins"
+   },
+   "jenkins": {
+      "actualVersion": "2.190.1",
+      "agentConnectionTimeout": 180,
+      "maxConcurrency": 2,
+      "permissions": [
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Build",
+               "Credentials/View",
+               "Job/Build",
+               "Job/Cancel",
+               "Job/Configure",
+               "Job/Create",
+               "Job/Delete",
+               "Job/Move",
+               "Job/Read",
+               "Job/Workspace",
+               "Run/Delete",
+               "Run/Replay",
+               "Run/Update",
+               "SCM/Tag",
+               "View/Configure",
+               "View/Create",
+               "View/Delete",
+               "View/Read",
+               "Gerrit/ManualTrigger",
+               "Gerrit/Retrigger"
+            ],
+            "principal": "modeling.epsilon"
+         }
+      ],
+      "remotingVersion": "3.35",
+      "staticAgentCount": 0,
+      "theme": "quicksilver",
+      "timezone": "America/Toronto",
+      "version": "latest"
+   },
+   "kubernetes": {
+      "agents": {
+         "defaultResources": {
+            "cpu": {
+               "limit": "2000m",
+               "request": "1000m"
+            },
+            "memory": {
+               "limit": "4096Mi",
+               "request": "4096Mi"
+            }
+         },
+         "namespace": "epsilon"
       },
-      "settings-security.xml": {
-        "volumeType": "Secret",
-        "volumeName": "m2-secret-dir"
-      },
-      "toolchains.xml": {
-        "volumeType": "ConfigMap",
-        "volumeName": "m2-dir"
+      "master": {
+         "namespace": "epsilon",
+         "probe": {
+            "liveness": {
+               "delaySeconds": 480,
+               "failureThreshold": 5,
+               "periodSeconds": 30,
+               "timeoutSeconds": 30
+            },
+            "readiness": {
+               "delaySeconds": 1,
+               "failureThreshold": 5,
+               "periodSeconds": 5,
+               "timeoutSeconds": 10
+            }
+         },
+         "resources": {
+            "cpu": {
+               "limit": "2000m",
+               "request": "500m"
+            },
+            "memory": {
+               "limit": "1536Mi",
+               "request": "1536Mi"
+            }
+         },
+         "stsName": "epsilon"
       }
-    }
-  },
-  "secrets": {
-    "gerrit-trigger-plugin": {
-      "username": "genie.epsilon",
-      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
-    }
-  }
+   },
+   "maven": {
+      "files": {
+         "settings-security.xml": {
+            "volumeName": "m2-secret-dir",
+            "volumeType": "Secret"
+         },
+         "settings.xml": {
+            "volumeName": "m2-secret-dir",
+            "volumeType": "Secret"
+         },
+         "toolchains.xml": {
+            "volumeName": "m2-dir",
+            "volumeType": "ConfigMap"
+         }
+      },
+      "home": "/home/jenkins/.m2"
+   },
+   "project": {
+      "displayName": "Eclipse Epsilon",
+      "fullName": "modeling.epsilon",
+      "resourcePacks": 1,
+      "shortName": "epsilon",
+      "unixGroupName": "modeling.epsilon"
+   },
+   "secrets": {
+      "gerrit-trigger-plugin": {
+         "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
+         "username": "genie.epsilon"
+      }
+   }
 }
