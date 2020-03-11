@@ -18,7 +18,8 @@ SCRIPT_NAME="$(basename "$(readlink -f "${0}")")"
 
 if [[ ! -f "${SCRIPT_FOLDER}/../.localconfig" ]]; then
   echo "ERROR: File '$(readlink -f "${SCRIPT_FOLDER}/../.localconfig")' does not exists"
-  echo "Create one to configure the location of the password store"
+  echo "Create one to configure the location of the password store. Example:"
+  echo '{"password-store": {"cbi-dir": "~/.password-store/cbi"}}'
 fi
 PASSWORD_STORE_DIR="$(jq -r '.["password-store"]["cbi-dir"]' "${SCRIPT_FOLDER}/../.localconfig")"
 PASSWORD_STORE_DIR="$(readlink -f "${PASSWORD_STORE_DIR/#~\//${HOME}/}")"
@@ -53,7 +54,16 @@ gen_settings_security() {
   local password_length="${1:-"32"}"
   # encrypt master pw
   local master_pw
-  master_pw=$(gen_pw "${password_length}")
+
+  local projectFullName
+  projectFullName="$(jq -r '.project.fullName' "${CONFIG}")"
+
+  if [[ -f "${PASSWORD_STORE_DIR}/bots/${projectFullName}/apache-maven-security-settings/master-password.gpg" ]]; then
+    master_pw="$(pass "bots/${projectFullName}/apache-maven-security-settings/master-password")"
+  else
+    master_pw=$(gen_pw "${password_length}")
+  fi
+
   local master_pw_enc
   master_pw_enc=$(mvn --encrypt-master-password "${master_pw}")
 
@@ -64,28 +74,6 @@ gen_settings_security() {
   <master>${master_pw_enc}</master>
 </settingsSecurity>
 EOG
-}
-
-nexus_pro_token() {
-  local username="${1}"
-  local password="${2}"
-  local nexusProUrl="${3}"
-
-  local commonCurlOpts='header = "Accept: application/json"\nheader = "Content-Type: application/json"'
-  local basicAuth='user = "'${username}':'${password}'"'
-  local curlOpts="${commonCurlOpts}\n${basicAuth}"
-  local payload
-  payload='{"u":"'$(printf "%s" "${username}" | base64)'","p":"'$(printf "%s" "${password}" | base64)'"}'
-
-  # deleting any previous token
-  local authTicket
-  authTicket="$(curl -sS -X POST -K- --data "${payload}" "${nexusProUrl}/service/siesta/wonderland/authenticate" <<< "$(echo -e "${curlOpts}")" | jq -r '.t')"
-  >&2 curl -X DELETE -sS -K- -H "X-NX-AuthTicket: ${authTicket}" "${nexusProUrl}/service/siesta/usertoken/current" <<< "$(echo -e "${curlOpts}")"
-
-  # getting a new user token
-  authTicket="$(curl -sS -X POST -K- --data "${payload}" "${nexusProUrl}/service/siesta/wonderland/authenticate" <<< "$(echo -e "${curlOpts}")" | jq -r '.t')"
-
-  curl -sS -K- -H "X-NX-AuthTicket: ${authTicket}" "${nexusProUrl}/service/siesta/usertoken/current" <<< "$(echo -e "${curlOpts}")" | jq -cM
 }
 
 gen_server() {
@@ -107,7 +95,7 @@ gen_server() {
       >&2 echo -e "${SCRIPT_NAME}\tINFO: Server '${serverId}' will use Nexus Pro token for credentials"
       # this server has a nexus Pro URL set, get a token to authenticate instead of using the account username/password
       local token
-      token="$(nexus_pro_token "${username}" "${password}" "${nexusProUrl}")"
+      token="$("${SCRIPT_FOLDER}/nexus-pro-token.sh" get_or_create "${nexusProUrl}" "${username}" "${password}")"
       server_username="$(jq -r '.nameCode' <<< "${token}")"
       server_password=$(mvn --encrypt-password "$(jq -r '.passCode' <<< "${token}")" -Dsettings.security="${SETTINGS_SECURITY_XML}")
     else
@@ -145,8 +133,8 @@ gen_servers() {
   echo "  <servers>"
 
   local serverId
-  for serverId in $(jq -r '.maven.files[] | select(.name == "settings.xml") | .servers | keys | .[]' "${config}"); do
-    gen_server "${serverId}" "$(jq -c '.maven.files[] | select(.name == "settings.xml").servers["'"${serverId}"'"]' "${config}")"
+  for serverId in $(jq -r '.maven.files["settings.xml"] | .servers | keys | .[]' "${config}"); do
+    gen_server "${serverId}" "$(jq -c '.maven.files["settings.xml"].servers["'"${serverId}"'"]' "${config}")"
   done
 
   echo "  </servers>"
@@ -157,8 +145,8 @@ gen_mirrors() {
   echo "  <mirrors>"
 
   local mirrorId
-  for mirrorId in $(jq -r '.maven.files[] | select(.name == "settings.xml") | .mirrors | keys | .[]' "${config}"); do
-    gen_mirror "${mirrorId}" "$(jq -c '.maven.files[] | select(.name == "settings.xml").mirrors["'"${mirrorId}"'"]' "${config}")";
+  for mirrorId in $(jq -r '.maven.files["settings.xml"] | .mirrors | keys | .[]' "${config}"); do
+    gen_mirror "${mirrorId}" "$(jq -c '.maven.files["settings.xml"].mirrors["'"${mirrorId}"'"]' "${config}")";
   done
 
   echo "  </mirrors>"
@@ -175,10 +163,12 @@ gen_settings() {
   echo "</settings>"
 }
 
->&2 echo -e "${SCRIPT_NAME}\tINFO: Generating Maven settings-security.xml"
-mkdir -p "$(dirname "${SETTINGS_SECURITY_XML}")"
-gen_settings_security 32 > "${SETTINGS_SECURITY_XML}"
+if [[ "$(jq -r '.maven.generate' "${CONFIG}")" == "true" ]]; then
+  >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating Maven settings-security.xml"
+  mkdir -p "$(dirname "${SETTINGS_SECURITY_XML}")"
+  gen_settings_security 32 > "${SETTINGS_SECURITY_XML}"
 
->&2 echo -e "${SCRIPT_NAME}\tINFO: Generating Maven settings.xml file"
-mkdir -p "$(dirname "${SETTINGS_XML}")"
-gen_settings "${CONFIG}" > "${SETTINGS_XML}"
+  >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating Maven settings.xml file"
+  mkdir -p "$(dirname "${SETTINGS_XML}")"
+  gen_settings "${CONFIG}" > "${SETTINGS_XML}"
+fi
