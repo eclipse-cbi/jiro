@@ -130,37 +130,25 @@ jenkins:
             containers:
             - name: jnlp
               volumeMounts:
-              - name: settings-security-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings-security.xml
                 subPath: settings-security.xml
                 readOnly: true
-              - name: settings-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings.xml
                 subPath: settings.xml
                 readOnly: true
-              - name: toolchains-xml
+              - name: m2-dir
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
             volumes:
-            - name: settings-security-xml
+            - name: m2-secret-dir
               secret:
                 secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: toolchains-xml
+            - name: m2-dir
               configMap:
                 name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
       - containers:
         - image: eclipsecbijenkins/jipp-migration-agent:3.36
           alwaysPullImage: true
@@ -217,37 +205,25 @@ jenkins:
             containers:
             - name: jnlp
               volumeMounts:
-              - name: settings-security-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings-security.xml
                 subPath: settings-security.xml
                 readOnly: true
-              - name: settings-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings.xml
                 subPath: settings.xml
                 readOnly: true
-              - name: toolchains-xml
+              - name: m2-dir
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
             volumes:
-            - name: settings-security-xml
+            - name: m2-secret-dir
               secret:
                 secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: toolchains-xml
+            - name: m2-dir
               configMap:
                 name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
       - containers:
         - image: eclipsecbijenkins/ui-tests-agent:3.36
           alwaysPullImage: true
@@ -304,38 +280,25 @@ jenkins:
             containers:
             - name: jnlp
               volumeMounts:
-              - name: settings-security-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings-security.xml
                 subPath: settings-security.xml
                 readOnly: true
-              - name: settings-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings.xml
                 subPath: settings.xml
                 readOnly: true
-              - name: toolchains-xml
+              - name: m2-dir
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
             volumes:
-            - name: settings-security-xml
+            - name: m2-secret-dir
               secret:
                 secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: toolchains-xml
+            - name: m2-dir
               configMap:
                 name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
-
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
