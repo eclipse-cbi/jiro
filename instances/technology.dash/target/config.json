@@ -1,73 +1,296 @@
 {
-   "agents": [
+   "clouds": [
       {
-         "docker": {
-            "name": "eclipsecbijenkins/basic-agent",
-            "tag": "3.36"
-         },
-         "kubernetes": {
-            "resources": {
-               "cpu": {
-                  "limit": "2000m",
-                  "request": "1000m"
+         "name": "kubernetes",
+         "namespace": "dash",
+         "podRetention": "never",
+         "templates": [
+            {
+               "agentWorkdir": "/home/jenkins/agent",
+               "docker": {
+                  "image": {
+                     "name": "basic-agent",
+                     "tag": "3.36"
+                  },
+                  "repository": "eclipsecbijenkins"
                },
-               "memory": {
-                  "limit": "4096Mi",
-                  "request": "4096Mi"
+               "env": [
+                  {
+                     "name": "JAVA_OPTS",
+                     "value": ""
+                  },
+                  {
+                     "name": "JNLP_PROTOCOL_OPTS",
+                     "value": "-XshowSettings:vm -Xmx256m -Djdk.nativeCrypto=false -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  },
+                  {
+                     "name": "JAVA_TOOL_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+                  },
+                  {
+                     "name": "OPENJ9_JAVA_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
+                  },
+                  {
+                     "name": "IBM_JAVA_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
+                  },
+                  {
+                     "name": "_JAVA_OPTIONS",
+                     "value": "-XX:MaxRAMPercentage=64.0"
+                  }
+               ],
+               "home": "/home/jenkins",
+               "jnlpAgentScript": {
+                  "name": "jenkins-agent",
+                  "version": "3.36-2"
+               },
+               "kubernetes": {
+                  "resources": {
+                     "cpu": {
+                        "limit": "2000m",
+                        "request": "1000m"
+                     },
+                     "memory": {
+                        "limit": "4096Mi",
+                        "request": "4096Mi"
+                     }
+                  },
+                  "volumes": [
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-security.xml",
+                              "subPath": "settings-security.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings.xml",
+                              "subPath": "settings.xml"
+                           }
+                        ],
+                        "name": "m2-secret-dir",
+                        "secret": {
+                           "name": "m2-secret-dir"
+                        }
+                     },
+                     {
+                        "configMap": {
+                           "name": "m2-dir"
+                        },
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/toolchains.xml",
+                              "subPath": "toolchains.xml"
+                           }
+                        ],
+                        "name": "m2-dir"
+                     }
+                  ]
+               },
+               "labels": [ ],
+               "maven": {
+                  "home": "/home/jenkins/.m2"
+               },
+               "mode": "NORMAL",
+               "name": "basic-agent",
+               "remoting": {
+                  "jar": "/usr/share/jenkins/agent.jar",
+                  "version": "3.36"
+               }
+            },
+            {
+               "agentWorkdir": "/home/jenkins/agent",
+               "docker": {
+                  "image": {
+                     "name": "jipp-migration-agent",
+                     "tag": "3.36"
+                  },
+                  "repository": "eclipsecbijenkins"
+               },
+               "env": [
+                  {
+                     "name": "JAVA_OPTS",
+                     "value": ""
+                  },
+                  {
+                     "name": "JNLP_PROTOCOL_OPTS",
+                     "value": "-XshowSettings:vm -Xmx256m -Djdk.nativeCrypto=false -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  },
+                  {
+                     "name": "JAVA_TOOL_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+                  },
+                  {
+                     "name": "OPENJ9_JAVA_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
+                  },
+                  {
+                     "name": "IBM_JAVA_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
+                  },
+                  {
+                     "name": "_JAVA_OPTIONS",
+                     "value": "-XX:MaxRAMPercentage=64.0"
+                  }
+               ],
+               "home": "/home/jenkins",
+               "jnlpAgentScript": {
+                  "name": "jenkins-agent",
+                  "version": "3.36-2"
+               },
+               "kubernetes": {
+                  "resources": {
+                     "cpu": {
+                        "limit": "2000m",
+                        "request": "1000m"
+                     },
+                     "memory": {
+                        "limit": "4096Mi",
+                        "request": "4096Mi"
+                     }
+                  },
+                  "volumes": [
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-security.xml",
+                              "subPath": "settings-security.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings.xml",
+                              "subPath": "settings.xml"
+                           }
+                        ],
+                        "name": "m2-secret-dir",
+                        "secret": {
+                           "name": "m2-secret-dir"
+                        }
+                     },
+                     {
+                        "configMap": {
+                           "name": "m2-dir"
+                        },
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/toolchains.xml",
+                              "subPath": "toolchains.xml"
+                           }
+                        ],
+                        "name": "m2-dir"
+                     }
+                  ]
+               },
+               "labels": [
+                  "migration",
+                  "jipp-migration"
+               ],
+               "maven": {
+                  "home": "/home/jenkins/.m2"
+               },
+               "mode": "EXCLUSIVE",
+               "name": "jipp-migration-agent",
+               "remoting": {
+                  "jar": "/usr/share/jenkins/agent.jar",
+                  "version": "3.36"
+               }
+            },
+            {
+               "agentWorkdir": "/home/jenkins/agent",
+               "docker": {
+                  "image": {
+                     "name": "ui-tests-agent",
+                     "tag": "3.36"
+                  },
+                  "repository": "eclipsecbijenkins"
+               },
+               "env": [
+                  {
+                     "name": "JAVA_OPTS",
+                     "value": ""
+                  },
+                  {
+                     "name": "JNLP_PROTOCOL_OPTS",
+                     "value": "-XshowSettings:vm -Xmx256m -Djdk.nativeCrypto=false -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  },
+                  {
+                     "name": "JAVA_TOOL_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+                  },
+                  {
+                     "name": "OPENJ9_JAVA_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
+                  },
+                  {
+                     "name": "IBM_JAVA_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
+                  },
+                  {
+                     "name": "_JAVA_OPTIONS",
+                     "value": "-XX:MaxRAMPercentage=64.0"
+                  }
+               ],
+               "home": "/home/jenkins",
+               "jnlpAgentScript": {
+                  "name": "jenkins-agent",
+                  "version": "3.36-2"
+               },
+               "kubernetes": {
+                  "resources": {
+                     "cpu": {
+                        "limit": "2000m",
+                        "request": "1000m"
+                     },
+                     "memory": {
+                        "limit": "4096Mi",
+                        "request": "4096Mi"
+                     }
+                  },
+                  "volumes": [
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-security.xml",
+                              "subPath": "settings-security.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings.xml",
+                              "subPath": "settings.xml"
+                           }
+                        ],
+                        "name": "m2-secret-dir",
+                        "secret": {
+                           "name": "m2-secret-dir"
+                        }
+                     },
+                     {
+                        "configMap": {
+                           "name": "m2-dir"
+                        },
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/toolchains.xml",
+                              "subPath": "toolchains.xml"
+                           }
+                        ],
+                        "name": "m2-dir"
+                     }
+                  ]
+               },
+               "labels": [
+                  "ui-test",
+                  "ui-tests"
+               ],
+               "maven": {
+                  "home": "/home/jenkins/.m2"
+               },
+               "mode": "EXCLUSIVE",
+               "name": "ui-tests-agent",
+               "remoting": {
+                  "jar": "/usr/share/jenkins/agent.jar",
+                  "version": "3.36"
                }
             }
-         },
-         "labels": [ ],
-         "mode": "NORMAL",
-         "name": "basic-agent"
-      },
-      {
-         "docker": {
-            "name": "eclipsecbijenkins/jipp-migration-agent",
-            "tag": "3.36"
-         },
-         "kubernetes": {
-            "resources": {
-               "cpu": {
-                  "limit": "2000m",
-                  "request": "1000m"
-               },
-               "memory": {
-                  "limit": "4096Mi",
-                  "request": "4096Mi"
-               }
-            }
-         },
-         "labels": [
-            "migration",
-            "jipp-migration"
-         ],
-         "mode": "EXCLUSIVE",
-         "name": "jipp-migration-agent"
-      },
-      {
-         "docker": {
-            "name": "eclipsecbijenkins/ui-tests-agent",
-            "tag": "3.36"
-         },
-         "kubernetes": {
-            "resources": {
-               "cpu": {
-                  "limit": "2000m",
-                  "request": "1000m"
-               },
-               "memory": {
-                  "limit": "4096Mi",
-                  "request": "4096Mi"
-               }
-            }
-         },
-         "labels": [
-            "ui-test",
-            "ui-tests"
-         ],
-         "mode": "EXCLUSIVE",
-         "name": "ui-tests-agent"
+         ]
       }
    ],
    "deployment": {
@@ -201,19 +424,40 @@
    "maven": {
       "files": {
          "settings-security.xml": {
-            "volumeName": "m2-secret-dir",
-            "volumeType": "Secret"
+            "master": {
+               "pass": "bots/technology.dash/apache-maven-security-settings"
+            }
          },
          "settings.xml": {
-            "volumeName": "m2-secret-dir",
-            "volumeType": "Secret"
-         },
-         "toolchains.xml": {
-            "volumeName": "m2-dir",
-            "volumeType": "ConfigMap"
+            "mirrors": {
+               "eclipse.maven.central.mirror": {
+                  "mirrorOf": "central",
+                  "name": "Eclipse Central Proxy",
+                  "url": "https://repo.eclipse.org/content/repositories/maven_central/"
+               }
+            },
+            "servers": {
+               "ossrh": {
+                  "nexusProUrl": "https://oss.sonatype.org",
+                  "password": {
+                     "pass": "bots/technology.dash/oss.sonatype.org/password"
+                  },
+                  "username": {
+                     "pass": "bots/technology.dash/oss.sonatype.org/username"
+                  }
+               },
+               "repo.eclipse.org": {
+                  "password": {
+                     "pass": "nexus/password"
+                  },
+                  "username": {
+                     "pass": "nexus/username"
+                  }
+               }
+            }
          }
       },
-      "home": "/home/jenkins/.m2"
+      "generate": true
    },
    "project": {
       "displayName": "Eclipse Dash",
