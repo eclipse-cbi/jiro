@@ -133,9 +133,9 @@ local permissions = import 'permissions.libsonnet';
     },
   },
   maven: {
-    files: [
-      {
-        name: "settings.xml",
+    generate: true,
+    files: {
+      "settings.xml": {
         servers: {
           "repo.eclipse.org": {
             username: {
@@ -163,13 +163,12 @@ local permissions = import 'permissions.libsonnet';
           },
         },
       },
-      {
-        name: "settings-security.xml",
+      "settings-security.xml": {
         master: {
           pass: "bots/" + $.project.fullName + "/apache-maven-security-settings"
         },
       },
-    ], 
+    },
   },
   secrets: {
     "gerrit-trigger-plugin": {
