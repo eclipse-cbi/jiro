@@ -1,0 +1,61 @@
+{
+   "apiVersion": "v1",
+   "kind": "Role",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "foundation-internal.webdev",
+         "org.eclipse.cbi.jiro/project.shortname": "webdev"
+      },
+      "name": "jenkins-master-owner",
+      "namespace": "foundation-internal-webdev"
+   },
+   "rules": [
+      {
+         "apiGroups": [
+            ""
+         ],
+         "resources": [
+            "pods"
+         ],
+         "verbs": [
+            "create",
+            "delete",
+            "get",
+            "list",
+            "patch",
+            "update",
+            "watch"
+         ]
+      },
+      {
+         "apiGroups": [
+            ""
+         ],
+         "resources": [
+            "pods/exec"
+         ],
+         "verbs": [
+            "create",
+            "delete",
+            "get",
+            "list",
+            "patch",
+            "update",
+            "watch"
+         ]
+      },
+      {
+         "apiGroups": [
+            ""
+         ],
+         "resources": [
+            "pods/log"
+         ],
+         "verbs": [
+            "get",
+            "list",
+            "watch"
+         ]
+      }
+   ]
+}

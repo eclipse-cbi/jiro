@@ -305,8 +305,8 @@
       "master": {
          "home": "/var/jenkins_home",
          "image": "docker.io/eclipsecbijenkins/dash",
-         "imageTag": "2.204.3",
-         "parentImage": "docker.io/eclipsecbijenkins/jenkins-master-base:2.204.3",
+         "imageTag": "2.204.5",
+         "parentImage": "docker.io/eclipsecbijenkins/jenkins-master-base:2.204.5",
          "pluginroot": "/var/cache/jenkins/plugins",
          "ref": "/usr/share/jenkins/ref",
          "updateCenter": "https://updates.jenkins.io",
@@ -317,7 +317,7 @@
       "repository": "docker.io/eclipsecbijenkins"
    },
    "jenkins": {
-      "actualVersion": "2.204.3",
+      "actualVersion": "2.204.5",
       "agentConnectionTimeout": 180,
       "maxConcurrency": 2,
       "permissions": [
@@ -376,7 +376,7 @@
       "staticAgentCount": 0,
       "theme": "quicksilver",
       "timezone": "America/Toronto",
-      "version": "2.204.3"
+      "version": "2.204.5"
    },
    "kubernetes": {
       "agents": {

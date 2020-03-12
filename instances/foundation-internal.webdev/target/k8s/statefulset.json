@@ -3,27 +3,27 @@
    "kind": "StatefulSet",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "technology.dash",
-         "org.eclipse.cbi.jiro/project.shortname": "dash"
+         "org.eclipse.cbi.jiro/project.fullName": "foundation-internal.webdev",
+         "org.eclipse.cbi.jiro/project.shortname": "webdev"
       },
-      "name": "dash",
-      "namespace": "dash"
+      "name": "webdev",
+      "namespace": "foundation-internal-webdev"
    },
    "spec": {
       "replicas": 1,
       "selector": {
          "matchLabels": {
-            "org.eclipse.cbi.jiro/project.fullName": "technology.dash"
+            "org.eclipse.cbi.jiro/project.fullName": "foundation-internal.webdev"
          }
       },
-      "serviceName": "dash",
+      "serviceName": "webdev",
       "template": {
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "technology.dash",
-               "org.eclipse.cbi.jiro/project.shortname": "dash"
+               "org.eclipse.cbi.jiro/project.fullName": "foundation-internal.webdev",
+               "org.eclipse.cbi.jiro/project.shortname": "webdev"
             },
-            "name": "dash"
+            "name": "webdev"
          },
          "spec": {
             "containers": [
@@ -31,14 +31,14 @@
                   "env": [
                      {
                         "name": "JAVA_OPTS",
-                        "value": "-XshowSettings:vm -Duser.timezone=America/Toronto -Djdk.nativeCrypto=false -Dsun.zip.disableMemoryMapping=true -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Dhudson.slaves.NodeProvisioner.initialDelay=0 -Dhudson.slaves.NodeProvisioner.MARGIN=50 -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85 -Dhudson.footerURL=https://ci.eclipse.org -Dhudson.model.UsageStatistics.disabled=true -Djenkins.model.Jenkins.slaveAgentPort=50000 -Djenkins.model.Jenkins.slaveAgentPortEnforce=true -Djenkins.model.Jenkins.exitCodeOnRestart=0 -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false -Djenkins.install.runSetupWizard=false -DexecutableWar.jetty.disableCustomSessionIdCookieName=false -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.dash -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml -Dio.jenkins.plugins.casc.ConfigurationAsCode.initialDelay=5000 -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/basic-agent:3.36 -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180 -Dkubernetes.websocket.ping.interval=30000"
+                        "value": "-XshowSettings:vm -Duser.timezone=America/Toronto -Djdk.nativeCrypto=false -Dsun.zip.disableMemoryMapping=true -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Dhudson.slaves.NodeProvisioner.initialDelay=0 -Dhudson.slaves.NodeProvisioner.MARGIN=50 -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85 -Dhudson.footerURL=https://foundation.eclipse.org -Dhudson.model.UsageStatistics.disabled=true -Djenkins.model.Jenkins.slaveAgentPort=50000 -Djenkins.model.Jenkins.slaveAgentPortEnforce=true -Djenkins.model.Jenkins.exitCodeOnRestart=0 -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false -Djenkins.install.runSetupWizard=false -DexecutableWar.jetty.disableCustomSessionIdCookieName=false -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.webdev -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml -Dio.jenkins.plugins.casc.ConfigurationAsCode.initialDelay=5000 -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/basic-agent:3.36 -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180 -Dkubernetes.websocket.ping.interval=30000"
                      },
                      {
                         "name": "JENKINS_OPTS",
-                        "value": "--prefix=/dash --webroot=/var/cache/jenkins/war --pluginroot=/var/cache/jenkins/plugins --controlPort=8081"
+                        "value": "--prefix=/ci/webdev --webroot=/var/cache/jenkins/war --pluginroot=/var/cache/jenkins/plugins --controlPort=8081"
                      }
                   ],
-                  "image": "docker.io/eclipsecbijenkins/dash:2.204.5",
+                  "image": "docker.io/eclipsecbijenkins/webdev:2.204.5",
                   "imagePullPolicy": "Always",
                   "lifecycle": {
                      "preStop": {
@@ -54,7 +54,7 @@
                   "livenessProbe": {
                      "failureThreshold": 5,
                      "httpGet": {
-                        "path": "/dash/login",
+                        "path": "/ci/webdev/login",
                         "port": 8080,
                         "scheme": "HTTP"
                      },
@@ -85,10 +85,10 @@
                   "resources": {
                      "limits": {
                         "cpu": "2000m",
-                        "memory": "1536Mi"
+                        "memory": "1792Mi"
                      },
                      "requests": {
-                        "cpu": "500m"
+                        "cpu": "650m"
                      }
                   },
                   "volumeMounts": [
@@ -108,16 +108,11 @@
                         "mountPath": "/etc/jenkins/",
                         "name": "jenkins-config",
                         "readOnly": true
-                     },
-                     {
-                        "mountPath": "/run/secrets/jenkins/ssh",
-                        "name": "gerrit-ssh-keys",
-                        "readOnly": true
                      }
                   ]
                }
             ],
-            "serviceAccountName": "dash",
+            "serviceAccountName": "webdev",
             "terminationGracePeriodSeconds": 1200,
             "volumes": [
                {
@@ -133,12 +128,6 @@
                      "name": "jenkins-config"
                   },
                   "name": "jenkins-config"
-               },
-               {
-                  "name": "gerrit-ssh-keys",
-                  "secret": {
-                     "secretName": "gerrit-ssh-keys"
-                  }
                }
             ]
          }

@@ -1,262 +1,501 @@
 {
-  "project": {
-    "shortName": "webdev",
-    "fullName": "foundation-internal.webdev",
-    "displayName": "Eclipse Foundation WebDev",
-    "sponsorshipLevel": "S0"
-  },
-  "jenkins": {
-    "version": "2.190.1",
-    "remotingVersion": "latest",
-    "maxConcurrency": 2,
-    "agentConnectionTimeout": "180",
-    "timezone": "America/Toronto",
-    "theme": "quicksilver",
-    "permissions": [
+   "clouds": [
       {
-        "principal": "anonymous",
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ]
-      },
-      {
-        "principal": "common",
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ]
-      },
-      {
-        "principal": "admins",
-        "grantedPermissions": [
-          "Overall/Administer"
-        ]
-      },
-      {
-        "principal": "foundation-internal.webdev",
-        "grantedPermissions": [
-          "Credentials/View",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger",
-          "Job/Build",
-          "Job/Cancel",
-          "Job/Configure",
-          "Job/Create",
-          "Job/Delete",
-          "Job/Move",
-          "Job/Read",
-          "Job/Workspace",
-          "Agent/Build",
-          "Run/Delete",
-          "Run/Replay",
-          "Run/Update",
-          "View/Configure",
-          "View/Create",
-          "View/Delete",
-          "View/Read",
-          "SCM/Tag"
-        ]
-      },
-      {
-        "principal": "anonymous",
-        "withheldPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ]
-      },
-      {
-        "principal": "common",
-        "withheldPermissions": [
-          "Job/ExtendedRead"
-        ]
-      },
-      {
-        "principal": "foundation-internal.webdev",
-        "withheldPermissions": [
-          "Credentials/View",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger",
-          "Agent/Build",
-          "Job/Build",
-          "Job/Cancel",
-          "Job/Configure",
-          "Job/Create",
-          "Job/Delete",
-          "Job/Move",
-          "Job/Read",
-          "Job/Workspace",
-          "Run/Delete",
-          "Run/Replay",
-          "Run/Update",
-          "View/Configure",
-          "View/Create",
-          "View/Delete",
-          "View/Read",
-          "SCM/Tag"
-        ]
-      },
-      {
-        "principal": "chris.guindon@eclipse-foundation.org",
-        "grantedPermissions": [
-          "Overall/Read",
-          "Credentials/View",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger",
-          "Agent/Build",
-          "Job/Build",
-          "Job/Cancel",
-          "Job/Configure",
-          "Job/Create",
-          "Job/Delete",
-          "Job/Move",
-          "Job/Read",
-          "Job/Workspace",
-          "Run/Delete",
-          "Run/Replay",
-          "Run/Update",
-          "View/Configure",
-          "View/Create",
-          "View/Delete",
-          "View/Read",
-          "SCM/Tag"
-        ]
-      },
-      {
-        "principal": "eric.poirier@eclipse-foundation.org",
-        "grantedPermissions": [
-          "Overall/Read",
-          "Credentials/View",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger",
-          "Agent/Build",
-          "Job/Build",
-          "Job/Cancel",
-          "Job/Configure",
-          "Job/Create",
-          "Job/Delete",
-          "Job/Move",
-          "Job/Read",
-          "Job/Workspace",
-          "Run/Delete",
-          "Run/Replay",
-          "Run/Update",
-          "View/Configure",
-          "View/Create",
-          "View/Delete",
-          "View/Read",
-          "SCM/Tag"
-        ]
-      },
-      {
-        "principal": "martin.lowe@eclipse-foundation.org",
-        "grantedPermissions": [
-          "Overall/Read",
-          "Credentials/View",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger",
-          "Agent/Build",
-          "Job/Build",
-          "Job/Cancel",
-          "Job/Configure",
-          "Job/Create",
-          "Job/Delete",
-          "Job/Move",
-          "Job/Read",
-          "Job/Workspace",
-          "Run/Delete",
-          "Run/Replay",
-          "Run/Update",
-          "View/Configure",
-          "View/Create",
-          "View/Delete",
-          "View/Read",
-          "SCM/Tag"
-        ]
+         "name": "kubernetes",
+         "namespace": "foundation-internal-webdev",
+         "podRetention": "never",
+         "templates": [
+            {
+               "agentWorkdir": "/home/jenkins/agent",
+               "docker": {
+                  "image": {
+                     "name": "basic-agent",
+                     "tag": "3.36"
+                  },
+                  "repository": "eclipsecbijenkins"
+               },
+               "env": [
+                  {
+                     "name": "JAVA_OPTS",
+                     "value": ""
+                  },
+                  {
+                     "name": "JNLP_PROTOCOL_OPTS",
+                     "value": "-XshowSettings:vm -Xmx256m -Djdk.nativeCrypto=false -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  },
+                  {
+                     "name": "JAVA_TOOL_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+                  },
+                  {
+                     "name": "OPENJ9_JAVA_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
+                  },
+                  {
+                     "name": "IBM_JAVA_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
+                  },
+                  {
+                     "name": "_JAVA_OPTIONS",
+                     "value": "-XX:MaxRAMPercentage=64.0"
+                  }
+               ],
+               "home": "/home/jenkins",
+               "jnlpAgentScript": {
+                  "name": "jenkins-agent",
+                  "version": "3.36-2"
+               },
+               "kubernetes": {
+                  "resources": {
+                     "cpu": {
+                        "limit": "2000m",
+                        "request": "1000m"
+                     },
+                     "memory": {
+                        "limit": "4096Mi",
+                        "request": "4096Mi"
+                     }
+                  },
+                  "volumes": [
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-security.xml",
+                              "subPath": "settings-security.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings.xml",
+                              "subPath": "settings.xml"
+                           }
+                        ],
+                        "name": "m2-secret-dir",
+                        "secret": {
+                           "name": "m2-secret-dir"
+                        }
+                     },
+                     {
+                        "configMap": {
+                           "name": "m2-dir"
+                        },
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/toolchains.xml",
+                              "subPath": "toolchains.xml"
+                           }
+                        ],
+                        "name": "m2-dir"
+                     }
+                  ]
+               },
+               "labels": [ ],
+               "maven": {
+                  "home": "/home/jenkins/.m2"
+               },
+               "mode": "NORMAL",
+               "name": "basic-agent",
+               "remoting": {
+                  "jar": "/usr/share/jenkins/agent.jar",
+                  "version": "3.36"
+               }
+            },
+            {
+               "agentWorkdir": "/home/jenkins/agent",
+               "docker": {
+                  "image": {
+                     "name": "jipp-migration-agent",
+                     "tag": "3.36"
+                  },
+                  "repository": "eclipsecbijenkins"
+               },
+               "env": [
+                  {
+                     "name": "JAVA_OPTS",
+                     "value": ""
+                  },
+                  {
+                     "name": "JNLP_PROTOCOL_OPTS",
+                     "value": "-XshowSettings:vm -Xmx256m -Djdk.nativeCrypto=false -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  },
+                  {
+                     "name": "JAVA_TOOL_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+                  },
+                  {
+                     "name": "OPENJ9_JAVA_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
+                  },
+                  {
+                     "name": "IBM_JAVA_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
+                  },
+                  {
+                     "name": "_JAVA_OPTIONS",
+                     "value": "-XX:MaxRAMPercentage=64.0"
+                  }
+               ],
+               "home": "/home/jenkins",
+               "jnlpAgentScript": {
+                  "name": "jenkins-agent",
+                  "version": "3.36-2"
+               },
+               "kubernetes": {
+                  "resources": {
+                     "cpu": {
+                        "limit": "2000m",
+                        "request": "1000m"
+                     },
+                     "memory": {
+                        "limit": "4096Mi",
+                        "request": "4096Mi"
+                     }
+                  },
+                  "volumes": [
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-security.xml",
+                              "subPath": "settings-security.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings.xml",
+                              "subPath": "settings.xml"
+                           }
+                        ],
+                        "name": "m2-secret-dir",
+                        "secret": {
+                           "name": "m2-secret-dir"
+                        }
+                     },
+                     {
+                        "configMap": {
+                           "name": "m2-dir"
+                        },
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/toolchains.xml",
+                              "subPath": "toolchains.xml"
+                           }
+                        ],
+                        "name": "m2-dir"
+                     }
+                  ]
+               },
+               "labels": [
+                  "migration",
+                  "jipp-migration"
+               ],
+               "maven": {
+                  "home": "/home/jenkins/.m2"
+               },
+               "mode": "EXCLUSIVE",
+               "name": "jipp-migration-agent",
+               "remoting": {
+                  "jar": "/usr/share/jenkins/agent.jar",
+                  "version": "3.36"
+               }
+            },
+            {
+               "agentWorkdir": "/home/jenkins/agent",
+               "docker": {
+                  "image": {
+                     "name": "ui-tests-agent",
+                     "tag": "3.36"
+                  },
+                  "repository": "eclipsecbijenkins"
+               },
+               "env": [
+                  {
+                     "name": "JAVA_OPTS",
+                     "value": ""
+                  },
+                  {
+                     "name": "JNLP_PROTOCOL_OPTS",
+                     "value": "-XshowSettings:vm -Xmx256m -Djdk.nativeCrypto=false -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  },
+                  {
+                     "name": "JAVA_TOOL_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+                  },
+                  {
+                     "name": "OPENJ9_JAVA_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
+                  },
+                  {
+                     "name": "IBM_JAVA_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
+                  },
+                  {
+                     "name": "_JAVA_OPTIONS",
+                     "value": "-XX:MaxRAMPercentage=64.0"
+                  }
+               ],
+               "home": "/home/jenkins",
+               "jnlpAgentScript": {
+                  "name": "jenkins-agent",
+                  "version": "3.36-2"
+               },
+               "kubernetes": {
+                  "resources": {
+                     "cpu": {
+                        "limit": "2000m",
+                        "request": "1000m"
+                     },
+                     "memory": {
+                        "limit": "4096Mi",
+                        "request": "4096Mi"
+                     }
+                  },
+                  "volumes": [
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-security.xml",
+                              "subPath": "settings-security.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings.xml",
+                              "subPath": "settings.xml"
+                           }
+                        ],
+                        "name": "m2-secret-dir",
+                        "secret": {
+                           "name": "m2-secret-dir"
+                        }
+                     },
+                     {
+                        "configMap": {
+                           "name": "m2-dir"
+                        },
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/toolchains.xml",
+                              "subPath": "toolchains.xml"
+                           }
+                        ],
+                        "name": "m2-dir"
+                     }
+                  ]
+               },
+               "labels": [
+                  "ui-test",
+                  "ui-tests"
+               ],
+               "maven": {
+                  "home": "/home/jenkins/.m2"
+               },
+               "mode": "EXCLUSIVE",
+               "name": "ui-tests-agent",
+               "remoting": {
+                  "jar": "/usr/share/jenkins/agent.jar",
+                  "version": "3.36"
+               }
+            }
+         ]
       }
-    ],
-    "actualVersion": "2.190.1",
-    "actualRemotingVersion": "3.29"
-  },
-  "docker": {
-    "repository": "eclipsecbijenkins",
-    "master": {
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.190.1",
-      "image": "eclipsecbijenkins/webdev",
-      "imageTag": "2.190.1",
-      "username": "jenkins",
-      "home": "/var/jenkins_home",
-      "ref": "/usr/share/jenkins/ref",
-      "webroot": "/var/cache/jenkins/war",
-      "pluginroot": "/var/cache/jenkins/plugins",
-      "war": "/usr/share/jenkins/jenkins.war",
-      "updateCenter": "https://updates.jenkins.io",
-      "imageSha256": "dc3b36cf454a228d98eb5dbbbbdd2335b4cc7fa2d487bbfe914053bfaf812065"
-    },
-    "agent": {
-      "defaultImage": {
-        "name": "eclipsecbijenkins/jenkins-agent",
-        "tag": "3.29",
-        "sha256": "d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1"
-      }
-    }
-  },
-  "deployment": {
-    "host": "foundation.eclipse.org",
-    "prefix": "/ci/webdev",
-    "url": "https://foundation.eclipse.org/ci/webdev",
-    "uiPort": 8080,
-    "jnlpPort": 50000
-  },
-  "kubernetes": {
-    "master": {
-      "namespace": "foundation-internal-webdev",
-      "stsName": "webdev",
-      "resources": {
-        "cpu": {
-          "request": "500m",
-          "limit": 2
-        },
-        "memory": {
-          "limit": "1.5Gi"
-        }
+   ],
+   "deployment": {
+      "controlPort": 8081,
+      "host": "foundation.eclipse.org",
+      "jnlpPort": 50000,
+      "prefix": "/ci/webdev",
+      "uiPort": 8080,
+      "url": "https://foundation.eclipse.org/ci/webdev"
+   },
+   "docker": {
+      "master": {
+         "home": "/var/jenkins_home",
+         "image": "docker.io/eclipsecbijenkins/webdev",
+         "imageTag": "2.204.5",
+         "parentImage": "docker.io/eclipsecbijenkins/jenkins-master-base:2.204.5",
+         "pluginroot": "/var/cache/jenkins/plugins",
+         "ref": "/usr/share/jenkins/ref",
+         "updateCenter": "https://updates.jenkins.io",
+         "username": "jenkins",
+         "war": "/usr/share/jenkins/jenkins.war",
+         "webroot": "/var/cache/jenkins/war"
       },
-      "probe": {
-        "liveness": {
-          "delaySeconds": 480,
-          "periodSeconds": 30,
-          "timeoutSeconds": 30,
-          "failureThreshold": 5
-        },
-        "readiness": {
-          "delaySeconds": 1,
-          "periodSeconds": 5,
-          "timeoutSeconds": 10,
-          "failureThreshold": 5
-        }
-      }
-    }
-  },
-  "maven": {
-    "home": "/home/jenkins/.m2",
-    "files": {
-      "settings.xml": {
-        "volumeType": "Secret",
-        "volumeName": "m2-secret-dir"
+      "repository": "docker.io/eclipsecbijenkins"
+   },
+   "jenkins": {
+      "actualVersion": "2.204.5",
+      "agentConnectionTimeout": 180,
+      "maxConcurrency": 2,
+      "permissions": [
+         {
+            "grantedPermissions": [
+               "Agent/Build",
+               "Credentials/View",
+               "Job/Build",
+               "Job/Cancel",
+               "Job/Configure",
+               "Job/Create",
+               "Job/Delete",
+               "Job/Move",
+               "Job/Read",
+               "Job/Workspace",
+               "Run/Delete",
+               "Run/Replay",
+               "Run/Update",
+               "SCM/Tag",
+               "View/Configure",
+               "View/Create",
+               "View/Delete",
+               "View/Read",
+               "Gerrit/ManualTrigger",
+               "Gerrit/Retrigger"
+            ],
+            "principal": "chris.guindon@eclipse-foundation.org"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Build",
+               "Credentials/View",
+               "Job/Build",
+               "Job/Cancel",
+               "Job/Configure",
+               "Job/Create",
+               "Job/Delete",
+               "Job/Move",
+               "Job/Read",
+               "Job/Workspace",
+               "Run/Delete",
+               "Run/Replay",
+               "Run/Update",
+               "SCM/Tag",
+               "View/Configure",
+               "View/Create",
+               "View/Delete",
+               "View/Read",
+               "Gerrit/ManualTrigger",
+               "Gerrit/Retrigger"
+            ],
+            "principal": "eric.poirier@eclipse-foundation.org"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Build",
+               "Credentials/View",
+               "Job/Build",
+               "Job/Cancel",
+               "Job/Configure",
+               "Job/Create",
+               "Job/Delete",
+               "Job/Move",
+               "Job/Read",
+               "Job/Workspace",
+               "Run/Delete",
+               "Run/Replay",
+               "Run/Update",
+               "SCM/Tag",
+               "View/Configure",
+               "View/Create",
+               "View/Delete",
+               "View/Read",
+               "Gerrit/ManualTrigger",
+               "Gerrit/Retrigger"
+            ],
+            "principal": "martin.lowe@eclipse-foundation.org"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         }
+      ],
+      "remotingVersion": "3.36",
+      "staticAgentCount": 1,
+      "theme": "quicksilver",
+      "timezone": "America/Toronto",
+      "version": "2.204.5"
+   },
+   "kubernetes": {
+      "agents": {
+         "defaultResources": {
+            "cpu": {
+               "limit": "2000m",
+               "request": "1000m"
+            },
+            "memory": {
+               "limit": "4096Mi",
+               "request": "4096Mi"
+            }
+         },
+         "namespace": "webdev"
       },
-      "settings-security.xml": {
-        "volumeType": "Secret",
-        "volumeName": "m2-secret-dir"
-      },
-      "toolchains.xml": {
-        "volumeType": "ConfigMap",
-        "volumeName": "m2-dir"
+      "master": {
+         "namespace": "foundation-internal-webdev",
+         "probe": {
+            "liveness": {
+               "delaySeconds": 480,
+               "failureThreshold": 5,
+               "periodSeconds": 30,
+               "timeoutSeconds": 30
+            },
+            "readiness": {
+               "delaySeconds": 1,
+               "failureThreshold": 5,
+               "periodSeconds": 5,
+               "timeoutSeconds": 10
+            }
+         },
+         "resources": {
+            "cpu": {
+               "limit": "2000m",
+               "request": "650m"
+            },
+            "memory": {
+               "limit": "1792Mi",
+               "request": "1792Mi"
+            }
+         },
+         "stsName": "webdev"
       }
-    }
-  },
-  "secrets": {
-    "gerrit-trigger-plugin": {
-      "username": "",
-      "identityFile": "/run/secrets/jenkins/ssh/id_rsa"
-    }
-  }
+   },
+   "maven": {
+      "files": {
+         "settings-security.xml": {
+            "master": {
+               "pass": "bots/foundation-internal.webdev/apache-maven-security-settings"
+            }
+         },
+         "settings.xml": {
+            "mirrors": {
+               "eclipse.maven.central.mirror": {
+                  "mirrorOf": "central",
+                  "name": "Eclipse Central Proxy",
+                  "url": "https://repo.eclipse.org/content/repositories/maven_central/"
+               }
+            },
+            "servers": {
+               "ossrh": {
+                  "nexusProUrl": "https://oss.sonatype.org",
+                  "password": {
+                     "pass": "bots/foundation-internal.webdev/oss.sonatype.org/password"
+                  },
+                  "username": {
+                     "pass": "bots/foundation-internal.webdev/oss.sonatype.org/username"
+                  }
+               },
+               "repo.eclipse.org": {
+                  "password": {
+                     "pass": "nexus/password"
+                  },
+                  "username": {
+                     "pass": "nexus/username"
+                  }
+               }
+            }
+         }
+      },
+      "generate": true
+   },
+   "project": {
+      "displayName": "Eclipse Foundation WebDev",
+      "fullName": "foundation-internal.webdev",
+      "resourcePacks": 1,
+      "shortName": "webdev",
+      "unixGroupName": "foundation-internal.webdev"
+   },
+   "secrets": { }
 }

@@ -14,10 +14,9 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "foundation-internal.webdev"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.190.1"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
+    org.eclipse.cbi.jiro/jenkins.version: "2.204.5"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.204.5"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "foundation-internal-webdev"
-    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
   namespace: "foundation-internal-webdev"
   name: jenkins-config
 data:
@@ -43,7 +42,6 @@ data:
           - Job/Move:chris.guindon@eclipse-foundation.org
           - Job/Read:chris.guindon@eclipse-foundation.org
           - Job/Workspace:chris.guindon@eclipse-foundation.org
-          - Overall/Read:chris.guindon@eclipse-foundation.org
           - Run/Delete:chris.guindon@eclipse-foundation.org
           - Run/Replay:chris.guindon@eclipse-foundation.org
           - Run/Update:chris.guindon@eclipse-foundation.org
@@ -64,7 +62,6 @@ data:
           - Job/Move:eric.poirier@eclipse-foundation.org
           - Job/Read:eric.poirier@eclipse-foundation.org
           - Job/Workspace:eric.poirier@eclipse-foundation.org
-          - Overall/Read:eric.poirier@eclipse-foundation.org
           - Run/Delete:eric.poirier@eclipse-foundation.org
           - Run/Replay:eric.poirier@eclipse-foundation.org
           - Run/Update:eric.poirier@eclipse-foundation.org
@@ -85,7 +82,6 @@ data:
           - Job/Move:martin.lowe@eclipse-foundation.org
           - Job/Read:martin.lowe@eclipse-foundation.org
           - Job/Workspace:martin.lowe@eclipse-foundation.org
-          - Overall/Read:martin.lowe@eclipse-foundation.org
           - Run/Delete:martin.lowe@eclipse-foundation.org
           - Run/Replay:martin.lowe@eclipse-foundation.org
           - Run/Update:martin.lowe@eclipse-foundation.org
@@ -105,9 +101,10 @@ data:
           podRetention: never
           templates:
           - containers:
-            - args: ""
+            - alwaysPullImage: true
+              args: ""
               command: ""
-              image: eclipsecbijenkins/jenkins-agent:3.29@sha256:d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1
+              image: eclipsecbijenkins/basic-agent:3.36
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -128,7 +125,8 @@ data:
                 key: MAVEN_CONFIG
                 value: -B -e
             instanceCap: 5
-            name: default-agent
+            label: ""
+            name: basic-agent
             namespace: foundation-internal-webdev
             nodeUsageMode: NORMAL
             volumes:
@@ -145,6 +143,9 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: /home/jenkins/.m2/repository
+            - emptyDirVolume:
+                memory: false
+                mountPath: /home/jenkins/.m2/wrapper
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -155,41 +156,30 @@ data:
                 containers:
                 - name: jnlp
                   volumeMounts:
-                  - name: settings-xml
-                    mountPath: /home/jenkins/.m2/settings.xml
-                    subPath: settings.xml
-                    readOnly: true
-                  - name: settings-security-xml
+                  - name: m2-secret-dir
                     mountPath: /home/jenkins/.m2/settings-security.xml
                     subPath: settings-security.xml
                     readOnly: true
-                  - name: toolchains-xml
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: m2-dir
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
                 volumes:
-                - name: settings-xml
+                - name: m2-secret-dir
                   secret:
                     secretName: m2-secret-dir
-                    items:
-                    - key: settings.xml
-                      path: settings.xml
-                - name: settings-security-xml
-                  secret:
-                    secretName: m2-secret-dir
-                    items:
-                    - key: settings-security.xml
-                      path: settings-security.xml
-                - name: toolchains-xml
+                - name: m2-dir
                   configMap:
                     name: m2-dir
-                    items:
-                    - key: toolchains.xml
-                      path: toolchains.xml
           - containers:
-            - args: ""
+            - alwaysPullImage: true
+              args: ""
               command: ""
-              image: eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59
+              image: eclipsecbijenkins/jipp-migration-agent:3.36
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -210,10 +200,10 @@ data:
                 key: MAVEN_CONFIG
                 value: -B -e
             instanceCap: 5
-            instanceCapStr: "5"
-            label: ui-test
-            name: ui-test-agent
+            label: migration jipp-migration
+            name: jipp-migration-agent
             namespace: foundation-internal-webdev
+            nodeUsageMode: EXCLUSIVE
             volumes:
             - persistentVolumeClaim:
                 claimName: tools-claim-jiro-webdev
@@ -228,6 +218,9 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: /home/jenkins/.m2/repository
+            - emptyDirVolume:
+                memory: false
+                mountPath: /home/jenkins/.m2/wrapper
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -238,41 +231,30 @@ data:
                 containers:
                 - name: jnlp
                   volumeMounts:
-                  - name: settings-xml
-                    mountPath: /home/jenkins/.m2/settings.xml
-                    subPath: settings.xml
-                    readOnly: true
-                  - name: settings-security-xml
+                  - name: m2-secret-dir
                     mountPath: /home/jenkins/.m2/settings-security.xml
                     subPath: settings-security.xml
                     readOnly: true
-                  - name: toolchains-xml
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: m2-dir
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
                 volumes:
-                - name: settings-xml
+                - name: m2-secret-dir
                   secret:
                     secretName: m2-secret-dir
-                    items:
-                    - key: settings.xml
-                      path: settings.xml
-                - name: settings-security-xml
-                  secret:
-                    secretName: m2-secret-dir
-                    items:
-                    - key: settings-security.xml
-                      path: settings-security.xml
-                - name: toolchains-xml
+                - name: m2-dir
                   configMap:
                     name: m2-dir
-                    items:
-                    - key: toolchains.xml
-                      path: toolchains.xml
           - containers:
-            - args: ""
+            - alwaysPullImage: true
+              args: ""
               command: ""
-              image: eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f
+              image: eclipsecbijenkins/ui-tests-agent:3.36
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -293,10 +275,10 @@ data:
                 key: MAVEN_CONFIG
                 value: -B -e
             instanceCap: 5
-            instanceCapStr: "5"
-            label: migration
-            name: migration-agent
+            label: ui-test ui-tests
+            name: ui-tests-agent
             namespace: foundation-internal-webdev
+            nodeUsageMode: EXCLUSIVE
             volumes:
             - persistentVolumeClaim:
                 claimName: tools-claim-jiro-webdev
@@ -311,6 +293,9 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: /home/jenkins/.m2/repository
+            - emptyDirVolume:
+                memory: false
+                mountPath: /home/jenkins/.m2/wrapper
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -321,37 +306,25 @@ data:
                 containers:
                 - name: jnlp
                   volumeMounts:
-                  - name: settings-xml
-                    mountPath: /home/jenkins/.m2/settings.xml
-                    subPath: settings.xml
-                    readOnly: true
-                  - name: settings-security-xml
+                  - name: m2-secret-dir
                     mountPath: /home/jenkins/.m2/settings-security.xml
                     subPath: settings-security.xml
                     readOnly: true
-                  - name: toolchains-xml
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: m2-dir
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
                 volumes:
-                - name: settings-xml
+                - name: m2-secret-dir
                   secret:
                     secretName: m2-secret-dir
-                    items:
-                    - key: settings.xml
-                      path: settings.xml
-                - name: settings-security-xml
-                  secret:
-                    secretName: m2-secret-dir
-                    items:
-                    - key: settings-security.xml
-                      path: settings-security.xml
-                - name: toolchains-xml
+                - name: m2-dir
                   configMap:
                     name: m2-dir
-                    items:
-                    - key: toolchains.xml
-                      path: toolchains.xml
       crumbIssuer:
         standard:
           excludeClientIPFromCrumb: false
@@ -392,8 +365,6 @@ data:
         creationOfLegacyTokenEnabled: false
         tokenGenerationOnCreationEnabled: false
         usageStatisticsEnabled: true
-      downloadSettings:
-        useBrowser: false
       queueItemAuthenticator:
         authenticators:
         - global:
@@ -528,7 +499,7 @@ data:
                   traits:
                   - gitHubBranchDiscovery:
                       strategyId: 1
-                  - originPullRequestDiscoveryTrait:
+                  - gitHubPullRequestDiscovery:
                       strategyId: 2
                   - gitHubForkDiscovery:
                       strategyId: 2

@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "technology.dash"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.204.3"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.204.3"
+    org.eclipse.cbi.jiro/jenkins.version: "2.204.5"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.204.5"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "dash"
   namespace: "dash"
   name: jenkins-config
