@@ -12,7 +12,7 @@ local Globals = import "../../globals.jsonnet";
     },
   } + Globals.docker,
   "jenkins": {
-    "version": "2.204.3",
+    "version": "2.204.5",
     "remoting": {
       "version": "3.36",
     },
