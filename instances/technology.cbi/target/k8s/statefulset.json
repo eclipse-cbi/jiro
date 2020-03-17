@@ -38,7 +38,7 @@
                         "value": "--prefix=/cbi --webroot=/var/cache/jenkins/war --pluginroot=/var/cache/jenkins/plugins --controlPort=8081"
                      }
                   ],
-                  "image": "docker.io/eclipsecbijenkins/cbi:2.204.3",
+                  "image": "docker.io/eclipsecbijenkins/cbi:2.204.5",
                   "imagePullPolicy": "Always",
                   "lifecycle": {
                      "preStop": {

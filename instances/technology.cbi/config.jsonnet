@@ -5,7 +5,7 @@
     displayName: "Eclipse CBI",
   },
   jenkins+: {
-    version: "2.204.3",
+    version: "2.204.5",
     staticAgentCount: 3,
   }
 }
