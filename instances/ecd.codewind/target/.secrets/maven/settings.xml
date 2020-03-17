@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <servers>
+    <server>
+      <id>repo.eclipse.org</id>
+      <username>deployment</username>
+      <password>{yuTf/8LMDrIHBzR13YQLt65ylhfNUgPY7CY4oHN0erfguQsCdjNV0qoGaELMjQalOL2Xsny/ikrL7RURT88o4g==}</password>
+    </server>
+  </servers>
+  <mirrors>
+    <mirror>
+      <id>eclipse.maven.central.mirror</id>
+      <name>Eclipse Central Proxy</name>
+      <url>https://repo.eclipse.org/content/repositories/maven_central/</url>
+      <mirrorOf>central</mirrorOf>
+    </mirror>
+  </mirrors>
+</settings>

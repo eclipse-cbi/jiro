@@ -19,7 +19,7 @@ jenkins:
       labelString: "docker-build"
       launcher:
         ssh:
-          credentialsId: "codewind-bot-ub18-01"
+          credentialsId: "codewind-bot-nonroot-ub18-01"
           host: "169.45.82.155"
           port: 22
           sshHostKeyVerificationStrategy:
@@ -28,7 +28,7 @@ jenkins:
       mode: EXCLUSIVE
       name: "ub18-01"
       numExecutors: 1
-      remoteFS: "/home/root"
+      remoteFS: "/home/genie.codewind"
       retentionStrategy: "always"
 unclassified:
   gitHubPluginConfig:

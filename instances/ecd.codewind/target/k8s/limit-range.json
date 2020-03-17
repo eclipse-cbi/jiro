@@ -13,7 +13,7 @@
       "limits": [
          {
             "max": {
-               "cpu": "6200m",
+               "cpu": "6300m",
                "memory": "16640Mi"
             },
             "min": {
