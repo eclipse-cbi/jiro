@@ -154,6 +154,11 @@ local permissions = import 'permissions.libsonnet';
               pass: "bots/" + $.project.fullName + "/oss.sonatype.org/password",
             },
           },
+          "gpg.passphrase": {
+            passphrase: {
+              pass: "bots/" + $.project.fullName + "/gpg/passphrase"
+            },
+          },
         },
         mirrors: {
           "eclipse.maven.central.mirror": {

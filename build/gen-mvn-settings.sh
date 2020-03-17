@@ -79,9 +79,10 @@ EOG
 gen_server() {
   local serverId="${1}"
   local server="${2}"
-  local username_pass password_pass
+  local username_pass password_pass passphrase_pass
   username_pass="$(jq -r '.username.pass' <<< "${server}")"
   password_pass="$(jq -r '.password.pass' <<< "${server}")"
+  passphrase_pass="$(jq -r '.passphrase.pass' <<< "${server}")"
   if [[ -f "${PASSWORD_STORE_DIR}/${username_pass}.gpg" ]] \
   && [[ -f "${PASSWORD_STORE_DIR}/${password_pass}.gpg" ]]; then
     >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating server entry '${serverId}'"
@@ -108,6 +109,17 @@ gen_server() {
       <id>${serverId}</id>
       <username>${server_username}</username>
       <password>${server_password}</password>
+    </server>
+EOF
+  elif [[ -f "${PASSWORD_STORE_DIR}/${passphrase_pass}.gpg" ]]; then
+    >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating server entry '${serverId}'"
+    local passphrase server_passphrase
+    passphrase="$(pass "${passphrase_pass}")"
+    server_passphrase=$(mvn --encrypt-password "$(printf "%s" "${passphrase}")" -Dsettings.security="${SETTINGS_SECURITY_XML}")
+    cat <<EOF
+    <server>
+      <id>${serverId}</id>
+      <passphrase>${server_passphrase}</passphrase>
     </server>
 EOF
   else

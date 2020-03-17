@@ -72,6 +72,7 @@ for serverId in $(jq -r '.maven.files["settings.xml"] | .servers | keys | .[]' "
   server="$(jq -c '.maven.files["settings.xml"].servers["'"${serverId}"'"]' "${config}")"
   usernamePassPath="$(jq -r '.username.pass' <<< "${server}")"
   passwordPassPath="$(jq -r '.password.pass' <<< "${server}")"
+  passphrasePassPath="$(jq -r '.passphrase.pass' <<< "${server}")"
   if [[ -f "${PASSWORD_STORE_DIR}/${usernamePassPath}.gpg" ]] \
     && [[ -f "${PASSWORD_STORE_DIR}/${passwordPassPath}.gpg" ]]; then
     
@@ -124,6 +125,16 @@ for serverId in $(jq -r '.maven.files["settings.xml"] | .servers | keys | .[]' "
         printf "  Deployed: %s\n" "${passwordDeployed}"
         echo "  (Note that no Nexus URL was set for this server or the token was impossible to get)"
       fi
+    fi
+  elif [[ -f "${PASSWORD_STORE_DIR}/${passphrasePassPath}.gpg" ]]; then
+    passphraseInPass="$(pass "${passphrasePassPath}")"
+    passphraseDeployed="$(jq -r '.servers[] | select(.id == "'"${serverId}"'").password' "${settings}" | base64 -d)"
+    if [[ "${passphraseInPass}" == "${passphraseDeployed}" ]]; then
+      echo "INFO: Deployed passphrase for server ${serverId} is identical to the one in pass"
+    else
+      echo "ERROR: Deployed passphrase for server ${serverId} is different from the one in pass"
+      printf "  In pass : %s\n" "${passphraseInPass}"
+      printf "  Deployed: %s\n" "${passphraseDeployed}"
     fi
   fi
 done
