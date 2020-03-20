@@ -1343,18 +1343,10 @@ unclassified:
         url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
     - jsUrl:
         url: "/openj9/userContent/theme/title.js"
-security:
-  apiToken:
-    creationOfLegacyTokenEnabled: false
-    tokenGenerationOnCreationEnabled: false
-    usageStatisticsEnabled: true
-  queueItemAuthenticator:
-    authenticators:
-    - global:
-        strategy: "triggeringUsersAuthorizationStrategy"
-  sSHD:
-    port: -1
 tool:
+  xvfbInstallation:
+    installations:
+    - name: "default"
   jdk:
     installations:
     - name: "openjdk-latest"
@@ -1438,3 +1430,14 @@ tool:
     installations:
     - name: "Default"
       home: "git"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  queueItemAuthenticator:
+    authenticators:
+    - global:
+        strategy: "triggeringUsersAuthorizationStrategy"
+  sSHD:
+    port: -1

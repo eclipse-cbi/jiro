@@ -818,3 +818,7 @@ unclassified:
         credentialsId: "b87c83da-2209-4958-9666-6a5b0e9a071b"
         manageHooks: false
 
+tool:
+  xvfbInstallation:
+    installations:
+    - name: "default"
