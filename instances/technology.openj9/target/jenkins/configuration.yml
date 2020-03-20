@@ -83,8 +83,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-5"
       nodeDescription: "openj9_ci_5 - l490vp082_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
-        ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -520,8 +519,8 @@ jenkins:
             \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar\""
   - permanent:
-      name: "cent7p8j91"
-      nodeDescription: "cent7p8j91 - UNB CentOS 7 p8le"
+      name: "cent7-ppcle-1"
+      nodeDescription: "cent7-ppcle-1 - UNB CentOS 7 p8le"
       labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7
         ci.role.build"
       remoteFS: '/home/jenkins'
@@ -531,7 +530,77 @@ jenkins:
       launcher:
         command:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent7p8j91 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent7-ppcle-1 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "cent7-ppcle-2"
+      nodeDescription: "cent7-ppcle-2 - UNB CentOS 7 p8le"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7
+        ci.role.build"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent7-ppcle-2 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "cent7-ppcle-3"
+      nodeDescription: "cent7-ppcle-3 - UNB CentOS 7 p8le"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7
+        ci.role.build"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent7-ppcle-3 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "cent7-ppcle-4"
+      nodeDescription: "cent7-ppcle-4 - UNB CentOS 7 p8le"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7
+        ci.role.build"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent7-ppcle-4 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "cent7-ppcle-5"
+      nodeDescription: "cent7-ppcle-5 - UNB CentOS 7 p8le"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7
+        ci.role.build"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent7-ppcle-5 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "cent7-ppcle-6"
+      nodeDescription: "cent7-ppcle-6 - UNB CentOS 7 p8le"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7
+        ci.role.build"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent7-ppcle-6 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'\""
   - permanent:
       name: "ub16p8j91"
@@ -1077,37 +1146,25 @@ jenkins:
             containers:
             - name: jnlp
               volumeMounts:
-              - name: settings-security-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings-security.xml
                 subPath: settings-security.xml
                 readOnly: true
-              - name: settings-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings.xml
                 subPath: settings.xml
                 readOnly: true
-              - name: toolchains-xml
+              - name: m2-dir
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
             volumes:
-            - name: settings-security-xml
+            - name: m2-secret-dir
               secret:
                 secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: toolchains-xml
+            - name: m2-dir
               configMap:
                 name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
       - containers:
         - image: eclipsecbijenkins/jipp-migration-agent:3.35
           alwaysPullImage: true
@@ -1164,37 +1221,25 @@ jenkins:
             containers:
             - name: jnlp
               volumeMounts:
-              - name: settings-security-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings-security.xml
                 subPath: settings-security.xml
                 readOnly: true
-              - name: settings-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings.xml
                 subPath: settings.xml
                 readOnly: true
-              - name: toolchains-xml
+              - name: m2-dir
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
             volumes:
-            - name: settings-security-xml
+            - name: m2-secret-dir
               secret:
                 secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: toolchains-xml
+            - name: m2-dir
               configMap:
                 name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
       - containers:
         - image: eclipsecbijenkins/ui-tests-agent:3.35
           alwaysPullImage: true
@@ -1251,37 +1296,25 @@ jenkins:
             containers:
             - name: jnlp
               volumeMounts:
-              - name: settings-security-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings-security.xml
                 subPath: settings-security.xml
                 readOnly: true
-              - name: settings-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings.xml
                 subPath: settings.xml
                 readOnly: true
-              - name: toolchains-xml
+              - name: m2-dir
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
             volumes:
-            - name: settings-security-xml
+            - name: m2-secret-dir
               secret:
                 secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: toolchains-xml
+            - name: m2-dir
               configMap:
                 name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
 unclassified:
   slackNotifier:
     teamDomain: "openj9"
