@@ -39,7 +39,6 @@ fi
 
 CONFIG="${INSTANCE}/target/config.json"
 SETTINGS_SECURITY_XML="$(dirname "${CONFIG}")/.secrets/maven/settings-security.xml"
-SETTINGS_XML="$(dirname "${CONFIG}")/.secrets/maven/settings.xml"
 
 gen_pw() {
   # If pwgen is not installed, use /dev/urandom instead
@@ -141,36 +140,39 @@ EOF
 }
 
 gen_servers() {
-  local config="${1}"
+  local settingsFilename="${1}"
+  local config="${2}"
   echo "  <servers>"
 
   local serverId
-  for serverId in $(jq -r '.maven.files["settings.xml"] | .servers | keys | .[]' "${config}"); do
-    gen_server "${serverId}" "$(jq -c '.maven.files["settings.xml"].servers["'"${serverId}"'"]' "${config}")"
+  for serverId in $(jq -r '.maven.files["'"${settingsFilename}"'"] | .servers | keys | .[]' "${config}"); do
+    gen_server "${serverId}" "$(jq -c '.maven.files["'"${settingsFilename}"'"].servers["'"${serverId}"'"]' "${config}")"
   done
 
   echo "  </servers>"
 }
 
 gen_mirrors() {
-  local config="${1}"
+  local settingsFilename="${1}"
+  local config="${2}"
   echo "  <mirrors>"
 
   local mirrorId
-  for mirrorId in $(jq -r '.maven.files["settings.xml"] | .mirrors | keys | .[]' "${config}"); do
-    gen_mirror "${mirrorId}" "$(jq -c '.maven.files["settings.xml"].mirrors["'"${mirrorId}"'"]' "${config}")";
+  for mirrorId in $(jq -r '.maven.files["'"${settingsFilename}"'"] | .mirrors | keys | .[]' "${config}"); do
+    gen_mirror "${mirrorId}" "$(jq -c '.maven.files["'"${settingsFilename}"'"].mirrors["'"${mirrorId}"'"]' "${config}")";
   done
 
   echo "  </mirrors>"
 }
 
 gen_settings() {
-  local config="${1}"
+  local settingsFilename="${1}"
+  local config="${2}"
   echo '<?xml version="1.0" encoding="UTF-8"?>'
   echo "<settings>"
 
-  gen_servers "${config}"
-  gen_mirrors "${config}"
+  gen_servers "${settingsFilename}" "${config}"
+  gen_mirrors "${settingsFilename}" "${config}"
 
   echo "</settings>"
 }
@@ -180,7 +182,9 @@ if [[ "$(jq -r '.maven.generate' "${CONFIG}")" == "true" ]]; then
   mkdir -p "$(dirname "${SETTINGS_SECURITY_XML}")"
   gen_settings_security 32 > "${SETTINGS_SECURITY_XML}"
 
-  >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating Maven settings.xml file"
-  mkdir -p "$(dirname "${SETTINGS_XML}")"
-  gen_settings "${CONFIG}" > "${SETTINGS_XML}"
+  for settingsFilename in $(jq -r '.maven.files | keys - ["settings-security.xml"] | .[]' "${CONFIG}"); do
+    >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating Maven ${settingsFilename} file"
+    mkdir -p "$(dirname "${settingsFilename}")"
+    gen_settings "${settingsFilename}" "${CONFIG}" > "$(dirname "${CONFIG}")/.secrets/maven/${settingsFilename}"
+  done
 fi
