@@ -1370,6 +1370,7 @@ data:
       xvfbInstallation:
         installations:
         - name: "default"
+          home: ""
       jdk:
         installations:
         - name: "openjdk-latest"

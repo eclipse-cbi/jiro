@@ -822,3 +822,4 @@ tool:
   xvfbInstallation:
     installations:
     - name: "default"
+      home: ""
