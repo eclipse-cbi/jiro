@@ -56,10 +56,11 @@ local permissions = import 'permissions.libsonnet';
                     mountPath: currentAgent.maven.home + "/" + self.subPath,
                     subPath: "settings-security.xml"
                   },
+                ] + [
                   {
                     mountPath: currentAgent.maven.home + "/" + self.subPath,
-                    subPath: "settings.xml"
-                  },
+                    subPath: settingsFile,
+                  } for settingsFile in std.objectFields($.maven.files)
                 ],
               },
               {
