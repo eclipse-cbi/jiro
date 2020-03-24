@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.sw360.antenna",
+         "org.eclipse.cbi.jiro/project.shortname": "antenna"
+      },
+      "name": "antenna",
+      "namespace": "antenna"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "antenna"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "antenna",
+         "namespace": "antenna"
+      }
+   ]
+}
