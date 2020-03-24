@@ -21,7 +21,7 @@ DOCKERTOOLS_PATH=.dockertools
 .PHONY: all clean all_images push_all_images k8s_all_instances deploy_all_instances clean_all_instances tests jenkins-master-base push_jenkins-master-base $(IMAGE_INSTANCES) $(K8S_INSTANCES) $(PUSH_INSTANCES) $(DEPLOY_INSTANCES) $(CLEAN_INSTANCES) $(DELETE_INSTANCES) $(GENCONFIG_INSTANCES) error_resources error_pages deploy_error_pages clone_jsonnet dockertools
 
 dockertools:
-	if [[ -d "${DOCKERTOOLS_PATH}" ]]; then \
+	if [ -d "${DOCKERTOOLS_PATH}" ]; then \
 	  git -C "${DOCKERTOOLS_PATH}" fetch -f --no-tags --progress --depth 1 https://github.com/eclipse-cbi/dockertools.git +refs/heads/master:refs/remotes/origin/master; \
 	  git -C "${DOCKERTOOLS_PATH}" checkout -f "$$(git -C "${DOCKERTOOLS_PATH}" rev-parse refs/remotes/origin/master)"; \
 	else \
