@@ -1,231 +1,634 @@
 {
-  "deployment": {
-    "host": "ci-staging.eclipse.org",
-    "jnlpPort": 50000,
-    "prefix": "/releng",
-    "uiPort": 8080,
-    "url": "https://ci-staging.eclipse.org/releng"
-  },
-  "docker": {
-    "agent": {
-      "defaultImage": {
-        "name": "eclipsecbijenkins/jenkins-agent",
-        "sha256": "5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340",
-        "tag": "3.35"
+   "clouds": [
+      {
+         "name": "kubernetes",
+         "namespace": "releng",
+         "podRetention": "never",
+         "templates": [
+            {
+               "agentWorkdir": "/home/jenkins/agent",
+               "docker": {
+                  "image": {
+                     "name": "basic-agent",
+                     "tag": "3.35"
+                  },
+                  "repository": "eclipsecbijenkins"
+               },
+               "env": [
+                  {
+                     "name": "JAVA_OPTS",
+                     "value": ""
+                  },
+                  {
+                     "name": "JNLP_PROTOCOL_OPTS",
+                     "value": "-XshowSettings:vm -Xmx256m -Djdk.nativeCrypto=false -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  },
+                  {
+                     "name": "JAVA_TOOL_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+                  },
+                  {
+                     "name": "OPENJ9_JAVA_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
+                  },
+                  {
+                     "name": "IBM_JAVA_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
+                  },
+                  {
+                     "name": "_JAVA_OPTIONS",
+                     "value": "-XX:MaxRAMPercentage=64.0"
+                  }
+               ],
+               "home": "/home/jenkins",
+               "jnlpAgentScript": {
+                  "name": "jenkins-agent",
+                  "version": "3.35-5"
+               },
+               "kubernetes": {
+                  "resources": {
+                     "cpu": {
+                        "limit": "2000m",
+                        "request": "1000m"
+                     },
+                     "memory": {
+                        "limit": "4096Mi",
+                        "request": "4096Mi"
+                     }
+                  },
+                  "volumes": [
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-deploy-ossrh-jdt.xml",
+                              "subPath": "settings-deploy-ossrh-jdt.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-deploy-ossrh-pde.xml",
+                              "subPath": "settings-deploy-ossrh-pde.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-security.xml",
+                              "subPath": "settings-security.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings.xml",
+                              "subPath": "settings.xml"
+                           }
+                        ],
+                        "name": "m2-secret-dir",
+                        "secret": {
+                           "name": "m2-secret-dir"
+                        }
+                     },
+                     {
+                        "configMap": {
+                           "name": "m2-dir"
+                        },
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/toolchains.xml",
+                              "subPath": "toolchains.xml"
+                           }
+                        ],
+                        "name": "m2-dir"
+                     }
+                  ]
+               },
+               "labels": [ ],
+               "maven": {
+                  "home": "/home/jenkins/.m2"
+               },
+               "mode": "NORMAL",
+               "name": "basic-agent",
+               "remoting": {
+                  "jar": "/usr/share/jenkins/agent.jar",
+                  "version": "3.35"
+               }
+            },
+            {
+               "agentWorkdir": "/home/jenkins/agent",
+               "docker": {
+                  "image": {
+                     "name": "jipp-migration-agent",
+                     "tag": "3.35"
+                  },
+                  "repository": "eclipsecbijenkins"
+               },
+               "env": [
+                  {
+                     "name": "JAVA_OPTS",
+                     "value": ""
+                  },
+                  {
+                     "name": "JNLP_PROTOCOL_OPTS",
+                     "value": "-XshowSettings:vm -Xmx256m -Djdk.nativeCrypto=false -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  },
+                  {
+                     "name": "JAVA_TOOL_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+                  },
+                  {
+                     "name": "OPENJ9_JAVA_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
+                  },
+                  {
+                     "name": "IBM_JAVA_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
+                  },
+                  {
+                     "name": "_JAVA_OPTIONS",
+                     "value": "-XX:MaxRAMPercentage=64.0"
+                  }
+               ],
+               "home": "/home/jenkins",
+               "jnlpAgentScript": {
+                  "name": "jenkins-agent",
+                  "version": "3.35-5"
+               },
+               "kubernetes": {
+                  "resources": {
+                     "cpu": {
+                        "limit": "2000m",
+                        "request": "1000m"
+                     },
+                     "memory": {
+                        "limit": "4096Mi",
+                        "request": "4096Mi"
+                     }
+                  },
+                  "volumes": [
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-deploy-ossrh-jdt.xml",
+                              "subPath": "settings-deploy-ossrh-jdt.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-deploy-ossrh-pde.xml",
+                              "subPath": "settings-deploy-ossrh-pde.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-security.xml",
+                              "subPath": "settings-security.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings.xml",
+                              "subPath": "settings.xml"
+                           }
+                        ],
+                        "name": "m2-secret-dir",
+                        "secret": {
+                           "name": "m2-secret-dir"
+                        }
+                     },
+                     {
+                        "configMap": {
+                           "name": "m2-dir"
+                        },
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/toolchains.xml",
+                              "subPath": "toolchains.xml"
+                           }
+                        ],
+                        "name": "m2-dir"
+                     }
+                  ]
+               },
+               "labels": [
+                  "migration",
+                  "jipp-migration"
+               ],
+               "maven": {
+                  "home": "/home/jenkins/.m2"
+               },
+               "mode": "EXCLUSIVE",
+               "name": "jipp-migration-agent",
+               "remoting": {
+                  "jar": "/usr/share/jenkins/agent.jar",
+                  "version": "3.35"
+               }
+            },
+            {
+               "agentWorkdir": "/home/jenkins/agent",
+               "docker": {
+                  "image": {
+                     "name": "ui-tests-agent",
+                     "tag": "3.35"
+                  },
+                  "repository": "eclipsecbijenkins"
+               },
+               "env": [
+                  {
+                     "name": "JAVA_OPTS",
+                     "value": ""
+                  },
+                  {
+                     "name": "JNLP_PROTOCOL_OPTS",
+                     "value": "-XshowSettings:vm -Xmx256m -Djdk.nativeCrypto=false -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  },
+                  {
+                     "name": "JAVA_TOOL_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+                  },
+                  {
+                     "name": "OPENJ9_JAVA_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
+                  },
+                  {
+                     "name": "IBM_JAVA_OPTIONS",
+                     "value": "-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
+                  },
+                  {
+                     "name": "_JAVA_OPTIONS",
+                     "value": "-XX:MaxRAMPercentage=64.0"
+                  }
+               ],
+               "home": "/home/jenkins",
+               "jnlpAgentScript": {
+                  "name": "jenkins-agent",
+                  "version": "3.35-5"
+               },
+               "kubernetes": {
+                  "resources": {
+                     "cpu": {
+                        "limit": "2000m",
+                        "request": "1000m"
+                     },
+                     "memory": {
+                        "limit": "4096Mi",
+                        "request": "4096Mi"
+                     }
+                  },
+                  "volumes": [
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-deploy-ossrh-jdt.xml",
+                              "subPath": "settings-deploy-ossrh-jdt.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-deploy-ossrh-pde.xml",
+                              "subPath": "settings-deploy-ossrh-pde.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-security.xml",
+                              "subPath": "settings-security.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings.xml",
+                              "subPath": "settings.xml"
+                           }
+                        ],
+                        "name": "m2-secret-dir",
+                        "secret": {
+                           "name": "m2-secret-dir"
+                        }
+                     },
+                     {
+                        "configMap": {
+                           "name": "m2-dir"
+                        },
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/toolchains.xml",
+                              "subPath": "toolchains.xml"
+                           }
+                        ],
+                        "name": "m2-dir"
+                     }
+                  ]
+               },
+               "labels": [
+                  "ui-test",
+                  "ui-tests"
+               ],
+               "maven": {
+                  "home": "/home/jenkins/.m2"
+               },
+               "mode": "EXCLUSIVE",
+               "name": "ui-tests-agent",
+               "remoting": {
+                  "jar": "/usr/share/jenkins/agent.jar",
+                  "version": "3.35"
+               }
+            }
+         ]
       }
-    },
-    "master": {
-      "home": "/var/jenkins_home",
-      "image": "eclipsecbijenkins/releng",
-      "imageTag": "2.190.1",
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.190.1",
-      "pluginroot": "/var/cache/jenkins/plugins",
-      "ref": "/usr/share/jenkins/ref",
-      "updateCenter": "https://updates.jenkins.io",
-      "username": "jenkins",
-      "war": "/usr/share/jenkins/jenkins.war",
-      "webroot": "/var/cache/jenkins/war",
-      "imageSha256": "b4cc823653694138dd2041e1154dcb078a9ac1ab65bc1971034cb764b5dbe447"
-    },
-    "repository": "eclipsecbijenkins"
-  },
-  "jenkins": {
-    "actualRemotingVersion": "3.35",
-    "actualVersion": "2.190.1",
-    "agentConnectionTimeout": 180,
-    "maxConcurrency": 8,
-    "permissions": [
-      {
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ],
-        "principal": "anonymous"
+   ],
+   "deployment": {
+      "controlPort": 8081,
+      "host": "ci-staging.eclipse.org",
+      "jnlpPort": 50000,
+      "prefix": "/releng",
+      "uiPort": 8080,
+      "url": "https://ci-staging.eclipse.org/releng"
+   },
+   "docker": {
+      "master": {
+         "home": "/var/jenkins_home",
+         "image": "docker.io/eclipsecbijenkins/releng",
+         "imageTag": "2.190.1",
+         "parentImage": "docker.io/eclipsecbijenkins/jenkins-master-base:2.190.1",
+         "pluginroot": "/var/cache/jenkins/plugins",
+         "ref": "/usr/share/jenkins/ref",
+         "updateCenter": "https://updates.jenkins.io",
+         "username": "jenkins",
+         "war": "/usr/share/jenkins/jenkins.war",
+         "webroot": "/var/cache/jenkins/war"
       },
-      {
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ],
-        "principal": "common"
+      "repository": "docker.io/eclipsecbijenkins"
+   },
+   "jenkins": {
+      "actualVersion": "2.190.1",
+      "agentConnectionTimeout": 180,
+      "maxConcurrency": 8,
+      "permissions": [
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Build",
+               "Credentials/View",
+               "Job/Build",
+               "Job/Cancel",
+               "Job/Configure",
+               "Job/Create",
+               "Job/Delete",
+               "Job/Move",
+               "Job/Read",
+               "Job/Workspace",
+               "Run/Delete",
+               "Run/Replay",
+               "Run/Update",
+               "SCM/Tag",
+               "View/Configure",
+               "View/Create",
+               "View/Delete",
+               "View/Read",
+               "Gerrit/ManualTrigger",
+               "Gerrit/Retrigger"
+            ],
+            "principal": "eclipse.platform.releng"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Build",
+               "Credentials/View",
+               "Job/Build",
+               "Job/Cancel",
+               "Job/Configure",
+               "Job/Create",
+               "Job/Delete",
+               "Job/Move",
+               "Job/Read",
+               "Job/Workspace",
+               "Run/Delete",
+               "Run/Replay",
+               "Run/Update",
+               "SCM/Tag",
+               "View/Configure",
+               "View/Create",
+               "View/Delete",
+               "View/Read",
+               "Gerrit/ManualTrigger",
+               "Gerrit/Retrigger"
+            ],
+            "principal": "eclipse.platform"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Connect",
+               "Agent/Disconnect"
+            ],
+            "principal": "sravankumarl@in.ibm.com"
+         }
+      ],
+      "remotingVersion": "3.35",
+      "staticAgentCount": 0,
+      "theme": "quicksilver",
+      "timezone": "America/Toronto",
+      "version": "latest"
+   },
+   "kubernetes": {
+      "agents": {
+         "defaultResources": {
+            "cpu": {
+               "limit": "2000m",
+               "request": "1000m"
+            },
+            "memory": {
+               "limit": "4096Mi",
+               "request": "4096Mi"
+            }
+         },
+         "namespace": "releng"
       },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "admins"
-      },
-      {
-        "grantedPermissions": [
-          "Agent/Build",
-          "Credentials/View",
-          "Job/Build",
-          "Job/Cancel",
-          "Job/Configure",
-          "Job/Create",
-          "Job/Delete",
-          "Job/Move",
-          "Job/Read",
-          "Job/Workspace",
-          "Run/Delete",
-          "Run/Replay",
-          "Run/Update",
-          "SCM/Tag",
-          "View/Configure",
-          "View/Create",
-          "View/Delete",
-          "View/Read",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger"
-        ],
-        "principal": "eclipse.platform.releng"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ],
-        "principal": "anonymous"
-      },
-      {
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ],
-        "principal": "common"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "admins"
-      },
-      {
-        "grantedPermissions": [
-          "Agent/Build",
-          "Credentials/View",
-          "Job/Build",
-          "Job/Cancel",
-          "Job/Configure",
-          "Job/Create",
-          "Job/Delete",
-          "Job/Move",
-          "Job/Read",
-          "Job/Workspace",
-          "Run/Delete",
-          "Run/Replay",
-          "Run/Update",
-          "SCM/Tag",
-          "View/Configure",
-          "View/Create",
-          "View/Delete",
-          "View/Read",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger"
-        ],
-        "principal": "eclipse.platform"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ],
-        "principal": "anonymous"
-      },
-      {
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ],
-        "principal": "common"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "admins"
-      },
-      {
-        "grantedPermissions": [
-          "Agent/Connect",
-          "Agent/Disconnect"
-        ],
-        "principal": "sravankumarl@in.ibm.com"
+      "master": {
+         "namespace": "releng",
+         "probe": {
+            "liveness": {
+               "delaySeconds": 480,
+               "failureThreshold": 5,
+               "periodSeconds": 30,
+               "timeoutSeconds": 30
+            },
+            "readiness": {
+               "delaySeconds": 1,
+               "failureThreshold": 5,
+               "periodSeconds": 5,
+               "timeoutSeconds": 10
+            }
+         },
+         "resources": {
+            "cpu": {
+               "limit": "2800m",
+               "request": "1400m"
+            },
+            "memory": {
+               "limit": "3072Mi",
+               "request": "3072Mi"
+            }
+         },
+         "stsName": "releng"
       }
-    ],
-    "staticAgentCount": 0,
-    "theme": "quicksilver",
-    "timezone": "America/Toronto",
-    "version": "latest"
-  },
-  "kubernetes": {
-    "agents": {
-      "defaultResources": {
-        "cpu": {
-          "limit": "2000m",
-          "request": "1000m"
-        },
-        "memory": {
-          "limit": "4096Mi",
-          "request": "4096Mi"
-        }
+   },
+   "maven": {
+      "files": {
+         "settings-deploy-ossrh-jdt.xml": {
+            "mirrors": {
+               "eclipse.maven.central.mirror": {
+                  "mirrorOf": "central",
+                  "name": "Eclipse Central Proxy",
+                  "url": "https://repo.eclipse.org/content/repositories/maven_central/"
+               }
+            },
+            "servers": {
+               "gpg.passphrase": {
+                  "passphrase": {
+                     "pass": "bots/eclipse.jdt/gpg/passphrase"
+                  }
+               },
+               "ossrh": {
+                  "nexusProUrl": "https://oss.sonatype.org",
+                  "password": {
+                     "pass": "bots/eclipse.jdt/oss.sonatype.org/password"
+                  },
+                  "username": {
+                     "pass": "bots/eclipse.jdt/oss.sonatype.org/username"
+                  }
+               },
+               "repo.eclipse.org": {
+                  "password": {
+                     "pass": "nexus/password"
+                  },
+                  "username": {
+                     "pass": "nexus/username"
+                  }
+               }
+            }
+         },
+         "settings-deploy-ossrh-pde.xml": {
+            "mirrors": {
+               "eclipse.maven.central.mirror": {
+                  "mirrorOf": "central",
+                  "name": "Eclipse Central Proxy",
+                  "url": "https://repo.eclipse.org/content/repositories/maven_central/"
+               }
+            },
+            "servers": {
+               "gpg.passphrase": {
+                  "passphrase": {
+                     "pass": "bots/eclipse.pde/gpg/passphrase"
+                  }
+               },
+               "ossrh": {
+                  "nexusProUrl": "https://oss.sonatype.org",
+                  "password": {
+                     "pass": "bots/eclipse.pde/oss.sonatype.org/password"
+                  },
+                  "username": {
+                     "pass": "bots/eclipse.pde/oss.sonatype.org/username"
+                  }
+               },
+               "repo.eclipse.org": {
+                  "password": {
+                     "pass": "nexus/password"
+                  },
+                  "username": {
+                     "pass": "nexus/username"
+                  }
+               }
+            }
+         },
+         "settings-security.xml": {
+            "master": {
+               "pass": "bots/eclipse.platform.releng/apache-maven-security-settings"
+            }
+         },
+         "settings.xml": {
+            "mirrors": {
+               "eclipse.maven.central.mirror": {
+                  "mirrorOf": "central",
+                  "name": "Eclipse Central Proxy",
+                  "url": "https://repo.eclipse.org/content/repositories/maven_central/"
+               }
+            },
+            "servers": {
+               "gpg.passphrase": {
+                  "passphrase": {
+                     "pass": "bots/eclipse.platform.releng/gpg/passphrase"
+                  }
+               },
+               "ossrh": {
+                  "nexusProUrl": "https://oss.sonatype.org",
+                  "password": {
+                     "pass": "bots/eclipse.platform.releng/oss.sonatype.org/password"
+                  },
+                  "username": {
+                     "pass": "bots/eclipse.platform.releng/oss.sonatype.org/username"
+                  }
+               },
+               "repo.eclipse.org": {
+                  "password": {
+                     "pass": "nexus/password"
+                  },
+                  "username": {
+                     "pass": "nexus/username"
+                  }
+               }
+            }
+         }
       },
-      "namespace": "releng"
-    },
-    "master": {
-      "namespace": "releng",
-      "probe": {
-        "liveness": {
-          "delaySeconds": 480,
-          "failureThreshold": 5,
-          "periodSeconds": 30,
-          "timeoutSeconds": 30
-        },
-        "readiness": {
-          "delaySeconds": 1,
-          "failureThreshold": 5,
-          "periodSeconds": 5,
-          "timeoutSeconds": 10
-        }
-      },
-      "resources": {
-        "cpu": {
-          "limit": "2800m",
-          "request": "1400m"
-        },
-        "memory": {
-          "limit": "3072Mi",
-          "request": "3072Mi"
-        }
-      },
-      "stsName": "releng"
-    }
-  },
-  "maven": {
-    "files": {
-      "settings-security.xml": {
-        "volumeName": "m2-secret-dir",
-        "volumeType": "Secret"
-      },
-      "settings.xml": {
-        "volumeName": "m2-secret-dir",
-        "volumeType": "Secret"
-      },
-      "toolchains.xml": {
-        "volumeName": "m2-dir",
-        "volumeType": "ConfigMap"
+      "generate": true
+   },
+   "project": {
+      "displayName": "Eclipse Platform Releng",
+      "fullName": "eclipse.platform.releng",
+      "resourcePacks": 4,
+      "shortName": "releng",
+      "unixGroupName": "eclipse.platform.releng"
+   },
+   "secrets": {
+      "gerrit-trigger-plugin": {
+         "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
+         "username": "genie.releng"
       }
-    },
-    "home": "/home/jenkins/.m2"
-  },
-  "project": {
-    "displayName": "Eclipse Platform Releng",
-    "fullName": "eclipse.platform.releng",
-    "resourcePacks": 4,
-    "shortName": "releng",
-    "unixGroupName": "eclipse.platform.releng"
-  },
-  "secrets": {
-    "gerrit-trigger-plugin": {
-      "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-      "username": "genie.releng"
-    }
-  }
+   }
 }
