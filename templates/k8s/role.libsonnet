@@ -4,17 +4,12 @@ local Kube = import "kube.libsonnet";
     rules: [
       {
         apiGroups: [""],
-        resources: ["pods"],
+        resources: ["pods", "pods/exec"],
         verbs: ["create","delete","get","list","patch","update","watch"],
       },
       {
         apiGroups: [""],
-        resources: ["pods/exec"],
-        verbs: ["create","delete","get","list","patch","update","watch"],
-      },
-      {
-        apiGroups: [""],
-        resources: ["pods/log"],
+        resources: ["pods/log", "events"],
         verbs: ["get","list","watch"],
       },
     ],
