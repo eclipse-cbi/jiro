@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "technology.dash"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.204.5"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.204.5"
+    org.eclipse.cbi.jiro/jenkins.version: "2.222.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.222.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "dash"
   namespace: "dash"
   name: jenkins-config
@@ -61,6 +61,7 @@ data:
             - "Job/Move:technology.dash"
             - "Job/Read:technology.dash"
             - "Job/Workspace:technology.dash"
+            - "Overall/Read:technology.dash"
             - "Run/Delete:technology.dash"
             - "Run/Replay:technology.dash"
             - "Run/Update:technology.dash"
@@ -98,7 +99,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: eclipsecbijenkins/basic-agent:3.36
+            - image: eclipsecbijenkins/basic-agent:4.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -173,7 +174,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: eclipsecbijenkins/jipp-migration-agent:3.36
+            - image: eclipsecbijenkins/jipp-migration-agent:4.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -248,7 +249,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: eclipsecbijenkins/ui-tests-agent:3.36
+            - image: eclipsecbijenkins/ui-tests-agent:4.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -430,8 +431,10 @@ data:
         installations:
         - name: "apache-maven-latest"
           home: "/opt/tools/apache-maven/latest"
-        - name: "apache-maven-3.6.2"
-          home: "/opt/tools/apache-maven/3.6.2"
+        - name: "apache-maven-3.6.3"
+          home: "/opt/tools/apache-maven/3.6.3"
+        - name: "apache-maven-3.6.0"
+          home: "/opt/tools/apache-maven/3.6.0"
         - name: "apache-maven-3.5.4"
           home: "/opt/tools/apache-maven/3.5.4"
         - name: "apache-maven-3.3.9"

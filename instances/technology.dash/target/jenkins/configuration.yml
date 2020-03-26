@@ -38,6 +38,7 @@ jenkins:
         - "Job/Move:technology.dash"
         - "Job/Read:technology.dash"
         - "Job/Workspace:technology.dash"
+        - "Overall/Read:technology.dash"
         - "Run/Delete:technology.dash"
         - "Run/Replay:technology.dash"
         - "Run/Update:technology.dash"
@@ -75,7 +76,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: eclipsecbijenkins/basic-agent:3.36
+        - image: eclipsecbijenkins/basic-agent:4.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -150,7 +151,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: eclipsecbijenkins/jipp-migration-agent:3.36
+        - image: eclipsecbijenkins/jipp-migration-agent:4.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -225,7 +226,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: eclipsecbijenkins/ui-tests-agent:3.36
+        - image: eclipsecbijenkins/ui-tests-agent:4.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -407,8 +408,10 @@ tool:
     installations:
     - name: "apache-maven-latest"
       home: "/opt/tools/apache-maven/latest"
-    - name: "apache-maven-3.6.2"
-      home: "/opt/tools/apache-maven/3.6.2"
+    - name: "apache-maven-3.6.3"
+      home: "/opt/tools/apache-maven/3.6.3"
+    - name: "apache-maven-3.6.0"
+      home: "/opt/tools/apache-maven/3.6.0"
     - name: "apache-maven-3.5.4"
       home: "/opt/tools/apache-maven/3.5.4"
     - name: "apache-maven-3.3.9"
