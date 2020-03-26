@@ -53,7 +53,7 @@ waitReadyReplicas() {
 
 runningBuilds() {
   local url="${1}"
-  curl -gSs --user "$(cat "${SCRIPT_FOLDER}"/.jenkinscreds)" "${url}"'/computer/api/json?depth=2&tree=computer[displayName,executors[currentExecutable[*]],oneOffExecutors[currentExecutable[*]]]' | jq -c '.computer | map({name: .displayName?, executors: (.executors? + .oneOffExecutors?) | map(select(.currentExecutable != null)) | map(.currentExecutable | {name: .fullDisplayName, url: .url}) })'
+  curl --retry-connrefused --retry 10 -gSs --user "$(cat "${SCRIPT_FOLDER}"/.jenkinscreds)" "${url}"'/computer/api/json?depth=2&tree=computer[displayName,executors[currentExecutable[*]],oneOffExecutors[currentExecutable[*]]]' | jq -c '.computer | map({name: .displayName?, executors: (.executors? + .oneOffExecutors?) | map(select(.currentExecutable != null)) | map(.currentExecutable | {name: .fullDisplayName, url: .url}) })'
 }
 
 if [[ ! -f ${SCRIPT_FOLDER}/.jenkinscreds ]]; then
@@ -66,7 +66,7 @@ fi
 
 echo "INFO: Safe restarting Jenkins @ ${url}"
 echo "INFO: Putting Jenkins instance in quiet mode"
-"${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" quiet-down 
+"${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" quiet-down || :
 
 builds=$(runningBuilds "${url}")
 buildsCount=$(echo "${builds}" | jq -r 'map(.executors[]) | length')
