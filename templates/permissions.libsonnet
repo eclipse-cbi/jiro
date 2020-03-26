@@ -37,6 +37,7 @@
     "Job/Move",
     "Job/Read",
     "Job/Workspace",
+    "Overall/Read",
     "Run/Delete",
     "Run/Replay",
     "Run/Update",
