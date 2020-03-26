@@ -1,0 +1,188 @@
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+jenkins:
+  numExecutors: 0
+  scmCheckoutRetryCount: 2
+  mode: EXCLUSIVE
+  systemMessage: ""
+
+  disableRememberMe: false
+  agentProtocols:
+    - "JNLP4-connect"
+    - "Ping"
+
+  authorizationStrategy:
+    projectMatrix:
+      permissions:
+        {{> permissions }}
+
+  markupFormatter: rawHtml
+  crumbIssuer:
+    standard:
+       excludeClientIPFromCrumb: false
+  remotingSecurity:
+    enabled: true
+
+  securityRealm:
+    ldap:
+      configurations:
+        - displayNameAttributeName: cn
+          groupSearchBase: ou=group
+          rootDN: dc=eclipse,dc=org
+          server: ldapmaster
+          userSearch: mail={0}
+          mailAddressAttributeName: mail
+
+  clouds:
+  {{#each clouds}}
+  - kubernetes:
+      name: "{{this.name}}"
+      containerCapStr: "{{../jenkins.maxConcurrency}}"
+      jenkinsUrl: "http://jenkins-ui.{{../kubernetes.master.namespace}}.svc.cluster.local{{../deployment.prefix}}"
+      jenkinsTunnel: "jenkins-discovery.{{../kubernetes.master.namespace}}.svc.cluster.local:{{../deployment.jnlpPort}}"
+      maxRequestsPerHostStr: "32"
+      namespace: "{{this.namespace}}"
+      podRetention: "never"
+      templates:
+      {{#each templates}}
+      - containers:
+        - image: {{this.docker.repository}}/{{this.docker.image.name}}:{{this.docker.image.tag}}
+          alwaysPullImage: true
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          resourceLimitCpu: "{{this.kubernetes.resources.cpu.limit}}"
+          resourceRequestCpu: "{{this.kubernetes.resources.cpu.request}}"
+          resourceLimitMemory: "{{this.kubernetes.resources.memory.limit}}"
+          resourceRequestMemory: "{{this.kubernetes.resources.memory.request}}"
+          ttyEnabled: true
+          command: ""
+          args: ""
+        instanceCap: 5
+        name: "{{this.name}}"
+        namespace: "{{../namespace}}"
+        nodeUsageMode: {{this.mode}}
+        label: "{{#each this.labels}}{{this}}{{#unless @last}} {{/unless}}{{/each}}"
+        envVars:
+        - envVar:
+            key: "MAVEN_OPTS"
+            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+        - envVar:
+            key: "MAVEN_CONFIG"
+            value: "-B -e"
+        volumes:
+        - persistentVolumeClaim:
+            claimName: "tools-claim-jiro-{{../../project.shortName}}"
+            mountPath: "/opt/tools"
+            readOnly: true
+        - configMapVolume:
+            configMapName: "known-hosts"
+            mountPath: "/home/jenkins/.ssh/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/"
+        {{#if ../../maven}}
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/repository"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/wrapper"
+        {{/if}}
+        {{#if ../../gradle}}
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.gradle/caches"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.gradle/daemon"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.gradle/native"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.gradle/workers"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.gradle/wrapper"
+        {{/if}}
+        workspaceVolume:
+          emptyDirWorkspaceVolume:
+            memory: false
+        yaml: |
+          apiVersion: v1
+          kind: Pod
+          spec:
+            containers:
+            - name: jnlp
+              volumeMounts:
+              {{#each kubernetes.volumes}}
+              {{#each mounts}}
+              - name: {{../name}}
+                mountPath: {{mountPath}}
+                subPath: {{subPath}}
+                readOnly: true
+              {{/each}}
+              {{/each}}
+            volumes:
+            {{#each kubernetes.volumes}}
+            - name: {{name}}
+              {{#if configMap}}configMap{{/if}}{{#if secret}}secret{{/if}}:
+                {{#if configMap}}name: {{configMap.name}}{{/if}}{{#if secret}}secretName: {{secret.name}}{{/if}}
+            {{/each}}
+      {{/each}}
+  {{/each}}
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  queueItemAuthenticator:
+    authenticators:
+    - global:
+        strategy: "triggeringUsersAuthorizationStrategy"
+  sSHD:
+    port: -1
+
+unclassified:
+  location:
+    adminAddress: ci-admin@eclipse.org
+    url: {{deployment.url}}
+
+  mailer:
+    replyToAddress: ci-admin@eclipse.org
+    smtpHost: mail.eclipse.org
+
+  extendedEmailPublisher:
+    defaultContentType: "text/html"
+
+  globalDefaultFlowDurabilityLevel:
+    durabilityHint: PERFORMANCE_OPTIMIZED
+
+  simple-theme-plugin:
+    elements:
+    - cssUrl:
+        url: "{{deployment.prefix}}/userContent/theme/{{jenkins.theme}}.css"
+    - cssUrl:
+        url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+    - jsUrl:
+        url: "{{deployment.prefix}}/userContent/theme/title.js"
+
+tool:
+  {{> tools-jdk }}
+  {{> tools-ant }}
+  {{> tools-maven }}
+  git:
+    installations:
+    - name: "Default"
+      home: "git"

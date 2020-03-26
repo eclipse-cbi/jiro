@@ -1,40 +1,34 @@
-/* Copyright (c) 2020 Eclipse Foundation and others.
+/* Copyright (c) 2018 Eclipse Foundation and others.
  * This program and the accompanying materials are made available
  * under the terms of the Eclipse Public License 2.0
  * which is available at http://www.eclipse.org/legal/epl-v20.html,
  or the MIT License which is available at https://opensource.org/licenses/MIT.
  * SPDX-License-Identifier: EPL-2.0 OR MIT
  */
-.ui-refresh .page-header, 
-.ui-refresh A.page-header__brand-link{
+#header {
   background-color: #4c4d4e;
 }
-
-.ui-refresh IMG.page-header__brand-image {
+#header .logo {
+  margin-left: 0px;
+}
+#jenkins-head-icon {
+  display:none;
+}
+#jenkins-name-icon {
   content:url("https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg");
-  width: 6rem;
+  left: 0px;
+  height: 34px;
 }
-
-.ui-refresh .page-header__brand-name {
-  visibility: hidden;
-}
-
-.ui-refresh .page-header__brand-name:after {
+.logo:after {
   content: '{{project.displayName}}';
-  visibility: visible;
-  font-size: 18px;
-  line-height: 24px;
+  font-weight: bold;
+  font-size: 20px;
   position: relative;
-  left: -5ch;
-  color: #ffffff;
+  right: -140px;
+  top: 12px;
+  display: block;
+  color: white;
 }
-
-.ui-refresh A.page-header__brand-link:link,
-.ui-refresh A.page-header__brand-link:visited {
-  color: #ffffff;
-  text-decoration: none;
-}
-
 #breadcrumbBar div {
   background-color: #efefef;
 }
