@@ -50,5 +50,5 @@ if [[ ! -f ${SCRIPT_FOLDER}/.jenkinscreds ]]; then
   echo "${username}:${pw}" > "${SCRIPT_FOLDER}/.jenkinscreds"
   echo ""
 fi
-java -jar "${CLI_JAR}" -noKeyAuth -auth @"${SCRIPT_FOLDER}/.jenkinscreds" -s "${jenkinsUrl}" "${@:2}"
+java -jar "${CLI_JAR}" -auth @"${SCRIPT_FOLDER}/.jenkinscreds" -s "${jenkinsUrl}" "${@:2}"
 
