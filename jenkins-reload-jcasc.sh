@@ -47,8 +47,9 @@ if [[ -n "${previousConfigMapVersion:-}" ]]; then
       echo -n "."
       oc rsh -n "${namespace}" "${projectShortName}-0" cat "/etc/jenkins/jenkins.yaml" > "${remoteConfig}"
     done
-    echo -e "\nReloading Jenkins CasC file..."
-    "${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" "reload-jcasc-configuration" || :
+    echo -e "\n"
     rm "${remoteConfig}"
   fi
 fi
+echo "Reloading Jenkins CasC file..."
+"${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" "reload-jcasc-configuration" || :
