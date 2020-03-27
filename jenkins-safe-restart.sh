@@ -53,7 +53,7 @@ waitReadyReplicas() {
 
 runningBuilds() {
   local url="${1}"
-  curl --retry-connrefused --retry 10 -gSs --user "$(cat "${SCRIPT_FOLDER}"/.jenkinscreds)" "${url}"'/computer/api/json?depth=2&tree=computer[displayName,executors[currentExecutable[*]],oneOffExecutors[currentExecutable[*]]]' | jq -c '.computer | map({name: .displayName?, executors: (.executors? + .oneOffExecutors?) | map(select(.currentExecutable != null)) | map(.currentExecutable | {name: .fullDisplayName, url: .url}) })'
+  curl --retry 10 -gSs --user "$(cat "${SCRIPT_FOLDER}"/.jenkinscreds)" "${url}"'/computer/api/json?depth=2&tree=computer[displayName,executors[currentExecutable[*]],oneOffExecutors[currentExecutable[*]]]' | jq -c '.computer | map({name: .displayName?, executors: (.executors? + .oneOffExecutors?) | map(select(.currentExecutable != null)) | map(.currentExecutable | {name: .fullDisplayName, url: .url}) })'
 }
 
 if [[ ! -f ${SCRIPT_FOLDER}/.jenkinscreds ]]; then
