@@ -4,6 +4,7 @@ jiro + {
     stringData+: {
       "settings-deploy-ossrh-jdt.xml": importstr '.secrets/maven/settings-deploy-ossrh-jdt.xml',
       "settings-deploy-ossrh-pde.xml": importstr '.secrets/maven/settings-deploy-ossrh-pde.xml',
+      "settings-deploy-ossrh-releng.xml": importstr '.secrets/maven/settings-deploy-ossrh-releng.xml',
     },
   },
 }

@@ -68,6 +68,10 @@
                               "subPath": "settings-deploy-ossrh-pde.xml"
                            },
                            {
+                              "mountPath": "/home/jenkins/.m2/settings-deploy-ossrh-releng.xml",
+                              "subPath": "settings-deploy-ossrh-releng.xml"
+                           },
+                           {
                               "mountPath": "/home/jenkins/.m2/settings-security.xml",
                               "subPath": "settings-security.xml"
                            },
@@ -167,6 +171,10 @@
                            {
                               "mountPath": "/home/jenkins/.m2/settings-deploy-ossrh-pde.xml",
                               "subPath": "settings-deploy-ossrh-pde.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-deploy-ossrh-releng.xml",
+                              "subPath": "settings-deploy-ossrh-releng.xml"
                            },
                            {
                               "mountPath": "/home/jenkins/.m2/settings-security.xml",
@@ -271,6 +279,10 @@
                            {
                               "mountPath": "/home/jenkins/.m2/settings-deploy-ossrh-pde.xml",
                               "subPath": "settings-deploy-ossrh-pde.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-deploy-ossrh-releng.xml",
+                              "subPath": "settings-deploy-ossrh-releng.xml"
                            },
                            {
                               "mountPath": "/home/jenkins/.m2/settings-security.xml",
@@ -567,6 +579,39 @@
                   },
                   "username": {
                      "pass": "bots/eclipse.pde/oss.sonatype.org/username"
+                  }
+               },
+               "repo.eclipse.org": {
+                  "password": {
+                     "pass": "nexus/password"
+                  },
+                  "username": {
+                     "pass": "nexus/username"
+                  }
+               }
+            }
+         },
+         "settings-deploy-ossrh-releng.xml": {
+            "mirrors": {
+               "eclipse.maven.central.mirror": {
+                  "mirrorOf": "central",
+                  "name": "Eclipse Central Proxy",
+                  "url": "https://repo.eclipse.org/content/repositories/maven_central/"
+               }
+            },
+            "servers": {
+               "gpg.passphrase": {
+                  "passphrase": {
+                     "pass": "bots/eclipse.platform.releng/gpg/passphrase"
+                  }
+               },
+               "ossrh": {
+                  "nexusProUrl": "https://oss.sonatype.org",
+                  "password": {
+                     "pass": "bots/eclipse.platform.releng/oss.sonatype.org/password"
+                  },
+                  "username": {
+                     "pass": "bots/eclipse.platform.releng/oss.sonatype.org/username"
                   }
                },
                "repo.eclipse.org": {

@@ -59,6 +59,26 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         },
         mirrors: superSettings.mirrors,
       },
+      "settings-deploy-ossrh-releng.xml": {
+        servers: {
+          "repo.eclipse.org": superSettings.servers["repo.eclipse.org"],
+          ossrh: {
+            nexusProUrl: superSettings.servers.ossrh.nexusProUrl,
+            username: {
+              pass: "bots/eclipse.platform.releng/oss.sonatype.org/username",
+            },
+            password: {
+              pass: "bots/eclipse.platform.releng/oss.sonatype.org/password",
+            }
+          },
+          "gpg.passphrase": {
+            passphrase: {
+              pass: "bots/eclipse.platform.releng/gpg/passphrase"
+            }
+          }
+        },
+        mirrors: superSettings.mirrors,
+      },
     },
   }
 }
