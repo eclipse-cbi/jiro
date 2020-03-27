@@ -9,7 +9,7 @@
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
 # <templates/Dockerfile.tpl>
-FROM docker.io/eclipsecbijenkins/jenkins-master-base:2.190.1
+FROM docker.io/eclipsecbijenkins/jenkins-master-base:2.222.1
 
 EXPOSE 8080
 EXPOSE 50000

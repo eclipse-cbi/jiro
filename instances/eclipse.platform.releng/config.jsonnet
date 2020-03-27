@@ -11,6 +11,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     host: "ci-staging.eclipse.org"
   },
   jenkins+: {
+    version: "2.222.1",
     permissions+: 
       permissionsTemplates.projectPermissions("eclipse.platform", permissionsTemplates.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger"]) +
       permissionsTemplates.projectPermissions("sravankumarl@in.ibm.com", ["Agent/Connect", "Agent/Disconnect"])
