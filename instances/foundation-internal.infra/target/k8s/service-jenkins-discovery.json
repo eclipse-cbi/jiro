@@ -1,0 +1,25 @@
+{
+   "apiVersion": "v1",
+   "kind": "Service",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "foundation-internal.infra",
+         "org.eclipse.cbi.jiro/project.shortname": "infra"
+      },
+      "name": "jenkins-discovery",
+      "namespace": "foundation-internal-infra"
+   },
+   "spec": {
+      "ports": [
+         {
+            "name": "jnlp",
+            "port": 50000,
+            "protocol": "TCP",
+            "targetPort": 50000
+         }
+      ],
+      "selector": {
+         "org.eclipse.cbi.jiro/project.fullName": "foundation-internal.infra"
+      }
+   }
+}
