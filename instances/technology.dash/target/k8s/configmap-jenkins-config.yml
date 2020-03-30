@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "technology.dash"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.222.1"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.222.1"
+    org.eclipse.cbi.jiro/jenkins.version: "2.229"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.229"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "dash"
   namespace: "dash"
   name: jenkins-config
@@ -99,7 +99,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: eclipsecbijenkins/basic-agent:4.2
+            - image: eclipsecbijenkins/basic-agent:4.3
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -174,7 +174,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: eclipsecbijenkins/jipp-migration-agent:4.2
+            - image: eclipsecbijenkins/jipp-migration-agent:4.3
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -249,7 +249,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: eclipsecbijenkins/ui-tests-agent:4.2
+            - image: eclipsecbijenkins/ui-tests-agent:4.3
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

@@ -76,7 +76,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: eclipsecbijenkins/basic-agent:4.2
+        - image: eclipsecbijenkins/basic-agent:4.3
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -151,7 +151,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: eclipsecbijenkins/jipp-migration-agent:4.2
+        - image: eclipsecbijenkins/jipp-migration-agent:4.3
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -226,7 +226,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: eclipsecbijenkins/ui-tests-agent:4.2
+        - image: eclipsecbijenkins/ui-tests-agent:4.3
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
