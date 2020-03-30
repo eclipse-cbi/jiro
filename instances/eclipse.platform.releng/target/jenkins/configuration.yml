@@ -302,8 +302,10 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: eclipsecbijenkins/basic-agent:4.2
-          alwaysPullImage: true
+        - alwaysPullImage: true
+          args: ""
+          command: ""
+          image: eclipsecbijenkins/basic-agent:4.3
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -316,8 +318,6 @@ jenkins:
           resourceLimitMemory: "4096Mi"
           resourceRequestMemory: "4096Mi"
           ttyEnabled: true
-          command: ""
-          args: ""
         instanceCap: 5
         name: "basic-agent"
         namespace: "releng"
@@ -389,8 +389,10 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: eclipsecbijenkins/jipp-migration-agent:4.2
-          alwaysPullImage: true
+        - alwaysPullImage: true
+          args: ""
+          command: ""
+          image: eclipsecbijenkins/jipp-migration-agent:4.3
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -403,8 +405,6 @@ jenkins:
           resourceLimitMemory: "4096Mi"
           resourceRequestMemory: "4096Mi"
           ttyEnabled: true
-          command: ""
-          args: ""
         instanceCap: 5
         name: "jipp-migration-agent"
         namespace: "releng"
@@ -476,8 +476,10 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: eclipsecbijenkins/ui-tests-agent:4.2
-          alwaysPullImage: true
+        - alwaysPullImage: true
+          args: ""
+          command: ""
+          image: eclipsecbijenkins/ui-tests-agent:4.3
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -490,8 +492,6 @@ jenkins:
           resourceLimitMemory: "4096Mi"
           resourceRequestMemory: "4096Mi"
           ttyEnabled: true
-          command: ""
-          args: ""
         instanceCap: 5
         name: "ui-tests-agent"
         namespace: "releng"

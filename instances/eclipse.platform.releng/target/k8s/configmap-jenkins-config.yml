@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "eclipse.platform.releng"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.222.1"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.222.1"
+    org.eclipse.cbi.jiro/jenkins.version: "2.229"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.229"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "releng"
   namespace: "releng"
   name: jenkins-config
@@ -325,8 +325,10 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: eclipsecbijenkins/basic-agent:4.2
-              alwaysPullImage: true
+            - alwaysPullImage: true
+              args: ""
+              command: ""
+              image: eclipsecbijenkins/basic-agent:4.3
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -412,8 +414,10 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: eclipsecbijenkins/jipp-migration-agent:4.2
-              alwaysPullImage: true
+            - alwaysPullImage: true
+              args: ""
+              command: ""
+              image: eclipsecbijenkins/jipp-migration-agent:4.3
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
@@ -499,8 +503,10 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: eclipsecbijenkins/ui-tests-agent:4.2
-              alwaysPullImage: true
+            - alwaysPullImage: true
+              args: ""
+              command: ""
+              image: eclipsecbijenkins/ui-tests-agent:4.3
               livenessProbe:
                 failureThreshold: 0
                 initialDelaySeconds: 0
