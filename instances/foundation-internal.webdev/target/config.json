@@ -10,7 +10,7 @@
                "docker": {
                   "image": {
                      "name": "basic-agent",
-                     "tag": "3.36"
+                     "tag": "4.2"
                   },
                   "repository": "eclipsecbijenkins"
                },
@@ -43,7 +43,7 @@
                "home": "/home/jenkins",
                "jnlpAgentScript": {
                   "name": "jenkins-agent",
-                  "version": "3.36-2"
+                  "version": "4.0.1-1"
                },
                "kubernetes": {
                   "resources": {
@@ -95,7 +95,7 @@
                "name": "basic-agent",
                "remoting": {
                   "jar": "/usr/share/jenkins/agent.jar",
-                  "version": "3.36"
+                  "version": "4.2"
                }
             },
             {
@@ -103,7 +103,7 @@
                "docker": {
                   "image": {
                      "name": "jipp-migration-agent",
-                     "tag": "3.36"
+                     "tag": "4.2"
                   },
                   "repository": "eclipsecbijenkins"
                },
@@ -136,7 +136,7 @@
                "home": "/home/jenkins",
                "jnlpAgentScript": {
                   "name": "jenkins-agent",
-                  "version": "3.36-2"
+                  "version": "4.0.1-1"
                },
                "kubernetes": {
                   "resources": {
@@ -191,7 +191,7 @@
                "name": "jipp-migration-agent",
                "remoting": {
                   "jar": "/usr/share/jenkins/agent.jar",
-                  "version": "3.36"
+                  "version": "4.2"
                }
             },
             {
@@ -199,7 +199,7 @@
                "docker": {
                   "image": {
                      "name": "ui-tests-agent",
-                     "tag": "3.36"
+                     "tag": "4.2"
                   },
                   "repository": "eclipsecbijenkins"
                },
@@ -232,7 +232,7 @@
                "home": "/home/jenkins",
                "jnlpAgentScript": {
                   "name": "jenkins-agent",
-                  "version": "3.36-2"
+                  "version": "4.0.1-1"
                },
                "kubernetes": {
                   "resources": {
@@ -287,7 +287,7 @@
                "name": "ui-tests-agent",
                "remoting": {
                   "jar": "/usr/share/jenkins/agent.jar",
-                  "version": "3.36"
+                  "version": "4.2"
                }
             }
          ]
@@ -305,8 +305,8 @@
       "master": {
          "home": "/var/jenkins_home",
          "image": "docker.io/eclipsecbijenkins/webdev",
-         "imageTag": "2.204.5",
-         "parentImage": "docker.io/eclipsecbijenkins/jenkins-master-base:2.204.5",
+         "imageTag": "2.222.1",
+         "parentImage": "docker.io/eclipsecbijenkins/jenkins-master-base:2.222.1",
          "pluginroot": "/var/cache/jenkins/plugins",
          "ref": "/usr/share/jenkins/ref",
          "updateCenter": "https://updates.jenkins.io",
@@ -317,7 +317,7 @@
       "repository": "docker.io/eclipsecbijenkins"
    },
    "jenkins": {
-      "actualVersion": "2.204.5",
+      "actualVersion": "2.222.1",
       "agentConnectionTimeout": 180,
       "maxConcurrency": 2,
       "permissions": [
@@ -333,6 +333,7 @@
                "Job/Move",
                "Job/Read",
                "Job/Workspace",
+               "Overall/Read",
                "Run/Delete",
                "Run/Replay",
                "Run/Update",
@@ -358,6 +359,7 @@
                "Job/Move",
                "Job/Read",
                "Job/Workspace",
+               "Overall/Read",
                "Run/Delete",
                "Run/Replay",
                "Run/Update",
@@ -383,6 +385,7 @@
                "Job/Move",
                "Job/Read",
                "Job/Workspace",
+               "Overall/Read",
                "Run/Delete",
                "Run/Replay",
                "Run/Update",
@@ -403,11 +406,11 @@
             "principal": "admins"
          }
       ],
-      "remotingVersion": "3.36",
+      "remotingVersion": "4.2",
       "staticAgentCount": 1,
       "theme": "quicksilver",
       "timezone": "America/Toronto",
-      "version": "2.204.5"
+      "version": "2.222.1"
    },
    "kubernetes": {
       "agents": {
@@ -468,6 +471,11 @@
                }
             },
             "servers": {
+               "gpg.passphrase": {
+                  "passphrase": {
+                     "pass": "bots/foundation-internal.webdev/gpg/passphrase"
+                  }
+               },
                "ossrh": {
                   "nexusProUrl": "https://oss.sonatype.org",
                   "password": {
