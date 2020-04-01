@@ -30,6 +30,51 @@ jenkins:
       numExecutors: 1
       remoteFS: "/home/genie.codewind"
       retentionStrategy: "always"
+  - permanent:
+      labelString: "docker-build"
+      launcher:
+        ssh:
+          credentialsId: "codewind-bot-ub18-02"
+          host: "158.85.221.122"
+          port: 22
+          sshHostKeyVerificationStrategy:
+            manuallyTrustedKeyVerificationStrategy:
+              requireInitialManualTrust: false
+      mode: EXCLUSIVE
+      name: "ub18-02"
+      numExecutors: 1
+      remoteFS: "/home/genie.codewind"
+      retentionStrategy: "always"
+  - permanent:
+      labelString: "docker-build"
+      launcher:
+        ssh:
+          credentialsId: "codewind-bot-ub18-03"
+          host: "169.55.164.6"
+          port: 22
+          sshHostKeyVerificationStrategy:
+            manuallyTrustedKeyVerificationStrategy:
+              requireInitialManualTrust: false
+      mode: EXCLUSIVE
+      name: "ub18-03"
+      numExecutors: 1
+      remoteFS: "/home/genie.codewind"
+      retentionStrategy: "always"
+  - permanent:
+      labelString: "docker-build"
+      launcher:
+        ssh:
+          credentialsId: "codewind-bot-ub18-04"
+          host: "169.62.106.168"
+          port: 22
+          sshHostKeyVerificationStrategy:
+            manuallyTrustedKeyVerificationStrategy:
+              requireInitialManualTrust: false
+      mode: EXCLUSIVE
+      name: "ub18-04"
+      numExecutors: 1
+      remoteFS: "/home/genie.codewind"
+      retentionStrategy: "always"                    
 unclassified:
   gitHubPluginConfig:
     configs:
