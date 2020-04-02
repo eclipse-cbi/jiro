@@ -176,13 +176,10 @@ jenkins:
           env:
           - key: "LDR_CNTRL"
             value: "MAXDATA=0x80000000"
-          env:
           - key: "AIXTHREAD_HRT"
             value: "true"
-          env:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
-          env:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:
@@ -201,13 +198,10 @@ jenkins:
           env:
           - key: "LDR_CNTRL"
             value: "MAXDATA=0x80000000"
-          env:
           - key: "AIXTHREAD_HRT"
             value: "true"
-          env:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
-          env:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:
@@ -226,13 +220,10 @@ jenkins:
           env:
           - key: "LDR_CNTRL"
             value: "MAXDATA=0x80000000"
-          env:
           - key: "AIXTHREAD_HRT"
             value: "true"
-          env:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
-          env:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:
@@ -251,13 +242,10 @@ jenkins:
           env:
           - key: "LDR_CNTRL"
             value: "MAXDATA=0x80000000"
-          env:
           - key: "AIXTHREAD_HRT"
             value: "true"
-          env:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
-          env:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:
@@ -276,13 +264,10 @@ jenkins:
           env:
           - key: "LDR_CNTRL"
             value: "MAXDATA=0x80000000"
-          env:
           - key: "AIXTHREAD_HRT"
             value: "true"
-          env:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
-          env:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:
@@ -301,13 +286,10 @@ jenkins:
           env:
           - key: "LDR_CNTRL"
             value: "MAXDATA=0x80000000"
-          env:
           - key: "AIXTHREAD_HRT"
             value: "true"
-          env:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
-          env:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:
@@ -326,13 +308,10 @@ jenkins:
           env:
           - key: "LDR_CNTRL"
             value: "MAXDATA=0x80000000"
-          env:
           - key: "AIXTHREAD_HRT"
             value: "true"
-          env:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
-          env:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:
@@ -351,13 +330,10 @@ jenkins:
           env:
           - key: "LDR_CNTRL"
             value: "MAXDATA=0x80000000"
-          env:
           - key: "AIXTHREAD_HRT"
             value: "true"
-          env:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
-          env:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:
@@ -376,13 +352,10 @@ jenkins:
           env:
           - key: "LDR_CNTRL"
             value: "MAXDATA=0x80000000"
-          env:
           - key: "AIXTHREAD_HRT"
             value: "true"
-          env:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
-          env:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:
@@ -401,13 +374,10 @@ jenkins:
           env:
           - key: "LDR_CNTRL"
             value: "MAXDATA=0x80000000"
-          env:
           - key: "AIXTHREAD_HRT"
             value: "true"
-          env:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
-          env:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:

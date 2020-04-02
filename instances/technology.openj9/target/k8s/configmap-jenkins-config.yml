@@ -223,6 +223,246 @@ data:
               - key: "LDR_CNTRL"
                 value: "MAXDATA=0x80000000"
       - permanent:
+          name: "aix71-p8-11"
+          nodeDescription: "AIX 7.1 PPC64"
+          labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+          remoteFS: '/home/jenkins/'
+          numExecutors: 1
+          mode: EXCLUSIVE
+          retentionStrategy: "always"
+          launcher:
+            command:
+              command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+                \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-11 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+                ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          nodeProperties:
+          - envVars:
+              env:
+              - key: "LDR_CNTRL"
+                value: "MAXDATA=0x80000000"
+              - key: "AIXTHREAD_HRT"
+                value: "true"
+              - key: "PKG_CONFIG_PATH"
+                value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
+              - key: "PATH"
+                value: "/opt/freeware/bin:$PATH"
+      - permanent:
+          name: "aix71-p8-12"
+          nodeDescription: "AIX 7.1 PPC64"
+          labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+          remoteFS: '/home/jenkins/'
+          numExecutors: 1
+          mode: EXCLUSIVE
+          retentionStrategy: "always"
+          launcher:
+            command:
+              command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+                \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-12 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+                ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          nodeProperties:
+          - envVars:
+              env:
+              - key: "LDR_CNTRL"
+                value: "MAXDATA=0x80000000"
+              - key: "AIXTHREAD_HRT"
+                value: "true"
+              - key: "PKG_CONFIG_PATH"
+                value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
+              - key: "PATH"
+                value: "/opt/freeware/bin:$PATH"
+      - permanent:
+          name: "aix71-p8-13"
+          nodeDescription: "AIX 7.1 PPC64"
+          labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+          remoteFS: '/home/jenkins/'
+          numExecutors: 1
+          mode: EXCLUSIVE
+          retentionStrategy: "always"
+          launcher:
+            command:
+              command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+                \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-13 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+                ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          nodeProperties:
+          - envVars:
+              env:
+              - key: "LDR_CNTRL"
+                value: "MAXDATA=0x80000000"
+              - key: "AIXTHREAD_HRT"
+                value: "true"
+              - key: "PKG_CONFIG_PATH"
+                value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
+              - key: "PATH"
+                value: "/opt/freeware/bin:$PATH"
+      - permanent:
+          name: "aix71-p8-14"
+          nodeDescription: "AIX 7.1 PPC64"
+          labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+          remoteFS: '/home/jenkins/'
+          numExecutors: 1
+          mode: EXCLUSIVE
+          retentionStrategy: "always"
+          launcher:
+            command:
+              command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+                \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-14 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+                ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          nodeProperties:
+          - envVars:
+              env:
+              - key: "LDR_CNTRL"
+                value: "MAXDATA=0x80000000"
+              - key: "AIXTHREAD_HRT"
+                value: "true"
+              - key: "PKG_CONFIG_PATH"
+                value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
+              - key: "PATH"
+                value: "/opt/freeware/bin:$PATH"
+      - permanent:
+          name: "aix71-p8-15"
+          nodeDescription: "AIX 7.1 PPC64"
+          labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+          remoteFS: '/home/jenkins/'
+          numExecutors: 1
+          mode: EXCLUSIVE
+          retentionStrategy: "always"
+          launcher:
+            command:
+              command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+                \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-15 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+                ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          nodeProperties:
+          - envVars:
+              env:
+              - key: "LDR_CNTRL"
+                value: "MAXDATA=0x80000000"
+              - key: "AIXTHREAD_HRT"
+                value: "true"
+              - key: "PKG_CONFIG_PATH"
+                value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
+              - key: "PATH"
+                value: "/opt/freeware/bin:$PATH"
+      - permanent:
+          name: "aix71-p8-16"
+          nodeDescription: "AIX 7.1 PPC64"
+          labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+          remoteFS: '/home/jenkins/'
+          numExecutors: 1
+          mode: EXCLUSIVE
+          retentionStrategy: "always"
+          launcher:
+            command:
+              command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+                \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-16 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+                ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          nodeProperties:
+          - envVars:
+              env:
+              - key: "LDR_CNTRL"
+                value: "MAXDATA=0x80000000"
+              - key: "AIXTHREAD_HRT"
+                value: "true"
+              - key: "PKG_CONFIG_PATH"
+                value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
+              - key: "PATH"
+                value: "/opt/freeware/bin:$PATH"
+      - permanent:
+          name: "aix71-p8-17"
+          nodeDescription: "AIX 7.1 PPC64"
+          labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+          remoteFS: '/home/jenkins/'
+          numExecutors: 1
+          mode: EXCLUSIVE
+          retentionStrategy: "always"
+          launcher:
+            command:
+              command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+                \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-17 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+                ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          nodeProperties:
+          - envVars:
+              env:
+              - key: "LDR_CNTRL"
+                value: "MAXDATA=0x80000000"
+              - key: "AIXTHREAD_HRT"
+                value: "true"
+              - key: "PKG_CONFIG_PATH"
+                value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
+              - key: "PATH"
+                value: "/opt/freeware/bin:$PATH"
+      - permanent:
+          name: "aix71-p8-18"
+          nodeDescription: "AIX 7.1 PPC64"
+          labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+          remoteFS: '/home/jenkins/'
+          numExecutors: 1
+          mode: EXCLUSIVE
+          retentionStrategy: "always"
+          launcher:
+            command:
+              command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+                \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-18 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+                ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          nodeProperties:
+          - envVars:
+              env:
+              - key: "LDR_CNTRL"
+                value: "MAXDATA=0x80000000"
+              - key: "AIXTHREAD_HRT"
+                value: "true"
+              - key: "PKG_CONFIG_PATH"
+                value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
+              - key: "PATH"
+                value: "/opt/freeware/bin:$PATH"
+      - permanent:
+          name: "aix71-p8-19"
+          nodeDescription: "AIX 7.1 PPC64"
+          labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+          remoteFS: '/home/jenkins/'
+          numExecutors: 1
+          mode: EXCLUSIVE
+          retentionStrategy: "always"
+          launcher:
+            command:
+              command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+                \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-19 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+                ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          nodeProperties:
+          - envVars:
+              env:
+              - key: "LDR_CNTRL"
+                value: "MAXDATA=0x80000000"
+              - key: "AIXTHREAD_HRT"
+                value: "true"
+              - key: "PKG_CONFIG_PATH"
+                value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
+              - key: "PATH"
+                value: "/opt/freeware/bin:$PATH"
+      - permanent:
+          name: "aix71-p8-20"
+          nodeDescription: "AIX 7.1 PPC64"
+          labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+          remoteFS: '/home/jenkins/'
+          numExecutors: 1
+          mode: EXCLUSIVE
+          retentionStrategy: "always"
+          launcher:
+            command:
+              command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+                \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-20 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+                ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          nodeProperties:
+          - envVars:
+              env:
+              - key: "LDR_CNTRL"
+                value: "MAXDATA=0x80000000"
+              - key: "AIXTHREAD_HRT"
+                value: "true"
+              - key: "PKG_CONFIG_PATH"
+                value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
+              - key: "PATH"
+                value: "/opt/freeware/bin:$PATH"
+      - permanent:
           name: "cent6-x64-1"
           nodeDescription: "cent6-x64-1 - UNB CentOS 6 8 GB 4CPU - 192.168.10.188"
           labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.geo.unb ci.role.test
@@ -1076,6 +1316,7 @@ data:
           - "Job/Move:technology.openj9"
           - "Job/Read:technology.openj9"
           - "Job/Workspace:technology.openj9"
+          - "Overall/Read:technology.openj9"
           - "Run/Delete:technology.openj9"
           - "Run/Replay:technology.openj9"
           - "Run/Update:technology.openj9"
@@ -1442,8 +1683,10 @@ data:
         installations:
         - name: "apache-maven-latest"
           home: "/opt/tools/apache-maven/latest"
-        - name: "apache-maven-3.6.2"
-          home: "/opt/tools/apache-maven/3.6.2"
+        - name: "apache-maven-3.6.3"
+          home: "/opt/tools/apache-maven/3.6.3"
+        - name: "apache-maven-3.6.0"
+          home: "/opt/tools/apache-maven/3.6.0"
         - name: "apache-maven-3.5.4"
           home: "/opt/tools/apache-maven/3.5.4"
         - name: "apache-maven-3.3.9"
