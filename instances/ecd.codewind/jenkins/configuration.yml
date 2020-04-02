@@ -21,7 +21,7 @@ jenkins:
         ssh:
           credentialsId: "codewind-bot-nonroot-ub18-01"
           host: "169.45.82.155"
-          port: 22
+          port: 22 
           sshHostKeyVerificationStrategy:
             manuallyTrustedKeyVerificationStrategy:
               requireInitialManualTrust: false
