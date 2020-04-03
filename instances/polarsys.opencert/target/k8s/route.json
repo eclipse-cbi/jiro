@@ -13,7 +13,7 @@
       "namespace": "opencert"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/opencert",
       "port": {
          "targetPort": "http"
