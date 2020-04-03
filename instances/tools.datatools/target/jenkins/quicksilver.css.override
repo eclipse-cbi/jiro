@@ -55,11 +55,6 @@ body > pre a:visited,
   color: #ED4A6A;
 }
 
-body > pre a:hover,
-#main-panel pre a:hover {
-  text-decoration: underline;
-}
-
 footer {
   background-color: #efefef;
 }
