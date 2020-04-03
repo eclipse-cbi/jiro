@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "tools.secoblocks",
+         "org.eclipse.cbi.jiro/project.shortname": "secoblocks"
+      },
+      "name": "secoblocks",
+      "namespace": "secoblocks"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "secoblocks"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "secoblocks",
+         "namespace": "secoblocks"
+      }
+   ]
+}
