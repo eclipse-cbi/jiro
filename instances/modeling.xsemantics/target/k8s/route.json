@@ -13,7 +13,7 @@
       "namespace": "xsemantics"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/xsemantics",
       "port": {
          "targetPort": "http"
