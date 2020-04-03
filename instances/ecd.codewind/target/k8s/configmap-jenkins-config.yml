@@ -47,10 +47,55 @@ data:
               host: "169.45.82.155"
               port: 22
               sshHostKeyVerificationStrategy:
-                manuallyTrustedKeyVerificationStrategy:
-                  requireInitialManualTrust: false
+                manuallyProvidedKeyVerificationStrategy:
+                  key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSVcUeOjEpuxigg7eiPYBnJZnrBxxgcE+d9OaCiGIpMUp1xFQo/U3Gqg+tNaPiH0vqwjESllZ9WuuGrHbEajYA63a2rujPr3uny5kLd+UJzjLIHwytjkxG38ByzgSV28yr5OlLpjFUuR9CMdF9NdD2joZKBc/LwHkUjZ5n/GoLexah3wQ9esi9NQn2hw1vwub7MU6yHf6IwWArxEC9ybyXga753EvBfLAKBQQpoUN0+Dt1vxf5im5zETqe9uoxSCbvtTxUpxtTacPN3jwqZUSPfNCE8bvEM3NZK4hjocYuQ3NVC/zyMhBurhmZfnEDVqLGVtRzju9nc3V4dImYl3RF"
           mode: EXCLUSIVE
           name: "ub18-01"
+          numExecutors: 1
+          remoteFS: "/home/genie.codewind"
+          retentionStrategy: "always"
+      - permanent:
+          labelString: "docker-build"
+          launcher:
+            ssh:
+              credentialsId: "codewind-bot-ub18-02"
+              host: "158.85.221.122"
+              port: 22
+              sshHostKeyVerificationStrategy:
+                manuallyProvidedKeyVerificationStrategy:
+                  key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5Z92lN9kU+OTVJTswBsaC+kF6reRe9oUFGjd97bhWGKaKIVtZO5DzhC4cxmE/dEyKT9XmFHtmNwU+PKOTalAN5eAhueBI9BkM8V3ywp2JIRGvVznyFSd2mtqOjmTgKNsc1IDhZVXEEe3PyupZKwwJrAQ5J2SrYSnvF5ZAC6bc+KTiLAPmRujQKNtmr+ta+tB4dcj1jJPG9zrNkEnM0mdSLm9bS9c9kUtgQkGb+CHA6Dl+Z8TeO5V6lJdJcPNHGKz9pp+HOWXd3avnUDrVpnxKEelNiinAtowmnb/KLwXBqK/qO7CQw+hXjPuieijxye0O50xTZAZAhFea+uAS84+P"
+          mode: EXCLUSIVE
+          name: "ub18-02"
+          numExecutors: 1
+          remoteFS: "/home/genie.codewind"
+          retentionStrategy: "always"
+      - permanent:
+          labelString: "docker-build"
+          launcher:
+            ssh:
+              credentialsId: "codewind-bot-ub18-03"
+              host: "169.55.164.6"
+              port: 22
+              sshHostKeyVerificationStrategy:
+                manuallyProvidedKeyVerificationStrategy:
+                  key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDS7Tp3fE0MddwITcymGbbVK7n3tb76Z3jOKgIpTm9+hEnoBOQl3BlvMLQmscJ8m5Eq22tODVR8Bwdr+g1b+QgEPJ/Mp0rQLRF6+9n6zrBJb+K3vxnPhmmG9dTyaMuSylNETxcIy/OMcQgsh+xwShETP1bz4p7ghkdMiP7yuHP/EUtFwIwUpGOwpyiB06sW3lbmDniQqL/9STPmh8rA7hdBl/ADCiYYuQiXVQ4p+fuh06+qti2AE8/zyP2cYDjKPfxLLsFoiBIeYwhzbiF3vgrqs+oaziHlqQB6g4xVwb629yPZeG70W/0C3tIeV2A7driKJ3fyzDQ+NtGSgMTH/7/b"
+          mode: EXCLUSIVE
+          name: "ub18-03"
+          numExecutors: 1
+          remoteFS: "/home/genie.codewind"
+          retentionStrategy: "always"
+      - permanent:
+          labelString: "docker-build"
+          launcher:
+            ssh:
+              credentialsId: "codewind-bot-ub18-04"
+              host: "169.62.106.168"
+              port: 22
+              sshHostKeyVerificationStrategy:
+                manuallyProvidedKeyVerificationStrategy:
+                  key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMNonqE3bOGXDrIRAwBpO9ULkN3A0SscgrLYUCH2aJDmXz+9dc1E5b2oSYRN8DiBl7Sp754sVSBkavY2kJqFiFk0ooO9QL70WhQRgGvarYsR95uYeQRd0K/v4/PPPV0NBzsLpWEGPV1HzByFGQZetOugAjgvRFdLndViwiTRoSC1QCiAxKqaOqCnyyS0MrFGFkZtCB4jclH/JeOtcbGMP59tyEQCD6xPEQi7p+ZAQaxw2hAnzUZ2en78nK82qKe7DrXeuPFe4o+qE2kBiNDnE2IcnS6+hWmL7bmkVY8gS+kNxhHu2PRgrX5G5srQQFzQiBB0zJpEp3+CmXTtl5PDwB"
+          mode: EXCLUSIVE
+          name: "ub18-04"
           numExecutors: 1
           remoteFS: "/home/genie.codewind"
           retentionStrategy: "always"
@@ -81,6 +126,7 @@ data:
           - "Job/Move:ecd.codewind"
           - "Job/Read:ecd.codewind"
           - "Job/Workspace:ecd.codewind"
+          - "Overall/Read:ecd.codewind"
           - "Run/Delete:ecd.codewind"
           - "Run/Replay:ecd.codewind"
           - "Run/Update:ecd.codewind"
@@ -448,8 +494,10 @@ data:
         installations:
         - name: "apache-maven-latest"
           home: "/opt/tools/apache-maven/latest"
-        - name: "apache-maven-3.6.2"
-          home: "/opt/tools/apache-maven/3.6.2"
+        - name: "apache-maven-3.6.3"
+          home: "/opt/tools/apache-maven/3.6.3"
+        - name: "apache-maven-3.6.0"
+          home: "/opt/tools/apache-maven/3.6.0"
         - name: "apache-maven-3.5.4"
           home: "/opt/tools/apache-maven/3.5.4"
         - name: "apache-maven-3.3.9"
