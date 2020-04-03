@@ -1,0 +1,164 @@
+{
+   "apiVersion": "apps/v1",
+   "kind": "StatefulSet",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.unide",
+         "org.eclipse.cbi.jiro/project.shortname": "unide"
+      },
+      "name": "unide",
+      "namespace": "unide"
+   },
+   "spec": {
+      "replicas": 1,
+      "selector": {
+         "matchLabels": {
+            "org.eclipse.cbi.jiro/project.fullName": "iot.unide"
+         }
+      },
+      "serviceName": "unide",
+      "template": {
+         "metadata": {
+            "labels": {
+               "org.eclipse.cbi.jiro/project.fullName": "iot.unide",
+               "org.eclipse.cbi.jiro/project.shortname": "unide"
+            },
+            "name": "unide"
+         },
+         "spec": {
+            "containers": [
+               {
+                  "env": [
+                     {
+                        "name": "JAVA_OPTS",
+                        "value": "-XshowSettings:vm -Duser.timezone=America/Toronto -Djdk.nativeCrypto=false -Dsun.zip.disableMemoryMapping=true -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Dhudson.slaves.NodeProvisioner.initialDelay=0 -Dhudson.slaves.NodeProvisioner.MARGIN=50 -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85 -Dhudson.footerURL=https://ci.eclipse.org -Dhudson.model.UsageStatistics.disabled=true -Djenkins.model.Jenkins.slaveAgentPort=50000 -Djenkins.model.Jenkins.slaveAgentPortEnforce=true -Djenkins.model.Jenkins.exitCodeOnRestart=0 -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false -Djenkins.install.runSetupWizard=false -Djenkins.ui.refresh=true -Djenkins.security.ManagePermission=true -DexecutableWar.jetty.disableCustomSessionIdCookieName=false -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.unide -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml -Dio.jenkins.plugins.casc.ConfigurationAsCode.initialDelay=5000 -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=eclipsecbijenkins/basic-agent:3.35 -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180 -Dkubernetes.websocket.ping.interval=30000"
+                     },
+                     {
+                        "name": "JENKINS_OPTS",
+                        "value": "--prefix=/unide --webroot=/var/cache/jenkins/war --pluginroot=/var/cache/jenkins/plugins --controlPort=8081"
+                     }
+                  ],
+                  "image": "docker.io/eclipsecbijenkins/unide:2.190.1",
+                  "imagePullPolicy": "Always",
+                  "lifecycle": {
+                     "preStop": {
+                        "exec": {
+                           "command": [
+                              "/bin/sh",
+                              "-c",
+                              "java -cp /var/cache/jenkins/war/winstone.jar winstone.tools.WinstoneControl shutdown --host=localhost --port=8081 >/dev/termination-log 2>&1"
+                           ]
+                        }
+                     }
+                  },
+                  "livenessProbe": {
+                     "failureThreshold": 5,
+                     "httpGet": {
+                        "path": "/unide/login",
+                        "port": 8080,
+                        "scheme": "HTTP"
+                     },
+                     "initialDelaySeconds": 480,
+                     "periodSeconds": 30,
+                     "timeoutSeconds": 30
+                  },
+                  "name": "jenkins",
+                  "ports": [
+                     {
+                        "containerPort": 8080,
+                        "protocol": "TCP"
+                     },
+                     {
+                        "containerPort": 50000,
+                        "protocol": "TCP"
+                     }
+                  ],
+                  "readinessProbe": {
+                     "failureThreshold": 5,
+                     "initialDelaySeconds": 1,
+                     "periodSeconds": 5,
+                     "tcpSocket": {
+                        "port": 8080
+                     },
+                     "timeoutSeconds": 10
+                  },
+                  "resources": {
+                     "limits": {
+                        "cpu": "2000m",
+                        "memory": "1536Mi"
+                     },
+                     "requests": {
+                        "cpu": "500m"
+                     }
+                  },
+                  "volumeMounts": [
+                     {
+                        "mountPath": "/var/jenkins_home",
+                        "name": "jenkins-home"
+                     },
+                     {
+                        "mountPath": "/var/cache/jenkins/war",
+                        "name": "jenkins-war"
+                     },
+                     {
+                        "mountPath": "/var/cache/jenkins/plugins",
+                        "name": "jenkins-plugins"
+                     },
+                     {
+                        "mountPath": "/etc/jenkins/",
+                        "name": "jenkins-config",
+                        "readOnly": true
+                     },
+                     {
+                        "mountPath": "/run/secrets/jenkins/ssh",
+                        "name": "gerrit-ssh-keys",
+                        "readOnly": true
+                     }
+                  ]
+               }
+            ],
+            "serviceAccountName": "unide",
+            "terminationGracePeriodSeconds": 1200,
+            "volumes": [
+               {
+                  "emptyDir": { },
+                  "name": "jenkins-war"
+               },
+               {
+                  "emptyDir": { },
+                  "name": "jenkins-plugins"
+               },
+               {
+                  "configMap": {
+                     "name": "jenkins-config"
+                  },
+                  "name": "jenkins-config"
+               },
+               {
+                  "name": "gerrit-ssh-keys",
+                  "secret": {
+                     "secretName": "gerrit-ssh-keys"
+                  }
+               }
+            ]
+         }
+      },
+      "volumeClaimTemplates": [
+         {
+            "metadata": {
+               "name": "jenkins-home"
+            },
+            "spec": {
+               "accessModes": [
+                  "ReadWriteOnce"
+               ],
+               "resources": {
+                  "requests": {
+                     "storage": "50Gi"
+                  }
+               }
+            }
+         }
+      ]
+   }
+}

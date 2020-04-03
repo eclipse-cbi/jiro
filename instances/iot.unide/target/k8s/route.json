@@ -13,7 +13,7 @@
       "namespace": "unide"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/unide",
       "port": {
          "targetPort": "http"
