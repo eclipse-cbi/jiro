@@ -1,0 +1,25 @@
+{
+   "apiVersion": "v1",
+   "kind": "Service",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "locationtech.geogig",
+         "org.eclipse.cbi.jiro/project.shortname": "geogig"
+      },
+      "name": "jenkins-ui",
+      "namespace": "geogig"
+   },
+   "spec": {
+      "ports": [
+         {
+            "name": "http",
+            "port": 80,
+            "protocol": "TCP",
+            "targetPort": 8080
+         }
+      ],
+      "selector": {
+         "org.eclipse.cbi.jiro/project.fullName": "locationtech.geogig"
+      }
+   }
+}

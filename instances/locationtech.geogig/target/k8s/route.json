@@ -13,7 +13,7 @@
       "namespace": "geogig"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/geogig",
       "port": {
          "targetPort": "http"
