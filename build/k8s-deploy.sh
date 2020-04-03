@@ -69,7 +69,9 @@ sts_as_json() {
 }
 
 old_gen=""
-old_gen=$(sts_as_json | jq -r '.metadata.generation')
+if sts_as_json &> /dev/null; then
+  old_gen=$(sts_as_json | jq -r '.metadata.generation')
+fi
 
 oc apply -f "${instance}/target/k8s/statefulset.json"
 
