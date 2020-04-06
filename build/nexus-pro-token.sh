@@ -27,7 +27,7 @@ username="${3}"
 password="${4}"
 
 commonCurlOpts='header = "Accept: application/json"\nheader = "Content-Type: application/json"'
-basicAuth='user = "'${username}':'${password}'"'
+basicAuth='user = "'${username}':'$(printf "%q" "${password}")'"'
 curlOpts="${commonCurlOpts}\n${basicAuth}"
 
 _authTicket() {
