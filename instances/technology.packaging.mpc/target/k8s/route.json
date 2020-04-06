@@ -13,7 +13,7 @@
       "namespace": "mpc"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/mpc",
       "port": {
          "targetPort": "http"
