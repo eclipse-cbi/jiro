@@ -13,7 +13,7 @@
       "namespace": "xpect"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/xpect",
       "port": {
          "targetPort": "http"
