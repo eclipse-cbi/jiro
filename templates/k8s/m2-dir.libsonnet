@@ -80,6 +80,11 @@ local Kube = import "kube.libsonnet";
             <provides><id>JavaSE-14</id></provides>
             <configuration><jdkHome>/opt/tools/java/openjdk/jdk-14/latest</jdkHome></configuration>
           </toolchain>
+          <toolchain>
+            <type>jdk</type>
+            <provides><id>JavaSE-15</id></provides>
+            <configuration><jdkHome>/opt/tools/java/openjdk/jdk-15/latest</jdkHome></configuration>
+          </toolchain>
         </toolchains>
       |||
     }
