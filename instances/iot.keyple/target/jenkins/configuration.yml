@@ -24,26 +24,6 @@ jenkins:
         - "Overall/Administer:admins"
         - "Job/Read:anonymous"
         - "Overall/Read:anonymous"
-        - "Agent/Build:brice.ruppen@armotic.fr"
-        - "Credentials/View:brice.ruppen@armotic.fr"
-        - "Gerrit/ManualTrigger:brice.ruppen@armotic.fr"
-        - "Gerrit/Retrigger:brice.ruppen@armotic.fr"
-        - "Job/Build:brice.ruppen@armotic.fr"
-        - "Job/Cancel:brice.ruppen@armotic.fr"
-        - "Job/Configure:brice.ruppen@armotic.fr"
-        - "Job/Create:brice.ruppen@armotic.fr"
-        - "Job/Delete:brice.ruppen@armotic.fr"
-        - "Job/Move:brice.ruppen@armotic.fr"
-        - "Job/Read:brice.ruppen@armotic.fr"
-        - "Job/Workspace:brice.ruppen@armotic.fr"
-        - "Run/Delete:brice.ruppen@armotic.fr"
-        - "Run/Replay:brice.ruppen@armotic.fr"
-        - "Run/Update:brice.ruppen@armotic.fr"
-        - "SCM/Tag:brice.ruppen@armotic.fr"
-        - "View/Configure:brice.ruppen@armotic.fr"
-        - "View/Create:brice.ruppen@armotic.fr"
-        - "View/Delete:brice.ruppen@armotic.fr"
-        - "View/Read:brice.ruppen@armotic.fr"
         - "Job/ExtendedRead:common"
         - "Agent/Build:iot.keyple"
         - "Credentials/View:iot.keyple"
@@ -57,6 +37,7 @@ jenkins:
         - "Job/Move:iot.keyple"
         - "Job/Read:iot.keyple"
         - "Job/Workspace:iot.keyple"
+        - "Overall/Read:iot.keyple"
         - "Run/Delete:iot.keyple"
         - "Run/Replay:iot.keyple"
         - "Run/Update:iot.keyple"
@@ -94,7 +75,8 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:3.35@sha256:5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340"
+        - image: eclipsecbijenkins/basic-agent:3.35
+          alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -110,9 +92,10 @@ jenkins:
           command: ""
           args: ""
         instanceCap: 5
-        name: "default-agent"
+        name: "basic-agent"
         namespace: "keyple"
         nodeUsageMode: NORMAL
+        label: ""
         envVars:
         - envVar:
             key: "MAVEN_OPTS"
@@ -134,6 +117,9 @@ jenkins:
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/wrapper"
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
@@ -144,39 +130,28 @@ jenkins:
             containers:
             - name: jnlp
               volumeMounts:
-              - name: settings-security-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings-security.xml
                 subPath: settings-security.xml
                 readOnly: true
-              - name: settings-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings.xml
                 subPath: settings.xml
                 readOnly: true
-              - name: toolchains-xml
+              - name: m2-dir
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
             volumes:
-            - name: settings-security-xml
+            - name: m2-secret-dir
               secret:
                 secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: toolchains-xml
+            - name: m2-dir
               configMap:
                 name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
       - containers:
-        - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59"
+        - image: eclipsecbijenkins/jipp-migration-agent:3.35
+          alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -192,10 +167,10 @@ jenkins:
           command: ""
           args: ""
         instanceCap: 5
-        instanceCapStr: "5"
-        name: "ui-test-agent"
+        name: "jipp-migration-agent"
         namespace: "keyple"
-        label: "ui-test"
+        nodeUsageMode: EXCLUSIVE
+        label: "migration jipp-migration"
         envVars:
         - envVar:
             key: "MAVEN_OPTS"
@@ -217,6 +192,9 @@ jenkins:
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/wrapper"
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
@@ -227,39 +205,28 @@ jenkins:
             containers:
             - name: jnlp
               volumeMounts:
-              - name: settings-security-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings-security.xml
                 subPath: settings-security.xml
                 readOnly: true
-              - name: settings-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings.xml
                 subPath: settings.xml
                 readOnly: true
-              - name: toolchains-xml
+              - name: m2-dir
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
             volumes:
-            - name: settings-security-xml
+            - name: m2-secret-dir
               secret:
                 secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: toolchains-xml
+            - name: m2-dir
               configMap:
                 name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
       - containers:
-        - image: "eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f"
+        - image: eclipsecbijenkins/ui-tests-agent:3.35
+          alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -275,9 +242,10 @@ jenkins:
           command: ""
           args: ""
         instanceCap: 5
-        instanceCapStr: "5"
-        name: "migration-agent"
+        name: "ui-tests-agent"
         namespace: "keyple"
+        nodeUsageMode: EXCLUSIVE
+        label: "ui-test ui-tests"
         envVars:
         - envVar:
             key: "MAVEN_OPTS"
@@ -285,7 +253,6 @@ jenkins:
         - envVar:
             key: "MAVEN_CONFIG"
             value: "-B -e"
-        label: "migration"
         volumes:
         - persistentVolumeClaim:
             claimName: "tools-claim-jiro-keyple"
@@ -300,6 +267,9 @@ jenkins:
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/wrapper"
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
@@ -310,45 +280,30 @@ jenkins:
             containers:
             - name: jnlp
               volumeMounts:
-              - name: settings-security-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings-security.xml
                 subPath: settings-security.xml
                 readOnly: true
-              - name: settings-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings.xml
                 subPath: settings.xml
                 readOnly: true
-              - name: toolchains-xml
+              - name: m2-dir
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
             volumes:
-            - name: settings-security-xml
+            - name: m2-secret-dir
               secret:
                 secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: toolchains-xml
+            - name: m2-dir
               configMap:
                 name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
-
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
     tokenGenerationOnCreationEnabled: false
     usageStatisticsEnabled: true
-  downloadSettings:
-    useBrowser: false
   queueItemAuthenticator:
     authenticators:
     - global:
@@ -452,8 +407,10 @@ tool:
     installations:
     - name: "apache-maven-latest"
       home: "/opt/tools/apache-maven/latest"
-    - name: "apache-maven-3.6.2"
-      home: "/opt/tools/apache-maven/3.6.2"
+    - name: "apache-maven-3.6.3"
+      home: "/opt/tools/apache-maven/3.6.3"
+    - name: "apache-maven-3.6.0"
+      home: "/opt/tools/apache-maven/3.6.0"
     - name: "apache-maven-3.5.4"
       home: "/opt/tools/apache-maven/3.5.4"
     - name: "apache-maven-3.3.9"
