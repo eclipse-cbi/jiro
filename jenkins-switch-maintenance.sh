@@ -45,7 +45,7 @@ maintenance_on() {
   oc create route "${route_spec_tls_termination}" "${route_name}-maintenance" --service="${maintenance_service}" -n "${maintenance_ns}" --hostname="${route_spec_host}" --path="${route_spec_path}" --port="${route_spec_port}" --insecure-policy="${route_spec_tls_insecure_policy}"
   oc create route "${route_spec_tls_termination}" "maintenance-cli" --service="jenkins-ui" -n "${instance_ns}" --hostname="${route_spec_host}" --path="${route_spec_path}/cli" --port="${route_spec_port}" --insecure-policy="${route_spec_tls_insecure_policy}"
   # refresh cache 
-  curl --retry 10 -sSLH "X-Cache-Bypass: true" "https://${route_spec_host}${route_spec_path}" -o /dev/null || :
+  curl --retry 3 -sSLH "X-Cache-Bypass: true" "https://${route_spec_host}${route_spec_path}" -o /dev/null || :
 }
 
 maintenance_off() {
@@ -53,7 +53,7 @@ maintenance_off() {
   oc delete route -n "${maintenance_ns}" "${route_name}-maintenance"
   oc apply -f "${route_json}"
   # refresh cache 
-  curl --retry 10 -sSLH "X-Cache-Bypass: true" "https://${route_spec_host}${route_spec_path}" -o /dev/null || :
+  curl --retry 3 -sSLH "X-Cache-Bypass: true" "https://${route_spec_host}${route_spec_path}" -o /dev/null || :
 }
 
 if [[ -z "${2:-}" ]]; then
