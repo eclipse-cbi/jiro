@@ -4,8 +4,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-1"
       nodeDescription: "openj9_ci_1 - l490vp054_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
-        ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -24,8 +23,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-2"
       nodeDescription: "openj9_ci_2 - l490vp018_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
-        ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -44,8 +42,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-3"
       nodeDescription: "openj9_ci_3 - l490vp027_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
-        ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -63,8 +60,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-4"
       nodeDescription: "openj9_ci_4 - l490vp041_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
-        ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -83,7 +79,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-5"
       nodeDescription: "openj9_ci_5 - l490vp082_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -102,8 +98,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-6"
       nodeDescription: "openj9_ci_6 - l490vp082_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
-        ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -122,8 +117,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-7"
       nodeDescription: "openj9_ci_7 - l490vp083_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
-        ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -142,8 +136,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-8"
       nodeDescription: "openj9_ci_8 - l490vp084_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
-        ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -162,8 +155,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-9"
       nodeDescription: "openj9_ci_9 - l490vp086_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
-        ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
       remoteFS: '/home/u0020236/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -182,8 +174,7 @@ jenkins:
   - permanent:
       name: "aix71-p8-10"
       nodeDescription: "openj9_ci_10 - l490vp087_pub - AIX PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
-        ci.role.test"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -202,7 +193,8 @@ jenkins:
   - permanent:
       name: "aix71-p8-11"
       nodeDescription: "AIX 7.1 PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -226,7 +218,8 @@ jenkins:
   - permanent:
       name: "aix71-p8-12"
       nodeDescription: "AIX 7.1 PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -250,7 +243,8 @@ jenkins:
   - permanent:
       name: "aix71-p8-13"
       nodeDescription: "AIX 7.1 PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -274,7 +268,8 @@ jenkins:
   - permanent:
       name: "aix71-p8-14"
       nodeDescription: "AIX 7.1 PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -298,7 +293,8 @@ jenkins:
   - permanent:
       name: "aix71-p8-15"
       nodeDescription: "AIX 7.1 PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -322,7 +318,8 @@ jenkins:
   - permanent:
       name: "aix71-p8-16"
       nodeDescription: "AIX 7.1 PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -346,7 +343,8 @@ jenkins:
   - permanent:
       name: "aix71-p8-17"
       nodeDescription: "AIX 7.1 PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -370,7 +368,8 @@ jenkins:
   - permanent:
       name: "aix71-p8-18"
       nodeDescription: "AIX 7.1 PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -394,7 +393,8 @@ jenkins:
   - permanent:
       name: "aix71-p8-19"
       nodeDescription: "AIX 7.1 PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -418,7 +418,8 @@ jenkins:
   - permanent:
       name: "aix71-p8-20"
       nodeDescription: "AIX 7.1 PPC64"
-      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp"
+      labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build
+        ci.role.test"
       remoteFS: '/home/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -1593,6 +1594,8 @@ tool:
     installations:
     - name: "openjdk-latest"
       home: "/opt/tools/java/openjdk/latest"
+    - name: "openjdk-jdk15-latest"
+      home: "/opt/tools/java/openjdk/jdk-15/latest"
     - name: "openjdk-jdk14-latest"
       home: "/opt/tools/java/openjdk/jdk-14/latest"
     - name: "openjdk-jdk13-latest"
