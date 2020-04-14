@@ -27,7 +27,9 @@ username="${3}"
 password="${4}"
 
 commonCurlOpts='header = "Accept: application/json"\nheader = "Content-Type: application/json"'
-basicAuth='user = "'${username}':'$(printf "%q" "${password}")'"'
+# Passing 'user = "u:p"' to curl -K- with heredoc, must escape '\' and '"'
+escapedPassword="$(printf "%s" "${password}" | sed -e 's/\\/\\\\\\\\/g' | sed -e 's/"/\\"/g')"
+basicAuth="$(printf 'user = "%s:%s"' "${username}" "${escapedPassword}")"
 curlOpts="${commonCurlOpts}\n${basicAuth}"
 
 _authTicket() {
