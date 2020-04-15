@@ -24,7 +24,7 @@ do
   project_name=$(basename ${f})
   short_name=${project_name##*.}
   echo "${short_name}"
-  if [[ $(grep -e '"host": "ci-staging.eclipse.org"' ../instances/${project_name}/config.json) ]]; then
+  if [[ $(grep -e '"host": "ci-staging.eclipse.org"' ../instances/${project_name}/config.jsonnet) ]]; then
     host="ci-staging.eclipse.org"
   else
     host="${default_host}"
