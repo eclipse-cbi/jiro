@@ -1,0 +1,25 @@
+{
+   "apiVersion": "v1",
+   "kind": "Service",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ecd.emfcloud",
+         "org.eclipse.cbi.jiro/project.shortname": "emfcloud"
+      },
+      "name": "jenkins-ui",
+      "namespace": "emfcloud"
+   },
+   "spec": {
+      "ports": [
+         {
+            "name": "http",
+            "port": 80,
+            "protocol": "TCP",
+            "targetPort": 8080
+         }
+      ],
+      "selector": {
+         "org.eclipse.cbi.jiro/project.fullName": "ecd.emfcloud"
+      }
+   }
+}

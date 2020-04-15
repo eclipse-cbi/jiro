@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ecd.orion",
+         "org.eclipse.cbi.jiro/project.shortname": "orion"
+      },
+      "name": "orion",
+      "namespace": "orion"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "orion"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "orion",
+         "namespace": "orion"
+      }
+   ]
+}

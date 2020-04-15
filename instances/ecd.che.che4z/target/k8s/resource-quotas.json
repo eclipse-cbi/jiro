@@ -1,0 +1,21 @@
+{
+   "apiVersion": "v1",
+   "kind": "ResourceQuota",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ecd.che.che4z",
+         "org.eclipse.cbi.jiro/project.shortname": "che4z"
+      },
+      "name": "jenkins-instance-quota",
+      "namespace": "che4z"
+   },
+   "spec": {
+      "hard": {
+         "limits.cpu": "6600m",
+         "limits.memory": "10240Mi",
+         "pods": 3,
+         "requests.cpu": "2900m",
+         "requests.memory": "10240Mi"
+      }
+   }
+}
