@@ -1,7 +1,7 @@
 jenkins:
   nodes:
   - permanent:
-      name: "aix71-p8-11"
+      name: "aix71-p8-1"
       nodeDescription: "AIX 7.1 PPC64"
       labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
       remoteFS: '/home/jenkins/'
@@ -10,7 +10,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-11 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-1 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
       nodeProperties:
       - envVars:
           env:
@@ -23,7 +23,7 @@ jenkins:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:
-      name: "aix71-p8-12"
+      name: "aix71-p8-2"
       nodeDescription: "AIX 7.1 PPC64"
       labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
       remoteFS: '/home/jenkins/'
@@ -32,7 +32,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-12 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-2 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
       nodeProperties:
       - envVars:
           env:
@@ -45,7 +45,7 @@ jenkins:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:
-      name: "aix71-p8-13"
+      name: "aix71-p8-3"
       nodeDescription: "AIX 7.1 PPC64"
       labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
       remoteFS: '/home/jenkins/'
@@ -54,7 +54,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-13 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-3 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
       nodeProperties:
       - envVars:
           env:
@@ -67,7 +67,7 @@ jenkins:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:
-      name: "aix71-p8-14"
+      name: "aix71-p8-4"
       nodeDescription: "AIX 7.1 PPC64"
       labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
       remoteFS: '/home/jenkins/'
@@ -76,7 +76,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-14 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-4 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
       nodeProperties:
       - envVars:
           env:
@@ -89,7 +89,7 @@ jenkins:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:
-      name: "aix71-p8-15"
+      name: "aix71-p8-5"
       nodeDescription: "AIX 7.1 PPC64"
       labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
       remoteFS: '/home/jenkins/'
@@ -98,7 +98,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-15 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-5 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
       nodeProperties:
       - envVars:
           env:
@@ -111,7 +111,7 @@ jenkins:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:
-      name: "aix71-p8-16"
+      name: "aix71-p8-6"
       nodeDescription: "AIX 7.1 PPC64"
       labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
       remoteFS: '/home/jenkins/'
@@ -120,7 +120,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-16 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-6 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
       nodeProperties:
       - envVars:
           env:
@@ -133,7 +133,7 @@ jenkins:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:
-      name: "aix71-p8-17"
+      name: "aix71-p8-7"
       nodeDescription: "AIX 7.1 PPC64"
       labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
       remoteFS: '/home/jenkins/'
@@ -142,7 +142,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-17 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-7 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
       nodeProperties:
       - envVars:
           env:
@@ -155,7 +155,7 @@ jenkins:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:
-      name: "aix71-p8-18"
+      name: "aix71-p8-8"
       nodeDescription: "AIX 7.1 PPC64"
       labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
       remoteFS: '/home/jenkins/'
@@ -164,7 +164,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-18 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-8 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
       nodeProperties:
       - envVars:
           env:
@@ -177,7 +177,7 @@ jenkins:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:
-      name: "aix71-p8-19"
+      name: "aix71-p8-9"
       nodeDescription: "AIX 7.1 PPC64"
       labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
       remoteFS: '/home/jenkins/'
@@ -186,7 +186,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-19 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-9 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
       nodeProperties:
       - envVars:
           env:
@@ -199,7 +199,7 @@ jenkins:
           - key: "PATH"
             value: "/opt/freeware/bin:$PATH"
   - permanent:
-      name: "aix71-p8-20"
+      name: "aix71-p8-10"
       nodeDescription: "AIX 7.1 PPC64"
       labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
       remoteFS: '/home/jenkins/'
@@ -208,7 +208,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-20 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@aix71-p8-10 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -Xshareclasses:none -Xdump:none -jar slave.jar'\""
       nodeProperties:
       - envVars:
           env:
