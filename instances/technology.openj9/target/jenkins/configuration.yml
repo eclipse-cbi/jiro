@@ -487,10 +487,10 @@ jenkins:
             \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar\""
   - permanent:
-      name: "ub16-390-3"
-      nodeDescription: "Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk"
-      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
-        ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
+      name: "ub18-390-1"
+      nodeDescription: "Linux 390 Ubuntu 18.04. 4CPU 8GB Ram  91GB Disk"
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.18
+        ci.role.test sw.tool.docker ci.geo.marist"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -501,10 +501,10 @@ jenkins:
             \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar\""
   - permanent:
-      name: "ub16-390-4"
-      nodeDescription: "Linux 390 Ubuntu 16.04. 4CPU 8GB Ram  91GB Disk"
-      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
-        ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
+      name: "ub18-390-2"
+      nodeDescription: "Linux 390 Ubuntu 18.04. 4CPU 8GB Ram  91GB Disk"
+      labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.18
+        ci.role.test sw.tool.docker ci.geo.marist"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -711,34 +711,6 @@ jenkins:
             \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j94 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'\""
   - permanent:
-      name: "ub16p8j95"
-      nodeDescription: "ub16p8j95 - UNB Ubuntu 16 p8le ci.role.build"
-      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
-        ci.role.build ci.role.test sw.tool.docker"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j95 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'\""
-  - permanent:
-      name: "ub16p8j96"
-      nodeDescription: "ub16p8j96 - UNB Ubuntu 16 p8le"
-      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16
-        ci.role.build ci.role.test sw.tool.docker"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16p8j96 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'\""
-  - permanent:
       name: "ub16-ppcle-1"
       nodeDescription: "eclipse-openj9-1 Linux PPC64LE Ubuntu 16.04. 4CPU 8GB Ram
         78GB Disk"
@@ -784,6 +756,34 @@ jenkins:
             \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec /home/jenkins/openj9/jdk-9+181/bin/java -jar slave.jar\""
   - permanent:
+      name: "ub18-ppcle-1"
+      nodeDescription: "ub18-ppcle-1 - UNB Ubuntu 18 p8le"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.18
+        ci.role.test sw.tool.docker"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub18-ppcle-1 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "ub18-ppcle-2"
+      nodeDescription: "ub18-ppcle-2 - UNB Ubuntu 18 p8le"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.18
+        ci.role.test sw.tool.docker"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub18-ppcle-2 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
       name: "ub16x64j91"
       nodeDescription: "ub16x64j91 - UNB Ubuntu 16 "
       labelString: "ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu
@@ -796,20 +796,6 @@ jenkins:
         command:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
             \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j91 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
-            ; exec java -jar slave.jar'\""
-  - permanent:
-      name: "ub16x64j910"
-      nodeDescription: "ub16x64j91 - UNB Ubuntu 16"
-      labelString: "ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu
-        sw.os.ubuntu.16 ci.role.test ci.role.build"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j910 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'\""
   - permanent:
       name: "ub16x64j92"
@@ -896,10 +882,10 @@ jenkins:
             \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j98 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'\""
   - permanent:
-      name: "ub16x64j99"
-      nodeDescription: "ub16x64j91 - UNB Ubuntu 16"
+      name: "ub18-x86-1"
+      nodeDescription: "ub18-x86-1 - UNB Ubuntu 18"
       labelString: "ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu
-        sw.os.ubuntu.16 ci.role.build ci.role.test"
+        sw.os.ubuntu.18 ci.role.test"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -907,7 +893,21 @@ jenkins:
       launcher:
         command:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
-            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub16x64j99 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub18-x86-1 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+            ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "ub18-x86-2"
+      nodeDescription: "ub18-x86-2 - UNB Ubuntu 18"
+      labelString: "ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu
+        sw.os.ubuntu.18 ci.role.test"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230
+            \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub18-x86-2 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
             ; exec java -jar slave.jar'\""
   - permanent:
       name: "win2012r2-x86-1"
