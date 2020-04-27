@@ -92,22 +92,6 @@ provisioning() {
   make -C ${script_folder}/.. deploy_${project_name}
 }
 
-create_m2_secret_dir() {
-  local project_name="${1:-}"
-  printf "Creating M2 secret dir...\n"
-  instance="${script_folder}/../instances/${project_name}"
-  templates="${script_folder}/../templates"
-  config="${instance}/target/config.json"
-  target="$(mktemp -d)"
-
-  cat <<EOF | "${script_folder}/../.jsonnet/jsonnet" -o "${target}/m2-secret-dir.yml" -
-  (import "${templates}/k8s/m2-secret-dir.libsonnet").gen((import "${config}"))
-EOF
-
-  oc apply -f "${target}/m2-secret-dir.json"
-  rm -rf "${target}"
-}
-
 wait_for_jipp_post_setup() {
   local host=$1
   printf "Waiting for JIPP to come online..."
@@ -132,5 +116,4 @@ wait_for_jipp_post_setup() {
 
 migration_or_not
 provisioning
-create_m2_secret_dir ${project_name}
 wait_for_jipp_post_setup ${hostname}
