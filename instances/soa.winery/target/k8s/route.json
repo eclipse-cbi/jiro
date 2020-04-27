@@ -13,7 +13,7 @@
       "namespace": "winery"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/winery",
       "port": {
          "targetPort": "http"
