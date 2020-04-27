@@ -20,6 +20,8 @@ local permissions = import 'permissions.libsonnet';
     agentConnectionTimeout: 180,
     timezone: "America/Toronto",
     theme: "quicksilver",
+    # see https://github.com/jenkinsci/docker/pull/577
+    pluginsForceUpgrade: true,
     permissions: permissions.projectPermissions($.project.unixGroupName, 
       permissions.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger",]),
   },
