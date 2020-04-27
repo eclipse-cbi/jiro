@@ -139,6 +139,11 @@ local Kube = import "kube.libsonnet";
                     "--controlPort=" + config.deployment.controlPort,
                   ]),
                 },
+                {
+                  # see https://github.com/jenkinsci/docker/pull/577
+                  name: "PLUGINS_FORCE_UPGRADE",
+                  value: config.jenkins.pluginsForceUpgrade,
+                },
               ],
             },
           ],
