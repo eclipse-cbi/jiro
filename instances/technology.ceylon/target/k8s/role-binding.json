@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.ceylon",
+         "org.eclipse.cbi.jiro/project.shortname": "ceylon"
+      },
+      "name": "ceylon",
+      "namespace": "ceylon"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "ceylon"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "ceylon",
+         "namespace": "ceylon"
+      }
+   ]
+}
