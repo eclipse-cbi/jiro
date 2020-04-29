@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.eatop",
+         "org.eclipse.cbi.jiro/project.shortname": "eatop"
+      },
+      "name": "eatop",
+      "namespace": "eatop"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "eatop"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "eatop",
+         "namespace": "eatop"
+      }
+   ]
+}

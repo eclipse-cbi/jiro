@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.edapt",
+         "org.eclipse.cbi.jiro/project.shortname": "edapt"
+      },
+      "name": "edapt",
+      "namespace": "edapt"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "edapt"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "edapt",
+         "namespace": "edapt"
+      }
+   ]
+}
