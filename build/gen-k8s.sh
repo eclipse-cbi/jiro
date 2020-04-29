@@ -8,6 +8,8 @@
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
 
+# * Call gen-yaml.sh script
+
 # Bash strict-mode
 set -o errexit
 set -o nounset

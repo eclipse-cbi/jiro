@@ -8,6 +8,8 @@
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
 
+# Delete instance
+
 # Bash strict-mode
 set -o errexit
 set -o nounset
