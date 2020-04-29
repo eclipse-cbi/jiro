@@ -8,6 +8,8 @@
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
 
+# Merge JSON files
+
 # Bash strict-mode
 set -o errexit
 set -o nounset

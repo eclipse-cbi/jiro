@@ -8,6 +8,9 @@
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
 
+# * Generate <instance>/target/config.json file
+# * Call gen-mvn-settings.sh script
+
 set -o errexit
 set -o nounset
 set -o pipefail

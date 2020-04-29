@@ -8,6 +8,10 @@
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
 
+# * Call gen-jenkinss.sh script
+# * Call gen-dockerfile.sh script
+# * Build dockerfile
+
 set -o errexit
 set -o nounset
 set -o pipefail

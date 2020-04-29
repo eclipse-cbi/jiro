@@ -8,6 +8,8 @@
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
 
+# Generates Maven settings file from credentials in password store 
+
 set -o errexit
 set -o nounset
 set -o pipefail
