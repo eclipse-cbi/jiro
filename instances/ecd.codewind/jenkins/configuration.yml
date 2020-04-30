@@ -83,3 +83,5 @@ unclassified:
     hookSecretConfig:
       credentialsId: "d832f509-90ee-4193-99fa-a5d2e51a1696"
     hookUrl: "https://ci.eclipse.org/codewind/github-webhook/"
+  extendedEmailPublisher:
+    allowUnregisteredEnabled: true
