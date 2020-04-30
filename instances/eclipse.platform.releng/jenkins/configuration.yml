@@ -80,17 +80,6 @@ jenkins:
           - key: "LC_ALL"
             value: 'en_US.UTF-8'
   - permanent:
-      name: "macos-10.12-1"
-      nodeDescription: ""
-      labelString: "macos"
-      remoteFS: '/Users/genie.releng/ci'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@199.229.252.222 "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > slave.jar; java -jar slave.jar"'
-  - permanent:
       name: "rhel-7-1"
       nodeDescription: ""
       labelString: "rhel-7, x86_64"
