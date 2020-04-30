@@ -1,0 +1,16 @@
+jenkins:
+  nodes:
+  - permanent:
+      launcher:
+        ssh:
+          credentialsId: "ubuntu-user"
+          host: "jenkins.zenoh.io"
+          port: 22
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDCjVf8WuShEHCMb5bv3/ghhQx8xwsMc9eMYNJg5l+Oq2cSwCoWEoN45ZRLN+BO2rPQQykD2/VevEVLtKOdlDWBlhOMjxryvlW+geFNLPvC0tpbx1ExtqsCHhZ5oBbxytwTciw4WNc3NZC7sWtLV0ZIxk4FGusYuB8fZGyvC/hv7Ftxn7B+07zJP7UvDV2n/RIjaMAh91o072gBWD9QCsvnklqA+FZiWRveigNQR5zbGiNlSavqw3+5EjBgUlvxMPDQlBNsG9+8F1XI1q1zkdGEi7hojjBouXohUwWjb72cFPFbbT3xgJi+3PfV1e7Mn1TrOPNx0AY/AhCGnvgKRhN2ZPRUgfUv28CibKR2qhjJbxkPZsqXvq5Ayzy0ANbLCopj1vB14mYTwDqB/MYTkG+15Ar8TDefsTXw9Lc3NaueqvWqa7yP+GP0zihMSupq9nQQLgi5p1PJDRiSRiUJssr2X1n0PYUlW9yCjAMjlADC9PjU2zCEfyw85H3y5vUidAU="
+      mode: EXCLUSIVE
+      name: "UbuntuVM"
+      numExecutors: 1
+      remoteFS: "/home/genie.zenoh"
+      retentionStrategy: "always"
