@@ -23,7 +23,7 @@ jenkins:
   - permanent:
       name: "b9h15-macos10.12"
       nodeDescription: "macOS 10.12 (Sierra), no login session, hosted on MacStadium"
-      labelString: "macos macos-10.14"
+      labelString: "macos macos-10.12"
       remoteFS: '/Users/genie.releng/jenkins_agent/'
       numExecutors: 1
       mode: EXCLUSIVE
