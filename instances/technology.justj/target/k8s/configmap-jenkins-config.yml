@@ -14,79 +14,103 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "technology.justj"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.222.1"
+    org.eclipse.cbi.jiro/jenkins.version: "2.229"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.229"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "justj"
   namespace: "justj"
   name: jenkins-config
 data:
   jenkins.yaml: |
     # GENERATED FILE - DO NOT EDIT
-    #*******************************************************************************
-    # Copyright (c) 2018 Eclipse Foundation and others.
-    # This program and the accompanying materials are made available
-    # under the terms of the Eclipse Public License 2.0
-    # which is available at http://www.eclipse.org/legal/epl-v20.html,
-    # or the MIT License which is available at https://opensource.org/licenses/MIT.
-    # SPDX-License-Identifier: EPL-2.0 OR MIT
-    #*******************************************************************************
     jenkins:
+      nodes:
+      - permanent:
+          labelString: "macos macos-10.12"
+          launcher:
+            ssh:
+              credentialsId: "b9h15-macos10.12-bot-ssh"
+              host: "208.52.161.179"
+              jvmOptions: "-Xmx256m"
+              port: 22
+              sshHostKeyVerificationStrategy:
+                manuallyProvidedKeyVerificationStrategy:
+                  key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3Mo4/c9Hn6sA594UEGHVxCKbu/QtophcofQIfrX1cJwkxfx/MGjMhllrWw49SfpNPh/VOlR4T7r3xeFq9TM+sDXAii54deTENpqg5q1uBOx9hi+7W8MhKpuJEhwL37kTQHSjcnIcexpm76Tbyd3QtHU3xQzMCjfREfqIAWkWaKbdzNVu1JJRcwqRXDDzPNkoLfYUZtdQi/XiROlX5zYh3/GpQctGkL3y8mdkeUY7RGUDKTjd7osAK59IR30H2KFRfewey9YnMnIKM0cokA8t3KDvAwmXFLQ+iAxG1RFLZQ88iz7agO1clNYFR3+2ersXcMu/AZUoA6sBsBXIJ9419"
+              workDir: "/Users/genie.justj/jenkins_agent/cache"
+          name: "b9h15-macos10.12"
+          numExecutors: 1
+          remoteFS: "/Users/genie.justj/jenkins_agent/"
+          retentionStrategy: "always"
+      - permanent:
+          labelString: "windows windows10"
+          launcher:
+            jnlp:
+              vmargs: "-Xmx256m"
+              webSocket: true
+              workDirSettings:
+                disabled: false
+                failIfWorkDirIsMissing: false
+                internalDir: "remoting"
+          name: "mp23n-windows-10"
+          nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure"
+          nodeProperties:
+          - envVars:
+              env:
+              - key: "Path"
+                value: "C:\\tools\\cygwin\\bin;$Path;"
+          numExecutors: 1
+          remoteFS: "C:\\Users\\genie.justj\\jenkins_agent"
+          retentionStrategy: "always"
       numExecutors: 0
       scmCheckoutRetryCount: 2
       mode: EXCLUSIVE
       systemMessage: ""
-    
       disableRememberMe: false
       agentProtocols:
-        - "JNLP4-connect"
-        - "Ping"
-    
+      - "JNLP4-connect"
+      - "Ping"
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:technology.justj"
-            - "Credentials/View:technology.justj"
-            - "Gerrit/ManualTrigger:technology.justj"
-            - "Gerrit/Retrigger:technology.justj"
-            - "Job/Build:technology.justj"
-            - "Job/Cancel:technology.justj"
-            - "Job/Configure:technology.justj"
-            - "Job/Create:technology.justj"
-            - "Job/Delete:technology.justj"
-            - "Job/Move:technology.justj"
-            - "Job/Read:technology.justj"
-            - "Job/Workspace:technology.justj"
-            - "Overall/Read:technology.justj"
-            - "Run/Delete:technology.justj"
-            - "Run/Replay:technology.justj"
-            - "Run/Update:technology.justj"
-            - "SCM/Tag:technology.justj"
-            - "View/Configure:technology.justj"
-            - "View/Create:technology.justj"
-            - "View/Delete:technology.justj"
-            - "View/Read:technology.justj"
-    
+          - "Overall/Administer:admins"
+          - "Job/Read:anonymous"
+          - "Overall/Read:anonymous"
+          - "Job/ExtendedRead:common"
+          - "Agent/Build:technology.justj"
+          - "Credentials/View:technology.justj"
+          - "Gerrit/ManualTrigger:technology.justj"
+          - "Gerrit/Retrigger:technology.justj"
+          - "Job/Build:technology.justj"
+          - "Job/Cancel:technology.justj"
+          - "Job/Configure:technology.justj"
+          - "Job/Create:technology.justj"
+          - "Job/Delete:technology.justj"
+          - "Job/Move:technology.justj"
+          - "Job/Read:technology.justj"
+          - "Job/Workspace:technology.justj"
+          - "Overall/Read:technology.justj"
+          - "Run/Delete:technology.justj"
+          - "Run/Replay:technology.justj"
+          - "Run/Update:technology.justj"
+          - "SCM/Tag:technology.justj"
+          - "View/Configure:technology.justj"
+          - "View/Create:technology.justj"
+          - "View/Delete:technology.justj"
+          - "View/Read:technology.justj"
       markupFormatter: rawHtml
       crumbIssuer:
         standard:
-           excludeClientIPFromCrumb: false
+          excludeClientIPFromCrumb: false
       remotingSecurity:
         enabled: true
-    
       securityRealm:
         ldap:
           configurations:
-            - displayNameAttributeName: cn
-              groupSearchBase: ou=group
-              rootDN: dc=eclipse,dc=org
-              server: ldaps://ldapcluster.eclipse.org
-              userSearch: mail={0}
-              mailAddressAttributeName: mail
-    
+          - displayNameAttributeName: cn
+            groupSearchBase: ou=group
+            rootDN: dc=eclipse,dc=org
+            server: ldaps://ldapcluster.eclipse.org
+            userSearch: mail={0}
+            mailAddressAttributeName: mail
       clouds:
       - kubernetes:
           name: "kubernetes"
@@ -98,7 +122,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: eclipsecbijenkins/basic-agent:4.2
+            - image: eclipsecbijenkins/basic-agent:4.3
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -173,7 +197,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: eclipsecbijenkins/jipp-migration-agent:4.2
+            - image: eclipsecbijenkins/jipp-migration-agent:4.3
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -248,7 +272,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: eclipsecbijenkins/ui-tests-agent:4.2
+            - image: eclipsecbijenkins/ui-tests-agent:4.3
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -333,22 +357,17 @@ data:
             strategy: "triggeringUsersAuthorizationStrategy"
       sSHD:
         port: -1
-    
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
         url: https://ci.eclipse.org/justj
-    
       mailer:
         replyToAddress: ci-admin@eclipse.org
         smtpHost: mail.eclipse.org
-    
       extendedEmailPublisher:
         defaultContentType: "text/html"
-    
       globalDefaultFlowDurabilityLevel:
         durabilityHint: PERFORMANCE_OPTIMIZED
-    
       simple-theme-plugin:
         elements:
         - cssUrl:
@@ -357,7 +376,6 @@ data:
             url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
         - jsUrl:
             url: "/justj/userContent/theme/title.js"
-    
     tool:
       jdk:
         installations:
