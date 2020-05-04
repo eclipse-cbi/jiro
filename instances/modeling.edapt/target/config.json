@@ -295,11 +295,11 @@
    ],
    "deployment": {
       "controlPort": 8081,
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "jnlpPort": 50000,
       "prefix": "/edapt",
       "uiPort": 8080,
-      "url": "https://ci-staging.eclipse.org/edapt"
+      "url": "https://ci.eclipse.org/edapt"
    },
    "docker": {
       "master": {

@@ -314,7 +314,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/edapt
+    url: https://ci.eclipse.org/edapt
 
   mailer:
     replyToAddress: ci-admin@eclipse.org
