@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "technology.cbi"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.222.1"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.222.1"
+    org.eclipse.cbi.jiro/jenkins.version: "2.222.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.222.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cbi"
   namespace: "cbi"
   name: jenkins-config
@@ -23,352 +23,374 @@ data:
   jenkins.yaml: |
     # GENERATED FILE - DO NOT EDIT
     jenkins:
-      agentProtocols:
-      - JNLP4-connect
-      - Ping
-      authorizationStrategy:
-        projectMatrix:
-          permissions:
-          - Overall/Administer:admins
-          - Job/Read:anonymous
-          - Overall/Read:anonymous
-          - Job/ExtendedRead:common
-          - Agent/Build:technology.cbi
-          - Credentials/View:technology.cbi
-          - Gerrit/ManualTrigger:technology.cbi
-          - Gerrit/Retrigger:technology.cbi
-          - Job/Build:technology.cbi
-          - Job/Cancel:technology.cbi
-          - Job/Configure:technology.cbi
-          - Job/Create:technology.cbi
-          - Job/Delete:technology.cbi
-          - Job/Move:technology.cbi
-          - Job/Read:technology.cbi
-          - Job/Workspace:technology.cbi
-          - Overall/Read:technology.cbi
-          - Run/Delete:technology.cbi
-          - Run/Replay:technology.cbi
-          - Run/Update:technology.cbi
-          - SCM/Tag:technology.cbi
-          - View/Configure:technology.cbi
-          - View/Create:technology.cbi
-          - View/Delete:technology.cbi
-          - View/Read:technology.cbi
-      clouds:
-      - kubernetes:
-          containerCapStr: "2"
-          jenkinsTunnel: jenkins-discovery.cbi.svc.cluster.local:50000
-          jenkinsUrl: http://jenkins-ui.cbi.svc.cluster.local/cbi
-          maxRequestsPerHostStr: "32"
-          name: kubernetes
-          namespace: cbi
-          podRetention: never
-          templates:
-          - containers:
-            - alwaysPullImage: true
-              args: ""
-              command: ""
-              image: eclipsecbijenkins/basic-agent:4.2
-              livenessProbe:
-                failureThreshold: 0
-                initialDelaySeconds: 0
-                periodSeconds: 0
-                successThreshold: 0
-                timeoutSeconds: 0
-              name: jnlp
-              resourceLimitCpu: 2000m
-              resourceLimitMemory: 4096Mi
-              resourceRequestCpu: 1000m
-              resourceRequestMemory: 4096Mi
-              ttyEnabled: true
-            envVars:
-            - envVar:
-                key: MAVEN_OPTS
-                value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
-            - envVar:
-                key: MAVEN_CONFIG
-                value: -B -e
-            instanceCap: 5
-            label: ""
-            name: basic-agent
-            namespace: cbi
-            nodeUsageMode: NORMAL
-            volumes:
-            - persistentVolumeClaim:
-                claimName: tools-claim-jiro-cbi
-                mountPath: /opt/tools
-                readOnly: true
-            - configMapVolume:
-                configMapName: known-hosts
-                mountPath: /home/jenkins/.ssh/
-            - emptyDirVolume:
-                memory: false
-                mountPath: /home/jenkins/
-            - emptyDirVolume:
-                memory: false
-                mountPath: /home/jenkins/.m2/repository
-            - emptyDirVolume:
-                memory: false
-                mountPath: /home/jenkins/.m2/wrapper
-            workspaceVolume:
-              emptyDirWorkspaceVolume:
-                memory: false
-            yaml: |
-              apiVersion: v1
-              kind: Pod
-              spec:
-                containers:
-                - name: jnlp
-                  volumeMounts:
-                  - name: m2-secret-dir
-                    mountPath: /home/jenkins/.m2/settings-security.xml
-                    subPath: settings-security.xml
-                    readOnly: true
-                  - name: m2-secret-dir
-                    mountPath: /home/jenkins/.m2/settings.xml
-                    subPath: settings.xml
-                    readOnly: true
-                  - name: m2-dir
-                    mountPath: /home/jenkins/.m2/toolchains.xml
-                    subPath: toolchains.xml
-                    readOnly: true
-                volumes:
-                - name: m2-secret-dir
-                  secret:
-                    secretName: m2-secret-dir
-                - name: m2-dir
-                  configMap:
-                    name: m2-dir
-          - containers:
-            - alwaysPullImage: true
-              args: ""
-              command: ""
-              image: eclipsecbijenkins/jipp-migration-agent:4.2
-              livenessProbe:
-                failureThreshold: 0
-                initialDelaySeconds: 0
-                periodSeconds: 0
-                successThreshold: 0
-                timeoutSeconds: 0
-              name: jnlp
-              resourceLimitCpu: 2000m
-              resourceLimitMemory: 4096Mi
-              resourceRequestCpu: 1000m
-              resourceRequestMemory: 4096Mi
-              ttyEnabled: true
-            envVars:
-            - envVar:
-                key: MAVEN_OPTS
-                value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
-            - envVar:
-                key: MAVEN_CONFIG
-                value: -B -e
-            instanceCap: 5
-            label: migration jipp-migration
-            name: jipp-migration-agent
-            namespace: cbi
-            nodeUsageMode: EXCLUSIVE
-            volumes:
-            - persistentVolumeClaim:
-                claimName: tools-claim-jiro-cbi
-                mountPath: /opt/tools
-                readOnly: true
-            - configMapVolume:
-                configMapName: known-hosts
-                mountPath: /home/jenkins/.ssh/
-            - emptyDirVolume:
-                memory: false
-                mountPath: /home/jenkins/
-            - emptyDirVolume:
-                memory: false
-                mountPath: /home/jenkins/.m2/repository
-            - emptyDirVolume:
-                memory: false
-                mountPath: /home/jenkins/.m2/wrapper
-            workspaceVolume:
-              emptyDirWorkspaceVolume:
-                memory: false
-            yaml: |
-              apiVersion: v1
-              kind: Pod
-              spec:
-                containers:
-                - name: jnlp
-                  volumeMounts:
-                  - name: m2-secret-dir
-                    mountPath: /home/jenkins/.m2/settings-security.xml
-                    subPath: settings-security.xml
-                    readOnly: true
-                  - name: m2-secret-dir
-                    mountPath: /home/jenkins/.m2/settings.xml
-                    subPath: settings.xml
-                    readOnly: true
-                  - name: m2-dir
-                    mountPath: /home/jenkins/.m2/toolchains.xml
-                    subPath: toolchains.xml
-                    readOnly: true
-                volumes:
-                - name: m2-secret-dir
-                  secret:
-                    secretName: m2-secret-dir
-                - name: m2-dir
-                  configMap:
-                    name: m2-dir
-          - containers:
-            - alwaysPullImage: true
-              args: ""
-              command: ""
-              image: eclipsecbijenkins/ui-tests-agent:4.2
-              livenessProbe:
-                failureThreshold: 0
-                initialDelaySeconds: 0
-                periodSeconds: 0
-                successThreshold: 0
-                timeoutSeconds: 0
-              name: jnlp
-              resourceLimitCpu: 2000m
-              resourceLimitMemory: 4096Mi
-              resourceRequestCpu: 1000m
-              resourceRequestMemory: 4096Mi
-              ttyEnabled: true
-            envVars:
-            - envVar:
-                key: MAVEN_OPTS
-                value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
-            - envVar:
-                key: MAVEN_CONFIG
-                value: -B -e
-            instanceCap: 5
-            label: ui-test ui-tests
-            name: ui-tests-agent
-            namespace: cbi
-            nodeUsageMode: EXCLUSIVE
-            volumes:
-            - persistentVolumeClaim:
-                claimName: tools-claim-jiro-cbi
-                mountPath: /opt/tools
-                readOnly: true
-            - configMapVolume:
-                configMapName: known-hosts
-                mountPath: /home/jenkins/.ssh/
-            - emptyDirVolume:
-                memory: false
-                mountPath: /home/jenkins/
-            - emptyDirVolume:
-                memory: false
-                mountPath: /home/jenkins/.m2/repository
-            - emptyDirVolume:
-                memory: false
-                mountPath: /home/jenkins/.m2/wrapper
-            workspaceVolume:
-              emptyDirWorkspaceVolume:
-                memory: false
-            yaml: |
-              apiVersion: v1
-              kind: Pod
-              spec:
-                containers:
-                - name: jnlp
-                  volumeMounts:
-                  - name: m2-secret-dir
-                    mountPath: /home/jenkins/.m2/settings-security.xml
-                    subPath: settings-security.xml
-                    readOnly: true
-                  - name: m2-secret-dir
-                    mountPath: /home/jenkins/.m2/settings.xml
-                    subPath: settings.xml
-                    readOnly: true
-                  - name: m2-dir
-                    mountPath: /home/jenkins/.m2/toolchains.xml
-                    subPath: toolchains.xml
-                    readOnly: true
-                volumes:
-                - name: m2-secret-dir
-                  secret:
-                    secretName: m2-secret-dir
-                - name: m2-dir
-                  configMap:
-                    name: m2-dir
-      crumbIssuer:
-        standard:
-          excludeClientIPFromCrumb: false
-      disableRememberMe: false
-      markupFormatter: rawHtml
-      mode: EXCLUSIVE
       nodes:
       - permanent:
           launcher:
             ssh:
-              credentialsId: 78cd25b2-cbb1-4a7f-8888-5f742271148e
-              host: centslave1.eclipse.org
-              javaPath: /shared/common/jdk1.8.0_x64-latest/bin/java
+              credentialsId: "78cd25b2-cbb1-4a7f-8888-5f742271148e"
+              host: "centslave1.eclipse.org"
+              javaPath: "/shared/common/jdk1.8.0_x64-latest/bin/java"
               sshHostKeyVerificationStrategy:
                 manuallyProvidedKeyVerificationStrategy:
-                  key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDa23PeYP41r8dTo5CW5/zls1eg0f9euBTxdmu4Tyf/UmfVV3/1s/gdSm9pm6pJQJiGOgjk9in+KkN5QFX7uTobwedZztWV4YRERQe7pZO4iF7fCbFIEECDTN86ZMlFTwS16kgUTsa6n/5WYiSWYljJF4sZZfDZAkpvvRGwBFuuVA3AKNxkJ9NrPcWF4S8iPeGLe+n4sGpRmE4tEiZCWzhPqhayNQxos3KMmihrGu8wKtqwvWftL/sRzNoXuecqbRcEk6c+Cm3K7rqmPpZ1KJ6bqDPe3YrP1EwrgXujZBT05/GvIhn7OEkpDnCoCK0lb9xH/gG8kkZGbOwAXeeJA47D
+                  key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDa23PeYP41r8dTo5CW5/zls1eg0f9euBTxdmu4Tyf/UmfVV3/1s/gdSm9pm6pJQJiGOgjk9in+KkN5QFX7uTobwedZztWV4YRERQe7pZO4iF7fCbFIEECDTN86ZMlFTwS16kgUTsa6n/5WYiSWYljJF4sZZfDZAkpvvRGwBFuuVA3AKNxkJ9NrPcWF4S8iPeGLe+n4sGpRmE4tEiZCWzhPqhayNQxos3KMmihrGu8wKtqwvWftL/sRzNoXuecqbRcEk6c+Cm3K7rqmPpZ1KJ6bqDPe3YrP1EwrgXujZBT05/GvIhn7OEkpDnCoCK0lb9xH/gG8kkZGbOwAXeeJA47D"
           mode: EXCLUSIVE
-          name: centslave1
-          nodeDescription: CentOS
+          name: "centslave1"
+          nodeDescription: "CentOS"
           nodeProperties:
           - toolLocation:
               locations:
-              - home: /shared/common/jdk1.8.0_x64-latest
-                key: hudson.model.JDK$DescriptorImpl@oracle-jdk8-latest
-              - home: /shared/common/apache-maven-latest
-                key: hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest
+              - home: "/shared/common/jdk1.8.0_x64-latest"
+                key: "hudson.model.JDK$DescriptorImpl@oracle-jdk8-latest"
+              - home: "/shared/common/apache-maven-latest"
+                key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
           numExecutors: 1
-          remoteFS: /opt/public/hipp/homes/genie.cbi/centslave1
+          remoteFS: "/opt/public/hipp/homes/genie.cbi/centslave1"
       - permanent:
           launcher:
             ssh:
-              credentialsId: 78cd25b2-cbb1-4a7f-8888-5f742271148e
-              host: mac-tests2
+              credentialsId: "78cd25b2-cbb1-4a7f-8888-5f742271148e"
+              host: "mac-tests2"
               sshHostKeyVerificationStrategy:
                 manuallyProvidedKeyVerificationStrategy:
-                  key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDI1Vs9ZuP6MeO2HbL2se+cXN7/xIQ/08WxTTxKf/6whsaFuFcIEZ7xB1ANeKwLA0mv3HhK43azBIg0Xcwbb9s91wFuiBlASAoLK8NKisyXsoGRjV4ShvzkAWPybQTQi9Z/I5sbMB590qlIu3EIrtRz8O1f0sXMnbZwCm/PMcq72uT5Fykjh7iM1NnEVjfCLECf8cyaHzMWOTkUwjaITuXsaRZHKvzyENejrCOYaO4PMTk0FJfyApB8mzthgtKsfMMrz/ccXNT3o5iC2I3Y1pbsWf1nBkaJD+t1wACkwv0j12BYdlLE6ZEAirvUd2ICy0hgFSyUkxTCW6nT6t+MyTP/
+                  key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDI1Vs9ZuP6MeO2HbL2se+cXN7/xIQ/08WxTTxKf/6whsaFuFcIEZ7xB1ANeKwLA0mv3HhK43azBIg0Xcwbb9s91wFuiBlASAoLK8NKisyXsoGRjV4ShvzkAWPybQTQi9Z/I5sbMB590qlIu3EIrtRz8O1f0sXMnbZwCm/PMcq72uT5Fykjh7iM1NnEVjfCLECf8cyaHzMWOTkUwjaITuXsaRZHKvzyENejrCOYaO4PMTk0FJfyApB8mzthgtKsfMMrz/ccXNT3o5iC2I3Y1pbsWf1nBkaJD+t1wACkwv0j12BYdlLE6ZEAirvUd2ICy0hgFSyUkxTCW6nT6t+MyTP/"
           mode: EXCLUSIVE
-          name: mac-tests2
+          name: "mac-tests2"
           nodeProperties:
           - envVars:
               env:
-              - key: JAVA_HOME
-                value: /Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home
+              - key: "JAVA_HOME"
+                value: "/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home"
           - toolLocation:
               locations:
-              - home: /shared/common/apache-maven-latest
-                key: hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest
-              - home: /usr/bin/git
-                key: hudson.plugins.git.GitTool$DescriptorImpl@git
-              - home: /shared/common/apache-ant-1.8.4
-                key: hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest
-          remoteFS: /Users/genie.cbi
+              - home: "/shared/common/apache-maven-latest"
+                key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
+              - home: "/usr/bin/git"
+                key: "hudson.plugins.git.GitTool$DescriptorImpl@git"
+              - home: "/shared/common/apache-ant-1.8.4"
+                key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest"
+          remoteFS: "/Users/genie.cbi"
       - permanent:
-          labelString: docker-build
+          labelString: "docker-build"
           launcher:
             ssh:
-              credentialsId: cfaf31c8-22ea-487d-9d6d-b7dd77b624f5
-              host: 13.77.107.72
-              jvmOptions: -Xmx256m -Xms256m
+              credentialsId: "cfaf31c8-22ea-487d-9d6d-b7dd77b624f5"
+              host: "13.77.107.72"
+              jvmOptions: "-Xmx256m -Xms256m"
               sshHostKeyVerificationStrategy:
                 manuallyProvidedKeyVerificationStrategy:
-                  key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeTB1LA7FnUI8kNrY8zVx/Ywy1RN4tJj11W9QWFWTr6gAJgSNEneKIa8hnjZEPddYOIsBOQ9VSvgXYGFRKEFXW23zskuWEyCqSZ/e7RTw2VTCh5nfUZlX1eG7iujn1mpineX/+hRR7HtxDM9MPhpbrq6HVjXuSx8mex9vu4p20ZVZkewedmtG2+qYDDTsv8uw0kX+kkyRuE6An14omsCQ+8mJ17zQnGXN2CnrXXMOWbgH9BC8RZUvNZOzNY1JkWf9EqY2Tz3YJPgUM+9qVj3/BEjGopEIUT/jDuk2NnOo+V1GT8aWzwmBjv91F7wgjuQ72cV8GeSbxz0utQ9isuMkp
+                  key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeTB1LA7FnUI8kNrY8zVx/Ywy1RN4tJj11W9QWFWTr6gAJgSNEneKIa8hnjZEPddYOIsBOQ9VSvgXYGFRKEFXW23zskuWEyCqSZ/e7RTw2VTCh5nfUZlX1eG7iujn1mpineX/+hRR7HtxDM9MPhpbrq6HVjXuSx8mex9vu4p20ZVZkewedmtG2+qYDDTsv8uw0kX+kkyRuE6An14omsCQ+8mJ17zQnGXN2CnrXXMOWbgH9BC8RZUvNZOzNY1JkWf9EqY2Tz3YJPgUM+9qVj3/BEjGopEIUT/jDuk2NnOo+V1GT8aWzwmBjv91F7wgjuQ72cV8GeSbxz0utQ9isuMkp"
           mode: EXCLUSIVE
-          name: fmlw3-ubuntu1804
-          nodeDescription: 2vCPU, 8GB RAM, Hosted @ Azure
-          remoteFS: /home/genie.cbi/jenkins-agent
+          name: "fmlw3-ubuntu1804"
+          nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
+          remoteFS: "/home/genie.cbi/jenkins-agent"
       numExecutors: 0
+      scmCheckoutRetryCount: 2
+      mode: EXCLUSIVE
+      systemMessage: ""
+      disableRememberMe: false
+      agentProtocols:
+      - "JNLP4-connect"
+      - "Ping"
+      authorizationStrategy:
+        projectMatrix:
+          permissions:
+          - "Overall/Administer:admins"
+          - "Job/Read:anonymous"
+          - "Overall/Read:anonymous"
+          - "Job/ExtendedRead:common"
+          - "Agent/Build:technology.cbi"
+          - "Credentials/View:technology.cbi"
+          - "Gerrit/ManualTrigger:technology.cbi"
+          - "Gerrit/Retrigger:technology.cbi"
+          - "Job/Build:technology.cbi"
+          - "Job/Cancel:technology.cbi"
+          - "Job/Configure:technology.cbi"
+          - "Job/Create:technology.cbi"
+          - "Job/Delete:technology.cbi"
+          - "Job/Move:technology.cbi"
+          - "Job/Read:technology.cbi"
+          - "Job/Workspace:technology.cbi"
+          - "Overall/Read:technology.cbi"
+          - "Run/Delete:technology.cbi"
+          - "Run/Replay:technology.cbi"
+          - "Run/Update:technology.cbi"
+          - "SCM/Tag:technology.cbi"
+          - "View/Configure:technology.cbi"
+          - "View/Create:technology.cbi"
+          - "View/Delete:technology.cbi"
+          - "View/Read:technology.cbi"
+      markupFormatter: rawHtml
+      crumbIssuer:
+        standard:
+          excludeClientIPFromCrumb: false
       remotingSecurity:
         enabled: true
-      scmCheckoutRetryCount: 2
       securityRealm:
         ldap:
           configurations:
           - displayNameAttributeName: cn
             groupSearchBase: ou=group
-            mailAddressAttributeName: mail
             rootDN: dc=eclipse,dc=org
-            server: ldapmaster
+            server: ldaps://ldapcluster.eclipse.org
             userSearch: mail={0}
-      systemMessage: ""
+            mailAddressAttributeName: mail
+      clouds:
+      - kubernetes:
+          name: "kubernetes"
+          containerCapStr: "2"
+          jenkinsUrl: "http://jenkins-ui.cbi.svc.cluster.local/cbi"
+          jenkinsTunnel: "jenkins-discovery.cbi.svc.cluster.local:50000"
+          maxRequestsPerHostStr: "32"
+          namespace: "cbi"
+          podRetention: "never"
+          templates:
+          - containers:
+            - image: eclipsecbijenkins/basic-agent:4.2
+              alwaysPullImage: true
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: "jnlp"
+              resourceLimitCpu: "2000m"
+              resourceRequestCpu: "1000m"
+              resourceLimitMemory: "4096Mi"
+              resourceRequestMemory: "4096Mi"
+              ttyEnabled: true
+              command: ""
+              args: ""
+            instanceCap: 5
+            name: "basic-agent"
+            namespace: "cbi"
+            nodeUsageMode: NORMAL
+            label: ""
+            envVars:
+            - envVar:
+                key: "MAVEN_OPTS"
+                value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+            - envVar:
+                key: "MAVEN_CONFIG"
+                value: "-B -e"
+            volumes:
+            - persistentVolumeClaim:
+                claimName: "tools-claim-jiro-cbi"
+                mountPath: "/opt/tools"
+                readOnly: true
+            - configMapVolume:
+                configMapName: "known-hosts"
+                mountPath: "/home/jenkins/.ssh/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/repository"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/wrapper"
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: m2-dir
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                volumes:
+                - name: m2-secret-dir
+                  secret:
+                    secretName: m2-secret-dir
+                - name: m2-dir
+                  configMap:
+                    name: m2-dir
+          - containers:
+            - image: eclipsecbijenkins/jipp-migration-agent:4.2
+              alwaysPullImage: true
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: "jnlp"
+              resourceLimitCpu: "2000m"
+              resourceRequestCpu: "1000m"
+              resourceLimitMemory: "4096Mi"
+              resourceRequestMemory: "4096Mi"
+              ttyEnabled: true
+              command: ""
+              args: ""
+            instanceCap: 5
+            name: "jipp-migration-agent"
+            namespace: "cbi"
+            nodeUsageMode: EXCLUSIVE
+            label: "migration jipp-migration"
+            envVars:
+            - envVar:
+                key: "MAVEN_OPTS"
+                value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+            - envVar:
+                key: "MAVEN_CONFIG"
+                value: "-B -e"
+            volumes:
+            - persistentVolumeClaim:
+                claimName: "tools-claim-jiro-cbi"
+                mountPath: "/opt/tools"
+                readOnly: true
+            - configMapVolume:
+                configMapName: "known-hosts"
+                mountPath: "/home/jenkins/.ssh/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/repository"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/wrapper"
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: m2-dir
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                volumes:
+                - name: m2-secret-dir
+                  secret:
+                    secretName: m2-secret-dir
+                - name: m2-dir
+                  configMap:
+                    name: m2-dir
+          - containers:
+            - image: eclipsecbijenkins/ui-tests-agent:4.2
+              alwaysPullImage: true
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: "jnlp"
+              resourceLimitCpu: "2000m"
+              resourceRequestCpu: "1000m"
+              resourceLimitMemory: "4096Mi"
+              resourceRequestMemory: "4096Mi"
+              ttyEnabled: true
+              command: ""
+              args: ""
+            instanceCap: 5
+            name: "ui-tests-agent"
+            namespace: "cbi"
+            nodeUsageMode: EXCLUSIVE
+            label: "ui-test ui-tests"
+            envVars:
+            - envVar:
+                key: "MAVEN_OPTS"
+                value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+            - envVar:
+                key: "MAVEN_CONFIG"
+                value: "-B -e"
+            volumes:
+            - persistentVolumeClaim:
+                claimName: "tools-claim-jiro-cbi"
+                mountPath: "/opt/tools"
+                readOnly: true
+            - configMapVolume:
+                configMapName: "known-hosts"
+                mountPath: "/home/jenkins/.ssh/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/repository"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.m2/wrapper"
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: m2-dir
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                volumes:
+                - name: m2-secret-dir
+                  secret:
+                    secretName: m2-secret-dir
+                - name: m2-dir
+                  configMap:
+                    name: m2-dir
+    unclassified:
+      slackNotifier:
+        teamDomain: "eclipsefoundation"
+        tokenCredentialId: "03a52394-e33f-46fc-be2a-222bf8e9a58f"
+      location:
+        adminAddress: ci-admin@eclipse.org
+        url: https://ci.eclipse.org/cbi
+      mailer:
+        replyToAddress: ci-admin@eclipse.org
+        smtpHost: mail.eclipse.org
+      extendedEmailPublisher:
+        defaultContentType: "text/html"
+      globalDefaultFlowDurabilityLevel:
+        durabilityHint: PERFORMANCE_OPTIMIZED
+      simple-theme-plugin:
+        elements:
+        - cssUrl:
+            url: "/cbi/userContent/theme/quicksilver.css"
+        - cssUrl:
+            url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+        - jsUrl:
+            url: "/cbi/userContent/theme/title.js"
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
@@ -377,114 +399,94 @@ data:
       queueItemAuthenticator:
         authenticators:
         - global:
-            strategy: triggeringUsersAuthorizationStrategy
+            strategy: "triggeringUsersAuthorizationStrategy"
       sSHD:
         port: -1
     tool:
+      jdk:
+        installations:
+        - name: "openjdk-latest"
+          home: "/opt/tools/java/openjdk/latest"
+        - name: "openjdk-jdk15-latest"
+          home: "/opt/tools/java/openjdk/jdk-15/latest"
+        - name: "openjdk-jdk14-latest"
+          home: "/opt/tools/java/openjdk/jdk-14/latest"
+        - name: "openjdk-jdk13-latest"
+          home: "/opt/tools/java/openjdk/jdk-13/latest"
+        - name: "openjdk-jdk12-latest"
+          home: "/opt/tools/java/openjdk/jdk-12/latest"
+        - name: "openjdk-jdk11-latest"
+          home: "/opt/tools/java/openjdk/jdk-11/latest"
+        - name: "openjdk-jdk10-latest"
+          home: "/opt/tools/java/openjdk/jdk-10/latest"
+        - name: "openjdk-jdk9-latest"
+          home: "/opt/tools/java/openjdk/jdk-9/latest"
+        - name: "adoptopenjdk-hotspot-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
+        - name: "adoptopenjdk-hotspot-jdk12-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest"
+        - name: "adoptopenjdk-hotspot-jdk11-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
+        - name: "adoptopenjdk-hotspot-jdk10-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest"
+        - name: "adoptopenjdk-hotspot-jdk9-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest"
+        - name: "adoptopenjdk-hotspot-jdk8-latest"
+          home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
+        - name: "adoptopenjdk-openj9-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-latest"
+        - name: "adoptopenjdk-openj9-jdk12-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-12/latest"
+        - name: "adoptopenjdk-openj9-jdk11-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
+        - name: "adoptopenjdk-openj9-jdk10-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-10/latest"
+        - name: "adoptopenjdk-openj9-jdk9-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-9/latest"
+        - name: "adoptopenjdk-openj9-jdk8-latest"
+          home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
+        - name: "oracle-latest"
+          home: "/opt/tools/java/oracle/latest"
+        - name: "oracle-jdk10-latest"
+          home: "/opt/tools/java/oracle/jdk-10/latest"
+        - name: "oracle-jdk9-latest"
+          home: "/opt/tools/java/oracle/jdk-9/latest"
+        - name: "oracle-jdk8-latest"
+          home: "/opt/tools/java/oracle/jdk-8/latest"
+        - name: "oracle-jdk7-latest"
+          home: "/opt/tools/java/oracle/jdk-7/latest"
+        - name: "oracle-jdk6-latest"
+          home: "/opt/tools/java/oracle/jdk-6/latest"
+        - name: "oracle-jdk5-latest"
+          home: "/opt/tools/java/oracle/jdk-5/latest"
+        - name: "ibm-jdk8-latest"
+          home: "/opt/tools/java/ibm/jdk-8/latest"
+        - name: "ibm-latest"
+          home: "/opt/tools/java/ibm/latest"
       ant:
         installations:
-        - home: ""
-          name: apache-ant-latest
+        - name: "apache-ant-latest"
+          home: ""
           properties:
           - installSource:
               installers:
               - antFromApache:
-                  id: 1.10.5
-      git:
-        installations:
-        - home: git
-          name: Default
-      jdk:
-        installations:
-        - home: /opt/tools/java/openjdk/latest
-          name: openjdk-latest
-        - home: /opt/tools/java/openjdk/jdk-14/latest
-          name: openjdk-jdk14-latest
-        - home: /opt/tools/java/openjdk/jdk-13/latest
-          name: openjdk-jdk13-latest
-        - home: /opt/tools/java/openjdk/jdk-12/latest
-          name: openjdk-jdk12-latest
-        - home: /opt/tools/java/openjdk/jdk-11/latest
-          name: openjdk-jdk11-latest
-        - home: /opt/tools/java/openjdk/jdk-10/latest
-          name: openjdk-jdk10-latest
-        - home: /opt/tools/java/openjdk/jdk-9/latest
-          name: openjdk-jdk9-latest
-        - home: /opt/tools/java/adoptopenjdk/hotspot-latest
-          name: adoptopenjdk-hotspot-latest
-        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest
-          name: adoptopenjdk-hotspot-jdk12-latest
-        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest
-          name: adoptopenjdk-hotspot-jdk11-latest
-        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest
-          name: adoptopenjdk-hotspot-jdk10-latest
-        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest
-          name: adoptopenjdk-hotspot-jdk9-latest
-        - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest
-          name: adoptopenjdk-hotspot-jdk8-latest
-        - home: /opt/tools/java/adoptopenjdk/openj9-latest
-          name: adoptopenjdk-openj9-latest
-        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-12/latest
-          name: adoptopenjdk-openj9-jdk12-latest
-        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-11/latest
-          name: adoptopenjdk-openj9-jdk11-latest
-        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-10/latest
-          name: adoptopenjdk-openj9-jdk10-latest
-        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-9/latest
-          name: adoptopenjdk-openj9-jdk9-latest
-        - home: /opt/tools/java/adoptopenjdk/openj9-jdk-8/latest
-          name: adoptopenjdk-openj9-jdk8-latest
-        - home: /opt/tools/java/oracle/latest
-          name: oracle-latest
-        - home: /opt/tools/java/oracle/jdk-10/latest
-          name: oracle-jdk10-latest
-        - home: /opt/tools/java/oracle/jdk-9/latest
-          name: oracle-jdk9-latest
-        - home: /opt/tools/java/oracle/jdk-8/latest
-          name: oracle-jdk8-latest
-        - home: /opt/tools/java/oracle/jdk-7/latest
-          name: oracle-jdk7-latest
-        - home: /opt/tools/java/oracle/jdk-6/latest
-          name: oracle-jdk6-latest
-        - home: /opt/tools/java/oracle/jdk-5/latest
-          name: oracle-jdk5-latest
-        - home: /opt/tools/java/ibm/jdk-8/latest
-          name: ibm-jdk8-latest
-        - home: /opt/tools/java/ibm/latest
-          name: ibm-latest
+                  id: "1.10.5"
       maven:
         installations:
-        - home: /opt/tools/apache-maven/latest
-          name: apache-maven-latest
-        - home: /opt/tools/apache-maven/3.6.3
-          name: apache-maven-3.6.3
-        - home: /opt/tools/apache-maven/3.6.0
-          name: apache-maven-3.6.0
-        - home: /opt/tools/apache-maven/3.5.4
-          name: apache-maven-3.5.4
-        - home: /opt/tools/apache-maven/3.3.9
-          name: apache-maven-3.3.9
-        - home: /opt/tools/apache-maven/3.2.5
-          name: apache-maven-3.2.5
-    unclassified:
-      extendedEmailPublisher:
-        defaultContentType: text/html
-      globalDefaultFlowDurabilityLevel:
-        durabilityHint: PERFORMANCE_OPTIMIZED
-      location:
-        adminAddress: ci-admin@eclipse.org
-        url: https://ci.eclipse.org/cbi
-      mailer:
-        replyToAddress: ci-admin@eclipse.org
-        smtpHost: mail.eclipse.org
-      simple-theme-plugin:
-        elements:
-        - cssUrl:
-            url: /cbi/userContent/theme/quicksilver.css
-        - cssUrl:
-            url: //fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100
-        - jsUrl:
-            url: /cbi/userContent/theme/title.js
-      slackNotifier:
-        teamDomain: eclipsefoundation
-        tokenCredentialId: 03a52394-e33f-46fc-be2a-222bf8e9a58f
+        - name: "apache-maven-latest"
+          home: "/opt/tools/apache-maven/latest"
+        - name: "apache-maven-3.6.3"
+          home: "/opt/tools/apache-maven/3.6.3"
+        - name: "apache-maven-3.6.0"
+          home: "/opt/tools/apache-maven/3.6.0"
+        - name: "apache-maven-3.5.4"
+          home: "/opt/tools/apache-maven/3.5.4"
+        - name: "apache-maven-3.3.9"
+          home: "/opt/tools/apache-maven/3.3.9"
+        - name: "apache-maven-3.2.5"
+          home: "/opt/tools/apache-maven/3.2.5"
+      git:
+        installations:
+        - name: "Default"
+          home: "git"

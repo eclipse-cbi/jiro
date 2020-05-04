@@ -305,8 +305,8 @@
       "master": {
          "home": "/var/jenkins_home",
          "image": "docker.io/eclipsecbijenkins/cbi",
-         "imageTag": "2.222.1",
-         "parentImage": "docker.io/eclipsecbijenkins/jenkins-master-base:2.222.1",
+         "imageTag": "2.222.3",
+         "parentImage": "docker.io/eclipsecbijenkins/jenkins-master-base:2.222.3",
          "pluginroot": "/var/cache/jenkins/plugins",
          "ref": "/usr/share/jenkins/ref",
          "updateCenter": "https://updates.jenkins.io",
@@ -317,7 +317,7 @@
       "repository": "docker.io/eclipsecbijenkins"
    },
    "jenkins": {
-      "actualVersion": "2.222.1",
+      "actualVersion": "2.222.3",
       "agentConnectionTimeout": 180,
       "maxConcurrency": 2,
       "permissions": [
@@ -371,7 +371,7 @@
       "staticAgentCount": 3,
       "theme": "quicksilver",
       "timezone": "America/Toronto",
-      "version": "2.222.1"
+      "version": "2.222.3"
    },
    "kubernetes": {
       "agents": {
