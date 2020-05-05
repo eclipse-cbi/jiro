@@ -41,7 +41,7 @@ if [[ -f "${instance}/jenkins/plugins-list" ]]; then
 fi
 
 jenkinsTemplateFolder="${SCRIPT_FOLDER}/../templates/jenkins"
-jenkinsActualVersion="$(jq -r '.jenkins.actualVersion' "${instance}/target/config.json")"
+jenkinsActualVersion="$(jq -r '.jiroMaster.version' "${instance}/target/config.json")"
 if [[ -d "${jenkinsTemplateFolder}/${jenkinsActualVersion}" ]]; then
   jenkinsTemplateFolder="${SCRIPT_FOLDER}/../templates/jenkins/${jenkinsActualVersion}"
 fi

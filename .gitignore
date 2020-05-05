@@ -2,8 +2,10 @@
 cli.jar
 *.code-workspace
 /.project
-/.jsonnet
+/.bashtools
 /.dockertools
 Dockerfile.buildlog
 **/target/.secrets
+**/target/jenkins/*.war
+**/target/jenkins/ref/plugins
 /.localconfig

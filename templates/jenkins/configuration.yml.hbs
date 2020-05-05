@@ -41,8 +41,8 @@ jenkins:
 
   clouds:
   {{#each clouds}}
-  - kubernetes:
-      name: "{{this.name}}"
+  - {{kind}}:
+      name: "{{@key}}"
       containerCapStr: "{{../jenkins.maxConcurrency}}"
       jenkinsUrl: "http://jenkins-ui.{{../kubernetes.master.namespace}}.svc.cluster.local{{../deployment.prefix}}"
       jenkinsTunnel: "jenkins-discovery.{{../kubernetes.master.namespace}}.svc.cluster.local:{{../deployment.jnlpPort}}"
@@ -52,7 +52,7 @@ jenkins:
       templates:
       {{#each templates}}
       - containers:
-        - image: {{this.docker.repository}}/{{this.docker.image.name}}:{{this.docker.image.tag}}
+        - image: {{this.docker.registry}}/{{this.docker.repository}}/{{this.docker.image}}:{{this.docker.tag}}
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -69,17 +69,16 @@ jenkins:
           command: ""
           args: ""
         instanceCap: 5
-        name: "{{this.name}}"
+        name: "{{@key}}"
         namespace: "{{../namespace}}"
         nodeUsageMode: {{this.mode}}
         label: "{{#each this.labels}}{{this}}{{#unless @last}} {{/unless}}{{/each}}"
         envVars:
+        {{#each envVars}}
         - envVar:
-            key: "MAVEN_OPTS"
-            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
-        - envVar:
-            key: "MAVEN_CONFIG"
-            value: "-B -e"
+            key: "{{@key}}"
+            value: "{{#each this}}{{this}}{{#unless @last}} {{/unless}}{{/each}}"
+        {{/each}}
         volumes:
         - persistentVolumeClaim:
             claimName: "tools-claim-jiro-{{../../project.shortName}}"

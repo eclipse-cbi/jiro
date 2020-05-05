@@ -1,8 +1,8 @@
 local Kube = import "kube.libsonnet";
 {
   gen(config): Kube.StatefulSet(config.kubernetes.master.stsName, config) {
-    local agents = import "../../../jiro-agents/remoting.libsonnet",
-    local defaultJnlpAgent = agents.agents["basic-agent"].versions[config.jenkins.remotingVersion],
+    local agents = import "../../../jiro-agents/agents.jsonnet",
+    local defaultJnlpAgent = agents["basic-agent"].variants[config.jiroMaster.remoting.version],
     spec: {
       replicas: 1,
       selector: {
@@ -22,7 +22,7 @@ local Kube = import "kube.libsonnet";
           containers: [
             {
               name: "jenkins",
-              image: "%s:%s" % [config.docker.master.image, config.docker.master.imageTag ],
+              image: "%s/%s/%s:%s" % [config.docker.master.registry, config.docker.master.repository, config.docker.master.image, config.docker.master.tag ],
               imagePullPolicy: "Always",
               livenessProbe: {
                 httpGet: {
@@ -67,21 +67,21 @@ local Kube = import "kube.libsonnet";
                 preStop: {
                   exec: {
                     # be even smarter and implement this in a script with a wait for job to complete. Adjust terminationGracePeriodSeconds accordingly
-                    command: ["/bin/sh","-c","java -cp " + config.docker.master.webroot + "/winstone.jar winstone.tools.WinstoneControl shutdown --host=localhost --port=" + config.deployment.controlPort + " >/dev/termination-log 2>&1"],
+                    command: ["/bin/sh","-c","java -cp " + config.jiroMaster.webroot + "/winstone.jar winstone.tools.WinstoneControl shutdown --host=localhost --port=" + config.deployment.controlPort + " >/dev/termination-log 2>&1"],
                   },
                 },
               },
               volumeMounts: [
                 {
-                  mountPath: config.docker.master.home,
+                  mountPath: config.jiroMaster.home,
                   name: "jenkins-home",
                 },
                 {
-                  mountPath: config.docker.master.webroot,
+                  mountPath: config.jiroMaster.webroot,
                   name: "jenkins-war",
                 },
                 {
-                  mountPath: config.docker.master.pluginroot,
+                  mountPath: config.jiroMaster.pluginroot,
                   name: "jenkins-plugins",
                 },
                 {
@@ -125,7 +125,7 @@ local Kube = import "kube.libsonnet";
                     "-DexecutableWar.jetty.sessionIdCookieName=JSESSIONID." + config.project.shortName,
                     "-Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml",
                     "-Dio.jenkins.plugins.casc.ConfigurationAsCode.initialDelay=5000",
-                    "-Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=%s/%s:%s" % [defaultJnlpAgent.docker.repository, defaultJnlpAgent.docker.image.name, defaultJnlpAgent.docker.image.tag],
+                    "-Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=%s/%s/%s:%s" % [defaultJnlpAgent.docker.registry, defaultJnlpAgent.docker.repository, defaultJnlpAgent.docker.image, defaultJnlpAgent.docker.tag],
                     "-Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=" + config.jenkins.agentConnectionTimeout,
                     "-Dkubernetes.websocket.ping.interval=30000",
                     ])
@@ -134,15 +134,15 @@ local Kube = import "kube.libsonnet";
                   name: "JENKINS_OPTS",
                   value: std.join(" ", [
                     "--prefix=" + config.deployment.prefix,
-                    "--webroot=" + config.docker.master.webroot,
-                    "--pluginroot=" + config.docker.master.pluginroot,
+                    "--webroot=" + config.jiroMaster.webroot,
+                    "--pluginroot=" + config.jiroMaster.pluginroot,
                     "--controlPort=" + config.deployment.controlPort,
                   ]),
                 },
                 {
                   # see https://github.com/jenkinsci/docker/pull/577
                   name: "PLUGINS_FORCE_UPGRADE",
-                  value: config.jenkins.pluginsForceUpgrade,
+                  value: "%s" % config.jenkins.pluginsForceUpgrade,
                 },
               ],
             },

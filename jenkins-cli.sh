@@ -35,7 +35,7 @@ elif [[ ! -d "${instance}" ]]; then
 fi
 
 jenkinsUrl="$(jq -r '.deployment.url' "${instance}/target/config.json")"
-jenkinsVersion="$(jq -r '.jenkins.actualVersion' "${instance}/target/config.json")"
+jenkinsVersion="$(jq -r '.jiroMaster.version' "${instance}/target/config.json")"
 
 # First download the jar for the running version (if needed)
 CLI_JAR="${SCRIPT_FOLDER}/jenkins-master-base/${jenkinsVersion}/cli.jar"
