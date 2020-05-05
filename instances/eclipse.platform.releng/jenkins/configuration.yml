@@ -32,27 +32,20 @@ jenkins:
         command:
           command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@208.52.161.179 "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > /Users/genie.releng/jenkins_agent/remoting/slave.jar; java -jar /Users/genie.releng/jenkins_agent/remoting/slave.jar"'
   - permanent:
-      name: "fedora-28-ppc64le"
-      nodeDescription: ""
       labelString: "ppc64le"
-      remoteFS: '/home/genie.releng/ci'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
       launcher:
-        command:
-          command: 'ssh -vv -C -i /run/secrets/jenkins/ssh/id_rsa.releng -p 2256 genie.releng@rh-power2.fit.vutbr.cz "curl -sSL https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > slave.jar; which java; java -version; java -jar slave.jar"'
-  - permanent:
+        ssh:
+          credentialsId: "fedora-ppc64le-bot-ssh"
+          host: "rh-power4.fit.vutbr.cz"
+          port: 2256
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBMFIkwNg9bZFU2F6YgKBOcX6jBoWupir1vVlntbUYNjdE6gzRuMSVJquBodX8vSWt3eH5/VkyWbwfdrPE0WtBONXpm9Tq/8FZWdUgy1XxmmTeZRvXI2ldVwDT2lNfk9TgM8hKzgQm9KLrexbZR57kD5UlXBP7Ck6hF2+yZSKajr+CsjXO2D2l3i5g7PnnCwd6oRi8GCCOE6Mgui0+Ibr9d2G64OqACJCaPOHmxdNagcwTBusZgaZriYBob9i0Sc7ak2ODdZMZMopN3kHmm+FmAdjY0bzAL/DnHGHKDwP/ngqRCSaUyBX7mGVB5gaiL9ahZ+o/pl7ICgg5HKs1HZOj"
+      mode: EXCLUSIVE
       name: "fedora-ppc64le"
-      nodeDescription: ""
-      labelString: "ppc64le"
-      remoteFS: '/home/genie.releng/ci'
       numExecutors: 1
-      mode: EXCLUSIVE
+      remoteFS: "/home/genie.releng/ci"
       retentionStrategy: "always"
-      launcher:
-        command:
-          command: 'ssh -vv -C -i /run/secrets/jenkins/ssh/id_rsa.releng -p 2256 genie.releng@rh-power2.fit.vutbr.cz "curl -sSL https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > slave.jar; which java; java -version; java -jar slave.jar"'
   - permanent:
       name: "hippcentos"
       nodeDescription: ""
