@@ -63,8 +63,7 @@ echo "# <gen-dockerfile.sh>" >> "${target}/Dockerfile"
 
 if [[ -f "${instance}/jenkins/plugins-list" ]]; then
   {
-    echo "COPY jenkins/plugins-list /usr/share/jenkins/ref/plugins-list"
-    echo "RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins-list"
+    echo "COPY jenkins/ref/plugins $(jq -r '.jiroMaster.ref' "${target}/config.json")/plugins"
   } >> "${target}/Dockerfile"
 fi
 

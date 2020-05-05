@@ -1,9 +1,7 @@
-local jenkinsReleases = import '../jenkins-master-base/releases.libsonnet';
-local jiroAgents = import '../../jiro-agents/remoting.libsonnet';
+local jiroMasters = import '../../jiro-masters/masters.jsonnet';
+local jiroAgents = import '../../jiro-agents/agents.jsonnet';
 local permissions = import 'permissions.libsonnet';
-{
-  local jenkinsRelease = jenkinsReleases.releases[$.jenkins.version],
-  
+{ 
   project: {
     shortName: std.split(self.fullName, ".")[std.length(std.split(self.fullName, "."))-1],
     fullName: error 'Must set "project.fullName"',
@@ -13,8 +11,6 @@ local permissions = import 'permissions.libsonnet';
   },
   jenkins: {
     version: "latest",
-    actualVersion: jenkinsRelease.jenkins.version,
-    remotingVersion: jenkinsRelease.jenkins.remoting.version,
     maxConcurrency: 2 * $.project.resourcePacks,
     staticAgentCount: 0,
     agentConnectionTimeout: 180,
@@ -25,28 +21,34 @@ local permissions = import 'permissions.libsonnet';
     permissions: permissions.projectPermissions($.project.unixGroupName, 
       permissions.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger",]),
   },
-  docker: std.mergePatch(jenkinsRelease.docker, {
+  jiroMaster: if ($.jenkins.version == "latest") then jiroMasters.masters[jiroMasters.latest] else jiroMasters.masters[$.jenkins.version],
+  docker: {
     master: {
-      parentImage: $.docker.repository + "/jenkins-master-base:" + jenkinsRelease.jenkins.version,
-      image: $.docker.repository + "/" + $.project.shortName,
-      imageTag: jenkinsRelease.jenkins.version,
+      registry: $.jiroMaster.docker.registry,
+      repository: "eclipsecbijenkins",
+      image: $.project.fullName,
+      tag: $.jiroMaster.version,
     },
-  }),
-  clouds: [
-    {
-      name: "kubernetes",
+  },
+  clouds: {
+    "c1-ci": {
+      kind: "kubernetes",
       namespace: $.kubernetes.master.namespace, # should be changed to something agent-specific to fix #5
       podRetention: "never",
-      templates: [
-        {
-          name: agent.name, 
+      templates: {
+        [agentName]: {
+          local agent = jiroAgents[agentName],
           mode: if std.objectHas(agent, "mode") then std.asciiUpper(agent.mode) else std.asciiUpper("exclusive"),
           labels: if std.objectHas(agent, "labels") then agent.labels else [],
-          local versionSpecificAgent=jiroAgents.agents[agent.name].versions[jenkinsRelease.jenkins.remoting.version],
+          local versionSpecificAgent=jiroAgents[agent.name].variants[$.jiroMaster.remoting.version],
           maven: {
-            home: versionSpecificAgent.home + "/.m2",
+            home: agent.home + "/.m2",
           },
           local currentAgent=self,
+          envVars: {
+            MAVEN_OPTS: [ "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn" ],
+            MAVEN_CONFIG: ["-B", "-e"],
+          } + { [envKey]: agent.env[envKey] for envKey in std.objectFields(agent.env) },
           kubernetes: {
             resources: $.kubernetes.agents.defaultResources,
             volumes: [
@@ -72,10 +74,10 @@ local permissions = import 'permissions.libsonnet';
               },
             ],
           },
-        } + jiroAgents.agents[agent.name].versions[jenkinsRelease.jenkins.remoting.version] for agent in jiroAgents.providedAgents
-      ],
+        } + jiroAgents[agentName].variants[$.jiroMaster.remoting.version] for agentName in std.objectFields(jiroAgents) 
+      },
     },
-  ],
+  },
   deployment: {
     host: "ci.eclipse.org",
     prefix: "/" + $.project.shortName,
@@ -118,7 +120,6 @@ local permissions = import 'permissions.libsonnet';
       namespace: $.project.shortName,
       defaultResources: {
         local Const = import "k8s/resource-packs.libsonnet",
-        local Kube = import "k8s/kube.libsonnet",
         cpu: {
           request: "%dm" % std.min(Const.agent_max_cpu_per_pod_or_container, Const.pack_cpu * $.project.resourcePacks / $.jenkins.maxConcurrency),
           limit: "%dm" % std.min(Const.agent_max_cpu_per_pod_or_container, std.max(Const.pack_cpu * $.project.resourcePacks / $.jenkins.maxConcurrency + (Const.jnlp_cpu * Const.jnlp_cpu_burst), Const.agent_min_cpu_limit)),
