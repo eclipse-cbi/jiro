@@ -47,32 +47,6 @@ jenkins:
       remoteFS: "/home/genie.releng/ci"
       retentionStrategy: "always"
   - permanent:
-      name: "hippcentos"
-      nodeDescription: ""
-      labelString: "centos"
-      remoteFS: '/home/cbi/genie.releng'
-      numExecutors: 3
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        ssh:
-          host: "hippcentos.eclipse.org"
-          port: "22"
-          credentialsId: "134ec0f1-5bf1-4738-9057-3e4387880c9f"
-          javaPath: "/shared/common/jdk1.8.0_x64-latest/bin/java"
-          sshHostKeyVerificationStrategy:
-            manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDldgJ5lA4pZ3gXQ6CS4b/F5XjT/HqFTRF9Fy4Ozne8BloiIoqTb9PH3Rvvjo2xZAkwFggE+eV0YP/HvrLB9N7HH1UfATencTtFMrSVQgNKkBqzRlghQ41XS+4mDcUenjKJhkhkW1RYRbnEfNGfkRHjY3xLZYAdSxa9dH0H/XNIw+Ge3+w+nb+qqsDgM0234MVJEsDxj8hGnys5QgGL3tGRCcoXP/lIEumad7lh6AjWOpzrsaUGbkwfIjlLJlbj07HfCEQ23rMUIDqSBdShAhY882YfRwR20hIcz9MeFit0KGPOXEju2T7fnKqYzZmR55lTaqd50yT03ljSTcqRYjfp"
-      nodeProperties:
-      - envVars:
-          env:
-          - key: "G_FILENAME_ENCODING"
-            value: '@locale,UTF-8,ISO-8859-15,CP1252'
-          - key: "LANG"
-            value: 'en_US.UTF-8'
-          - key: "LC_ALL"
-            value: 'en_US.UTF-8'
-  - permanent:
       name: "rhel-7-1"
       nodeDescription: ""
       labelString: "rhel-7, x86_64"
