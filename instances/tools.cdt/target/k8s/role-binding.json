@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "tools.cdt",
+         "org.eclipse.cbi.jiro/project.shortname": "cdt"
+      },
+      "name": "cdt",
+      "namespace": "cdt"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "cdt"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "cdt",
+         "namespace": "cdt"
+      }
+   ]
+}
