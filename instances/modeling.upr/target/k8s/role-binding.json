@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.upr",
+         "org.eclipse.cbi.jiro/project.shortname": "upr"
+      },
+      "name": "upr",
+      "namespace": "upr"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "upr"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "upr",
+         "namespace": "upr"
+      }
+   ]
+}

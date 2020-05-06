@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.tycho",
+         "org.eclipse.cbi.jiro/project.shortname": "tycho"
+      },
+      "name": "tycho",
+      "namespace": "tycho"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "tycho"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "tycho",
+         "namespace": "tycho"
+      }
+   ]
+}

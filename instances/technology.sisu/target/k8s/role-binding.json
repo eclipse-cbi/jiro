@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.sisu",
+         "org.eclipse.cbi.jiro/project.shortname": "sisu"
+      },
+      "name": "sisu",
+      "namespace": "sisu"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "sisu"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "sisu",
+         "namespace": "sisu"
+      }
+   ]
+}
