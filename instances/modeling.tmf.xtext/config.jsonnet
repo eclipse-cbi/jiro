@@ -8,4 +8,7 @@
   jenkins+: {
     staticAgentCount: 2,
   },
+  gradle+: {
+    generate: true,
+  },
 }
