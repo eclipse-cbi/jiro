@@ -8,5 +8,8 @@
   jenkins+: {
     theme: "quicksilver-light",
     staticAgentCount: 1,
-  }
+  },
+  gradle+: {
+    generate: true,
+  },
 }
