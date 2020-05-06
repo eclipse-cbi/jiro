@@ -6,6 +6,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     shortName: "releng",
     displayName: "Eclipse Platform Releng",
     resourcePacks: 4,
+    unixGroupName: "eclipse.platform",
   },
   deployment+: {
     host: "ci-staging.eclipse.org"
@@ -13,7 +14,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   jenkins+: {
     version: "2.229",
     permissions+: 
-      permissionsTemplates.projectPermissions("eclipse.platform", permissionsTemplates.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger"]) +
       permissionsTemplates.projectPermissions("sravankumarl@in.ibm.com", ["Agent/Connect", "Agent/Disconnect"])
   },
   maven+: {
