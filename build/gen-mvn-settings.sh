@@ -40,7 +40,8 @@ if [ ! -d "${INSTANCE}" ]; then
 fi
 
 CONFIG="${INSTANCE}/target/config.json"
-SETTINGS_SECURITY_XML="$(dirname "${CONFIG}")/.secrets/maven/settings-security.xml"
+WORKDIR="$(dirname "${CONFIG}")/.secrets/maven"
+SETTINGS_SECURITY_XML="${WORKDIR}/settings-security.xml"
 
 gen_pw() {
   # If pwgen is not installed, use /dev/urandom instead
@@ -173,6 +174,7 @@ gen_settings() {
   echo '<?xml version="1.0" encoding="UTF-8"?>'
   echo "<settings>"
 
+  echo "  <interactiveMode>$(jq '.maven.interactiveMode' "${config}")</interactiveMode>"
   gen_servers "${settingsFilename}" "${config}"
   gen_mirrors "${settingsFilename}" "${config}"
 
@@ -181,12 +183,28 @@ gen_settings() {
 
 if [[ "$(jq -r '.maven.generate' "${CONFIG}")" == "true" ]]; then
   >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating Maven settings-security.xml"
-  mkdir -p "$(dirname "${SETTINGS_SECURITY_XML}")"
+  mkdir -p "${WORKDIR}"
   gen_settings_security 32 > "${SETTINGS_SECURITY_XML}"
 
   for settingsFilename in $(jq -r '.maven.files | keys - ["settings-security.xml"] | .[]' "${CONFIG}"); do
     >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating Maven ${settingsFilename} file"
-    mkdir -p "$(dirname "$(dirname "${SETTINGS_SECURITY_XML}")/${settingsFilename}")"
-    gen_settings "${settingsFilename}" "${CONFIG}" > "$(dirname "${SETTINGS_SECURITY_XML}")/${settingsFilename}"
+    mkdir -p "$(dirname "${WORKDIR}/${settingsFilename}")"
+    gen_settings "${settingsFilename}" "${CONFIG}" > "${WORKDIR}/${settingsFilename}"
   done
+
+  >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating Maven .mavenrc"
+  printf 'set --' > "${WORKDIR}/.mavenrc"
+  printf ' -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn' >> "${WORKDIR}/.mavenrc"
+  
+  if [[ "$(jq -r '.maven.interactiveMode' "${CONFIG}")" == "false" ]]; then
+    printf ' --batch-mode' >> "${WORKDIR}/.mavenrc"
+  fi
+
+  printf ' -Dstyle.color=%s' "$(jq -r '.maven.color' "${CONFIG}")" >> "${WORKDIR}/.mavenrc"
+  if [[ "$(jq -r '.maven.color' "${CONFIG}")" == "always" ]]; then
+    printf ' -Djansi.force=true' >> "${WORKDIR}/.mavenrc"
+  fi
+
+  # shellcheck disable=SC2016
+  printf ' "${@}"' >> "${WORKDIR}/.mavenrc"
 fi

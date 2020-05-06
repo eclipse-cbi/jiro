@@ -41,9 +41,8 @@ local permissions = import 'permissions.libsonnet';
           mode: if std.objectHas(jiroAgent, "mode") then std.asciiUpper(jiroAgent.mode) else std.asciiUpper("exclusive"),
           labels: if std.objectHas(jiroAgent, "labels") then jiroAgent.labels else [],
           envVars: {
-            MAVEN_OPTS: [ "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn" ],
-            MAVEN_CONFIG: ["-B", "-e"],
-          } + { [envKey]: jiroAgent.env[envKey] for envKey in std.objectFields(jiroAgent.env) },
+            [envKey]: jiroAgent.env[envKey] for envKey in std.objectFields(jiroAgent.env) 
+          },
           kubernetes: {
             resources: $.kubernetes.agents.defaultResources,
             local dot_m2 = jiroAgent.home + "/.m2",
@@ -65,6 +64,10 @@ local permissions = import 'permissions.libsonnet';
                   {
                     mountPath: dot_m2 + "/" + self.subPath,
                     subPath: "toolchains.xml"
+                  },
+                  {
+                    mountPath: jiroAgent.home + "/" + self.subPath,
+                    subPath: ".mavenrc"
                   },
                 ],
               },
@@ -141,9 +144,12 @@ local permissions = import 'permissions.libsonnet';
   },
   maven: {
     generate: true,
+    interactiveMode: false,
+    color: "always",
 
     files: {
       "settings.xml": {
+        color: "always",
         servers: {
           "repo.eclipse.org": {
             username: {
@@ -185,7 +191,7 @@ local permissions = import 'permissions.libsonnet';
   },
   gradle: {
     generate: false,
-    
+
     files: {
       "gradle.properties": {
         eclipseRepoUsername: {
