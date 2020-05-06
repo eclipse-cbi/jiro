@@ -314,7 +314,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/handly
+    url: https://ci.eclipse.org/handly
 
   mailer:
     replyToAddress: ci-admin@eclipse.org

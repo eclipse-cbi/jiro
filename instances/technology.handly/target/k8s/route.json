@@ -13,7 +13,7 @@
       "namespace": "handly"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/handly",
       "port": {
          "targetPort": "http"
