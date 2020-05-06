@@ -90,7 +90,7 @@ jenkins:
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/"
-        {{#if ../../maven.generates}}
+        {{#if ../../maven.generate}}
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
@@ -98,7 +98,7 @@ jenkins:
             memory: false
             mountPath: "/home/jenkins/.m2/wrapper"
         {{/if}}
-        {{#if ../../gradle.generates}}
+        {{#if ../../gradle.generate}}
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.gradle/caches"

@@ -2,6 +2,7 @@ local Kube = import "kube.libsonnet";
 {
   gen(config): Kube.ConfigMap("m2-dir", config) {
     data: {
+      "mavenrc": importstr '.secrets/maven/.mavenrc',
       "toolchains.xml": |||
         <?xml version="1.0" encoding="UTF-8"?>
         <toolchains>
