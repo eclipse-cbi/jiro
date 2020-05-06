@@ -21,7 +21,7 @@ jenkins:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
           - key: "PATH"
-            value: "/opt/freeware/bin:$PATH"
+            value: "/opt/cmake-3.17.1/bin:/opt/freeware/bin:$PATH"
   - permanent:
       name: "aix71-p8-2"
       nodeDescription: "AIX 7.1 PPC64"
@@ -43,7 +43,7 @@ jenkins:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
           - key: "PATH"
-            value: "/opt/freeware/bin:$PATH"
+            value: "/opt/cmake-3.17.1/bin:/opt/freeware/bin:$PATH"
   - permanent:
       name: "aix71-p8-3"
       nodeDescription: "AIX 7.1 PPC64"
@@ -65,7 +65,7 @@ jenkins:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
           - key: "PATH"
-            value: "/opt/freeware/bin:$PATH"
+            value: "/opt/cmake-3.17.1/bin:/opt/freeware/bin:$PATH"
   - permanent:
       name: "aix71-p8-4"
       nodeDescription: "AIX 7.1 PPC64"
@@ -87,7 +87,7 @@ jenkins:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
           - key: "PATH"
-            value: "/opt/freeware/bin:$PATH"
+            value: "/opt/cmake-3.17.1/bin:/opt/freeware/bin:$PATH"
   - permanent:
       name: "aix71-p8-5"
       nodeDescription: "AIX 7.1 PPC64"
@@ -109,7 +109,7 @@ jenkins:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
           - key: "PATH"
-            value: "/opt/freeware/bin:$PATH"
+            value: "/opt/cmake-3.17.1/bin:/opt/freeware/bin:$PATH"
   - permanent:
       name: "aix71-p8-6"
       nodeDescription: "AIX 7.1 PPC64"
@@ -131,7 +131,7 @@ jenkins:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
           - key: "PATH"
-            value: "/opt/freeware/bin:$PATH"
+            value: "/opt/cmake-3.17.1/bin:/opt/freeware/bin:$PATH"
   - permanent:
       name: "aix71-p8-7"
       nodeDescription: "AIX 7.1 PPC64"
@@ -153,7 +153,7 @@ jenkins:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
           - key: "PATH"
-            value: "/opt/freeware/bin:$PATH"
+            value: "/opt/cmake-3.17.1/bin:/opt/freeware/bin:$PATH"
   - permanent:
       name: "aix71-p8-8"
       nodeDescription: "AIX 7.1 PPC64"
@@ -175,7 +175,7 @@ jenkins:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
           - key: "PATH"
-            value: "/opt/freeware/bin:$PATH"
+            value: "/opt/cmake-3.17.1/bin:/opt/freeware/bin:$PATH"
   - permanent:
       name: "aix71-p8-9"
       nodeDescription: "AIX 7.1 PPC64"
@@ -197,7 +197,7 @@ jenkins:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
           - key: "PATH"
-            value: "/opt/freeware/bin:$PATH"
+            value: "/opt/cmake-3.17.1/bin:/opt/freeware/bin:$PATH"
   - permanent:
       name: "aix71-p8-10"
       nodeDescription: "AIX 7.1 PPC64"
@@ -219,7 +219,7 @@ jenkins:
           - key: "PKG_CONFIG_PATH"
             value: "/opt/freeware/lib64/pkgconfig:/opt/freeware/lib/pkgconfig"
           - key: "PATH"
-            value: "/opt/freeware/bin:$PATH"
+            value: "/opt/cmake-3.17.1/bin:/opt/freeware/bin:$PATH"
   - permanent:
       name: "cent6-x64-1"
       nodeDescription: "cent6-x64-1 - UNB CentOS 6 8 GB 4CPU - 192.168.10.188"
