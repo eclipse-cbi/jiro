@@ -8,22 +8,40 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   },
   jenkins+: {
     staticAgentCount: 50,
-    permissions: 
-      permissionsTemplates.projectPermissions($.project.unixGroupName, permissionsTemplates.committerPermissionsList + ["Agent/Connect", "Agent/Disconnect"]) + 
-      permissionsTemplates.projectPermissions("adam.brousseau88@gmail.com", ["Agent/Connect", "Agent/Disconnect"]) +
-      permissionsTemplates.projectPermissions("joe_dekoning@ca.ibm.com", ["Agent/Connect", "Agent/Disconnect"]) +
-      permissionsTemplates.projectPermissions("peter_shipton@ca.ibm.com", ["Agent/Configure"]) +
-      permissionsTemplates.projectPermissions("daniel_heidinga@ca.ibm.com", ["Agent/Configure"]) +
-      permissionsTemplates.projectPermissions("adam.brousseau88@gmail.com", ["Agent/Configure"]) +
-      permissionsTemplates.projectPermissions("joe_dekoning@ca.ibm.com", ["Agent/Configure"]) +
-      permissionsTemplates.projectPermissions("adam.brousseau88@gmail.com", ["Job/Configure"]) +
-      // https://bugs.eclipse.org/bugs/show_bug.cgi?id=559384
-      permissionsTemplates.projectPermissions("adam.brousseau88@gmail.com", ["Job/Configure"]) +
-      permissionsTemplates.projectPermissions("joe_dekoning@ca.ibm.com", ["Job/Configure"]) +
-      permissionsTemplates.projectPermissions("vsebe@ca.ibm.com", ["Job/Configure"]) +
-      // https://bugs.eclipse.org/bugs/show_bug.cgi?id=553268
-      permissionsTemplates.projectPermissions("rajdeep.singh@ibm.com", ["Agent/Configure", "Agent/Connect", "Agent/Disconnect"]) +
-      // https://bugs.eclipse.org/bugs/show_bug.cgi?id=559384#c3
-      permissionsTemplates.projectPermissions("vsebe@ca.ibm.com", ["Agent/Configure", "Agent/Connect", "Agent/Disconnect"])
+    permissions: permissionsTemplates.projectPermissions($.project.unixGroupName, permissionsTemplates.committerPermissionsList + ["Agent/Connect", "Agent/Disconnect"]) + [
+      {
+        principal: "adam.brousseau88@gmail.com",
+        grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure"]
+          // https://bugs.eclipse.org/bugs/show_bug.cgi?id=559384
+          + ["Job/Configure"], 
+      },
+      {
+        principal: "joe_dekoning@ca.ibm.com",
+        grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure"]
+          // https://bugs.eclipse.org/bugs/show_bug.cgi?id=559384
+          + ["Job/Configure"], 
+      },
+      {
+        principal: "peter_shipton@ca.ibm.com",
+        grantedPermissions: ["Agent/Configure"],
+      },
+      {
+        principal: "daniel_heidinga@ca.ibm.com",
+        grantedPermissions: ["Agent/Configure"],
+      },
+      {
+        principal: "vsebe@ca.ibm.com",
+        grantedPermissions: 
+          // https://bugs.eclipse.org/bugs/show_bug.cgi?id=559384
+          ["Job/Configure"]
+          // https://bugs.eclipse.org/bugs/show_bug.cgi?id=559384#c3
+          + ["Agent/Configure", "Agent/Connect", "Agent/Disconnect"],
+      },
+      {
+        // https://bugs.eclipse.org/bugs/show_bug.cgi?id=553268
+        principal: "rajdeep.singh@ibm.com",
+        grantedPermissions: ["Agent/Configure", "Agent/Connect", "Agent/Disconnect"],
+      },
+    ],
   },
 }
