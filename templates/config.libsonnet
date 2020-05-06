@@ -37,27 +37,23 @@ local permissions = import 'permissions.libsonnet';
       podRetention: "never",
       templates: {
         [agentName]: {
-          local agent = jiroAgents[agentName],
-          mode: if std.objectHas(agent, "mode") then std.asciiUpper(agent.mode) else std.asciiUpper("exclusive"),
-          labels: if std.objectHas(agent, "labels") then agent.labels else [],
-          local versionSpecificAgent=jiroAgents[agent.name].variants[$.jiroMaster.remoting.version],
-          maven: {
-            home: agent.home + "/.m2",
-          },
-          local currentAgent=self,
+          local jiroAgent = jiroAgents[agentName],
+          mode: if std.objectHas(jiroAgent, "mode") then std.asciiUpper(jiroAgent.mode) else std.asciiUpper("exclusive"),
+          labels: if std.objectHas(jiroAgent, "labels") then jiroAgent.labels else [],
           envVars: {
             MAVEN_OPTS: [ "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn" ],
             MAVEN_CONFIG: ["-B", "-e"],
-          } + { [envKey]: agent.env[envKey] for envKey in std.objectFields(agent.env) },
+          } + { [envKey]: jiroAgent.env[envKey] for envKey in std.objectFields(jiroAgent.env) },
           kubernetes: {
             resources: $.kubernetes.agents.defaultResources,
-            volumes: [
+            local dot_m2 = jiroAgent.home + "/.m2",
+            volumes: (if $.maven.generate then [
               {
                 name: "m2-secret-dir",
                 secret: { name: "m2-secret-dir", },
                 mounts: [
                   {
-                    mountPath: currentAgent.maven.home + "/" + self.subPath,
+                    mountPath: dot_m2 + "/" + self.subPath,
                     subPath: settingsFile,
                   } for settingsFile in std.objectFields($.maven.files)
                 ],
@@ -67,12 +63,24 @@ local permissions = import 'permissions.libsonnet';
                 configMap: { name: "m2-dir", },
                 mounts: [
                   {
-                    mountPath: currentAgent.maven.home + "/" + self.subPath,
+                    mountPath: dot_m2 + "/" + self.subPath,
                     subPath: "toolchains.xml"
                   },
                 ],
               },
-            ],
+            ] else []) + (if $.gradle.generate then [
+              {
+                local dot_gradle = jiroAgent.home + "/.gradle",
+                name: "gradle-secret-dir",
+                configMap: { name: "gradle-secret-dir", },
+                mounts: [
+                  {
+                    mountPath: dot_gradle + "/" + self.subPath,
+                    subPath: propertiesFile,
+                  } for propertiesFile in std.objectFields($.gradle.files)
+                ],
+              },
+            ] else []),
           },
         } + jiroAgents[agentName].variants[$.jiroMaster.remoting.version] for agentName in std.objectFields(jiroAgents) 
       },
@@ -133,6 +141,7 @@ local permissions = import 'permissions.libsonnet';
   },
   maven: {
     generate: true,
+
     files: {
       "settings.xml": {
         servers: {
@@ -173,6 +182,20 @@ local permissions = import 'permissions.libsonnet';
         },
       },
     },
+  },
+  gradle: {
+    generate: false,
+    
+    files: {
+      "gradle.properties": {
+        eclipseRepoUsername: {
+          pass: "nexus/username",
+        },
+        eclipseRepoPassword: {
+          pass: "nexus/password",
+        },
+      }
+    }
   },
   secrets: {
     "gerrit-trigger-plugin": {

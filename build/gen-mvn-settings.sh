@@ -124,7 +124,7 @@ EOF
     </server>
 EOF
   else
-    >&2 echo -e "${SCRIPT_NAME}\tWARNING: no entry in password-store for ${username_pass} or ${password_pass}"
+    >&2 echo -e "${SCRIPT_NAME}\tWARNING: no entry in password-store for server ${serverId}"
   fi
 }
 
@@ -186,7 +186,7 @@ if [[ "$(jq -r '.maven.generate' "${CONFIG}")" == "true" ]]; then
 
   for settingsFilename in $(jq -r '.maven.files | keys - ["settings-security.xml"] | .[]' "${CONFIG}"); do
     >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating Maven ${settingsFilename} file"
-    mkdir -p "$(dirname "${settingsFilename}")"
-    gen_settings "${settingsFilename}" "${CONFIG}" > "$(dirname "${CONFIG}")/.secrets/maven/${settingsFilename}"
+    mkdir -p "$(dirname "$(dirname "${SETTINGS_SECURITY_XML}")/${settingsFilename}")"
+    gen_settings "${settingsFilename}" "${CONFIG}" > "$(dirname "${SETTINGS_SECURITY_XML}")/${settingsFilename}"
   done
 fi
