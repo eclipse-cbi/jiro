@@ -181,6 +181,20 @@ gen_settings() {
   echo "</settings>"
 }
 
+gen_mavenrc() {
+  local config="${1}"
+
+  printf 'set -- -V'
+  printf ' -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn'
+  
+  if [[ "$(jq -r '.maven.interactiveMode' "${config}")" == "false" ]]; then
+    printf ' --batch-mode'
+  fi
+  
+  # shellcheck disable=SC2016
+  printf ' "${@}"' 
+}
+
 if [[ "$(jq -r '.maven.generate' "${CONFIG}")" == "true" ]]; then
   >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating Maven settings-security.xml"
   mkdir -p "${WORKDIR}"
@@ -193,18 +207,5 @@ if [[ "$(jq -r '.maven.generate' "${CONFIG}")" == "true" ]]; then
   done
 
   >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating Maven .mavenrc"
-  printf 'set --' > "${WORKDIR}/.mavenrc"
-  printf ' -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn' >> "${WORKDIR}/.mavenrc"
-  
-  if [[ "$(jq -r '.maven.interactiveMode' "${CONFIG}")" == "false" ]]; then
-    printf ' --batch-mode' >> "${WORKDIR}/.mavenrc"
-  fi
-
-  printf ' -Dstyle.color=%s' "$(jq -r '.maven.color' "${CONFIG}")" >> "${WORKDIR}/.mavenrc"
-  if [[ "$(jq -r '.maven.color' "${CONFIG}")" == "always" ]]; then
-    printf ' -Djansi.force=true' >> "${WORKDIR}/.mavenrc"
-  fi
-
-  # shellcheck disable=SC2016
-  printf ' "${@}"' >> "${WORKDIR}/.mavenrc"
+  gen_mavenrc "${CONFIG}" > "${WORKDIR}/.mavenrc"
 fi
