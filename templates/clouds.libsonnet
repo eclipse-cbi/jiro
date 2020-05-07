@@ -5,7 +5,7 @@
       namespace: config.kubernetes.agents.namespace, # should be changed to something agent-specific to fix #5
       podRetention: "never",
       templates: {
-        [agentName]: {
+        [agentName]: agents[agentName].spec + agents[agentName].variants[config.jiroMaster.remoting.version] + {
           kubernetes: {
             resources: config.kubernetes.agents.defaultResources,
             local dot_m2 = agents[agentName].spec.home + "/.m2",
@@ -48,7 +48,7 @@
               },
             ] else []),
           },
-        } + agents[agentName].spec + agents[agentName].variants[config.jiroMaster.remoting.version] for agentName in std.objectFields(agents) 
+        } for agentName in std.objectFields(agents) 
       },
     },
   },
