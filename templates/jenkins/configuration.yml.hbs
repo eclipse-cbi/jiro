@@ -177,6 +177,15 @@ unclassified:
     - jsUrl:
         url: "{{deployment.prefix}}/userContent/theme/title.js"
 
+  buildDiscarders:
+    configuredBuildDiscarders:
+    - "jobBuildDiscarder"
+    - simpleBuildDiscarder:
+        discarder:
+          logRotator:
+            artifactNumToKeepStr: "64"
+            numToKeepStr: "128"
+
 tool:
   {{> tools-jdk }}
   {{> tools-ant }}
