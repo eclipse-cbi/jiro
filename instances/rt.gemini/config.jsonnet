@@ -1,7 +1,6 @@
 {
   project+: {
     fullName: "rt.gemini",
-    shortName: "gemini",
     displayName: "Eclipse Gemini",
   },
   deployment+: {

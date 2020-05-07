@@ -1,7 +1,6 @@
 {
   project+: {
     fullName: "technology.osee",
-    shortName: "osee",
     displayName: "Eclipse OSEE"
   },
   jenkins+: {

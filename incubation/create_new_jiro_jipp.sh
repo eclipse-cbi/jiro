@@ -49,7 +49,6 @@ new_migration_instance() {
 {
   project+: {
     fullName: "${project_name}",
-    shortName: "${short_name}",
     displayName: "${display_name}",
   },
   deployment+: {

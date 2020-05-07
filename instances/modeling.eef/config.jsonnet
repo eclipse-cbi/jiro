@@ -1,7 +1,6 @@
 {
   project+: {
     fullName: "modeling.eef",
-    shortName: "eef",
     displayName: "Eclipse Extended Editing Framework"
   }
 }

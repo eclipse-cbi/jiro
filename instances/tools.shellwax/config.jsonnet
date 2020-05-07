@@ -1,7 +1,6 @@
 {
   project+: {
     fullName: "tools.shellwax",
-    shortName: "shellwax",
     displayName: "Eclipse ShellWax"
   }
 }

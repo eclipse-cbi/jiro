@@ -3,7 +3,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
 {
   project+: {
     fullName: "rt.ecf",
-    shortName: "ecf",
     displayName: "Eclipse Communication Framework"
   },
   jenkins+: {

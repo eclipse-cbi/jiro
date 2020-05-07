@@ -1,7 +1,6 @@
 {
   project+: {
     fullName: "foundation-internal.infra",
-    shortName: "infra",
     displayName: "Eclipse Foundation Infra"
   },
   deployment+: {

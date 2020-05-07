@@ -1,7 +1,6 @@
 {
   project+: {
     fullName: "modeling.ecp",
-    shortName: "ecp",
     displayName: "Eclipse EMF Client Platform",
   },
   deployment+: {

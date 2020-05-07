@@ -3,7 +3,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
 {
   project+: {
     fullName: "eclipse.platform.releng",
-    shortName: "releng",
     displayName: "Eclipse Platform Releng",
     resourcePacks: 4,
     unixGroupName: "eclipse.platform",

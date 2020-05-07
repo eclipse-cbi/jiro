@@ -3,7 +3,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
 {
   project+: {
     fullName: "technology.tm4e",
-    shortName: "tm4e",
     displayName: "Eclipse TM4E"
   },
   jenkins+: {

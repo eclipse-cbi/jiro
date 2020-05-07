@@ -1,7 +1,6 @@
 {
   project+: {
     fullName: "technology.reddeer",
-    shortName: "reddeer",
     displayName: "Eclipse RedDeer"
   },
   jenkins+: {

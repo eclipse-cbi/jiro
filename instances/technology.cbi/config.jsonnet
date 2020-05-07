@@ -1,7 +1,6 @@
 {
   project+: {
     fullName: "technology.cbi",
-    shortName: "cbi",
     displayName: "Eclipse CBI",
   },
   jenkins+: {

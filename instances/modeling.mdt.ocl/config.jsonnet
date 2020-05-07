@@ -1,7 +1,6 @@
 {
   project+: {
     fullName: "modeling.mdt.ocl",
-    shortName: "ocl",
     displayName: "Eclipse OCL"
   },
   jenkins+: {

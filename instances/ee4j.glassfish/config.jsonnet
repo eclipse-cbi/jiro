@@ -3,7 +3,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
 {
   project+: {
     fullName: "ee4j.glassfish",
-    shortName: "glassfish",
     displayName: "Eclipse Glassfish",
     resourcePacks: 15
   },

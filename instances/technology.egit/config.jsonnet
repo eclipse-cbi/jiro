@@ -1,7 +1,6 @@
 {
   project+: {
     fullName: "technology.egit",
-    shortName: "egit",
     displayName: "Eclipse EGit",
     resourcePacks: 2,
   },

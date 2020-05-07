@@ -1,7 +1,6 @@
 {
   project+: {
     fullName: "technology.sisu",
-    shortName: "sisu",
     displayName: "Eclipse Sisu",
   },
   deployment+: {

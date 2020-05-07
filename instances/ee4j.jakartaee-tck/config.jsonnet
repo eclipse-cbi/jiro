@@ -1,7 +1,6 @@
 {
   project+: {
     fullName: "ee4j.jakartaee-tck",
-    shortName: "jakartaee-tck",
     displayName: "Eclipse Jakarta EE TCK",
     resourcePacks: 50,
   },

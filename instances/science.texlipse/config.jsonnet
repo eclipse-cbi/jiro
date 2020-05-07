@@ -1,7 +1,6 @@
 {
   project+: {
     fullName: "science.texlipse",
-    shortName: "texlipse",
     displayName: "Eclipse TeXlipse",
   },
   deployment+: {

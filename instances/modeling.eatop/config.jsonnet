@@ -1,7 +1,6 @@
 {
   project+: {
     fullName: "modeling.eatop",
-    shortName: "eatop",
     displayName: "Eclipse EATOP",
   },
   deployment+: {
