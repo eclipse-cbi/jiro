@@ -74,7 +74,7 @@ jenkins:
         nodeUsageMode: {{this.mode}}
         label: "{{#each this.labels}}{{this}}{{#unless @last}} {{/unless}}{{/each}}"
         envVars:
-        {{#each envVars}}
+        {{#each env}}
         - envVar:
             key: "{{@key}}"
             value: "{{#each this}}{{this}}{{#unless @last}} {{/unless}}{{/each}}"

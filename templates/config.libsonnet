@@ -1,6 +1,6 @@
 local jiroMasters = import '../../jiro-masters/masters.jsonnet';
-local jiroAgents = import '../../jiro-agents/agents.jsonnet';
 local permissions = import 'permissions.libsonnet';
+local clouds = import "clouds.libsonnet";
 { 
   project: {
     shortName: std.split(self.fullName, ".")[std.length(std.split(self.fullName, "."))-1],
@@ -30,65 +30,7 @@ local permissions = import 'permissions.libsonnet';
       tag: $.jiroMaster.version,
     },
   },
-  clouds: {
-    "c1-ci": {
-      kind: "kubernetes",
-      namespace: $.kubernetes.master.namespace, # should be changed to something agent-specific to fix #5
-      podRetention: "never",
-      templates: {
-        [agentName]: {
-          local jiroAgent = jiroAgents[agentName],
-          mode: if std.objectHas(jiroAgent, "mode") then std.asciiUpper(jiroAgent.mode) else std.asciiUpper("exclusive"),
-          labels: if std.objectHas(jiroAgent, "labels") then jiroAgent.labels else [],
-          envVars: {
-            [envKey]: jiroAgent.env[envKey] for envKey in std.objectFields(jiroAgent.env) 
-          },
-          kubernetes: {
-            resources: $.kubernetes.agents.defaultResources,
-            local dot_m2 = jiroAgent.home + "/.m2",
-            volumes: (if $.maven.generate then [
-              {
-                name: "m2-secret-dir",
-                secret: { name: "m2-secret-dir", },
-                mounts: [
-                  {
-                    mountPath: dot_m2 + "/" + self.subPath,
-                    subPath: settingsFile,
-                  } for settingsFile in std.objectFields($.maven.files)
-                ],
-              },
-              {
-                name: "m2-dir",
-                configMap: { name: "m2-dir", },
-                mounts: [
-                  {
-                    mountPath: dot_m2 + "/" + self.subPath,
-                    subPath: "toolchains.xml"
-                  },
-                  {
-                    mountPath: jiroAgent.home + "/" + self.subPath,
-                    subPath: ".mavenrc"
-                  },
-                ],
-              },
-            ] else []) + (if $.gradle.generate then [
-              {
-                local dot_gradle = jiroAgent.home + "/.gradle",
-                name: "gradle-secret-dir",
-                configMap: { name: "gradle-secret-dir", },
-                mounts: [
-                  {
-                    mountPath: dot_gradle + "/" + self.subPath,
-                    subPath: propertiesFile,
-                  } for propertiesFile in std.objectFields($.gradle.files)
-                ],
-              },
-            ] else []),
-          },
-        } + jiroAgents[agentName].variants[$.jiroMaster.remoting.version] for agentName in std.objectFields(jiroAgents) 
-      },
-    },
-  },
+  clouds: clouds.kubernetes("c1-ci", self, (import '../../jiro-agents/agents.jsonnet')),
   deployment: {
     host: "ci.eclipse.org",
     prefix: "/" + $.project.shortName,
