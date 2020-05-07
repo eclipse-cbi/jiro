@@ -13,7 +13,7 @@
       "namespace": "tycho"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/tycho",
       "port": {
          "targetPort": "http"

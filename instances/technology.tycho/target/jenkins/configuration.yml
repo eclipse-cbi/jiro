@@ -314,7 +314,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/tycho
+    url: https://ci.eclipse.org/tycho
 
   mailer:
     replyToAddress: ci-admin@eclipse.org
