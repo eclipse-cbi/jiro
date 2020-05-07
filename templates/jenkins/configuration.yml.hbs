@@ -77,7 +77,7 @@ jenkins:
         {{#each env}}
         - envVar:
             key: "{{@key}}"
-            value: "{{#each this}}{{this}}{{#unless @last}} {{/unless}}{{/each}}"
+            value: "{{#each this}}{{{this}}}{{#unless @last}} {{/unless}}{{/each}}"
         {{/each}}
         volumes:
         - persistentVolumeClaim:
