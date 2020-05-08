@@ -6,7 +6,7 @@
           x + {
             volumeMounts+: [
               {
-                mountPath: "/var/jenkins_home/.ssh",
+                mountPath: "/var/jenkins/.ssh",
                 name: "master-known-hosts",
               }
             ],
