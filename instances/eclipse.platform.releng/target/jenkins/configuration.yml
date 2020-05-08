@@ -24,7 +24,7 @@ jenkins:
   - permanent:
       name: "b9h15-macos10.12"
       nodeDescription: "macOS 10.12 (Sierra), no login session, hosted on MacStadium"
-      labelString: "macos macos-10.14"
+      labelString: "macos macos-10.12"
       remoteFS: '/Users/genie.releng/jenkins_agent/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -35,83 +35,20 @@ jenkins:
             "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > /Users/genie.releng/jenkins_agent/remoting/slave.jar;
             java -jar /Users/genie.releng/jenkins_agent/remoting/slave.jar"'
   - permanent:
-      name: "fedora-28-ppc64le"
-      nodeDescription: ""
       labelString: "ppc64le"
-      remoteFS: '/home/genie.releng/ci'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: 'ssh -vv -C -i /run/secrets/jenkins/ssh/id_rsa.releng -p 2256 genie.releng@rh-power2.fit.vutbr.cz
-            "curl -sSL https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar >
-            slave.jar; which java; java -version; java -jar slave.jar"'
-  - permanent:
-      name: "fedora-ppc64le"
-      nodeDescription: ""
-      labelString: "ppc64le"
-      remoteFS: '/home/genie.releng/ci'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: 'ssh -vv -C -i /run/secrets/jenkins/ssh/id_rsa.releng -p 2256 genie.releng@rh-power2.fit.vutbr.cz
-            "curl -sSL https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar >
-            slave.jar; which java; java -version; java -jar slave.jar"'
-  - permanent:
-      name: "hippcentos"
-      nodeDescription: ""
-      labelString: "centos"
-      remoteFS: '/home/cbi/genie.releng'
-      numExecutors: 3
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
       launcher:
         ssh:
-          host: "hippcentos.eclipse.org"
-          port: "22"
-          credentialsId: "134ec0f1-5bf1-4738-9057-3e4387880c9f"
-          javaPath: "/shared/common/jdk1.8.0_x64-latest/bin/java"
+          credentialsId: "fedora-ppc64le-bot-ssh"
+          host: "rh-power4.fit.vutbr.cz"
+          port: 2256
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDldgJ5lA4pZ3gXQ6CS4b/F5XjT/HqFTRF9Fy4Ozne8BloiIoqTb9PH3Rvvjo2xZAkwFggE+eV0YP/HvrLB9N7HH1UfATencTtFMrSVQgNKkBqzRlghQ41XS+4mDcUenjKJhkhkW1RYRbnEfNGfkRHjY3xLZYAdSxa9dH0H/XNIw+Ge3+w+nb+qqsDgM0234MVJEsDxj8hGnys5QgGL3tGRCcoXP/lIEumad7lh6AjWOpzrsaUGbkwfIjlLJlbj07HfCEQ23rMUIDqSBdShAhY882YfRwR20hIcz9MeFit0KGPOXEju2T7fnKqYzZmR55lTaqd50yT03ljSTcqRYjfp"
-      nodeProperties:
-      - envVars:
-          env:
-          - key: "G_FILENAME_ENCODING"
-            value: '@locale,UTF-8,ISO-8859-15,CP1252'
-          - key: "LANG"
-            value: 'en_US.UTF-8'
-          - key: "LC_ALL"
-            value: 'en_US.UTF-8'
-  - permanent:
-      name: "macos-10.12-1"
-      nodeDescription: ""
-      labelString: "macos"
-      remoteFS: '/Users/genie.releng/ci'
-      numExecutors: 1
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBMFIkwNg9bZFU2F6YgKBOcX6jBoWupir1vVlntbUYNjdE6gzRuMSVJquBodX8vSWt3eH5/VkyWbwfdrPE0WtBONXpm9Tq/8FZWdUgy1XxmmTeZRvXI2ldVwDT2lNfk9TgM8hKzgQm9KLrexbZR57kD5UlXBP7Ck6hF2+yZSKajr+CsjXO2D2l3i5g7PnnCwd6oRi8GCCOE6Mgui0+Ibr9d2G64OqACJCaPOHmxdNagcwTBusZgaZriYBob9i0Sc7ak2ODdZMZMopN3kHmm+FmAdjY0bzAL/DnHGHKDwP/ngqRCSaUyBX7mGVB5gaiL9ahZ+o/pl7ICgg5HKs1HZOj"
       mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@199.229.252.222
-            "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > slave.jar;
-            java -jar slave.jar"'
-  - permanent:
-      name: "r74dp-macos-10.13"
-      nodeDescription: ""
-      labelString: "macos"
-      remoteFS: '/Users/genie.releng/ci/'
+      name: "fedora-ppc64le"
       numExecutors: 1
-      mode: EXCLUSIVE
+      remoteFS: "/home/genie.releng/ci"
       retentionStrategy: "always"
-      launcher:
-        command:
-          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@199.229.252.231
-            "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > slave.jar;
-            java -jar slave.jar"'
   - permanent:
       name: "rhel-7-1"
       nodeDescription: ""
@@ -229,6 +166,8 @@ jenkins:
     projectMatrix:
       permissions:
       - "Overall/Administer:admins"
+      - "Agent/Connect:akurtakov@gmail.com"
+      - "Agent/Disconnect:akurtakov@gmail.com"
       - "Job/Read:anonymous"
       - "Overall/Read:anonymous"
       - "Job/ExtendedRead:common"
@@ -253,27 +192,6 @@ jenkins:
       - "View/Create:eclipse.platform"
       - "View/Delete:eclipse.platform"
       - "View/Read:eclipse.platform"
-      - "Agent/Build:eclipse.platform.releng"
-      - "Credentials/View:eclipse.platform.releng"
-      - "Gerrit/ManualTrigger:eclipse.platform.releng"
-      - "Gerrit/Retrigger:eclipse.platform.releng"
-      - "Job/Build:eclipse.platform.releng"
-      - "Job/Cancel:eclipse.platform.releng"
-      - "Job/Configure:eclipse.platform.releng"
-      - "Job/Create:eclipse.platform.releng"
-      - "Job/Delete:eclipse.platform.releng"
-      - "Job/Move:eclipse.platform.releng"
-      - "Job/Read:eclipse.platform.releng"
-      - "Job/Workspace:eclipse.platform.releng"
-      - "Overall/Read:eclipse.platform.releng"
-      - "Run/Delete:eclipse.platform.releng"
-      - "Run/Replay:eclipse.platform.releng"
-      - "Run/Update:eclipse.platform.releng"
-      - "SCM/Tag:eclipse.platform.releng"
-      - "View/Configure:eclipse.platform.releng"
-      - "View/Create:eclipse.platform.releng"
-      - "View/Delete:eclipse.platform.releng"
-      - "View/Read:eclipse.platform.releng"
       - "Agent/Connect:sravankumarl@in.ibm.com"
       - "Agent/Disconnect:sravankumarl@in.ibm.com"
   markupFormatter: rawHtml
@@ -288,12 +206,12 @@ jenkins:
       - displayNameAttributeName: cn
         groupSearchBase: ou=group
         rootDN: dc=eclipse,dc=org
-        server: ldapmaster
+        server: ldaps://ldapcluster.eclipse.org
         userSearch: mail={0}
         mailAddressAttributeName: mail
   clouds:
   - kubernetes:
-      name: "kubernetes"
+      name: "c1-ci"
       containerCapStr: "8"
       jenkinsUrl: "http://jenkins-ui.releng.svc.cluster.local/releng"
       jenkinsTunnel: "jenkins-discovery.releng.svc.cluster.local:50000"
@@ -302,7 +220,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: eclipsecbijenkins/basic-agent:4.3
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.3
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -319,17 +237,32 @@ jenkins:
           command: ""
           args: ""
         instanceCap: 5
-        name: "basic-agent"
+        name: "basic"
         namespace: "releng"
         nodeUsageMode: NORMAL
         label: ""
         envVars:
         - envVar:
-            key: "MAVEN_OPTS"
-            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+            key: "IBM_JAVA_OPTIONS"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+              -XX:+IdleTuningGcOnIdle"
         - envVar:
-            key: "MAVEN_CONFIG"
-            value: "-B -e"
+            key: "JAVA_OPTS"
+            value: ""
+        - envVar:
+            key: "JAVA_TOOL_OPTIONS"
+            value: ""
+        - envVar:
+            key: "JNLP_PROTOCOL_OPTS"
+            value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true
+              -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+        - envVar:
+            key: "OPENJ9_JAVA_OPTIONS"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+              -XX:+IdleTuningGcOnIdle"
+        - envVar:
+            key: "_JAVA_OPTIONS"
+            value: ""
         volumes:
         - persistentVolumeClaim:
             claimName: "tools-claim-jiro-releng"
@@ -381,6 +314,10 @@ jenkins:
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
+              - name: m2-dir
+                mountPath: /home/jenkins/.mavenrc
+                subPath: .mavenrc
+                readOnly: true
             volumes:
             - name: m2-secret-dir
               secret:
@@ -389,7 +326,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: eclipsecbijenkins/jipp-migration-agent:4.3
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.3
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -406,17 +343,32 @@ jenkins:
           command: ""
           args: ""
         instanceCap: 5
-        name: "jipp-migration-agent"
+        name: "centos-7"
         namespace: "releng"
         nodeUsageMode: EXCLUSIVE
-        label: "migration jipp-migration"
+        label: "migration jipp-migration centos centos-7"
         envVars:
         - envVar:
-            key: "MAVEN_OPTS"
-            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+            key: "IBM_JAVA_OPTIONS"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+              -XX:+IdleTuningGcOnIdle"
         - envVar:
-            key: "MAVEN_CONFIG"
-            value: "-B -e"
+            key: "JAVA_OPTS"
+            value: ""
+        - envVar:
+            key: "JAVA_TOOL_OPTIONS"
+            value: ""
+        - envVar:
+            key: "JNLP_PROTOCOL_OPTS"
+            value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true
+              -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+        - envVar:
+            key: "OPENJ9_JAVA_OPTIONS"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+              -XX:+IdleTuningGcOnIdle"
+        - envVar:
+            key: "_JAVA_OPTIONS"
+            value: ""
         volumes:
         - persistentVolumeClaim:
             claimName: "tools-claim-jiro-releng"
@@ -468,92 +420,9 @@ jenkins:
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
-            volumes:
-            - name: m2-secret-dir
-              secret:
-                secretName: m2-secret-dir
-            - name: m2-dir
-              configMap:
-                name: m2-dir
-      - containers:
-        - image: eclipsecbijenkins/ui-tests-agent:4.3
-          alwaysPullImage: true
-          livenessProbe:
-            failureThreshold: 0
-            initialDelaySeconds: 0
-            periodSeconds: 0
-            successThreshold: 0
-            timeoutSeconds: 0
-          name: "jnlp"
-          resourceLimitCpu: "2000m"
-          resourceRequestCpu: "1000m"
-          resourceLimitMemory: "4096Mi"
-          resourceRequestMemory: "4096Mi"
-          ttyEnabled: true
-          command: ""
-          args: ""
-        instanceCap: 5
-        name: "ui-tests-agent"
-        namespace: "releng"
-        nodeUsageMode: EXCLUSIVE
-        label: "ui-test ui-tests"
-        envVars:
-        - envVar:
-            key: "MAVEN_OPTS"
-            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
-        - envVar:
-            key: "MAVEN_CONFIG"
-            value: "-B -e"
-        volumes:
-        - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-releng"
-            mountPath: "/opt/tools"
-            readOnly: true
-        - configMapVolume:
-            configMapName: "known-hosts"
-            mountPath: "/home/jenkins/.ssh/"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.m2/repository"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.m2/wrapper"
-        workspaceVolume:
-          emptyDirWorkspaceVolume:
-            memory: false
-        yaml: |
-          apiVersion: v1
-          kind: Pod
-          spec:
-            containers:
-            - name: jnlp
-              volumeMounts:
-              - name: m2-secret-dir
-                mountPath: /home/jenkins/.m2/settings-deploy-ossrh-jdt.xml
-                subPath: settings-deploy-ossrh-jdt.xml
-                readOnly: true
-              - name: m2-secret-dir
-                mountPath: /home/jenkins/.m2/settings-deploy-ossrh-pde.xml
-                subPath: settings-deploy-ossrh-pde.xml
-                readOnly: true
-              - name: m2-secret-dir
-                mountPath: /home/jenkins/.m2/settings-deploy-ossrh-releng.xml
-                subPath: settings-deploy-ossrh-releng.xml
-                readOnly: true
-              - name: m2-secret-dir
-                mountPath: /home/jenkins/.m2/settings-security.xml
-                subPath: settings-security.xml
-                readOnly: true
-              - name: m2-secret-dir
-                mountPath: /home/jenkins/.m2/settings.xml
-                subPath: settings.xml
-                readOnly: true
               - name: m2-dir
-                mountPath: /home/jenkins/.m2/toolchains.xml
-                subPath: toolchains.xml
+                mountPath: /home/jenkins/.mavenrc
+                subPath: .mavenrc
                 readOnly: true
             volumes:
             - name: m2-secret-dir
@@ -592,6 +461,14 @@ unclassified:
         url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
     - jsUrl:
         url: "/releng/userContent/theme/title.js"
+  buildDiscarders:
+    configuredBuildDiscarders:
+    - "jobBuildDiscarder"
+    - simpleBuildDiscarder:
+        discarder:
+          logRotator:
+            artifactNumToKeepStr: "64"
+            numToKeepStr: "128"
 tool:
   jdk:
     installations:
