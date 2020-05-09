@@ -30,7 +30,7 @@ local clouds = import "clouds.libsonnet";
       tag: $.jiroMaster.version,
     },
   },
-  clouds: clouds.kubernetes("c1-ci", self, (import '../../jiro-agents/agents.jsonnet')),
+  clouds: clouds.kubernetes("kubernetes", self, (import '../../jiro-agents/agents.jsonnet')),
   deployment: {
     host: "ci.eclipse.org",
     prefix: "/" + $.project.shortName,
