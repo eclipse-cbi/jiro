@@ -476,7 +476,7 @@ jenkins:
   - permanent:
       name: "cent7-ppcle-1"
       nodeDescription: "cent7-ppcle-1 - UNB CentOS 7 p8le"
-      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build ci.role.test"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -487,7 +487,7 @@ jenkins:
   - permanent:
       name: "cent7-ppcle-2"
       nodeDescription: "cent7-ppcle-2 - UNB CentOS 7 p8le"
-      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build ci.role.test"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -498,7 +498,7 @@ jenkins:
   - permanent:
       name: "cent7-ppcle-3"
       nodeDescription: "cent7-ppcle-3 - UNB CentOS 7 p8le"
-      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build ci.role.test"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -509,7 +509,7 @@ jenkins:
   - permanent:
       name: "cent7-ppcle-4"
       nodeDescription: "cent7-ppcle-4 - UNB CentOS 7 p8le"
-      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build ci.role.test"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -520,7 +520,7 @@ jenkins:
   - permanent:
       name: "cent7-ppcle-5"
       nodeDescription: "cent7-ppcle-5 - UNB CentOS 7 p8le"
-      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build ci.role.test"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -531,7 +531,7 @@ jenkins:
   - permanent:
       name: "cent7-ppcle-6"
       nodeDescription: "cent7-ppcle-6 - UNB CentOS 7 p8le"
-      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build"
+      labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build ci.role.test"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
