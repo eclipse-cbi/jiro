@@ -211,7 +211,7 @@ jenkins:
         mailAddressAttributeName: mail
   clouds:
   - kubernetes:
-      name: "c1-ci"
+      name: "kubernetes"
       containerCapStr: "8"
       jenkinsUrl: "http://jenkins-ui.releng.svc.cluster.local/releng"
       jenkinsTunnel: "jenkins-discovery.releng.svc.cluster.local:50000"

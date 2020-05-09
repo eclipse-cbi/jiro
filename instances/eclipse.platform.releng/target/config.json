@@ -1,6 +1,6 @@
 {
    "clouds": {
-      "c1-ci": {
+      "kubernetes": {
          "kind": "kubernetes",
          "namespace": "releng",
          "podRetention": "never",
