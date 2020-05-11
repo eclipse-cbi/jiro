@@ -597,7 +597,7 @@ data:
           name: "cent7-ppcle-1"
           nodeDescription: "cent7-ppcle-1 - UNB CentOS 7 p8le"
           labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7
-            ci.role.build"
+            ci.role.build ci.role.test"
           remoteFS: '/home/jenkins'
           numExecutors: 1
           mode: EXCLUSIVE
@@ -611,7 +611,7 @@ data:
           name: "cent7-ppcle-2"
           nodeDescription: "cent7-ppcle-2 - UNB CentOS 7 p8le"
           labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7
-            ci.role.build"
+            ci.role.build ci.role.test"
           remoteFS: '/home/jenkins'
           numExecutors: 1
           mode: EXCLUSIVE
@@ -625,7 +625,7 @@ data:
           name: "cent7-ppcle-3"
           nodeDescription: "cent7-ppcle-3 - UNB CentOS 7 p8le"
           labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7
-            ci.role.build"
+            ci.role.build ci.role.test"
           remoteFS: '/home/jenkins'
           numExecutors: 1
           mode: EXCLUSIVE
@@ -639,7 +639,7 @@ data:
           name: "cent7-ppcle-4"
           nodeDescription: "cent7-ppcle-4 - UNB CentOS 7 p8le"
           labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7
-            ci.role.build"
+            ci.role.build ci.role.test"
           remoteFS: '/home/jenkins'
           numExecutors: 1
           mode: EXCLUSIVE
@@ -653,7 +653,7 @@ data:
           name: "cent7-ppcle-5"
           nodeDescription: "cent7-ppcle-5 - UNB CentOS 7 p8le"
           labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7
-            ci.role.build"
+            ci.role.build ci.role.test"
           remoteFS: '/home/jenkins'
           numExecutors: 1
           mode: EXCLUSIVE
@@ -667,7 +667,7 @@ data:
           name: "cent7-ppcle-6"
           nodeDescription: "cent7-ppcle-6 - UNB CentOS 7 p8le"
           labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7
-            ci.role.build"
+            ci.role.build ci.role.test"
           remoteFS: '/home/jenkins'
           numExecutors: 1
           mode: EXCLUSIVE
@@ -1167,7 +1167,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: eclipsecbijenkins/basic-agent:4.2
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -1184,17 +1184,32 @@ data:
               command: ""
               args: ""
             instanceCap: 5
-            name: "basic-agent"
+            name: "basic"
             namespace: "openj9"
             nodeUsageMode: NORMAL
             label: ""
             envVars:
             - envVar:
-                key: "MAVEN_OPTS"
-                value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+                key: "IBM_JAVA_OPTIONS"
+                value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+                  -XX:+IdleTuningGcOnIdle"
             - envVar:
-                key: "MAVEN_CONFIG"
-                value: "-B -e"
+                key: "JAVA_OPTS"
+                value: ""
+            - envVar:
+                key: "JAVA_TOOL_OPTIONS"
+                value: ""
+            - envVar:
+                key: "JNLP_PROTOCOL_OPTS"
+                value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true
+                  -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+            - envVar:
+                key: "OPENJ9_JAVA_OPTIONS"
+                value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+                  -XX:+IdleTuningGcOnIdle"
+            - envVar:
+                key: "_JAVA_OPTIONS"
+                value: ""
             volumes:
             - persistentVolumeClaim:
                 claimName: "tools-claim-jiro-openj9"
@@ -1234,6 +1249,10 @@ data:
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
+                  - name: m2-dir
+                    mountPath: /home/jenkins/.mavenrc
+                    subPath: .mavenrc
+                    readOnly: true
                 volumes:
                 - name: m2-secret-dir
                   secret:
@@ -1242,7 +1261,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: eclipsecbijenkins/jipp-migration-agent:4.2
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -1259,17 +1278,32 @@ data:
               command: ""
               args: ""
             instanceCap: 5
-            name: "jipp-migration-agent"
+            name: "centos-7"
             namespace: "openj9"
             nodeUsageMode: EXCLUSIVE
-            label: "migration jipp-migration"
+            label: "migration jipp-migration centos centos-7"
             envVars:
             - envVar:
-                key: "MAVEN_OPTS"
-                value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+                key: "IBM_JAVA_OPTIONS"
+                value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+                  -XX:+IdleTuningGcOnIdle"
             - envVar:
-                key: "MAVEN_CONFIG"
-                value: "-B -e"
+                key: "JAVA_OPTS"
+                value: ""
+            - envVar:
+                key: "JAVA_TOOL_OPTIONS"
+                value: ""
+            - envVar:
+                key: "JNLP_PROTOCOL_OPTS"
+                value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true
+                  -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+            - envVar:
+                key: "OPENJ9_JAVA_OPTIONS"
+                value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+                  -XX:+IdleTuningGcOnIdle"
+            - envVar:
+                key: "_JAVA_OPTIONS"
+                value: ""
             volumes:
             - persistentVolumeClaim:
                 claimName: "tools-claim-jiro-openj9"
@@ -1309,80 +1343,9 @@ data:
                     mountPath: /home/jenkins/.m2/toolchains.xml
                     subPath: toolchains.xml
                     readOnly: true
-                volumes:
-                - name: m2-secret-dir
-                  secret:
-                    secretName: m2-secret-dir
-                - name: m2-dir
-                  configMap:
-                    name: m2-dir
-          - containers:
-            - image: eclipsecbijenkins/ui-tests-agent:4.2
-              alwaysPullImage: true
-              livenessProbe:
-                failureThreshold: 0
-                initialDelaySeconds: 0
-                periodSeconds: 0
-                successThreshold: 0
-                timeoutSeconds: 0
-              name: "jnlp"
-              resourceLimitCpu: "2000m"
-              resourceRequestCpu: "1000m"
-              resourceLimitMemory: "4096Mi"
-              resourceRequestMemory: "4096Mi"
-              ttyEnabled: true
-              command: ""
-              args: ""
-            instanceCap: 5
-            name: "ui-tests-agent"
-            namespace: "openj9"
-            nodeUsageMode: EXCLUSIVE
-            label: "ui-test ui-tests"
-            envVars:
-            - envVar:
-                key: "MAVEN_OPTS"
-                value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
-            - envVar:
-                key: "MAVEN_CONFIG"
-                value: "-B -e"
-            volumes:
-            - persistentVolumeClaim:
-                claimName: "tools-claim-jiro-openj9"
-                mountPath: "/opt/tools"
-                readOnly: true
-            - configMapVolume:
-                configMapName: "known-hosts"
-                mountPath: "/home/jenkins/.ssh/"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.m2/repository"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.m2/wrapper"
-            workspaceVolume:
-              emptyDirWorkspaceVolume:
-                memory: false
-            yaml: |
-              apiVersion: v1
-              kind: Pod
-              spec:
-                containers:
-                - name: jnlp
-                  volumeMounts:
-                  - name: m2-secret-dir
-                    mountPath: /home/jenkins/.m2/settings-security.xml
-                    subPath: settings-security.xml
-                    readOnly: true
-                  - name: m2-secret-dir
-                    mountPath: /home/jenkins/.m2/settings.xml
-                    subPath: settings.xml
-                    readOnly: true
                   - name: m2-dir
-                    mountPath: /home/jenkins/.m2/toolchains.xml
-                    subPath: toolchains.xml
+                    mountPath: /home/jenkins/.mavenrc
+                    subPath: .mavenrc
                     readOnly: true
                 volumes:
                 - name: m2-secret-dir
