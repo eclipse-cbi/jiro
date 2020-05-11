@@ -8,3 +8,8 @@ tool:
           - nodeJSInstaller:
               id: "10.18.1"
               npmPackagesRefreshHours: 72
+unclassified:
+  gitscm:
+    globalConfigName: Eclipse Ditto committers
+    globalConfigEmail: ditto-dev@eclipse.org
+    createAccountBasedOnEmail: false
