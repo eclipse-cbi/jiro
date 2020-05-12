@@ -1,7 +1,7 @@
 # GENERATED FILE - DO NOT EDIT
 
 #*******************************************************************************
-# Copyright (c) 2018 Eclipse Foundation and others.
+# Copyright (c) 2018-2020 Eclipse Foundation and others.
 # This program and the accompanying materials are made available
 # under the terms of the Eclipse Public License 2.0
 # which is available at http://www.eclipse.org/legal/epl-v20.html,
@@ -9,7 +9,7 @@
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
 # <templates/Dockerfile.tpl>
-FROM docker.io/eclipsecbijenkins/jenkins-master-base:2.190.1
+FROM docker.io/eclipsecbi/jiro-master:2.222.3
 
 EXPOSE 8080
 EXPOSE 50000

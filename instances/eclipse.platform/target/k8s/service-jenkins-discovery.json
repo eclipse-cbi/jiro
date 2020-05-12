@@ -1,0 +1,25 @@
+{
+   "apiVersion": "v1",
+   "kind": "Service",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "eclipse.platform",
+         "org.eclipse.cbi.jiro/project.shortname": "platform"
+      },
+      "name": "jenkins-discovery",
+      "namespace": "platform"
+   },
+   "spec": {
+      "ports": [
+         {
+            "name": "jnlp",
+            "port": 50000,
+            "protocol": "TCP",
+            "targetPort": 50000
+         }
+      ],
+      "selector": {
+         "org.eclipse.cbi.jiro/project.fullName": "eclipse.platform"
+      }
+   }
+}

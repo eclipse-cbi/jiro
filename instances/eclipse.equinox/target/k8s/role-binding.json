@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "eclipse.equinox",
+         "org.eclipse.cbi.jiro/project.shortname": "equinox"
+      },
+      "name": "equinox",
+      "namespace": "equinox"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "equinox"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "equinox",
+         "namespace": "equinox"
+      }
+   ]
+}
