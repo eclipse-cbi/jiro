@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.oneofour",
+         "org.eclipse.cbi.jiro/project.shortname": "oneofour"
+      },
+      "name": "oneofour",
+      "namespace": "oneofour"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "oneofour"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "oneofour",
+         "namespace": "oneofour"
+      }
+   ]
+}
