@@ -176,7 +176,7 @@ EOH
 EOI
 
   echo "Copy files to Jiro pod ${short_name}-0..."
-  oc rsync tmp/ ${short_name}-0:/var/jenkins_home/ -n=${short_name} --no-perms
+  oc rsync tmp/ ${short_name}-0:/var/jenkins/ -n=${short_name} --no-perms
   rm -rf tmp
   echo "Force restart of Jenkins..."
   oc delete pod ${short_name}-0 -n=${short_name}
