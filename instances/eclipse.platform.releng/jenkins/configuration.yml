@@ -135,3 +135,17 @@ jenkins:
             key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
           - home: '/usr/bin/java'
             key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
+  - permanent:
+      name: "ppc64le-build"
+      remoteFS: "/home/swtbuild/build"
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        jnlp:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+  
