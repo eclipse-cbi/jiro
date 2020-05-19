@@ -9,3 +9,4 @@ Dockerfile.buildlog
 **/target/jenkins/*.war
 **/target/jenkins/ref/plugins
 /.localconfig
+/.cli_temp_dir/
