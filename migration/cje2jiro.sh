@@ -57,14 +57,14 @@ copy_jobs_from_pod() {
   tar xzf ${work_dir}/cje-migration-${project_name}.tar.gz -C ${work_dir}
   echo "Copy job directory to target Jiro pod ${short_name}-0..."
   pushd ${work_dir}
-  oc rsync jobs ${short_name}-0:/var/jenkins_home/ -n=${short_name}
+  oc rsync jobs ${short_name}-0:/var/jenkins/ -n=${short_name}
   popd
 }
 
 import_views() {
   local work_dir=${short_name}
   printf "\nCopy config.xml from Jiro pod ${short_name}-0...\n"
-  oc rsync ${short_name}-0:/var/jenkins_home/config.xml ${work_dir}/ -n=${short_name}
+  oc rsync ${short_name}-0:/var/jenkins/config.xml ${work_dir}/ -n=${short_name}
   echo "Create backup of config.xml..."
   cp ${work_dir}/config.xml ${work_dir}/config.xml.bak
   printf "Merge views..."
@@ -72,10 +72,10 @@ import_views() {
   perl -i -0pe 's/<views>.*<\/views>/<views>$ENV{views}<\/views>/gms' ${work_dir}/config.xml
   printf "Done.\n"
   echo "Copy modified config.xml back to Jiro pod ${short_name}-0..."
-  oc exec ${short_name}-0 rm /var/jenkins_home/config.xml -n=${short_name}
+  oc exec ${short_name}-0 rm /var/jenkins/config.xml -n=${short_name}
   mkdir -p ${work_dir}/tmp
   cp ${work_dir}/config.xml ${work_dir}/tmp/
-  oc rsync ${work_dir}/tmp/ ${short_name}-0:/var/jenkins_home/ -n=${short_name}
+  oc rsync ${work_dir}/tmp/ ${short_name}-0:/var/jenkins/ -n=${short_name}
   rm -rf ${work_dir}/tmp
 }
 

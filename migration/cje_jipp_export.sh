@@ -20,7 +20,7 @@ fi
 printf "Project name: ${project_name}\n"
 
 cje_tmp_dir=/tmp/cje_tmp
-jenkins_home=/var/jenkins_home
+jenkins_home=/var/jenkins
 jobs_dir=${jenkins_home}/jobs
 job_config_tar="jenkins-${project_name}-jobs.tar.gz"
 cje_migration_tar="cje-migration-${project_name}.tar.gz"
