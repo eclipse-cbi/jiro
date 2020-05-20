@@ -122,6 +122,7 @@ jenkins:
             key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
   - permanent:
       name: "ppc64le-build"
+      labelString: "ppcbuild"
       remoteFS: "/home/swtbuild/build"
       numExecutors: 1
       mode: EXCLUSIVE
@@ -133,4 +134,31 @@ jenkins:
             disabled: false
             failIfWorkDirIsMissing: false
             internalDir: "remoting"
-  
+  - permanent:
+      name: "ppcle-buildTest"
+      labelString: "ppctest ppcbuild"
+      remoteFS: "/home/swtbuild/build"
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        jnlp:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+  - permanent:
+      name: "ppcle-test"
+      labelString: "ppctest"
+      remoteFS: "/home/swtbuild/build"
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always
+      launcher:
+        jnlp:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
