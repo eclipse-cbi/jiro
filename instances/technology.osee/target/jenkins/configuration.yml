@@ -37,6 +37,7 @@ jenkins:
         - "Job/Move:technology.osee"
         - "Job/Read:technology.osee"
         - "Job/Workspace:technology.osee"
+        - "Overall/Read:technology.osee"
         - "Run/Delete:technology.osee"
         - "Run/Replay:technology.osee"
         - "Run/Update:technology.osee"
@@ -59,14 +60,14 @@ jenkins:
         - displayNameAttributeName: cn
           groupSearchBase: ou=group
           rootDN: dc=eclipse,dc=org
-          server: ldapmaster
+          server: ldaps://ldapcluster.eclipse.org
           userSearch: mail={0}
           mailAddressAttributeName: mail
 
   clouds:
   - kubernetes:
       name: "kubernetes"
-      containerCapStr: "1"
+      containerCapStr: "2"
       jenkinsUrl: "http://jenkins-ui.osee.svc.cluster.local/osee"
       jenkinsTunnel: "jenkins-discovery.osee.svc.cluster.local:50000"
       maxRequestsPerHostStr: "32"
@@ -74,7 +75,8 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:3.29@sha256:d7df679b5f7337f1bf77922400a148b80e3c483ccba72933a18f0c87be98f8b1"
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.2
+          alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -90,16 +92,29 @@ jenkins:
           command: ""
           args: ""
         instanceCap: 5
-        name: "default-agent"
+        name: "basic"
         namespace: "osee"
         nodeUsageMode: NORMAL
+        label: ""
         envVars:
         - envVar:
-            key: "MAVEN_OPTS"
-            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+            key: "IBM_JAVA_OPTIONS"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
         - envVar:
-            key: "MAVEN_CONFIG"
-            value: "-B -e"
+            key: "JAVA_OPTS"
+            value: ""
+        - envVar:
+            key: "JAVA_TOOL_OPTIONS"
+            value: ""
+        - envVar:
+            key: "JNLP_PROTOCOL_OPTS"
+            value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+        - envVar:
+            key: "OPENJ9_JAVA_OPTIONS"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+        - envVar:
+            key: "_JAVA_OPTIONS"
+            value: ""
         volumes:
         - persistentVolumeClaim:
             claimName: "tools-claim-jiro-osee"
@@ -114,6 +129,9 @@ jenkins:
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/wrapper"
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
@@ -124,39 +142,32 @@ jenkins:
             containers:
             - name: jnlp
               volumeMounts:
-              - name: settings-xml
-                mountPath: /home/jenkins/.m2/settings.xml
-                subPath: settings.xml
-                readOnly: true
-              - name: settings-security-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings-security.xml
                 subPath: settings-security.xml
                 readOnly: true
-              - name: toolchains-xml
+              - name: m2-secret-dir
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
+                readOnly: true
+              - name: m2-dir
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
+              - name: m2-dir
+                mountPath: /home/jenkins/.mavenrc
+                subPath: .mavenrc
+                readOnly: true
             volumes:
-            - name: settings-xml
+            - name: m2-secret-dir
               secret:
                 secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: settings-security-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: toolchains-xml
+            - name: m2-dir
               configMap:
                 name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
       - containers:
-        - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59"
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.2
+          alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -172,17 +183,29 @@ jenkins:
           command: ""
           args: ""
         instanceCap: 5
-        instanceCapStr: "5"
-        name: "ui-test-agent"
+        name: "centos-7"
         namespace: "osee"
-        label: "ui-test"
+        nodeUsageMode: EXCLUSIVE
+        label: "migration jipp-migration centos centos-7"
         envVars:
         - envVar:
-            key: "MAVEN_OPTS"
-            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+            key: "IBM_JAVA_OPTIONS"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
         - envVar:
-            key: "MAVEN_CONFIG"
-            value: "-B -e"
+            key: "JAVA_OPTS"
+            value: ""
+        - envVar:
+            key: "JAVA_TOOL_OPTIONS"
+            value: ""
+        - envVar:
+            key: "JNLP_PROTOCOL_OPTS"
+            value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+        - envVar:
+            key: "OPENJ9_JAVA_OPTIONS"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+        - envVar:
+            key: "_JAVA_OPTIONS"
+            value: ""
         volumes:
         - persistentVolumeClaim:
             claimName: "tools-claim-jiro-osee"
@@ -197,6 +220,9 @@ jenkins:
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/wrapper"
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
@@ -207,128 +233,34 @@ jenkins:
             containers:
             - name: jnlp
               volumeMounts:
-              - name: settings-xml
-                mountPath: /home/jenkins/.m2/settings.xml
-                subPath: settings.xml
-                readOnly: true
-              - name: settings-security-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings-security.xml
                 subPath: settings-security.xml
                 readOnly: true
-              - name: toolchains-xml
-                mountPath: /home/jenkins/.m2/toolchains.xml
-                subPath: toolchains.xml
-                readOnly: true
-            volumes:
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: settings-security-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: toolchains-xml
-              configMap:
-                name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
-      - containers:
-        - image: "eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f"
-          livenessProbe:
-            failureThreshold: 0
-            initialDelaySeconds: 0
-            periodSeconds: 0
-            successThreshold: 0
-            timeoutSeconds: 0
-          name: "jnlp"
-          resourceLimitCpu: "2000m"
-          resourceRequestCpu: "1000m"
-          resourceLimitMemory: "4096Mi"
-          resourceRequestMemory: "4096Mi"
-          ttyEnabled: true
-          command: ""
-          args: ""
-        instanceCap: 5
-        instanceCapStr: "5"
-        name: "migration-agent"
-        namespace: "osee"
-        envVars:
-        - envVar:
-            key: "MAVEN_OPTS"
-            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
-        - envVar:
-            key: "MAVEN_CONFIG"
-            value: "-B -e"
-        label: "migration"
-        volumes:
-        - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-osee"
-            mountPath: "/opt/tools"
-            readOnly: true
-        - configMapVolume:
-            configMapName: "known-hosts"
-            mountPath: "/home/jenkins/.ssh/"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.m2/repository"
-        workspaceVolume:
-          emptyDirWorkspaceVolume:
-            memory: false
-        yaml: |
-          apiVersion: v1
-          kind: Pod
-          spec:
-            containers:
-            - name: jnlp
-              volumeMounts:
-              - name: settings-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings.xml
                 subPath: settings.xml
                 readOnly: true
-              - name: settings-security-xml
-                mountPath: /home/jenkins/.m2/settings-security.xml
-                subPath: settings-security.xml
-                readOnly: true
-              - name: toolchains-xml
+              - name: m2-dir
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
+              - name: m2-dir
+                mountPath: /home/jenkins/.mavenrc
+                subPath: .mavenrc
+                readOnly: true
             volumes:
-            - name: settings-xml
+            - name: m2-secret-dir
               secret:
                 secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: settings-security-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: toolchains-xml
+            - name: m2-dir
               configMap:
                 name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
-
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
     tokenGenerationOnCreationEnabled: false
     usageStatisticsEnabled: true
-  downloadSettings:
-    useBrowser: false
   queueItemAuthenticator:
     authenticators:
     - global:
@@ -360,11 +292,22 @@ unclassified:
     - jsUrl:
         url: "/osee/userContent/theme/title.js"
 
+  buildDiscarders:
+    configuredBuildDiscarders:
+    - "jobBuildDiscarder"
+    - simpleBuildDiscarder:
+        discarder:
+          logRotator:
+            artifactNumToKeepStr: "5"
+            numToKeepStr: "128"
+
 tool:
   jdk:
     installations:
     - name: "openjdk-latest"
       home: "/opt/tools/java/openjdk/latest"
+    - name: "openjdk-jdk15-latest"
+      home: "/opt/tools/java/openjdk/jdk-15/latest"
     - name: "openjdk-jdk14-latest"
       home: "/opt/tools/java/openjdk/jdk-14/latest"
     - name: "openjdk-jdk13-latest"
@@ -432,8 +375,10 @@ tool:
     installations:
     - name: "apache-maven-latest"
       home: "/opt/tools/apache-maven/latest"
-    - name: "apache-maven-3.6.2"
-      home: "/opt/tools/apache-maven/3.6.2"
+    - name: "apache-maven-3.6.3"
+      home: "/opt/tools/apache-maven/3.6.3"
+    - name: "apache-maven-3.6.0"
+      home: "/opt/tools/apache-maven/3.6.0"
     - name: "apache-maven-3.5.4"
       home: "/opt/tools/apache-maven/3.5.4"
     - name: "apache-maven-3.3.9"
