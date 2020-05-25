@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.grizzly",
+         "org.eclipse.cbi.jiro/project.shortname": "grizzly"
+      },
+      "name": "grizzly",
+      "namespace": "grizzly"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "grizzly"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "grizzly",
+         "namespace": "grizzly"
+      }
+   ]
+}
