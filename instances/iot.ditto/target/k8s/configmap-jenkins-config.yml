@@ -148,7 +148,7 @@ data:
         - simpleBuildDiscarder:
             discarder:
               logRotator:
-                artifactNumToKeepStr: "64"
+                artifactNumToKeepStr: "5"
                 numToKeepStr: "128"
     jenkins:
       numExecutors: 0
