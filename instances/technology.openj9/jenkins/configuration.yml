@@ -866,6 +866,10 @@ jenkins:
       - key: "KNOWN_HOSTS"
         value: "github.com github.ibm.com"
 
+security:
+  globalJobDslSecurityConfiguration:
+    useScriptSecurity: false
+
 unclassified:
   slackNotifier:
     teamDomain: "openj9"
