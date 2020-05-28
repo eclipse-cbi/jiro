@@ -271,7 +271,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/grizzly
+    url: https://ci.eclipse.org/grizzly
 
   mailer:
     replyToAddress: ci-admin@eclipse.org

@@ -211,11 +211,11 @@
    },
    "deployment": {
       "controlPort": 8081,
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "jnlpPort": 50000,
       "prefix": "/grizzly",
       "uiPort": 8080,
-      "url": "https://ci-staging.eclipse.org/grizzly"
+      "url": "https://ci.eclipse.org/grizzly"
    },
    "docker": {
       "master": {
