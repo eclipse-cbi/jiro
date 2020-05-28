@@ -1331,6 +1331,19 @@ jenkins:
             - name: m2-dir
               configMap:
                 name: m2-dir
+security:
+  globalJobDslSecurityConfiguration:
+    useScriptSecurity: false
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  queueItemAuthenticator:
+    authenticators:
+    - global:
+        strategy: "triggeringUsersAuthorizationStrategy"
+  sSHD:
+    port: -1
 unclassified:
   slackNotifier:
     teamDomain: "openj9"
@@ -1359,6 +1372,14 @@ unclassified:
         url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
     - jsUrl:
         url: "/openj9/userContent/theme/title.js"
+  buildDiscarders:
+    configuredBuildDiscarders:
+    - "jobBuildDiscarder"
+    - simpleBuildDiscarder:
+        discarder:
+          logRotator:
+            artifactNumToKeepStr: "5"
+            numToKeepStr: "128"
 tool:
   xvfbInstallation:
     installations:
@@ -1451,14 +1472,3 @@ tool:
     installations:
     - name: "Default"
       home: "git"
-security:
-  apiToken:
-    creationOfLegacyTokenEnabled: false
-    tokenGenerationOnCreationEnabled: false
-    usageStatisticsEnabled: true
-  queueItemAuthenticator:
-    authenticators:
-    - global:
-        strategy: "triggeringUsersAuthorizationStrategy"
-  sSHD:
-    port: -1
