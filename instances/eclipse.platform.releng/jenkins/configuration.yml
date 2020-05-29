@@ -154,7 +154,7 @@ jenkins:
       remoteFS: "/home/swtbuild/build"
       numExecutors: 1
       mode: EXCLUSIVE
-      retentionStrategy: "always
+      retentionStrategy: "always"
       launcher:
         jnlp:
           webSocket: true
