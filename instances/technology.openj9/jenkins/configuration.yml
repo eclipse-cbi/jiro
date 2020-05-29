@@ -615,7 +615,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.49 \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec /home/jenkins/openj9/jdk-9+181/bin/java -jar slave.jar\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.49 \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
   - permanent:
       name: "ub18-ppcle-1"
       nodeDescription: "ub18-ppcle-1 - UNB Ubuntu 18 p8le"
