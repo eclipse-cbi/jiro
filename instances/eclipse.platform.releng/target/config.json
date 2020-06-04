@@ -365,7 +365,7 @@
          }
       ],
       "pluginsForceUpgrade": true,
-      "staticAgentCount": 0,
+      "staticAgentCount": 10,
       "theme": "quicksilver",
       "timezone": "America/Toronto",
       "version": "2.229"
@@ -479,12 +479,12 @@
          },
          "resources": {
             "cpu": {
-               "limit": "2800m",
-               "request": "1400m"
+               "limit": "5800m",
+               "request": "2900m"
             },
             "memory": {
-               "limit": "3072Mi",
-               "request": "3072Mi"
+               "limit": "5632Mi",
+               "request": "5632Mi"
             }
          },
          "stsName": "releng"

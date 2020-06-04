@@ -11,6 +11,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     host: "ci-staging.eclipse.org"
   },
   jenkins+: {
+    staticAgentCount: 10,
     version: "2.229",
     permissions+: 
       permissionsTemplates.projectPermissions("sravankumarl@in.ibm.com", ["Agent/Connect", "Agent/Disconnect"]) +
