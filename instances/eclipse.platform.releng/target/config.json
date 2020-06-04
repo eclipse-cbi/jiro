@@ -8,7 +8,17 @@
             "basic": {
                "agentWorkdir": "/home/jenkins/jenkins-agent",
                "docker": {
-                  "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM docker.io/eclipsecbi/jiro-agent-basic:spec\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/home/jenkins\"\n\nVOLUME [ \"/home/jenkins\", ]\nWORKDIR \"/home/jenkins\"\nENTRYPOINT [ \"uid_entrypoint\", \"/usr/local/bin/jenkins-agent\" ]\n\nADD \"https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.3/remoting-4.3.jar\" \"/usr/share/jenkins/agent.jar\" \nADD \"https://github.com/jenkinsci/docker-jnlp-slave/raw/4.3-4/jenkins-agent\" \"/usr/local/bin/jenkins-agent\"\n\nRUN chmod 755 \"$(dirname \"/usr/share/jenkins/agent.jar\")\" \\\n  && chmod 644 \"/usr/share/jenkins/agent.jar\" \\\n  && chmod ug+rx \"/usr/local/bin/jenkins-agent\" \\\n  && chgrp 0 \"/usr/local/bin/jenkins-agent\"\n\nUSER 10001:0\n",
+                  "aliases": [
+                     "docker.io/eclipsecbi/jiro-agent-basic:latest",
+                     "docker.io/eclipsecbijenkins/basic-agent:4.3",
+                     "docker.io/eclipsecbijenkins/jenkins-agent:4.3",
+                     "docker.io/eclipsecbi/jenkins-jnlp-agent:4.3",
+                     "docker.io/eclipsecbijenkins/basic-agent:latest",
+                     "docker.io/eclipsecbijenkins/jenkins-agent:latest",
+                     "docker.io/eclipsecbi/jenkins-jnlp-agent:latest"
+                  ],
+                  "context": "basic",
+                  "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM docker.io/eclipsecbi/jiro-agent-basic:spec\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/home/jenkins\"\n\nVOLUME [ \"/home/jenkins\", ]\nWORKDIR \"/home/jenkins\"\nENTRYPOINT [ \"uid_entrypoint\", \"/usr/local/bin/jenkins-agent\" ]\n\nADD \"https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.3/remoting-4.3.jar\" \"/usr/share/jenkins/agent.jar\" \nADD \"https://github.com/jenkinsci/docker-inbound-agent/raw/4.3-4/jenkins-agent\" \"/usr/local/bin/jenkins-agent\"\n\nRUN chmod 755 \"$(dirname \"/usr/share/jenkins/agent.jar\")\" \\\n  && chmod 644 \"/usr/share/jenkins/agent.jar\" \\\n  && chmod ug+rx \"/usr/local/bin/jenkins-agent\" \\\n  && chgrp 0 \"/usr/local/bin/jenkins-agent\"\n\nUSER 10001:0\n",
                   "image": "jiro-agent-basic",
                   "registry": "docker.io",
                   "repository": "eclipsecbi",
@@ -106,7 +116,7 @@
                   "jar": "/usr/share/jenkins/agent.jar",
                   "startupScript": {
                      "name": "jenkins-agent",
-                     "url": "https://github.com/jenkinsci/docker-jnlp-slave/raw/4.3-4/jenkins-agent",
+                     "url": "https://github.com/jenkinsci/docker-inbound-agent/raw/4.3-4/jenkins-agent",
                      "version": "4.3-4"
                   },
                   "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.3/remoting-4.3.jar",
@@ -118,7 +128,19 @@
             "centos-7": {
                "agentWorkdir": "/home/jenkins/jenkins-agent",
                "docker": {
-                  "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM docker.io/eclipsecbi/jiro-agent-centos-7:spec\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/home/jenkins\"\n\nVOLUME [ \"/home/jenkins\", ]\nWORKDIR \"/home/jenkins\"\nENTRYPOINT [ \"uid_entrypoint\", \"/usr/local/bin/jenkins-agent\" ]\n\nADD \"https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.3/remoting-4.3.jar\" \"/usr/share/jenkins/agent.jar\" \nADD \"https://github.com/jenkinsci/docker-jnlp-slave/raw/4.3-4/jenkins-agent\" \"/usr/local/bin/jenkins-agent\"\n\nRUN chmod 755 \"$(dirname \"/usr/share/jenkins/agent.jar\")\" \\\n  && chmod 644 \"/usr/share/jenkins/agent.jar\" \\\n  && chmod ug+rx \"/usr/local/bin/jenkins-agent\" \\\n  && chgrp 0 \"/usr/local/bin/jenkins-agent\"\n\nUSER 10001:0\n",
+                  "aliases": [
+                     "docker.io/eclipsecbi/jiro-agent-centos-7:latest",
+                     "docker.io/eclipsecbijenkins/jipp-migration-agent:4.3",
+                     "docker.io/eclipsecbijenkins/migration-fat-agent:4.3",
+                     "docker.io/eclipsecbijenkins/ui-test-agent:4.3",
+                     "docker.io/eclipsecbijenkins/ui-tests-agent:4.3",
+                     "docker.io/eclipsecbijenkins/jipp-migration-agent:latest",
+                     "docker.io/eclipsecbijenkins/migration-fat-agent:latest",
+                     "docker.io/eclipsecbijenkins/ui-test-agent:latest",
+                     "docker.io/eclipsecbijenkins/ui-tests-agent:latest"
+                  ],
+                  "context": "centos-7",
+                  "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM docker.io/eclipsecbi/jiro-agent-centos-7:spec\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/home/jenkins\"\n\nVOLUME [ \"/home/jenkins\", ]\nWORKDIR \"/home/jenkins\"\nENTRYPOINT [ \"uid_entrypoint\", \"/usr/local/bin/jenkins-agent\" ]\n\nADD \"https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.3/remoting-4.3.jar\" \"/usr/share/jenkins/agent.jar\" \nADD \"https://github.com/jenkinsci/docker-inbound-agent/raw/4.3-4/jenkins-agent\" \"/usr/local/bin/jenkins-agent\"\n\nRUN chmod 755 \"$(dirname \"/usr/share/jenkins/agent.jar\")\" \\\n  && chmod 644 \"/usr/share/jenkins/agent.jar\" \\\n  && chmod ug+rx \"/usr/local/bin/jenkins-agent\" \\\n  && chgrp 0 \"/usr/local/bin/jenkins-agent\"\n\nUSER 10001:0\n",
                   "image": "jiro-agent-centos-7",
                   "registry": "docker.io",
                   "repository": "eclipsecbi",
@@ -221,7 +243,7 @@
                   "jar": "/usr/share/jenkins/agent.jar",
                   "startupScript": {
                      "name": "jenkins-agent",
-                     "url": "https://github.com/jenkinsci/docker-jnlp-slave/raw/4.3-4/jenkins-agent",
+                     "url": "https://github.com/jenkinsci/docker-inbound-agent/raw/4.3-4/jenkins-agent",
                      "version": "4.3-4"
                   },
                   "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.3/remoting-4.3.jar",
@@ -410,7 +432,7 @@
          "greenballs",
          "jdk-tool",
          "jobConfigHistory",
-         "kubernetes",
+         "kubernetes:1.25.7",
          "ldap",
          "mailer",
          "matrix-auth",

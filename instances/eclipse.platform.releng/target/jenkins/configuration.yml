@@ -263,7 +263,7 @@ jenkins:
           ttyEnabled: true
           command: ""
           args: ""
-        instanceCap: 5
+        instanceCap: -1
         name: "basic"
         namespace: "releng"
         nodeUsageMode: NORMAL
@@ -369,7 +369,7 @@ jenkins:
           ttyEnabled: true
           command: ""
           args: ""
-        instanceCap: 5
+        instanceCap: -1
         name: "centos-7"
         namespace: "releng"
         nodeUsageMode: EXCLUSIVE
