@@ -18,6 +18,24 @@ local Kube = import "kube.libsonnet";
         },
         spec: {
           serviceAccountName: config.project.shortName,
+          affinity: {
+            nodeAffinity: {
+              preferredDuringSchedulingIgnoredDuringExecution: [
+                {
+                  weight: 1,
+                  preference: {
+                    matchExpressions: [
+                      {
+                        key: "speed",
+                        operator: "NotIn",
+                        values: ["fast"]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
           terminationGracePeriodSeconds: 1200,
           containers: [
             {
