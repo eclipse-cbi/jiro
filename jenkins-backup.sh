@@ -26,13 +26,13 @@ if [[ -z "${instance}" ]]; then
 fi
 
 if [[ -z "${backup}" ]]; then
-  echo "ERROR: you must provide an 'backup' folder name"
+  echo "ERROR: you must provide a 'backup' folder name"
   exit 1
 fi
 
 if [[ ${instance} == "ALL" ]]; then
   for i in "${SCRIPT_FOLDER}/instances/"*; do 
-    >&2 echo "** Backuping instance '$(basename "${i}")'..."
+    >&2 echo "** Backing up instance '$(basename "${i}")'..."
     "${0}" "${i}" "${backup}" || :
   done
   exit 0
@@ -49,17 +49,17 @@ mkdir -p "${backupInstance}/views"
 
 
 for job in $("${CLI}" "${instance}" list-jobs); do 
-  >&2 echo "Backuping job '${job}'..."
+  >&2 echo "Backing up job '${job}'..."
   "${CLI}" "${instance}" get-job "${job}" > "${backupInstance}/jobs/${job}.xml"
 done
 
 for view in $("${CLI}" "${instance}" groovy = < "${SCRIPT_FOLDER}/groovy/cli/list-views.groovy"); do 
-  >&2 echo "Backuping view '${view}'..."
+  >&2 echo "Backing up view '${view}'..."
   "${CLI}" "${instance}" get-view "${view}" > "${backupInstance}/views/${view}.xml"
 done
 
->&2 echo "Backuping credentials..."
+>&2 echo "Backing up credentials..."
 "${CLI}" "${instance}" list-credentials-as-xml > "${backupInstance}/credentials.xml" "system::system::jenkins"
 
->&2 echo "Backuping plugins list..."
+>&2 echo "Backing up plugins list..."
 "${CLI}" "${instance}" list-plugins > "${backupInstance}/plugins"
