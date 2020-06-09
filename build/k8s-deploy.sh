@@ -65,6 +65,9 @@ oc apply -f "${instance}/target/k8s/m2-dir.json"
 if [[ -f "${instance}/target/.secrets/k8s/m2-secret-dir.json" ]]; then
   oc apply -f "${instance}/target/.secrets/k8s/m2-secret-dir.json"
 fi
+if [[ -f "${instance}/target/.secrets/k8s/gradle-secret-dir.json" ]]; then
+  oc apply -f "${instance}/target/.secrets/k8s/gradle-secret-dir.json"
+fi
 
 sts_as_json() {
   oc get sts -n "$(jq -r '.metadata.name' "${instance}/target/k8s/namespace.json")" "$(jq -r '.metadata.name' "${instance}/target/k8s/statefulset.json")" -o json

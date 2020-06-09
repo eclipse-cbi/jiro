@@ -38,7 +38,7 @@
               {
                 local dot_gradle = agents[agentName].spec.home + "/.gradle",
                 name: "gradle-secret-dir",
-                configMap: { name: "gradle-secret-dir", },
+                secret: { name: "gradle-secret-dir", },
                 mounts: [
                   {
                     mountPath: dot_gradle + "/" + self.subPath,
