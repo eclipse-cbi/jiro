@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.tmf.xtext",
+         "org.eclipse.cbi.jiro/project.shortname": "xtext"
+      },
+      "name": "xtext",
+      "namespace": "xtext"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "xtext"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "xtext",
+         "namespace": "xtext"
+      }
+   ]
+}
