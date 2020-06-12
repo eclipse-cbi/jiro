@@ -1,0 +1,46 @@
+{
+   "apiVersion": "v1",
+   "kind": "LimitRange",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.eclipselink",
+         "org.eclipse.cbi.jiro/project.shortname": "eclipselink"
+      },
+      "name": "jenkins-instance-limit-range",
+      "namespace": "eclipselink"
+   },
+   "spec": {
+      "limits": [
+         {
+            "max": {
+               "cpu": "8300m",
+               "memory": "16640Mi"
+            },
+            "min": {
+               "cpu": "200m",
+               "memory": "8Mi"
+            },
+            "type": "Pod"
+         },
+         {
+            "default": {
+               "cpu": "300m",
+               "memory": "256Mi"
+            },
+            "defaultRequest": {
+               "cpu": "200m",
+               "memory": "256Mi"
+            },
+            "max": {
+               "cpu": "8000m",
+               "memory": "16384Mi"
+            },
+            "min": {
+               "cpu": "100m",
+               "memory": "16Mi"
+            },
+            "type": "Container"
+         }
+      ]
+   }
+}
