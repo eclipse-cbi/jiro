@@ -416,7 +416,6 @@
          "command-launcher",
          "config-file-provider",
          "configuration-as-code",
-         "configuration-as-code-support",
          "credentials-binding",
          "email-ext",
          "extended-read-permission",

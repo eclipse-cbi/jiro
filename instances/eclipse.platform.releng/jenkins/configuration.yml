@@ -95,9 +95,9 @@ jenkins:
           - home: 'W:\Git\latest\x64\bin\git'
             key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
   - permanent:
-      name: "zyt5z-centos76"
+      name: "zyt5z-centos7"
       nodeDescription: "Dedicated agent for performance tests, hosted on Azure"
-      labelString: "performance"
+      labelString: "performance docker-build"
       remoteFS: '/home/genie.releng/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
