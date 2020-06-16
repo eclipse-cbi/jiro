@@ -8,82 +8,141 @@ local Kube = import "kube.libsonnet";
         <toolchains>
           <toolchain>
             <type>jdk</type>
-            <provides><id>CDC-1.0/Foundation-1.0</id></provides>
+            <provides>
+              <id>CDC-1.0/Foundation-1.0</id>
+              <vendor>cdc</vendor>
+            </provides>
             <configuration><jdkHome>/opt/tools/ee/CDC-1.0_Foundation-1.0</jdkHome></configuration>
           </toolchain>
           <toolchain>
             <type>jdk</type>
-            <provides><id>CDC-1.1/Foundation-1.1</id></provides>
+            <provides>
+              <id>CDC-1.1/Foundation-1.1</id>
+              <vendor>cdc</vendor>
+            </provides>
             <configuration><jdkHome>/opt/tools/ee/CDC-1.1_Foundation-1.1</jdkHome></configuration>
           </toolchain>
           <toolchain>
             <type>jdk</type>
-            <provides><id>OSGi/Minimum-1.0</id></provides>
+            <provides>
+              <id>OSGi/Minimum-1.0</id>
+              <vendor>osgi</vendor>
+            </provides>
             <configuration><jdkHome>/opt/tools/ee/OSGi_Minimum-1.0</jdkHome></configuration>
           </toolchain>
           <toolchain>
             <type>jdk</type>
-            <provides><id>OSGi/Minimum-1.1</id></provides>
+            <provides>
+              <id>OSGi/Minimum-1.1</id>
+              <vendor>osgi</vendor>
+            </provides>
             <configuration><jdkHome>/opt/tools/ee/OSGi_Minimum-1.1</jdkHome></configuration>
           </toolchain>
           <toolchain>
             <type>jdk</type>
-            <provides><id>OSGi/Minimum-1.2</id></provides>
+            <provides>
+              <id>OSGi/Minimum-1.2</id>
+              <vendor>osgi</vendor>
+            </provides>
             <configuration><jdkHome>/opt/tools/ee/OSGi_Minimum-1.2</jdkHome></configuration>
           </toolchain>
           <toolchain>
             <type>jdk</type>
-            <provides><id>J2SE-1.5</id></provides>
-            <configuration><jdkHome>/opt/tools/java/oracle/jdk-5/latest/jre</jdkHome></configuration>
+            <provides>
+              <id>J2SE-1.5</id>
+              <version>1.5</version>
+              <vendor>oracle</vendor>
+            </provides>
+            <configuration><jdkHome>/opt/tools/java/oracle/jdk-5/latest</jdkHome></configuration>
           </toolchain>
           <toolchain>
             <type>jdk</type>
-            <provides><id>JavaSE-1.6</id></provides>
-            <configuration><jdkHome>/opt/tools/java/oracle/jdk-6/latest/jre</jdkHome></configuration>
+            <provides>
+              <id>JavaSE-1.6</id>
+              <version>1.6</version>
+              <vendor>oracle</vendor>
+            </provides>
+            <configuration><jdkHome>/opt/tools/java/oracle/jdk-6/latest</jdkHome></configuration>
           </toolchain>
           <toolchain>
             <type>jdk</type>
-            <provides><id>JavaSE-1.7</id></provides>
-            <configuration><jdkHome>/opt/tools/java/oracle/jdk-7/latest/jre</jdkHome></configuration>
+            <provides>
+              <id>JavaSE-1.7</id>
+              <version>1.7</version>
+              <vendor>oracle</vendor>
+            </provides>
+            <configuration><jdkHome>/opt/tools/java/oracle/jdk-7/latest</jdkHome></configuration>
           </toolchain>
           <toolchain>
             <type>jdk</type>
-            <provides><id>JavaSE-1.8</id></provides>
-            <configuration><jdkHome>/opt/tools/java/oracle/jdk-8/latest/jre</jdkHome></configuration>
+            <provides>
+              <id>JavaSE-1.8</id>
+              <version>1.8</version>
+              <vendor>oracle</vendor>
+            </provides>
+            <configuration><jdkHome>/opt/tools/java/oracle/jdk-8/latest</jdkHome></configuration>
           </toolchain>
           <toolchain>
             <type>jdk</type>
-            <provides><id>JavaSE-9</id></provides>
+            <provides>
+              <id>JavaSE-9</id>
+              <version>9</version>
+              <vendor>oracle</vendor>
+            </provides>
             <configuration><jdkHome>/opt/tools/java/oracle/jdk-9/latest</jdkHome></configuration>
           </toolchain>
           <toolchain>
             <type>jdk</type>
-            <provides><id>JavaSE-10</id></provides>
+            <provides>
+              <id>JavaSE-10</id>
+              <version>10</version>
+              <vendor>oracle</vendor>
+            </provides>
             <configuration><jdkHome>/opt/tools/java/oracle/jdk-10/latest</jdkHome></configuration>
           </toolchain>
           <toolchain>
             <type>jdk</type>
-            <provides><id>JavaSE-11</id></provides>
+            <provides>
+              <id>JavaSE-11</id>
+              <version>11</version>
+              <vendor>openjdk</vendor>
+            </provides>
             <configuration><jdkHome>/opt/tools/java/openjdk/jdk-11/latest</jdkHome></configuration>
           </toolchain>
           <toolchain>
             <type>jdk</type>
-            <provides><id>JavaSE-12</id></provides>
+            <provides>
+              <id>JavaSE-12</id>
+              <version>12</version>
+              <vendor>openjdk</vendor>
+            </provides>
             <configuration><jdkHome>/opt/tools/java/openjdk/jdk-12/latest</jdkHome></configuration>
           </toolchain>
           <toolchain>
             <type>jdk</type>
-            <provides><id>JavaSE-13</id></provides>
+            <provides>
+              <id>JavaSE-13</id>
+              <version>9</version>
+              <vendor>openjdk</vendor>
+            </provides>
             <configuration><jdkHome>/opt/tools/java/openjdk/jdk-13/latest</jdkHome></configuration>
           </toolchain>
           <toolchain>
             <type>jdk</type>
-            <provides><id>JavaSE-14</id></provides>
+            <provides>
+              <id>JavaSE-14</id>
+              <version>14</version>
+              <vendor>openjdk</vendor>
+            </provides>
             <configuration><jdkHome>/opt/tools/java/openjdk/jdk-14/latest</jdkHome></configuration>
           </toolchain>
           <toolchain>
             <type>jdk</type>
-            <provides><id>JavaSE-15</id></provides>
+            <provides>
+              <id>JavaSE-15</id>
+              <version>15</version>
+              <vendor>openjdk</vendor>
+            </provides>
             <configuration><jdkHome>/opt/tools/java/openjdk/jdk-15/latest</jdkHome></configuration>
           </toolchain>
         </toolchains>
