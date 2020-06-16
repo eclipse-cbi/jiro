@@ -204,8 +204,8 @@ jenkins:
               configMap:
                 name: m2-dir
             - name: gradle-secret-dir
-              configMap:
-                name: gradle-secret-dir
+              secret:
+                secretName: gradle-secret-dir
       - containers:
         - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.2.1
           alwaysPullImage: true
@@ -320,8 +320,8 @@ jenkins:
               configMap:
                 name: m2-dir
             - name: gradle-secret-dir
-              configMap:
-                name: gradle-secret-dir
+              secret:
+                secretName: gradle-secret-dir
 unclassified:
   timestamperConfig:
     allPipelines: true
