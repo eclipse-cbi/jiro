@@ -7,10 +7,10 @@
     host: "ci-staging.eclipse.org"
   },
   clouds+: {
-    "c1-ci"+: { 
+    kubernetes+: { 
       local currentCloud = self,
       templates+: {
-        "jipp-migration-agent-6gb": currentCloud.templates["jipp-migration-agent"] {
+        "jipp-migration-agent-6gb": currentCloud.templates["centos-7"] {
           labels: ["migration-6gb"],
           kubernetes+: {
             resources+: {
