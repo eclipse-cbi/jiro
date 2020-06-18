@@ -9,6 +9,7 @@ jenkins:
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCqB0zAloATU+Sz9m64ljhzzmWzHDLkpBmPTqqgMVG9efT8E7XALe9W9jCqQBVOP3d3njDsM+C+DIWON3d3lwBSkicKT1DaEtDIsJNqCt71qb02oUm2IGL3SA9bqMSnnYUajZFnsB2xGO2WIfw+TNgj0sMpVAyEjTf1D3iM0NS4Ncxj9LvH95dl2KNcGHIqaCngRcryc15DZMJInEzRWhvRXgNJJLQTLEULP92kaJ5Cqm0gblAR20JzAnilpH9Ahv+NrxAR7SEuNl4N0LVD8fnPIWlO8n3pRC7I24HbwoaVdzOikNVLP5ywTjdweZEagAyD4vvwaXr7MBREdQBYBkXhPdMjRypEDhywKbG405mrmU2Ei4FreE/otwgqPjzmP/Pv2dOV7kGebjhql+kT6rqYSmY8GzPuKB7KA5pqRqWuafUaF9ukkVytA8bYzXiCjFhv8n+X+tEW5BmLHLhs+JeI70F3J2vZ6GYhxJr3OS9+1+KS26d6Dwkm7VqZViEr8pM="
+      mode: EXCLUSIVE
       name: "MacMini"
       nodeDescription: "hosted at MacStadium, provided by the project"
       numExecutors: 1
