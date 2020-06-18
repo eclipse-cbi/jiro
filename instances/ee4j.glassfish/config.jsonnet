@@ -4,7 +4,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   project+: {
     fullName: "ee4j.glassfish",
     displayName: "Eclipse Glassfish",
-    resourcePacks: 15
+    resourcePacks: 16
   },
   jenkins+: {
     agentConnectionTimeout: 300,

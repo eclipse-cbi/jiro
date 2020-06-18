@@ -2,7 +2,7 @@
   project+: {
     fullName: "ee4j.jakartaee-tck",
     displayName: "Eclipse Jakarta EE TCK",
-    resourcePacks: 50,
+    resourcePacks: 51,
   },
   jenkins+: {
     maxConcurrency: 25,
