@@ -1,6 +1,5 @@
 local jiroMasters = import '../../jiro-masters/masters.jsonnet';
 local permissions = import 'permissions.libsonnet';
-local clouds = import "clouds.libsonnet";
 { 
   project: {
     shortName: std.split(self.fullName, ".")[std.length(std.split(self.fullName, "."))-1],
@@ -30,7 +29,14 @@ local clouds = import "clouds.libsonnet";
       tag: $.jiroMaster.version,
     },
   },
-  clouds: clouds.kubernetes("kubernetes", self, (import '../../jiro-agents/agents.jsonnet')),
+  clouds: {
+    local clouds = import "clouds.libsonnet",
+    # kubernetes: is the name of the cloud (default)
+    # See https://github.com/eclipse-cbi/jiro/commit/fab6ff19e44936f5f794c47a69b6bd8dde09e6e8
+    kubernetes: clouds.kubernetes($, (import '../../jiro-agents/agents.jsonnet')),
+    // Additional clouds could be set, e.g. (if clouds.azure would be implemented)
+    // "azure-kx3cr": clouds.azure($, (import '../../jiro-agents/agents.jsonnet')),
+  },
   deployment: {
     host: "ci.eclipse.org",
     prefix: "/" + $.project.shortName,
@@ -84,52 +90,8 @@ local clouds = import "clouds.libsonnet";
       },
     },
   },
-  maven: {
-    generate: true,
-    interactiveMode: false,
-    color: "always",
-
-    files: {
-      "settings.xml": {
-        color: "always",
-        servers: {
-          "repo.eclipse.org": {
-            username: {
-              pass: "nexus/username",
-            },
-            password: {
-              pass: "nexus/password",
-            },
-          },
-          ossrh: {
-            nexusProUrl: if std.startsWith($.project.fullName, "ee4j") then "https://jakarta.oss.sonatype.org" else "https://oss.sonatype.org",
-            username: {
-              pass: "bots/" + $.project.fullName + "/oss.sonatype.org/username",
-            },
-            password: {
-              pass: "bots/" + $.project.fullName + "/oss.sonatype.org/password",
-            },
-          },
-          "gpg.passphrase": {
-            passphrase: {
-              pass: "bots/" + $.project.fullName + "/gpg/passphrase"
-            },
-          },
-        },
-        mirrors: {
-          "eclipse.maven.central.mirror": {
-            name: "Eclipse Central Proxy",
-            url: "https://repo.eclipse.org/content/repositories/maven_central/",
-            mirrorOf: "central",
-          },
-        },
-      },
-      "settings-security.xml": {
-        master: {
-          pass: "bots/" + $.project.fullName + "/apache-maven-security-settings"
-        },
-      },
-    },
+  maven: (import "maven.libsonnet").Maven {
+    projectFullName: $.project.fullName
   },
   gradle: {
     generate: false,

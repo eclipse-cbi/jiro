@@ -90,14 +90,6 @@ jenkins:
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/"
-        {{#if ../../maven.generate}}
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.m2/repository"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.m2/wrapper"
-        {{/if}}
         {{#if ../../gradle.generate}}
         - emptyDirVolume:
             memory: false
@@ -126,12 +118,9 @@ jenkins:
             - name: jnlp
               volumeMounts:
               {{#each kubernetes.volumes}}
-              {{#each mounts}}
               - name: {{../name}}
                 mountPath: {{mountPath}}
-                subPath: {{subPath}}
-                readOnly: true
-              {{/each}}
+                readOnly: {{readOnly}
               {{/each}}
             volumes:
             {{#each kubernetes.volumes}}
