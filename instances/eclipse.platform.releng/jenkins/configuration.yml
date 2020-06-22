@@ -32,24 +32,6 @@ jenkins:
         command:
           command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@208.52.161.179 "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > /Users/genie.releng/jenkins_agent/remoting/slave.jar; java -jar /Users/genie.releng/jenkins_agent/remoting/slave.jar"'
   - permanent:
-      name: "rhel-7-1"
-      nodeDescription: ""
-      labelString: "rhel-7, x86_64"
-      remoteFS: '/home/genie.releng/ci'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@35.196.120.228 "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > slave.jar; java -jar slave.jar"'
-      nodeProperties:
-      - toolLocation:
-          locations:
-          - home: '/usr/bin/ant'
-            key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest"
-          - home: '/usr/bin/git'
-            key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
-  - permanent:
       name: "ta9y0-macos-10.14"
       nodeDescription: "macOS 10.14 (Mojave), with login session, hosted on MacStadium"
       labelString: "macos macos-10.14"
