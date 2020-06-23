@@ -13,7 +13,7 @@
       "namespace": "gemini"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/gemini",
       "port": {
          "targetPort": "http"

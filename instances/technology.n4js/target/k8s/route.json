@@ -13,7 +13,7 @@
       "namespace": "n4js"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/n4js",
       "port": {
          "targetPort": "http"

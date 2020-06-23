@@ -13,7 +13,7 @@
       "namespace": "eatop"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/eatop",
       "port": {
          "targetPort": "http"

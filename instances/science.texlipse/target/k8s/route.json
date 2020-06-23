@@ -13,7 +13,7 @@
       "namespace": "texlipse"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/texlipse",
       "port": {
          "targetPort": "http"
