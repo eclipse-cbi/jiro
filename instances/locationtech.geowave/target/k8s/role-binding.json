@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "locationtech.geowave",
+         "org.eclipse.cbi.jiro/project.shortname": "geowave"
+      },
+      "name": "geowave",
+      "namespace": "geowave"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "geowave"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "geowave",
+         "namespace": "geowave"
+      }
+   ]
+}

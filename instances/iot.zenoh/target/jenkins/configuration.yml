@@ -1,68 +1,87 @@
 # GENERATED FILE - DO NOT EDIT
-#*******************************************************************************
-# Copyright (c) 2018 Eclipse Foundation and others.
-# This program and the accompanying materials are made available
-# under the terms of the Eclipse Public License 2.0
-# which is available at http://www.eclipse.org/legal/epl-v20.html,
-# or the MIT License which is available at https://opensource.org/licenses/MIT.
-# SPDX-License-Identifier: EPL-2.0 OR MIT
-#*******************************************************************************
 jenkins:
+  nodes:
+  - permanent:
+      launcher:
+        ssh:
+          credentialsId: "ubuntu-user"
+          host: "jenkins-mac.zenoh.io"
+          port: 22
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCqB0zAloATU+Sz9m64ljhzzmWzHDLkpBmPTqqgMVG9efT8E7XALe9W9jCqQBVOP3d3njDsM+C+DIWON3d3lwBSkicKT1DaEtDIsJNqCt71qb02oUm2IGL3SA9bqMSnnYUajZFnsB2xGO2WIfw+TNgj0sMpVAyEjTf1D3iM0NS4Ncxj9LvH95dl2KNcGHIqaCngRcryc15DZMJInEzRWhvRXgNJJLQTLEULP92kaJ5Cqm0gblAR20JzAnilpH9Ahv+NrxAR7SEuNl4N0LVD8fnPIWlO8n3pRC7I24HbwoaVdzOikNVLP5ywTjdweZEagAyD4vvwaXr7MBREdQBYBkXhPdMjRypEDhywKbG405mrmU2Ei4FreE/otwgqPjzmP/Pv2dOV7kGebjhql+kT6rqYSmY8GzPuKB7KA5pqRqWuafUaF9ukkVytA8bYzXiCjFhv8n+X+tEW5BmLHLhs+JeI70F3J2vZ6GYhxJr3OS9+1+KS26d6Dwkm7VqZViEr8pM="
+      mode: EXCLUSIVE
+      name: "MacMini"
+      nodeDescription: "hosted at MacStadium, provided by the project"
+      numExecutors: 1
+      remoteFS: "/Users/genie.zenoh"
+      retentionStrategy: "always"
+  - permanent:
+      launcher:
+        ssh:
+          credentialsId: "ubuntu-user"
+          host: "jenkins.zenoh.io"
+          port: 22
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDCjVf8WuShEHCMb5bv3/ghhQx8xwsMc9eMYNJg5l+Oq2cSwCoWEoN45ZRLN+BO2rPQQykD2/VevEVLtKOdlDWBlhOMjxryvlW+geFNLPvC0tpbx1ExtqsCHhZ5oBbxytwTciw4WNc3NZC7sWtLV0ZIxk4FGusYuB8fZGyvC/hv7Ftxn7B+07zJP7UvDV2n/RIjaMAh91o072gBWD9QCsvnklqA+FZiWRveigNQR5zbGiNlSavqw3+5EjBgUlvxMPDQlBNsG9+8F1XI1q1zkdGEi7hojjBouXohUwWjb72cFPFbbT3xgJi+3PfV1e7Mn1TrOPNx0AY/AhCGnvgKRhN2ZPRUgfUv28CibKR2qhjJbxkPZsqXvq5Ayzy0ANbLCopj1vB14mYTwDqB/MYTkG+15Ar8TDefsTXw9Lc3NaueqvWqa7yP+GP0zihMSupq9nQQLgi5p1PJDRiSRiUJssr2X1n0PYUlW9yCjAMjlADC9PjU2zCEfyw85H3y5vUidAU="
+      mode: EXCLUSIVE
+      name: "UbuntuVM"
+      nodeDescription: "hosted at Linode, provided by the project"
+      numExecutors: 1
+      remoteFS: "/home/genie.zenoh"
+      retentionStrategy: "always"
   numExecutors: 0
   scmCheckoutRetryCount: 2
   mode: EXCLUSIVE
   systemMessage: ""
-
   disableRememberMe: false
   agentProtocols:
-    - "JNLP4-connect"
-    - "Ping"
-
+  - "JNLP4-connect"
+  - "Ping"
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:iot.zenoh"
-        - "Credentials/View:iot.zenoh"
-        - "Gerrit/ManualTrigger:iot.zenoh"
-        - "Gerrit/Retrigger:iot.zenoh"
-        - "Job/Build:iot.zenoh"
-        - "Job/Cancel:iot.zenoh"
-        - "Job/Configure:iot.zenoh"
-        - "Job/Create:iot.zenoh"
-        - "Job/Delete:iot.zenoh"
-        - "Job/Move:iot.zenoh"
-        - "Job/Read:iot.zenoh"
-        - "Job/Workspace:iot.zenoh"
-        - "Run/Delete:iot.zenoh"
-        - "Run/Replay:iot.zenoh"
-        - "Run/Update:iot.zenoh"
-        - "SCM/Tag:iot.zenoh"
-        - "View/Configure:iot.zenoh"
-        - "View/Create:iot.zenoh"
-        - "View/Delete:iot.zenoh"
-        - "View/Read:iot.zenoh"
-
+      - "Overall/Administer:admins"
+      - "Job/Read:anonymous"
+      - "Overall/Read:anonymous"
+      - "Job/ExtendedRead:common"
+      - "Agent/Build:iot.zenoh"
+      - "Credentials/View:iot.zenoh"
+      - "Gerrit/ManualTrigger:iot.zenoh"
+      - "Gerrit/Retrigger:iot.zenoh"
+      - "Job/Build:iot.zenoh"
+      - "Job/Cancel:iot.zenoh"
+      - "Job/Configure:iot.zenoh"
+      - "Job/Create:iot.zenoh"
+      - "Job/Delete:iot.zenoh"
+      - "Job/Move:iot.zenoh"
+      - "Job/Read:iot.zenoh"
+      - "Job/Workspace:iot.zenoh"
+      - "Overall/Read:iot.zenoh"
+      - "Run/Delete:iot.zenoh"
+      - "Run/Replay:iot.zenoh"
+      - "Run/Update:iot.zenoh"
+      - "SCM/Tag:iot.zenoh"
+      - "View/Configure:iot.zenoh"
+      - "View/Create:iot.zenoh"
+      - "View/Delete:iot.zenoh"
+      - "View/Read:iot.zenoh"
   markupFormatter: rawHtml
   crumbIssuer:
     standard:
-       excludeClientIPFromCrumb: false
+      excludeClientIPFromCrumb: false
   remotingSecurity:
     enabled: true
-
   securityRealm:
     ldap:
       configurations:
-        - displayNameAttributeName: cn
-          groupSearchBase: ou=group
-          rootDN: dc=eclipse,dc=org
-          server: ldapmaster
-          userSearch: mail={0}
-          mailAddressAttributeName: mail
-
+      - displayNameAttributeName: cn
+        groupSearchBase: ou=group
+        rootDN: dc=eclipse,dc=org
+        server: ldaps://ldapcluster.eclipse.org
+        userSearch: mail={0}
+        mailAddressAttributeName: mail
   clouds:
   - kubernetes:
       name: "kubernetes"
@@ -74,7 +93,8 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: "eclipsecbijenkins/jenkins-agent:3.35@sha256:399fbc3bd69ebc1b60231bf7bdb9f9a9fe9518d0b2540dbef7ee19c89559b83d"
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.2.1
+          alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -89,17 +109,33 @@ jenkins:
           ttyEnabled: true
           command: ""
           args: ""
-        instanceCap: 5
-        name: "default-agent"
+        instanceCap: -1
+        name: "basic"
         namespace: "zenoh"
         nodeUsageMode: NORMAL
+        label: ""
         envVars:
         - envVar:
-            key: "MAVEN_OPTS"
-            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+            key: "IBM_JAVA_OPTIONS"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+              -XX:+IdleTuningGcOnIdle"
         - envVar:
-            key: "MAVEN_CONFIG"
-            value: "-B -e"
+            key: "JAVA_OPTS"
+            value: ""
+        - envVar:
+            key: "JAVA_TOOL_OPTIONS"
+            value: ""
+        - envVar:
+            key: "JNLP_PROTOCOL_OPTS"
+            value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true
+              -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+        - envVar:
+            key: "OPENJ9_JAVA_OPTIONS"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+              -XX:+IdleTuningGcOnIdle"
+        - envVar:
+            key: "_JAVA_OPTIONS"
+            value: ""
         volumes:
         - persistentVolumeClaim:
             claimName: "tools-claim-jiro-zenoh"
@@ -114,6 +150,9 @@ jenkins:
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/wrapper"
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
@@ -124,39 +163,32 @@ jenkins:
             containers:
             - name: jnlp
               volumeMounts:
-              - name: settings-security-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings-security.xml
                 subPath: settings-security.xml
                 readOnly: true
-              - name: settings-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings.xml
                 subPath: settings.xml
                 readOnly: true
-              - name: toolchains-xml
+              - name: m2-dir
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
+              - name: m2-dir
+                mountPath: /home/jenkins/.mavenrc
+                subPath: .mavenrc
+                readOnly: true
             volumes:
-            - name: settings-security-xml
+            - name: m2-secret-dir
               secret:
                 secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: toolchains-xml
+            - name: m2-dir
               configMap:
                 name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
       - containers:
-        - image: "eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59"
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.2.1
+          alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
@@ -171,18 +203,33 @@ jenkins:
           ttyEnabled: true
           command: ""
           args: ""
-        instanceCap: 5
-        instanceCapStr: "5"
-        name: "ui-test-agent"
+        instanceCap: -1
+        name: "centos-7"
         namespace: "zenoh"
-        label: "ui-test"
+        nodeUsageMode: EXCLUSIVE
+        label: "migration jipp-migration centos centos-7"
         envVars:
         - envVar:
-            key: "MAVEN_OPTS"
-            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+            key: "IBM_JAVA_OPTIONS"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+              -XX:+IdleTuningGcOnIdle"
         - envVar:
-            key: "MAVEN_CONFIG"
-            value: "-B -e"
+            key: "JAVA_OPTS"
+            value: ""
+        - envVar:
+            key: "JAVA_TOOL_OPTIONS"
+            value: ""
+        - envVar:
+            key: "JNLP_PROTOCOL_OPTS"
+            value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true
+              -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+        - envVar:
+            key: "OPENJ9_JAVA_OPTIONS"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+              -XX:+IdleTuningGcOnIdle"
+        - envVar:
+            key: "_JAVA_OPTIONS"
+            value: ""
         volumes:
         - persistentVolumeClaim:
             claimName: "tools-claim-jiro-zenoh"
@@ -197,6 +244,9 @@ jenkins:
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/repository"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/wrapper"
         workspaceVolume:
           emptyDirWorkspaceVolume:
             memory: false
@@ -207,150 +257,51 @@ jenkins:
             containers:
             - name: jnlp
               volumeMounts:
-              - name: settings-security-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings-security.xml
                 subPath: settings-security.xml
                 readOnly: true
-              - name: settings-xml
+              - name: m2-secret-dir
                 mountPath: /home/jenkins/.m2/settings.xml
                 subPath: settings.xml
                 readOnly: true
-              - name: toolchains-xml
+              - name: m2-dir
                 mountPath: /home/jenkins/.m2/toolchains.xml
                 subPath: toolchains.xml
                 readOnly: true
-            volumes:
-            - name: settings-security-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: toolchains-xml
-              configMap:
-                name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
-      - containers:
-        - image: "eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f"
-          livenessProbe:
-            failureThreshold: 0
-            initialDelaySeconds: 0
-            periodSeconds: 0
-            successThreshold: 0
-            timeoutSeconds: 0
-          name: "jnlp"
-          resourceLimitCpu: "2000m"
-          resourceRequestCpu: "1000m"
-          resourceLimitMemory: "4096Mi"
-          resourceRequestMemory: "4096Mi"
-          ttyEnabled: true
-          command: ""
-          args: ""
-        instanceCap: 5
-        instanceCapStr: "5"
-        name: "migration-agent"
-        namespace: "zenoh"
-        envVars:
-        - envVar:
-            key: "MAVEN_OPTS"
-            value: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
-        - envVar:
-            key: "MAVEN_CONFIG"
-            value: "-B -e"
-        label: "migration"
-        volumes:
-        - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-zenoh"
-            mountPath: "/opt/tools"
-            readOnly: true
-        - configMapVolume:
-            configMapName: "known-hosts"
-            mountPath: "/home/jenkins/.ssh/"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.m2/repository"
-        workspaceVolume:
-          emptyDirWorkspaceVolume:
-            memory: false
-        yaml: |
-          apiVersion: v1
-          kind: Pod
-          spec:
-            containers:
-            - name: jnlp
-              volumeMounts:
-              - name: settings-security-xml
-                mountPath: /home/jenkins/.m2/settings-security.xml
-                subPath: settings-security.xml
-                readOnly: true
-              - name: settings-xml
-                mountPath: /home/jenkins/.m2/settings.xml
-                subPath: settings.xml
-                readOnly: true
-              - name: toolchains-xml
-                mountPath: /home/jenkins/.m2/toolchains.xml
-                subPath: toolchains.xml
+              - name: m2-dir
+                mountPath: /home/jenkins/.mavenrc
+                subPath: .mavenrc
                 readOnly: true
             volumes:
-            - name: settings-security-xml
+            - name: m2-secret-dir
               secret:
                 secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: toolchains-xml
+            - name: m2-dir
               configMap:
                 name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
-
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
     tokenGenerationOnCreationEnabled: false
     usageStatisticsEnabled: true
-  downloadSettings:
-    useBrowser: false
   queueItemAuthenticator:
     authenticators:
     - global:
         strategy: "triggeringUsersAuthorizationStrategy"
   sSHD:
     port: -1
-
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
     url: https://ci.eclipse.org/zenoh
-
   mailer:
     replyToAddress: ci-admin@eclipse.org
     smtpHost: mail.eclipse.org
-
   extendedEmailPublisher:
     defaultContentType: "text/html"
-
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED
-
   simple-theme-plugin:
     elements:
     - cssUrl:
@@ -359,12 +310,21 @@ unclassified:
         url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
     - jsUrl:
         url: "/zenoh/userContent/theme/title.js"
-
+  buildDiscarders:
+    configuredBuildDiscarders:
+    - "jobBuildDiscarder"
+    - simpleBuildDiscarder:
+        discarder:
+          logRotator:
+            artifactNumToKeepStr: "5"
+            numToKeepStr: "128"
 tool:
   jdk:
     installations:
     - name: "openjdk-latest"
       home: "/opt/tools/java/openjdk/latest"
+    - name: "openjdk-jdk15-latest"
+      home: "/opt/tools/java/openjdk/jdk-15/latest"
     - name: "openjdk-jdk14-latest"
       home: "/opt/tools/java/openjdk/jdk-14/latest"
     - name: "openjdk-jdk13-latest"
@@ -432,8 +392,10 @@ tool:
     installations:
     - name: "apache-maven-latest"
       home: "/opt/tools/apache-maven/latest"
-    - name: "apache-maven-3.6.2"
-      home: "/opt/tools/apache-maven/3.6.2"
+    - name: "apache-maven-3.6.3"
+      home: "/opt/tools/apache-maven/3.6.3"
+    - name: "apache-maven-3.6.0"
+      home: "/opt/tools/apache-maven/3.6.0"
     - name: "apache-maven-3.5.4"
       home: "/opt/tools/apache-maven/3.5.4"
     - name: "apache-maven-3.3.9"

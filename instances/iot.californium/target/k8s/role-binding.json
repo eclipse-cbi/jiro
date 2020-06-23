@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.californium",
+         "org.eclipse.cbi.jiro/project.shortname": "californium"
+      },
+      "name": "californium",
+      "namespace": "californium"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "californium"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "californium",
+         "namespace": "californium"
+      }
+   ]
+}

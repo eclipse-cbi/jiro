@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.vorto",
+         "org.eclipse.cbi.jiro/project.shortname": "vorto"
+      },
+      "name": "vorto",
+      "namespace": "vorto"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "vorto"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "vorto",
+         "namespace": "vorto"
+      }
+   ]
+}

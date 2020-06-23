@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.concierge",
+         "org.eclipse.cbi.jiro/project.shortname": "concierge"
+      },
+      "name": "concierge",
+      "namespace": "concierge"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "concierge"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "concierge",
+         "namespace": "concierge"
+      }
+   ]
+}

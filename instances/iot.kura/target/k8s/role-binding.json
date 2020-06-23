@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.kura",
+         "org.eclipse.cbi.jiro/project.shortname": "kura"
+      },
+      "name": "kura",
+      "namespace": "kura"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "kura"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "kura",
+         "namespace": "kura"
+      }
+   ]
+}

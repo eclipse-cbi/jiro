@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "locationtech.udig",
+         "org.eclipse.cbi.jiro/project.shortname": "udig"
+      },
+      "name": "udig",
+      "namespace": "udig"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "udig"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "udig",
+         "namespace": "udig"
+      }
+   ]
+}
