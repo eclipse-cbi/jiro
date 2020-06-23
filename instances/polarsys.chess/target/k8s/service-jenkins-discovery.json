@@ -1,0 +1,25 @@
+{
+   "apiVersion": "v1",
+   "kind": "Service",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "polarsys.chess",
+         "org.eclipse.cbi.jiro/project.shortname": "chess"
+      },
+      "name": "jenkins-discovery",
+      "namespace": "chess"
+   },
+   "spec": {
+      "ports": [
+         {
+            "name": "jnlp",
+            "port": 50000,
+            "protocol": "TCP",
+            "targetPort": 50000
+         }
+      ],
+      "selector": {
+         "org.eclipse.cbi.jiro/project.fullName": "polarsys.chess"
+      }
+   }
+}

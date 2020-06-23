@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "rt.ecf",
+         "org.eclipse.cbi.jiro/project.shortname": "ecf"
+      },
+      "name": "ecf",
+      "namespace": "ecf"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "ecf"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "ecf",
+         "namespace": "ecf"
+      }
+   ]
+}
