@@ -331,11 +331,11 @@
    },
    "deployment": {
       "controlPort": 8081,
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "jnlpPort": 50000,
       "prefix": "/kitalpha",
       "uiPort": 8080,
-      "url": "https://ci-staging.eclipse.org/kitalpha"
+      "url": "https://ci.eclipse.org/kitalpha"
    },
    "docker": {
       "master": {

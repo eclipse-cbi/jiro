@@ -3,9 +3,6 @@
     fullName: "polarsys.kitalpha",
     displayName: "Eclipse Kitalpha",
   },
-  deployment+: {
-    host: "ci-staging.eclipse.org"
-  },
   clouds+: {
     kubernetes+: { 
       local currentCloud = self,

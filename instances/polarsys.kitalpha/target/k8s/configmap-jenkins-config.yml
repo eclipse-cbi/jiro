@@ -385,7 +385,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/kitalpha
+        url: https://ci.eclipse.org/kitalpha
     
       mailer:
         replyToAddress: ci-admin@eclipse.org
