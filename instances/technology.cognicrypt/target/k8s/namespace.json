@@ -1,0 +1,11 @@
+{
+   "apiVersion": "v1",
+   "kind": "Namespace",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.cognicrypt",
+         "org.eclipse.cbi.jiro/project.shortname": "cognicrypt"
+      },
+      "name": "cognicrypt"
+   }
+}

@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.cognicrypt",
+         "org.eclipse.cbi.jiro/project.shortname": "cognicrypt"
+      },
+      "name": "cognicrypt",
+      "namespace": "cognicrypt"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "cognicrypt"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "cognicrypt",
+         "namespace": "cognicrypt"
+      }
+   ]
+}

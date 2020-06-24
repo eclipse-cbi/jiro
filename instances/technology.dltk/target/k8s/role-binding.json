@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.dltk",
+         "org.eclipse.cbi.jiro/project.shortname": "dltk"
+      },
+      "name": "dltk",
+      "namespace": "dltk"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "dltk"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "dltk",
+         "namespace": "dltk"
+      }
+   ]
+}
