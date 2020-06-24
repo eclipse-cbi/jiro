@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "tools.linuxtools",
+         "org.eclipse.cbi.jiro/project.shortname": "linuxtools"
+      },
+      "name": "linuxtools",
+      "namespace": "linuxtools"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "linuxtools"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "linuxtools",
+         "namespace": "linuxtools"
+      }
+   ]
+}

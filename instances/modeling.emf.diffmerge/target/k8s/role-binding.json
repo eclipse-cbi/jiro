@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.emf.diffmerge",
+         "org.eclipse.cbi.jiro/project.shortname": "diffmerge"
+      },
+      "name": "diffmerge",
+      "namespace": "diffmerge"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "diffmerge"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "diffmerge",
+         "namespace": "diffmerge"
+      }
+   ]
+}

@@ -1,0 +1,11 @@
+{
+   "apiVersion": "v1",
+   "kind": "Namespace",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.basyx",
+         "org.eclipse.cbi.jiro/project.shortname": "basyx"
+      },
+      "name": "basyx"
+   }
+}

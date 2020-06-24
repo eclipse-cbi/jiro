@@ -1,0 +1,58 @@
+{
+   "apiVersion": "v1",
+   "items": [
+      {
+         "apiVersion": "v1",
+         "kind": "PersistentVolume",
+         "metadata": {
+            "labels": {
+               "org.eclipse.cbi.jiro/project.fullName": "modeling.mdt.bpmn2",
+               "org.eclipse.cbi.jiro/project.shortname": "bpmn2"
+            },
+            "name": "tools-jiro-bpmn2"
+         },
+         "spec": {
+            "accessModes": [
+               "ReadOnlyMany"
+            ],
+            "capacity": {
+               "storage": "20Gi"
+            },
+            "claimRef": {
+               "name": "tools-claim-jiro-bpmn2",
+               "namespace": "bpmn2"
+            },
+            "nfs": {
+               "path": "/home/data/c1-ci.eclipse.org/buildtools",
+               "readOnly": true,
+               "server": "bambam"
+            },
+            "storageClassName": "bbzcxird03bsb81s-tools"
+         }
+      },
+      {
+         "apiVersion": "v1",
+         "kind": "PersistentVolumeClaim",
+         "metadata": {
+            "labels": {
+               "org.eclipse.cbi.jiro/project.fullName": "modeling.mdt.bpmn2",
+               "org.eclipse.cbi.jiro/project.shortname": "bpmn2"
+            },
+            "name": "tools-claim-jiro-bpmn2",
+            "namespace": "bpmn2"
+         },
+         "spec": {
+            "accessModes": [
+               "ReadOnlyMany"
+            ],
+            "resources": {
+               "requests": {
+                  "storage": "20Gi"
+               }
+            },
+            "storageClassName": "bbzcxird03bsb81s-tools"
+         }
+      }
+   ],
+   "kind": "List"
+}

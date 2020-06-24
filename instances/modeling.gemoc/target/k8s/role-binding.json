@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.gemoc",
+         "org.eclipse.cbi.jiro/project.shortname": "gemoc"
+      },
+      "name": "gemoc",
+      "namespace": "gemoc"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "gemoc"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "gemoc",
+         "namespace": "gemoc"
+      }
+   ]
+}

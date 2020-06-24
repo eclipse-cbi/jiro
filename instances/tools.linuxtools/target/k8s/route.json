@@ -1,0 +1,31 @@
+{
+   "apiVersion": "route.openshift.io/v1",
+   "kind": "Route",
+   "metadata": {
+      "annotations": {
+         "haproxy.router.openshift.io/timeout": "60s"
+      },
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "tools.linuxtools",
+         "org.eclipse.cbi.jiro/project.shortname": "linuxtools"
+      },
+      "name": "linuxtools",
+      "namespace": "linuxtools"
+   },
+   "spec": {
+      "host": "ci.eclipse.org",
+      "path": "/linuxtools",
+      "port": {
+         "targetPort": "http"
+      },
+      "tls": {
+         "insecureEdgeTerminationPolicy": "Redirect",
+         "termination": "edge"
+      },
+      "to": {
+         "kind": "Service",
+         "name": "jenkins-ui",
+         "weight": 100
+      }
+   }
+}

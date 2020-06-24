@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.emf.egf",
+         "org.eclipse.cbi.jiro/project.shortname": "egf"
+      },
+      "name": "egf",
+      "namespace": "egf"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "egf"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "egf",
+         "namespace": "egf"
+      }
+   ]
+}

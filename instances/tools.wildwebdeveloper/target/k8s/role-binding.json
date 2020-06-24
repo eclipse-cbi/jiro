@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "tools.wildwebdeveloper",
+         "org.eclipse.cbi.jiro/project.shortname": "wildwebdeveloper"
+      },
+      "name": "wildwebdeveloper",
+      "namespace": "wildwebdeveloper"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "wildwebdeveloper"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "wildwebdeveloper",
+         "namespace": "wildwebdeveloper"
+      }
+   ]
+}

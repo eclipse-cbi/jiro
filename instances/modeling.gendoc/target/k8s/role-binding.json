@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.gendoc",
+         "org.eclipse.cbi.jiro/project.shortname": "gendoc"
+      },
+      "name": "gendoc",
+      "namespace": "gendoc"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "gendoc"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "gendoc",
+         "namespace": "gendoc"
+      }
+   ]
+}

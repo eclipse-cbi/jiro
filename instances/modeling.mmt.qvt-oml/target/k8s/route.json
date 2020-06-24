@@ -1,0 +1,31 @@
+{
+   "apiVersion": "route.openshift.io/v1",
+   "kind": "Route",
+   "metadata": {
+      "annotations": {
+         "haproxy.router.openshift.io/timeout": "60s"
+      },
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.mmt.qvt-oml",
+         "org.eclipse.cbi.jiro/project.shortname": "qvt-oml"
+      },
+      "name": "qvt-oml",
+      "namespace": "qvt-oml"
+   },
+   "spec": {
+      "host": "ci.eclipse.org",
+      "path": "/qvt-oml",
+      "port": {
+         "targetPort": "http"
+      },
+      "tls": {
+         "insecureEdgeTerminationPolicy": "Redirect",
+         "termination": "edge"
+      },
+      "to": {
+         "kind": "Service",
+         "name": "jenkins-ui",
+         "weight": 100
+      }
+   }
+}

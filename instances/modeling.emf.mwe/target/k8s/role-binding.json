@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.emf.mwe",
+         "org.eclipse.cbi.jiro/project.shortname": "mwe"
+      },
+      "name": "mwe",
+      "namespace": "mwe"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "mwe"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "mwe",
+         "namespace": "mwe"
+      }
+   ]
+}

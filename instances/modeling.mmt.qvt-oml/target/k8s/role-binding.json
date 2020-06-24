@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.mmt.qvt-oml",
+         "org.eclipse.cbi.jiro/project.shortname": "qvt-oml"
+      },
+      "name": "qvt-oml",
+      "namespace": "qvt-oml"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "qvt-oml"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "qvt-oml",
+         "namespace": "qvt-oml"
+      }
+   ]
+}

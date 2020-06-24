@@ -1,0 +1,31 @@
+{
+   "apiVersion": "route.openshift.io/v1",
+   "kind": "Route",
+   "metadata": {
+      "annotations": {
+         "haproxy.router.openshift.io/timeout": "60s"
+      },
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "tools.wildwebdeveloper",
+         "org.eclipse.cbi.jiro/project.shortname": "wildwebdeveloper"
+      },
+      "name": "wildwebdeveloper",
+      "namespace": "wildwebdeveloper"
+   },
+   "spec": {
+      "host": "ci.eclipse.org",
+      "path": "/wildwebdeveloper",
+      "port": {
+         "targetPort": "http"
+      },
+      "tls": {
+         "insecureEdgeTerminationPolicy": "Redirect",
+         "termination": "edge"
+      },
+      "to": {
+         "kind": "Service",
+         "name": "jenkins-ui",
+         "weight": 100
+      }
+   }
+}

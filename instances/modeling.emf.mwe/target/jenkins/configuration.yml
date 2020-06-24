@@ -1,428 +1,379 @@
 # GENERATED FILE - DO NOT EDIT
-jenkins:
-  agentProtocols:
-  - JNLP4-connect
-  - Ping
-  authorizationStrategy:
-    projectMatrix:
-      permissions:
-      - Overall/Administer:admins
-      - Job/Read:anonymous
-      - Overall/Read:anonymous
-      - Job/ExtendedRead:common
-      - Agent/Build:modeling.emf.mwe
-      - Credentials/View:modeling.emf.mwe
-      - Gerrit/ManualTrigger:modeling.emf.mwe
-      - Gerrit/Retrigger:modeling.emf.mwe
-      - Job/Build:modeling.emf.mwe
-      - Job/Cancel:modeling.emf.mwe
-      - Job/Configure:modeling.emf.mwe
-      - Job/Create:modeling.emf.mwe
-      - Job/Delete:modeling.emf.mwe
-      - Job/Move:modeling.emf.mwe
-      - Job/Read:modeling.emf.mwe
-      - Job/Workspace:modeling.emf.mwe
-      - Run/Delete:modeling.emf.mwe
-      - Run/Replay:modeling.emf.mwe
-      - Run/Update:modeling.emf.mwe
-      - SCM/Tag:modeling.emf.mwe
-      - View/Configure:modeling.emf.mwe
-      - View/Create:modeling.emf.mwe
-      - View/Delete:modeling.emf.mwe
-      - View/Read:modeling.emf.mwe
-  clouds:
-  - kubernetes:
-      containerCapStr: "2"
-      jenkinsTunnel: jenkins-discovery.mwe.svc.cluster.local:50000
-      jenkinsUrl: http://jenkins-ui.mwe.svc.cluster.local/mwe
-      maxRequestsPerHostStr: "32"
-      name: kubernetes
-      namespace: mwe
-      podRetention: never
-      templates:
-      - containers:
-        - args: ""
-          command: ""
-          image: eclipsecbijenkins/jenkins-agent:3.35@sha256:5d06ebec6e9dffc44fb41009a51d085a83944a23f651416531b960143d186340
-          livenessProbe:
-            failureThreshold: 0
-            initialDelaySeconds: 0
-            periodSeconds: 0
-            successThreshold: 0
-            timeoutSeconds: 0
-          name: jnlp
-          resourceLimitCpu: 2000m
-          resourceLimitMemory: 4096Mi
-          resourceRequestCpu: 1000m
-          resourceRequestMemory: 4096Mi
-          ttyEnabled: true
-        envVars:
-        - envVar:
-            key: MAVEN_OPTS
-            value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
-        - envVar:
-            key: MAVEN_CONFIG
-            value: -B -e
-        instanceCap: 5
-        name: default-agent
-        namespace: mwe
-        nodeUsageMode: NORMAL
-        volumes:
-        - persistentVolumeClaim:
-            claimName: tools-claim-jiro-mwe
-            mountPath: /opt/tools
-            readOnly: true
-        - configMapVolume:
-            configMapName: known-hosts
-            mountPath: /home/jenkins/.ssh/
-        - emptyDirVolume:
-            memory: false
-            mountPath: /home/jenkins/
-        - emptyDirVolume:
-            memory: false
-            mountPath: /home/jenkins/.m2/repository
-        workspaceVolume:
-          emptyDirWorkspaceVolume:
-            memory: false
-        yaml: |
-          apiVersion: v1
-          kind: Pod
-          spec:
-            containers:
-            - name: jnlp
-              volumeMounts:
-              - name: settings-xml
-                mountPath: /home/jenkins/.m2/settings.xml
-                subPath: settings.xml
-                readOnly: true
-              - name: settings-security-xml
-                mountPath: /home/jenkins/.m2/settings-security.xml
-                subPath: settings-security.xml
-                readOnly: true
-              - name: toolchains-xml
-                mountPath: /home/jenkins/.m2/toolchains.xml
-                subPath: toolchains.xml
-                readOnly: true
-            volumes:
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: settings-security-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: toolchains-xml
-              configMap:
-                name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
-      - containers:
-        - args: ""
-          command: ""
-          image: eclipsecbijenkins/ui-test-agent:3.29@sha256:b5f847bd86f2761b7c8487e8b97fc5925d9aba6382c88a68fea1aaa01e12db59
-          livenessProbe:
-            failureThreshold: 0
-            initialDelaySeconds: 0
-            periodSeconds: 0
-            successThreshold: 0
-            timeoutSeconds: 0
-          name: jnlp
-          resourceLimitCpu: 2000m
-          resourceLimitMemory: 4096Mi
-          resourceRequestCpu: 1000m
-          resourceRequestMemory: 4096Mi
-          ttyEnabled: true
-        envVars:
-        - envVar:
-            key: MAVEN_OPTS
-            value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
-        - envVar:
-            key: MAVEN_CONFIG
-            value: -B -e
-        instanceCap: 5
-        instanceCapStr: "5"
-        label: ui-test
-        name: ui-test-agent
-        namespace: mwe
-        volumes:
-        - persistentVolumeClaim:
-            claimName: tools-claim-jiro-mwe
-            mountPath: /opt/tools
-            readOnly: true
-        - configMapVolume:
-            configMapName: known-hosts
-            mountPath: /home/jenkins/.ssh/
-        - emptyDirVolume:
-            memory: false
-            mountPath: /home/jenkins/
-        - emptyDirVolume:
-            memory: false
-            mountPath: /home/jenkins/.m2/repository
-        workspaceVolume:
-          emptyDirWorkspaceVolume:
-            memory: false
-        yaml: |
-          apiVersion: v1
-          kind: Pod
-          spec:
-            containers:
-            - name: jnlp
-              volumeMounts:
-              - name: settings-xml
-                mountPath: /home/jenkins/.m2/settings.xml
-                subPath: settings.xml
-                readOnly: true
-              - name: settings-security-xml
-                mountPath: /home/jenkins/.m2/settings-security.xml
-                subPath: settings-security.xml
-                readOnly: true
-              - name: toolchains-xml
-                mountPath: /home/jenkins/.m2/toolchains.xml
-                subPath: toolchains.xml
-                readOnly: true
-            volumes:
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: settings-security-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: toolchains-xml
-              configMap:
-                name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
-      - containers:
-        - args: ""
-          command: ""
-          image: eclipsecbijenkins/migration-fat-agent:3.29@sha256:a341be4b6509400aaa18081d86f66239ceb93897059386120ef6633aa378931f
-          livenessProbe:
-            failureThreshold: 0
-            initialDelaySeconds: 0
-            periodSeconds: 0
-            successThreshold: 0
-            timeoutSeconds: 0
-          name: jnlp
-          resourceLimitCpu: 2000m
-          resourceLimitMemory: 4096Mi
-          resourceRequestCpu: 1000m
-          resourceRequestMemory: 4096Mi
-          ttyEnabled: true
-        envVars:
-        - envVar:
-            key: MAVEN_OPTS
-            value: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
-        - envVar:
-            key: MAVEN_CONFIG
-            value: -B -e
-        instanceCap: 5
-        instanceCapStr: "5"
-        label: migration
-        name: migration-agent
-        namespace: mwe
-        volumes:
-        - persistentVolumeClaim:
-            claimName: tools-claim-jiro-mwe
-            mountPath: /opt/tools
-            readOnly: true
-        - configMapVolume:
-            configMapName: known-hosts
-            mountPath: /home/jenkins/.ssh/
-        - emptyDirVolume:
-            memory: false
-            mountPath: /home/jenkins/
-        - emptyDirVolume:
-            memory: false
-            mountPath: /home/jenkins/.m2/repository
-        workspaceVolume:
-          emptyDirWorkspaceVolume:
-            memory: false
-        yaml: |
-          apiVersion: v1
-          kind: Pod
-          spec:
-            containers:
-            - name: jnlp
-              volumeMounts:
-              - name: settings-xml
-                mountPath: /home/jenkins/.m2/settings.xml
-                subPath: settings.xml
-                readOnly: true
-              - name: settings-security-xml
-                mountPath: /home/jenkins/.m2/settings-security.xml
-                subPath: settings-security.xml
-                readOnly: true
-              - name: toolchains-xml
-                mountPath: /home/jenkins/.m2/toolchains.xml
-                subPath: toolchains.xml
-                readOnly: true
-            volumes:
-            - name: settings-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings.xml
-                  path: settings.xml
-            - name: settings-security-xml
-              secret:
-                secretName: m2-secret-dir
-                items:
-                - key: settings-security.xml
-                  path: settings-security.xml
-            - name: toolchains-xml
-              configMap:
-                name: m2-dir
-                items:
-                - key: toolchains.xml
-                  path: toolchains.xml
-  crumbIssuer:
-    standard:
-      excludeClientIPFromCrumb: false
-  disableRememberMe: false
-  markupFormatter: rawHtml
-  mode: EXCLUSIVE
-  numExecutors: 0
-  remotingSecurity:
-    enabled: true
-  scmCheckoutRetryCount: 2
-  securityRealm:
-    ldap:
-      configurations:
-      - displayNameAttributeName: cn
-        groupSearchBase: ou=group
-        mailAddressAttributeName: mail
-        rootDN: dc=eclipse,dc=org
-        server: ldapmaster
-        userSearch: mail={0}
-  systemMessage: ""
-security:
-  apiToken:
-    creationOfLegacyTokenEnabled: false
-    tokenGenerationOnCreationEnabled: false
-    usageStatisticsEnabled: true
-  downloadSettings:
-    useBrowser: false
-  queueItemAuthenticator:
-    authenticators:
-    - global:
-        strategy: triggeringUsersAuthorizationStrategy
-  sSHD:
-    port: -1
-tool:
-  ant:
-    installations:
-    - home: ""
-      name: apache-ant-latest
-      properties:
-      - installSource:
-          installers:
-          - antFromApache:
-              id: 1.10.5
-  git:
-    installations:
-    - home: git
-      name: Default
-  jdk:
-    installations:
-    - home: /opt/tools/java/openjdk/latest
-      name: openjdk-latest
-    - home: /opt/tools/java/openjdk/jdk-14/latest
-      name: openjdk-jdk14-latest
-    - home: /opt/tools/java/openjdk/jdk-13/latest
-      name: openjdk-jdk13-latest
-    - home: /opt/tools/java/openjdk/jdk-12/latest
-      name: openjdk-jdk12-latest
-    - home: /opt/tools/java/openjdk/jdk-11/latest
-      name: openjdk-jdk11-latest
-    - home: /opt/tools/java/openjdk/jdk-10/latest
-      name: openjdk-jdk10-latest
-    - home: /opt/tools/java/openjdk/jdk-9/latest
-      name: openjdk-jdk9-latest
-    - home: /opt/tools/java/adoptopenjdk/hotspot-latest
-      name: adoptopenjdk-hotspot-latest
-    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest
-      name: adoptopenjdk-hotspot-jdk12-latest
-    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest
-      name: adoptopenjdk-hotspot-jdk11-latest
-    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest
-      name: adoptopenjdk-hotspot-jdk10-latest
-    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest
-      name: adoptopenjdk-hotspot-jdk9-latest
-    - home: /opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest
-      name: adoptopenjdk-hotspot-jdk8-latest
-    - home: /opt/tools/java/adoptopenjdk/openj9-latest
-      name: adoptopenjdk-openj9-latest
-    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-12/latest
-      name: adoptopenjdk-openj9-jdk12-latest
-    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-11/latest
-      name: adoptopenjdk-openj9-jdk11-latest
-    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-10/latest
-      name: adoptopenjdk-openj9-jdk10-latest
-    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-9/latest
-      name: adoptopenjdk-openj9-jdk9-latest
-    - home: /opt/tools/java/adoptopenjdk/openj9-jdk-8/latest
-      name: adoptopenjdk-openj9-jdk8-latest
-    - home: /opt/tools/java/oracle/latest
-      name: oracle-latest
-    - home: /opt/tools/java/oracle/jdk-10/latest
-      name: oracle-jdk10-latest
-    - home: /opt/tools/java/oracle/jdk-9/latest
-      name: oracle-jdk9-latest
-    - home: /opt/tools/java/oracle/jdk-8/latest
-      name: oracle-jdk8-latest
-    - home: /opt/tools/java/oracle/jdk-7/latest
-      name: oracle-jdk7-latest
-    - home: /opt/tools/java/oracle/jdk-6/latest
-      name: oracle-jdk6-latest
-    - home: /opt/tools/java/oracle/jdk-5/latest
-      name: oracle-jdk5-latest
-    - home: /opt/tools/java/ibm/jdk-8/latest
-      name: ibm-jdk8-latest
-    - home: /opt/tools/java/ibm/latest
-      name: ibm-latest
-  maven:
-    installations:
-    - home: /opt/tools/apache-maven/latest
-      name: apache-maven-latest
-    - home: /opt/tools/apache-maven/3.6.2
-      name: apache-maven-3.6.2
-    - home: /opt/tools/apache-maven/3.5.4
-      name: apache-maven-3.5.4
-    - home: /opt/tools/apache-maven/3.3.9
-      name: apache-maven-3.3.9
-    - home: /opt/tools/apache-maven/3.2.5
-      name: apache-maven-3.2.5
 unclassified:
-  extendedEmailPublisher:
-    defaultContentType: text/html
-  globalDefaultFlowDurabilityLevel:
-    durabilityHint: PERFORMANCE_OPTIMIZED
+  timestamperConfig:
+    allPipelines: true
   location:
     adminAddress: ci-admin@eclipse.org
     url: https://ci.eclipse.org/mwe
   mailer:
     replyToAddress: ci-admin@eclipse.org
     smtpHost: mail.eclipse.org
+  extendedEmailPublisher:
+    defaultContentType: "text/html"
+  globalDefaultFlowDurabilityLevel:
+    durabilityHint: PERFORMANCE_OPTIMIZED
   simple-theme-plugin:
     elements:
     - cssUrl:
-        url: /mwe/userContent/theme/quicksilver.css
+        url: "/mwe/userContent/theme/quicksilver.css"
     - cssUrl:
-        url: //fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100
+        url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
     - jsUrl:
-        url: /mwe/userContent/theme/title.js
-  timestamperConfig:
-    allPipelines: true
+        url: "/mwe/userContent/theme/title.js"
+  buildDiscarders:
+    configuredBuildDiscarders:
+    - "jobBuildDiscarder"
+    - simpleBuildDiscarder:
+        discarder:
+          logRotator:
+            artifactNumToKeepStr: "5"
+            numToKeepStr: "128"
+jenkins:
+  numExecutors: 0
+  scmCheckoutRetryCount: 2
+  mode: EXCLUSIVE
+  systemMessage: ""
+  disableRememberMe: false
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  authorizationStrategy:
+    projectMatrix:
+      permissions:
+      - "Overall/Administer:admins"
+      - "Job/Read:anonymous"
+      - "Overall/Read:anonymous"
+      - "Job/ExtendedRead:common"
+      - "Agent/Build:modeling.emf.mwe"
+      - "Credentials/View:modeling.emf.mwe"
+      - "Gerrit/ManualTrigger:modeling.emf.mwe"
+      - "Gerrit/Retrigger:modeling.emf.mwe"
+      - "Job/Build:modeling.emf.mwe"
+      - "Job/Cancel:modeling.emf.mwe"
+      - "Job/Configure:modeling.emf.mwe"
+      - "Job/Create:modeling.emf.mwe"
+      - "Job/Delete:modeling.emf.mwe"
+      - "Job/Move:modeling.emf.mwe"
+      - "Job/Read:modeling.emf.mwe"
+      - "Job/Workspace:modeling.emf.mwe"
+      - "Overall/Read:modeling.emf.mwe"
+      - "Run/Delete:modeling.emf.mwe"
+      - "Run/Replay:modeling.emf.mwe"
+      - "Run/Update:modeling.emf.mwe"
+      - "SCM/Tag:modeling.emf.mwe"
+      - "View/Configure:modeling.emf.mwe"
+      - "View/Create:modeling.emf.mwe"
+      - "View/Delete:modeling.emf.mwe"
+      - "View/Read:modeling.emf.mwe"
+  markupFormatter: rawHtml
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  remotingSecurity:
+    enabled: true
+  securityRealm:
+    ldap:
+      configurations:
+      - displayNameAttributeName: cn
+        groupSearchBase: ou=group
+        rootDN: dc=eclipse,dc=org
+        server: ldaps://ldapcluster.eclipse.org
+        userSearch: mail={0}
+        mailAddressAttributeName: mail
+  clouds:
+  - kubernetes:
+      name: "kubernetes"
+      containerCapStr: "2"
+      jenkinsUrl: "http://jenkins-ui.mwe.svc.cluster.local/mwe"
+      jenkinsTunnel: "jenkins-discovery.mwe.svc.cluster.local:50000"
+      maxRequestsPerHostStr: "32"
+      namespace: "mwe"
+      podRetention: "never"
+      templates:
+      - containers:
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.2.1
+          alwaysPullImage: true
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
+          ttyEnabled: true
+          command: ""
+          args: ""
+        instanceCap: -1
+        name: "basic"
+        namespace: "mwe"
+        nodeUsageMode: NORMAL
+        label: ""
+        envVars:
+        - envVar:
+            key: "IBM_JAVA_OPTIONS"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+              -XX:+IdleTuningGcOnIdle"
+        - envVar:
+            key: "JAVA_OPTS"
+            value: ""
+        - envVar:
+            key: "JAVA_TOOL_OPTIONS"
+            value: ""
+        - envVar:
+            key: "JNLP_PROTOCOL_OPTS"
+            value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true
+              -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+        - envVar:
+            key: "OPENJ9_JAVA_OPTIONS"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+              -XX:+IdleTuningGcOnIdle"
+        - envVar:
+            key: "_JAVA_OPTIONS"
+            value: ""
+        volumes:
+        - persistentVolumeClaim:
+            claimName: "tools-claim-jiro-mwe"
+            mountPath: "/opt/tools"
+            readOnly: true
+        - configMapVolume:
+            configMapName: "known-hosts"
+            mountPath: "/home/jenkins/.ssh/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/repository"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/wrapper"
+        workspaceVolume:
+          emptyDirWorkspaceVolume:
+            memory: false
+        yaml: |
+          apiVersion: v1
+          kind: Pod
+          spec:
+            containers:
+            - name: jnlp
+              volumeMounts:
+              - name: m2-secret-dir
+                mountPath: /home/jenkins/.m2/settings-security.xml
+                subPath: settings-security.xml
+                readOnly: true
+              - name: m2-secret-dir
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
+                readOnly: true
+              - name: m2-dir
+                mountPath: /home/jenkins/.m2/toolchains.xml
+                subPath: toolchains.xml
+                readOnly: true
+              - name: m2-dir
+                mountPath: /home/jenkins/.mavenrc
+                subPath: .mavenrc
+                readOnly: true
+            volumes:
+            - name: m2-secret-dir
+              secret:
+                secretName: m2-secret-dir
+            - name: m2-dir
+              configMap:
+                name: m2-dir
+      - containers:
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.2.1
+          alwaysPullImage: true
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
+          ttyEnabled: true
+          command: ""
+          args: ""
+        instanceCap: -1
+        name: "centos-7"
+        namespace: "mwe"
+        nodeUsageMode: EXCLUSIVE
+        label: "migration jipp-migration centos centos-7"
+        envVars:
+        - envVar:
+            key: "IBM_JAVA_OPTIONS"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+              -XX:+IdleTuningGcOnIdle"
+        - envVar:
+            key: "JAVA_OPTS"
+            value: ""
+        - envVar:
+            key: "JAVA_TOOL_OPTIONS"
+            value: ""
+        - envVar:
+            key: "JNLP_PROTOCOL_OPTS"
+            value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true
+              -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+        - envVar:
+            key: "OPENJ9_JAVA_OPTIONS"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+              -XX:+IdleTuningGcOnIdle"
+        - envVar:
+            key: "_JAVA_OPTIONS"
+            value: ""
+        volumes:
+        - persistentVolumeClaim:
+            claimName: "tools-claim-jiro-mwe"
+            mountPath: "/opt/tools"
+            readOnly: true
+        - configMapVolume:
+            configMapName: "known-hosts"
+            mountPath: "/home/jenkins/.ssh/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/repository"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/wrapper"
+        workspaceVolume:
+          emptyDirWorkspaceVolume:
+            memory: false
+        yaml: |
+          apiVersion: v1
+          kind: Pod
+          spec:
+            containers:
+            - name: jnlp
+              volumeMounts:
+              - name: m2-secret-dir
+                mountPath: /home/jenkins/.m2/settings-security.xml
+                subPath: settings-security.xml
+                readOnly: true
+              - name: m2-secret-dir
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
+                readOnly: true
+              - name: m2-dir
+                mountPath: /home/jenkins/.m2/toolchains.xml
+                subPath: toolchains.xml
+                readOnly: true
+              - name: m2-dir
+                mountPath: /home/jenkins/.mavenrc
+                subPath: .mavenrc
+                readOnly: true
+            volumes:
+            - name: m2-secret-dir
+              secret:
+                secretName: m2-secret-dir
+            - name: m2-dir
+              configMap:
+                name: m2-dir
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  queueItemAuthenticator:
+    authenticators:
+    - global:
+        strategy: "triggeringUsersAuthorizationStrategy"
+  sSHD:
+    port: -1
+tool:
+  jdk:
+    installations:
+    - name: "openjdk-latest"
+      home: "/opt/tools/java/openjdk/latest"
+    - name: "openjdk-jdk15-latest"
+      home: "/opt/tools/java/openjdk/jdk-15/latest"
+    - name: "openjdk-jdk14-latest"
+      home: "/opt/tools/java/openjdk/jdk-14/latest"
+    - name: "openjdk-jdk13-latest"
+      home: "/opt/tools/java/openjdk/jdk-13/latest"
+    - name: "openjdk-jdk12-latest"
+      home: "/opt/tools/java/openjdk/jdk-12/latest"
+    - name: "openjdk-jdk11-latest"
+      home: "/opt/tools/java/openjdk/jdk-11/latest"
+    - name: "openjdk-jdk10-latest"
+      home: "/opt/tools/java/openjdk/jdk-10/latest"
+    - name: "openjdk-jdk9-latest"
+      home: "/opt/tools/java/openjdk/jdk-9/latest"
+    - name: "adoptopenjdk-hotspot-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
+    - name: "adoptopenjdk-hotspot-jdk12-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest"
+    - name: "adoptopenjdk-hotspot-jdk11-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
+    - name: "adoptopenjdk-hotspot-jdk10-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest"
+    - name: "adoptopenjdk-hotspot-jdk9-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest"
+    - name: "adoptopenjdk-hotspot-jdk8-latest"
+      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
+    - name: "adoptopenjdk-openj9-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-latest"
+    - name: "adoptopenjdk-openj9-jdk12-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-12/latest"
+    - name: "adoptopenjdk-openj9-jdk11-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
+    - name: "adoptopenjdk-openj9-jdk10-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-10/latest"
+    - name: "adoptopenjdk-openj9-jdk9-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-9/latest"
+    - name: "adoptopenjdk-openj9-jdk8-latest"
+      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
+    - name: "oracle-latest"
+      home: "/opt/tools/java/oracle/latest"
+    - name: "oracle-jdk10-latest"
+      home: "/opt/tools/java/oracle/jdk-10/latest"
+    - name: "oracle-jdk9-latest"
+      home: "/opt/tools/java/oracle/jdk-9/latest"
+    - name: "oracle-jdk8-latest"
+      home: "/opt/tools/java/oracle/jdk-8/latest"
+    - name: "oracle-jdk7-latest"
+      home: "/opt/tools/java/oracle/jdk-7/latest"
+    - name: "oracle-jdk6-latest"
+      home: "/opt/tools/java/oracle/jdk-6/latest"
+    - name: "oracle-jdk5-latest"
+      home: "/opt/tools/java/oracle/jdk-5/latest"
+    - name: "ibm-jdk8-latest"
+      home: "/opt/tools/java/ibm/jdk-8/latest"
+    - name: "ibm-latest"
+      home: "/opt/tools/java/ibm/latest"
+  ant:
+    installations:
+    - name: "apache-ant-latest"
+      home: ""
+      properties:
+      - installSource:
+          installers:
+          - antFromApache:
+              id: "1.10.5"
+  maven:
+    installations:
+    - name: "apache-maven-latest"
+      home: "/opt/tools/apache-maven/latest"
+    - name: "apache-maven-3.6.3"
+      home: "/opt/tools/apache-maven/3.6.3"
+    - name: "apache-maven-3.6.0"
+      home: "/opt/tools/apache-maven/3.6.0"
+    - name: "apache-maven-3.5.4"
+      home: "/opt/tools/apache-maven/3.5.4"
+    - name: "apache-maven-3.3.9"
+      home: "/opt/tools/apache-maven/3.3.9"
+    - name: "apache-maven-3.2.5"
+      home: "/opt/tools/apache-maven/3.2.5"
+  git:
+    installations:
+    - name: "Default"
+      home: "git"

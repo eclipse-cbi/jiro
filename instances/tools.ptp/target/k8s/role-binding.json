@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "tools.ptp",
+         "org.eclipse.cbi.jiro/project.shortname": "ptp"
+      },
+      "name": "ptp",
+      "namespace": "ptp"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "ptp"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "ptp",
+         "namespace": "ptp"
+      }
+   ]
+}
