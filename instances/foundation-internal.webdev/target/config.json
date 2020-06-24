@@ -2,7 +2,7 @@
    "clouds": {
       "kubernetes": {
          "kind": "kubernetes",
-         "namespace": "webdev",
+         "namespace": "foundation-internal-webdev",
          "podRetention": "never",
          "templates": {
             "basic": {
@@ -434,7 +434,7 @@
                "request": "4096Mi"
             }
          },
-         "namespace": "webdev"
+         "namespace": "foundation-internal-webdev"
       },
       "master": {
          "namespace": "foundation-internal-webdev",
