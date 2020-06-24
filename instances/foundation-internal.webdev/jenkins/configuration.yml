@@ -21,8 +21,6 @@ unclassified:
     - credentialsId: "131d507e-6b2c-4358-b27c-f3d7c1da06d5"
       manageHooks: false
       name: "github.com"
-    hookSecretConfig:
-      credentialsId: "12631a0f-87bf-4688-b85e-f0bdc18e84dd"
     hookUrl: "https://foundation.eclipse.org/ci/webdev/github-webhook/"
   openShift:
     clusterConfigs:
