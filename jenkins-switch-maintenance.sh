@@ -63,9 +63,17 @@ if [[ -z "${2:-}" ]]; then
     "${0}" "${1}" "off"
   fi
 elif [[ "${2:-}" == "on" ]]; then
-  echo "Turning ON maintenance mode for route ${route_name}"
-  maintenance_on
+  if oc get route "${route_name}" -n "${instance_ns}" &> /dev/null; then
+    echo "Turning ON maintenance mode for route ${route_name}"
+    maintenance_on 
+  else 
+    echo "Maintenance mode for route ${route_name} is already on"
+  fi
 else
-  echo "Turning OFF maintenance mode for route ${route_name}"
-  maintenance_off
+  if ! oc get route "${route_name}" -n "${instance_ns}" &> /dev/null; then
+    echo "Turning OFF maintenance mode for route ${route_name}"
+    maintenance_off
+  else
+    echo "Maintenance mode for route ${route_name} is already off"
+  fi
 fi
