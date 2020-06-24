@@ -135,7 +135,7 @@ data:
           jenkinsUrl: "http://jenkins-ui.foundation-internal-webdev.svc.cluster.local/ci/webdev"
           jenkinsTunnel: "jenkins-discovery.foundation-internal-webdev.svc.cluster.local:50000"
           maxRequestsPerHostStr: "32"
-          namespace: "webdev"
+          namespace: "foundation-internal-webdev"
           podRetention: "never"
           templates:
           - containers:
@@ -157,7 +157,7 @@ data:
               args: ""
             instanceCap: -1
             name: "basic"
-            namespace: "webdev"
+            namespace: "foundation-internal-webdev"
             nodeUsageMode: NORMAL
             label: ""
             envVars:
@@ -251,7 +251,7 @@ data:
               args: ""
             instanceCap: -1
             name: "centos-7"
-            namespace: "webdev"
+            namespace: "foundation-internal-webdev"
             nodeUsageMode: EXCLUSIVE
             label: "migration jipp-migration centos centos-7"
             envVars:

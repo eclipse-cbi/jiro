@@ -31,6 +31,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     ],
   },
   kubernetes+: {
+    agents+: {
+      namespace: "foundation-internal-webdev"
+    },
     master+: {
       namespace: "foundation-internal-webdev"
     }
