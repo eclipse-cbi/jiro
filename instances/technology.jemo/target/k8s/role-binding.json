@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.jemo",
+         "org.eclipse.cbi.jiro/project.shortname": "jemo"
+      },
+      "name": "jemo",
+      "namespace": "jemo"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "jemo"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "jemo",
+         "namespace": "jemo"
+      }
+   ]
+}

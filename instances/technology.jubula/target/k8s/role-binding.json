@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.jubula",
+         "org.eclipse.cbi.jiro/project.shortname": "jubula"
+      },
+      "name": "jubula",
+      "namespace": "jubula"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "jubula"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "jubula",
+         "namespace": "jubula"
+      }
+   ]
+}

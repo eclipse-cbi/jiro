@@ -1,0 +1,21 @@
+{
+   "apiVersion": "v1",
+   "kind": "ResourceQuota",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.jgit",
+         "org.eclipse.cbi.jiro/project.shortname": "jgit"
+      },
+      "name": "jenkins-instance-quota",
+      "namespace": "jgit"
+   },
+   "spec": {
+      "hard": {
+         "limits.cpu": "11200m",
+         "limits.memory": "19712Mi",
+         "pods": 5,
+         "requests.cpu": "5750m",
+         "requests.memory": "19712Mi"
+      }
+   }
+}

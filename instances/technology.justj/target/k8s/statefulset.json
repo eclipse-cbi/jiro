@@ -26,6 +26,26 @@
             "name": "justj"
          },
          "spec": {
+            "affinity": {
+               "nodeAffinity": {
+                  "preferredDuringSchedulingIgnoredDuringExecution": [
+                     {
+                        "preference": {
+                           "matchExpressions": [
+                              {
+                                 "key": "speed",
+                                 "operator": "NotIn",
+                                 "values": [
+                                    "fast"
+                                 ]
+                              }
+                           ]
+                        },
+                        "weight": 1
+                     }
+                  ]
+               }
+            },
             "containers": [
                {
                   "env": [

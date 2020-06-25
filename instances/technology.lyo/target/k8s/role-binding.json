@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.lyo",
+         "org.eclipse.cbi.jiro/project.shortname": "lyo"
+      },
+      "name": "lyo",
+      "namespace": "lyo"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "lyo"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "lyo",
+         "namespace": "lyo"
+      }
+   ]
+}

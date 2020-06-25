@@ -1,0 +1,25 @@
+{
+   "apiVersion": "v1",
+   "kind": "Service",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.jgit",
+         "org.eclipse.cbi.jiro/project.shortname": "jgit"
+      },
+      "name": "jenkins-ui",
+      "namespace": "jgit"
+   },
+   "spec": {
+      "ports": [
+         {
+            "name": "http",
+            "port": 80,
+            "protocol": "TCP",
+            "targetPort": 8080
+         }
+      ],
+      "selector": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.jgit"
+      }
+   }
+}
