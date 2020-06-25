@@ -70,7 +70,7 @@ local clouds = import "clouds.libsonnet";
       }
     },
     agents: {
-      namespace: $.project.shortName,
+      namespace: $.kubernetes.master.namespace,  # should be changed to something agent-specific to fix #5
       defaultResources: {
         local Const = import "k8s/resource-packs.libsonnet",
         cpu: {

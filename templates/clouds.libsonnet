@@ -2,7 +2,7 @@
   kubernetes(cloudName, config, agents): {
     [cloudName]: {
       kind: "kubernetes",
-      namespace: config.kubernetes.agents.namespace, # should be changed to something agent-specific to fix #5
+      namespace: config.kubernetes.agents.namespace,
       podRetention: "never",
       templates: {
         [agentName]: agents[agentName].spec + agents[agentName].variants[config.jiroMaster.remoting.version] + {
