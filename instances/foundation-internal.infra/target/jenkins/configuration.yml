@@ -49,7 +49,7 @@ jenkins:
       jenkinsUrl: "http://jenkins-ui.foundation-internal-infra.svc.cluster.local/ci/infra"
       jenkinsTunnel: "jenkins-discovery.foundation-internal-infra.svc.cluster.local:50000"
       maxRequestsPerHostStr: "32"
-      namespace: "infra"
+      namespace: "foundation-internal-infra"
       podRetention: "never"
       templates:
       - containers:
@@ -71,7 +71,7 @@ jenkins:
           args: ""
         instanceCap: -1
         name: "basic"
-        namespace: "infra"
+        namespace: "foundation-internal-infra"
         nodeUsageMode: NORMAL
         label: ""
         envVars:
@@ -165,7 +165,7 @@ jenkins:
           args: ""
         instanceCap: -1
         name: "centos-7"
-        namespace: "infra"
+        namespace: "foundation-internal-infra"
         nodeUsageMode: EXCLUSIVE
         label: "migration jipp-migration centos centos-7"
         envVars:
