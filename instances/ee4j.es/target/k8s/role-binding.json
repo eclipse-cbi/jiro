@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.es",
+         "org.eclipse.cbi.jiro/project.shortname": "es"
+      },
+      "name": "es",
+      "namespace": "es"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "es"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "es",
+         "namespace": "es"
+      }
+   ]
+}

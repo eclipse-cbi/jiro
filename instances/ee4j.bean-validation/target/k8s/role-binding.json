@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.bean-validation",
+         "org.eclipse.cbi.jiro/project.shortname": "bean-validation"
+      },
+      "name": "bean-validation",
+      "namespace": "bean-validation"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "bean-validation"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "bean-validation",
+         "namespace": "bean-validation"
+      }
+   ]
+}

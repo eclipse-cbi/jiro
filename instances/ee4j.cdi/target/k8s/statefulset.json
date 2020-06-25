@@ -1,0 +1,192 @@
+{
+   "apiVersion": "apps/v1",
+   "kind": "StatefulSet",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.cdi",
+         "org.eclipse.cbi.jiro/project.shortname": "cdi"
+      },
+      "name": "cdi",
+      "namespace": "cdi"
+   },
+   "spec": {
+      "replicas": 1,
+      "selector": {
+         "matchLabels": {
+            "org.eclipse.cbi.jiro/project.fullName": "ee4j.cdi"
+         }
+      },
+      "serviceName": "cdi",
+      "template": {
+         "metadata": {
+            "labels": {
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j.cdi",
+               "org.eclipse.cbi.jiro/project.shortname": "cdi"
+            },
+            "name": "cdi"
+         },
+         "spec": {
+            "affinity": {
+               "nodeAffinity": {
+                  "preferredDuringSchedulingIgnoredDuringExecution": [
+                     {
+                        "preference": {
+                           "matchExpressions": [
+                              {
+                                 "key": "speed",
+                                 "operator": "NotIn",
+                                 "values": [
+                                    "fast"
+                                 ]
+                              }
+                           ]
+                        },
+                        "weight": 1
+                     }
+                  ]
+               }
+            },
+            "containers": [
+               {
+                  "env": [
+                     {
+                        "name": "JAVA_OPTS",
+                        "value": "-showversion -XshowSettings:vm -Duser.timezone=America/Toronto -Dsun.zip.disableMemoryMapping=true -Dhudson.footerURL=https://ci.eclipse.org -Dhudson.model.UsageStatistics.disabled=true -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Djenkins.model.Jenkins.exitCodeOnRestart=0 -Djenkins.model.Jenkins.slaveAgentPort=50000 -Djenkins.model.Jenkins.slaveAgentPortEnforce=true -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false -Djenkins.install.runSetupWizard=false -Djenkins.ui.refresh=true -Djenkins.security.ManagePermission=true -DexecutableWar.jetty.disableCustomSessionIdCookieName=false -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.cdi -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml -Dio.jenkins.plugins.casc.ConfigurationAsCode.initialDelay=5000 -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=docker.io/eclipsecbi/jiro-agent-basic:remoting-4.2.1 -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180 -Dkubernetes.websocket.ping.interval=30000"
+                     },
+                     {
+                        "name": "JENKINS_OPTS",
+                        "value": "--prefix=/cdi --webroot=/var/cache/jenkins/war --pluginroot=/var/cache/jenkins/plugins --controlPort=8081"
+                     },
+                     {
+                        "name": "PLUGINS_FORCE_UPGRADE",
+                        "value": "true"
+                     },
+                     {
+                        "name": "TRY_UPGRADE_IF_NO_MARKER",
+                        "value": "true"
+                     }
+                  ],
+                  "image": "docker.io/eclipsecbijenkins/ee4j.cdi:2.222.4",
+                  "imagePullPolicy": "Always",
+                  "lifecycle": {
+                     "preStop": {
+                        "exec": {
+                           "command": [
+                              "/bin/sh",
+                              "-c",
+                              "java -cp /var/cache/jenkins/war/winstone.jar winstone.tools.WinstoneControl shutdown --host=localhost --port=8081 >/dev/termination-log 2>&1"
+                           ]
+                        }
+                     }
+                  },
+                  "livenessProbe": {
+                     "failureThreshold": 5,
+                     "httpGet": {
+                        "path": "/cdi/login",
+                        "port": 8080,
+                        "scheme": "HTTP"
+                     },
+                     "initialDelaySeconds": 480,
+                     "periodSeconds": 30,
+                     "timeoutSeconds": 30
+                  },
+                  "name": "jenkins",
+                  "ports": [
+                     {
+                        "containerPort": 8080,
+                        "protocol": "TCP"
+                     },
+                     {
+                        "containerPort": 50000,
+                        "protocol": "TCP"
+                     }
+                  ],
+                  "readinessProbe": {
+                     "failureThreshold": 5,
+                     "initialDelaySeconds": 1,
+                     "periodSeconds": 5,
+                     "tcpSocket": {
+                        "port": 8080
+                     },
+                     "timeoutSeconds": 10
+                  },
+                  "resources": {
+                     "limits": {
+                        "cpu": "2000m",
+                        "memory": "1536Mi"
+                     },
+                     "requests": {
+                        "cpu": "500m"
+                     }
+                  },
+                  "volumeMounts": [
+                     {
+                        "mountPath": "/var/jenkins",
+                        "name": "jenkins-home"
+                     },
+                     {
+                        "mountPath": "/var/cache/jenkins/war",
+                        "name": "jenkins-war"
+                     },
+                     {
+                        "mountPath": "/var/cache/jenkins/plugins",
+                        "name": "jenkins-plugins"
+                     },
+                     {
+                        "mountPath": "/etc/jenkins/",
+                        "name": "jenkins-config",
+                        "readOnly": true
+                     },
+                     {
+                        "mountPath": "/run/secrets/jenkins/ssh",
+                        "name": "gerrit-ssh-keys",
+                        "readOnly": true
+                     }
+                  ]
+               }
+            ],
+            "serviceAccountName": "cdi",
+            "terminationGracePeriodSeconds": 1200,
+            "volumes": [
+               {
+                  "emptyDir": { },
+                  "name": "jenkins-war"
+               },
+               {
+                  "emptyDir": { },
+                  "name": "jenkins-plugins"
+               },
+               {
+                  "configMap": {
+                     "name": "jenkins-config"
+                  },
+                  "name": "jenkins-config"
+               },
+               {
+                  "name": "gerrit-ssh-keys",
+                  "secret": {
+                     "secretName": "gerrit-ssh-keys"
+                  }
+               }
+            ]
+         }
+      },
+      "volumeClaimTemplates": [
+         {
+            "metadata": {
+               "name": "jenkins-home"
+            },
+            "spec": {
+               "accessModes": [
+                  "ReadWriteOnce"
+               ],
+               "resources": {
+                  "requests": {
+                     "storage": "50Gi"
+                  }
+               }
+            }
+         }
+      ]
+   }
+}

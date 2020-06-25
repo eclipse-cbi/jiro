@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.cdi",
+         "org.eclipse.cbi.jiro/project.shortname": "cdi"
+      },
+      "name": "cdi",
+      "namespace": "cdi"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "cdi"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "cdi",
+         "namespace": "cdi"
+      }
+   ]
+}
