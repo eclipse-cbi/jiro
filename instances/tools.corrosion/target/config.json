@@ -224,11 +224,11 @@
    },
    "deployment": {
       "controlPort": 8081,
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "jnlpPort": 50000,
       "prefix": "/corrosion",
       "uiPort": 8080,
-      "url": "https://ci-staging.eclipse.org/corrosion"
+      "url": "https://ci.eclipse.org/corrosion"
    },
    "docker": {
       "master": {

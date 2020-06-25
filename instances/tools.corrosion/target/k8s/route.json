@@ -13,7 +13,7 @@
       "namespace": "corrosion"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/corrosion",
       "port": {
          "targetPort": "http"

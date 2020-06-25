@@ -294,7 +294,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/corrosion
+        url: https://ci.eclipse.org/corrosion
     
       mailer:
         replyToAddress: ci-admin@eclipse.org
