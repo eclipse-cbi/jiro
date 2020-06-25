@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.rcptt",
+         "org.eclipse.cbi.jiro/project.shortname": "rcptt"
+      },
+      "name": "rcptt",
+      "namespace": "rcptt"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "rcptt"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "rcptt",
+         "namespace": "rcptt"
+      }
+   ]
+}

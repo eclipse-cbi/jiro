@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.tigerstripe",
+         "org.eclipse.cbi.jiro/project.shortname": "tigerstripe"
+      },
+      "name": "tigerstripe",
+      "namespace": "tigerstripe"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "tigerstripe"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "tigerstripe",
+         "namespace": "tigerstripe"
+      }
+   ]
+}

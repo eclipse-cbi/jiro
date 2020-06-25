@@ -1,0 +1,21 @@
+{
+   "apiVersion": "v1",
+   "kind": "ResourceQuota",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.tm4e",
+         "org.eclipse.cbi.jiro/project.shortname": "tm4e"
+      },
+      "name": "jenkins-instance-quota",
+      "namespace": "tm4e"
+   },
+   "spec": {
+      "hard": {
+         "limits.cpu": "6600m",
+         "limits.memory": "10240Mi",
+         "pods": 3,
+         "requests.cpu": "2900m",
+         "requests.memory": "10240Mi"
+      }
+   }
+}

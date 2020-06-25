@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.recommenders",
+         "org.eclipse.cbi.jiro/project.shortname": "recommenders"
+      },
+      "name": "recommenders",
+      "namespace": "recommenders"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "recommenders"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "recommenders",
+         "namespace": "recommenders"
+      }
+   ]
+}

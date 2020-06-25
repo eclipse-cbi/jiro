@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.simopenpass",
+         "org.eclipse.cbi.jiro/project.shortname": "simopenpass"
+      },
+      "name": "simopenpass",
+      "namespace": "simopenpass"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "simopenpass"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "simopenpass",
+         "namespace": "simopenpass"
+      }
+   ]
+}

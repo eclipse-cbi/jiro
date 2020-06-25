@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.tea",
+         "org.eclipse.cbi.jiro/project.shortname": "tea"
+      },
+      "name": "tea",
+      "namespace": "tea"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "tea"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "tea",
+         "namespace": "tea"
+      }
+   ]
+}

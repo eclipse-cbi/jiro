@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.tm4e",
+         "org.eclipse.cbi.jiro/project.shortname": "tm4e"
+      },
+      "name": "tm4e",
+      "namespace": "tm4e"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "tm4e"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "tm4e",
+         "namespace": "tm4e"
+      }
+   ]
+}

@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.passage",
+         "org.eclipse.cbi.jiro/project.shortname": "passage"
+      },
+      "name": "passage",
+      "namespace": "passage"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "passage"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "passage",
+         "namespace": "passage"
+      }
+   ]
+}

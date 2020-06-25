@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.m2e",
+         "org.eclipse.cbi.jiro/project.shortname": "m2e"
+      },
+      "name": "m2e",
+      "namespace": "m2e"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "m2e"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "m2e",
+         "namespace": "m2e"
+      }
+   ]
+}

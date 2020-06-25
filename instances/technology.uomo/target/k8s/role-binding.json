@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.uomo",
+         "org.eclipse.cbi.jiro/project.shortname": "uomo"
+      },
+      "name": "uomo",
+      "namespace": "uomo"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "uomo"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "uomo",
+         "namespace": "uomo"
+      }
+   ]
+}

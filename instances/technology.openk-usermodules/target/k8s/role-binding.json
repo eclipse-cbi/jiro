@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.openk-usermodules",
+         "org.eclipse.cbi.jiro/project.shortname": "openk-usermodules"
+      },
+      "name": "openk-usermodules",
+      "namespace": "openk-usermodules"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "openk-usermodules"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "openk-usermodules",
+         "namespace": "openk-usermodules"
+      }
+   ]
+}
