@@ -9,7 +9,6 @@ IFS=$'\n\t'
 script_name="$(basename ${0})"
 script_folder="$(dirname $(readlink -f "${0}"))"
 
-search_term="${1:-}"
 default_host="ci.eclipse.org"
 
 open_url() {
@@ -19,9 +18,9 @@ open_url() {
   fi
 }
 
-for f in ../instances/*${search_term}*
+for f in ${@}
 do
-  project_name=$(basename ${f})
+  project_name="$(basename ${f})"
   short_name=${project_name##*.}
   echo "${short_name}"
   if [[ $(grep -e '"host": "ci-staging.eclipse.org"' ../instances/${project_name}/config.jsonnet) ]]; then

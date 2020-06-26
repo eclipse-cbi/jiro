@@ -9,13 +9,10 @@ IFS=$'\n\t'
 script_name="$(basename ${0})"
 script_folder="$(dirname $(readlink -f "${0}"))"
 
-search_term="${1:-}"
-
 #printf "make "
-#for f in ../instances/*${search_term}*
-for f in ../instances/${search_term}*
+for f in ${@}
 do
-  project_name=$(basename ${f})
+  project_name="$(basename ${f})"
   short_name=${project_name##*.}
   echo "${project_name}"
   pushd ../
