@@ -1,0 +1,25 @@
+{
+   "apiVersion": "v1",
+   "kind": "Service",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jaxb",
+         "org.eclipse.cbi.jiro/project.shortname": "jaxb"
+      },
+      "name": "jenkins-ui",
+      "namespace": "jaxb"
+   },
+   "spec": {
+      "ports": [
+         {
+            "name": "http",
+            "port": 80,
+            "protocol": "TCP",
+            "targetPort": 8080
+         }
+      ],
+      "selector": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jaxb"
+      }
+   }
+}

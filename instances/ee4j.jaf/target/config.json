@@ -1,161 +1,488 @@
 {
-  "deployment": {
-    "host": "ci.eclipse.org",
-    "jnlpPort": 50000,
-    "prefix": "/jaf",
-    "uiPort": 8080,
-    "url": "https://ci.eclipse.org/jaf"
-  },
-  "docker": {
-    "agent": {
-      "defaultImage": {
-        "name": "eclipsecbijenkins/jenkins-agent",
-        "sha256": "0d309710872c3a12f22394f2015b8764e039391b2c91801d53ed4f9ef76cb2fe",
-        "tag": "3.35"
+   "clouds": {
+      "kubernetes": {
+         "kind": "kubernetes",
+         "namespace": "jaf",
+         "podRetention": "never",
+         "templates": {
+            "basic": {
+               "agentWorkdir": "/home/jenkins/jenkins-agent",
+               "docker": {
+                  "aliases": [
+                     "docker.io/eclipsecbijenkins/basic-agent:4.2.1",
+                     "docker.io/eclipsecbijenkins/jenkins-agent:4.2.1",
+                     "docker.io/eclipsecbi/jenkins-jnlp-agent:4.2.1"
+                  ],
+                  "context": "basic",
+                  "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM docker.io/eclipsecbi/jiro-agent-basic:spec\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/home/jenkins\"\n\nVOLUME [ \"/home/jenkins\", ]\nWORKDIR \"/home/jenkins\"\nENTRYPOINT [ \"uid_entrypoint\", \"/usr/local/bin/jenkins-agent\" ]\n\nADD \"https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.2.1/remoting-4.2.1.jar\" \"/usr/share/jenkins/agent.jar\" \nADD \"https://github.com/jenkinsci/docker-inbound-agent/raw/4.0.1-1/jenkins-agent\" \"/usr/local/bin/jenkins-agent\"\n\nRUN chmod 755 \"$(dirname \"/usr/share/jenkins/agent.jar\")\" \\\n  && chmod 644 \"/usr/share/jenkins/agent.jar\" \\\n  && chmod ug+rx \"/usr/local/bin/jenkins-agent\" \\\n  && chgrp 0 \"/usr/local/bin/jenkins-agent\"\n\nUSER 10001:0\n",
+                  "image": "jiro-agent-basic",
+                  "registry": "docker.io",
+                  "repository": "eclipsecbi",
+                  "tag": "remoting-4.2.1"
+               },
+               "env": {
+                  "IBM_JAVA_OPTIONS": [
+                     "-XX:+IgnoreUnrecognizedVMOptions",
+                     "-XX:+IdleTuningCompactOnIdle",
+                     "-XX:+IdleTuningGcOnIdle"
+                  ],
+                  "JAVA_OPTS": [
+                     ""
+                  ],
+                  "JAVA_TOOL_OPTIONS": [ ],
+                  "JNLP_PROTOCOL_OPTS": [
+                     "-showversion",
+                     "-XshowSettings:vm",
+                     "-Xmx256m",
+                     "-Dsun.zip.disableMemoryMapping=true",
+                     "-Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true",
+                     "-Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  ],
+                  "OPENJ9_JAVA_OPTIONS": [
+                     "-XX:+IgnoreUnrecognizedVMOptions",
+                     "-XX:+IdleTuningCompactOnIdle",
+                     "-XX:+IdleTuningGcOnIdle"
+                  ],
+                  "_JAVA_OPTIONS": [ ]
+               },
+               "home": "/home/jenkins",
+               "kubernetes": {
+                  "resources": {
+                     "cpu": {
+                        "limit": "2000m",
+                        "request": "1000m"
+                     },
+                     "memory": {
+                        "limit": "4096Mi",
+                        "request": "4096Mi"
+                     }
+                  },
+                  "volumes": [
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-security.xml",
+                              "subPath": "settings-security.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings.xml",
+                              "subPath": "settings.xml"
+                           }
+                        ],
+                        "name": "m2-secret-dir",
+                        "secret": {
+                           "name": "m2-secret-dir"
+                        }
+                     },
+                     {
+                        "configMap": {
+                           "name": "m2-dir"
+                        },
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/toolchains.xml",
+                              "subPath": "toolchains.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.mavenrc",
+                              "subPath": ".mavenrc"
+                           }
+                        ],
+                        "name": "m2-dir"
+                     }
+                  ]
+               },
+               "labels": [ ],
+               "maxHeap": "256m",
+               "mode": "NORMAL",
+               "name": "basic",
+               "remoting": {
+                  "jar": "/usr/share/jenkins/agent.jar",
+                  "startupScript": {
+                     "name": "jenkins-agent",
+                     "url": "https://github.com/jenkinsci/docker-inbound-agent/raw/4.0.1-1/jenkins-agent",
+                     "version": "4.0.1-1"
+                  },
+                  "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.2.1/remoting-4.2.1.jar",
+                  "version": "4.2.1"
+               },
+               "startupScript": "/usr/local/bin/jenkins-agent",
+               "username": "jenkins"
+            },
+            "centos-7": {
+               "agentWorkdir": "/home/jenkins/jenkins-agent",
+               "docker": {
+                  "aliases": [
+                     "docker.io/eclipsecbijenkins/jipp-migration-agent:4.2.1",
+                     "docker.io/eclipsecbijenkins/migration-fat-agent:4.2.1",
+                     "docker.io/eclipsecbijenkins/ui-test-agent:4.2.1",
+                     "docker.io/eclipsecbijenkins/ui-tests-agent:4.2.1"
+                  ],
+                  "context": "centos-7",
+                  "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM docker.io/eclipsecbi/jiro-agent-centos-7:spec\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/home/jenkins\"\n\nVOLUME [ \"/home/jenkins\", ]\nWORKDIR \"/home/jenkins\"\nENTRYPOINT [ \"uid_entrypoint\", \"/usr/local/bin/jenkins-agent\" ]\n\nADD \"https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.2.1/remoting-4.2.1.jar\" \"/usr/share/jenkins/agent.jar\" \nADD \"https://github.com/jenkinsci/docker-inbound-agent/raw/4.0.1-1/jenkins-agent\" \"/usr/local/bin/jenkins-agent\"\n\nRUN chmod 755 \"$(dirname \"/usr/share/jenkins/agent.jar\")\" \\\n  && chmod 644 \"/usr/share/jenkins/agent.jar\" \\\n  && chmod ug+rx \"/usr/local/bin/jenkins-agent\" \\\n  && chgrp 0 \"/usr/local/bin/jenkins-agent\"\n\nUSER 10001:0\n",
+                  "image": "jiro-agent-centos-7",
+                  "registry": "docker.io",
+                  "repository": "eclipsecbi",
+                  "tag": "remoting-4.2.1"
+               },
+               "env": {
+                  "IBM_JAVA_OPTIONS": [
+                     "-XX:+IgnoreUnrecognizedVMOptions",
+                     "-XX:+IdleTuningCompactOnIdle",
+                     "-XX:+IdleTuningGcOnIdle"
+                  ],
+                  "JAVA_OPTS": [
+                     ""
+                  ],
+                  "JAVA_TOOL_OPTIONS": [ ],
+                  "JNLP_PROTOCOL_OPTS": [
+                     "-showversion",
+                     "-XshowSettings:vm",
+                     "-Xmx256m",
+                     "-Dsun.zip.disableMemoryMapping=true",
+                     "-Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true",
+                     "-Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  ],
+                  "OPENJ9_JAVA_OPTIONS": [
+                     "-XX:+IgnoreUnrecognizedVMOptions",
+                     "-XX:+IdleTuningCompactOnIdle",
+                     "-XX:+IdleTuningGcOnIdle"
+                  ],
+                  "_JAVA_OPTIONS": [ ]
+               },
+               "home": "/home/jenkins",
+               "kubernetes": {
+                  "resources": {
+                     "cpu": {
+                        "limit": "2000m",
+                        "request": "1000m"
+                     },
+                     "memory": {
+                        "limit": "4096Mi",
+                        "request": "4096Mi"
+                     }
+                  },
+                  "volumes": [
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-security.xml",
+                              "subPath": "settings-security.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings.xml",
+                              "subPath": "settings.xml"
+                           }
+                        ],
+                        "name": "m2-secret-dir",
+                        "secret": {
+                           "name": "m2-secret-dir"
+                        }
+                     },
+                     {
+                        "configMap": {
+                           "name": "m2-dir"
+                        },
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/toolchains.xml",
+                              "subPath": "toolchains.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.mavenrc",
+                              "subPath": ".mavenrc"
+                           }
+                        ],
+                        "name": "m2-dir"
+                     }
+                  ]
+               },
+               "labels": [
+                  "migration",
+                  "jipp-migration",
+                  "centos",
+                  "centos-7"
+               ],
+               "maxHeap": "256m",
+               "mode": "EXCLUSIVE",
+               "name": "centos-7",
+               "remoting": {
+                  "jar": "/usr/share/jenkins/agent.jar",
+                  "startupScript": {
+                     "name": "jenkins-agent",
+                     "url": "https://github.com/jenkinsci/docker-inbound-agent/raw/4.0.1-1/jenkins-agent",
+                     "version": "4.0.1-1"
+                  },
+                  "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.2.1/remoting-4.2.1.jar",
+                  "version": "4.2.1"
+               },
+               "startupScript": "/usr/local/bin/jenkins-agent",
+               "username": "jenkins"
+            }
+         }
       }
-    },
-    "master": {
-      "home": "/var/jenkins_home",
-      "image": "eclipsecbijenkins/jaf",
-      "imageTag": "2.190.1",
-      "parentImage": "eclipsecbijenkins/jenkins-master-base:2.190.1",
+   },
+   "deployment": {
+      "controlPort": 8081,
+      "host": "ci.eclipse.org",
+      "jnlpPort": 50000,
+      "prefix": "/jaf",
+      "uiPort": 8080,
+      "url": "https://ci.eclipse.org/jaf"
+   },
+   "docker": {
+      "master": {
+         "image": "ee4j.jaf",
+         "registry": "docker.io",
+         "repository": "eclipsecbijenkins",
+         "tag": "2.222.4"
+      }
+   },
+   "gradle": {
+      "files": {
+         "gradle.properties": {
+            "eclipseRepoPassword": {
+               "pass": "nexus/password"
+            },
+            "eclipseRepoUsername": {
+               "pass": "nexus/username"
+            }
+         }
+      },
+      "generate": false
+   },
+   "jenkins": {
+      "agentConnectionTimeout": 180,
+      "maxConcurrency": 2,
+      "permissions": [
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Build",
+               "Credentials/View",
+               "Job/Build",
+               "Job/Cancel",
+               "Job/Configure",
+               "Job/Create",
+               "Job/Delete",
+               "Job/Move",
+               "Job/Read",
+               "Job/Workspace",
+               "Overall/Read",
+               "Run/Delete",
+               "Run/Replay",
+               "Run/Update",
+               "SCM/Tag",
+               "View/Configure",
+               "View/Create",
+               "View/Delete",
+               "View/Read",
+               "Gerrit/ManualTrigger",
+               "Gerrit/Retrigger"
+            ],
+            "principal": "ee4j.jaf"
+         }
+      ],
+      "pluginsForceUpgrade": true,
+      "staticAgentCount": 0,
+      "theme": "quicksilver-light",
+      "timezone": "America/Toronto",
+      "version": "latest"
+   },
+   "jiroMaster": {
+      "docker": {
+         "from": "eclipsecbi/adoptopenjdk-coreutils:openjdk8-openj9-alpine-slim",
+         "image": "jiro-master",
+         "registry": "docker.io",
+         "repository": "eclipsecbi",
+         "tag": "2.222.4"
+      },
+      "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM eclipsecbi/adoptopenjdk-coreutils:openjdk8-openj9-alpine-slim\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/var/jenkins\"\n\n# jenkins version being bundled in this docker image\nENV JENKINS_HOME=\"/var/jenkins\"\nENV JENKINS_WAR=\"/usr/share/jenkins/jenkins.war\"\nENV COPY_REFERENCE_FILE_LOG=\"/var/jenkins/copy_reference_file.log\"\nENV REF=\"/usr/share/jenkins/ref\"\n\nVOLUME [ \"/var/jenkins\", \"/var/cache/jenkins/war\", \"/var/cache/jenkins/plugins\" ]\nWORKDIR \"/var/jenkins\"\n\nENTRYPOINT [\"uid_entrypoint\", \"/usr/bin/dumb-init\", \"--\", \"/usr/local/bin/jenkins.sh\"]\n\nRUN mkdir -p $(dirname \"/usr/share/jenkins/jenkins.war\") && mkdir -p \"/usr/share/jenkins/ref\"\n\nCOPY scripts/* /usr/local/bin/\nRUN chmod ug+x /usr/local/bin/*\n\nCOPY war/jenkins.war \"/usr/share/jenkins/jenkins.war\"\nCOPY ref/ \"/usr/share/jenkins/ref/\"\n",
+      "home": "/var/jenkins",
+      "id": "2.222.4",
+      "key_fingerprint": "9B7D32F2D50582E6",
       "pluginroot": "/var/cache/jenkins/plugins",
+      "plugins": [
+         "analysis-core",
+         "ant",
+         "antisamy-markup-formatter",
+         "authorize-project",
+         "bouncycastle-api",
+         "build-timeout",
+         "cloudbees-folder",
+         "command-launcher",
+         "config-file-provider",
+         "configuration-as-code",
+         "credentials-binding",
+         "email-ext",
+         "extended-read-permission",
+         "external-monitor-job",
+         "extra-columns",
+         "findbugs",
+         "gerrit-trigger",
+         "ghprb",
+         "git",
+         "git-parameter",
+         "github",
+         "github-branch-source",
+         "greenballs",
+         "jdk-tool",
+         "jobConfigHistory",
+         "kubernetes:1.25.7",
+         "ldap",
+         "mailer",
+         "matrix-auth",
+         "pam-auth",
+         "parameterized-trigger",
+         "pipeline-maven",
+         "pipeline-stage-view",
+         "promoted-builds",
+         "rebuild",
+         "simple-theme-plugin",
+         "sonar:2.6.1",
+         "ssh-agent",
+         "ssh-slaves",
+         "timestamper",
+         "windows-slaves",
+         "workflow-aggregator",
+         "ws-cleanup",
+         "xvnc"
+      ],
+      "pubkey": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nmQGiBEmFQG0RBACXScOxb6BTV6rQE/tcJopAEWsdvmE0jNIRWjDDzB7HovX6Anrq\nn7+Vq4spAReSFbBVaYiiOx2cGDymj2dyx2i9NAI/9/cQXJOU+RPdDzHVlO1Edksp\n5rKn0cGPWY5sLxRf8s/tO5oyKgwCVgTaB5a8gBHaoGms3nNC4YYf+lqlpwCgjbti\n3u1iMIx6Rs+dG0+xw1oi5FUD/2tLJMx7vCUQHhPRupeYFPoD8vWpcbGb5nHfHi4U\n8/x4qZspAIwvXtGw0UBHildGpqe9onp22Syadn/7JgMWhHoFw5Ke/rTMlxREL7pa\nTiXuagD2G84tjJ66oJP1FigslJzrnG61y85V7THL61OFqDg6IOP4onbsdqHby4VD\nzZj9A/9uQxIn5250AGLNpARStAcNPJNJbHOQuv0iF3vnG8uO7/oscB0TYb8/juxr\nhs9GdSN0U0BxENR+8KWy5lttpqLMKlKRknQYy34UstQiyFgAQ9Epncu9uIbVDgWt\ny7utnqXN033EyYkcWx5EhLAgHkC7wSzeSWABV3JSXN7CeeOif7QiS29oc3VrZSBL\nYXdhZ3VjaGkgPGtrQGtvaHN1a2Uub3JnPohjBBMRAgAjAhsDBgsJCAcDAgQVAggD\nBBYCAwECHgECF4AFAko/7vYCGQEACgkQm30y8tUFguabhgCgi54IQR4rpJZ/uUHe\nZB879zUWTQwAniQDBO+Zly7Fsvm0Mcvqvl02UzxCiGAEExECACAFAkmFQG0CGwMG\nCwkIBwMCBBUCCAMEFgIDAQIeAQIXgAAKCRCbfTLy1QWC5qtXAJ9hPRisOhkexWXJ\nnXQMl9cOTvm4LgCdGint1TONoZ2I4JtOiFzOmeP3ju3RzcvNyQEQAAEBAAAAAAAA\nAAAAAAAA/9j/4AAQSkZJRgABAQEAYABgAAD/4QBgRXhpZgAASUkqAAgAAAAEADEB\nAgAZAAAAPgAAABBRAQABAAAAAUOQABFRBAABAAAAEgsAABJRBAABAAAAEgsAAAAA\nAABNYWNyb21lZGlhIEZpcmV3b3JrcyA0LjAAAP/bAEMACAYGBwYFCAcHBwkJCAoM\nFA0MCwsMGRITDxQdGh8eHRocHCAkLicgIiwjHBwoNyksMDE0NDQfJzk9ODI8LjM0\nMv/bAEMBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy\nMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAK4AlgMBIgACEQEDEQH/xAAfAAAB\nBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0B\nAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygp\nKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImK\nkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj\n5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJ\nCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGh\nscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZ\nWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1\ntre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEA\nAhEDEQA/APcBI/8Afb86XzH/AL7fnUYpwqRknmN/fP50u9v7x/OmCgUASb2/vH86\nXe394/nTBS0AP3t/eP50u4+p/OmUopgO3H1NO3H1NR5xThQA7cfWlyfU0ylFMQ/J\n9aXPvTKdQAuaM0lLQAtJmiigAzRSdqKAKApwpopc1mUOpRSUopgKKWkFLQAueKzr\nzXbCwk2Tzxq3cFwK8v8Aih8V30aaTQ9DKtegYnuTyIvZR3b+VfP1/q17fzvLc3Ms\nsjHJZ2JJNGr2HZdT6j8U/FbR/DcKsM3VxLkpGh6AetcI37Ql4Zcx6LAYx2aUgmvD\n1ju7obgJHA7nmmmG4TqjDHtS+ZXL1sfVPhT4yeH/ABFNHaXYbS71zhVnYGNz6B+n\n4HFejK2RmvhJJSDiTj6ivYvht8XptE8rSPEEklxpxwkFyTue39j6p+op3a3Javsf\nRuacDVaC4juIUmhkWSKRQyspyGB7ipgasgfmlpoNLmgBaKSigBaKM0UAUBS0lKKz\nKFFLSUooAdWR4o1qLw/4bvtSmZVEMRK57t2H51rCvJPj7etD4WsbQMQJ7jkDuFBN\n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\n=fBn8\n-----END PGP PUBLIC KEY BLOCK-----\n",
       "ref": "/usr/share/jenkins/ref",
+      "remoting": {
+         "version": "4.2.1"
+      },
+      "scripts": {
+         "install_plugins": "https://github.com/jenkinsci/docker/raw/master/install-plugins.sh",
+         "jenkins": "https://github.com/jenkinsci/docker/raw/master/jenkins.sh",
+         "jenkins_support": "https://github.com/jenkinsci/docker/raw/master/jenkins-support"
+      },
       "updateCenter": "https://updates.jenkins.io",
       "username": "jenkins",
+      "version": "2.222.4",
       "war": "/usr/share/jenkins/jenkins.war",
-      "webroot": "/var/cache/jenkins/war",
-      "imageSha256": "7cb67a3faab419723f6835bd6dd9c24348dc8a317bba756e6ac39d830f165407"
-    },
-    "repository": "eclipsecbijenkins"
-  },
-  "jenkins": {
-    "actualRemotingVersion": "3.35",
-    "actualVersion": "2.190.1",
-    "agentConnectionTimeout": 180,
-    "maxConcurrency": 2,
-    "permissions": [
-      {
-        "grantedPermissions": [
-          "Overall/Read",
-          "Job/Read"
-        ],
-        "principal": "anonymous"
+      "warBaseUrl": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/2.222.4",
+      "webroot": "/var/cache/jenkins/war"
+   },
+   "kubernetes": {
+      "agents": {
+         "defaultResources": {
+            "cpu": {
+               "limit": "2000m",
+               "request": "1000m"
+            },
+            "memory": {
+               "limit": "4096Mi",
+               "request": "4096Mi"
+            }
+         },
+         "namespace": "jaf"
       },
-      {
-        "grantedPermissions": [
-          "Job/ExtendedRead"
-        ],
-        "principal": "common"
-      },
-      {
-        "grantedPermissions": [
-          "Overall/Administer"
-        ],
-        "principal": "admins"
-      },
-      {
-        "grantedPermissions": [
-          "Agent/Build",
-          "Credentials/View",
-          "Job/Build",
-          "Job/Cancel",
-          "Job/Configure",
-          "Job/Create",
-          "Job/Delete",
-          "Job/Move",
-          "Job/Read",
-          "Job/Workspace",
-          "Run/Delete",
-          "Run/Replay",
-          "Run/Update",
-          "SCM/Tag",
-          "View/Configure",
-          "View/Create",
-          "View/Delete",
-          "View/Read",
-          "Gerrit/ManualTrigger",
-          "Gerrit/Retrigger"
-        ],
-        "principal": "ee4j.jaf"
+      "master": {
+         "namespace": "jaf",
+         "probe": {
+            "liveness": {
+               "delaySeconds": 480,
+               "failureThreshold": 5,
+               "periodSeconds": 30,
+               "timeoutSeconds": 30
+            },
+            "readiness": {
+               "delaySeconds": 1,
+               "failureThreshold": 5,
+               "periodSeconds": 5,
+               "timeoutSeconds": 10
+            }
+         },
+         "resources": {
+            "cpu": {
+               "limit": "2000m",
+               "request": "500m"
+            },
+            "memory": {
+               "limit": "1536Mi",
+               "request": "1536Mi"
+            }
+         },
+         "stsName": "jaf"
       }
-    ],
-    "staticAgentCount": 0,
-    "theme": "quicksilver-light",
-    "timezone": "America/Toronto",
-    "version": "latest"
-  },
-  "kubernetes": {
-    "agents": {
-      "defaultResources": {
-        "cpu": {
-          "limit": "2000m",
-          "request": "1000m"
-        },
-        "memory": {
-          "limit": "4096Mi",
-          "request": "4096Mi"
-        }
+   },
+   "maven": {
+      "color": "always",
+      "files": {
+         "settings-security.xml": {
+            "master": {
+               "pass": "bots/ee4j.jaf/apache-maven-security-settings"
+            }
+         },
+         "settings.xml": {
+            "color": "always",
+            "mirrors": {
+               "eclipse.maven.central.mirror": {
+                  "mirrorOf": "central",
+                  "name": "Eclipse Central Proxy",
+                  "url": "https://repo.eclipse.org/content/repositories/maven_central/"
+               }
+            },
+            "servers": {
+               "gpg.passphrase": {
+                  "passphrase": {
+                     "pass": "bots/ee4j.jaf/gpg/passphrase"
+                  }
+               },
+               "ossrh": {
+                  "nexusProUrl": "https://jakarta.oss.sonatype.org",
+                  "password": {
+                     "pass": "bots/ee4j.jaf/oss.sonatype.org/password"
+                  },
+                  "username": {
+                     "pass": "bots/ee4j.jaf/oss.sonatype.org/username"
+                  }
+               },
+               "repo.eclipse.org": {
+                  "password": {
+                     "pass": "nexus/password"
+                  },
+                  "username": {
+                     "pass": "nexus/username"
+                  }
+               }
+            }
+         }
       },
-      "namespace": "jaf"
-    },
-    "master": {
-      "namespace": "jaf",
-      "probe": {
-        "liveness": {
-          "delaySeconds": 480,
-          "failureThreshold": 5,
-          "periodSeconds": 30,
-          "timeoutSeconds": 30
-        },
-        "readiness": {
-          "delaySeconds": 1,
-          "failureThreshold": 5,
-          "periodSeconds": 5,
-          "timeoutSeconds": 10
-        }
-      },
-      "resources": {
-        "cpu": {
-          "limit": "2000m",
-          "request": "500m"
-        },
-        "memory": {
-          "limit": "1536Mi",
-          "request": "1536Mi"
-        }
-      },
-      "stsName": "jaf"
-    }
-  },
-  "maven": {
-    "files": {
-      "settings-security.xml": {
-        "volumeName": "m2-secret-dir",
-        "volumeType": "Secret"
-      },
-      "settings.xml": {
-        "volumeName": "m2-secret-dir",
-        "volumeType": "Secret"
-      },
-      "toolchains.xml": {
-        "volumeName": "m2-dir",
-        "volumeType": "ConfigMap"
+      "generate": true,
+      "interactiveMode": false
+   },
+   "project": {
+      "displayName": "Jakarta Activation",
+      "fullName": "ee4j.jaf",
+      "resourcePacks": 1,
+      "shortName": "jaf",
+      "unixGroupName": "ee4j.jaf"
+   },
+   "secrets": {
+      "gerrit-trigger-plugin": {
+         "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
+         "username": "genie.jaf"
       }
-    },
-    "home": "/home/jenkins/.m2"
-  },
-  "project": {
-    "displayName": "Jakarta Activation",
-    "fullName": "ee4j.jaf",
-    "resourcePacks": 1,
-    "shortName": "jaf",
-    "unixGroupName": "ee4j.jaf"
-  },
-  "secrets": {
-    "gerrit-trigger-plugin": {
-      "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-      "username": "genie.jaf"
-    }
-  }
+   }
 }

@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.krazo",
+         "org.eclipse.cbi.jiro/project.shortname": "krazo"
+      },
+      "name": "krazo",
+      "namespace": "krazo"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "krazo"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "krazo",
+         "namespace": "krazo"
+      }
+   ]
+}

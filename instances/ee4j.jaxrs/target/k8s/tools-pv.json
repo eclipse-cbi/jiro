@@ -1,0 +1,58 @@
+{
+   "apiVersion": "v1",
+   "items": [
+      {
+         "apiVersion": "v1",
+         "kind": "PersistentVolume",
+         "metadata": {
+            "labels": {
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j.jaxrs",
+               "org.eclipse.cbi.jiro/project.shortname": "jaxrs"
+            },
+            "name": "tools-jiro-jaxrs"
+         },
+         "spec": {
+            "accessModes": [
+               "ReadOnlyMany"
+            ],
+            "capacity": {
+               "storage": "20Gi"
+            },
+            "claimRef": {
+               "name": "tools-claim-jiro-jaxrs",
+               "namespace": "jaxrs"
+            },
+            "nfs": {
+               "path": "/home/data/c1-ci.eclipse.org/buildtools",
+               "readOnly": true,
+               "server": "bambam"
+            },
+            "storageClassName": "bbzcxird03bsb81s-tools"
+         }
+      },
+      {
+         "apiVersion": "v1",
+         "kind": "PersistentVolumeClaim",
+         "metadata": {
+            "labels": {
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j.jaxrs",
+               "org.eclipse.cbi.jiro/project.shortname": "jaxrs"
+            },
+            "name": "tools-claim-jiro-jaxrs",
+            "namespace": "jaxrs"
+         },
+         "spec": {
+            "accessModes": [
+               "ReadOnlyMany"
+            ],
+            "resources": {
+               "requests": {
+                  "storage": "20Gi"
+               }
+            },
+            "storageClassName": "bbzcxird03bsb81s-tools"
+         }
+      }
+   ],
+   "kind": "List"
+}
