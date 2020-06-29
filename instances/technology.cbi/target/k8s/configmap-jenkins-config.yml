@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "technology.cbi"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.222.3"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.222.3"
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.222.4"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cbi"
   namespace: "cbi"
   name: jenkins-config
