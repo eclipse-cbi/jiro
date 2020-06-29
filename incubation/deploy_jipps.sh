@@ -6,17 +6,11 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-script_name="$(basename ${0})"
-script_folder="$(dirname $(readlink -f "${0}"))"
+#script_name="$(basename "${BASH_SOURCE[0]}")"
+script_folder="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
-#printf "make "
-for f in ${@}
-do
-  project_name="$(basename ${f})"
-  short_name=${project_name##*.}
+for f in "${@}"; do
+  project_name="$(basename "${f}")"
   echo "${project_name}"
-  pushd ../
-  make deploy_${project_name}
-  popd
-#  printf "deploy_${project_name} "
+  make -C "${script_folder}/.." "deploy_${project_name}"
 done
