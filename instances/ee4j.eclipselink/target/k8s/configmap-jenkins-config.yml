@@ -90,7 +90,7 @@ data:
       clouds:
       - kubernetes:
           name: "kubernetes"
-          containerCapStr: "12"
+          containerCapStr: "10"
           jenkinsUrl: "http://jenkins-ui.eclipselink.svc.cluster.local/eclipselink"
           jenkinsTunnel: "jenkins-discovery.eclipselink.svc.cluster.local:50000"
           maxRequestsPerHostStr: "32"
