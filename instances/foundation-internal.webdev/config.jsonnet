@@ -3,7 +3,8 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
 {
   project+: {
     fullName: "foundation-internal.webdev",
-    displayName: "Eclipse Foundation WebDev"
+    displayName: "Eclipse Foundation WebDev",
+    resourcePacks: 5,
   },
   deployment+: {
     host: "foundation.eclipse.org",

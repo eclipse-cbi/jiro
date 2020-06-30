@@ -253,7 +253,7 @@
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
-      "maxConcurrency": 2,
+      "maxConcurrency": 10,
       "permissions": [
          {
             "grantedPermissions": [
@@ -454,12 +454,12 @@
          },
          "resources": {
             "cpu": {
-               "limit": "2000m",
-               "request": "650m"
+               "limit": "3700m",
+               "request": "1850m"
             },
             "memory": {
-               "limit": "1792Mi",
-               "request": "1792Mi"
+               "limit": "3840Mi",
+               "request": "3840Mi"
             }
          },
          "stsName": "webdev"
@@ -514,7 +514,7 @@
    "project": {
       "displayName": "Eclipse Foundation WebDev",
       "fullName": "foundation-internal.webdev",
-      "resourcePacks": 1,
+      "resourcePacks": 5,
       "shortName": "webdev",
       "unixGroupName": "foundation-internal.webdev"
    },
