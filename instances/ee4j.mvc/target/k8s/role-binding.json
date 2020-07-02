@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.mvc",
+         "org.eclipse.cbi.jiro/project.shortname": "mvc"
+      },
+      "name": "mvc",
+      "namespace": "mvc"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "mvc"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "mvc",
+         "namespace": "mvc"
+      }
+   ]
+}
