@@ -7,9 +7,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     resourcePacks: 4,
     unixGroupName: "eclipse.platform",
   },
-  deployment+: {
-    host: "ci-staging.eclipse.org"
-  },
   jenkins+: {
     staticAgentCount: 10,
     version: "2.229",

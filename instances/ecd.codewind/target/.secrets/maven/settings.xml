@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
+  <interactiveMode>false</interactiveMode>
   <servers>
     <server>
       <id>repo.eclipse.org</id>
       <username>deployment</username>
-      <password>{Mt8G0KIpb4UHexUW9moLdQaCXVmD7wOJK3j3q/bO5MPpTXRrp8vXSmmm6b5E2Ovj0pvV7OHz+EJD0QdDbN1Yvg==}</password>
+      <password>{+PtFaxiYrAgHXMCvh/MtuEkeq5Hw74FoY/rqCDRtc3DmMSau/cTyRUUECfgV0KAC8iJ2lPX4i+0NevIuKKt8sQ==}</password>
     </server>
   </servers>
   <mirrors>
