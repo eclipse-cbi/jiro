@@ -48,7 +48,7 @@ waitReadyReplicas() {
 
 oc apply -f "${instance}/target/k8s/namespace.json"
 
-"${SCRIPT_FOLDER}/../jenkins-reload-jcasc.sh" "${instance}" || :
+"${SCRIPT_FOLDER}/../jenkins-reload.sh" "${instance}" || :
 
 oc apply -f "${instance}/target/k8s/role.json"
 oc apply -f "${instance}/target/k8s/service-account.json"
