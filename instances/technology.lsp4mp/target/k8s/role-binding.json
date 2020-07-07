@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.lsp4mp",
+         "org.eclipse.cbi.jiro/project.shortname": "lsp4mp"
+      },
+      "name": "lsp4mp",
+      "namespace": "lsp4mp"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "lsp4mp"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "lsp4mp",
+         "namespace": "lsp4mp"
+      }
+   ]
+}
