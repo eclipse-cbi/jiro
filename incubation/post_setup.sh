@@ -36,7 +36,7 @@ create_and_copy_templates() {
       <serverVersion>5.1</serverVersion>
       <serverAuthenticationToken></serverAuthenticationToken>
       <mojoVersion>3.3.0.603</mojoVersion>
-      <databaseUrl>jdbc:mysql://dbmaster:3306/sonar?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8</databaseUrl>
+      <databaseUrl>jdbc:mysql://dbapi:3306/sonar?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8</databaseUrl>
       <databaseLogin>sonar_rw</databaseLogin>
       <additionalProperties></additionalProperties>
       <additionalAnalysisProperties></additionalAnalysisProperties>
