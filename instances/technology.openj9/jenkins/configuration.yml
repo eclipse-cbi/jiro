@@ -298,6 +298,72 @@ jenkins:
         command:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent6-x64-7 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
+      name: "cent7-x64-1"
+      nodeDescription: "cent7-x64-1 - UNB CentOS 7 8 GB 4CPU - 192.168.10.197"
+      labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.test ci.role.build ci.geo.unb"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent7-x64-1 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "cent7-x64-2"
+      nodeDescription: "cent7-x64-2 - UNB CentOS 7 8 GB 4CPU - 192.168.10.246"
+      labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.test ci.role.build ci.geo.unb"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent7-x64-2 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "cent7-x64-3"
+      nodeDescription: "cent7-x64-3 - UNB CentOS 7 8 GB 4CPU - 192.168.10.200"
+      labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.test ci.role.build ci.geo.unb"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent7-x64-3 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "cent7-x64-4"
+      nodeDescription: "cent7-x64-4 - UNB CentOS 7 8 GB 4CPU - 192.168.10.191"
+      labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.test ci.role.build ci.geo.unb"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent7-x64-4 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "cent7-x64-5"
+      nodeDescription: "cent7-x64-5 - UNB CentOS 7 8 GB 4CPU - 192.168.10.204"
+      labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.test ci.role.build ci.geo.unb"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent7-x64-5 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+  - permanent:
+      name: "cent7-x64-6"
+      nodeDescription: "cent7-x64-6 - UNB CentOS 7 8 GB 4CPU - 192.168.10.187"
+      labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.test ci.role.build ci.geo.unb"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@cent7-x64-6 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
+  - permanent:
       name: "cent7-aarch64-1"
       nodeDescription: "cent7-aarch64-1 - Packet.net CentOS 7 128 GB 2CPU - 147.75.97.122"
       labelString: "hw.arch.aarch64 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build ci.role.test"
