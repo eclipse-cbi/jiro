@@ -30,7 +30,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@208.52.161.179 "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > /Users/genie.releng/jenkins_agent/remoting/slave.jar; java -jar /Users/genie.releng/jenkins_agent/remoting/slave.jar"'
+          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@208.52.161.179 "curl https://ci.eclipse.org/releng/jnlpJars/slave.jar > /Users/genie.releng/jenkins_agent/remoting/slave.jar; java -jar /Users/genie.releng/jenkins_agent/remoting/slave.jar"'
   - permanent:
       name: "ta9y0-macos-10.14"
       nodeDescription: "macOS 10.14 (Mojave), with login session, hosted on MacStadium"
@@ -41,7 +41,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@207.254.46.148 "curl https://ci-staging.eclipse.org/releng/jnlpJars/slave.jar > /Users/genie.releng/jenkins_agent/remoting/slave.jar; java -jar /Users/genie.releng/jenkins_agent/remoting/slave.jar"'
+          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@207.254.46.148 "curl https://ci.eclipse.org/releng/jnlpJars/slave.jar > /Users/genie.releng/jenkins_agent/remoting/slave.jar; java -jar /Users/genie.releng/jenkins_agent/remoting/slave.jar"'
   - permanent:
       name: "windows-server-2016-1"
       nodeDescription: ""
