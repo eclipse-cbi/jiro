@@ -18,6 +18,8 @@ jenkins:
           env:
           - key: "NVM_DIR"
             value: "$HOME/.nvm"
+          - key: "PATH"
+            value: "$HOME/.nvm/versions/node/v10.21.0/bin:$PATH"
       mode: EXCLUSIVE
       numExecutors: 1
       remoteFS: "/Users/genie.theia/jenkins_agent/"
@@ -39,7 +41,7 @@ jenkins:
       - envVars:
           env:
           - key: "Path"
-            value: "C:\\tools\\cygwin\\bin;$Path;"
+            value: "C:\\tools\\cygwin\\bin;C:\\Users\\genie.theia\\AppData\\Roaming\\npm;C:\\Program Files\\nodejs;$Path"
       numExecutors: 1
       remoteFS: "C:\\Users\\genie.theia\\jenkins_agent"
       retentionStrategy: "always"
