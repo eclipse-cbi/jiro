@@ -184,13 +184,28 @@ gen_settings() {
 gen_mavenrc() {
   local config="${1}"
 
-  printf 'set -- -V'
-  printf ' -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn'
+  printf 'set --'
+
+  if [[ "$(jq -r '.maven.showVersion' "${config}")" == "true" ]]; then
+    printf ' -V'
+  fi
+
+  local transferListenerLogLevel
+  transferListenerLogLevel="$(jq -r '.maven.transferListenerLogLevel' "${config}")"
+  if [[ -n "${transferListenerLogLevel}" ]]; then
+    printf ' -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=%s' "${transferListenerLogLevel}"
+  fi
   
   if [[ "$(jq -r '.maven.interactiveMode' "${config}")" == "false" ]]; then
     printf ' --batch-mode'
   fi
   
+  local mavenrc
+  mavenrc="$(jq -r '.maven.mavenrc' "${config}")"
+  if [[ -n "${mavenrc}" ]]; then
+    printf ' %s' "${mavenrc}"
+  fi
+
   # shellcheck disable=SC2016
   printf ' "${@}"' 
 }
