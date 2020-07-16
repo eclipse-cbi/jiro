@@ -25,34 +25,6 @@ fi
 
 create_and_copy_templates() {
   mkdir -p tmp
-  echo "Creating SonarQube config template..."
-  cat <<EOF > tmp/hudson.plugins.sonar.SonarGlobalConfiguration.xml
-<?xml version='1.0' encoding='UTF-8'?>
-<hudson.plugins.sonar.SonarGlobalConfiguration plugin="sonar@2.6.1">
-  <installations>
-    <hudson.plugins.sonar.SonarInstallation>
-      <name>Eclipse Sonar</name>
-      <serverUrl>https://sonar.eclipse.org</serverUrl>
-      <serverVersion>5.1</serverVersion>
-      <serverAuthenticationToken></serverAuthenticationToken>
-      <mojoVersion>3.3.0.603</mojoVersion>
-      <databaseUrl>jdbc:mysql://dbapi:3306/sonar?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8</databaseUrl>
-      <databaseLogin>sonar_rw</databaseLogin>
-      <additionalProperties></additionalProperties>
-      <additionalAnalysisProperties></additionalAnalysisProperties>
-      <triggers>
-        <skipScmCause>false</skipScmCause>
-        <skipUpstreamCause>false</skipUpstreamCause>
-        <envVar></envVar>
-      </triggers>
-      <sonarLogin></sonarLogin>
-      <databaseSecret></databaseSecret>
-      <sonarSecret></sonarSecret>
-    </hudson.plugins.sonar.SonarInstallation>
-  </installations>
-  <buildWrapperEnabled>true</buildWrapperEnabled>
-</hudson.plugins.sonar.SonarGlobalConfiguration>
-EOF
 
   echo "Creating Gerrit config template..."
   cat <<EOG > tmp/gerrit-trigger.xml
