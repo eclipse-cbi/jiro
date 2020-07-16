@@ -26,7 +26,6 @@ if [[ -z "${project_name}" ]]; then
 fi
 
 create_retire_script() {
-  rm -rf tmp
   mkdir -p tmp
 
   echo "Creating retire script..."
@@ -64,17 +63,20 @@ ls -al "${jenkins_home}/backup"
 EOF
 
   chmod +x tmp/retire.sh
+
+  echo "Copying retire script to Jiro pod ${short_name}-0..."
+  oc rsync tmp/ "${short_name}-0:/var/jenkins/" -n="${short_name}" --no-perms
+  oc exec -n="${short_name}" "${short_name}-0" -i -t -- chmod +x /var/jenkins/retire.sh
+
+  rm -rf tmp
 }
 
 collect_backup() {
-  echo "Copy retire script to Jiro pod ${short_name}-0..."
-  oc rsync tmp/ "${short_name}-0:/var/jenkins/" -n="${short_name}" --no-perms
+  echo "Collecting jobs on Jiro pod ${short_name}-0..."
 
-  echo "Collect jobs on Jiro pod ${short_name}-0..."
-  oc exec -n="${short_name}" "${short_name}-0" -i -t -- chmod +x /var/jenkins/retire.sh
   oc exec -n="${short_name}" "${short_name}-0" -i -t -- /var/jenkins/retire.sh
 
-  echo "Copy files from Jiro pod ${short_name}-0..."
+  echo "Copying files from Jiro pod ${short_name}-0..."
   mkdir -p backup
   oc rsync -n="${short_name}" "${short_name}-0:/var/jenkins/backup/" backup/ --no-perms
 }
@@ -90,11 +92,11 @@ delete_question(){
 }
 
 delete_project() {
-  echo "Delete project/namespace on OpenShift..."
+  echo "Deleting project/namespace on OpenShift..."
   oc delete project "${short_name}"
   oc delete pv "tools-jiro-${short_name}"
 
-  echo "Delete project in Jiro..."
+  echo "Deleting project in Jiro..."
   rm -rf "../instances/${project_name}"
   echo "TODO: Commit changes to Jiro Git repo..."
 }
@@ -102,7 +104,7 @@ delete_project() {
 create_retire_script
 collect_backup
 
-echo "Copy backup tar.gz to build:/tmp..."
+echo "Copying backup tar.gz to build:/tmp..."
 scp "backup/${backup_file_name}" build:/tmp/
 
 delete_question
