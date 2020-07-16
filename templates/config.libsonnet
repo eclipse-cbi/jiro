@@ -86,8 +86,14 @@ local clouds = import "clouds.libsonnet";
   },
   maven: {
     generate: true,
+    # .mavenrc: will add --batch-mode
     interactiveMode: false,
-    color: "always",
+    # .mavenrc: will add -V
+    showVersion: true,
+    # .mavenrc: will set -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener to given level
+    transferListenerLogLevel: "warn",
+    # will append everything from there to .mavenrc file
+    mavenrc: "",
 
     files: {
       "settings.xml": {
