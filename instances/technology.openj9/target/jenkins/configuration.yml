@@ -353,7 +353,7 @@ jenkins:
       name: "cent7-x64-1"
       nodeDescription: "cent7-x64-1 - UNB CentOS 7 8 GB 4CPU - 192.168.10.197"
       labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.test ci.role.build
-        ci.geo.unb"
+        ci.geo.unb sw.tool.docker"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -367,7 +367,7 @@ jenkins:
       name: "cent7-x64-2"
       nodeDescription: "cent7-x64-2 - UNB CentOS 7 8 GB 4CPU - 192.168.10.246"
       labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.test ci.role.build
-        ci.geo.unb"
+        ci.geo.unb sw.tool.docker"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -381,7 +381,7 @@ jenkins:
       name: "cent7-x64-3"
       nodeDescription: "cent7-x64-3 - UNB CentOS 7 8 GB 4CPU - 192.168.10.200"
       labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.test ci.role.build
-        ci.geo.unb"
+        ci.geo.unb sw.tool.docker"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -395,7 +395,7 @@ jenkins:
       name: "cent7-x64-4"
       nodeDescription: "cent7-x64-4 - UNB CentOS 7 8 GB 4CPU - 192.168.10.191"
       labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.test ci.role.build
-        ci.geo.unb"
+        ci.geo.unb sw.tool.docker"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -409,7 +409,7 @@ jenkins:
       name: "cent7-x64-5"
       nodeDescription: "cent7-x64-5 - UNB CentOS 7 8 GB 4CPU - 192.168.10.204"
       labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.test ci.role.build
-        ci.geo.unb"
+        ci.geo.unb sw.tool.docker"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -423,7 +423,7 @@ jenkins:
       name: "cent7-x64-6"
       nodeDescription: "cent7-x64-6 - UNB CentOS 7 8 GB 4CPU - 192.168.10.187"
       labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.test ci.role.build
-        ci.geo.unb"
+        ci.geo.unb sw.tool.docker"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
