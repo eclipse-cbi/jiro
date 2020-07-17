@@ -1,0 +1,58 @@
+{
+   "apiVersion": "v1",
+   "items": [
+      {
+         "apiVersion": "v1",
+         "kind": "PersistentVolume",
+         "metadata": {
+            "labels": {
+               "org.eclipse.cbi.jiro/project.fullName": "technology.lsp4e",
+               "org.eclipse.cbi.jiro/project.shortname": "lsp4e"
+            },
+            "name": "tools-jiro-lsp4e"
+         },
+         "spec": {
+            "accessModes": [
+               "ReadOnlyMany"
+            ],
+            "capacity": {
+               "storage": "20Gi"
+            },
+            "claimRef": {
+               "name": "tools-claim-jiro-lsp4e",
+               "namespace": "lsp4e"
+            },
+            "nfs": {
+               "path": "/home/data/c1-ci.eclipse.org/buildtools",
+               "readOnly": true,
+               "server": "bambam"
+            },
+            "storageClassName": "bbzcxird03bsb81s-tools"
+         }
+      },
+      {
+         "apiVersion": "v1",
+         "kind": "PersistentVolumeClaim",
+         "metadata": {
+            "labels": {
+               "org.eclipse.cbi.jiro/project.fullName": "technology.lsp4e",
+               "org.eclipse.cbi.jiro/project.shortname": "lsp4e"
+            },
+            "name": "tools-claim-jiro-lsp4e",
+            "namespace": "lsp4e"
+         },
+         "spec": {
+            "accessModes": [
+               "ReadOnlyMany"
+            ],
+            "resources": {
+               "requests": {
+                  "storage": "20Gi"
+               }
+            },
+            "storageClassName": "bbzcxird03bsb81s-tools"
+         }
+      }
+   ],
+   "kind": "List"
+}

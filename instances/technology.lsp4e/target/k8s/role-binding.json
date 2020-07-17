@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.lsp4e",
+         "org.eclipse.cbi.jiro/project.shortname": "lsp4e"
+      },
+      "name": "lsp4e",
+      "namespace": "lsp4e"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "lsp4e"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "lsp4e",
+         "namespace": "lsp4e"
+      }
+   ]
+}
