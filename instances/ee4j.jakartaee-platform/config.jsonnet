@@ -5,5 +5,8 @@
   },
   jenkins+: {
     theme: "quicksilver-light"
+  },
+  maven+: {
+    showVersion: false,
   }
 }

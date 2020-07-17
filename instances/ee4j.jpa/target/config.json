@@ -505,7 +505,6 @@
       }
    },
    "maven": {
-      "color": "always",
       "files": {
          "settings-security.xml": {
             "master": {
@@ -548,7 +547,10 @@
          }
       },
       "generate": true,
-      "interactiveMode": false
+      "interactiveMode": false,
+      "mavenrc": "",
+      "showVersion": false,
+      "transferListenerLogLevel": "warn"
    },
    "project": {
       "displayName": "Jakarta Persistence",
