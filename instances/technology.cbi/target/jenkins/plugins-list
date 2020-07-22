@@ -17,3 +17,5 @@ pubsub-light
 slack
 sse-gateway
 trilead-api
+gitlab-plugin
+gitlab-branch-source
