@@ -1,0 +1,23 @@
+{
+   "apiVersion": "v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.smartmdsd",
+         "org.eclipse.cbi.jiro/project.shortname": "smartmdsd"
+      },
+      "name": "smartmdsd",
+      "namespace": "smartmdsd"
+   },
+   "roleRef": {
+      "name": "jenkins-master-owner",
+      "namespace": "smartmdsd"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "smartmdsd",
+         "namespace": "smartmdsd"
+      }
+   ]
+}

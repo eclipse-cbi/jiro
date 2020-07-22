@@ -1,0 +1,25 @@
+{
+   "apiVersion": "v1",
+   "kind": "Service",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.smartmdsd",
+         "org.eclipse.cbi.jiro/project.shortname": "smartmdsd"
+      },
+      "name": "jenkins-discovery",
+      "namespace": "smartmdsd"
+   },
+   "spec": {
+      "ports": [
+         {
+            "name": "jnlp",
+            "port": 50000,
+            "protocol": "TCP",
+            "targetPort": 50000
+         }
+      ],
+      "selector": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.smartmdsd"
+      }
+   }
+}
