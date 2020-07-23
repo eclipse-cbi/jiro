@@ -144,3 +144,16 @@ jenkins:
             disabled: false
             failIfWorkDirIsMissing: false
             internalDir: "remoting"
+  - permanent:
+      name: "aarch64-swt"
+      remoteFS: "/home/swtbuild/build"
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        jnlp:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
