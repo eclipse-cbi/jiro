@@ -149,6 +149,21 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/wrapper"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/caches"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/daemon"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/native"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/workers"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/wrapper"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -175,6 +190,10 @@ data:
                     mountPath: /home/jenkins/.mavenrc
                     subPath: .mavenrc
                     readOnly: true
+                  - name: gradle-secret-dir
+                    mountPath: /home/jenkins/.gradle/gradle.properties
+                    subPath: gradle.properties
+                    readOnly: true
                 volumes:
                 - name: m2-secret-dir
                   secret:
@@ -182,6 +201,9 @@ data:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+                - name: gradle-secret-dir
+                  secret:
+                    secretName: gradle-secret-dir
           - containers:
             - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.2.1
               alwaysPullImage: true
@@ -234,6 +256,21 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/wrapper"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/caches"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/daemon"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/native"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/workers"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/wrapper"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -260,6 +297,10 @@ data:
                     mountPath: /home/jenkins/.mavenrc
                     subPath: .mavenrc
                     readOnly: true
+                  - name: gradle-secret-dir
+                    mountPath: /home/jenkins/.gradle/gradle.properties
+                    subPath: gradle.properties
+                    readOnly: true
                 volumes:
                 - name: m2-secret-dir
                   secret:
@@ -267,6 +308,9 @@ data:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+                - name: gradle-secret-dir
+                  secret:
+                    secretName: gradle-secret-dir
           - containers:
             - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.2.1
               alwaysPullImage: true
@@ -319,6 +363,21 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/wrapper"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/caches"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/daemon"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/native"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/workers"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.gradle/wrapper"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -345,6 +404,10 @@ data:
                     mountPath: /home/jenkins/.mavenrc
                     subPath: .mavenrc
                     readOnly: true
+                  - name: gradle-secret-dir
+                    mountPath: /home/jenkins/.gradle/gradle.properties
+                    subPath: gradle.properties
+                    readOnly: true
                 volumes:
                 - name: m2-secret-dir
                   secret:
@@ -352,6 +415,9 @@ data:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+                - name: gradle-secret-dir
+                  secret:
+                    secretName: gradle-secret-dir
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false

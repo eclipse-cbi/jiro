@@ -81,6 +81,18 @@
                            }
                         ],
                         "name": "m2-dir"
+                     },
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.gradle/gradle.properties",
+                              "subPath": "gradle.properties"
+                           }
+                        ],
+                        "name": "gradle-secret-dir",
+                        "secret": {
+                           "name": "gradle-secret-dir"
+                        }
                      }
                   ]
                },
@@ -178,6 +190,18 @@
                            }
                         ],
                         "name": "m2-dir"
+                     },
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.gradle/gradle.properties",
+                              "subPath": "gradle.properties"
+                           }
+                        ],
+                        "name": "gradle-secret-dir",
+                        "secret": {
+                           "name": "gradle-secret-dir"
+                        }
                      }
                   ]
                },
@@ -274,6 +298,18 @@
                            }
                         ],
                         "name": "m2-dir"
+                     },
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.gradle/gradle.properties",
+                              "subPath": "gradle.properties"
+                           }
+                        ],
+                        "name": "gradle-secret-dir",
+                        "secret": {
+                           "name": "gradle-secret-dir"
+                        }
                      }
                   ]
                },
@@ -327,7 +363,7 @@
             }
          }
       },
-      "generate": false
+      "generate": true
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
@@ -505,7 +541,6 @@
       }
    },
    "maven": {
-      "color": "always",
       "files": {
          "settings-security.xml": {
             "master": {
@@ -548,7 +583,10 @@
          }
       },
       "generate": true,
-      "interactiveMode": false
+      "interactiveMode": false,
+      "mavenrc": "",
+      "showVersion": true,
+      "transferListenerLogLevel": "warn"
    },
    "project": {
       "displayName": "Eclipse e(fx)clipse",
