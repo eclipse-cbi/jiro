@@ -4,7 +4,7 @@
     displayName: "Eclipse CBI",
   },
   jenkins+: {
-    version: "2.235.1",
+    version: "2.235.3",
     staticAgentCount: 3,
   },
   gradle+: {
