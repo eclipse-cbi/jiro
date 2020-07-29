@@ -344,7 +344,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/scout
+    url: https://ci.eclipse.org/scout
 
   mailer:
     replyToAddress: ci-admin@eclipse.org

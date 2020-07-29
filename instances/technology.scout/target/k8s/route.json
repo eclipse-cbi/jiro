@@ -13,7 +13,7 @@
       "namespace": "scout"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/scout",
       "port": {
          "targetPort": "http"
