@@ -421,6 +421,8 @@
          "git-parameter",
          "github",
          "github-branch-source",
+         "gitlab-plugin",
+         "gitlab-branch-source",
          "greenballs",
          "jdk-tool",
          "jobConfigHistory",
@@ -505,7 +507,6 @@
       }
    },
    "maven": {
-      "color": "always",
       "files": {
          "settings-security.xml": {
             "master": {
@@ -548,7 +549,10 @@
          }
       },
       "generate": true,
-      "interactiveMode": false
+      "interactiveMode": false,
+      "mavenrc": "",
+      "showVersion": true,
+      "transferListenerLogLevel": "warn"
    },
    "project": {
       "displayName": "Eclipse Theia",
