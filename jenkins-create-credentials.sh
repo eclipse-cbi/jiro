@@ -18,6 +18,17 @@ export PASSWORD_STORE_DIR=~/.password-store/cbi-pass
 PROJECT_NAME="${1:-}"
 SHORT_NAME="${PROJECT_NAME##*.}"
 
+usage() {
+    printf "%s <project_name>\n" "${script_name}"
+    printf "\t%-16s the name of the project to add credentials to Jenkins\n" "project_name"
+}
+
+# check that project name is not empty
+if [[ -z "${PROJECT_NAME}" ]]; then
+  printf "ERROR: a project name must be given.\n"
+  usage
+  exit 1
+fi
 
 projects_storage_pass_domain="projects-storage.eclipse.org"
 git_eclipse_pass_domain="git.eclipse.org"
