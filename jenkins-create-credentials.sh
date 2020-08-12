@@ -22,6 +22,7 @@ SHORT_NAME="${PROJECT_NAME##*.}"
 projects_storage_pass_domain="projects-storage.eclipse.org"
 git_eclipse_pass_domain="git.eclipse.org"
 github_pass_domain="github.com"
+gpg_pass_domain="gpg"
 
 
 create_domain_xml() {
@@ -61,7 +62,7 @@ create_ssh_credentials_xml() {
     local description="${6:-}"
     echo "  Creating SSH credential '${id}'..."
     ./jenkins-cli.sh "instances/${PROJECT_NAME}" create-credentials-by-xml system::system::jenkins "${domain_name}" <<EOF
-<com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey plugin="ssh-credentials@1.18.1">
+<com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey>
   <scope>GLOBAL</scope>
   <id>${id}</id>
   <username>${username}</username>
@@ -71,6 +72,27 @@ create_ssh_credentials_xml() {
     <privateKey>${id_rsa}</privateKey>
   </privateKeySource>
 </com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey>
+EOF
+}
+
+#TODO: how can the bytes be added?
+create_file_credentials_xml() {
+    local domain_name="${1:-}"
+    local id="${2:-}"
+    local file_name="${3:-}"
+    local subkeys="${4:-}"
+    echo "  Creating file credential '${id}'..."
+
+    ## TODO: find out how secret bytes need to be encoded
+    echo "  IMPORTANT: file needs to be uploaded manually in the WebUI for now!"
+    #<secretBytes>${subkeys}</secretBytes>
+    
+    ./jenkins-cli.sh "instances/${PROJECT_NAME}" create-credentials-by-xml system::system::jenkins "${domain_name}" <<EOF
+<org.jenkinsci.plugins.plaincredentials.impl.FileCredentialsImpl>
+  <scope>GLOBAL</scope>
+  <id>${id}</id>
+  <fileName>${file_name}</fileName>
+</org.jenkinsci.plugins.plaincredentials.impl.FileCredentialsImpl>
 EOF
 }
 
@@ -143,6 +165,29 @@ create_ssh_credentials() {
     fi
 }
 
+create_file_credentials() {
+    local domain_name="${1:-}"
+    local id="${2:-}"
+    local file_name="${id}" # id == filename
+    local pass_domain="${3:-}"
+
+    # read credentials from pass
+    subkeys=$(pass /bots/${PROJECT_NAME}/${pass_domain}/secret-subkeys.asc)
+
+    # check if credentials already exist
+    reply=$(./jenkins-cli.sh instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)
+    if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then
+        create_domain_xml "${domain_name}"
+        create_file_credentials_xml "${domain_name}" "${id}" "${file_name}" "${subkeys}"
+    elif [[ "${reply}" == "No such credential" ]]; then
+        create_file_credentials_xml "${domain_name}" "${id}" "${file_name}" "${subkeys}"
+    elif [[ "${reply}" == "<org.jenkinsci.plugins.plaincredentials.impl.FileCredentialsImpl"* ]]; then
+        echo "  Credential ${id} already exists."
+    else
+        echo "Unexpected reply: ${reply}"
+        exit 1
+    fi
+}
 
 ## projects-storage.eclipse.org ##
 
@@ -169,6 +214,13 @@ fi
 if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${github_pass_domain}/id_rsa.gpg" ]]; then
     echo "Found ${github_pass_domain} SSH credentials in password store..."
     create_ssh_credentials "api.github.com" "github-bot-ssh" "GitHub bot (SSH)" "${github_pass_domain}"
-    
 fi
+
+## GPG (for OSSRH) ##
+
+if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${gpg_pass_domain}/secret-subkeys.asc.gpg" ]]; then
+    echo "Found ${gpg_pass_domain} credentials in password store..."
+    create_file_credentials "_" "secret-subkeys.asc" "${gpg_pass_domain}"
+fi
+
 
