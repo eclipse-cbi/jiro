@@ -19,9 +19,15 @@ maintenance_ns="${maintenance_ns:-"error-pages"}"
 maintenance_service="${maintenance_service:-maintenance-sign}"
 
 instance="${1:-}"
+mode="${2:-}"
 
 if [[ -z "${instance}" ]]; then
   echo "ERROR: you must provide an 'instance' name argument"
+  exit 1
+fi
+
+if [[ -z "${mode}" ]]; then
+  echo "ERROR: you must provide an 'mode' argument ('on' or 'off')"
   exit 1
 fi
 
@@ -41,39 +47,43 @@ route_spec_tls_termination="$(jq -r '.spec.tls.termination' "${route_json}")"
 instance_ns="$(jq -r '.kubernetes.master.namespace' "${instance}/target/config.json")"
 
 maintenance_on() {
-  oc delete -f "${route_json}"
-  oc create route "${route_spec_tls_termination}" "${route_name}-maintenance" --service="${maintenance_service}" -n "${maintenance_ns}" --hostname="${route_spec_host}" --path="${route_spec_path}" --port="${route_spec_port}" --insecure-policy="${route_spec_tls_insecure_policy}"
-  oc create route "${route_spec_tls_termination}" "maintenance-cli" --service="jenkins-ui" -n "${instance_ns}" --hostname="${route_spec_host}" --path="${route_spec_path}/cli" --port="${route_spec_port}" --insecure-policy="${route_spec_tls_insecure_policy}"
+  if oc get route "${route_name}" -n "${instance_ns}" &> /dev/null; then
+    oc delete -f "${route_json}"
+  fi
+  
+  if ! oc get route "${route_name}-maintenance" -n "${maintenance_ns}" &> /dev/null; then
+    oc create route "${route_spec_tls_termination}" "${route_name}-maintenance" --service="${maintenance_service}" -n "${maintenance_ns}" --hostname="${route_spec_host}" --path="${route_spec_path}" --port="${route_spec_port}" --insecure-policy="${route_spec_tls_insecure_policy}"
+  fi
+
+  if ! oc get route "maintenance-cli" -n "${instance_ns}" &> /dev/null; then
+    oc create route "${route_spec_tls_termination}" "maintenance-cli" --service="jenkins-ui" -n "${instance_ns}" --hostname="${route_spec_host}" --path="${route_spec_path}/cli" --port="${route_spec_port}" --insecure-policy="${route_spec_tls_insecure_policy}"
+  fi
+
   # refresh cache 
-  curl --retry 3 -sSLH "X-Cache-Bypass: true" "https://${route_spec_host}${route_spec_path}" -o /dev/null || :
+  curl --retry 3 -sSLH "X-Cache-Bypass: true" "https://${route_spec_host}${route_spec_path}" -o /dev/null
 }
 
 maintenance_off() {
-  oc delete route -n "${instance_ns}" "maintenance-cli"
-  oc delete route -n "${maintenance_ns}" "${route_name}-maintenance"
-  oc apply -f "${route_json}"
+  if oc get route "maintenance-cli" -n "${instance_ns}" &> /dev/null; then
+    oc delete route -n "${instance_ns}" "maintenance-cli"
+  fi
+
+  if oc get route "${route_name}-maintenance" -n "${maintenance_ns}" &> /dev/null; then
+    oc delete route -n "${maintenance_ns}" "${route_name}-maintenance"
+  fi
+
+  if ! oc get route "${route_name}" -n "${instance_ns}" &> /dev/null; then
+    oc apply -f "${route_json}"
+  fi
+  
   # refresh cache 
-  curl --retry 3 -sSLH "X-Cache-Bypass: true" "https://${route_spec_host}${route_spec_path}" -o /dev/null || :
+  curl --retry 3 -sSLH "X-Cache-Bypass: true" "https://${route_spec_host}${route_spec_path}" -o /dev/null
 }
 
-if [[ -z "${2:-}" ]]; then
-  if oc get route "${route_name}" -n "${instance_ns}" &> /dev/null; then
-    "${0}" "${1}" "on"
-  else
-    "${0}" "${1}" "off"
-  fi
-elif [[ "${2:-}" == "on" ]]; then
-  if oc get route "${route_name}" -n "${instance_ns}" &> /dev/null; then
-    echo "Turning ON maintenance mode for route ${route_name}"
-    maintenance_on 
-  else 
-    echo "Maintenance mode for route ${route_name} is already on"
-  fi
+if [[ "${mode}" == "on" ]]; then
+  echo "Turning ON maintenance mode for route ${route_name}"
+  maintenance_on || :
 else
-  if ! oc get route "${route_name}" -n "${instance_ns}" &> /dev/null; then
-    echo "Turning OFF maintenance mode for route ${route_name}"
-    maintenance_off
-  else
-    echo "Maintenance mode for route ${route_name} is already off"
-  fi
+  echo "Turning OFF maintenance mode for route ${route_name}"
+  maintenance_off || :
 fi
