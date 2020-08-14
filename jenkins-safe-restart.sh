@@ -91,7 +91,7 @@ if [[ "${buildsCount}" -gt 0 ]]; then
   echo -e "\b."
 fi
 
-"${SCRIPT_FOLDER}/jenkins-switch-maintenance.sh" "${instance}"
+"${SCRIPT_FOLDER}/jenkins-switch-maintenance.sh" "${instance}" "on"
 
 echo -n "INFO: Shutting down Jenkins"
 oc scale sts "${stsName}" --replicas=0 -n "${ns}" > /dev/null
@@ -101,6 +101,6 @@ echo -n "INFO: Starting Jenkins"
 oc scale sts "${stsName}" --replicas=1 -n "${ns}" > /dev/null
 waitReadyReplicas 1
 
-"${SCRIPT_FOLDER}/jenkins-switch-maintenance.sh" "${instance}"
+"${SCRIPT_FOLDER}/jenkins-switch-maintenance.sh" "${instance}" "off"
 
 echo "INFO: Jenkins is ready"
