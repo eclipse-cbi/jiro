@@ -380,7 +380,7 @@
          }
       ],
       "pluginsForceUpgrade": true,
-      "staticAgentCount": 1,
+      "staticAgentCount": 0,
       "theme": "quicksilver",
       "timezone": "America/Toronto",
       "version": "latest"
@@ -421,6 +421,8 @@
          "git-parameter",
          "github",
          "github-branch-source",
+         "gitlab-plugin",
+         "gitlab-branch-source",
          "greenballs",
          "jdk-tool",
          "jobConfigHistory",
@@ -494,18 +496,17 @@
          "resources": {
             "cpu": {
                "limit": "2000m",
-               "request": "650m"
+               "request": "500m"
             },
             "memory": {
-               "limit": "1792Mi",
-               "request": "1792Mi"
+               "limit": "1536Mi",
+               "request": "1536Mi"
             }
          },
          "stsName": "reddeer"
       }
    },
    "maven": {
-      "color": "always",
       "files": {
          "settings-security.xml": {
             "master": {
@@ -548,7 +549,10 @@
          }
       },
       "generate": true,
-      "interactiveMode": false
+      "interactiveMode": false,
+      "mavenrc": "",
+      "showVersion": true,
+      "transferListenerLogLevel": "warn"
    },
    "project": {
       "displayName": "Eclipse RedDeer",

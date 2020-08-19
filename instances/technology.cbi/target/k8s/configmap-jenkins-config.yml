@@ -28,27 +28,6 @@ data:
           launcher:
             ssh:
               credentialsId: "78cd25b2-cbb1-4a7f-8888-5f742271148e"
-              host: "centslave1.eclipse.org"
-              javaPath: "/shared/common/jdk1.8.0_x64-latest/bin/java"
-              sshHostKeyVerificationStrategy:
-                manuallyProvidedKeyVerificationStrategy:
-                  key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDa23PeYP41r8dTo5CW5/zls1eg0f9euBTxdmu4Tyf/UmfVV3/1s/gdSm9pm6pJQJiGOgjk9in+KkN5QFX7uTobwedZztWV4YRERQe7pZO4iF7fCbFIEECDTN86ZMlFTwS16kgUTsa6n/5WYiSWYljJF4sZZfDZAkpvvRGwBFuuVA3AKNxkJ9NrPcWF4S8iPeGLe+n4sGpRmE4tEiZCWzhPqhayNQxos3KMmihrGu8wKtqwvWftL/sRzNoXuecqbRcEk6c+Cm3K7rqmPpZ1KJ6bqDPe3YrP1EwrgXujZBT05/GvIhn7OEkpDnCoCK0lb9xH/gG8kkZGbOwAXeeJA47D"
-          mode: EXCLUSIVE
-          name: "centslave1"
-          nodeDescription: "CentOS"
-          nodeProperties:
-          - toolLocation:
-              locations:
-              - home: "/shared/common/jdk1.8.0_x64-latest"
-                key: "hudson.model.JDK$DescriptorImpl@oracle-jdk8-latest"
-              - home: "/shared/common/apache-maven-latest"
-                key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
-          numExecutors: 1
-          remoteFS: "/opt/public/hipp/homes/genie.cbi/centslave1"
-      - permanent:
-          launcher:
-            ssh:
-              credentialsId: "78cd25b2-cbb1-4a7f-8888-5f742271148e"
               host: "mac-tests2"
               sshHostKeyVerificationStrategy:
                 manuallyProvidedKeyVerificationStrategy:
@@ -481,7 +460,7 @@ data:
       mailer:
         replyToAddress: ci-admin@eclipse.org
         smtpHost: mail.eclipse.org
-      extendedEmailPublisher:
+      email-ext:
         defaultContentType: "text/html"
       globalDefaultFlowDurabilityLevel:
         durabilityHint: PERFORMANCE_OPTIMIZED
