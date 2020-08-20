@@ -42,7 +42,7 @@ fi
 create_domain_xml() {
     local domain_name="${1:-}"
     echo "  Creating domain '${domain_name}'..."
-    ./jenkins-cli.sh "instances/${PROJECT_NAME}" create-credentials-domain-by-xml system::system::jenkins <<EOF
+    "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" create-credentials-domain-by-xml system::system::jenkins <<EOF
 <com.cloudbees.plugins.credentials.domains.Domain>
   <name>${domain_name}</name>
 </com.cloudbees.plugins.credentials.domains.Domain>
@@ -55,7 +55,7 @@ create_string_credentials_xml() {
     local secret="${3:-}"
     local description="${4:-}"
     echo "  Creating string credential '${id}'..."
-    ./jenkins-cli.sh "instances/${PROJECT_NAME}" create-credentials-by-xml system::system::jenkins "${domain_name}" <<EOF
+    "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" create-credentials-by-xml system::system::jenkins "${domain_name}" <<EOF
 <org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl>
   <scope>GLOBAL</scope>
   <id>${id}</id>
@@ -78,7 +78,7 @@ create_string_credentials() {
     fi
 
     # check if credentials already exist
-    reply=$(./jenkins-cli.sh instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)
+    reply=$(${script_folder}/jenkins-cli.sh ${script_folder}/instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)
     if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then
         create_domain_xml "${domain_name}"
         create_string_credentials_xml "${domain_name}" "${id}" "${secret}" "${description}"

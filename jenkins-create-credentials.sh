@@ -39,7 +39,7 @@ gpg_pass_domain="gpg"
 create_domain_xml() {
     local domain_name="${1:-}"
     echo "  Creating domain '${domain_name}'..."
-    ./jenkins-cli.sh "instances/${PROJECT_NAME}" create-credentials-domain-by-xml system::system::jenkins <<EOF
+    "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" create-credentials-domain-by-xml system::system::jenkins <<EOF
 <com.cloudbees.plugins.credentials.domains.Domain>
   <name>${domain_name}</name>
 </com.cloudbees.plugins.credentials.domains.Domain>
@@ -53,7 +53,7 @@ create_username_password_credentials_xml() {
     local password="${4:-}"
     local description="${5:-}"
     echo "  Creating username/password credential '${id}'..."
-    ./jenkins-cli.sh "instances/${PROJECT_NAME}" create-credentials-by-xml system::system::jenkins "${domain_name}" <<EOF
+    "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" create-credentials-by-xml system::system::jenkins "${domain_name}" <<EOF
 <com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
   <scope>GLOBAL</scope>
   <id>${id}</id>
@@ -72,7 +72,7 @@ create_ssh_credentials_xml() {
     local passphrase="${5:-}"
     local description="${6:-}"
     echo "  Creating SSH credential '${id}'..."
-    ./jenkins-cli.sh "instances/${PROJECT_NAME}" create-credentials-by-xml system::system::jenkins "${domain_name}" <<EOF
+    "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" create-credentials-by-xml system::system::jenkins "${domain_name}" <<EOF
 <com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey>
   <scope>GLOBAL</scope>
   <id>${id}</id>
@@ -97,8 +97,8 @@ create_file_credentials_xml() {
     ## TODO: find out how secret bytes need to be encoded
     echo "  IMPORTANT: file needs to be uploaded manually in the WebUI for now!"
     #<secretBytes>${subkeys}</secretBytes>
-    
-    ./jenkins-cli.sh "instances/${PROJECT_NAME}" create-credentials-by-xml system::system::jenkins "${domain_name}" <<EOF
+
+    "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" create-credentials-by-xml system::system::jenkins "${domain_name}" <<EOF
 <org.jenkinsci.plugins.plaincredentials.impl.FileCredentialsImpl>
   <scope>GLOBAL</scope>
   <id>${id}</id>
@@ -118,7 +118,7 @@ create_username_password_credentials() {
     password=$(pass /bots/${PROJECT_NAME}/${pass_domain}/password)
 
     # check if credentials already exist
-    reply=$(./jenkins-cli.sh instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)
+    reply=$(${script_folder}/jenkins-cli.sh ${script_folder}/instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)
     if [[ "${reply}" == "No such domain" ]]; then
         create_domain_xml "${domain_name}"
         create_username_password_credentials_xml "${domain_name}" "${id}" "${user}" "${password}" "${description}"
@@ -140,12 +140,7 @@ create_ssh_credentials() {
 
     # read credentials from pass
 
-    # exception for projects-storage and git.eclipse.org :/
-    if [[ "${pass_domain}" == "projects-storage.eclipse.org" || "${pass_domain}" == "git.eclipse.org" ]]; then
-        user="genie.${SHORT_NAME}"
-    else
-        user=$(pass /bots/${PROJECT_NAME}/${pass_domain}/username)
-    fi
+    user=$(pass /bots/${PROJECT_NAME}/${pass_domain}/username)
     
     LF_XENTITY="&#xA;"
     # translate line feeds to LF_XENTITY
@@ -162,7 +157,7 @@ create_ssh_credentials() {
 
 
     # check if credentials already exist
-    reply=$(./jenkins-cli.sh instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)
+    reply=$(${script_folder}/jenkins-cli.sh ${script_folder}/instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)
     if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then #skip for global domain ("_")
         create_domain_xml "${domain_name}"
         create_ssh_credentials_xml "${domain_name}" "${id}" "${user}" "${id_rsa}" "${passphrase}" "${description}"
@@ -186,7 +181,7 @@ create_file_credentials() {
     subkeys=$(pass /bots/${PROJECT_NAME}/${pass_domain}/secret-subkeys.asc)
 
     # check if credentials already exist
-    reply=$(./jenkins-cli.sh instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)
+    reply=$(${script_folder}/jenkins-cli.sh ${script_folder}/instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)
     if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then
         create_domain_xml "${domain_name}"
         create_file_credentials_xml "${domain_name}" "${id}" "${file_name}" "${subkeys}"
