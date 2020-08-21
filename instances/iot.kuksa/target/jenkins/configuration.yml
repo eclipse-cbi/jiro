@@ -1,69 +1,73 @@
 # GENERATED FILE - DO NOT EDIT
-#*******************************************************************************
-# Copyright (c) 2018 Eclipse Foundation and others.
-# This program and the accompanying materials are made available
-# under the terms of the Eclipse Public License 2.0
-# which is available at http://www.eclipse.org/legal/epl-v20.html,
-# or the MIT License which is available at https://opensource.org/licenses/MIT.
-# SPDX-License-Identifier: EPL-2.0 OR MIT
-#*******************************************************************************
 jenkins:
+  nodes:
+  - permanent:
+      name: "kuksa-agent"
+      labelString: "docker"
+      mode: EXCLUSIVE
+      numExecutors: 1
+      remoteFS: "/home/kuksa/jenkins"
+      retentionStrategy: "always"
+      nodeDescription: "External build agent, provided by the kuksa project"
+      launcher:
+        ssh:
+          credentialsId: "kuksa-agent"
+          host: "reparts.org"
+          port: 2222
+          sshHostKeyVerificationStrategy:
+            manuallyTrustedKeyVerificationStrategy:
+              requireInitialManualTrust: true
   numExecutors: 0
   scmCheckoutRetryCount: 2
   mode: EXCLUSIVE
   systemMessage: ""
-
   disableRememberMe: false
   agentProtocols:
-    - "JNLP4-connect"
-    - "Ping"
-
+  - "JNLP4-connect"
+  - "Ping"
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:iot.kuksa"
-        - "Credentials/View:iot.kuksa"
-        - "Gerrit/ManualTrigger:iot.kuksa"
-        - "Gerrit/Retrigger:iot.kuksa"
-        - "Job/Build:iot.kuksa"
-        - "Job/Cancel:iot.kuksa"
-        - "Job/Configure:iot.kuksa"
-        - "Job/Create:iot.kuksa"
-        - "Job/Delete:iot.kuksa"
-        - "Job/Move:iot.kuksa"
-        - "Job/Read:iot.kuksa"
-        - "Job/Workspace:iot.kuksa"
-        - "Overall/Read:iot.kuksa"
-        - "Run/Delete:iot.kuksa"
-        - "Run/Replay:iot.kuksa"
-        - "Run/Update:iot.kuksa"
-        - "SCM/Tag:iot.kuksa"
-        - "View/Configure:iot.kuksa"
-        - "View/Create:iot.kuksa"
-        - "View/Delete:iot.kuksa"
-        - "View/Read:iot.kuksa"
-
+      - "Overall/Administer:admins"
+      - "Job/Read:anonymous"
+      - "Overall/Read:anonymous"
+      - "Job/ExtendedRead:common"
+      - "Agent/Build:iot.kuksa"
+      - "Credentials/View:iot.kuksa"
+      - "Gerrit/ManualTrigger:iot.kuksa"
+      - "Gerrit/Retrigger:iot.kuksa"
+      - "Job/Build:iot.kuksa"
+      - "Job/Cancel:iot.kuksa"
+      - "Job/Configure:iot.kuksa"
+      - "Job/Create:iot.kuksa"
+      - "Job/Delete:iot.kuksa"
+      - "Job/Move:iot.kuksa"
+      - "Job/Read:iot.kuksa"
+      - "Job/Workspace:iot.kuksa"
+      - "Overall/Read:iot.kuksa"
+      - "Run/Delete:iot.kuksa"
+      - "Run/Replay:iot.kuksa"
+      - "Run/Update:iot.kuksa"
+      - "SCM/Tag:iot.kuksa"
+      - "View/Configure:iot.kuksa"
+      - "View/Create:iot.kuksa"
+      - "View/Delete:iot.kuksa"
+      - "View/Read:iot.kuksa"
   markupFormatter: rawHtml
   crumbIssuer:
     standard:
-       excludeClientIPFromCrumb: false
+      excludeClientIPFromCrumb: false
   remotingSecurity:
     enabled: true
-
   securityRealm:
     ldap:
       configurations:
-        - displayNameAttributeName: cn
-          groupSearchBase: ou=group
-          rootDN: dc=eclipse,dc=org
-          server: ldaps://ldapcluster.eclipse.org
-          userSearch: mail={0}
-          mailAddressAttributeName: mail
-
+      - displayNameAttributeName: cn
+        groupSearchBase: ou=group
+        rootDN: dc=eclipse,dc=org
+        server: ldaps://ldapcluster.eclipse.org
+        userSearch: mail={0}
+        mailAddressAttributeName: mail
   clouds:
   - kubernetes:
       name: "kubernetes"
@@ -102,10 +106,12 @@ jenkins:
             value: ""
         - envVar:
             key: "JENKINS_REMOTING_JAVA_OPTS"
-            value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+            value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true
+              -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
         - envVar:
             key: "OPENJ9_JAVA_OPTIONS"
-            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+              -XX:+IdleTuningGcOnIdle"
         - envVar:
             key: "_JAVA_OPTIONS"
             value: ""
@@ -187,10 +193,12 @@ jenkins:
             value: ""
         - envVar:
             key: "JENKINS_REMOTING_JAVA_OPTS"
-            value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+            value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true
+              -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
         - envVar:
             key: "OPENJ9_JAVA_OPTIONS"
-            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+              -XX:+IdleTuningGcOnIdle"
         - envVar:
             key: "_JAVA_OPTIONS"
             value: ""
@@ -272,10 +280,12 @@ jenkins:
             value: ""
         - envVar:
             key: "JENKINS_REMOTING_JAVA_OPTS"
-            value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+            value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true
+              -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
         - envVar:
             key: "OPENJ9_JAVA_OPTIONS"
-            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle
+              -XX:+IdleTuningGcOnIdle"
         - envVar:
             key: "_JAVA_OPTIONS"
             value: ""
@@ -340,22 +350,17 @@ security:
         strategy: "triggeringUsersAuthorizationStrategy"
   sSHD:
     port: -1
-
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
     url: https://ci.eclipse.org/kuksa
-
   mailer:
     replyToAddress: ci-admin@eclipse.org
     smtpHost: mail.eclipse.org
-
-  extendedEmailPublisher:
+  email-ext:
     defaultContentType: "text/html"
-
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED
-
   simple-theme-plugin:
     elements:
     - cssUrl:
@@ -364,7 +369,6 @@ unclassified:
         url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
     - jsUrl:
         url: "/kuksa/userContent/theme/title.js"
-
   buildDiscarders:
     configuredBuildDiscarders:
     - "jobBuildDiscarder"
@@ -373,7 +377,6 @@ unclassified:
           logRotator:
             artifactNumToKeepStr: "5"
             numToKeepStr: "128"
-
 tool:
   jdk:
     installations:

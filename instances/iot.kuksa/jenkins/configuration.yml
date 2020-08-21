@@ -1,0 +1,18 @@
+jenkins:
+  nodes:
+  - permanent:
+      name: "kuksa-agent"
+      labelString: "docker"
+      mode: EXCLUSIVE
+      numExecutors: 1
+      remoteFS: "/home/kuksa/jenkins"
+      retentionStrategy: "always"
+      nodeDescription: "External build agent, provided by the kuksa project"
+      launcher:
+        ssh:
+          credentialsId: "kuksa-agent"
+          host: "reparts.org"
+          port: 2222
+          sshHostKeyVerificationStrategy:
+            manuallyTrustedKeyVerificationStrategy:
+              requireInitialManualTrust: true
