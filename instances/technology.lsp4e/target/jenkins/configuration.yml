@@ -344,13 +344,13 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/lsp4e
+    url: https://ci.eclipse.org/lsp4e
 
   mailer:
     replyToAddress: ci-admin@eclipse.org
     smtpHost: mail.eclipse.org
 
-  extendedEmailPublisher:
+  email-ext:
     defaultContentType: "text/html"
 
   globalDefaultFlowDurabilityLevel:
