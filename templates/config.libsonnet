@@ -89,7 +89,7 @@ local clouds = import "clouds.libsonnet";
     # .mavenrc: will add --batch-mode
     interactiveMode: false,
     # .mavenrc: will add -V
-    showVersion: true,
+    showVersion: !std.startsWith($.project.fullName, "ee4j"),
     # .mavenrc: will set -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener to given level
     transferListenerLogLevel: "warn",
     # will append everything from there to .mavenrc file

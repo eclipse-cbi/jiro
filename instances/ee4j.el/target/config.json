@@ -549,7 +549,7 @@
       "generate": true,
       "interactiveMode": false,
       "mavenrc": "",
-      "showVersion": true,
+      "showVersion": false,
       "transferListenerLogLevel": "warn"
    },
    "project": {
