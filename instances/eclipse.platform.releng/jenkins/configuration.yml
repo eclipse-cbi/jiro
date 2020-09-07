@@ -31,6 +31,11 @@ jenkins:
       launcher:
         command:
           command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@208.52.161.179 "curl https://ci.eclipse.org/releng/jnlpJars/slave.jar > /Users/genie.releng/jenkins_agent/remoting/slave.jar; java -jar /Users/genie.releng/jenkins_agent/remoting/slave.jar"'
+      nodeProperties:
+      - envVars:
+        env:
+        - key: "PATH"
+          value: '$HOME/.cargo/bin:$PATH'
   - permanent:
       name: "ta9y0-macos-10.14"
       nodeDescription: "macOS 10.14 (Mojave), with login session, hosted on MacStadium"
