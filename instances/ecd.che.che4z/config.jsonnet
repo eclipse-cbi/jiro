@@ -6,6 +6,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     displayName: "Eclipse Che4z"
   },
   jenkins+: {
-    permissions: permissionsTemplates.projectPermissions($.project.unixGroupName, permissionsTemplates.committerPermissionsList)
+    permissions:
+      permissionsTemplates.projectPermissions($.project.unixGroupName, permissionsTemplates.committerPermissionsList) +
+      // https://bugs.eclipse.org/bugs/show_bug.cgi?id=566607
+      permissionsTemplates.projectPermissions("andrea.zaccaro@broadcom.com", ["Credentials/Create", "Credentials/Update"])
   }
 }

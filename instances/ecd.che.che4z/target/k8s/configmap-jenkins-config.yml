@@ -45,6 +45,8 @@ data:
         projectMatrix:
           permissions:
             - "Overall/Administer:admins"
+            - "Credentials/Create:andrea.zaccaro@broadcom.com"
+            - "Credentials/Update:andrea.zaccaro@broadcom.com"
             - "Job/Read:anonymous"
             - "Overall/Read:anonymous"
             - "Job/ExtendedRead:common"
@@ -371,7 +373,7 @@ data:
         replyToAddress: ci-admin@eclipse.org
         smtpHost: mail.eclipse.org
     
-      extendedEmailPublisher:
+      email-ext:
         defaultContentType: "text/html"
     
       globalDefaultFlowDurabilityLevel:
