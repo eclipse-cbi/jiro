@@ -186,6 +186,16 @@ unclassified:
             artifactNumToKeepStr: "5"
             numToKeepStr: "128"
 
+  sonarGlobalConfiguration:
+    buildWrapperEnabled: true
+    installations:
+    - name: "SonarCloud.io"
+      serverUrl: "https://sonarcloud.io"
+      serverVersion: "5.3"
+      triggers:
+        skipScmCause: false
+        skipUpstreamCause: false
+
 tool:
   {{> tools-jdk }}
   {{> tools-ant }}
