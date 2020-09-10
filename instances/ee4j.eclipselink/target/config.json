@@ -437,7 +437,7 @@
          "promoted-builds",
          "rebuild",
          "simple-theme-plugin",
-         "sonar:2.6.1",
+         "sonar",
          "ssh-agent",
          "ssh-slaves",
          "timestamper",
@@ -529,7 +529,7 @@
                   }
                },
                "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
+                  "nexusProUrl": "https://jakarta.oss.sonatype.org",
                   "password": {
                      "pass": "bots/ee4j.eclipselink/oss.sonatype.org/password"
                   },
