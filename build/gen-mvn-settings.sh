@@ -96,6 +96,7 @@ gen_server() {
     nexusProUrl="$(jq -r '.nexusProUrl | select (.!=null)' <<< "${server}")"
     if [[ -n "${nexusProUrl}" ]]; then
       >&2 echo -e "${SCRIPT_NAME}\tINFO: Server '${serverId}' will use Nexus Pro token for credentials"
+      >&2 echo -e "${SCRIPT_NAME}\tINFO: Nexus Pro URL: '${nexusProUrl}'"
       # this server has a nexus Pro URL set, get a token to authenticate instead of using the account username/password
       local token
       token="$("${SCRIPT_FOLDER}/nexus-pro-token.sh" get_or_create "${nexusProUrl}" "${username}" "${password}")"
