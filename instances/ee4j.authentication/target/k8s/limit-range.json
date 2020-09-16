@@ -3,11 +3,11 @@
    "kind": "LimitRange",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jaspic",
-         "org.eclipse.cbi.jiro/project.shortname": "jaspic"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.authentication",
+         "org.eclipse.cbi.jiro/project.shortname": "authentication"
       },
       "name": "jenkins-instance-limit-range",
-      "namespace": "jaspic"
+      "namespace": "authentication"
    },
    "spec": {
       "limits": [

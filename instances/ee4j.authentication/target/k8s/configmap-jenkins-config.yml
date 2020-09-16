@@ -10,14 +10,14 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   labels:
-    org.eclipse.cbi.jiro/project.shortname: "jaspic"
-    org.eclipse.cbi.jiro/project.fullName: "ee4j.jaspic"
+    org.eclipse.cbi.jiro/project.shortname: "authentication"
+    org.eclipse.cbi.jiro/project.fullName: "ee4j.authentication"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.222.4"
-    org.eclipse.cbi.jiro/kubernetes.master.namespace: "jaspic"
-  namespace: "jaspic"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "authentication"
+  namespace: "authentication"
   name: jenkins-config
 data:
   jenkins.yaml: |
@@ -48,27 +48,27 @@ data:
             - "Job/Read:anonymous"
             - "Overall/Read:anonymous"
             - "Job/ExtendedRead:common"
-            - "Agent/Build:ee4j.jaspic"
-            - "Credentials/View:ee4j.jaspic"
-            - "Gerrit/ManualTrigger:ee4j.jaspic"
-            - "Gerrit/Retrigger:ee4j.jaspic"
-            - "Job/Build:ee4j.jaspic"
-            - "Job/Cancel:ee4j.jaspic"
-            - "Job/Configure:ee4j.jaspic"
-            - "Job/Create:ee4j.jaspic"
-            - "Job/Delete:ee4j.jaspic"
-            - "Job/Move:ee4j.jaspic"
-            - "Job/Read:ee4j.jaspic"
-            - "Job/Workspace:ee4j.jaspic"
-            - "Overall/Read:ee4j.jaspic"
-            - "Run/Delete:ee4j.jaspic"
-            - "Run/Replay:ee4j.jaspic"
-            - "Run/Update:ee4j.jaspic"
-            - "SCM/Tag:ee4j.jaspic"
-            - "View/Configure:ee4j.jaspic"
-            - "View/Create:ee4j.jaspic"
-            - "View/Delete:ee4j.jaspic"
-            - "View/Read:ee4j.jaspic"
+            - "Agent/Build:ee4j.authentication"
+            - "Credentials/View:ee4j.authentication"
+            - "Gerrit/ManualTrigger:ee4j.authentication"
+            - "Gerrit/Retrigger:ee4j.authentication"
+            - "Job/Build:ee4j.authentication"
+            - "Job/Cancel:ee4j.authentication"
+            - "Job/Configure:ee4j.authentication"
+            - "Job/Create:ee4j.authentication"
+            - "Job/Delete:ee4j.authentication"
+            - "Job/Move:ee4j.authentication"
+            - "Job/Read:ee4j.authentication"
+            - "Job/Workspace:ee4j.authentication"
+            - "Overall/Read:ee4j.authentication"
+            - "Run/Delete:ee4j.authentication"
+            - "Run/Replay:ee4j.authentication"
+            - "Run/Update:ee4j.authentication"
+            - "SCM/Tag:ee4j.authentication"
+            - "View/Configure:ee4j.authentication"
+            - "View/Create:ee4j.authentication"
+            - "View/Delete:ee4j.authentication"
+            - "View/Read:ee4j.authentication"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -91,10 +91,10 @@ data:
       - kubernetes:
           name: "kubernetes"
           containerCapStr: "2"
-          jenkinsUrl: "http://jenkins-ui.jaspic.svc.cluster.local/jaspic"
-          jenkinsTunnel: "jenkins-discovery.jaspic.svc.cluster.local:50000"
+          jenkinsUrl: "http://jenkins-ui.authentication.svc.cluster.local/authentication"
+          jenkinsTunnel: "jenkins-discovery.authentication.svc.cluster.local:50000"
           maxRequestsPerHostStr: "32"
-          namespace: "jaspic"
+          namespace: "authentication"
           podRetention: "never"
           templates:
           - containers:
@@ -116,7 +116,7 @@ data:
               args: ""
             instanceCap: -1
             name: "basic"
-            namespace: "jaspic"
+            namespace: "authentication"
             nodeUsageMode: NORMAL
             label: ""
             envVars:
@@ -134,7 +134,7 @@ data:
                 value: ""
             volumes:
             - persistentVolumeClaim:
-                claimName: "tools-claim-jiro-jaspic"
+                claimName: "tools-claim-jiro-authentication"
                 mountPath: "/opt/tools"
                 readOnly: true
             - configMapVolume:
@@ -201,7 +201,7 @@ data:
               args: ""
             instanceCap: -1
             name: "centos-7"
-            namespace: "jaspic"
+            namespace: "authentication"
             nodeUsageMode: EXCLUSIVE
             label: "migration jipp-migration centos-7"
             envVars:
@@ -219,7 +219,7 @@ data:
                 value: ""
             volumes:
             - persistentVolumeClaim:
-                claimName: "tools-claim-jiro-jaspic"
+                claimName: "tools-claim-jiro-authentication"
                 mountPath: "/opt/tools"
                 readOnly: true
             - configMapVolume:
@@ -286,7 +286,7 @@ data:
               args: ""
             instanceCap: -1
             name: "centos-8"
-            namespace: "jaspic"
+            namespace: "authentication"
             nodeUsageMode: EXCLUSIVE
             label: "centos-latest centos-8"
             envVars:
@@ -304,7 +304,7 @@ data:
                 value: ""
             volumes:
             - persistentVolumeClaim:
-                claimName: "tools-claim-jiro-jaspic"
+                claimName: "tools-claim-jiro-authentication"
                 mountPath: "/opt/tools"
                 readOnly: true
             - configMapVolume:
@@ -367,13 +367,13 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci.eclipse.org/jaspic
+        url: https://ci.eclipse.org/authentication
     
       mailer:
         replyToAddress: ci-admin@eclipse.org
         smtpHost: mail.eclipse.org
     
-      extendedEmailPublisher:
+      email-ext:
         defaultContentType: "text/html"
     
       globalDefaultFlowDurabilityLevel:
@@ -382,11 +382,11 @@ data:
       simple-theme-plugin:
         elements:
         - cssUrl:
-            url: "/jaspic/userContent/theme/quicksilver.css"
+            url: "/authentication/userContent/theme/quicksilver.css"
         - cssUrl:
             url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
         - jsUrl:
-            url: "/jaspic/userContent/theme/title.js"
+            url: "/authentication/userContent/theme/title.js"
     
       buildDiscarders:
         configuredBuildDiscarders:
@@ -396,6 +396,15 @@ data:
               logRotator:
                 artifactNumToKeepStr: "5"
                 numToKeepStr: "128"
+    
+      sonarGlobalConfiguration:
+        buildWrapperEnabled: true
+        installations:
+        - name: "SonarCloud.io"
+          serverUrl: "https://sonarcloud.io"
+          triggers:
+            skipScmCause: false
+            skipUpstreamCause: false
     
     tool:
       jdk:

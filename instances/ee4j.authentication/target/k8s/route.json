@@ -6,15 +6,15 @@
          "haproxy.router.openshift.io/timeout": "60s"
       },
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jaspic",
-         "org.eclipse.cbi.jiro/project.shortname": "jaspic"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.authentication",
+         "org.eclipse.cbi.jiro/project.shortname": "authentication"
       },
-      "name": "jaspic",
-      "namespace": "jaspic"
+      "name": "authentication",
+      "namespace": "authentication"
    },
    "spec": {
       "host": "ci.eclipse.org",
-      "path": "/jaspic",
+      "path": "/authentication",
       "port": {
          "targetPort": "http"
       },

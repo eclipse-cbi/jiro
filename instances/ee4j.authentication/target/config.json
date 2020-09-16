@@ -2,7 +2,7 @@
    "clouds": {
       "kubernetes": {
          "kind": "kubernetes",
-         "namespace": "jaspic",
+         "namespace": "authentication",
          "podRetention": "never",
          "templates": {
             "basic": {
@@ -304,13 +304,13 @@
       "controlPort": 8081,
       "host": "ci.eclipse.org",
       "jnlpPort": 50000,
-      "prefix": "/jaspic",
+      "prefix": "/authentication",
       "uiPort": 8080,
-      "url": "https://ci.eclipse.org/jaspic"
+      "url": "https://ci.eclipse.org/authentication"
    },
    "docker": {
       "master": {
-         "image": "ee4j.jaspic",
+         "image": "ee4j.authentication",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
          "tag": "2.222.4"
@@ -376,7 +376,7 @@
                "Gerrit/ManualTrigger",
                "Gerrit/Retrigger"
             ],
-            "principal": "ee4j.jaspic"
+            "principal": "ee4j.authentication"
          }
       ],
       "pluginsForceUpgrade": true,
@@ -421,6 +421,8 @@
          "git-parameter",
          "github",
          "github-branch-source",
+         "gitlab-plugin",
+         "gitlab-branch-source",
          "greenballs",
          "jdk-tool",
          "jobConfigHistory",
@@ -435,7 +437,7 @@
          "promoted-builds",
          "rebuild",
          "simple-theme-plugin",
-         "sonar:2.6.1",
+         "sonar",
          "ssh-agent",
          "ssh-slaves",
          "timestamper",
@@ -473,10 +475,10 @@
                "request": "4096Mi"
             }
          },
-         "namespace": "jaspic"
+         "namespace": "authentication"
       },
       "master": {
-         "namespace": "jaspic",
+         "namespace": "authentication",
          "probe": {
             "liveness": {
                "delaySeconds": 480,
@@ -501,14 +503,14 @@
                "request": "1536Mi"
             }
          },
-         "stsName": "jaspic"
+         "stsName": "authentication"
       }
    },
    "maven": {
       "files": {
          "settings-security.xml": {
             "master": {
-               "pass": "bots/ee4j.jaspic/apache-maven-security-settings"
+               "pass": "bots/ee4j.authentication/apache-maven-security-settings"
             }
          },
          "settings.xml": {
@@ -523,16 +525,16 @@
             "servers": {
                "gpg.passphrase": {
                   "passphrase": {
-                     "pass": "bots/ee4j.jaspic/gpg/passphrase"
+                     "pass": "bots/ee4j.authentication/gpg/passphrase"
                   }
                },
                "ossrh": {
                   "nexusProUrl": "https://jakarta.oss.sonatype.org",
                   "password": {
-                     "pass": "bots/ee4j.jaspic/oss.sonatype.org/password"
+                     "pass": "bots/ee4j.authentication/oss.sonatype.org/password"
                   },
                   "username": {
-                     "pass": "bots/ee4j.jaspic/oss.sonatype.org/username"
+                     "pass": "bots/ee4j.authentication/oss.sonatype.org/username"
                   }
                },
                "repo.eclipse.org": {
@@ -554,15 +556,15 @@
    },
    "project": {
       "displayName": "Jakarta Authentication",
-      "fullName": "ee4j.jaspic",
+      "fullName": "ee4j.authentication",
       "resourcePacks": 1,
-      "shortName": "jaspic",
-      "unixGroupName": "ee4j.jaspic"
+      "shortName": "authentication",
+      "unixGroupName": "ee4j.authentication"
    },
    "secrets": {
       "gerrit-trigger-plugin": {
          "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-         "username": "genie.jaspic"
+         "username": "genie.authentication"
       }
    }
 }

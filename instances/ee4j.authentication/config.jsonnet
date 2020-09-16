@@ -1,6 +1,6 @@
 {
   project+: {
-    fullName: "ee4j.jaspic",
+    fullName: "ee4j.authentication",
     displayName: "Jakarta Authentication",
   }
 }

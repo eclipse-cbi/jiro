@@ -3,11 +3,11 @@
    "kind": "Role",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jaspic",
-         "org.eclipse.cbi.jiro/project.shortname": "jaspic"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.authentication",
+         "org.eclipse.cbi.jiro/project.shortname": "authentication"
       },
       "name": "jenkins-master-owner",
-      "namespace": "jaspic"
+      "namespace": "authentication"
    },
    "rules": [
       {
