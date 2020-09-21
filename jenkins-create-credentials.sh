@@ -142,11 +142,14 @@ create_ssh_credentials() {
     # read credentials from pass
 
     user=$(pass /bots/${PROJECT_NAME}/${pass_domain}/username)
-    
-    LF_XENTITY="&#xA;"
-    # translate line feeds to LF_XENTITY
-    id_rsa=$(pass /bots/${PROJECT_NAME}/${pass_domain}/id_rsa | tr '\n' ',' | sed 's/,/\'${LF_XENTITY}'/g')
-    
+
+    # TODO: does not seem to work
+    # translate line feeds to LF_XENTITY 
+    #LF_XENTITY="&#xA;"
+    #id_rsa=$(pass /bots/${PROJECT_NAME}/${pass_domain}/id_rsa | tr '\n' ',' | sed 's/,/\'${LF_XENTITY}'/g')
+
+    id_rsa=$(pass /bots/${PROJECT_NAME}/${pass_domain}/id_rsa)
+
     # remove trailing line feed (already translated to LF_XENTITY)
     if [ "$(echo ${id_rsa} | wc -c)" -ne 0 ] && [ "$(echo ${id_rsa} | tail -c -6)" == "${LF_XENTITY}" ]; then
       id_rsa="$(echo ${id_rsa} | head -c -6)"
@@ -220,7 +223,7 @@ fi
 
 if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${github_pass_domain}/id_rsa.gpg" ]]; then
     echo "Found ${github_pass_domain} SSH credentials in password store..."
-    create_ssh_credentials "api.github.com" "github-bot-ssh" "GitHub bot (SSH)" "${github_pass_domain}"
+    create_ssh_credentials "api.github.com" "github-bot-ssh_webmaster-test2" "GitHub bot (SSH) Webmaster Test2" "${github_pass_domain}"
 fi
 
 ## GPG (for OSSRH) ##
