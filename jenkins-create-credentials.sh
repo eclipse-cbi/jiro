@@ -42,6 +42,7 @@ create_domain_xml() {
     "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" create-credentials-domain-by-xml system::system::jenkins <<EOF
 <com.cloudbees.plugins.credentials.domains.Domain>
   <name>${domain_name}</name>
+  <specifications/>
 </com.cloudbees.plugins.credentials.domains.Domain>
 EOF
 }
