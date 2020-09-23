@@ -33,6 +33,7 @@ fi
 projects_storage_pass_domain="projects-storage.eclipse.org"
 git_eclipse_pass_domain="git.eclipse.org"
 github_pass_domain="github.com"
+gitlab_pass_domain="gitlab.eclipse.org"
 gpg_pass_domain="gpg"
 
 
@@ -143,9 +144,10 @@ create_ssh_credentials() {
 
     user=$(pass /bots/${PROJECT_NAME}/${pass_domain}/username)
 
+    LF_XENTITY="&#xA;"
+
     # TODO: does not seem to work
     # translate line feeds to LF_XENTITY 
-    #LF_XENTITY="&#xA;"
     #id_rsa=$(pass /bots/${PROJECT_NAME}/${pass_domain}/id_rsa | tr '\n' ',' | sed 's/,/\'${LF_XENTITY}'/g')
 
     id_rsa=$(pass /bots/${PROJECT_NAME}/${pass_domain}/id_rsa)
@@ -223,7 +225,14 @@ fi
 
 if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${github_pass_domain}/id_rsa.gpg" ]]; then
     echo "Found ${github_pass_domain} SSH credentials in password store..."
-    create_ssh_credentials "api.github.com" "github-bot-ssh_webmaster-test2" "GitHub bot (SSH) Webmaster Test2" "${github_pass_domain}"
+    create_ssh_credentials "api.github.com" "github-bot-ssh" "GitHub bot (SSH)" "${github_pass_domain}"
+fi
+
+## GitLab ##
+
+if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${gitlab_pass_domain}/id_rsa.gpg" ]]; then
+    echo "Found ${gitlab_pass_domain} SSH credentials in password store..."
+    create_ssh_credentials "gitlab.eclipse.org" "gitlab-bot-ssh" "GitLab bot (SSH)" "${gitlab_pass_domain}"
 fi
 
 ## GPG (for OSSRH) ##
