@@ -373,7 +373,7 @@ data:
         replyToAddress: ci-admin@eclipse.org
         smtpHost: mail.eclipse.org
     
-      extendedEmailPublisher:
+      email-ext:
         defaultContentType: "text/html"
     
       globalDefaultFlowDurabilityLevel:
@@ -396,6 +396,15 @@ data:
               logRotator:
                 artifactNumToKeepStr: "5"
                 numToKeepStr: "128"
+    
+      sonarGlobalConfiguration:
+        buildWrapperEnabled: true
+        installations:
+        - name: "SonarCloud.io"
+          serverUrl: "https://sonarcloud.io"
+          triggers:
+            skipScmCause: false
+            skipUpstreamCause: false
     
     tool:
       jdk:
