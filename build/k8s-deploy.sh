@@ -18,7 +18,7 @@ set -o pipefail
 IFS=$'\n\t'
 
 instance="${1:-}"
-SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 if [ -z "${instance}" ]; then
   echo "ERROR: you must provide an 'instance' name argument"
@@ -45,6 +45,8 @@ waitReadyReplicas() {
   done
   echo -e "\b."
 }
+
+. "${SCRIPT_FOLDER}/k8s-set-context.sh" "$(jq -r '.deployment.cluster' "${instance}/target/config.json")"
 
 oc apply -f "${instance}/target/k8s/namespace.json"
 

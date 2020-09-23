@@ -15,13 +15,13 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
-SCRIPT_NAME="$(basename "$(readlink -f "${0}")")"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+SCRIPT_NAME="$(basename "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 if [[ ! -f "${SCRIPT_FOLDER}/../.localconfig" ]]; then
   echo "ERROR: File '$(readlink -f "${SCRIPT_FOLDER}/../.localconfig")' does not exists"
   echo "Create one to configure the location of the password store. Example:"
-  echo '{"password-store": {"cbi-dir": "~/.password-store/cbi"}}'
+  echo '{"password-store": {"cbi-dir": "~/.password-store/cbi"}}' | jq -M
 fi
 PASSWORD_STORE_DIR="$(jq -r '.["password-store"]["cbi-dir"]' "${SCRIPT_FOLDER}/../.localconfig")"
 PASSWORD_STORE_DIR="$(readlink -f "${PASSWORD_STORE_DIR/#~\//${HOME}/}")"

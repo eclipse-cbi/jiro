@@ -14,8 +14,8 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-SCRIPT_NAME="$(basename "${0}")"
-SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
+SCRIPT_NAME="$(basename "${BASH_SOURCE[0]}")"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 version="${1:-}"
 is_latest="${2:-false}"

@@ -6,8 +6,8 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-script_name="$(basename ${0})"
-script_folder="$(dirname $(readlink -f "${0}"))"
+script_name="$(basename ${BASH_SOURCE[0]})"
+script_folder="$(dirname $(readlink -f "${BASH_SOURCE[0]}"))"
 
 ci_admin_dir="${script_folder}/../../ci-admin"
 
@@ -52,7 +52,8 @@ new_migration_instance() {
     displayName: "${display_name}",
   },
   deployment+: {
-    host: "ci-staging.eclipse.org"
+    host: "ci-staging.eclipse.org",
+    cluster: "okd-c1",
   }
 }
 EOF

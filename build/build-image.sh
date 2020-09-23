@@ -15,7 +15,7 @@ export LOG_LEVEL="${LOG_LEVEL:-600}"
 # shellcheck disable=SC1090
 . "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/../.bashtools/bashtools"
 
-SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 PATH="${SCRIPT_FOLDER}/../.dockertools:${PATH}"
 
 PUSH_IMAGES="${PUSH_IMAGES:-"true"}"

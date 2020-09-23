@@ -10,8 +10,8 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-script_name="$(basename ${0})"
-script_folder="$(dirname $(readlink -f "${0}"))"
+script_name="$(basename ${BASH_SOURCE[0]})"
+script_folder="$(dirname $(readlink -f "${BASH_SOURCE[0]}"))"
 
 PROJECT_NAME="${1:-}"
 secret_id="${2:-}"

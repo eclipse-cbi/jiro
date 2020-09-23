@@ -17,7 +17,7 @@ set -o pipefail
 
 IFS=$'\n\t'
 
-SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 templates="${SCRIPT_FOLDER}/../templates"
 
 instance="${1:-}"

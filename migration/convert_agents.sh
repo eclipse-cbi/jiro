@@ -14,7 +14,7 @@ set -o pipefail
 
 IFS=$'\n\t'
 
-script_name="$(basename ${0})"
+script_name="$(basename ${BASH_SOURCE[0]})"
 short_name="${1:-}"
 temp_yaml_name="temp.yml"
 result_yaml_name="nodes.yml"
