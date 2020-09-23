@@ -15,8 +15,8 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
-SCRIPT_NAME="$(basename "$(readlink -f "${0}")")"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+SCRIPT_NAME="$(basename "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 if [[ ! -f "${SCRIPT_FOLDER}/../.localconfig" ]]; then
   echo "ERROR: File '$(readlink -f "${SCRIPT_FOLDER}/../.localconfig")' does not exists"

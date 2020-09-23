@@ -25,4 +25,7 @@
       }
     ],
   },
+  deployment+: {
+    cluster: "okd-c1"
+  },
 }

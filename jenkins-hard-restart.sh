@@ -14,6 +14,7 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 instance="${1:-}"
 
@@ -31,6 +32,7 @@ fi
 stsName="$(jq -r '.kubernetes.master.stsName' "${instance}/target/config.json")"
 ns="$(jq -r '.kubernetes.master.namespace' "${instance}/target/config.json")"
 
+. "${SCRIPT_FOLDER}/build/k8s-set-context.sh" "$(jq -r '.deployment.cluster' "${instance}/target/config.json")"
 oc scale sts "${stsName}" --replicas=0 -n "${ns}"
 sleep 5
 oc scale sts "${stsName}" --replicas=1 -n "${ns}"

@@ -15,7 +15,7 @@ set -o pipefail
 
 IFS=$'\n\t'
 
-SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 if [[ "${#}" -eq 0 ]]; then
   echo "ERROR: you must provide at least one 'instance' path"
@@ -34,6 +34,7 @@ reload() {
   local namespace projectShortName
   namespace="$(jq -r '.kubernetes.master.namespace' "${instance}/target/config.json")"
   projectShortName="$(jq -r '.project.shortName' "${instance}/target/config.json")"
+  . "${SCRIPT_FOLDER}/build/k8s-set-context.sh" "$(jq -r '.deployment.cluster' "${instance}/target/config.json")"
 
   local previousConfigMapVersion
   if oc get configmap -n "${namespace}" jenkins-config &> /dev/null; then

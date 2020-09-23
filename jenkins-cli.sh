@@ -14,7 +14,7 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 instance="${1:-}"
 
@@ -26,7 +26,7 @@ fi
 if [[ ${instance} == "ALL" ]]; then
   for i in "${SCRIPT_FOLDER}/instances/"*; do 
     >&2 echo "Calling CLI for '$(basename "${i}")'..."
-    "${0}" "${i}" "${@:2}" || :
+    "${BASH_SOURCE[0]}" "${i}" "${@:2}" || :
   done
   exit 0
 elif [[ ! -d "${instance}" ]]; then

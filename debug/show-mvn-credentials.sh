@@ -13,7 +13,7 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-SCRIPT_FOLDER="$(dirname "$(readlink -f "${0}")")"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 instance="${1:-}"
 secret_name="${2:-"m2-secret-dir"}"
@@ -34,6 +34,8 @@ export PASSWORD_STORE_DIR
 config="${instance}/target/config.json"
 namespace="$(jq -r '.kubernetes.master.namespace' "${config}")"
 projectFullName="$(jq -r '.project.fullName' "${config}")"
+
+. "${SCRIPT_FOLDER}/../build/k8s-set-context.sh" "$(jq -r '.deployment.cluster' "${config}")"
 
 if [[ ! -f "${SCRIPT_FOLDER}/.maven-decrypter.jar" ]]; then
   curl -sSL -o "${SCRIPT_FOLDER}/.maven-decrypter.jar" "https://github.com/completeworks/maven-settings-decrypter/releases/download/ea-0/maven-settings-decrypter-1.0.0-shaded.jar"

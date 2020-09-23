@@ -6,7 +6,7 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-script_name="$(basename ${0})"
+script_name="$(basename ${BASH_SOURCE[0]})"
 
 # run in tmp dir on cje pod
 

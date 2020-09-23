@@ -33,8 +33,8 @@
   
   LimitRange(name, config): $.__.KubeNSObject("v1", "LimitRange", name, config),
   ResourceQuota(name, config): $.__.KubeNSObject("v1", "ResourceQuota", name, config),
-  RoleBinding(name, config): $.__.KubeNSObject("v1", "RoleBinding", name, config),
-  Role(name, config): $.__.KubeNSObject("v1", "Role", name, config),
+  RoleBinding(name, config): $.__.KubeNSObject("rbac.authorization.k8s.io/v1", "RoleBinding", name, config),
+  Role(name, config): $.__.KubeNSObject("rbac.authorization.k8s.io/v1", "Role", name, config),
   Route(name, config): $.__.KubeNSObject("route.openshift.io/v1", "Route", name, config),
   ServiceAccount(name, config): $.__.KubeNSObject("v1", "ServiceAccount", name, config),
   Service(name, config): $.__.KubeNSObject("v1", "Service", name, config),

@@ -10,8 +10,8 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-script_name="$(basename ${0})"
-script_folder="$(dirname $(readlink -f "${0}"))"
+script_name="$(basename ${BASH_SOURCE[0]})"
+script_folder="$(dirname $(readlink -f "${BASH_SOURCE[0]}"))"
 
 export PASSWORD_STORE_DIR=~/.password-store/cbi-pass
 

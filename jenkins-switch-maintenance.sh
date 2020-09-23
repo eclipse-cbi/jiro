@@ -14,6 +14,7 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 maintenance_ns="${maintenance_ns:-"error-pages"}"
 maintenance_service="${maintenance_service:-maintenance-sign}"
@@ -80,6 +81,7 @@ maintenance_off() {
   curl --retry 3 -sSLH "X-Cache-Bypass: true" "https://${route_spec_host}${route_spec_path}" -o /dev/null
 }
 
+. "${SCRIPT_FOLDER}/build/k8s-set-context.sh" "$(jq -r '.deployment.cluster' "${instance}/target/config.json")"
 if [[ "${mode}" == "on" ]]; then
   echo "Turning ON maintenance mode for route ${route_name}"
   maintenance_on || :
