@@ -12,13 +12,17 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         principal: "adam.brousseau88@gmail.com",
         grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure"]
           // https://bugs.eclipse.org/bugs/show_bug.cgi?id=559384
-          + ["Job/Configure"], 
+          + ["Job/Configure"]
+          // https://bugs.eclipse.org/bugs/show_bug.cgi?id=567291
+          + ["Job/Build", "Job/Cancel"], 
       },
       {
         principal: "joe_dekoning@ca.ibm.com",
         grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure"]
           // https://bugs.eclipse.org/bugs/show_bug.cgi?id=559384
-          + ["Job/Configure"], 
+          + ["Job/Configure"]
+          // https://bugs.eclipse.org/bugs/show_bug.cgi?id=567291
+          + ["Job/Build", "Job/Cancel"], 
       },
       {
         principal: "peter_shipton@ca.ibm.com",
@@ -34,7 +38,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
           // https://bugs.eclipse.org/bugs/show_bug.cgi?id=559384
           ["Job/Configure"]
           // https://bugs.eclipse.org/bugs/show_bug.cgi?id=559384#c3
-          + ["Agent/Configure", "Agent/Connect", "Agent/Disconnect"],
+          + ["Agent/Configure", "Agent/Connect", "Agent/Disconnect"]
+          // https://bugs.eclipse.org/bugs/show_bug.cgi?id=567291
+          + ["Job/Build", "Job/Cancel"], 
       },
       {
         // https://bugs.eclipse.org/bugs/show_bug.cgi?id=553268

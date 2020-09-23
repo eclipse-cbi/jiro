@@ -383,7 +383,9 @@
                "Agent/Connect",
                "Agent/Disconnect",
                "Agent/Configure",
-               "Job/Configure"
+               "Job/Configure",
+               "Job/Build",
+               "Job/Cancel"
             ],
             "principal": "adam.brousseau88@gmail.com"
          },
@@ -392,7 +394,9 @@
                "Agent/Connect",
                "Agent/Disconnect",
                "Agent/Configure",
-               "Job/Configure"
+               "Job/Configure",
+               "Job/Build",
+               "Job/Cancel"
             ],
             "principal": "joe_dekoning@ca.ibm.com"
          },
@@ -413,7 +417,9 @@
                "Job/Configure",
                "Agent/Configure",
                "Agent/Connect",
-               "Agent/Disconnect"
+               "Agent/Disconnect",
+               "Job/Build",
+               "Job/Cancel"
             ],
             "principal": "vsebe@ca.ibm.com"
          },
