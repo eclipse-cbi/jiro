@@ -1206,6 +1206,7 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
+          - "Agent/Build:adam.brousseau88@gmail.com"
           - "Agent/Configure:adam.brousseau88@gmail.com"
           - "Agent/Connect:adam.brousseau88@gmail.com"
           - "Agent/Disconnect:adam.brousseau88@gmail.com"
@@ -1216,7 +1217,8 @@ data:
           - "Job/Read:anonymous"
           - "Overall/Read:anonymous"
           - "Job/ExtendedRead:common"
-          - "Agent/Configure:daniel_heidinga@ca.ibm.com"
+          - "Agent/Configure:heidinga@redhat.com"
+          - "Agent/Build:joe_dekoning@ca.ibm.com"
           - "Agent/Configure:joe_dekoning@ca.ibm.com"
           - "Agent/Connect:joe_dekoning@ca.ibm.com"
           - "Agent/Disconnect:joe_dekoning@ca.ibm.com"
@@ -1248,6 +1250,7 @@ data:
           - "View/Create:technology.openj9"
           - "View/Delete:technology.openj9"
           - "View/Read:technology.openj9"
+          - "Agent/Build:vsebe@ca.ibm.com"
           - "Agent/Configure:vsebe@ca.ibm.com"
           - "Agent/Connect:vsebe@ca.ibm.com"
           - "Agent/Disconnect:vsebe@ca.ibm.com"
@@ -1597,6 +1600,18 @@ data:
           triggers:
             skipScmCause: false
             skipUpstreamCause: false
+      gitLabConnectionConfig:
+        connections:
+        - clientBuilderId: "autodetect"
+          connectionTimeout: 10
+          ignoreCertificateErrors: false
+          name: "gitlab.eclipse.org"
+          readTimeout: 10
+          url: "https://gitlab.eclipse.org"
+      gitLabServers:
+        servers:
+        - name: "gitlab.eclipse.org"
+          serverUrl: "https://gitlab.eclipse.org"
     tool:
       xvfbInstallation:
         installations:

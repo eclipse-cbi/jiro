@@ -385,7 +385,8 @@
                "Agent/Configure",
                "Job/Configure",
                "Job/Build",
-               "Job/Cancel"
+               "Job/Cancel",
+               "Agent/Build"
             ],
             "principal": "adam.brousseau88@gmail.com"
          },
@@ -396,7 +397,8 @@
                "Agent/Configure",
                "Job/Configure",
                "Job/Build",
-               "Job/Cancel"
+               "Job/Cancel",
+               "Agent/Build"
             ],
             "principal": "joe_dekoning@ca.ibm.com"
          },
@@ -410,7 +412,7 @@
             "grantedPermissions": [
                "Agent/Configure"
             ],
-            "principal": "daniel_heidinga@ca.ibm.com"
+            "principal": "heidinga@redhat.com"
          },
          {
             "grantedPermissions": [
@@ -419,7 +421,8 @@
                "Agent/Connect",
                "Agent/Disconnect",
                "Job/Build",
-               "Job/Cancel"
+               "Job/Cancel",
+               "Agent/Build"
             ],
             "principal": "vsebe@ca.ibm.com"
          },
