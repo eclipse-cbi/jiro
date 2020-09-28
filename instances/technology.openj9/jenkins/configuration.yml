@@ -804,102 +804,6 @@ jenkins:
         command:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub18-x86-2 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
   - permanent:
-      name: "win2012r2-x86-1"
-      nodeDescription: "oj9-win2012r2-1 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
-      labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.role.build ci.role.test ci.geo.softlayer"
-      remoteFS: 'C:\Users\jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.170.69 \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
-      nodeProperties:
-      - envVars:
-          env:
-          - key: "TEMP"
-            value: "c:\\temp"
-  - permanent:
-      name: "win2012r2-x86-2"
-      nodeDescription: "oj9-win2012r2-2 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
-      labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.role.build ci.role.test ci.geo.softlayer"
-      remoteFS: 'C:\Users\jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.150.148 \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
-      nodeProperties:
-      - envVars:
-          env:
-          - key: "TEMP"
-            value: "c:\\temp"
-  - permanent:
-      name: "win2012r2-x86-3"
-      nodeDescription: "oj9-win2012r2-3 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
-      labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.role.build ci.role.test ci.geo.softlayer"
-      remoteFS: 'C:\Users\jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.170.74 \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
-      nodeProperties:
-      - envVars:
-          env:
-          - key: "TEMP"
-            value: "c:\\temp"
-  - permanent:
-      name: "win2012r2-x86-4"
-      nodeDescription: "oj9-win2012r2-4 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
-      labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.role.build ci.role.test ci.geo.softlayer"
-      remoteFS: 'C:\Users\jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.150.158 \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
-      nodeProperties:
-      - envVars:
-          env:
-          - key: "TEMP"
-            value: "c:\\temp"
-  - permanent:
-      name: "win2012r2-x86-5"
-      nodeDescription: "oj9-win2012r2-5 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
-      labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build ci.role.test"
-      remoteFS: 'C:\Users\jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.170.78 \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
-      nodeProperties:
-      - envVars:
-          env:
-          - key: "TEMP"
-            value: "c:\\temp"
-  - permanent:
-      name: "win2012r2-x86-6"
-      nodeDescription: "oj9-win2012r2-6 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
-      labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build ci.role.test"
-      remoteFS: 'C:\Users\jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.55.170.76 \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
-      nodeProperties:
-      - envVars:
-          env:
-          - key: "TEMP"
-            value: "c:\\temp"
-  - permanent:
       name: "win2012-x86-1"
       nodeDescription: "oj9-win2012-1 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
       labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build ci.role.test"
@@ -983,7 +887,7 @@ jenkins:
       name: "win2012-x86-6"
       nodeDescription: "oj9-win2012-6 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
       labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build ci.role.test"
-      remoteFS: 'C:\Users\jenkins'
+      remoteFS: 'F:\Users\jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
       retentionStrategy: "always"
