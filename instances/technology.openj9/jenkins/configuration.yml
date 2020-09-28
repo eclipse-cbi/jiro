@@ -899,7 +899,7 @@ jenkins:
           env:
           - key: "TEMP"
             value: "c:\\temp"
-- permanent:
+  - permanent:
       name: "win2012-x86-1"
       nodeDescription: "oj9-win2012-1 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
       labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build ci.role.test"
@@ -915,7 +915,7 @@ jenkins:
           env:
           - key: "TEMP"
             value: "c:\\temp"   
-- permanent:
+  - permanent:
       name: "win2012-x86-2"
       nodeDescription: "oj9-win2012-2 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
       labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build ci.role.test"

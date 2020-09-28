@@ -1140,6 +1140,106 @@ data:
               - key: "TEMP"
                 value: "c:\\temp"
       - permanent:
+          name: "win2012-x86-1"
+          nodeDescription: "oj9-win2012-1 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
+            Disk"
+          labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer
+            ci.role.build ci.role.test"
+          remoteFS: 'F:\Users\jenkins'
+          numExecutors: 1
+          mode: EXCLUSIVE
+          retentionStrategy: "always"
+          launcher:
+            command:
+              command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.48.4.134
+                \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+                ; exec java -jar slave.jar\""
+          nodeProperties:
+          - envVars:
+              env:
+              - key: "TEMP"
+                value: "c:\\temp"
+      - permanent:
+          name: "win2012-x86-2"
+          nodeDescription: "oj9-win2012-2 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
+            Disk"
+          labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer
+            ci.role.build ci.role.test"
+          remoteFS: 'F:\Users\jenkins'
+          numExecutors: 1
+          mode: EXCLUSIVE
+          retentionStrategy: "always"
+          launcher:
+            command:
+              command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.48.4.137
+                \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+                ; exec java -jar slave.jar\""
+          nodeProperties:
+          - envVars:
+              env:
+              - key: "TEMP"
+                value: "c:\\temp"
+      - permanent:
+          name: "win2012-x86-3"
+          nodeDescription: "oj9-win2012-3 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
+            Disk"
+          labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer
+            ci.role.build ci.role.test"
+          remoteFS: 'F:\Users\jenkins'
+          numExecutors: 1
+          mode: EXCLUSIVE
+          retentionStrategy: "always"
+          launcher:
+            command:
+              command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.48.12.131
+                \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+                ; exec java -jar slave.jar\""
+          nodeProperties:
+          - envVars:
+              env:
+              - key: "TEMP"
+                value: "c:\\temp"
+      - permanent:
+          name: "win2012-x86-4"
+          nodeDescription: "oj9-win2012-4 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
+            Disk"
+          labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer
+            ci.role.build ci.role.test"
+          remoteFS: 'F:\Users\jenkins'
+          numExecutors: 1
+          mode: EXCLUSIVE
+          retentionStrategy: "always"
+          launcher:
+            command:
+              command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.48.12.134
+                \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+                ; exec java -jar slave.jar\""
+          nodeProperties:
+          - envVars:
+              env:
+              - key: "TEMP"
+                value: "c:\\temp"
+      - permanent:
+          name: "win2012-x86-5"
+          nodeDescription: "oj9-win2012-5 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
+            Disk"
+          labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer
+            ci.role.build ci.role.test"
+          remoteFS: 'F:\Users\jenkins'
+          numExecutors: 1
+          mode: EXCLUSIVE
+          retentionStrategy: "always"
+          launcher:
+            command:
+              command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.48.12.147
+                \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar
+                ; exec java -jar slave.jar\""
+          nodeProperties:
+          - envVars:
+              env:
+              - key: "TEMP"
+                value: "c:\\temp"
+      - permanent:
           name: "win2012-x86-6"
           nodeDescription: "oj9-win2012-6 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB
             Disk"
