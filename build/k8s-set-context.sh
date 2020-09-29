@@ -23,6 +23,13 @@ fi
 
 CONTEXT_MAPPING="${1}"
 
+if ! jq -e '.kubeconfig.path' <"$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/../.localconfig" > /dev/null; then
+  echo "ERROR: File '$(readlink -f "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/../.localconfig")' does not contain proper configuration"
+  echo "Create one to configure the location of the kubeconfig file and the associated context. Example:"
+  echo '{"kubeconfig": { "path": "~/.kube/config", "contextMapping": { "okd-c1": "okd", "ci-c1": "openshift" }}}' | jq -M
+  exit 2
+fi
+
 KUBECONFIG="$(jq -r '.kubeconfig.path' <"$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/../.localconfig")"
 KUBECONFIG="$(readlink -f "${KUBECONFIG/#~\//${HOME}/}")"
 
