@@ -56,7 +56,7 @@ if [[ -f "${yml_source}" ]]; then
   expand_templated_yaml "${yml_source}" "$(dirname "${template}")" "${config}" "${partials}" > "${expanded_src}"
   expanded_tpl=$(mktemp)
   expand_templated_yaml "${template}" "$(dirname "${template}")" "${config}" "${partials}" > "${expanded_tpl}"
-  yq m -a "${expanded_src}" "${expanded_tpl}" > "${tmp}"
+  yq m -a=append "${expanded_src}" "${expanded_tpl}" > "${tmp}"
   rm "${expanded_src}" "${expanded_tpl}"
 elif [[ -f "${yml_source}.override" ]]; then
   cp "${yml_source}.override" "${tmp}"
