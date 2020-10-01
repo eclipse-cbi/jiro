@@ -37,16 +37,25 @@ jenkins:
         - key: "PATH"
           value: '$HOME/.cargo/bin:$PATH'
   - permanent:
-      name: "ta9y0-macos-10.14"
-      nodeDescription: "macOS 10.14 (Mojave), with login session, hosted on MacStadium"
-      labelString: "macos macos-10.14"
-      remoteFS: '/Users/genie.releng/jenkins_agent/'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
+      labelString: "macos macos-10.15"
       launcher:
         command:
-          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@207.254.46.148 "curl https://ci.eclipse.org/releng/jnlpJars/slave.jar > /Users/genie.releng/jenkins_agent/remoting/slave.jar; java -jar /Users/genie.releng/jenkins_agent/remoting/slave.jar"'
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@207.254.46.148\
+            \ \"curl https://ci.eclipse.org/releng/jnlpJars/slave.jar > /Users/genie.releng/jenkins_agent/remoting/slave.jar;\
+            \ java -jar /Users/genie.releng/jenkins_agent/remoting/slave.jar\""
+      mode: EXCLUSIVE
+      name: "ta9y0-macos-10.15"
+      nodeDescription: "macOS 10.15 (Catalina), with login session, hosted on MacStadium"
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "JAVA_HOME"
+            value: "/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home"
+          - key: "PATH"
+            value: "/usr/local/bin/:/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+      numExecutors: 1
+      remoteFS: "/Users/genie.releng/jenkins_agent/"
+      retentionStrategy: "always"
   - permanent:
       name: "windows-server-2016-1"
       nodeDescription: ""
