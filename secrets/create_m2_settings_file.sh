@@ -45,9 +45,9 @@ mkdir -p ${temp_path}
 pw_gen() {
   # If pwgen is not installed, use /dev/urandom instead
   if hash pwgen 2>/dev/null; then
-    pwgen -1 -s -y $1
+    pwgen -1 -s -y -r \''"`{}$#\\!' "${1}"
   else
-    </dev/urandom tr -dc 'A-Za-z0-9!"#$%&'\''()*+,-./:;<=>?@[\]^_`{|}~' | head -c $1
+    </dev/urandom tr -dc 'A-Za-z0-9#%&()*+,-./:;<=>?@[]^_|~' | head -c "${1}"
   fi
 }
 
