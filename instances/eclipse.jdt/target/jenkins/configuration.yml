@@ -374,6 +374,28 @@ unclassified:
             artifactNumToKeepStr: "5"
             numToKeepStr: "128"
 
+  sonarGlobalConfiguration:
+    buildWrapperEnabled: true
+    installations:
+    - name: "SonarCloud.io"
+      serverUrl: "https://sonarcloud.io"
+      triggers:
+        skipScmCause: false
+        skipUpstreamCause: false
+
+  gitLabConnectionConfig:
+    connections:
+    - clientBuilderId: "autodetect"
+      connectionTimeout: 10
+      ignoreCertificateErrors: false
+      name: "gitlab.eclipse.org"
+      readTimeout: 10
+      url: "https://gitlab.eclipse.org"
+  gitLabServers:
+    servers:
+    - name: "gitlab.eclipse.org"
+      serverUrl: "https://gitlab.eclipse.org"
+
 tool:
   jdk:
     installations:

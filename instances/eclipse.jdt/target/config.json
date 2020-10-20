@@ -437,7 +437,7 @@
          "promoted-builds",
          "rebuild",
          "simple-theme-plugin",
-         "sonar:2.6.1",
+         "sonar",
          "ssh-agent",
          "ssh-slaves",
          "timestamper",
