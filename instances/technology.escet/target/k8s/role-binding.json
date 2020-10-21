@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.escet",
+         "org.eclipse.cbi.jiro/project.shortname": "escet"
+      },
+      "name": "escet",
+      "namespace": "escet"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "escet"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "escet",
+         "namespace": "escet"
+      }
+   ]
+}

@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.steady",
+         "org.eclipse.cbi.jiro/project.shortname": "steady"
+      },
+      "name": "steady",
+      "namespace": "steady"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "steady"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "steady",
+         "namespace": "steady"
+      }
+   ]
+}
