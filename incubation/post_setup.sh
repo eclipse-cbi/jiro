@@ -6,18 +6,19 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-script_name="$(basename ${BASH_SOURCE[0]})"
+SCRIPT_NAME="$(basename ${BASH_SOURCE[0]})"
+SCRIPT_FOLDER="$(dirname $(readlink -f "${BASH_SOURCE[0]}"))"
 
-project_name="${1:-}"
-short_name=${project_name##*.}
+PROJECT_NAME="${1:-}"
+SHORT_NAME=${PROJECT_NAME##*.}
 
 usage() {
-  printf "Usage: %s project_name\n" "$script_name"
+  printf "Usage: %s project_name\n" "${SCRIPT_NAME}"
   printf "\t%-16s full name (e.g. technology.cbi for CBI project).\n" "project_name"
 }
 
 # check that project name is not empty
-if [[ -z "${project_name}" ]]; then
+if [[ -z "${PROJECT_NAME}" ]]; then
  printf "ERROR: a project name must be given.\n"
  usage
  exit 1
@@ -38,7 +39,7 @@ create_and_copy_templates() {
         <gerritHostName>gerrit-local</gerritHostName>
         <gerritSshPort>29418</gerritSshPort>
         <gerritProxy/>
-        <gerritUserName>genie.${short_name}</gerritUserName>
+        <gerritUserName>genie.${SHORT_NAME}</gerritUserName>
         <gerritEMail/>
         <gerritAuthKeyFile>/run/secrets/jenkins/ssh/id_rsa</gerritAuthKeyFile>
         <gerritAuthKeyFilePassword></gerritAuthKeyFilePassword>
@@ -106,7 +107,7 @@ create_and_copy_templates() {
 EOG
 
   echo "Creating Xvnc config template..."
-  xvnc_commandline='Xvnc :$DISPLAY_NUMBER -geometry 1024x768 -depth 24 -ac -SecurityTypes none -noreset'
+  local xvnc_commandline='Xvnc :$DISPLAY_NUMBER -geometry 1024x768 -depth 24 -ac -SecurityTypes none -noreset'
   cat <<EOH > tmp/hudson.plugins.xvnc.Xvnc.xml
 <?xml version='1.1' encoding='UTF-8'?>
 <hudson.plugins.xvnc.Xvnc_-DescriptorImpl plugin="xvnc@1.24">
@@ -120,38 +121,14 @@ EOG
 </hudson.plugins.xvnc.Xvnc_-DescriptorImpl>
 EOH
 
-  echo "Creating credentials template..."
-  cat <<EOI > tmp/credentials.xml
-<?xml version='1.1' encoding='UTF-8'?>
-<com.cloudbees.plugins.credentials.SystemCredentialsProvider plugin="credentials@2.1.18">
-  <domainCredentialsMap class="hudson.util.CopyOnWriteMap\$Hash">
-    <entry>
-      <com.cloudbees.plugins.credentials.domains.Domain>
-        <specifications/>
-      </com.cloudbees.plugins.credentials.domains.Domain>
-      <java.util.concurrent.CopyOnWriteArrayList>
-        <com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey plugin="ssh-credentials@1.16">
-          <scope>GLOBAL</scope>
-          <id>projects-storage.eclipse.org-bot-ssh</id>
-          <description>ssh://genie.${short_name}@projects-storage.eclipse.org</description>
-          <username>genie.${short_name}</username>
-          <passphrase></passphrase>
-          <privateKeySource class="com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey\$DirectEntryPrivateKeySource">
-            <privateKey>
-            </privateKey>
-          </privateKeySource>
-        </com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey>
-      </java.util.concurrent.CopyOnWriteArrayList>
-    </entry>
-  </domainCredentialsMap>
-</com.cloudbees.plugins.credentials.SystemCredentialsProvider>
-EOI
+  echo "Creating credentials..."
+  ${SCRIPT_FOLDER}/../jenkins-create-credentials.sh "${PROJECT_NAME}"
 
-  echo "Copy files to Jiro pod ${short_name}-0..."
-  oc rsync tmp/ ${short_name}-0:/var/jenkins/ -n=${short_name} --no-perms
+  echo "Copy files to Jiro pod ${SHORT_NAME}-0..."
+  oc rsync tmp/ ${SHORT_NAME}-0:/var/jenkins/ -n=${SHORT_NAME} --no-perms
   rm -rf tmp
   echo "Force restart of Jenkins..."
-  oc delete pod ${short_name}-0 -n=${short_name}
+  oc delete pod ${SHORT_NAME}-0 -n=${SHORT_NAME} --force
 }
 
 create_and_copy_templates

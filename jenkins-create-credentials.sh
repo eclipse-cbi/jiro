@@ -13,7 +13,7 @@ IFS=$'\n\t'
 script_name="$(basename ${BASH_SOURCE[0]})"
 script_folder="$(dirname $(readlink -f "${BASH_SOURCE[0]}"))"
 
-export PASSWORD_STORE_DIR=~/.password-store/cbi-pass
+PASSWORD_STORE_DIR="${HOME}/.password-store/cbi-pass"
 
 PROJECT_NAME="${1:-}"
 SHORT_NAME="${PROJECT_NAME##*.}"
@@ -160,8 +160,6 @@ create_ssh_credentials() {
     # escape XML special chars (<, >, &, ", and ' to their matching entities)
     passphrase=$(pass /bots/${PROJECT_NAME}/${pass_domain}/id_rsa.passphrase | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g')
 
-
-
     # check if credentials already exist
     reply=$(${script_folder}/jenkins-cli.sh ${script_folder}/instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)
     if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then #skip for global domain ("_")
@@ -204,42 +202,42 @@ create_file_credentials() {
 ## projects-storage.eclipse.org ##
 
 if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${projects_storage_pass_domain}/id_rsa.gpg" ]]; then
-    echo "Found ${projects_storage_pass_domain} SSH credentials in password store..."
-    create_ssh_credentials "_" "projects-storage.eclipse.org-bot-ssh" "ssh://genie.${SHORT_NAME}@projects-storage.eclipse.org" "${projects_storage_pass_domain}"
+  echo "Found ${projects_storage_pass_domain} SSH credentials in password store..."
+  create_ssh_credentials "_" "projects-storage.eclipse.org-bot-ssh" "ssh://genie.${SHORT_NAME}@projects-storage.eclipse.org" "${projects_storage_pass_domain}"
 fi
 
 ## git.eclipse.org ##
 
 # always create by default ?
 if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${git_eclipse_pass_domain}/id_rsa.gpg" ]]; then
-    echo "Found ${git_eclipse_pass_domain} SSH credentials in password store..."
-    create_ssh_credentials "_" "git.eclipse.org-bot-ssh" "ssh://genie.${SHORT_NAME}@git.eclipse.org" "${git_eclipse_pass_domain}"
+  echo "Found ${git_eclipse_pass_domain} SSH credentials in password store..."
+  create_ssh_credentials "_" "git.eclipse.org-bot-ssh" "ssh://genie.${SHORT_NAME}@git.eclipse.org" "${git_eclipse_pass_domain}"
 fi
 
 ## GitHub.com ##
 
 if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${github_pass_domain}/password.gpg" ]]; then
-    echo "Found ${github_pass_domain} username/password credentials in password store..."
-    create_username_password_credentials "api.github.com" "github-bot" "GitHub bot" "${github_pass_domain}"
+  echo "Found ${github_pass_domain} username/password credentials in password store..."
+  create_username_password_credentials "api.github.com" "github-bot" "GitHub bot" "${github_pass_domain}"
 fi
 
 if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${github_pass_domain}/id_rsa.gpg" ]]; then
-    echo "Found ${github_pass_domain} SSH credentials in password store..."
-    create_ssh_credentials "api.github.com" "github-bot-ssh" "GitHub bot (SSH)" "${github_pass_domain}"
+  echo "Found ${github_pass_domain} SSH credentials in password store..."
+  create_ssh_credentials "api.github.com" "github-bot-ssh" "GitHub bot (SSH)" "${github_pass_domain}"
 fi
 
 ## GitLab ##
 
 if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${gitlab_pass_domain}/id_rsa.gpg" ]]; then
-    echo "Found ${gitlab_pass_domain} SSH credentials in password store..."
-    create_ssh_credentials "gitlab.eclipse.org" "gitlab-bot-ssh" "GitLab bot (SSH)" "${gitlab_pass_domain}"
+  echo "Found ${gitlab_pass_domain} SSH credentials in password store..."
+  create_ssh_credentials "gitlab.eclipse.org" "gitlab-bot-ssh" "GitLab bot (SSH)" "${gitlab_pass_domain}"
 fi
 
 ## GPG (for OSSRH) ##
 
 if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${gpg_pass_domain}/secret-subkeys.asc.gpg" ]]; then
-    echo "Found ${gpg_pass_domain} credentials in password store..."
-    create_file_credentials "_" "secret-subkeys.asc" "${gpg_pass_domain}"
+  echo "Found ${gpg_pass_domain} credentials in password store..."
+  create_file_credentials "_" "secret-subkeys.asc" "${gpg_pass_domain}"
 fi
 
 
