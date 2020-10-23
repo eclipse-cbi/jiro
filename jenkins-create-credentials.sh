@@ -10,17 +10,18 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-script_name="$(basename ${BASH_SOURCE[0]})"
-script_folder="$(dirname $(readlink -f "${BASH_SOURCE[0]}"))"
+script_name="$(basename "${BASH_SOURCE[0]}")"
+script_folder="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 PASSWORD_STORE_DIR="${HOME}/.password-store/cbi-pass"
+export PASSWORD_STORE_DIR
 
 PROJECT_NAME="${1:-}"
 SHORT_NAME="${PROJECT_NAME##*.}"
 
 usage() {
-    printf "%s <project_name>\n" "${script_name}"
-    printf "\t%-16s the name of the project to add credentials to Jenkins\n" "project_name"
+  printf "%s <project_name>\n" "${script_name}"
+  printf "\t%-16s the name of the project to add credentials to Jenkins\n" "project_name"
 }
 
 # check that project name is not empty
@@ -30,14 +31,14 @@ if [[ -z "${PROJECT_NAME}" ]]; then
   exit 1
 fi
 
-projects_storage_pass_domain="projects-storage.eclipse.org"
-git_eclipse_pass_domain="git.eclipse.org"
-github_pass_domain="github.com"
-gitlab_pass_domain="gitlab.eclipse.org"
-gpg_pass_domain="gpg"
+PROJECTS_STORAGE_PASS_DOMAIN="projects-storage.eclipse.org"
+GIT_ECLIPSE_PASS_DOMAIN="git.eclipse.org"
+GITHUB_PASS_DOMAIN="github.com"
+GITLAB_PASS_DOMAIN="gitlab.eclipse.org"
+GPG_PASS_DOMAIN="gpg"
 
 
-create_domain_xml() {
+create_domain() {
     local domain_name="${1:-}"
     echo "  Creating domain '${domain_name}'..."
     "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" create-credentials-domain-by-xml system::system::jenkins <<EOF
@@ -48,14 +49,36 @@ create_domain_xml() {
 EOF
 }
 
-create_username_password_credentials_xml() {
-    local domain_name="${1:-}"
-    local id="${2:-}"
-    local username="${3:-}"
-    local password="${4:-}"
-    local description="${5:-}"
-    echo "  Creating username/password credential '${id}'..."
-    "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" create-credentials-by-xml system::system::jenkins "${domain_name}" <<EOF
+create_username_password_credentials() {
+  local domain_name="${1:-}"
+  local id="${2:-}"
+  local username="${3:-}"
+  local password="${4:-}"
+  local description="${5:-}"
+  echo "  Creating username/password credential '${id}'..."
+
+  # check if credentials already exist, update password if yes
+  local reply=$(${script_folder}/jenkins-cli.sh ${script_folder}/instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)
+  local cli_command
+  local update_id
+  if [[ "${reply}" == "No such domain" ]]; then
+    create_domain "${domain_name}"
+    cli_command="create-credentials-by-xml"
+    update_id=
+  elif [[ "${reply}" == "No such credential" ]]; then
+    cli_command="create-credentials-by-xml"
+    update_id=
+  elif [[ "${reply}" == "<com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl"* ]]; then
+    echo "  Credential ${id} already exists. Overwriting..."
+    cli_command="update-credentials-by-xml"
+    update_id="${id}"
+  else
+    echo "Unexpected reply: ${reply}"
+    exit 1
+  fi
+
+  # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
+  "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
 <com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
   <scope>GLOBAL</scope>
   <id>${id}</id>
@@ -67,14 +90,36 @@ EOF
 }
 
 create_ssh_credentials_xml() {
-    local domain_name="${1:-}"
-    local id="${2:-}"
-    local username="${3:-}"
-    local id_rsa="${4:-}"
-    local passphrase="${5:-}"
-    local description="${6:-}"
-    echo "  Creating SSH credential '${id}'..."
-    "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" create-credentials-by-xml system::system::jenkins "${domain_name}" <<EOF
+  local domain_name="${1:-}"
+  local id="${2:-}"
+  local username="${3:-}"
+  local id_rsa="${4:-}"
+  local passphrase="${5:-}"
+  local description="${6:-}"
+  echo "  Creating SSH credential '${id}'..."
+
+  # check if credentials already exist
+  local reply=$(${script_folder}/jenkins-cli.sh ${script_folder}/instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)
+  local cli_command
+  local update_id
+  if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then #skip for global domain ("_")
+    create_domain "${domain_name}"
+    cli_command="create-credentials-by-xml"
+    update_id=
+  elif [[ "${reply}" == "No such credential" ]]; then
+    cli_command="create-credentials-by-xml"
+    update_id=
+  elif [[ "${reply}" == "<com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey"* ]]; then
+    echo "  Credential ${id} already exists. Overwriting..."
+    cli_command="update-credentials-by-xml"
+    update_id="${id}"
+  else
+    echo "Unexpected reply: ${reply}"
+    exit 1
+  fi
+
+  # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
+  "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
 <com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey>
   <scope>GLOBAL</scope>
   <id>${id}</id>
@@ -89,155 +134,119 @@ EOF
 }
 
 #TODO: how can the bytes be added?
-create_file_credentials_xml() {
-    local domain_name="${1:-}"
-    local id="${2:-}"
-    local file_name="${3:-}"
-    local subkeys="${4:-}"
-    echo "  Creating file credential '${id}'..."
+create_file_credentials() {
+  local domain_name="${1:-}"
+  local id="${2:-}"
+  local file_name="${3:-}"
+  local subkeys="${4:-}"
+  echo "  Creating file credential '${id}'..."
 
-    ## TODO: find out how secret bytes need to be encoded
-    echo "  IMPORTANT: file needs to be uploaded manually in the WebUI for now!"
-    #<secretBytes>${subkeys}</secretBytes>
+  # check if credentials already exist
+  reply="$(${script_folder}/jenkins-cli.sh ${script_folder}/instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)"
+  local cli_command
+  if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then
+    create_domain "${domain_name}"
+    cli_command="create-credentials-by-xml"
+  elif [[ "${reply}" == "No such credential" ]]; then
+    cli_command="create-credentials-by-xml"
+  elif [[ "${reply}" == "<org.jenkinsci.plugins.plaincredentials.impl.FileCredentialsImpl"* ]]; then
+    echo "  Credential ${id} already exists."
+    # Do not overwrite, since we can't set the a secret file automatically (yet)
+    return
+  else
+    echo "Unexpected reply: ${reply}"
+    exit 1
+  fi
 
-    "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" create-credentials-by-xml system::system::jenkins "${domain_name}" <<EOF
+  "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" <<EOF
 <org.jenkinsci.plugins.plaincredentials.impl.FileCredentialsImpl>
   <scope>GLOBAL</scope>
   <id>${id}</id>
   <fileName>${file_name}</fileName>
 </org.jenkinsci.plugins.plaincredentials.impl.FileCredentialsImpl>
 EOF
-}
 
-create_username_password_credentials() {
-    local domain_name="${1:-}"
-    local id="${2:-}"
-    local description="${3:-}"
-    local pass_domain="${4:-}"
-
-    # read credentials from pass
-    user=$(pass /bots/${PROJECT_NAME}/${pass_domain}/username)
-    password=$(pass /bots/${PROJECT_NAME}/${pass_domain}/password)
-
-    # check if credentials already exist
-    reply=$(${script_folder}/jenkins-cli.sh ${script_folder}/instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)
-    if [[ "${reply}" == "No such domain" ]]; then
-        create_domain_xml "${domain_name}"
-        create_username_password_credentials_xml "${domain_name}" "${id}" "${user}" "${password}" "${description}"
-    elif [[ "${reply}" == "No such credential" ]]; then
-        create_username_password_credentials_xml "${domain_name}" "${id}" "${user}" "${password}" "${description}"
-    elif [[ "${reply}" == "<com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl"* ]]; then
-        echo "  Credential ${id} already exists."
-    else
-        echo "Unexpected reply: ${reply}"
-        exit 1
-    fi
+  ## TODO: find out how secret bytes need to be encoded
+  echo "  IMPORTANT: secret file needs to be uploaded manually in the WebUI for now!"
+  #<secretBytes>${subkeys}</secretBytes>
 }
 
 create_ssh_credentials() {
-    local domain_name="${1:-}"
-    local id="${2:-}"
-    local description="${3:-}"
-    local pass_domain="${4:-}"
+  local domain_name="${1:-}"
+  local id="${2:-}"
+  local description="${3:-}"
+  local pass_domain="${4:-}"
 
-    # read credentials from pass
+  # read credentials from pass
 
-    user=$(pass /bots/${PROJECT_NAME}/${pass_domain}/username)
+  user="$(pass "/bots/${PROJECT_NAME}/${pass_domain}/username")"
 
-    LF_XENTITY="&#xA;"
+  LF_XENTITY="&#xA;"
 
-    # TODO: does not seem to work
-    # translate line feeds to LF_XENTITY 
-    #id_rsa=$(pass /bots/${PROJECT_NAME}/${pass_domain}/id_rsa | tr '\n' ',' | sed 's/,/\'${LF_XENTITY}'/g')
+  # TODO: does not seem to work
+  # translate line feeds to LF_XENTITY 
+  #id_rsa=$(pass "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${pass_domain}/id_rsa" | tr '\n' ',' | sed 's/,/\'${LF_XENTITY}'/g')
 
-    id_rsa=$(pass /bots/${PROJECT_NAME}/${pass_domain}/id_rsa)
+  id_rsa="$(pass "/bots/${PROJECT_NAME}/${pass_domain}/id_rsa")"
 
-    # remove trailing line feed (already translated to LF_XENTITY)
-    if [ "$(echo ${id_rsa} | wc -c)" -ne 0 ] && [ "$(echo ${id_rsa} | tail -c -6)" == "${LF_XENTITY}" ]; then
-      id_rsa="$(echo ${id_rsa} | head -c -6)"
-    fi
+  # remove trailing line feed (already translated to LF_XENTITY)
+  if [ "$(echo "${id_rsa}" | wc -c)" -ne 0 ] && [ "$(echo "${id_rsa}" | tail -c -6)" == "${LF_XENTITY}" ]; then
+    id_rsa="$(echo "${id_rsa}" | head -c -6)"
+  fi
 
-    # escape XML special chars (<, >, &, ", and ' to their matching entities)
-    passphrase=$(pass /bots/${PROJECT_NAME}/${pass_domain}/id_rsa.passphrase | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g')
-
-    # check if credentials already exist
-    reply=$(${script_folder}/jenkins-cli.sh ${script_folder}/instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)
-    if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then #skip for global domain ("_")
-        create_domain_xml "${domain_name}"
-        create_ssh_credentials_xml "${domain_name}" "${id}" "${user}" "${id_rsa}" "${passphrase}" "${description}"
-    elif [[ "${reply}" == "No such credential" ]]; then
-        create_ssh_credentials_xml "${domain_name}" "${id}" "${user}" "${id_rsa}" "${passphrase}" "${description}"
-    elif [[ "${reply}" == "<com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey"* ]]; then
-        echo "  Credential ${id} already exists."
-    else
-        echo "Unexpected reply: ${reply}"
-        exit 1
-    fi
+  # escape XML special chars (<, >, &, ", and ' to their matching entities)
+  passphrase="$(pass "/bots/${PROJECT_NAME}/${pass_domain}/id_rsa.passphrase" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g')"
+  create_ssh_credentials_xml "${domain_name}" "${id}" "${user}" "${id_rsa}" "${passphrase}" "${description}"
 }
 
-create_file_credentials() {
-    local domain_name="${1:-}"
-    local id="${2:-}"
-    local file_name="${id}" # id == filename
-    local pass_domain="${3:-}"
 
-    # read credentials from pass
-    subkeys=$(pass /bots/${PROJECT_NAME}/${pass_domain}/secret-subkeys.asc)
 
-    # check if credentials already exist
-    reply=$(${script_folder}/jenkins-cli.sh ${script_folder}/instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)
-    if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then
-        create_domain_xml "${domain_name}"
-        create_file_credentials_xml "${domain_name}" "${id}" "${file_name}" "${subkeys}"
-    elif [[ "${reply}" == "No such credential" ]]; then
-        create_file_credentials_xml "${domain_name}" "${id}" "${file_name}" "${subkeys}"
-    elif [[ "${reply}" == "<org.jenkinsci.plugins.plaincredentials.impl.FileCredentialsImpl"* ]]; then
-        echo "  Credential ${id} already exists."
-    else
-        echo "Unexpected reply: ${reply}"
-        exit 1
-    fi
-}
 
 ## projects-storage.eclipse.org ##
 
-if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${projects_storage_pass_domain}/id_rsa.gpg" ]]; then
-  echo "Found ${projects_storage_pass_domain} SSH credentials in password store..."
-  create_ssh_credentials "_" "projects-storage.eclipse.org-bot-ssh" "ssh://genie.${SHORT_NAME}@projects-storage.eclipse.org" "${projects_storage_pass_domain}"
+if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${PROJECTS_STORAGE_PASS_DOMAIN}/id_rsa.gpg" ]]; then
+  echo "Found ${PROJECTS_STORAGE_PASS_DOMAIN} SSH credentials in password store..."
+  create_ssh_credentials "_" "projects-storage.eclipse.org-bot-ssh" "ssh://genie.${SHORT_NAME}@projects-storage.eclipse.org" "${PROJECTS_STORAGE_PASS_DOMAIN}"
 fi
 
 ## git.eclipse.org ##
 
 # always create by default ?
-if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${git_eclipse_pass_domain}/id_rsa.gpg" ]]; then
-  echo "Found ${git_eclipse_pass_domain} SSH credentials in password store..."
-  create_ssh_credentials "_" "git.eclipse.org-bot-ssh" "ssh://genie.${SHORT_NAME}@git.eclipse.org" "${git_eclipse_pass_domain}"
+if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${GIT_ECLIPSE_PASS_DOMAIN}/id_rsa.gpg" ]]; then
+  echo "Found ${GIT_ECLIPSE_PASS_DOMAIN} SSH credentials in password store..."
+  create_ssh_credentials "_" "git.eclipse.org-bot-ssh" "ssh://genie.${SHORT_NAME}@git.eclipse.org" "${GIT_ECLIPSE_PASS_DOMAIN}"
 fi
 
 ## GitHub.com ##
 
-if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${github_pass_domain}/password.gpg" ]]; then
-  echo "Found ${github_pass_domain} username/password credentials in password store..."
-  create_username_password_credentials "api.github.com" "github-bot" "GitHub bot" "${github_pass_domain}"
+# GitHub username/password credentials are deprecated
+if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${GITHUB_PASS_DOMAIN}/api-token.gpg" ]]; then
+  echo "Found ${GITHUB_PASS_DOMAIN} username/token credentials in password store..."
+  # read credentials from pass
+  user="$(pass "/bots/${PROJECT_NAME}/${GITHUB_PASS_DOMAIN}/username")"
+  token="$(pass "/bots/${PROJECT_NAME}/${GITHUB_PASS_DOMAIN}/api-token")"
+  create_username_password_credentials "api.github.com" "github-bot" "${user}" "${token}" "GitHub bot (username/token)"
 fi
 
-if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${github_pass_domain}/id_rsa.gpg" ]]; then
-  echo "Found ${github_pass_domain} SSH credentials in password store..."
-  create_ssh_credentials "api.github.com" "github-bot-ssh" "GitHub bot (SSH)" "${github_pass_domain}"
+if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${GITHUB_PASS_DOMAIN}/id_rsa.gpg" ]]; then
+  echo "Found ${GITHUB_PASS_DOMAIN} SSH credentials in password store..."
+  create_ssh_credentials "api.github.com" "github-bot-ssh" "GitHub bot (SSH)" "${GITHUB_PASS_DOMAIN}"
 fi
 
 ## GitLab ##
 
-if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${gitlab_pass_domain}/id_rsa.gpg" ]]; then
-  echo "Found ${gitlab_pass_domain} SSH credentials in password store..."
-  create_ssh_credentials "gitlab.eclipse.org" "gitlab-bot-ssh" "GitLab bot (SSH)" "${gitlab_pass_domain}"
+if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${GITLAB_PASS_DOMAIN}/id_rsa.gpg" ]]; then
+  echo "Found ${GITLAB_PASS_DOMAIN} SSH credentials in password store..."
+  create_ssh_credentials "gitlab.eclipse.org" "gitlab-bot-ssh" "GitLab bot (SSH)" "${GITLAB_PASS_DOMAIN}"
 fi
 
 ## GPG (for OSSRH) ##
 
-if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${gpg_pass_domain}/secret-subkeys.asc.gpg" ]]; then
-  echo "Found ${gpg_pass_domain} credentials in password store..."
-  create_file_credentials "_" "secret-subkeys.asc" "${gpg_pass_domain}"
+if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${GPG_PASS_DOMAIN}/secret-subkeys.asc.gpg" ]]; then
+  echo "Found ${GPG_PASS_DOMAIN} credentials in password store..."
+  # read credentials from pass
+  subkeys="$(pass "/bots/${PROJECT_NAME}/${GPG_PASS_DOMAIN}/secret-subkeys.asc")"
+  create_file_credentials "_" "secret-subkeys.asc" "secret-subkeys.asc" "${subkeys}" # id == filename
 fi
 
 
