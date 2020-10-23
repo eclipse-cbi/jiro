@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.4diac",
+         "org.eclipse.cbi.jiro/project.shortname": "4diac"
+      },
+      "name": "4diac",
+      "namespace": "4diac"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "4diac"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "4diac",
+         "namespace": "4diac"
+      }
+   ]
+}
