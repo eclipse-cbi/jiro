@@ -71,6 +71,8 @@ if [[ -f "${instance}/target/.secrets/k8s/gradle-secret-dir.json" ]]; then
   oc apply -f "${instance}/target/.secrets/k8s/gradle-secret-dir.json"
 fi
 
+"${SCRIPT_FOLDER}/gen-dockerconfig-secrets.sh" "${instance}"
+
 sts_as_json() {
   oc get sts -n "$(jq -r '.metadata.name' "${instance}/target/k8s/namespace.json")" "$(jq -r '.metadata.name' "${instance}/target/k8s/statefulset.json")" -o json
 }

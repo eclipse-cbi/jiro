@@ -156,6 +156,30 @@ local clouds = import "clouds.libsonnet";
     "gerrit-trigger-plugin": {
       username: "genie." + $.project.shortName,
       identityFile: "/run/secrets/jenkins/ssh/id_rsa",
-    }
+    },
+    dockerconfigjson: {
+      "dockerconfigjson-for-pull-as-default": {
+        serviceAccount: "default",
+        # The namespace inside which this secret should be created
+        namespace: $.kubernetes.agents.namespace,
+        # type of secret to link: mount or pull (or both). See oc secrets link  --help
+        type: ["pull",], 
+        servers: {
+          "https://index.docker.io/v1/": {
+            username: {
+              pass: "docker.com/default-image-puller/%s/username" % $.deployment.cluster
+            },
+            password: {
+              pass: "docker.com/default-image-puller/%s/password" % $.deployment.cluster
+            },
+          },
+          # Add more here if required, e.g. quay.io, etc...
+        },
+      },
+      ["dockerconfigjson-for-pull-as-%s" % $.project.shortName]: self["dockerconfigjson-for-pull-as-default"] {
+        serviceAccount: $.project.shortName,
+        namespace: $.kubernetes.master.namespace,
+      },
+    },
   }
 }

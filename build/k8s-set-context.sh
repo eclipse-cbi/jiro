@@ -49,7 +49,7 @@ CURRENT_CONTEXT="$(kubectl config current-context)"
 TARGET_CONTEXT="$(jq -r '.kubeconfig.contextMapping["'"${CONTEXT_MAPPING}"'"]' <"$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/../.localconfig")"
 if [[ "${CURRENT_CONTEXT}" != "${TARGET_CONTEXT}" ]]; then
   # Be sure to restore context once calling script exits
-  trap "kubectl config use-context ""${CURRENT_CONTEXT}""" SIGINT SIGTERM ERR EXIT
+  trap "kubectl config use-context ""${CURRENT_CONTEXT}"" > /dev/null" SIGINT SIGTERM ERR EXIT
 
   # switch to given context 
   kubectl config use-context "${TARGET_CONTEXT}"
