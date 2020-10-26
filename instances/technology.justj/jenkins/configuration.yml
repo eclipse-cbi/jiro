@@ -38,3 +38,17 @@ jenkins:
       numExecutors: 1
       remoteFS: "C:\\Users\\genie.justj\\jenkins_agent"
       retentionStrategy: "always"
+  - permanent:
+      name: "aarch64"
+      nodeDescription: "Agent provided by the project"
+      remoteFS: "/home/justj/build"
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        jnlp:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
