@@ -39,7 +39,8 @@ jenkins:
       remoteFS: "C:\\Users\\genie.justj\\jenkins_agent"
       retentionStrategy: "always"
   - permanent:
-      name: "aarch64"
+      labelString: "linux aarch64"
+      name: "f5cjn-project-provided-aarch64"
       nodeDescription: "Agent provided by the project"
       remoteFS: "/home/justj/build"
       numExecutors: 1
