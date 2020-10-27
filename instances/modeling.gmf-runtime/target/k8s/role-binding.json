@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.gmf-runtime",
+         "org.eclipse.cbi.jiro/project.shortname": "gmf-runtime"
+      },
+      "name": "gmf-runtime",
+      "namespace": "gmf-runtime"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "gmf-runtime"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "gmf-runtime",
+         "namespace": "gmf-runtime"
+      }
+   ]
+}
