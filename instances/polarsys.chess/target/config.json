@@ -301,6 +301,7 @@
       }
    },
    "deployment": {
+      "cluster": "ci-c1",
       "controlPort": 8081,
       "host": "ci.eclipse.org",
       "jnlpPort": 50000,
