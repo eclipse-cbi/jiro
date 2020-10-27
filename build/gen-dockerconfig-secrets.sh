@@ -87,7 +87,7 @@ deploy_secret() {
   >&2 echo "INFO: Generating and deploying dockerconfigjson secrets '${secretName}'"
 
   # See https://docs.okd.io/latest/openshift_images/managing_images/using-image-pull-secrets.html#images-allow-pods-to-reference-images-from-secure-registries_using-image-pull-secrets
-  oc4 create secret generic "${secretName}" -n "${namespace}" \
+  oc create secret generic "${secretName}" -n "${namespace}" \
     --from-file=.dockerconfigjson=/dev/stdin \
     --type=kubernetes.io/dockerconfigjson \
     --dry-run -o yaml <<<"$(dockerconfigjson "${secretConfig}" | jsonnet -)" \
@@ -95,7 +95,7 @@ deploy_secret() {
   
   local type
   type="$(jq -r '.type | join(",")' <<<"${secretConfig}")"
-  oc4 secrets link "${serviceAccount}" "${secretName}" -n "${namespace}" --for="${type}"
+  oc secrets link "${serviceAccount}" "${secretName}" -n "${namespace}" --for="${type}"
 }
 
 . "${SCRIPT_FOLDER}/k8s-set-context.sh" "$(jsonnet "${JIRO}" | jq -r '.["config.json"].deployment.cluster')"
