@@ -5,7 +5,7 @@
     <server>
       <id>repo.eclipse.org</id>
       <username>deployment</username>
-      <password>{+PtFaxiYrAgHXMCvh/MtuEkeq5Hw74FoY/rqCDRtc3DmMSau/cTyRUUECfgV0KAC8iJ2lPX4i+0NevIuKKt8sQ==}</password>
+      <password>{pkAYO5ue06EHScuOdMqN6oFQ6/ogqZGU+W35mWOMD3nkxb07NVPSqeqxuqZgJNtwmeLncdoFpuE6hM/1kb+hiA==}</password>
     </server>
   </servers>
   <mirrors>

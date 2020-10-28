@@ -301,6 +301,7 @@
       }
    },
    "deployment": {
+      "cluster": "ci-c1",
       "controlPort": 8081,
       "host": "ci.eclipse.org",
       "jnlpPort": 50000,
@@ -421,6 +422,8 @@
          "git-parameter",
          "github",
          "github-branch-source",
+         "gitlab-plugin",
+         "gitlab-branch-source",
          "greenballs",
          "jdk-tool",
          "jobConfigHistory",
@@ -435,7 +438,7 @@
          "promoted-builds",
          "rebuild",
          "simple-theme-plugin",
-         "sonar:2.6.1",
+         "sonar",
          "ssh-agent",
          "ssh-slaves",
          "timestamper",
@@ -505,7 +508,6 @@
       }
    },
    "maven": {
-      "color": "always",
       "files": {
          "settings-security.xml": {
             "master": {
@@ -548,7 +550,10 @@
          }
       },
       "generate": true,
-      "interactiveMode": false
+      "interactiveMode": false,
+      "mavenrc": "",
+      "showVersion": true,
+      "transferListenerLogLevel": "warn"
    },
    "project": {
       "displayName": "Eclipse Kiso",

@@ -1,2 +1,3 @@
 cmakebuilder
+copyartifact
 cppcheck
