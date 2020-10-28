@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "locationtech.spatial4j",
+         "org.eclipse.cbi.jiro/project.shortname": "spatial4j"
+      },
+      "name": "spatial4j",
+      "namespace": "spatial4j"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "spatial4j"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "spatial4j",
+         "namespace": "spatial4j"
+      }
+   ]
+}

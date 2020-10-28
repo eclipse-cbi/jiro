@@ -1,0 +1,11 @@
+{
+   "apiVersion": "v1",
+   "kind": "Namespace",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "locationtech.spatial4j",
+         "org.eclipse.cbi.jiro/project.shortname": "spatial4j"
+      },
+      "name": "spatial4j"
+   }
+}
