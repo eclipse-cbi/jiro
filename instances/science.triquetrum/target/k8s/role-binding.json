@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "science.triquetrum",
+         "org.eclipse.cbi.jiro/project.shortname": "triquetrum"
+      },
+      "name": "triquetrum",
+      "namespace": "triquetrum"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "triquetrum"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "triquetrum",
+         "namespace": "triquetrum"
+      }
+   ]
+}
