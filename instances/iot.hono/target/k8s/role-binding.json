@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.hono",
+         "org.eclipse.cbi.jiro/project.shortname": "hono"
+      },
+      "name": "hono",
+      "namespace": "hono"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "hono"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "hono",
+         "namespace": "hono"
+      }
+   ]
+}

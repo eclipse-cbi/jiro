@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "tools.mat",
+         "org.eclipse.cbi.jiro/project.shortname": "mat"
+      },
+      "name": "mat",
+      "namespace": "mat"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "mat"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "mat",
+         "namespace": "mat"
+      }
+   ]
+}
