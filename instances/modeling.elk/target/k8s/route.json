@@ -13,7 +13,7 @@
       "namespace": "elk"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/elk",
       "port": {
          "targetPort": "http"
