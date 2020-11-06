@@ -1,0 +1,17 @@
+tool:
+  cmakeTool:
+    installations:
+    - name: "CMake 3.14.5"
+      properties:
+      - installSource:
+          installers:
+          - cmakeInstaller:
+              id: "3.14.5"
+  sonarRunnerInstallation:
+    installations:
+    - name: "SonarQubeScanner"
+      properties:
+      - installSource:
+          installers:
+          - sonarRunnerInstaller:
+              id: "4.5.0.2216"

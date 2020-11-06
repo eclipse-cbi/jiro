@@ -4,7 +4,7 @@
     displayName: "Eclipse 4diac",
   },
   deployment+: {
-    host: "ci-staging.eclipse.org",
+    host: "ci.eclipse.org",
     cluster: "okd-c1",
   }
 }

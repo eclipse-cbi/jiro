@@ -303,11 +303,11 @@
    "deployment": {
       "cluster": "okd-c1",
       "controlPort": 8081,
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "jnlpPort": 50000,
       "prefix": "/4diac",
       "uiPort": 8080,
-      "url": "https://ci-staging.eclipse.org/4diac"
+      "url": "https://ci.eclipse.org/4diac"
    },
    "docker": {
       "master": {

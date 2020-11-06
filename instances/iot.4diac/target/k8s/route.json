@@ -13,7 +13,7 @@
       "namespace": "4diac"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/4diac",
       "port": {
          "targetPort": "http"
