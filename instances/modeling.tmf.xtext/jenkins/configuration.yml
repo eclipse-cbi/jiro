@@ -30,5 +30,5 @@ jenkins:
       remoteFS: "/home/xtextbot"
 
 unclassified:
-  timestamperConfig:
+  timestamper:
     allPipelines: true
