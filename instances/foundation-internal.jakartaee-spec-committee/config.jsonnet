@@ -4,5 +4,7 @@
     displayName: "Jakarta EE Specification Committee",
     unixGroupName: "jakartaee.spec-committee"
   },
-  secrets: {}
+  secrets+: {
+    "gerrit-trigger-plugin": {},
+  },
 }

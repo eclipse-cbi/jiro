@@ -24,5 +24,7 @@
       namespace: "foundation-internal-infra"
     }
   },
-  secrets: {}
+  secrets+: {
+    "gerrit-trigger-plugin": {},
+  },
 }
