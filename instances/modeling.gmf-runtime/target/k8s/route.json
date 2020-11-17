@@ -13,7 +13,7 @@
       "namespace": "gmf-runtime"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/gmf-runtime",
       "port": {
          "targetPort": "http"

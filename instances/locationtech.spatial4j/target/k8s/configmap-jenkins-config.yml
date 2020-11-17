@@ -367,7 +367,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/spatial4j
+        url: https://ci.eclipse.org/spatial4j
     
       mailer:
         replyToAddress: ci-admin@eclipse.org
@@ -375,6 +375,10 @@ data:
     
       email-ext:
         defaultContentType: "text/html"
+        defaultReplyTo: "ci-admin@eclipse.org"
+        mailAccount:
+          address: "ci-admin@eclipse.org"
+          smtpHost: "mail.eclipse.org"
     
       globalDefaultFlowDurabilityLevel:
         durabilityHint: PERFORMANCE_OPTIMIZED

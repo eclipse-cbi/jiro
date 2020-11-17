@@ -4,7 +4,7 @@
     displayName: "LocationTech Spatial4j",
   },
   deployment+: {
-    host: "ci-staging.eclipse.org",
+    host: "ci.eclipse.org",
     cluster: "okd-c1",
   }
 }

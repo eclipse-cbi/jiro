@@ -303,11 +303,11 @@
    "deployment": {
       "cluster": "okd-c1",
       "controlPort": 8081,
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "jnlpPort": 50000,
       "prefix": "/spatial4j",
       "uiPort": 8080,
-      "url": "https://ci-staging.eclipse.org/spatial4j"
+      "url": "https://ci.eclipse.org/spatial4j"
    },
    "docker": {
       "master": {

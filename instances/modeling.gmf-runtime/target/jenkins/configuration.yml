@@ -344,7 +344,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/gmf-runtime
+    url: https://ci.eclipse.org/gmf-runtime
 
   mailer:
     replyToAddress: ci-admin@eclipse.org
@@ -352,6 +352,10 @@ unclassified:
 
   email-ext:
     defaultContentType: "text/html"
+    defaultReplyTo: "ci-admin@eclipse.org"
+    mailAccount:
+      address: "ci-admin@eclipse.org"
+      smtpHost: "mail.eclipse.org"
 
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED

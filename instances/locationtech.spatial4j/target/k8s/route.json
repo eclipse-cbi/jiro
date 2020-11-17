@@ -13,7 +13,7 @@
       "namespace": "spatial4j"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/spatial4j",
       "port": {
          "targetPort": "http"
