@@ -415,7 +415,6 @@
          "extended-read-permission",
          "external-monitor-job",
          "extra-columns",
-         "findbugs",
          "gerrit-trigger",
          "ghprb",
          "git",
@@ -442,7 +441,7 @@
          "ssh-agent",
          "ssh-slaves",
          "timestamper",
-         "windows-slaves",
+         "warnings-ng",
          "workflow-aggregator",
          "ws-cleanup",
          "xvnc"
