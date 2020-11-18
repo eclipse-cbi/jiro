@@ -40,7 +40,7 @@ fi
 # check that project name contains a dot
 if [[ "$project_name" != *.* ]]; then
   printf "ATTENTION: the full project name does not contain a dot (e.g. technology.cbi). Please double-check that this is intentional!\n"
-  read -p "Press enter to continue"
+  read -p "Press enter to continue or CTRL-C to stop the script"
 fi
 
 new_migration_instance() {
