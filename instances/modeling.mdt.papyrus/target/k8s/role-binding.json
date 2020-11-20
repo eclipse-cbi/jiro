@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.mdt.papyrus",
+         "org.eclipse.cbi.jiro/project.shortname": "papyrus"
+      },
+      "name": "papyrus",
+      "namespace": "papyrus"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "papyrus"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "papyrus",
+         "namespace": "papyrus"
+      }
+   ]
+}
