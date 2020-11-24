@@ -352,6 +352,10 @@ unclassified:
 
   email-ext:
     defaultContentType: "text/html"
+    defaultReplyTo: "ci-admin@eclipse.org"
+    mailAccount:
+      address: "ci-admin@eclipse.org"
+      smtpHost: "mail.eclipse.org"
 
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED

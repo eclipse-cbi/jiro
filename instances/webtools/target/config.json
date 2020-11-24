@@ -1,4 +1,15 @@
 {
+   "accessControl": {
+      "primaryGroup": {
+         "id": -1,
+         "name": "webtools"
+      },
+      "supplementalGroups": [ ],
+      "user": {
+         "id": -1,
+         "name": "genie.webtools"
+      }
+   },
    "clouds": {
       "kubernetes": {
          "kind": "kubernetes",
@@ -415,7 +426,6 @@
          "extended-read-permission",
          "external-monitor-job",
          "extra-columns",
-         "findbugs",
          "gerrit-trigger",
          "ghprb",
          "git",
@@ -442,7 +452,7 @@
          "ssh-agent",
          "ssh-slaves",
          "timestamper",
-         "windows-slaves",
+         "warnings-ng",
          "workflow-aggregator",
          "ws-cleanup",
          "xvnc"
@@ -497,7 +507,7 @@
          "resources": {
             "cpu": {
                "limit": "2000m",
-               "request": "500m"
+               "request": "250m"
             },
             "memory": {
                "limit": "1536Mi",
