@@ -13,7 +13,7 @@
       "namespace": "mat"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/mat",
       "port": {
          "targetPort": "http"

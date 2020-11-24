@@ -303,11 +303,11 @@
    "deployment": {
       "cluster": "okd-c1",
       "controlPort": 8081,
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "jnlpPort": 50000,
       "prefix": "/mat",
       "uiPort": 8080,
-      "url": "https://ci-staging.eclipse.org/mat"
+      "url": "https://ci.eclipse.org/mat"
    },
    "docker": {
       "master": {
@@ -415,7 +415,6 @@
          "extended-read-permission",
          "external-monitor-job",
          "extra-columns",
-         "findbugs",
          "gerrit-trigger",
          "ghprb",
          "git",
@@ -442,7 +441,7 @@
          "ssh-agent",
          "ssh-slaves",
          "timestamper",
-         "windows-slaves",
+         "warnings-ng",
          "workflow-aggregator",
          "ws-cleanup",
          "xvnc"
