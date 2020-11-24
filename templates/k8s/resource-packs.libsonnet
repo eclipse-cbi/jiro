@@ -5,7 +5,7 @@
   pack_hdd::100,
 
   // Resource constants for Jenkins master
-  master_base_cpu_req::500,
+  master_base_cpu_req::250,
   master_max_cpu_req::4000,
   master_min_cpu_limit::2000,
   master_cpu_burst::2,
