@@ -9,6 +9,17 @@ local clouds = import "clouds.libsonnet";
     unixGroupName: $.project.fullName,
     resourcePacks: 1,
   },
+  accessControl: {
+    user: {
+      id: -1,
+      name: "genie.%s" % $.project.shortName,
+    },
+    primaryGroup: {
+      id: -1,
+      name: $.project.unixGroupName,
+    },
+    supplementalGroups: [],
+  },
   jenkins: {
     version: "latest",
     maxConcurrency: 2 * $.project.resourcePacks,
