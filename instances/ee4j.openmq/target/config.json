@@ -301,6 +301,7 @@
       }
    },
    "deployment": {
+      "cluster": "ci-c1",
       "controlPort": 8081,
       "host": "ci.eclipse.org",
       "jnlpPort": 50000,
@@ -414,13 +415,14 @@
          "extended-read-permission",
          "external-monitor-job",
          "extra-columns",
-         "findbugs",
          "gerrit-trigger",
          "ghprb",
          "git",
          "git-parameter",
          "github",
          "github-branch-source",
+         "gitlab-plugin",
+         "gitlab-branch-source",
          "greenballs",
          "jdk-tool",
          "jobConfigHistory",
@@ -435,11 +437,11 @@
          "promoted-builds",
          "rebuild",
          "simple-theme-plugin",
-         "sonar:2.6.1",
+         "sonar",
          "ssh-agent",
          "ssh-slaves",
          "timestamper",
-         "windows-slaves",
+         "warnings-ng",
          "workflow-aggregator",
          "ws-cleanup",
          "xvnc"
@@ -560,6 +562,42 @@
       "unixGroupName": "ee4j.openmq"
    },
    "secrets": {
+      "dockerconfigjson": {
+         "dockerconfigjson-for-pull-as-default": {
+            "namespace": "openmq",
+            "servers": {
+               "https://index.docker.io/v1/": {
+                  "password": {
+                     "pass": "docker.com/default-image-puller/ci-c1/password"
+                  },
+                  "username": {
+                     "pass": "docker.com/default-image-puller/ci-c1/username"
+                  }
+               }
+            },
+            "serviceAccount": "default",
+            "type": [
+               "pull"
+            ]
+         },
+         "dockerconfigjson-for-pull-as-openmq": {
+            "namespace": "openmq",
+            "servers": {
+               "https://index.docker.io/v1/": {
+                  "password": {
+                     "pass": "docker.com/default-image-puller/ci-c1/password"
+                  },
+                  "username": {
+                     "pass": "docker.com/default-image-puller/ci-c1/username"
+                  }
+               }
+            },
+            "serviceAccount": "openmq",
+            "type": [
+               "pull"
+            ]
+         }
+      },
       "gerrit-trigger-plugin": {
          "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
          "username": "genie.openmq"
