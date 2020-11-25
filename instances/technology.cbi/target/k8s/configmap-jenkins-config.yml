@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "technology.cbi"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.235.3"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.235.3"
+    org.eclipse.cbi.jiro/jenkins.version: "2.249.3-jdk11"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.249.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cbi"
   namespace: "cbi"
   name: jenkins-config
@@ -124,7 +124,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.3
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.5
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -231,7 +231,7 @@ data:
                       secret:
                         secretName: gradle-secret-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.3
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.5
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -338,7 +338,7 @@ data:
                       secret:
                         secretName: gradle-secret-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.3
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.5
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
