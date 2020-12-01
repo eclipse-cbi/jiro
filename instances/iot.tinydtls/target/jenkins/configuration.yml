@@ -344,7 +344,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/tinydtls
+    url: https://ci.eclipse.org/tinydtls
 
   mailer:
     replyToAddress: ci-admin@eclipse.org

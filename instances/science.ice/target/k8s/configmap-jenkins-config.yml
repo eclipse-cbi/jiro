@@ -367,7 +367,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/ice
+        url: https://ci.eclipse.org/ice
     
       mailer:
         replyToAddress: ci-admin@eclipse.org

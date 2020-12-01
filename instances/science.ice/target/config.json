@@ -314,11 +314,11 @@
    "deployment": {
       "cluster": "okd-c1",
       "controlPort": 8081,
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "jnlpPort": 50000,
       "prefix": "/ice",
       "uiPort": 8080,
-      "url": "https://ci-staging.eclipse.org/ice"
+      "url": "https://ci.eclipse.org/ice"
    },
    "docker": {
       "master": {
@@ -411,7 +411,6 @@
       "key_fingerprint": "9B7D32F2D50582E6",
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
-         "analysis-core",
          "ant",
          "antisamy-markup-formatter",
          "authorize-project",

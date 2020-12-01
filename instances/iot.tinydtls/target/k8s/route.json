@@ -13,7 +13,7 @@
       "namespace": "tinydtls"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/tinydtls",
       "port": {
          "targetPort": "http"
