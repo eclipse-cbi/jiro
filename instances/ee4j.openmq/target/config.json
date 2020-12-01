@@ -411,7 +411,6 @@
       "key_fingerprint": "9B7D32F2D50582E6",
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
-         "analysis-core",
          "ant",
          "antisamy-markup-formatter",
          "authorize-project",
