@@ -116,7 +116,7 @@
                         "memory": "2048Mi"
                      },
                      "requests": {
-                        "cpu": "800m"
+                        "cpu": "550m"
                      }
                   },
                   "volumeMounts": [
