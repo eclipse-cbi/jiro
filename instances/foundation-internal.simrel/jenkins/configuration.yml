@@ -1,0 +1,44 @@
+jenkins:
+  nodes:
+  - permanent:
+      name: "fmlw3-ubuntu1804"
+      nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
+      numExecutors: 1
+      remoteFS: "/home/genie.simrel/jenkins-agent"
+      labelString: "docker-build"
+      launcher:
+        ssh:
+          credentialsId: "docker-build-agent-ssh"
+          host: "13.77.107.72"
+          port: 22
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeTB1LA7FnUI8kNrY8zVx/Ywy1RN4tJj11W9QWFWTr6gAJgSNEneKIa8hnjZEPddYOIsBOQ9VSvgXYGFRKEFXW23zskuWEyCqSZ/e7RTw2VTCh5nfUZlX1eG7iujn1mpineX/+hRR7HtxDM9MPhpbrq6HVjXuSx8mex9vu4p20ZVZkewedmtG2+qYDDTsv8uw0kX+kkyRuE6An14omsCQ+8mJ17zQnGXN2CnrXXMOWbgH9BC8RZUvNZOzNY1JkWf9EqY2Tz3YJPgUM+9qVj3/BEjGopEIUT/jDuk2NnOo+V1GT8aWzwmBjv91F7wgjuQ72cV8GeSbxz0utQ9isuMkp"
+      mode: EXCLUSIVE
+      nodeProperties:
+      - toolLocation:
+          locations:
+          - home: "/usr/bin/git"
+            key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+      retentionStrategy: "always"
+  - permanent:
+      name: "promotion-vm"
+      numExecutors: 2
+      remoteFS: "/opt/public/hipp/homes/genie.simrel"
+      launcher:
+        ssh:
+          credentialsId: "projects-storage.eclipse.org-bot-ssh"
+          host: "promotion-vm"
+          port: 22
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCukLXXVZMDbnRtcMwcXXUfgBzsxzEDt3LgPAzT3ucMG1XGayg0HFFVA1SXMviZe1fzMSHESSMUFf7xxJCqxfVl9sBGcsycjGV55R68AOrA3sL8699VX++VJLcM2TRw05gbDcNnihmWGe10agbA3UoX7dohqbyBTkuhdgHzNwPzdsPW0Q2d0DG6RkluCBFN6LU7+SOq6Uj+NJiw/xnyaOkrIIY3pLRd4l5mpmqLzRb4YTjkMCnyIoxq+/G9NQAGyCO9rN+sl+r7p0Vlbv42RWLits/429nb/LPCrSy7RUHfdFVNDJvSEjX00Gyjwh5QlcgrTzKzh9gheeTREdfj/mQ7kmkao1IM6XvXEjZZ7pQCj2UANRwh5nPpDdrP/Ajfu5V/fo4Z4k443+r1JCElPirqi67qyEdFUsYsWl4uo0+QIH91xPKtphzOl+VACaisgdyanNndFnvRTPGZP/tkSLutTw+clfzCABlSV3704v1TMs/CNK4xmHonXEu4QY6bMvs="
+      mode: EXCLUSIVE
+      nodeProperties:
+      - toolLocation:
+          locations:
+          - home: "/opt/public/common/java/openjdk/jdk-11/"
+            key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk11-latest"
+          - home: "/opt/public/common/apache-maven-latest"
+            key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
+      retentionStrategy: "always"

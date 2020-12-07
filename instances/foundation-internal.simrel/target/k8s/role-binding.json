@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "foundation-internal.simrel",
+         "org.eclipse.cbi.jiro/project.shortname": "simrel"
+      },
+      "name": "simrel",
+      "namespace": "simrel"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "simrel"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "simrel",
+         "namespace": "simrel"
+      }
+   ]
+}
