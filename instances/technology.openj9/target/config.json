@@ -1,4 +1,15 @@
 {
+   "accessControl": {
+      "primaryGroup": {
+         "id": -1,
+         "name": "technology.openj9"
+      },
+      "supplementalGroups": [ ],
+      "user": {
+         "id": -1,
+         "name": "genie.openj9"
+      }
+   },
    "clouds": {
       "kubernetes": {
          "kind": "kubernetes",
@@ -301,6 +312,7 @@
       }
    },
    "deployment": {
+      "cluster": "ci-c1",
       "controlPort": 8081,
       "host": "ci.eclipse.org",
       "jnlpPort": 50000,
@@ -433,6 +445,13 @@
                "Agent/Disconnect"
             ],
             "principal": "rajdeep.singh@ibm.com"
+         },
+         {
+            "grantedPermissions": [
+               "Job/Build",
+               "Job/Cancel"
+            ],
+            "principal": "ben@benthomas.ca"
          }
       ],
       "pluginsForceUpgrade": true,
@@ -455,7 +474,6 @@
       "key_fingerprint": "9B7D32F2D50582E6",
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
-         "analysis-core",
          "ant",
          "antisamy-markup-formatter",
          "authorize-project",
@@ -470,7 +488,6 @@
          "extended-read-permission",
          "external-monitor-job",
          "extra-columns",
-         "findbugs",
          "gerrit-trigger",
          "ghprb",
          "git",
@@ -497,7 +514,7 @@
          "ssh-agent",
          "ssh-slaves",
          "timestamper",
-         "windows-slaves",
+         "warnings-ng",
          "workflow-aggregator",
          "ws-cleanup",
          "xvnc"
@@ -618,6 +635,42 @@
       "unixGroupName": "technology.openj9"
    },
    "secrets": {
+      "dockerconfigjson": {
+         "dockerconfigjson-for-pull-as-default": {
+            "namespace": "openj9",
+            "servers": {
+               "https://index.docker.io/v1/": {
+                  "password": {
+                     "pass": "docker.com/default-image-puller/ci-c1/password"
+                  },
+                  "username": {
+                     "pass": "docker.com/default-image-puller/ci-c1/username"
+                  }
+               }
+            },
+            "serviceAccount": "default",
+            "type": [
+               "pull"
+            ]
+         },
+         "dockerconfigjson-for-pull-as-openj9": {
+            "namespace": "openj9",
+            "servers": {
+               "https://index.docker.io/v1/": {
+                  "password": {
+                     "pass": "docker.com/default-image-puller/ci-c1/password"
+                  },
+                  "username": {
+                     "pass": "docker.com/default-image-puller/ci-c1/username"
+                  }
+               }
+            },
+            "serviceAccount": "openj9",
+            "type": [
+               "pull"
+            ]
+         }
+      },
       "gerrit-trigger-plugin": {
          "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
          "username": "genie.openj9"

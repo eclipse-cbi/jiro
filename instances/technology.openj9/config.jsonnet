@@ -47,6 +47,11 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         principal: "rajdeep.singh@ibm.com",
         grantedPermissions: ["Agent/Configure", "Agent/Connect", "Agent/Disconnect"],
       },
+      {
+        // https://bugs.eclipse.org/bugs/show_bug.cgi?id=569487
+        principal: "ben@benthomas.ca",
+        grantedPermissions: ["Job/Build", "Job/Cancel"],
+      },
     ],
   },
 }
