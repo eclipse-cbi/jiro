@@ -1290,12 +1290,12 @@ security:
 unclassified:
   slackNotifier:
     teamDomain: "openj9"
-    tokenCredentialId: "515a102c-4eee-4e66-9b05-fee104ea6fc2"
+    tokenCredentialId: "slack-token"
   githubpluginconfig:
     configs:
       - name: "GitHub"
         apiUrl: "https://api.github.com"
-        credentialsId: "b87c83da-2209-4958-9666-6a5b0e9a071b"
+        credentialsId: "github-bot-token"
         manageHooks: false
   location:
     adminAddress: ci-admin@eclipse.org
