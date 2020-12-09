@@ -84,7 +84,9 @@ fi
 
 oc apply -f "${instance}/target/k8s/statefulset.json"
 
-if [[ $(sts_as_json | jq -r '.metadata.generation') -gt ${old_gen} ]]; then
+if [[ -z "${old_gen}" ]]; then
+  echo "INFO: Deploying a brand new instance..."
+elif [[ $(sts_as_json | jq -r '.metadata.generation') -gt ${old_gen} ]]; then
   echo "INFO: Cluster is rolling out StatefulSet changes"
   "${SCRIPT_FOLDER}/../jenkins-switch-maintenance.sh" "${instance}" "on"
   echo -n "Waiting for Jenkins to be back online"

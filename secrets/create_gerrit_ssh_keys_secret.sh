@@ -17,15 +17,24 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-script_name="$(basename ${BASH_SOURCE[0]})"
+script_name="$(basename "${BASH_SOURCE[0]}")"
+
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+
+if [[ ! -f "${SCRIPT_FOLDER}/../.localconfig" ]]; then
+  echo "ERROR: File '$(readlink -f "${SCRIPT_FOLDER}/../.localconfig")' does not exists"
+  echo "Create one to configure the location of the password store. Example:"
+  echo '{"password-store": {"cbi-dir": "~/.password-store/cbi"}}' | jq -M
+fi
+PASSWORD_STORE_DIR="$(jq -r '.["password-store"]["cbi-dir"]' "${SCRIPT_FOLDER}/../.localconfig")"
+PASSWORD_STORE_DIR="$(readlink -f "${PASSWORD_STORE_DIR/#~\//${HOME}/}")"
+export PASSWORD_STORE_DIR
 
 project_name="${1:-}"
 short_name=${project_name##*.}
 
 site=git.eclipse.org
-pw_store_path=cbi-pass/bots/${project_name}/${site}
-temp_path=/tmp/${short_name}
-
+pw_store_path=bots/${project_name}/${site}
 
 usage() {
   printf "Usage: %s project_name\n" "$script_name"
@@ -40,20 +49,15 @@ if [[ -z "${project_name}" ]]; then
 fi
 
 add_gerrit_secret() {
-  mkdir -p ${temp_path}
-
-  pass ${pw_store_path}/id_rsa > ${temp_path}/id_rsa
-  if [ -f ${temp_path}/id_rsa ]; then
-    oc create secret generic gerrit-ssh-keys --namespace=${short_name} --from-file=${temp_path}/id_rsa
+  if [[ -f "${PASSWORD_STORE_DIR}/${pw_store_path}/id_rsa.gpg" ]]; then 
+    oc create secret generic gerrit-ssh-keys --namespace="${short_name}" --from-file="id_rsa=/dev/stdin" <<<"$(pass "${pw_store_path}/id_rsa")"
   else
-    echo "ERROR: ${temp_path} does not exist."
+    echo "WARNING: Project does not have a pass entry '${PASSWORD_STORE_DIR}/${pw_store_path}/id_rsa'."
   fi
-
-  rm -rf ${temp_path}
 }
 
-if [[ $(oc get secrets -n=${short_name} | grep gerrit-ssh-keys) ]]; then
-  printf "Secret gerrit-ssh-key already exists. Skipping creation...\n"
+if oc get secrets --namespace="${short_name}" | grep -q "gerrit-ssh-keys"; then
+  printf "Secret gerrit-ssh-keys already exists. Skipping creation...\n"
 else
   add_gerrit_secret
 fi

@@ -116,7 +116,7 @@
                         "memory": "1536Mi"
                      },
                      "requests": {
-                        "cpu": "500m"
+                        "cpu": "250m"
                      }
                   },
                   "volumeMounts": [
