@@ -375,6 +375,10 @@ data:
     
       email-ext:
         defaultContentType: "text/html"
+        defaultReplyTo: "ci-admin@eclipse.org"
+        mailAccount:
+          address: "ci-admin@eclipse.org"
+          smtpHost: "mail.eclipse.org"
     
       globalDefaultFlowDurabilityLevel:
         durabilityHint: PERFORMANCE_OPTIMIZED
@@ -405,6 +409,19 @@ data:
           triggers:
             skipScmCause: false
             skipUpstreamCause: false
+    
+      gitLabConnectionConfig:
+        connections:
+        - clientBuilderId: "autodetect"
+          connectionTimeout: 10
+          ignoreCertificateErrors: false
+          name: "gitlab.eclipse.org"
+          readTimeout: 10
+          url: "https://gitlab.eclipse.org"
+      gitLabServers:
+        servers:
+        - name: "gitlab.eclipse.org"
+          serverUrl: "https://gitlab.eclipse.org"
     
     tool:
       jdk:

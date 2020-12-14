@@ -1,4 +1,15 @@
 {
+   "accessControl": {
+      "primaryGroup": {
+         "id": -1,
+         "name": "ee4j.eclipselink"
+      },
+      "supplementalGroups": [ ],
+      "user": {
+         "id": -1,
+         "name": "genie.eclipselink"
+      }
+   },
    "clouds": {
       "kubernetes": {
          "kind": "kubernetes",
@@ -301,6 +312,7 @@
       }
    },
    "deployment": {
+      "cluster": "ci-c1",
       "controlPort": 8081,
       "host": "ci.eclipse.org",
       "jnlpPort": 50000,
@@ -399,7 +411,6 @@
       "key_fingerprint": "9B7D32F2D50582E6",
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
-         "analysis-core",
          "ant",
          "antisamy-markup-formatter",
          "authorize-project",
@@ -414,7 +425,6 @@
          "extended-read-permission",
          "external-monitor-job",
          "extra-columns",
-         "findbugs",
          "gerrit-trigger",
          "ghprb",
          "git",
@@ -441,7 +451,7 @@
          "ssh-agent",
          "ssh-slaves",
          "timestamper",
-         "windows-slaves",
+         "warnings-ng",
          "workflow-aggregator",
          "ws-cleanup",
          "xvnc"
@@ -495,8 +505,8 @@
          },
          "resources": {
             "cpu": {
-               "limit": "3400m",
-               "request": "1700m"
+               "limit": "2900m",
+               "request": "1450m"
             },
             "memory": {
                "limit": "3584Mi",
@@ -562,6 +572,42 @@
       "unixGroupName": "ee4j.eclipselink"
    },
    "secrets": {
+      "dockerconfigjson": {
+         "dockerconfigjson-for-pull-as-default": {
+            "namespace": "eclipselink",
+            "servers": {
+               "https://index.docker.io/v1/": {
+                  "password": {
+                     "pass": "docker.com/default-image-puller/ci-c1/password"
+                  },
+                  "username": {
+                     "pass": "docker.com/default-image-puller/ci-c1/username"
+                  }
+               }
+            },
+            "serviceAccount": "default",
+            "type": [
+               "pull"
+            ]
+         },
+         "dockerconfigjson-for-pull-as-eclipselink": {
+            "namespace": "eclipselink",
+            "servers": {
+               "https://index.docker.io/v1/": {
+                  "password": {
+                     "pass": "docker.com/default-image-puller/ci-c1/password"
+                  },
+                  "username": {
+                     "pass": "docker.com/default-image-puller/ci-c1/username"
+                  }
+               }
+            },
+            "serviceAccount": "eclipselink",
+            "type": [
+               "pull"
+            ]
+         }
+      },
       "gerrit-trigger-plugin": {
          "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
          "username": "genie.eclipselink"
