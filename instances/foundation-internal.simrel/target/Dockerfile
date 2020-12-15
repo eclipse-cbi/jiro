@@ -20,6 +20,7 @@ COPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/
 # </templates/Dockerfile.tpl>
 
 # <gen-dockerfile.sh>
+COPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins
 USER 10001
 # </gen-dockerfile.sh>
 
