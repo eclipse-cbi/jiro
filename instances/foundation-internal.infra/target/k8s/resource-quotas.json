@@ -14,7 +14,7 @@
          "limits.cpu": "6600m",
          "limits.memory": "10496Mi",
          "pods": 3,
-         "requests.cpu": "3050m",
+         "requests.cpu": "2800m",
          "requests.memory": "10496Mi"
       }
    }
