@@ -107,7 +107,7 @@ local Kube = import "kube.libsonnet";
                   name: "jenkins-config",
                   readOnly: true,
                 },
-              ] + if std.objectHas(config.secrets, "gerrit-trigger-plugin") then [ 
+              ] + if std.objectHas(config.secrets["gerrit-trigger-plugin"], "username") then [ 
                 {
                   mountPath: "/run/secrets/jenkins/ssh",
                   name: "gerrit-ssh-keys",
@@ -206,7 +206,7 @@ local Kube = import "kube.libsonnet";
                 name: "jenkins-config",
               },
             },
-          ] + if std.objectHas(config.secrets, "gerrit-trigger-plugin") then [ 
+          ] + if std.objectHas(config.secrets["gerrit-trigger-plugin"], "username") then [ 
             {
               name: "gerrit-ssh-keys",
               secret: {
