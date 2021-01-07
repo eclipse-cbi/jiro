@@ -173,6 +173,67 @@ jenkins:
             failIfWorkDirIsMissing: false
             internalDir: "remoting"
   - permanent:
+      name: "centos-aarch64-1"
+      labelString: "aarch64 arm64"
+      nodeDescription: "Agent provided by the project"
+      remoteFS: "/home/swtbuild/build"
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        jnlp:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+  - permanent:
+      name: "centos-aarch64-2"
+      labelString: "aarch64 arm64"
+      nodeDescription: "Agent provided by the project"
+      remoteFS: "/home/swtbuild/build"
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        jnlp:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+  - permanent:
+      name: "centos-aarch64-3"
+      labelString: "aarch64 arm64"
+      nodeDescription: "Agent provided by the project"
+      remoteFS: "/home/swtbuild/build"
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        jnlp:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+  - permanent:
+      name: "centos-aarch64-4"
+      labelString: "aarch64 arm64"
+      nodeDescription: "Agent provided by the project"
+      remoteFS: "/home/swtbuild/build"
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        jnlp:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+
+  - permanent:
       name: "6m8ka-macos11-a12z"
       nodeDescription: "macOS 11 DTK @ MacStadium (Apple A12Z Bionic - 16GB)"
       remoteFS: "/Users/genie.releng/jenkins_agent"
