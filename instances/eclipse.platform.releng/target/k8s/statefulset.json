@@ -112,11 +112,11 @@
                   },
                   "resources": {
                      "limits": {
-                        "cpu": "5800m",
+                        "cpu": "5300m",
                         "memory": "5632Mi"
                      },
                      "requests": {
-                        "cpu": "2900m"
+                        "cpu": "2650m"
                      }
                   },
                   "volumeMounts": [

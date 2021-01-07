@@ -33,9 +33,9 @@ jenkins:
           command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@208.52.161.179 "curl https://ci.eclipse.org/releng/jnlpJars/slave.jar > /Users/genie.releng/jenkins_agent/remoting/slave.jar; java -jar /Users/genie.releng/jenkins_agent/remoting/slave.jar"'
       nodeProperties:
       - envVars:
-        env:
-        - key: "PATH"
-          value: '$HOME/.cargo/bin:$PATH'
+          env:
+          - key: "PATH"
+            value: '$HOME/.cargo/bin:$PATH'
   - permanent:
       labelString: "macos macos-10.15"
       launcher:
