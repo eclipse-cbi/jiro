@@ -20,7 +20,8 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       } for principal in [
         "chris.guindon@eclipse-foundation.org", 
         "eric.poirier@eclipse-foundation.org", 
-        "martin.lowe@eclipse-foundation.org"
+        "martin.lowe@eclipse-foundation.org",
+        "yi.liu@eclipse-foundation.org",
       ]
     ] + [
       {
