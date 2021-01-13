@@ -9,7 +9,7 @@
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
 # <templates/Dockerfile.tpl>
-FROM docker.io/eclipsecbi/jiro-master:2.263.1-jdk11
+FROM docker.io/eclipsecbi/jiro-master:2.263.2-jdk11
 
 EXPOSE 8080
 EXPOSE 50000

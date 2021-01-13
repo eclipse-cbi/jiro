@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "foundation-internal.webdev"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.263.1-jdk11"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.263.1"
+    org.eclipse.cbi.jiro/jenkins.version: "2.263.2-jdk11"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.263.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "foundation-internal-webdev"
   namespace: "foundation-internal-webdev"
   name: jenkins-config
@@ -113,6 +113,27 @@ data:
             - "View/Create:martin.lowe@eclipse-foundation.org"
             - "View/Delete:martin.lowe@eclipse-foundation.org"
             - "View/Read:martin.lowe@eclipse-foundation.org"
+            - "Agent/Build:yi.liu@eclipse-foundation.org"
+            - "Credentials/View:yi.liu@eclipse-foundation.org"
+            - "Gerrit/ManualTrigger:yi.liu@eclipse-foundation.org"
+            - "Gerrit/Retrigger:yi.liu@eclipse-foundation.org"
+            - "Job/Build:yi.liu@eclipse-foundation.org"
+            - "Job/Cancel:yi.liu@eclipse-foundation.org"
+            - "Job/Configure:yi.liu@eclipse-foundation.org"
+            - "Job/Create:yi.liu@eclipse-foundation.org"
+            - "Job/Delete:yi.liu@eclipse-foundation.org"
+            - "Job/Move:yi.liu@eclipse-foundation.org"
+            - "Job/Read:yi.liu@eclipse-foundation.org"
+            - "Job/Workspace:yi.liu@eclipse-foundation.org"
+            - "Overall/Read:yi.liu@eclipse-foundation.org"
+            - "Run/Delete:yi.liu@eclipse-foundation.org"
+            - "Run/Replay:yi.liu@eclipse-foundation.org"
+            - "Run/Update:yi.liu@eclipse-foundation.org"
+            - "SCM/Tag:yi.liu@eclipse-foundation.org"
+            - "View/Configure:yi.liu@eclipse-foundation.org"
+            - "View/Create:yi.liu@eclipse-foundation.org"
+            - "View/Delete:yi.liu@eclipse-foundation.org"
+            - "View/Read:yi.liu@eclipse-foundation.org"
       markupFormatter: rawHtml
       crumbIssuer:
         standard:

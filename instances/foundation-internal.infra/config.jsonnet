@@ -8,7 +8,7 @@
     prefix: "/ci/" + $.project.shortName
   },
   jenkins+: {
-    version: "2.263.1-jdk11",
+    version: "2.263.2-jdk11",
     staticAgentCount: 1,
     permissions: [
       {

@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "foundation-internal.infra"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.263.1-jdk11"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.263.1"
+    org.eclipse.cbi.jiro/jenkins.version: "2.263.2-jdk11"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.263.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "foundation-internal-infra"
   namespace: "foundation-internal-infra"
   name: jenkins-config
