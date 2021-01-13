@@ -344,7 +344,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/triquetrum
+    url: https://ci.eclipse.org/triquetrum
 
   mailer:
     replyToAddress: ci-admin@eclipse.org

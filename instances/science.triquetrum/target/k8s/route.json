@@ -13,7 +13,7 @@
       "namespace": "triquetrum"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/triquetrum",
       "port": {
          "targetPort": "http"
