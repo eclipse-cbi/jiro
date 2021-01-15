@@ -314,11 +314,11 @@
    "deployment": {
       "cluster": "okd-c1",
       "controlPort": 8081,
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "jnlpPort": 50000,
       "prefix": "/simrel",
       "uiPort": 8080,
-      "url": "https://ci-staging.eclipse.org/simrel"
+      "url": "https://ci.eclipse.org/simrel"
    },
    "docker": {
       "master": {

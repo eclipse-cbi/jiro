@@ -396,7 +396,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/simrel
+        url: https://ci.eclipse.org/simrel
       mailer:
         replyToAddress: ci-admin@eclipse.org
         smtpHost: mail.eclipse.org
