@@ -9,7 +9,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   },
   jenkins+: {
     staticAgentCount: 10,
-    version: "2.229",
     permissions+: 
       permissionsTemplates.projectPermissions("sravankumarl@in.ibm.com", ["Agent/Connect", "Agent/Disconnect"]) +
       #https://bugs.eclipse.org/bugs/show_bug.cgi?id=562806#c15

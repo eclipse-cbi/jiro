@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.222.4"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.263.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "websocket"
   namespace: "websocket"
   name: jenkins-config
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.2.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.5
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -183,7 +183,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.2.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.5
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -268,7 +268,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.2.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.5
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -373,8 +373,12 @@ data:
         replyToAddress: ci-admin@eclipse.org
         smtpHost: mail.eclipse.org
     
-      extendedEmailPublisher:
+      email-ext:
         defaultContentType: "text/html"
+        defaultReplyTo: "ci-admin@eclipse.org"
+        mailAccount:
+          address: "ci-admin@eclipse.org"
+          smtpHost: "mail.eclipse.org"
     
       globalDefaultFlowDurabilityLevel:
         durabilityHint: PERFORMANCE_OPTIMIZED
@@ -396,6 +400,28 @@ data:
               logRotator:
                 artifactNumToKeepStr: "5"
                 numToKeepStr: "128"
+    
+      sonarGlobalConfiguration:
+        buildWrapperEnabled: true
+        installations:
+        - name: "SonarCloud.io"
+          serverUrl: "https://sonarcloud.io"
+          triggers:
+            skipScmCause: false
+            skipUpstreamCause: false
+    
+      gitLabConnectionConfig:
+        connections:
+        - clientBuilderId: "autodetect"
+          connectionTimeout: 10
+          ignoreCertificateErrors: false
+          name: "gitlab.eclipse.org"
+          readTimeout: 10
+          url: "https://gitlab.eclipse.org"
+      gitLabServers:
+        servers:
+        - name: "gitlab.eclipse.org"
+          serverUrl: "https://gitlab.eclipse.org"
     
     tool:
       jdk:

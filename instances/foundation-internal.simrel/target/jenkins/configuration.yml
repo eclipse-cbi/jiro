@@ -105,7 +105,7 @@ jenkins:
         podRetention: "never"
         templates:
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.2.1
+              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.5
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -190,7 +190,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.2.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.5
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -275,7 +275,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.2.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.5
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
