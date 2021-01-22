@@ -123,13 +123,6 @@ local Kube = import "kube.libsonnet";
                     "-showversion",
                     "-XshowSettings:vm",
                     "-Duser.timezone=" + config.jenkins.timezone,
-                    
-                    # https://github.com/eclipse/openj9/issues/3637
-                    #"-Djdk.nativeCrypto=false",
-
-                    # Fixed in JDK9+
-                    # https://bugs.openjdk.java.net/browse/JDK-8175192
-                    "-Dsun.zip.disableMemoryMapping=true",
 
                     # not needed anymore since https://issues.jenkins-ci.org/browse/JENKINS-56307
                     // "-Dhudson.slaves.NodeProvisioner.initialDelay=0",
