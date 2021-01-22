@@ -122,6 +122,10 @@ local Kube = import "kube.libsonnet";
                   value: std.join(" ", [
                     "-showversion",
                     "-XshowSettings:vm",
+                    "-XX:+AlwaysPreTouch",
+                    "-XX:+ParallelRefProcEnabled",
+                    "-XX:+DisableExplicitGC",
+
                     "-Duser.timezone=" + config.jenkins.timezone,
 
                     # not needed anymore since https://issues.jenkins-ci.org/browse/JENKINS-56307
