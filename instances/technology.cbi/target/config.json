@@ -453,6 +453,10 @@
       "home": "/var/jenkins",
       "id": "2.263.3",
       "key_fingerprint": "FCEF32E745F2C3D5",
+      "plugin_manager": {
+         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.5.0/jenkins-plugin-manager-2.5.0.jar",
+         "version": "2.5.0"
+      },
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
          "ant",
@@ -506,7 +510,6 @@
          "version": "4.5"
       },
       "scripts": {
-         "install_plugins": "https://github.com/jenkinsci/docker/raw/master/install-plugins.sh",
          "jenkins": "https://github.com/jenkinsci/docker/raw/master/jenkins.sh",
          "jenkins_support": "https://github.com/jenkinsci/docker/raw/master/jenkins-support"
       },
