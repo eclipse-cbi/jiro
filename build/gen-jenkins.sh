@@ -36,8 +36,9 @@ target="${instance}/target/jenkins"
 mkdir -p "${target}"
 
 if [[ -f "${instance}/jenkins/plugins-list" ]]; then
-  echo "# GENERATED FILE - DO NOT EDIT" > "${target}/plugins-list"
-  cat "${instance}/jenkins/plugins-list" >> "${target}/plugins-list"
+  rm -f "${target}/plugins-list"
+  echo "# GENERATED FILE - DO NOT EDIT" > "${target}/plugins-list.txt"
+  cat "${instance}/jenkins/plugins-list" >> "${target}/plugins-list.txt"
 fi
 
 jenkinsTemplateFolder="${SCRIPT_FOLDER}/../templates/jenkins"

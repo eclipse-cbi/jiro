@@ -7,6 +7,8 @@ cli.jar
 Dockerfile.buildlog
 **/target/.secrets
 **/target/jenkins/*.war
+**/target/jenkins/tools/*
 **/target/jenkins/ref/plugins
+/.cache
 /.localconfig
 /.cli_temp_dir/

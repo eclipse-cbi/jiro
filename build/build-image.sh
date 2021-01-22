@@ -34,17 +34,15 @@ fi
 "${SCRIPT_FOLDER}/gen-jenkins.sh" "${INSTANCE}"
 "${SCRIPT_FOLDER}/gen-dockerfile.sh" "${INSTANCE}"
 
-TOOLS_IMAGE="eclipsecbi/adoptopenjdk-coreutils:openjdk8-openj9-alpine-slim"
+TOOLS_IMAGE="eclipsecbi/adoptopenjdk-coreutils:openjdk11-openj9-alpine-slim"
 CONFIG_JSON="${INSTANCE}/target/config.json"
 
 install_additional_plugins() {
   local build_dir
   build_dir="$(readlink -f "${INSTANCE}/target/jenkins")"
   
-  INFO "Downloading support scripts for plugins installation"
-  download ifmodified "$(jq -r '.jiroMaster.scripts.install_plugins' "${CONFIG_JSON}")" "${build_dir}/tools/install-plugins.sh"
-  download ifmodified "$(jq -r '.jiroMaster.scripts.jenkins_support' "${CONFIG_JSON}")" "${build_dir}/scripts/jenkins-support"
-  chmod u+x "${build_dir}/tools/"*.sh
+  INFO "Downloading plugin manager tool"
+  download ifmodified "$(jq -r '.jiroMaster.plugin_manager.jar' "${CONFIG_JSON}")" "${build_dir}/tools/jenkins-plugin-manager.jar"
 
   rm -rf "${build_dir}/ref"
   mkdir -p "${build_dir}/ref"
@@ -69,17 +67,20 @@ install_additional_plugins() {
   docker run -u "$(id -u):$(id -g)" --rm \
     -v "${build_dir}:${image_wd}" \
     -v "${build_dir}/scripts:/usr/local/bin" \
+    -v "$(readlink -f "${SCRIPT_FOLDER}/../.cache"):/cache" \
     -w "${image_wd}" \
     -e HOME="${image_wd}" \
     --entrypoint "" \
     "${TOOLS_IMAGE}" \
     /bin/bash -c \
-      "export REF='${image_wd}/ref' \
-      && export JENKINS_WAR='${image_wd}/$(basename "${war_file}")' \
-      && export JENKINS_UC='${update_center}' \
-      && export CURL_RETRY='8' \
-      && export CURL_RETRY_MAX_TIME='120' \
-      && ./tools/install-plugins.sh < plugins-list" |& TRACE
+      "export CACHE_DIR=/cache && \
+      java -jar ./tools/jenkins-plugin-manager.jar \
+        --plugin-file plugins-list.txt \
+        --list \
+        --view-security-warnings \
+        --plugin-download-directory '${image_wd}/ref/plugins' \
+        --jenkins-update-center '${update_center}' \
+        --war '${image_wd}/$(basename "${war_file}")' > ${image_wd}/plugins.log" | TRACE
 }
 
 if [[ -f "${INSTANCE}/jenkins/plugins-list" ]]; then
