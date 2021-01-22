@@ -13,7 +13,7 @@
       "namespace": "papyrus"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/papyrus",
       "port": {
          "targetPort": "http"

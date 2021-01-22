@@ -429,7 +429,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/papyrus
+    url: https://ci.eclipse.org/papyrus
 
   mailer:
     replyToAddress: ci-admin@eclipse.org
