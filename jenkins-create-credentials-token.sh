@@ -16,6 +16,9 @@ script_folder="$(dirname $(readlink -f "${BASH_SOURCE[0]}"))"
 PROJECT_NAME="${1:-}"
 secret_id="${2:-}"
 secret_description="${3:-}"
+secret="${4:-}"
+domain="${5:-_}" #if no domain is given, use "_" for system domain
+
 SHORT_NAME="${PROJECT_NAME##*.}"
 
 usage() {
@@ -54,7 +57,7 @@ create_string_credentials_xml() {
     local id="${2:-}"
     local secret="${3:-}"
     local description="${4:-}"
-    echo "  Creating string credential '${id}'..."
+    echo "  Creating string credential '${id}' in domain ${domain}..."
     "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" create-credentials-by-xml system::system::jenkins "${domain_name}" <<EOF
 <org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl>
   <scope>GLOBAL</scope>
@@ -69,16 +72,20 @@ create_string_credentials() {
     local domain_name="${1:-}"
     local id="${2:-}"
     local description="${3:-}"
+    local secret="${4:-}"
 
     # read secret from stdin
-    read -p "Secret: " secret
     if [[ -z "${secret}" ]]; then
-        printf "ERROR: secret must be given.\n"
-        exit 1
+      read -p "Secret: " secret
+    fi
+    if [[ -z "${secret}" ]]; then
+      printf "ERROR: secret must be given.\n"
+      exit 1
     fi
 
     # check if credentials already exist
     reply=$(${script_folder}/jenkins-cli.sh ${script_folder}/instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)
+    #echo "reply: ${reply}"
     if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then
         create_domain_xml "${domain_name}"
         create_string_credentials_xml "${domain_name}" "${id}" "${secret}" "${description}"
@@ -92,5 +99,4 @@ create_string_credentials() {
     fi
 }
 
-create_string_credentials "_" "${secret_id}" "${secret_description}"
-
+create_string_credentials "${domain}" "${secret_id}" "${secret_description}" "${secret}"
