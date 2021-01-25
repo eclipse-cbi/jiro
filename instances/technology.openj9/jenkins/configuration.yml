@@ -924,7 +924,7 @@ jenkins:
   - permanent:
       name: "worker-3"
       nodeDescription: "UNB Artifactory"
-      labelString: "worker ci.geo.unb"
+      labelString: "artifactory ci.geo.unb"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
