@@ -50,7 +50,7 @@ waitReadyReplicas() {
 
 oc apply -f "${instance}/target/k8s/namespace.json"
 
-"${SCRIPT_FOLDER}/../jenkins-reload.sh" "${instance}" || :
+oc apply -f "${instance}/target/k8s/configmap-jenkins-config.yml"
 
 oc apply -f "${instance}/target/k8s/role.json"
 oc apply -f "${instance}/target/k8s/service-account.json"

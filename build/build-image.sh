@@ -8,7 +8,7 @@
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
 
-# * Call gen-jenkinss.sh script
+# * Call gen-jenkins.sh script
 # * Call gen-dockerfile.sh script
 # * Build dockerfile
 export LOG_LEVEL="${LOG_LEVEL:-600}"
