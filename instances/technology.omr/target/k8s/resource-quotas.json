@@ -1,0 +1,21 @@
+{
+   "apiVersion": "v1",
+   "kind": "ResourceQuota",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.omr",
+         "org.eclipse.cbi.jiro/project.shortname": "omr"
+      },
+      "name": "jenkins-instance-quota",
+      "namespace": "omr"
+   },
+   "spec": {
+      "hard": {
+         "limits.cpu": "12600m",
+         "limits.memory": "16896Mi",
+         "pods": 3,
+         "requests.cpu": "6400m",
+         "requests.memory": "16896Mi"
+      }
+   }
+}

@@ -1,0 +1,1003 @@
+#*******************************************************************************
+# Copyright (c) 2019 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "omr"
+    org.eclipse.cbi.jiro/project.fullName: "technology.omr"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.263.2"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "omr"
+  namespace: "omr"
+  name: jenkins-config
+data:
+  jenkins.yaml: |
+    # GENERATED FILE - DO NOT EDIT
+    jenkins:
+      nodes:
+        - permanent:
+            name: "deb10-x64-1"
+            nodeDescription: "Linux x86"
+            labelString: "Linux x86 compile:riscv64 sw.os.linux hw.arch.x86 ci.role.build.riscv64"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@deb10-x64-1 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -Xmx256m -jar slave.jar'\""
+        - permanent:
+            name: "eclipseomr-1"
+            nodeDescription: "eclipseomr-1 Linux PPCLE Ubuntu 16.04"
+            labelString: "Linux PPCLE"
+            remoteFS: '/home/jenkins/jenkins-agent'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.38 \"wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar\""
+        - permanent:
+            name: "eclipseomr-2"
+            nodeDescription: "eclipseomr-2 OSU Linux PPCLE Ubuntu 16.04"
+            labelString: "Linux PPCLE"
+            remoteFS: '/home/jenkins/jenkins-agent'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.53 \"wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar\""
+        - permanent:
+            name: "omr-aix71p8-1"
+            nodeDescription: "omr-aix71p8-1 AIX PPC64"
+            labelString: "aix ppc"
+            remoteFS: '/home/jenkins/'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@129.40.40.107 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            nodeProperties:
+              - envVars:
+                  env:
+                    - key: "PATH"
+                      value: '/home/jenkins/tools/bin:/opt/IBM/xlC/13.1.3/bin:/opt/freeware/bin:$PATH'
+        - permanent:
+            name: "omr-aix71p8-2"
+            nodeDescription: "omr-aix71p8-2 AIX PPC64"
+            labelString: "aix ppc"
+            remoteFS: '/home/jenkins/'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@129.40.40.108 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            nodeProperties:
+              - envVars:
+                  env:
+                    - key: "PATH"
+                      value: '/opt/IBM/xlC/13.1.3/bin:/opt/freeware/bin:/home/jenkins/tools/bin:$PATH'
+        - permanent:
+            name: "osx1013-unb-01"
+            nodeDescription: "OSX x86"
+            labelString: "OSX x86 UNB"
+            remoteFS: '/Users/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.117 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "osx1013-unb-02"
+            nodeDescription: "OSX x86"
+            labelString: "OSX x86 UNB"
+            remoteFS: '/Users/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.118 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "osx1014-unb-01"
+            nodeDescription: "OSX x86"
+            labelString: "OSX x86 UNB"
+            remoteFS: '/Users/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.116 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "proxy"
+            nodeDescription: "Used to connect to the AIX machines"
+            labelString: ""
+            remoteFS: '/home/jenkins/jenkins-agent'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"wget -qO slave.jar https://ci-staging.eclipse.org/openj9/jnlpJars/slave.jar ; java -jar slave.jar\""
+        - permanent:
+            name: "ub1604-p8-unb-01"
+            nodeDescription: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub1604-p8-unb-01 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-p8-unb-02"
+            nodeDescription: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub1604-p8-unb-02 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-p8-unb-03"
+            nodeDescription: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub1604-p8-unb-03 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-p8-unb-04"
+            nodeDescription: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub1604-p8-unb-04 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-p8-unb-05"
+            nodeDescription: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub1604-p8-unb-05 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-p8-unb-06"
+            nodeDescription: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub1604-p8-unb-06 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-p8-unb-07"
+            nodeDescription: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub1604-p8-unb-07 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-p8-unb-08"
+            nodeDescription: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub1604-p8-unb-08 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-p8-unb-09"
+            nodeDescription: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub1604-p8-unb-09 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-p8-unb-10"
+            nodeDescription: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub1604-p8-unb-10 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-x86-unb-01"
+            nodeDescription: "Linux x86"
+            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub16x64omrvm1 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-x86-unb-02"
+            nodeDescription: "Linux x86"
+            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub16x64omrvm2 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-x86-unb-03"
+            nodeDescription: "Linux x86"
+            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@192.168.10.209 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-x86-unb-04"
+            nodeDescription: "Linux x86"
+            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@192.168.10.249 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-x86-unb-05"
+            nodeDescription: "Linux x86"
+            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub16x64omrvm5 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-x86-unb-06"
+            nodeDescription: "Linux x86"
+            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub16x64omrvm6 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-x86-unb-07"
+            nodeDescription: "Linux x86"
+            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub16x64omrvm7 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-x86-unb-08"
+            nodeDescription: "Linux x86"
+            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub16x64omrvm8 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-x86-unb-10"
+            nodeDescription: "Linux x86"
+            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub16x64omrvm10 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-x86-unb-11"
+            nodeDescription: "Linux x86"
+            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub16x64omrvm11 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-x86-unb-12"
+            nodeDescription: "Linux x86"
+            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub16x64omrvm12 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub1604-x86-unb-13"
+            nodeDescription: "Linux x86"
+            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@ub16x64omrvm13 'wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+        - permanent:
+            name: "ub16-s390x-01"
+            nodeDescription: "zLinux node"
+            labelString: "Linux 390"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@148.100.113.45 \"wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar\""
+        - permanent:
+            name: "ub16-s390x-02"
+            nodeDescription: "zLinux node"
+            labelString: "Linux 390"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@148.100.113.49 \"wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar\""
+        - permanent:
+            name: "win2012-x86-1"
+            nodeDescription: "Windows x86 "
+            labelString: "Windows x86"
+            remoteFS: 'c:\jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@169.48.4.132 \"wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar\""
+        - permanent:
+            name: "win2012-x86-2"
+            nodeDescription: "Windows x86 "
+            labelString: "Windows x86"
+            remoteFS: 'c:\jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@169.48.4.133 \"wget -qO slave.jar https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar\""
+        - permanent:
+            name: "ZISVJD03"
+            nodeDescription: "zOS node"
+            labelString: "zOS 390"
+            remoteFS: '/openzdk/jenkins/'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@148.100.36.140 \"/rusr/rocket/bin/curl -s --insecure -L -O https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; /usr/lpp/java/J8.0_64/bin/java -Dfile.encoding=ISO8859_1 -jar slave.jar\""
+            nodeProperties:
+              - envVars:
+                  env:
+                    - key: "_BPXK_AUTOCVT"
+                      value: 'ON'
+                    - key: "_C89_CCMODE"
+                      value: '1'
+                    - key: "_CC_CCMODE"
+                      value: '1'
+                    - key: "_CEE_RUNOPTS"
+                      value: 'FILETAG(AUTOCVT,AUTOTAG) POSIX(ON)'
+                    - key: "_CXX_CCMODE"
+                      value: '1'
+                    - key: "_TAG_REDIR_ERR"
+                      value: 'txt'
+                    - key: "_TAG_REDIR_IN"
+                      value: 'txt'
+                    - key: "_TAG_REDIR_OUT"
+                      value: 'txt'
+                    - key: "LIBPATH"
+                      value: '/rusr/rocket/lib:$LIBPATH'
+                    - key: "PATH"
+                      value: '/u/jenkins/jenkins-zos:/openzdk/jenkins/CMake/bin:/rusr/rocket/bin:$PATH'
+                    - key: "PERL5LIB"
+                      value: '/rusr/rocket/lib/perl5'
+              - toolLocation:
+                  locations:
+                    - home: '/usr/lpp/java/J8.0_64/bin/java'
+                      key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
+                    - home: '/u/jenkins/jenkins-zos/git'
+                      key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+        - permanent:
+            name: "ZISVJD04"
+            nodeDescription: "zOS node"
+            labelString: "zOS 390"
+            remoteFS: '/openzdk/jenkins/'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@148.100.36.141 \"/rusr/rocket/bin/curl -s --insecure -L -O https://ci-staging.eclipse.org/omr/jnlpJars/slave.jar ; /usr/lpp/java/J8.0_64/bin/java -Dfile.encoding=ISO8859_1 -jar slave.jar\""
+            nodeProperties:
+              - envVars:
+                  env:
+                    - key: "_BPXK_AUTOCVT"
+                      value: 'ON'
+                    - key: "_C89_CCMODE"
+                      value: '1'
+                    - key: "_CC_CCMODE"
+                      value: '1'
+                    - key: "_CEE_RUNOPTS"
+                      value: 'FILETAG(AUTOCVT,AUTOTAG) POSIX(ON)'
+                    - key: "_CXX_CCMODE"
+                      value: '1'
+                    - key: "_TAG_REDIR_ERR"
+                      value: 'txt'
+                    - key: "_TAG_REDIR_OUT"
+                      value: 'txt'
+                    - key: "LIBPATH"
+                      value: '/rusr/rocket/lib:$LIBPATH'
+                    - key: "PATH"
+                      value: '/u/jenkins/jenkins-zos:/openzdk/jenkins/CMake/bin:/rusr/rocket/bin:$PATH'
+                    - key: "PERL5LIB"
+                      value: '/rusr/rocket/lib/perl5'
+              - toolLocation:
+                  locations:
+                    - home: '/usr/lpp/java/J8.0_64/bin/java'
+                      key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
+                    - home: '/u/jenkins/jenkins-zos/git'
+                      key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+      numExecutors: 0
+      scmCheckoutRetryCount: 2
+      mode: EXCLUSIVE
+      systemMessage: ""
+      disableRememberMe: false
+      agentProtocols:
+        - "JNLP4-connect"
+        - "Ping"
+      authorizationStrategy:
+        projectMatrix:
+          permissions:
+            - "Agent/Build:adam.brousseau88@gmail.com"
+            - "Agent/Configure:adam.brousseau88@gmail.com"
+            - "Agent/Connect:adam.brousseau88@gmail.com"
+            - "Agent/Disconnect:adam.brousseau88@gmail.com"
+            - "Job/Build:adam.brousseau88@gmail.com"
+            - "Job/Cancel:adam.brousseau88@gmail.com"
+            - "Job/Configure:adam.brousseau88@gmail.com"
+            - "Overall/SystemRead:adam.brousseau88@gmail.com"
+            - "Overall/Administer:admins"
+            - "Job/Read:anonymous"
+            - "Overall/Read:anonymous"
+            - "Job/ExtendedRead:common"
+            - "Agent/Build:joe_dekoning@ca.ibm.com"
+            - "Agent/Configure:joe_dekoning@ca.ibm.com"
+            - "Agent/Connect:joe_dekoning@ca.ibm.com"
+            - "Agent/Disconnect:joe_dekoning@ca.ibm.com"
+            - "Job/Build:joe_dekoning@ca.ibm.com"
+            - "Job/Cancel:joe_dekoning@ca.ibm.com"
+            - "Job/Configure:joe_dekoning@ca.ibm.com"
+            - "Agent/Configure:rajdeep.singh@ibm.com"
+            - "Agent/Connect:rajdeep.singh@ibm.com"
+            - "Agent/Disconnect:rajdeep.singh@ibm.com"
+            - "Agent/Build:technology.omr"
+            - "Agent/Connect:technology.omr"
+            - "Agent/Disconnect:technology.omr"
+            - "Credentials/View:technology.omr"
+            - "Job/Build:technology.omr"
+            - "Job/Cancel:technology.omr"
+            - "Job/Configure:technology.omr"
+            - "Job/Create:technology.omr"
+            - "Job/Delete:technology.omr"
+            - "Job/Move:technology.omr"
+            - "Job/Read:technology.omr"
+            - "Job/Workspace:technology.omr"
+            - "Overall/Read:technology.omr"
+            - "Run/Delete:technology.omr"
+            - "Run/Replay:technology.omr"
+            - "Run/Update:technology.omr"
+            - "SCM/Tag:technology.omr"
+            - "View/Configure:technology.omr"
+            - "View/Create:technology.omr"
+            - "View/Delete:technology.omr"
+            - "View/Read:technology.omr"
+      markupFormatter: rawHtml
+      crumbIssuer:
+        standard:
+          excludeClientIPFromCrumb: false
+      remotingSecurity:
+        enabled: true
+      securityRealm:
+        ldap:
+          configurations:
+            - displayNameAttributeName: cn
+              groupSearchBase: ou=group
+              rootDN: dc=eclipse,dc=org
+              server: ldaps://ldapcluster.eclipse.org
+              userSearch: mail={0}
+              mailAddressAttributeName: mail
+      clouds:
+        - kubernetes:
+            name: "kubernetes"
+            containerCapStr: "2"
+            jenkinsUrl: "http://jenkins-ui.omr.svc.cluster.local/omr"
+            jenkinsTunnel: "jenkins-discovery.omr.svc.cluster.local:50000"
+            maxRequestsPerHostStr: "32"
+            namespace: "omr"
+            podRetention: "never"
+            templates:
+              - containers:
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.5
+                    alwaysPullImage: true
+                    livenessProbe:
+                      failureThreshold: 0
+                      initialDelaySeconds: 0
+                      periodSeconds: 0
+                      successThreshold: 0
+                      timeoutSeconds: 0
+                    name: "jnlp"
+                    resourceLimitCpu: "2000m"
+                    resourceRequestCpu: "1000m"
+                    resourceLimitMemory: "4096Mi"
+                    resourceRequestMemory: "4096Mi"
+                    ttyEnabled: true
+                    command: ""
+                    args: ""
+                instanceCap: -1
+                name: "basic"
+                namespace: "omr"
+                nodeUsageMode: NORMAL
+                label: ""
+                envVars:
+                  - envVar:
+                      key: "JAVA_TOOL_OPTIONS"
+                      value: ""
+                  - envVar:
+                      key: "JENKINS_REMOTING_JAVA_OPTS"
+                      value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  - envVar:
+                      key: "OPENJ9_JAVA_OPTIONS"
+                      value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+                  - envVar:
+                      key: "_JAVA_OPTIONS"
+                      value: ""
+                volumes:
+                  - persistentVolumeClaim:
+                      claimName: "tools-claim-jiro-omr"
+                      mountPath: "/opt/tools"
+                      readOnly: true
+                  - configMapVolume:
+                      configMapName: "known-hosts"
+                      mountPath: "/home/jenkins/.ssh/"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/repository"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/wrapper"
+                workspaceVolume:
+                  emptyDirWorkspaceVolume:
+                    memory: false
+                yaml: |
+                  apiVersion: v1
+                  kind: Pod
+                  spec:
+                    containers:
+                    - name: jnlp
+                      volumeMounts:
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings-security.xml
+                        subPath: settings-security.xml
+                        readOnly: true
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings.xml
+                        subPath: settings.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.m2/toolchains.xml
+                        subPath: toolchains.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.mavenrc
+                        subPath: .mavenrc
+                        readOnly: true
+                    volumes:
+                    - name: m2-secret-dir
+                      secret:
+                        secretName: m2-secret-dir
+                    - name: m2-dir
+                      configMap:
+                        name: m2-dir
+              - containers:
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.5
+                    alwaysPullImage: true
+                    livenessProbe:
+                      failureThreshold: 0
+                      initialDelaySeconds: 0
+                      periodSeconds: 0
+                      successThreshold: 0
+                      timeoutSeconds: 0
+                    name: "jnlp"
+                    resourceLimitCpu: "2000m"
+                    resourceRequestCpu: "1000m"
+                    resourceLimitMemory: "4096Mi"
+                    resourceRequestMemory: "4096Mi"
+                    ttyEnabled: true
+                    command: ""
+                    args: ""
+                instanceCap: -1
+                name: "centos-7"
+                namespace: "omr"
+                nodeUsageMode: EXCLUSIVE
+                label: "migration jipp-migration centos-7"
+                envVars:
+                  - envVar:
+                      key: "JAVA_TOOL_OPTIONS"
+                      value: ""
+                  - envVar:
+                      key: "JENKINS_REMOTING_JAVA_OPTS"
+                      value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  - envVar:
+                      key: "OPENJ9_JAVA_OPTIONS"
+                      value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+                  - envVar:
+                      key: "_JAVA_OPTIONS"
+                      value: ""
+                volumes:
+                  - persistentVolumeClaim:
+                      claimName: "tools-claim-jiro-omr"
+                      mountPath: "/opt/tools"
+                      readOnly: true
+                  - configMapVolume:
+                      configMapName: "known-hosts"
+                      mountPath: "/home/jenkins/.ssh/"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/repository"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/wrapper"
+                workspaceVolume:
+                  emptyDirWorkspaceVolume:
+                    memory: false
+                yaml: |
+                  apiVersion: v1
+                  kind: Pod
+                  spec:
+                    containers:
+                    - name: jnlp
+                      volumeMounts:
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings-security.xml
+                        subPath: settings-security.xml
+                        readOnly: true
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings.xml
+                        subPath: settings.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.m2/toolchains.xml
+                        subPath: toolchains.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.mavenrc
+                        subPath: .mavenrc
+                        readOnly: true
+                    volumes:
+                    - name: m2-secret-dir
+                      secret:
+                        secretName: m2-secret-dir
+                    - name: m2-dir
+                      configMap:
+                        name: m2-dir
+              - containers:
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.5
+                    alwaysPullImage: true
+                    livenessProbe:
+                      failureThreshold: 0
+                      initialDelaySeconds: 0
+                      periodSeconds: 0
+                      successThreshold: 0
+                      timeoutSeconds: 0
+                    name: "jnlp"
+                    resourceLimitCpu: "2000m"
+                    resourceRequestCpu: "1000m"
+                    resourceLimitMemory: "4096Mi"
+                    resourceRequestMemory: "4096Mi"
+                    ttyEnabled: true
+                    command: ""
+                    args: ""
+                instanceCap: -1
+                name: "centos-8"
+                namespace: "omr"
+                nodeUsageMode: EXCLUSIVE
+                label: "centos-latest centos-8"
+                envVars:
+                  - envVar:
+                      key: "JAVA_TOOL_OPTIONS"
+                      value: ""
+                  - envVar:
+                      key: "JENKINS_REMOTING_JAVA_OPTS"
+                      value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  - envVar:
+                      key: "OPENJ9_JAVA_OPTIONS"
+                      value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+                  - envVar:
+                      key: "_JAVA_OPTIONS"
+                      value: ""
+                volumes:
+                  - persistentVolumeClaim:
+                      claimName: "tools-claim-jiro-omr"
+                      mountPath: "/opt/tools"
+                      readOnly: true
+                  - configMapVolume:
+                      configMapName: "known-hosts"
+                      mountPath: "/home/jenkins/.ssh/"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/repository"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/wrapper"
+                workspaceVolume:
+                  emptyDirWorkspaceVolume:
+                    memory: false
+                yaml: |
+                  apiVersion: v1
+                  kind: Pod
+                  spec:
+                    containers:
+                    - name: jnlp
+                      volumeMounts:
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings-security.xml
+                        subPath: settings-security.xml
+                        readOnly: true
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings.xml
+                        subPath: settings.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.m2/toolchains.xml
+                        subPath: toolchains.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.mavenrc
+                        subPath: .mavenrc
+                        readOnly: true
+                    volumes:
+                    - name: m2-secret-dir
+                      secret:
+                        secretName: m2-secret-dir
+                    - name: m2-dir
+                      configMap:
+                        name: m2-dir
+    security:
+      apiToken:
+        creationOfLegacyTokenEnabled: false
+        tokenGenerationOnCreationEnabled: false
+        usageStatisticsEnabled: true
+      queueItemAuthenticator:
+        authenticators:
+          - global:
+              strategy: "triggeringUsersAuthorizationStrategy"
+      sSHD:
+        port: -1
+    unclassified:
+      location:
+        adminAddress: ci-admin@eclipse.org
+        url: https://ci-staging.eclipse.org/omr
+      mailer:
+        replyToAddress: ci-admin@eclipse.org
+        smtpHost: mail.eclipse.org
+      email-ext:
+        defaultContentType: "text/html"
+        defaultReplyTo: "ci-admin@eclipse.org"
+        mailAccount:
+          address: "ci-admin@eclipse.org"
+          smtpHost: "mail.eclipse.org"
+      globalDefaultFlowDurabilityLevel:
+        durabilityHint: PERFORMANCE_OPTIMIZED
+      simple-theme-plugin:
+        elements:
+          - cssUrl:
+              url: "/omr/userContent/theme/quicksilver.css"
+          - cssUrl:
+              url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+          - jsUrl:
+              url: "/omr/userContent/theme/title.js"
+      buildDiscarders:
+        configuredBuildDiscarders:
+          - "jobBuildDiscarder"
+          - simpleBuildDiscarder:
+              discarder:
+                logRotator:
+                  artifactNumToKeepStr: "5"
+                  numToKeepStr: "128"
+      sonarGlobalConfiguration:
+        buildWrapperEnabled: true
+        installations:
+          - name: "SonarCloud.io"
+            serverUrl: "https://sonarcloud.io"
+            triggers:
+              skipScmCause: false
+              skipUpstreamCause: false
+      gitLabConnectionConfig:
+        connections:
+          - clientBuilderId: "autodetect"
+            connectionTimeout: 10
+            ignoreCertificateErrors: false
+            name: "gitlab.eclipse.org"
+            readTimeout: 10
+            url: "https://gitlab.eclipse.org"
+      gitLabServers:
+        servers:
+          - name: "gitlab.eclipse.org"
+            serverUrl: "https://gitlab.eclipse.org"
+    tool:
+      jdk:
+        installations:
+          - name: "openjdk-latest"
+            home: "/opt/tools/java/openjdk/latest"
+          - name: "openjdk-ea-latest"
+            home: "/opt/tools/java/openjdk/ea-latest"
+          - name: "openjdk-jdk16-latest"
+            home: "/opt/tools/java/openjdk/jdk-16/latest"
+          - name: "openjdk-jdk15-latest"
+            home: "/opt/tools/java/openjdk/jdk-15/latest"
+          - name: "openjdk-jdk14-latest"
+            home: "/opt/tools/java/openjdk/jdk-14/latest"
+          - name: "openjdk-jdk13-latest"
+            home: "/opt/tools/java/openjdk/jdk-13/latest"
+          - name: "openjdk-jdk12-latest"
+            home: "/opt/tools/java/openjdk/jdk-12/latest"
+          - name: "openjdk-jdk11-latest"
+            home: "/opt/tools/java/openjdk/jdk-11/latest"
+          - name: "openjdk-jdk10-latest"
+            home: "/opt/tools/java/openjdk/jdk-10/latest"
+          - name: "openjdk-jdk9-latest"
+            home: "/opt/tools/java/openjdk/jdk-9/latest"
+          - name: "adoptopenjdk-hotspot-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
+          - name: "adoptopenjdk-hotspot-latest-lts"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-latest-lts"
+          - name: "adoptopenjdk-hotspot-jdk14-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-14/latest"
+          - name: "adoptopenjdk-hotspot-jdk13-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-13/latest"
+          - name: "adoptopenjdk-hotspot-jdk12-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest"
+          - name: "adoptopenjdk-hotspot-jdk11-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
+          - name: "adoptopenjdk-hotspot-jdk10-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest"
+          - name: "adoptopenjdk-hotspot-jdk9-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest"
+          - name: "adoptopenjdk-hotspot-jdk8-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
+          - name: "adoptopenjdk-openj9-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-latest"
+          - name: "adoptopenjdk-openj9-latest-lts"
+            home: "/opt/tools/java/adoptopenjdk/openj9-latest-lts"
+          - name: "adoptopenjdk-openj9-jdk14-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-14/latest"
+          - name: "adoptopenjdk-openj9-jdk13-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-13/latest"
+          - name: "adoptopenjdk-openj9-jdk12-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-12/latest"
+          - name: "adoptopenjdk-openj9-jdk11-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
+          - name: "adoptopenjdk-openj9-jdk10-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-10/latest"
+          - name: "adoptopenjdk-openj9-jdk9-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-9/latest"
+          - name: "adoptopenjdk-openj9-jdk8-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
+          - name: "oracle-latest"
+            home: "/opt/tools/java/oracle/latest"
+          - name: "oracle-jdk10-latest"
+            home: "/opt/tools/java/oracle/jdk-10/latest"
+          - name: "oracle-jdk9-latest"
+            home: "/opt/tools/java/oracle/jdk-9/latest"
+          - name: "oracle-jdk8-latest"
+            home: "/opt/tools/java/oracle/jdk-8/latest"
+          - name: "oracle-jdk7-latest"
+            home: "/opt/tools/java/oracle/jdk-7/latest"
+          - name: "oracle-jdk6-latest"
+            home: "/opt/tools/java/oracle/jdk-6/latest"
+          - name: "oracle-jdk5-latest"
+            home: "/opt/tools/java/oracle/jdk-5/latest"
+          - name: "ibm-jdk8-latest"
+            home: "/opt/tools/java/ibm/jdk-8/latest"
+          - name: "ibm-latest"
+            home: "/opt/tools/java/ibm/latest"
+      ant:
+        installations:
+          - name: "apache-ant-latest"
+            home: ""
+            properties:
+              - installSource:
+                  installers:
+                    - antFromApache:
+                        id: "1.10.5"
+      maven:
+        installations:
+          - name: "apache-maven-latest"
+            home: "/opt/tools/apache-maven/latest"
+          - name: "apache-maven-3.6.3"
+            home: "/opt/tools/apache-maven/3.6.3"
+          - name: "apache-maven-3.6.0"
+            home: "/opt/tools/apache-maven/3.6.0"
+          - name: "apache-maven-3.5.4"
+            home: "/opt/tools/apache-maven/3.5.4"
+          - name: "apache-maven-3.3.9"
+            home: "/opt/tools/apache-maven/3.3.9"
+          - name: "apache-maven-3.2.5"
+            home: "/opt/tools/apache-maven/3.2.5"
+      git:
+        installations:
+          - name: "Default"
+            home: "git"
