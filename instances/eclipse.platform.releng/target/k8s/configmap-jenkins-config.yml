@@ -774,7 +774,7 @@ data:
               - installSource:
                   installers:
                     - antFromApache:
-                        id: "1.10.5"
+                        id: "1.10.9"
       maven:
         installations:
           - name: "apache-maven-latest"
