@@ -945,6 +945,17 @@ data:
             launcher:
               command:
                 command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.16 \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
+        - permanent:
+            name: "worker-3"
+            nodeDescription: "UNB Artifactory"
+            labelString: "worker ci.geo.unb"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.230 \"ssh -i ~/.ssh/id_rsa.aix jenkins@ub18p8art 'wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar'\""
       primaryView:
         list:
           name: "Pipelines"

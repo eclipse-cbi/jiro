@@ -921,7 +921,7 @@ jenkins:
       launcher:
         command:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@140.211.168.16 \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
-- permanent:
+  - permanent:
       name: "worker-3"
       nodeDescription: "UNB Artifactory"
       labelString: "worker ci.geo.unb"
