@@ -41,7 +41,6 @@
                      "-showversion",
                      "-XshowSettings:vm",
                      "-Xmx256m",
-                     "-Dsun.zip.disableMemoryMapping=true",
                      "-Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true",
                      "-Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
                   ],
@@ -143,7 +142,6 @@
                      "-showversion",
                      "-XshowSettings:vm",
                      "-Xmx256m",
-                     "-Dsun.zip.disableMemoryMapping=true",
                      "-Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true",
                      "-Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
                   ],
@@ -241,7 +239,6 @@
                      "-showversion",
                      "-XshowSettings:vm",
                      "-Xmx256m",
-                     "-Dsun.zip.disableMemoryMapping=true",
                      "-Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true",
                      "-Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
                   ],
@@ -336,7 +333,7 @@
          "image": "technology.packager",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
-         "tag": "2.263.2"
+         "tag": "2.263.3"
       }
    },
    "gradle": {
@@ -414,11 +411,11 @@
          "image": "jiro-master",
          "registry": "docker.io",
          "repository": "eclipsecbi",
-         "tag": "2.263.2-jdk11"
+         "tag": "2.263.3"
       },
       "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM eclipsecbi/adoptopenjdk-coreutils:openjdk11-openj9-alpine-slim\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/var/jenkins\"\n\n# jenkins version being bundled in this docker image\nENV JENKINS_HOME=\"/var/jenkins\"\nENV JENKINS_WAR=\"/usr/share/jenkins/jenkins.war\"\nENV COPY_REFERENCE_FILE_LOG=\"/var/jenkins/copy_reference_file.log\"\nENV REF=\"/usr/share/jenkins/ref\"\n\nVOLUME [ \"/var/jenkins\", \"/var/cache/jenkins/war\", \"/var/cache/jenkins/plugins\" ]\nWORKDIR \"/var/jenkins\"\n\nENTRYPOINT [\"uid_entrypoint\", \"/usr/bin/dumb-init\", \"--\", \"/usr/local/bin/jenkins.sh\"]\n\nRUN mkdir -p $(dirname \"/usr/share/jenkins/jenkins.war\") && mkdir -p \"/usr/share/jenkins/ref\"\n\nCOPY scripts/* /usr/local/bin/\nRUN chmod ug+x /usr/local/bin/*\n\nCOPY war/jenkins.war \"/usr/share/jenkins/jenkins.war\"\nCOPY ref/ \"/usr/share/jenkins/ref/\"\n",
       "home": "/var/jenkins",
-      "id": "2.263.2-jdk11",
+      "id": "2.263.3",
       "key_fingerprint": "FCEF32E745F2C3D5",
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
@@ -479,9 +476,9 @@
       },
       "updateCenter": "https://updates.jenkins.io",
       "username": "jenkins",
-      "version": "2.263.2",
+      "version": "2.263.3",
       "war": "/usr/share/jenkins/jenkins.war",
-      "warBaseUrl": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/2.263.2",
+      "warBaseUrl": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/2.263.3",
       "webroot": "/var/cache/jenkins/war"
    },
    "kubernetes": {

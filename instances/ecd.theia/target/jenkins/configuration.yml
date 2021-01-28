@@ -135,7 +135,7 @@ jenkins:
                   value: ""
               - envVar:
                   key: "JENKINS_REMOTING_JAVA_OPTS"
-                  value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
               - envVar:
                   key: "OPENJ9_JAVA_OPTIONS"
                   value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
@@ -220,7 +220,7 @@ jenkins:
                   value: ""
               - envVar:
                   key: "JENKINS_REMOTING_JAVA_OPTS"
-                  value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
               - envVar:
                   key: "OPENJ9_JAVA_OPTIONS"
                   value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
@@ -305,7 +305,7 @@ jenkins:
                   value: ""
               - envVar:
                   key: "JENKINS_REMOTING_JAVA_OPTS"
-                  value: "-showversion -XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
               - envVar:
                   key: "OPENJ9_JAVA_OPTIONS"
                   value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
@@ -509,7 +509,7 @@ tool:
           - installSource:
               installers:
                 - antFromApache:
-                    id: "1.10.5"
+                    id: "1.10.9"
   maven:
     installations:
       - name: "apache-maven-latest"

@@ -498,6 +498,12 @@ data:
         servers:
           - name: "gitlab.eclipse.org"
             serverUrl: "https://gitlab.eclipse.org"
+      githubpluginconfig:
+        configs:
+          - name: "GitHub"
+            apiUrl: "https://api.github.com"
+            credentialsId: "github-bot-token"
+            manageHooks: false
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
