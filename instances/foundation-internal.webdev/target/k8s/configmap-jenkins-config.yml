@@ -415,12 +415,6 @@ data:
                       configMap:
                         name: m2-dir
     unclassified:
-      gitHubPluginConfig:
-        configs:
-          - credentialsId: "131d507e-6b2c-4358-b27c-f3d7c1da06d5"
-            manageHooks: false
-            name: "github.com"
-        hookUrl: "https://foundation.eclipse.org/ci/webdev/github-webhook/"
       openShift:
         clusterConfigs:
           - credentialsId: "ecda650e-23ab-4b17-82cd-20e4e6cbb9d7"
@@ -499,6 +493,15 @@ data:
         servers:
           - name: "gitlab.eclipse.org"
             serverUrl: "https://gitlab.eclipse.org"
+      gitHubPluginConfig:
+        configs:
+          - name: "GitHub"
+            apiUrl: "https://api.github.com"
+            credentialsId: "github-bot-token"
+            manageHooks: false
+        hookSecretConfigs:
+          - credentialsId: "github-webhook-secret"
+        hookUrl: "https://foundation.eclipse.org/ci/webdev/github-webhook/"
     tool:
       oc:
         installations:

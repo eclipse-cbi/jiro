@@ -14,7 +14,3 @@ jenkins:
       name: "mlv8w-ubuntu1804"
       nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
       remoteFS: "/home/genie.infra/jenkins-agent"
-
-unclassified:
-  gitHubPluginConfig:
-    configs:

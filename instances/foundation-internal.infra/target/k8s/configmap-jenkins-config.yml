@@ -330,9 +330,18 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
+    security:
+      apiToken:
+        creationOfLegacyTokenEnabled: false
+        tokenGenerationOnCreationEnabled: false
+        usageStatisticsEnabled: true
+      queueItemAuthenticator:
+        authenticators:
+          - global:
+              strategy: "triggeringUsersAuthorizationStrategy"
+      sSHD:
+        port: -1
     unclassified:
-      gitHubPluginConfig:
-        configs:
       location:
         adminAddress: ci-admin@eclipse.org
         url: https://foundation.eclipse.org/ci/infra
@@ -383,17 +392,15 @@ data:
         servers:
           - name: "gitlab.eclipse.org"
             serverUrl: "https://gitlab.eclipse.org"
-    security:
-      apiToken:
-        creationOfLegacyTokenEnabled: false
-        tokenGenerationOnCreationEnabled: false
-        usageStatisticsEnabled: true
-      queueItemAuthenticator:
-        authenticators:
-          - global:
-              strategy: "triggeringUsersAuthorizationStrategy"
-      sSHD:
-        port: -1
+      gitHubPluginConfig:
+        configs:
+          - name: "GitHub"
+            apiUrl: "https://api.github.com"
+            credentialsId: "github-bot-token"
+            manageHooks: false
+        hookSecretConfigs:
+          - credentialsId: "github-webhook-secret"
+        hookUrl: "https://foundation.eclipse.org/ci/infra/github-webhook/"
     tool:
       jdk:
         installations:

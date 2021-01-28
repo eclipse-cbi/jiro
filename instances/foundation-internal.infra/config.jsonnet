@@ -5,7 +5,8 @@
   },
   deployment+: {
     host: "foundation.eclipse.org",
-    prefix: "/ci/" + $.project.shortName
+    prefix: "/ci/" + $.project.shortName,
+    cluster: "okd-c1"
   },
   jenkins+: {
     version: "2.263.3",
