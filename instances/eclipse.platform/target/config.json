@@ -320,7 +320,7 @@
       }
    },
    "deployment": {
-      "cluster": "ci-c1",
+      "cluster": "okd-c1",
       "controlPort": 8081,
       "host": "ci.eclipse.org",
       "jnlpPort": 50000,
@@ -351,7 +351,7 @@
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
-      "maxConcurrency": 8,
+      "maxConcurrency": 6,
       "permissions": [
          {
             "grantedPermissions": [
@@ -513,12 +513,12 @@
          },
          "resources": {
             "cpu": {
-               "limit": "2300m",
-               "request": "1150m"
+               "limit": "2000m",
+               "request": "850m"
             },
             "memory": {
-               "limit": "3072Mi",
-               "request": "3072Mi"
+               "limit": "2560Mi",
+               "request": "2560Mi"
             }
          },
          "stsName": "platform"
@@ -575,7 +575,7 @@
    "project": {
       "displayName": "Eclipse Platform",
       "fullName": "eclipse.platform",
-      "resourcePacks": 4,
+      "resourcePacks": 3,
       "shortName": "platform",
       "unixGroupName": "eclipse.platform"
    },
@@ -586,10 +586,10 @@
             "servers": {
                "https://index.docker.io/v1/": {
                   "password": {
-                     "pass": "docker.com/default-image-puller/ci-c1/password"
+                     "pass": "docker.com/default-image-puller/okd-c1/password"
                   },
                   "username": {
-                     "pass": "docker.com/default-image-puller/ci-c1/username"
+                     "pass": "docker.com/default-image-puller/okd-c1/username"
                   }
                }
             },
@@ -603,10 +603,10 @@
             "servers": {
                "https://index.docker.io/v1/": {
                   "password": {
-                     "pass": "docker.com/default-image-puller/ci-c1/password"
+                     "pass": "docker.com/default-image-puller/okd-c1/password"
                   },
                   "username": {
-                     "pass": "docker.com/default-image-puller/ci-c1/username"
+                     "pass": "docker.com/default-image-puller/okd-c1/username"
                   }
                }
             },

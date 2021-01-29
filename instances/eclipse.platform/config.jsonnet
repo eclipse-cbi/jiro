@@ -2,6 +2,9 @@
   project+: {
     fullName: "eclipse.platform",
     displayName: "Eclipse Platform",
-    resourcePacks: 4,
+    resourcePacks: 3,
+  },
+  deployment+: {
+    cluster: "okd-c1",
   },
 }

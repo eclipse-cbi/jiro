@@ -67,7 +67,7 @@ jenkins:
   clouds:
   - kubernetes:
       name: "kubernetes"
-      containerCapStr: "8"
+      containerCapStr: "6"
       jenkinsUrl: "http://jenkins-ui.platform.svc.cluster.local/platform"
       jenkinsTunnel: "jenkins-discovery.platform.svc.cluster.local:50000"
       maxRequestsPerHostStr: "32"
@@ -399,6 +399,16 @@ unclassified:
     servers:
     - name: "gitlab.eclipse.org"
       serverUrl: "https://gitlab.eclipse.org"
+
+  gitHubPluginConfig:
+    configs:
+      - name: "GitHub"
+        apiUrl: "https://api.github.com"
+        credentialsId: "github-bot-token"
+        manageHooks: false
+    hookSecretConfigs:
+      - credentialsId: "github-webhook-secret"
+    hookUrl: "https://ci.eclipse.org/platform/github-webhook/"
 
 tool:
   jdk:
