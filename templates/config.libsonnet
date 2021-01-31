@@ -29,6 +29,7 @@ local clouds = import "clouds.libsonnet";
     theme: "quicksilver",
     # see https://github.com/jenkinsci/docker/pull/577
     pluginsForceUpgrade: true,
+    plugins: [],
     permissions: permissions.projectPermissions($.project.unixGroupName, 
       permissions.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger",]),
   },
