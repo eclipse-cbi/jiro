@@ -28,5 +28,10 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure"],
       },
     ],
+    plugins+: [
+      "envinject",
+      "generic-webhook-trigger",
+      "gradle",
+    ],
   },
 }

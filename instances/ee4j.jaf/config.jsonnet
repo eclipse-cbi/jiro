@@ -4,6 +4,9 @@
     displayName: "Jakarta Activation",
   },
   jenkins+: {
-    theme: "quicksilver-light"
+    theme: "quicksilver-light",
+    plugins+: [
+      "copyartifact",
+    ],
   }
 }

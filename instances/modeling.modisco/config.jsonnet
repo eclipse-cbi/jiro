@@ -4,6 +4,9 @@
     displayName: "Eclipse MoDisco",
   },
   jenkins+: {
-    theme: "quicksilver-light"
-  }
+    theme: "quicksilver-light",
+    plugins+: [
+      "buckminster",
+    ],
+  },
 }

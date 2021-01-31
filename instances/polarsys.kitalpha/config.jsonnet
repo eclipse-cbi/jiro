@@ -3,6 +3,11 @@
     fullName: "polarsys.kitalpha",
     displayName: "Eclipse Kitalpha",
   },
+  jenkins+: {
+    plugins+: [
+      "jacoco",
+    ],
+  },
   clouds+: {
     kubernetes+: { 
       local currentCloud = self,

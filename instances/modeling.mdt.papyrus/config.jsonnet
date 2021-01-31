@@ -4,6 +4,12 @@
     displayName: "Eclipse Papyrus",
     resourcePacks: 3, //https://bugs.eclipse.org/bugs/show_bug.cgi?id=570916
   },
+  jenkins+: {
+    plugins+: [
+      "dashboard-view",
+      "zentimestamp",
+    ],
+  },
   deployment+: {
     host: "ci.eclipse.org",
     cluster: "okd-c1",

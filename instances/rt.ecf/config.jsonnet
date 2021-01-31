@@ -12,6 +12,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         principal: "mat.booth@redhat.com", 
         grantedPermissions: permissionsTemplates.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger"],
       }
-    ]
+    ],
+    plugins+: [
+      "envinject",
+    ],
   }
 }

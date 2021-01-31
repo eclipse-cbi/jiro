@@ -7,6 +7,11 @@
   jenkins+: {
     theme: "quicksilver-light",
     staticAgentCount: 1,
+    plugins+: [
+      "dashboard-view",
+      "git-forensics",
+      "gradle",
+    ],
   },
   gradle+: {
     generate: true,

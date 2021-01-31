@@ -6,6 +6,17 @@
   },
   jenkins+: {
     staticAgentCount: 2,
+    plugins+: [
+      "copyartifact",
+      "downstream-buildview",
+      "envinject",
+      "gradle",
+      "groovy",
+      "htmlpublisher",
+      "parameterized-scheduler",
+      "show-build-parameters",
+      "slack",
+    ],
   },
   gradle+: {
     generate: true,

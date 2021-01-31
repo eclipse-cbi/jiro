@@ -32,6 +32,12 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         ]
       }
     ],
+    plugins+: [
+      "docker-workflow",
+      "kubernetes-cli",
+      "openshift-client",
+      "slack",
+    ],
   },
   kubernetes+: {
     master+: {
