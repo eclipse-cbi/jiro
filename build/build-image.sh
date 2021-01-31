@@ -84,7 +84,7 @@ install_additional_plugins() {
 }
 
 mkdir -p "${INSTANCE}/target/jenkins/ref/plugins"
-if [[ -f "${INSTANCE}/jenkins/plugins-list" ]]; then
+if jq -e '(.jenkins.plugins | length) > 0' "${CONFIG_JSON}" > /dev/null; then
   INFO "Some additional plugins need to be installed"
   install_additional_plugins
 fi
