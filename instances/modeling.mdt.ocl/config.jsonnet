@@ -4,6 +4,9 @@
     displayName: "Eclipse OCL"
   },
   jenkins+: {
-    theme: "quicksilver-light"
+    theme: "quicksilver-light",
+    plugins+: [
+      "buckminster",
+    ],
   } 
 }

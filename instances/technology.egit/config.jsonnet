@@ -5,6 +5,9 @@
     resourcePacks: 2,
   },
   jenkins+: {
-    theme: "quicksilver-light"
+    theme: "quicksilver-light",
+    plugins+: [
+      "dashboard-view",
+    ],
   }
 }

@@ -3,7 +3,11 @@
     fullName: "ee4j.jaxb-impl",
     displayName: "Eclipse Implementation of JAXB",
   },
-  maven+: {
-    showVersion: false,
-  }
+  jenkins+: {
+    plugins+: [
+      "envinject",
+      "jacoco",
+      "copyartifact",
+    ],
+  },
 }

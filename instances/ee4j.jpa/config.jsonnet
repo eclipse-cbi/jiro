@@ -3,7 +3,9 @@
     fullName: "ee4j.jpa",
     displayName: "Jakarta Persistence",
   },
-  maven+: {
-    showVersion: false,
-  }
+  jenkins+: {
+    plugins+: [
+      "copyartifact",
+    ],
+  },
 }

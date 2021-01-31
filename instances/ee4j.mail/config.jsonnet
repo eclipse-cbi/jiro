@@ -7,6 +7,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   },
   jenkins+: {
     theme: "quicksilver-light",
-    permissions: permissionsTemplates.projectPermissions($.project.unixGroupName, permissionsTemplates.committerPermissionsList)
+    permissions: permissionsTemplates.projectPermissions($.project.unixGroupName, permissionsTemplates.committerPermissionsList),
+    plugins+: [
+      "copyartifact",
+    ],
   }
 }

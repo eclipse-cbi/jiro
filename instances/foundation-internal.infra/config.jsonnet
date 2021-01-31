@@ -18,7 +18,12 @@
           "Overall/Administer"
         ]
       }
-    ]
+    ],
+    plugins+: [
+      "docker-workflow",
+      "kubernetes-cli",
+      "slack",
+    ],
   },
   kubernetes+: {
     master+: {

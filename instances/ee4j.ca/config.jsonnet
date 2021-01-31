@@ -3,7 +3,9 @@
     fullName: "ee4j.ca",
     displayName: "Jakarta Annotations"
   },
-  maven+: {
-    showVersion: false,
-  }
+  jenkins+: {
+    plugins: [
+      "copyartifact",
+    ],
+  },
 }

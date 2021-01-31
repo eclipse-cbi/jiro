@@ -4,6 +4,9 @@
     displayName: "Eclipse QVT Operational"
   },
   jenkins+: {
-    theme: "quicksilver-light"
-  }
+    theme: "quicksilver-light",
+    plugins+: [
+      "buckminster",
+    ],
+  },
 }
