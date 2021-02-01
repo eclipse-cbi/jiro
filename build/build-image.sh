@@ -73,7 +73,7 @@ install_additional_plugins() {
     --entrypoint "" \
     "${TOOLS_IMAGE}" \
     /bin/bash -c \
-      "export CACHE_DIR=/cache && \
+      "export CACHE_DIR=.cache && \
       java -jar ./tools/jenkins-plugin-manager.jar \
         --plugin-file plugins-list.txt \
         --list \
