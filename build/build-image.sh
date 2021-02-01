@@ -46,6 +46,7 @@ install_additional_plugins() {
 
   rm -rf "${build_dir}/ref"
   mkdir -p "${build_dir}/ref"
+  mkdir -p "${SCRIPT_FOLDER}/../.cache"
 
   local war_file parent_image
   war_file="$(jq -r '.jiroMaster.war' "${CONFIG_JSON}")"
@@ -73,7 +74,7 @@ install_additional_plugins() {
     --entrypoint "" \
     "${TOOLS_IMAGE}" \
     /bin/bash -c \
-      "export CACHE_DIR=.cache && \
+      "export CACHE_DIR=/cache && \
       java -jar ./tools/jenkins-plugin-manager.jar \
         --plugin-file plugins-list.txt \
         --list \
