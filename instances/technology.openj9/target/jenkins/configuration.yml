@@ -925,7 +925,7 @@ jenkins:
     - permanent:
         name: "worker-3"
         nodeDescription: "UNB Artifactory"
-        labelString: "worker ci.geo.unb"
+        labelString: "artifactory ci.geo.unb"
         remoteFS: '/home/jenkins'
         numExecutors: 1
         mode: EXCLUSIVE
@@ -1302,12 +1302,6 @@ unclassified:
   slackNotifier:
     teamDomain: "openj9"
     tokenCredentialId: "slack-token"
-  githubpluginconfig:
-    configs:
-      - name: "GitHub"
-        apiUrl: "https://api.github.com"
-        credentialsId: "github-bot-token"
-        manageHooks: false
   location:
     adminAddress: ci-admin@eclipse.org
     url: https://ci.eclipse.org/openj9
