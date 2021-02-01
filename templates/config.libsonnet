@@ -39,6 +39,27 @@ local clouds = import "clouds.libsonnet";
       repository: "eclipsecbijenkins",
       image: $.project.fullName,
       tag: $.jiroMaster.version,
+      dockerfile: |||
+        FROM %(from)s
+
+        EXPOSE %(uiPort)d
+        EXPOSE %(jnlpPort)d
+
+        COPY jenkins/ref/plugins %(refFolder)s/plugins
+
+        RUN mkdir -p %(refFolder)s/userContent/theme/
+        COPY jenkins/%(theme)s.css.override %(refFolder)s/userContent/theme/
+        COPY jenkins/title.js %(refFolder)s/userContent/theme/
+
+        USER 10001
+      ||| % {
+        local fromDocker = $.jiroMaster.docker,
+        from: "%s/%s/%s:%s" % [fromDocker.registry, fromDocker.repository, fromDocker.image, fromDocker.tag],
+        uiPort: $.deployment.uiPort,
+        jnlpPort: $.deployment.jnlpPort,
+        refFolder: $.jiroMaster.ref,
+        theme: $.jenkins.theme,
+      },
     },
   },
   clouds: clouds.kubernetes("kubernetes", self, (import '../../jiro-agents/agents.jsonnet')),

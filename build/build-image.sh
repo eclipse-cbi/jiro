@@ -32,7 +32,6 @@ if [ ! -d "${INSTANCE}" ]; then
 fi
 
 "${SCRIPT_FOLDER}/gen-jenkins.sh" "${INSTANCE}"
-"${SCRIPT_FOLDER}/gen-dockerfile.sh" "${INSTANCE}"
 
 TOOLS_IMAGE="eclipsecbi/adoptopenjdk-coreutils:openjdk11-openj9-alpine-slim"
 CONFIG_JSON="${INSTANCE}/target/config.json"
@@ -84,6 +83,7 @@ install_additional_plugins() {
         --war '${image_wd}/$(basename "${war_file}")' > ${image_wd}/plugins.log" | TRACE
 }
 
+mkdir -p "${INSTANCE}/target/jenkins/ref/plugins"
 if [[ -f "${INSTANCE}/jenkins/plugins-list" ]]; then
   INFO "Some additional plugins need to be installed"
   install_additional_plugins
@@ -92,6 +92,9 @@ fi
 image="$(jq -r '.docker.master.registry' "${CONFIG_JSON}")/$(jq -r '.docker.master.repository' "${CONFIG_JSON}")/$(jq -r '.docker.master.image' "${CONFIG_JSON}")"
 tag="$(jq -r '.docker.master.tag' "${CONFIG_JSON}")"
 dockerfile="${INSTANCE}/target/Dockerfile"
+
+INFO "Generating ${dockerfile}"
+jq -r '.docker.master.dockerfile' "${CONFIG_JSON}" > "${dockerfile}"
 
 INFO "Building ${image}:${tag} from ${dockerfile} (push=${PUSH_IMAGES})"
 dockerw build "${image}" "${tag}" "${dockerfile}" "$(dirname "${dockerfile}")" "${PUSH_IMAGES}" false
