@@ -594,12 +594,15 @@ data:
         servers:
           - name: "gitlab.eclipse.org"
             serverUrl: "https://gitlab.eclipse.org"
-      githubpluginconfig:
+      gitHubPluginConfig:
         configs:
           - name: "GitHub"
             apiUrl: "https://api.github.com"
             credentialsId: "github-bot-token"
             manageHooks: false
+        hookSecretConfigs:
+          - credentialsId: "github-webhook-secret"
+        hookUrl: "https://ci.eclipse.org/xtext/github-webhook/"
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false

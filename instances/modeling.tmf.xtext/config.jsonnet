@@ -28,4 +28,21 @@
       },
     },
   },
+  maven+: {
+    files+: {
+      "settings.xml"+: {
+        "servers"+: {
+          "ossrh-s01": {
+            nexusProUrl: "https://s01.oss.sonatype.org",
+            username: {
+              pass: "bots/" + $.project.fullName + "/oss.sonatype.org/username",
+            },
+            password: {
+              pass: "bots/" + $.project.fullName + "/oss.sonatype.org/password",
+            },
+          },
+        },
+      },
+    }
+  }
 }

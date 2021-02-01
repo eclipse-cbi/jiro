@@ -706,6 +706,15 @@
                      "pass": "bots/modeling.tmf.xtext/oss.sonatype.org/username"
                   }
                },
+               "ossrh-s01": {
+                  "nexusProUrl": "https://s01.oss.sonatype.org",
+                  "password": {
+                     "pass": "bots/modeling.tmf.xtext/oss.sonatype.org/password"
+                  },
+                  "username": {
+                     "pass": "bots/modeling.tmf.xtext/oss.sonatype.org/username"
+                  }
+               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"
