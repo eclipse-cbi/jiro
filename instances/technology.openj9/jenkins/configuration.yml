@@ -952,13 +952,6 @@ unclassified:
     teamDomain: "openj9"
     tokenCredentialId: "slack-token"
 
-  githubpluginconfig:
-    configs:
-      - name: "GitHub"
-        apiUrl: "https://api.github.com"
-        credentialsId: "github-bot-token"
-        manageHooks: false
-
 tool:
   xvfbInstallation:
     installations:
