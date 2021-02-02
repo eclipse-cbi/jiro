@@ -2,7 +2,7 @@
    "accessControl": {
       "primaryGroup": {
          "id": -1,
-         "name": "foundation-internal.simrel"
+         "name": "callisto-dev"
       },
       "supplementalGroups": [ ],
       "user": {
@@ -330,6 +330,7 @@
    },
    "docker": {
       "master": {
+         "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.263.3\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
          "image": "foundation-internal.simrel",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
@@ -396,7 +397,7 @@
                "Gerrit/ManualTrigger",
                "Gerrit/Retrigger"
             ],
-            "principal": "foundation-internal.simrel"
+            "principal": "callisto-dev"
          }
       ],
       "pluginsForceUpgrade": true,
@@ -580,7 +581,7 @@
       "fullName": "foundation-internal.simrel",
       "resourcePacks": 1,
       "shortName": "simrel",
-      "unixGroupName": "foundation-internal.simrel"
+      "unixGroupName": "callisto-dev"
    },
    "secrets": {
       "dockerconfigjson": {
