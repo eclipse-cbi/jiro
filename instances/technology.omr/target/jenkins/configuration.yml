@@ -12,6 +12,11 @@ jenkins:
         launcher:
           command:
             command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.230 \"ssh jenkins@deb10-x64-1 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -Xmx256m -jar slave.jar'\""
+        nodeProperties:
+          - envVars:
+              env:
+                - key: "CROSS_SYSROOT_RISCV64"
+                  value: '/home/jenkins/riscv-debian/rootfs'
     - permanent:
         name: "eclipseomr-1"
         nodeDescription: "eclipseomr-1 Linux PPCLE Ubuntu 16.04"
@@ -874,12 +879,15 @@ unclassified:
     servers:
       - name: "gitlab.eclipse.org"
         serverUrl: "https://gitlab.eclipse.org"
-  githubpluginconfig:
+  gitHubPluginConfig:
     configs:
       - name: "GitHub"
         apiUrl: "https://api.github.com"
         credentialsId: "github-bot-token"
         manageHooks: false
+    hookSecretConfigs:
+      - credentialsId: "github-webhook-secret"
+    hookUrl: "https://ci.eclipse.org/omr/github-webhook/"
 tool:
   jdk:
     installations:
