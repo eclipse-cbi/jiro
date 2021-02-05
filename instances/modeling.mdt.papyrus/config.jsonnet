@@ -2,6 +2,7 @@
   project+: {
     fullName: "modeling.mdt.papyrus",
     displayName: "Eclipse Papyrus",
+    resourcePacks: 3, //https://bugs.eclipse.org/bugs/show_bug.cgi?id=570916
   },
   deployment+: {
     host: "ci.eclipse.org",

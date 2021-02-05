@@ -67,7 +67,7 @@ jenkins:
   clouds:
   - kubernetes:
       name: "kubernetes"
-      containerCapStr: "2"
+      containerCapStr: "6"
       jenkinsUrl: "http://jenkins-ui.papyrus.svc.cluster.local/papyrus"
       jenkinsTunnel: "jenkins-discovery.papyrus.svc.cluster.local:50000"
       maxRequestsPerHostStr: "32"
@@ -472,25 +472,15 @@ unclassified:
         skipScmCause: false
         skipUpstreamCause: false
 
-  gitLabConnectionConfig:
-    connections:
-    - clientBuilderId: "autodetect"
-      connectionTimeout: 10
-      ignoreCertificateErrors: false
-      name: "gitlab.eclipse.org"
-      readTimeout: 10
-      url: "https://gitlab.eclipse.org"
-  gitLabServers:
-    servers:
-    - name: "gitlab.eclipse.org"
-      serverUrl: "https://gitlab.eclipse.org"
-
-  githubpluginconfig:
+  gitHubPluginConfig:
     configs:
       - name: "GitHub"
         apiUrl: "https://api.github.com"
         credentialsId: "github-bot-token"
         manageHooks: false
+    hookSecretConfigs:
+      - credentialsId: "github-webhook-secret"
+    hookUrl: "https://ci.eclipse.org/papyrus/github-webhook/"
 
 tool:
   jdk:
