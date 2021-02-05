@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.gmp.graphiti",
+         "org.eclipse.cbi.jiro/project.shortname": "graphiti"
+      },
+      "name": "graphiti",
+      "namespace": "graphiti"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "graphiti"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "graphiti",
+         "namespace": "graphiti"
+      }
+   ]
+}

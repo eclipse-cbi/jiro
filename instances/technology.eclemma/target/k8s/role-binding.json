@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.eclemma",
+         "org.eclipse.cbi.jiro/project.shortname": "eclemma"
+      },
+      "name": "eclemma",
+      "namespace": "eclemma"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "eclemma"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "eclemma",
+         "namespace": "eclemma"
+      }
+   ]
+}
