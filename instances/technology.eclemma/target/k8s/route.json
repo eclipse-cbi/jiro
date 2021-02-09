@@ -13,7 +13,7 @@
       "namespace": "eclemma"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/eclemma",
       "port": {
          "targetPort": "http"

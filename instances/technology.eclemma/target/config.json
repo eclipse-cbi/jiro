@@ -322,11 +322,11 @@
    "deployment": {
       "cluster": "okd-c1",
       "controlPort": 8081,
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "jnlpPort": 50000,
       "prefix": "/eclemma",
       "uiPort": 8080,
-      "url": "https://ci-staging.eclipse.org/eclemma"
+      "url": "https://ci.eclipse.org/eclemma"
    },
    "docker": {
       "master": {
