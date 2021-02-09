@@ -13,7 +13,7 @@
       "namespace": "emfcompare"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/emfcompare",
       "port": {
          "targetPort": "http"
