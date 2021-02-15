@@ -5,6 +5,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     fullName: "rt.ecf",
     displayName: "Eclipse Communication Framework"
   },
+  deployment+: {
+    cluster: "okd-c1",
+  },
   jenkins+: {
     permissions+: [
       {

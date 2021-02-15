@@ -8,5 +8,8 @@
     plugins+: [
       "copyartifact",
     ],
-  }
+  },
+  deployment+: {
+    cluster: "okd-c1",
+  },
 }

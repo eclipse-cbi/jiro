@@ -1,2 +1,2 @@
 # GENERATED FILE - DO NOT EDIT
-envinject
+copyartifact

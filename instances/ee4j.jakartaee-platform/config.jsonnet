@@ -8,5 +8,8 @@
   },
   maven+: {
     showVersion: false,
-  }
+  },
+  deployment+: {
+    cluster: "okd-c1",
+  },
 }
