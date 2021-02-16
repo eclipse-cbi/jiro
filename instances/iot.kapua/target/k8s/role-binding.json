@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.kapua",
+         "org.eclipse.cbi.jiro/project.shortname": "kapua"
+      },
+      "name": "kapua",
+      "namespace": "kapua"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "kapua"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "kapua",
+         "namespace": "kapua"
+      }
+   ]
+}

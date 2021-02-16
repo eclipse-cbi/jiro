@@ -1,0 +1,25 @@
+{
+   "apiVersion": "v1",
+   "kind": "Service",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.kapua",
+         "org.eclipse.cbi.jiro/project.shortname": "kapua"
+      },
+      "name": "jenkins-ui",
+      "namespace": "kapua"
+   },
+   "spec": {
+      "ports": [
+         {
+            "name": "http",
+            "port": 80,
+            "protocol": "TCP",
+            "targetPort": 8080
+         }
+      ],
+      "selector": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.kapua"
+      }
+   }
+}

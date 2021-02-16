@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.lsp4j",
+         "org.eclipse.cbi.jiro/project.shortname": "lsp4j"
+      },
+      "name": "lsp4j",
+      "namespace": "lsp4j"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "lsp4j"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "lsp4j",
+         "namespace": "lsp4j"
+      }
+   ]
+}

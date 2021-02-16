@@ -1,0 +1,3 @@
+# GENERATED FILE - DO NOT EDIT
+jacoco
+htmlpublisher
