@@ -13,7 +13,7 @@
       "namespace": "january"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/january",
       "port": {
          "targetPort": "http"

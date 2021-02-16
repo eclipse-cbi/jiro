@@ -322,11 +322,11 @@
    "deployment": {
       "cluster": "okd-c1",
       "controlPort": 8081,
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "jnlpPort": 50000,
       "prefix": "/january",
       "uiPort": 8080,
-      "url": "https://ci-staging.eclipse.org/january"
+      "url": "https://ci.eclipse.org/january"
    },
    "docker": {
       "master": {
@@ -400,6 +400,7 @@
             "principal": "science.january"
          }
       ],
+      "plugins": [ ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",
