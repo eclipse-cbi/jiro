@@ -1,0 +1,17 @@
+tool:
+  gradle:
+    installations:
+    - name: "gradle-latest"
+      properties:
+      - installSource:
+          installers:
+          - gradleInstaller:
+              id: "6.8.2"
+  sonarRunnerInstallation:
+    installations:
+    - name: "SonarQube Scanner"
+      properties:
+      - installSource:
+          installers:
+          - sonarRunnerInstaller:
+              id: "4.6.0.2311"

@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "rt.jetty",
+         "org.eclipse.cbi.jiro/project.shortname": "jetty"
+      },
+      "name": "jetty",
+      "namespace": "jetty"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "jetty"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "jetty",
+         "namespace": "jetty"
+      }
+   ]
+}
