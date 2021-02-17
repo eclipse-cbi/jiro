@@ -51,12 +51,12 @@ if ! grep "settingsSecurity" "${settings_security_xml}" &> /dev/null; then
   echo -e "\n<settingsSecurity/>" >> "${settings_security_xml}"
 fi
 
+# get and decrypt settings.xml
 settings_xml="$(mktemp)"
 kubectl get secret -n "${namespace}" "${secret_name}" -o json | jq -r '.data["settings.xml"]'  | base64 -d > "${settings_xml}"
-
 settings="$(mktemp)"
 java -jar "${SCRIPT_FOLDER}/.maven-decrypter.jar" -s "${settings_xml}" "${settings_security_xml}" > "${settings}"
-rm -f "${settings_security_xml}" "${settings_xml}"
+rm -f "${settings_xml}"
 
 if [[ -f "${PASSWORD_STORE_DIR}/bots/${projectFullName}/apache-maven-security-settings/master-password.gpg" ]]; then
   masterPasswordInPass="$(pass "bots/${projectFullName}/apache-maven-security-settings/master-password")"
@@ -70,8 +70,18 @@ if [[ -f "${PASSWORD_STORE_DIR}/bots/${projectFullName}/apache-maven-security-se
   fi
 fi
 
+rm -f "${settings}"
+
 for settingsFilename in $(jq -r '.maven.files | keys - ["settings-security.xml"] | .[]' "${config}"); do
   echo "INFO: Checking ${settingsFilename}"
+
+  # get and decrypt settings*.xml
+  settings_xml="$(mktemp)"
+  kubectl get secret -n "${namespace}" "${secret_name}" -o json | jq -r ".data[\"${settingsFilename}\"]"  | base64 -d > "${settings_xml}"
+  settings="$(mktemp)"
+  java -jar "${SCRIPT_FOLDER}/.maven-decrypter.jar" -s "${settings_xml}" "${settings_security_xml}" > "${settings}"
+  rm -f "${settings_xml}"
+
   for serverId in $(jq -r '.maven.files["'"${settingsFilename}"'"] | .servers | keys | .[]' "${config}"); do
     server="$(jq -c '.maven.files["'"${settingsFilename}"'"].servers["'"${serverId}"'"]' "${config}")"
     usernamePassPath="$(jq -r '.username.pass' <<< "${server}")"
@@ -142,6 +152,8 @@ for settingsFilename in $(jq -r '.maven.files | keys - ["settings-security.xml"]
       fi
     fi
   done
+  echo
+  rm -f "${settings}"
 done
 
-rm -f "${settings}"
+rm -f "${settings_security_xml}"
