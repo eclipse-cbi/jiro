@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "tools.windowbuilder",
+         "org.eclipse.cbi.jiro/project.shortname": "windowbuilder"
+      },
+      "name": "windowbuilder",
+      "namespace": "windowbuilder"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "windowbuilder"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "windowbuilder",
+         "namespace": "windowbuilder"
+      }
+   ]
+}

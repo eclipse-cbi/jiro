@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.paho",
+         "org.eclipse.cbi.jiro/project.shortname": "paho"
+      },
+      "name": "paho",
+      "namespace": "paho"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "paho"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "paho",
+         "namespace": "paho"
+      }
+   ]
+}

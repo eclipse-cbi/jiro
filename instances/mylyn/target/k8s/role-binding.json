@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "mylyn",
+         "org.eclipse.cbi.jiro/project.shortname": "mylyn"
+      },
+      "name": "mylyn",
+      "namespace": "mylyn"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "mylyn"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "mylyn",
+         "namespace": "mylyn"
+      }
+   ]
+}

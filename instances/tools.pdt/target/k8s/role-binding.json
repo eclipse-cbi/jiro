@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "tools.pdt",
+         "org.eclipse.cbi.jiro/project.shortname": "pdt"
+      },
+      "name": "pdt",
+      "namespace": "pdt"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "pdt"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "pdt",
+         "namespace": "pdt"
+      }
+   ]
+}
