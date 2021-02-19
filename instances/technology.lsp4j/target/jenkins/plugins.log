@@ -31,7 +31,7 @@ font-awesome-api 5.15.2-1
 forensics-api 0.10.1
 gerrit-trigger 2.32.0
 ghprb 1.42.2
-git 4.5.2
+git 4.6.0
 git-client 3.6.0
 git-parameter 0.9.13
 git-server 1.9
@@ -47,8 +47,8 @@ handlebars 1.1.1
 handy-uri-templates-2-api 2.1.8-1.0
 jackson2-api 2.12.1
 javadoc 1.6
-jdk-tool 1.4
-jjwt-api 0.11.2-8.82737cbfa6f5
+jdk-tool 1.5
+jjwt-api 0.11.2-9.c8b45b8bb173
 jobConfigHistory 2.26
 jquery 1.12.4-1
 jquery3-api 3.5.1-2
@@ -80,7 +80,7 @@ pipeline-stage-step 2.5
 pipeline-stage-tags-metadata 1.8.4
 pipeline-stage-view 2.19
 plain-credentials 1.7
-plugin-util-api 1.7.0
+plugin-util-api 1.7.1
 popper-api 1.16.1-1
 promoted-builds 3.7
 rebuild 1.31
@@ -91,10 +91,10 @@ script-security 1.76
 simple-theme-plugin 0.6
 snakeyaml-api 1.27.0
 sonar 2.13
-ssh-agent 1.20
+ssh-agent 1.21
 ssh-credentials 1.18.1
 ssh-slaves 1.31.5
-structs 1.21
+structs 1.22
 timestamper 1.11.8
 token-macro 2.13
 trilead-api 1.0.13
@@ -103,7 +103,7 @@ warnings-ng 8.9.1
 workflow-aggregator 2.6
 workflow-api 2.41
 workflow-basic-steps 2.23
-workflow-cps 2.87
+workflow-cps 2.89
 workflow-cps-global-lib 2.17
 workflow-durable-task-step 2.37
 workflow-job 2.40
@@ -125,10 +125,10 @@ gradle 1.36
 mailer 1.32.1
 scm-api 2.6.4
 script-security 1.76
-structs 1.21
+structs 1.22
 workflow-api 2.41
 workflow-basic-steps 2.23
-workflow-cps 2.88
+workflow-cps 2.89
 workflow-durable-task-step 2.37
 workflow-job 2.40
 workflow-scm-step 2.11
@@ -137,7 +137,6 @@ workflow-support 3.7
 
 Plugins that will be downloaded:
 gradle 1.36
-workflow-cps 2.88
 
 Resulting plugin list:
 ace-editor 1.1
@@ -171,7 +170,7 @@ font-awesome-api 5.15.2-1
 forensics-api 0.10.1
 gerrit-trigger 2.32.0
 ghprb 1.42.2
-git 4.5.2
+git 4.6.0
 git-client 3.6.0
 git-parameter 0.9.13
 git-server 1.9
@@ -188,8 +187,8 @@ handlebars 1.1.1
 handy-uri-templates-2-api 2.1.8-1.0
 jackson2-api 2.12.1
 javadoc 1.6
-jdk-tool 1.4
-jjwt-api 0.11.2-8.82737cbfa6f5
+jdk-tool 1.5
+jjwt-api 0.11.2-9.c8b45b8bb173
 jobConfigHistory 2.26
 jquery 1.12.4-1
 jquery3-api 3.5.1-2
@@ -221,7 +220,7 @@ pipeline-stage-step 2.5
 pipeline-stage-tags-metadata 1.8.4
 pipeline-stage-view 2.19
 plain-credentials 1.7
-plugin-util-api 1.7.0
+plugin-util-api 1.7.1
 popper-api 1.16.1-1
 promoted-builds 3.7
 rebuild 1.31
@@ -232,10 +231,10 @@ script-security 1.76
 simple-theme-plugin 0.6
 snakeyaml-api 1.27.0
 sonar 2.13
-ssh-agent 1.20
+ssh-agent 1.21
 ssh-credentials 1.18.1
 ssh-slaves 1.31.5
-structs 1.21
+structs 1.22
 timestamper 1.11.8
 token-macro 2.13
 trilead-api 1.0.13
@@ -244,7 +243,7 @@ warnings-ng 8.9.1
 workflow-aggregator 2.6
 workflow-api 2.41
 workflow-basic-steps 2.23
-workflow-cps 2.88
+workflow-cps 2.89
 workflow-cps-global-lib 2.17
 workflow-durable-task-step 2.37
 workflow-job 2.40

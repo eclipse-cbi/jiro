@@ -442,7 +442,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/lsp4j
+    url: https://ci.eclipse.org/lsp4j
   mailer:
     replyToAddress: ci-admin@eclipse.org
     smtpHost: mail.eclipse.org
@@ -486,4 +486,4 @@ unclassified:
         manageHooks: false
     hookSecretConfigs:
       - credentialsId: "github-webhook-secret"
-    hookUrl: "https://ci-staging.eclipse.org/lsp4j/github-webhook/"
+    hookUrl: "https://ci.eclipse.org/lsp4j/github-webhook/"

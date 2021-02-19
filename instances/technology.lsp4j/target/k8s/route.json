@@ -13,7 +13,7 @@
       "namespace": "lsp4j"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/lsp4j",
       "port": {
          "targetPort": "http"

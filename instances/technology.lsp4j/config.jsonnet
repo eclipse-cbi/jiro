@@ -4,7 +4,7 @@
     displayName: "Eclipse LSP4J",
   },
   deployment+: {
-    host: "ci-staging.eclipse.org",
+    host: "ci.eclipse.org",
     cluster: "okd-c1",
   },
   jenkins+: {
