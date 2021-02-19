@@ -13,6 +13,7 @@ jenkins-design-language
 mask-passwords
 metrics
 pam-auth
+prometheus
 pubsub-light
 slack
 sse-gateway

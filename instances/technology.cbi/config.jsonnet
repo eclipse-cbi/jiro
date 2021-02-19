@@ -19,6 +19,7 @@
       "jenkins-design-language",
       "mask-passwords",
       "metrics",
+      "prometheus",
       "pubsub-light",
       "slack",
       "sse-gateway",
