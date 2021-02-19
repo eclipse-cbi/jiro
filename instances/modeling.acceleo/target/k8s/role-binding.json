@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.acceleo",
+         "org.eclipse.cbi.jiro/project.shortname": "acceleo"
+      },
+      "name": "acceleo",
+      "namespace": "acceleo"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "acceleo"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "acceleo",
+         "namespace": "acceleo"
+      }
+   ]
+}
