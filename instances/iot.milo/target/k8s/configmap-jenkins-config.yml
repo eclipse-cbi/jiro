@@ -367,7 +367,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/milo
+        url: https://ci.eclipse.org/milo
     
       mailer:
         replyToAddress: ci-admin@eclipse.org
@@ -418,7 +418,7 @@ data:
             manageHooks: false
         hookSecretConfigs:
           - credentialsId: "github-webhook-secret"
-        hookUrl: "https://ci-staging.eclipse.org/milo/github-webhook/"
+        hookUrl: "https://ci.eclipse.org/milo/github-webhook/"
     
     tool:
       jdk:

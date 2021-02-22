@@ -13,7 +13,7 @@
       "namespace": "milo"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/milo",
       "port": {
          "targetPort": "http"

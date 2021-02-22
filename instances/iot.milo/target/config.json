@@ -322,11 +322,11 @@
    "deployment": {
       "cluster": "okd-c1",
       "controlPort": 8081,
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "jnlpPort": 50000,
       "prefix": "/milo",
       "uiPort": 8080,
-      "url": "https://ci-staging.eclipse.org/milo"
+      "url": "https://ci.eclipse.org/milo"
    },
    "docker": {
       "master": {
