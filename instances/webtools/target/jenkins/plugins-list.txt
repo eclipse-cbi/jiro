@@ -4,4 +4,3 @@ dashboard-view
 description-setter
 log-parser
 show-build-parameters
-warnings-ng
