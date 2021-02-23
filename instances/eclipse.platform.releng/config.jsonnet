@@ -11,7 +11,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     staticAgentCount: 10,
     permissions+: 
       permissionsTemplates.projectPermissions("sravankumarl@in.ibm.com", ["Agent/Connect", "Agent/Disconnect"]) +
-      #https://bugs.eclipse.org/bugs/show_bug.cgi?id=562806#c15
+      // https://bugs.eclipse.org/bugs/show_bug.cgi?id=562806#c15
       permissionsTemplates.projectPermissions("akurtakov@gmail.com", ["Agent/Connect", "Agent/Disconnect"])
   },
   maven+: {
