@@ -322,11 +322,11 @@
    "deployment": {
       "cluster": "okd-c1",
       "controlPort": 8081,
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "jnlpPort": 50000,
       "prefix": "/packaging",
       "uiPort": 8080,
-      "url": "https://ci-staging.eclipse.org/packaging"
+      "url": "https://ci.eclipse.org/packaging"
    },
    "docker": {
       "master": {
@@ -400,6 +400,7 @@
             "principal": "technology.packaging"
          }
       ],
+      "plugins": [ ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",

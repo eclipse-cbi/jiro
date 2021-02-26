@@ -13,7 +13,7 @@
       "namespace": "packaging"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/packaging",
       "port": {
          "targetPort": "http"

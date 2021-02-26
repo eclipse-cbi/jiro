@@ -344,7 +344,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci-staging.eclipse.org/packaging
+    url: https://ci.eclipse.org/packaging
 
   mailer:
     replyToAddress: ci-admin@eclipse.org
@@ -395,7 +395,7 @@ unclassified:
         manageHooks: false
     hookSecretConfigs:
       - credentialsId: "github-webhook-secret"
-    hookUrl: "https://ci-staging.eclipse.org/packaging/github-webhook/"
+    hookUrl: "https://ci.eclipse.org/packaging/github-webhook/"
 
 tool:
   jdk:
