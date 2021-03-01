@@ -1,0 +1,11 @@
+{
+   "apiVersion": "v1",
+   "kind": "Namespace",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "locationtech.geotrellis",
+         "org.eclipse.cbi.jiro/project.shortname": "geotrellis"
+      },
+      "name": "geotrellis"
+   }
+}
