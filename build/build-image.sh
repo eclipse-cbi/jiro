@@ -33,7 +33,7 @@ fi
 
 "${SCRIPT_FOLDER}/gen-jenkins.sh" "${INSTANCE}"
 
-TOOLS_IMAGE="eclipsecbi/adoptopenjdk-coreutils:openjdk11-openj9-alpine-slim"
+TOOLS_IMAGE="eclipsecbi/adoptopenjdk-coreutils:openjdk11-openj9-debian-slim"
 CONFIG_JSON="${INSTANCE}/target/config.json"
 
 install_additional_plugins() {
