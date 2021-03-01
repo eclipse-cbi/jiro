@@ -16,6 +16,7 @@
       "parameterized-scheduler",
       "show-build-parameters",
       "slack",
+      "build-user-vars-plugin"
     ],
   },
   gradle+: {
