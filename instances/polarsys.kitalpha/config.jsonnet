@@ -3,6 +3,9 @@
     fullName: "polarsys.kitalpha",
     displayName: "Eclipse Kitalpha",
   },
+  deployment+: {
+    cluster: "okd-c1",
+  },
   jenkins+: {
     plugins+: [
       "jacoco",

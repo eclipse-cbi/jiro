@@ -4,4 +4,3 @@ jacoco
 performance
 pipeline-github
 pipeline-utility-steps
-warnings-ng
