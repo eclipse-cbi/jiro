@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "tools.objectteams",
+         "org.eclipse.cbi.jiro/project.shortname": "objectteams"
+      },
+      "name": "objectteams",
+      "namespace": "objectteams"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "objectteams"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "objectteams",
+         "namespace": "objectteams"
+      }
+   ]
+}

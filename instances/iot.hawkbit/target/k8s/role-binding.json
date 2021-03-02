@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.hawkbit",
+         "org.eclipse.cbi.jiro/project.shortname": "hawkbit"
+      },
+      "name": "hawkbit",
+      "namespace": "hawkbit"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "hawkbit"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "hawkbit",
+         "namespace": "hawkbit"
+      }
+   ]
+}
