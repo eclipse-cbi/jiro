@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.birt",
+         "org.eclipse.cbi.jiro/project.shortname": "birt"
+      },
+      "name": "birt",
+      "namespace": "birt"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "birt"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "birt",
+         "namespace": "birt"
+      }
+   ]
+}
