@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "tools.cdt.tcf",
+         "org.eclipse.cbi.jiro/project.shortname": "tcf"
+      },
+      "name": "tcf",
+      "namespace": "tcf"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "tcf"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "tcf",
+         "namespace": "tcf"
+      }
+   ]
+}

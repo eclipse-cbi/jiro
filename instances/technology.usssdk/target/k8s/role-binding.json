@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.usssdk",
+         "org.eclipse.cbi.jiro/project.shortname": "usssdk"
+      },
+      "name": "usssdk",
+      "namespace": "usssdk"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "usssdk"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "usssdk",
+         "namespace": "usssdk"
+      }
+   ]
+}
