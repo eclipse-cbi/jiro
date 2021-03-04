@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.viatra",
+         "org.eclipse.cbi.jiro/project.shortname": "viatra"
+      },
+      "name": "viatra",
+      "namespace": "viatra"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "viatra"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "viatra",
+         "namespace": "viatra"
+      }
+   ]
+}
