@@ -46,6 +46,18 @@
                   } for propertiesFile in std.objectFields(config.gradle.files)
                 ],
               },
+            ] else []) + (if config.sbt.generate then [
+              {
+                local dot_sbt = agents[agentName].spec.home + "/.sbt",
+                name: "sbt-secret-dir",
+                secret: { name: "sbt-secret-dir", },
+                mounts: [
+                  {
+                    mountPath: dot_sbt + "/" + self.subPath,
+                    subPath: propertiesFile,
+                  } for propertiesFile in std.objectFields(config.sbt.files)
+                ],
+              },
             ] else []),
           },
         } for agentName in std.objectFields(agents) 

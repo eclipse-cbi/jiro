@@ -98,6 +98,11 @@ jenkins:
             memory: false
             mountPath: "/home/jenkins/.m2/wrapper"
         {{/if}}
+        {{#if ../../sbt.generate}}
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.sbt"
+        {{/if}}
         {{#if ../../gradle.generate}}
         - emptyDirVolume:
             memory: false

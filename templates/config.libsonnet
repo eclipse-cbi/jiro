@@ -185,6 +185,22 @@ local clouds = import "clouds.libsonnet";
       }
     }
   },
+  sbt: {
+    generate: false,
+
+    files: {
+      ".credentials": {
+        realm: "Sonatype Nexus Repository Manager",
+        host: "repo.eclipse.org",
+        user: {
+          pass: "nexus/username",
+        },
+        password: {
+          pass: "nexus/password",
+        },
+      }
+    }
+  },
   secrets: {
     "gerrit-trigger-plugin": {
       username: "genie." + $.project.shortName,
