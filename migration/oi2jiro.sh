@@ -70,4 +70,5 @@ import_views() {
 
 copy_jobs
 import_views
+oc delete pod "${short_name}-0" -n "${short_name}"
 
