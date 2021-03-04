@@ -41,6 +41,7 @@ jsonnet -m "${target}" "${instance}/jiro.jsonnet"
 
 "${SCRIPT_FOLDER}/gen-mvn-settings.sh" "${instance}"
 "${SCRIPT_FOLDER}/gen-gradle-properties.sh" "${instance}"
+"${SCRIPT_FOLDER}/gen-sbt-properties.sh" "${instance}"
 
 # if jiro_phase2.jsonnet file is present in instance, then use it for generation phase 2
 # (to override some defaults in this phase)

@@ -12,3 +12,7 @@ local config = import "config.json";
 (if (config.gradle.generate) then {
   ".secrets/k8s/gradle-secret-dir.json": (import "k8s/gradle-secret-dir.libsonnet").gen(config),
 } else {})
++
+(if (config.sbt.generate) then {
+  ".secrets/k8s/sbt-secret-dir.json": (import "k8s/sbt-secret-dir.libsonnet").gen(config),
+} else {})

@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 #*******************************************************************************
-# Copyright (c) 2020 Eclipse Foundation and others.
+# Copyright (c) 2021 Eclipse Foundation and others.
 # This program and the accompanying materials are made available
 # under the terms of the Eclipse Public License 2.0
 # which is available at http://www.eclipse.org/legal/epl-v20.html,
@@ -8,7 +8,7 @@
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
 
-# Generates Gradle settings file from credentials in password store 
+# Generates SBT settings file from credentials in password store 
 
 set -o errexit
 set -o nounset
@@ -40,27 +40,34 @@ if [ ! -d "${INSTANCE}" ]; then
 fi
 
 CONFIG="${INSTANCE}/target/config.json"
-GRADLE_FOLDER="$(dirname "${CONFIG}")/.secrets/gradle"
+SBT_FOLDER="$(dirname "${CONFIG}")/.secrets/sbt"
 
 gen_properties() {
   local properties="${1}"
   for key in $(jq -r '. | keys[]' <<<"${properties}"); do
-    local value value_pass
-    value="$(jq -r '.["'"${key}"'"].pass' <<< "${properties}")"
-    if [[ -f "${PASSWORD_STORE_DIR}/${value}.gpg" ]]; then
-      value_pass="$(pass "${value}")"
-      echo "${key}=${value_pass}"
+    if $(jq -r '.["'"${key}"'"] | has("pass")' <<<"${properties}" 2>/dev/null); then 
+      local value value_pass
+      value="$(jq -r '.["'"${key}"'"].pass' <<< "${properties}")"
+      if [[ -f "${PASSWORD_STORE_DIR}/${value}.gpg" ]]; then
+        value_pass="$(pass "${value}")"
+        echo "${key}=${value_pass}"
+      else
+        >&2 echo -e "${SCRIPT_NAME}\tWARNING: no entry in password-store for key '${key}'"
+      fi
     else
-      >&2 echo -e "${SCRIPT_NAME}\tWARNING: no entry in password-store for key '${key}'"
+      value="$(jq -r '.["'"${key}"'"]' <<< "${properties}")"
+      echo "${key}=${value}"
     fi
   done
 }
 
-if [[ "$(jq -r '.gradle.generate' "${CONFIG}")" == "true" ]]; then
-  mkdir -p "${GRADLE_FOLDER}"
-  for gradleFile in $(jq -r '.gradle.files | keys[]' "${CONFIG}"); do
-    >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating Gradle file ${gradleFile}"
-    mkdir -p "$(dirname "${gradleFile}")"
-    gen_properties "$(jq -r '.gradle.files["'"${gradleFile}"'"]' "${CONFIG}")" > "${GRADLE_FOLDER}/${gradleFile}"
+if [[ "$(jq -r '.sbt.generate' "${CONFIG}")" == "true" ]]; then
+  mkdir -p "${SBT_FOLDER}"
+  for sbtFile in $(jq -r '.sbt.files | keys[]' "${CONFIG}"); do
+    >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating sbt file ${sbtFile}"
+    mkdir -p "$(dirname "${sbtFile}")"
+
+    echo "$(jq -r '.sbt.files["'"${sbtFile}"'"]' "${CONFIG}")"
+    gen_properties "$(jq -r '.sbt.files["'"${sbtFile}"'"]' "${CONFIG}")" > "${SBT_FOLDER}/${sbtFile}"
   done
 fi
