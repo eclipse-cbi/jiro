@@ -13,7 +13,7 @@
       "namespace": "e4"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/e4",
       "port": {
          "targetPort": "http"

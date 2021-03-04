@@ -367,7 +367,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/e4
+        url: https://ci.eclipse.org/e4
     
       mailer:
         replyToAddress: ci-admin@eclipse.org
@@ -410,18 +410,15 @@ data:
             skipScmCause: false
             skipUpstreamCause: false
     
-      gitLabConnectionConfig:
-        connections:
-        - clientBuilderId: "autodetect"
-          connectionTimeout: 10
-          ignoreCertificateErrors: false
-          name: "gitlab.eclipse.org"
-          readTimeout: 10
-          url: "https://gitlab.eclipse.org"
-      gitLabServers:
-        servers:
-        - name: "gitlab.eclipse.org"
-          serverUrl: "https://gitlab.eclipse.org"
+      gitHubPluginConfig:
+        configs:
+          - name: "GitHub"
+            apiUrl: "https://api.github.com"
+            credentialsId: "github-bot-token"
+            manageHooks: false
+        hookSecretConfigs:
+          - credentialsId: "github-webhook-secret"
+        hookUrl: "https://ci.eclipse.org/e4/github-webhook/"
     
     tool:
       jdk:

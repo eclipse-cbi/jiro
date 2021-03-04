@@ -13,7 +13,7 @@
       "namespace": "rap"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/rap",
       "port": {
          "targetPort": "http"
