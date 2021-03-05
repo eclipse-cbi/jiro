@@ -1,1170 +1,61 @@
-File containing list of plugins to be downloaded: plugins-list.txt
-Reading in plugins from plugins-list.txt
-
-Plugin download location: /workdir/ref/plugins
-Using update center https://updates.jenkins.io/update-center.json specified with CLI option
-No CLI option or environment variable set for experimental update center, using default of https://updates.jenkins.io/experimental/update-center.json
-No CLI option or environment variable set for incrementals mirror, using default of https://repo.jenkins-ci.org/incrementals
-No CLI option or environment variable set for plugin info, using default of https://updates.jenkins.io/plugin-versions.json
-Will use war file: /workdir/jenkins.war
-Jenkins version: 2.263.3
-
-Retrieving update center information
-Cache miss for: update-center-2.263.3
-Cache miss for: experimental-update-center-2.263.3
-Cache miss for: plugin-versions
-Couldn't find checksum for artifactory at version: latest
-
-artifactory depends on: 
-maven-plugin 3.8
-workflow-cps 2.87
-workflow-job 2.40
-workflow-step-api 2.23
-ant 1.11
-apache-httpcomponents-client-4-api 4.5.13-1.0
-config-file-provider 3.7.0
-credentials 2.3.14
-gradle 1.36
-ivy 2.1
-junit 1.48
-mailer 1.32.1
-matrix-project 1.18
-plain-credentials 1.7
-run-condition 1.5
-ssh-credentials 1.18.1
-token-macro 2.13
-Setting checksum for: maven-plugin to q3IyuiYmOR7itib/kUlSHW6CVKVvSX8/Z9iKyle8fhM=
-
-maven-plugin depends on: 
-apache-httpcomponents-client-4-api 4.5.13-1.0
-javadoc 1.6
-jsch 0.1.55.2
-junit 1.48
-mailer 1.32.1
-Setting checksum for: workflow-cps to itSZ0UksEqk43bLxt8yZ9Z/Uwqc3IJ+eKIsd6+ZRSQw=
-
-workflow-cps depends on: 
-workflow-api 2.41
-workflow-scm-step 2.11
-workflow-step-api 2.23
-workflow-support 3.7
-scm-api 2.6.4
-script-security 1.75
-structs 1.20
-ace-editor 1.1
-Setting checksum for: workflow-job to 9WwYtuK1FLFjRWYF9mNinQY4XdjZz6qFpTyruw5b3Oo=
-
-workflow-job depends on: 
-workflow-api 2.41
-workflow-step-api 2.23
-workflow-support 3.7
-Setting checksum for: workflow-step-api to 4OOcvgw+v7LT+A7f70cNPH0DPH3q+sjG5VPn05HqEoc=
-
-workflow-step-api depends on: 
-structs 1.20
-Setting checksum for: ant to Yr4jGzi82GwBGRUMv8FUqYevH9dWDWDiimo0APRIvFk=
-
-ant depends on: 
-structs 1.20
-Setting checksum for: apache-httpcomponents-client-4-api to H6Wtr80EPFgqm27ESmo3Fm23e7bVt9LE+ZAq0mOmVjY=
-
-apache-httpcomponents-client-4-api has no dependencies
-Setting checksum for: config-file-provider to RZJ+bW7lmOeAihHRvJLbvs1dHg9+2112YUvDHQ1cdfU=
-
-config-file-provider depends on: 
-credentials 2.3.14
-script-security 1.75
-ssh-credentials 1.18.1
-structs 1.20
-token-macro 2.13
-Setting checksum for: credentials to Yt1SWoBFW27T6u0cUdesZUYYMEI29DhA048HlOge3RI=
-
-credentials depends on: 
-structs 1.20
-Setting checksum for: gradle to V5WElYtLOMWy/T7HnFqgXdWsTUjYhQ7jHk12HvR432s=
-
-gradle depends on: 
-structs 1.20
-workflow-api 2.41
-workflow-cps 2.87
-workflow-job 2.40
-workflow-basic-steps 2.23
-workflow-durable-task-step 2.37
-workflow-step-api 2.23
-Setting checksum for: ivy to MMiNvcx5B6LdkWhkCnhVL7BLAlH9ah7K6989f4E1wTs=
-
-ivy depends on: 
-config-file-provider 3.7.0
-ant 1.11
-junit 1.48
-Setting checksum for: junit to OlfVq7Ed6wGPo2v1hEArWanCP/KmuPGUEhjxN8xuowI=
-
-junit depends on: 
-bootstrap4-api 4.6.0-1
-checks-api 1.3.0
-echarts-api 4.9.0-3
-plugin-util-api 1.6.1
-workflow-api 2.41
-workflow-step-api 2.23
-display-url-api 2.3.4
-jackson2-api 2.12.1
-script-security 1.75
-structs 1.20
-Setting checksum for: mailer to CwReqH78KJ/MrVWsUeTJA5RdloO3G0hmfhlEDkKi02g=
-
-mailer depends on: 
-display-url-api 2.3.4
-Setting checksum for: matrix-project to pp2mhQc0xxCSFEqijq9st+cK/n5uAFil8s6QVndYRt0=
-
-matrix-project depends on: 
-junit 1.48
-script-security 1.75
-Setting checksum for: plain-credentials to WoLKZrOX2sz2Y2lbUx/ffqmT1cHLA/G0aS2+gE0WO6g=
-
-plain-credentials depends on: 
-credentials 2.3.14
-Setting checksum for: run-condition to ftlNcZZnbADkW1v34ZGDHu4OSXcNztHCZrgFWYCzOco=
-
-run-condition depends on: 
-token-macro 2.13
-Setting checksum for: ssh-credentials to jbkIxIRzfyYM+rZoKkLL6vOQs7nv2HklN1aR5Fw3BJI=
-
-ssh-credentials depends on: 
-credentials 2.3.14
-trilead-api 1.0.13
-Setting checksum for: token-macro to bFNh2Z5A/gU7MNPxLYZa54BMeHdtH5sjbvkeSbp3MzE=
-
-token-macro depends on: 
-workflow-step-api 2.23
-structs 1.20
-Setting checksum for: javadoc to pfIyGu2ewGh4GWIRRBPzBWZd+8yJuhO+6beXVR3mu8k=
-
-javadoc has no dependencies
-Setting checksum for: jsch to zcdL+OQ+tArmrZi6L4ZsiJFAgDhpnam4NlGKHYkj/EQ=
-
-jsch depends on: 
-ssh-credentials 1.18.1
-trilead-api 1.0.13
-Setting checksum for: workflow-api to KLm+2zNN9zyXNBwIGfU4HBuJ0T0hqoK+T/9Zxo9T8XM=
-
-workflow-api depends on: 
-workflow-step-api 2.23
-scm-api 2.6.4
-Setting checksum for: workflow-scm-step to fgtY8ip1eck38wgcZ8JJ1OrWeOAalUR4/dWbDL46iXw=
-
-workflow-scm-step depends on: 
-workflow-step-api 2.23
-Setting checksum for: workflow-support to gVZzlqd2JOq8lF5YkmUjS/gOEg1eNHhsaL3S3iaMHbA=
-
-workflow-support depends on: 
-workflow-api 2.41
-workflow-step-api 2.23
-scm-api 2.6.4
-script-security 1.75
-Setting checksum for: scm-api to k1y65LRmeNWt+fqsmmgCn1KgTg0MickDinq5XKa2dtw=
-
-scm-api depends on: 
-structs 1.20
-Setting checksum for: script-security to 46ntxSuoQmaVu6ShnDGuQcOk6WwgpH/PX+gOd4UZxLg=
-
-script-security has no dependencies
-Setting checksum for: structs to fnhhNWo3qmpydGLXrqcW3ZMHBxJS9zScJybWSnc/6zo=
-
-structs has no dependencies
-Setting checksum for: ace-editor to q8lwKIk8inFYGl9VnqSOjh8aZRZPrultq/7Z6V6autI=
-
-ace-editor has no dependencies
-Setting checksum for: workflow-basic-steps to GxGi3gnecKT2G9AVIj9JAYnR/H4k64LaQuGHoIO8HEo=
-
-workflow-basic-steps depends on: 
-workflow-api 2.41
-workflow-durable-task-step 2.37
-workflow-step-api 2.23
-apache-httpcomponents-client-4-api 4.5.13-1.0
-mailer 1.32.1
-structs 1.20
-Setting checksum for: workflow-durable-task-step to mAn3Gt6Y+nv13/Lne1EndO6O/8Kr7RdI/jGaLYA5W/o=
-
-workflow-durable-task-step depends on: 
-workflow-api 2.41
-workflow-step-api 2.23
-workflow-support 3.7
-durable-task 1.35
-scm-api 2.6.4
-script-security 1.75
-structs 1.20
-Setting checksum for: bootstrap4-api to qveLAaUrWNYdm2dFUmSxtEvoAbhC6NDL+MTAKgJB95E=
-
-bootstrap4-api depends on: 
-font-awesome-api 5.15.2-1
-jquery3-api 3.5.1-2
-popper-api 1.16.1-1
-Setting checksum for: checks-api to QQL5n9poLsE/cHZr+nLH8OkJe7cdqmmjkwSvVk45d8A=
-
-checks-api depends on: 
-plugin-util-api 1.6.1
-workflow-step-api 2.23
-display-url-api 2.3.4
-Setting checksum for: echarts-api to yRVDFjl4CG7jhz0AarKBzMrVye0id6zPcGwbNroszvg=
-
-echarts-api depends on: 
-jquery3-api 3.5.1-2
-plugin-util-api 1.6.1
-jackson2-api 2.12.1
-Setting checksum for: plugin-util-api to 1KRhAek3TmyRnt21rQNVqACjZMme7Y9Gh0G9Mp9D9lo=
-
-plugin-util-api has no dependencies
-Setting checksum for: display-url-api to 1JoJw0ZFVBj0XrNNiD48gsoA1/pYzc4aRSIk4DJAHkE=
-
-display-url-api has no dependencies
-Setting checksum for: jackson2-api to 2nJnob6/CTeTLvhkPlhf/dubBoAkuJwHSfwf7G/qgfs=
-
-jackson2-api depends on: 
-snakeyaml-api 1.27.0
-Setting checksum for: trilead-api to YrRoOOSTz8aVA4K05JddhlzTv7/FitpwS53Zb/EB5Fc=
-
-trilead-api has no dependencies
-Setting checksum for: durable-task to DjdDPi8iJgXGUMCXp3NvTvzXt9SA7Z1KK9xPO5+MTpo=
-
-durable-task has no dependencies
-Setting checksum for: font-awesome-api to A1WiiR8jVcfDs/GvvKmVip8VUIZXf+wbBv3iSr12MT8=
-
-font-awesome-api depends on: 
-plugin-util-api 1.6.1
-Setting checksum for: jquery3-api to SA1bfDkAJzuB6CKLNPAr7n7doN3Mzzt8b2QkP8QW15w=
-
-jquery3-api has no dependencies
-Setting checksum for: popper-api to brqndVLQikoEW1G6DtNeXvuXDXz3zyGRYkvTBHAEIEI=
-
-popper-api has no dependencies
-Setting checksum for: snakeyaml-api to ElUO5EweRQAHyVnzPS/6cW+4xq8hfZhIgPrEjd+FQuA=
-
-snakeyaml-api has no dependencies
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Setting checksum for: artifactory to E7ERJNxssesu3L9Zft7jLOx/pKVK1r1BheayxkgZW5I=
-Couldn't find checksum for badge at version: latest
-
-badge depends on: 
-workflow-step-api 2.23
-antisamy-markup-formatter 2.1
-script-security 1.75
-structs 1.20
-Setting checksum for: workflow-step-api to 4OOcvgw+v7LT+A7f70cNPH0DPH3q+sjG5VPn05HqEoc=
-
-workflow-step-api depends on: 
-structs 1.20
-Setting checksum for: antisamy-markup-formatter to gS/dk3nMrAfiz5Sfk5QJRk0DM2eniZATD8chH3pnAro=
-
-antisamy-markup-formatter has no dependencies
-Setting checksum for: script-security to 46ntxSuoQmaVu6ShnDGuQcOk6WwgpH/PX+gOd4UZxLg=
-
-script-security has no dependencies
-Setting checksum for: structs to fnhhNWo3qmpydGLXrqcW3ZMHBxJS9zScJybWSnc/6zo=
-
-structs has no dependencies
-Setting checksum for: badge to iXySJ0o/j9XK21meK0ICt6ed1vba+xWkRe6WS3VT8GE=
-Setting checksum for: badge to iXySJ0o/j9XK21meK0ICt6ed1vba+xWkRe6WS3VT8GE=
-Setting checksum for: badge to iXySJ0o/j9XK21meK0ICt6ed1vba+xWkRe6WS3VT8GE=
-Setting checksum for: badge to iXySJ0o/j9XK21meK0ICt6ed1vba+xWkRe6WS3VT8GE=
-Setting checksum for: badge to iXySJ0o/j9XK21meK0ICt6ed1vba+xWkRe6WS3VT8GE=
-Couldn't find checksum for build-user-vars-plugin at version: latest
-
-build-user-vars-plugin depends on: 
-mailer 1.32.1
-Setting checksum for: mailer to CwReqH78KJ/MrVWsUeTJA5RdloO3G0hmfhlEDkKi02g=
-
-mailer depends on: 
-display-url-api 2.3.4
-Setting checksum for: display-url-api to 1JoJw0ZFVBj0XrNNiD48gsoA1/pYzc4aRSIk4DJAHkE=
-
-display-url-api has no dependencies
-Setting checksum for: build-user-vars-plugin to 982akhWyxDMq7MmpjuzJC3RSITEJSJcbUd+66f3MRN8=
-Setting checksum for: build-user-vars-plugin to 982akhWyxDMq7MmpjuzJC3RSITEJSJcbUd+66f3MRN8=
-Setting checksum for: build-user-vars-plugin to 982akhWyxDMq7MmpjuzJC3RSITEJSJcbUd+66f3MRN8=
-Couldn't find checksum for copyartifact at version: latest
-
-copyartifact depends on: 
-apache-httpcomponents-client-4-api 4.5.13-1.0
-matrix-project 1.18
-structs 1.20
-Setting checksum for: apache-httpcomponents-client-4-api to H6Wtr80EPFgqm27ESmo3Fm23e7bVt9LE+ZAq0mOmVjY=
-
-apache-httpcomponents-client-4-api has no dependencies
-Setting checksum for: matrix-project to pp2mhQc0xxCSFEqijq9st+cK/n5uAFil8s6QVndYRt0=
-
-matrix-project depends on: 
-junit 1.48
-script-security 1.75
-Setting checksum for: structs to fnhhNWo3qmpydGLXrqcW3ZMHBxJS9zScJybWSnc/6zo=
-
-structs has no dependencies
-Setting checksum for: junit to OlfVq7Ed6wGPo2v1hEArWanCP/KmuPGUEhjxN8xuowI=
-
-junit depends on: 
-bootstrap4-api 4.6.0-1
-checks-api 1.3.0
-echarts-api 4.9.0-3
-plugin-util-api 1.6.1
-workflow-api 2.41
-workflow-step-api 2.23
-display-url-api 2.3.4
-jackson2-api 2.12.1
-script-security 1.75
-structs 1.20
-Setting checksum for: script-security to 46ntxSuoQmaVu6ShnDGuQcOk6WwgpH/PX+gOd4UZxLg=
-
-script-security has no dependencies
-Setting checksum for: bootstrap4-api to qveLAaUrWNYdm2dFUmSxtEvoAbhC6NDL+MTAKgJB95E=
-
-bootstrap4-api depends on: 
-font-awesome-api 5.15.2-1
-jquery3-api 3.5.1-2
-popper-api 1.16.1-1
-Setting checksum for: checks-api to QQL5n9poLsE/cHZr+nLH8OkJe7cdqmmjkwSvVk45d8A=
-
-checks-api depends on: 
-plugin-util-api 1.6.1
-workflow-step-api 2.23
-display-url-api 2.3.4
-Setting checksum for: echarts-api to yRVDFjl4CG7jhz0AarKBzMrVye0id6zPcGwbNroszvg=
-
-echarts-api depends on: 
-jquery3-api 3.5.1-2
-plugin-util-api 1.6.1
-jackson2-api 2.12.1
-Setting checksum for: plugin-util-api to 1KRhAek3TmyRnt21rQNVqACjZMme7Y9Gh0G9Mp9D9lo=
-
-plugin-util-api has no dependencies
-Setting checksum for: workflow-api to KLm+2zNN9zyXNBwIGfU4HBuJ0T0hqoK+T/9Zxo9T8XM=
-
-workflow-api depends on: 
-workflow-step-api 2.23
-scm-api 2.6.4
-Setting checksum for: workflow-step-api to 4OOcvgw+v7LT+A7f70cNPH0DPH3q+sjG5VPn05HqEoc=
-
-workflow-step-api depends on: 
-structs 1.20
-Setting checksum for: display-url-api to 1JoJw0ZFVBj0XrNNiD48gsoA1/pYzc4aRSIk4DJAHkE=
-
-display-url-api has no dependencies
-Setting checksum for: jackson2-api to 2nJnob6/CTeTLvhkPlhf/dubBoAkuJwHSfwf7G/qgfs=
-
-jackson2-api depends on: 
-snakeyaml-api 1.27.0
-Setting checksum for: font-awesome-api to A1WiiR8jVcfDs/GvvKmVip8VUIZXf+wbBv3iSr12MT8=
-
-font-awesome-api depends on: 
-plugin-util-api 1.6.1
-Setting checksum for: jquery3-api to SA1bfDkAJzuB6CKLNPAr7n7doN3Mzzt8b2QkP8QW15w=
-
-jquery3-api has no dependencies
-Setting checksum for: popper-api to brqndVLQikoEW1G6DtNeXvuXDXz3zyGRYkvTBHAEIEI=
-
-popper-api has no dependencies
-Setting checksum for: scm-api to k1y65LRmeNWt+fqsmmgCn1KgTg0MickDinq5XKa2dtw=
-
-scm-api depends on: 
-structs 1.20
-Setting checksum for: snakeyaml-api to ElUO5EweRQAHyVnzPS/6cW+4xq8hfZhIgPrEjd+FQuA=
-
-snakeyaml-api has no dependencies
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Setting checksum for: copyartifact to AqtL5tiaDuvKEWKrZa449DxjmXKVg8bkc8OoaarUjwE=
-Couldn't find checksum for embeddable-build-status at version: latest
-
-embeddable-build-status depends on: 
-workflow-step-api 2.23
-script-security 1.75
-Setting checksum for: workflow-step-api to 4OOcvgw+v7LT+A7f70cNPH0DPH3q+sjG5VPn05HqEoc=
-
-workflow-step-api depends on: 
-structs 1.20
-Setting checksum for: script-security to 46ntxSuoQmaVu6ShnDGuQcOk6WwgpH/PX+gOd4UZxLg=
-
-script-security has no dependencies
-Setting checksum for: structs to fnhhNWo3qmpydGLXrqcW3ZMHBxJS9zScJybWSnc/6zo=
-
-structs has no dependencies
-Setting checksum for: embeddable-build-status to Yc0MqhmzIcHRw8M//Yih6GlOaj0XJNRRGvbC0ARbE7c=
-Setting checksum for: embeddable-build-status to Yc0MqhmzIcHRw8M//Yih6GlOaj0XJNRRGvbC0ARbE7c=
-Setting checksum for: embeddable-build-status to Yc0MqhmzIcHRw8M//Yih6GlOaj0XJNRRGvbC0ARbE7c=
-Setting checksum for: embeddable-build-status to Yc0MqhmzIcHRw8M//Yih6GlOaj0XJNRRGvbC0ARbE7c=
-Couldn't find checksum for generic-webhook-trigger at version: latest
-
-generic-webhook-trigger depends on: 
-credentials 2.3.14
-plain-credentials 1.7
-structs 1.20
-Setting checksum for: credentials to Yt1SWoBFW27T6u0cUdesZUYYMEI29DhA048HlOge3RI=
-
-credentials depends on: 
-structs 1.20
-Setting checksum for: plain-credentials to WoLKZrOX2sz2Y2lbUx/ffqmT1cHLA/G0aS2+gE0WO6g=
-
-plain-credentials depends on: 
-credentials 2.3.14
-Setting checksum for: structs to fnhhNWo3qmpydGLXrqcW3ZMHBxJS9zScJybWSnc/6zo=
-
-structs has no dependencies
-Setting checksum for: generic-webhook-trigger to Yu2e3oPViqno0lMuDui/58oAxR4F3fxDVUEG/21baCE=
-Setting checksum for: generic-webhook-trigger to Yu2e3oPViqno0lMuDui/58oAxR4F3fxDVUEG/21baCE=
-Setting checksum for: generic-webhook-trigger to Yu2e3oPViqno0lMuDui/58oAxR4F3fxDVUEG/21baCE=
-Setting checksum for: generic-webhook-trigger to Yu2e3oPViqno0lMuDui/58oAxR4F3fxDVUEG/21baCE=
-Couldn't find checksum for groovy-postbuild at version: latest
-
-groovy-postbuild depends on: 
-badge 1.8
-matrix-project 1.18
-script-security 1.75
-Skipping dependency badge:1.8 and its sub-dependencies, because there is a higher version defined on the top level - badge:1.8
-Setting checksum for: matrix-project to pp2mhQc0xxCSFEqijq9st+cK/n5uAFil8s6QVndYRt0=
-
-matrix-project depends on: 
-junit 1.48
-script-security 1.75
-Setting checksum for: script-security to 46ntxSuoQmaVu6ShnDGuQcOk6WwgpH/PX+gOd4UZxLg=
-
-script-security has no dependencies
-Setting checksum for: junit to OlfVq7Ed6wGPo2v1hEArWanCP/KmuPGUEhjxN8xuowI=
-
-junit depends on: 
-bootstrap4-api 4.6.0-1
-checks-api 1.3.0
-echarts-api 4.9.0-3
-plugin-util-api 1.6.1
-workflow-api 2.41
-workflow-step-api 2.23
-display-url-api 2.3.4
-jackson2-api 2.12.1
-script-security 1.75
-structs 1.20
-Setting checksum for: bootstrap4-api to qveLAaUrWNYdm2dFUmSxtEvoAbhC6NDL+MTAKgJB95E=
-
-bootstrap4-api depends on: 
-font-awesome-api 5.15.2-1
-jquery3-api 3.5.1-2
-popper-api 1.16.1-1
-Setting checksum for: checks-api to QQL5n9poLsE/cHZr+nLH8OkJe7cdqmmjkwSvVk45d8A=
-
-checks-api depends on: 
-plugin-util-api 1.6.1
-workflow-step-api 2.23
-display-url-api 2.3.4
-Setting checksum for: echarts-api to yRVDFjl4CG7jhz0AarKBzMrVye0id6zPcGwbNroszvg=
-
-echarts-api depends on: 
-jquery3-api 3.5.1-2
-plugin-util-api 1.6.1
-jackson2-api 2.12.1
-Setting checksum for: plugin-util-api to 1KRhAek3TmyRnt21rQNVqACjZMme7Y9Gh0G9Mp9D9lo=
-
-plugin-util-api has no dependencies
-Setting checksum for: workflow-api to KLm+2zNN9zyXNBwIGfU4HBuJ0T0hqoK+T/9Zxo9T8XM=
-
-workflow-api depends on: 
-workflow-step-api 2.23
-scm-api 2.6.4
-Setting checksum for: workflow-step-api to 4OOcvgw+v7LT+A7f70cNPH0DPH3q+sjG5VPn05HqEoc=
-
-workflow-step-api depends on: 
-structs 1.20
-Setting checksum for: display-url-api to 1JoJw0ZFVBj0XrNNiD48gsoA1/pYzc4aRSIk4DJAHkE=
-
-display-url-api has no dependencies
-Setting checksum for: jackson2-api to 2nJnob6/CTeTLvhkPlhf/dubBoAkuJwHSfwf7G/qgfs=
-
-jackson2-api depends on: 
-snakeyaml-api 1.27.0
-Setting checksum for: structs to fnhhNWo3qmpydGLXrqcW3ZMHBxJS9zScJybWSnc/6zo=
-
-structs has no dependencies
-Setting checksum for: font-awesome-api to A1WiiR8jVcfDs/GvvKmVip8VUIZXf+wbBv3iSr12MT8=
-
-font-awesome-api depends on: 
-plugin-util-api 1.6.1
-Setting checksum for: jquery3-api to SA1bfDkAJzuB6CKLNPAr7n7doN3Mzzt8b2QkP8QW15w=
-
-jquery3-api has no dependencies
-Setting checksum for: popper-api to brqndVLQikoEW1G6DtNeXvuXDXz3zyGRYkvTBHAEIEI=
-
-popper-api has no dependencies
-Setting checksum for: scm-api to k1y65LRmeNWt+fqsmmgCn1KgTg0MickDinq5XKa2dtw=
-
-scm-api depends on: 
-structs 1.20
-Setting checksum for: snakeyaml-api to ElUO5EweRQAHyVnzPS/6cW+4xq8hfZhIgPrEjd+FQuA=
-
-snakeyaml-api has no dependencies
-Setting checksum for: groovy-postbuild to PSLTr92Gz+q1kz0gr0YFpYcF6rWFd2Kyw1rc0Lz7PD8=
-Setting checksum for: groovy-postbuild to PSLTr92Gz+q1kz0gr0YFpYcF6rWFd2Kyw1rc0Lz7PD8=
-Setting checksum for: groovy-postbuild to PSLTr92Gz+q1kz0gr0YFpYcF6rWFd2Kyw1rc0Lz7PD8=
-Setting checksum for: groovy-postbuild to PSLTr92Gz+q1kz0gr0YFpYcF6rWFd2Kyw1rc0Lz7PD8=
-Setting checksum for: groovy-postbuild to PSLTr92Gz+q1kz0gr0YFpYcF6rWFd2Kyw1rc0Lz7PD8=
-Setting checksum for: groovy-postbuild to PSLTr92Gz+q1kz0gr0YFpYcF6rWFd2Kyw1rc0Lz7PD8=
-Setting checksum for: groovy-postbuild to PSLTr92Gz+q1kz0gr0YFpYcF6rWFd2Kyw1rc0Lz7PD8=
-Setting checksum for: groovy-postbuild to PSLTr92Gz+q1kz0gr0YFpYcF6rWFd2Kyw1rc0Lz7PD8=
-Setting checksum for: groovy-postbuild to PSLTr92Gz+q1kz0gr0YFpYcF6rWFd2Kyw1rc0Lz7PD8=
-Setting checksum for: groovy-postbuild to PSLTr92Gz+q1kz0gr0YFpYcF6rWFd2Kyw1rc0Lz7PD8=
-Setting checksum for: groovy-postbuild to PSLTr92Gz+q1kz0gr0YFpYcF6rWFd2Kyw1rc0Lz7PD8=
-Setting checksum for: groovy-postbuild to PSLTr92Gz+q1kz0gr0YFpYcF6rWFd2Kyw1rc0Lz7PD8=
-Setting checksum for: groovy-postbuild to PSLTr92Gz+q1kz0gr0YFpYcF6rWFd2Kyw1rc0Lz7PD8=
-Setting checksum for: groovy-postbuild to PSLTr92Gz+q1kz0gr0YFpYcF6rWFd2Kyw1rc0Lz7PD8=
-Setting checksum for: groovy-postbuild to PSLTr92Gz+q1kz0gr0YFpYcF6rWFd2Kyw1rc0Lz7PD8=
-Setting checksum for: groovy-postbuild to PSLTr92Gz+q1kz0gr0YFpYcF6rWFd2Kyw1rc0Lz7PD8=
-Setting checksum for: groovy-postbuild to PSLTr92Gz+q1kz0gr0YFpYcF6rWFd2Kyw1rc0Lz7PD8=
-Setting checksum for: groovy-postbuild to PSLTr92Gz+q1kz0gr0YFpYcF6rWFd2Kyw1rc0Lz7PD8=
-Couldn't find checksum for http_request at version: latest
-
-http_request depends on: 
-workflow-basic-steps 2.23
-workflow-durable-task-step 2.37
-apache-httpcomponents-client-4-api 4.5.13-1.0
-credentials 2.3.14
-script-security 1.75
-Setting checksum for: workflow-basic-steps to GxGi3gnecKT2G9AVIj9JAYnR/H4k64LaQuGHoIO8HEo=
-
-workflow-basic-steps depends on: 
-workflow-api 2.41
-workflow-durable-task-step 2.37
-workflow-step-api 2.23
-apache-httpcomponents-client-4-api 4.5.13-1.0
-mailer 1.32.1
-structs 1.20
-Setting checksum for: workflow-durable-task-step to mAn3Gt6Y+nv13/Lne1EndO6O/8Kr7RdI/jGaLYA5W/o=
-
-workflow-durable-task-step depends on: 
-workflow-api 2.41
-workflow-step-api 2.23
-workflow-support 3.7
-durable-task 1.35
-scm-api 2.6.4
-script-security 1.75
-structs 1.20
-Setting checksum for: apache-httpcomponents-client-4-api to H6Wtr80EPFgqm27ESmo3Fm23e7bVt9LE+ZAq0mOmVjY=
-
-apache-httpcomponents-client-4-api has no dependencies
-Setting checksum for: credentials to Yt1SWoBFW27T6u0cUdesZUYYMEI29DhA048HlOge3RI=
-
-credentials depends on: 
-structs 1.20
-Setting checksum for: script-security to 46ntxSuoQmaVu6ShnDGuQcOk6WwgpH/PX+gOd4UZxLg=
-
-script-security has no dependencies
-Setting checksum for: workflow-api to KLm+2zNN9zyXNBwIGfU4HBuJ0T0hqoK+T/9Zxo9T8XM=
-
-workflow-api depends on: 
-workflow-step-api 2.23
-scm-api 2.6.4
-Setting checksum for: workflow-step-api to 4OOcvgw+v7LT+A7f70cNPH0DPH3q+sjG5VPn05HqEoc=
-
-workflow-step-api depends on: 
-structs 1.20
-Setting checksum for: mailer to CwReqH78KJ/MrVWsUeTJA5RdloO3G0hmfhlEDkKi02g=
-
-mailer depends on: 
-display-url-api 2.3.4
-Setting checksum for: structs to fnhhNWo3qmpydGLXrqcW3ZMHBxJS9zScJybWSnc/6zo=
-
-structs has no dependencies
-Setting checksum for: workflow-support to gVZzlqd2JOq8lF5YkmUjS/gOEg1eNHhsaL3S3iaMHbA=
-
-workflow-support depends on: 
-workflow-api 2.41
-workflow-step-api 2.23
-scm-api 2.6.4
-script-security 1.75
-Setting checksum for: durable-task to DjdDPi8iJgXGUMCXp3NvTvzXt9SA7Z1KK9xPO5+MTpo=
-
-durable-task has no dependencies
-Setting checksum for: scm-api to k1y65LRmeNWt+fqsmmgCn1KgTg0MickDinq5XKa2dtw=
-
-scm-api depends on: 
-structs 1.20
-Setting checksum for: display-url-api to 1JoJw0ZFVBj0XrNNiD48gsoA1/pYzc4aRSIk4DJAHkE=
-
-display-url-api has no dependencies
-Setting checksum for: http_request to hpbx6rqNukTQ57g2JOmATrFrD8oHE8lhXSPc6PMmLMU=
-Setting checksum for: http_request to hpbx6rqNukTQ57g2JOmATrFrD8oHE8lhXSPc6PMmLMU=
-Setting checksum for: http_request to hpbx6rqNukTQ57g2JOmATrFrD8oHE8lhXSPc6PMmLMU=
-Setting checksum for: http_request to hpbx6rqNukTQ57g2JOmATrFrD8oHE8lhXSPc6PMmLMU=
-Setting checksum for: http_request to hpbx6rqNukTQ57g2JOmATrFrD8oHE8lhXSPc6PMmLMU=
-Setting checksum for: http_request to hpbx6rqNukTQ57g2JOmATrFrD8oHE8lhXSPc6PMmLMU=
-Setting checksum for: http_request to hpbx6rqNukTQ57g2JOmATrFrD8oHE8lhXSPc6PMmLMU=
-Setting checksum for: http_request to hpbx6rqNukTQ57g2JOmATrFrD8oHE8lhXSPc6PMmLMU=
-Setting checksum for: http_request to hpbx6rqNukTQ57g2JOmATrFrD8oHE8lhXSPc6PMmLMU=
-Setting checksum for: http_request to hpbx6rqNukTQ57g2JOmATrFrD8oHE8lhXSPc6PMmLMU=
-Setting checksum for: http_request to hpbx6rqNukTQ57g2JOmATrFrD8oHE8lhXSPc6PMmLMU=
-Setting checksum for: http_request to hpbx6rqNukTQ57g2JOmATrFrD8oHE8lhXSPc6PMmLMU=
-Setting checksum for: http_request to hpbx6rqNukTQ57g2JOmATrFrD8oHE8lhXSPc6PMmLMU=
-Setting checksum for: http_request to hpbx6rqNukTQ57g2JOmATrFrD8oHE8lhXSPc6PMmLMU=
-Couldn't find checksum for jira at version: latest
-
-jira depends on: 
-workflow-job 2.40
-apache-httpcomponents-client-4-api 4.5.13-1.0
-branch-api 2.6.2
-credentials 2.3.14
-jackson2-api 2.12.1
-mailer 1.32.1
-matrix-project 1.18
-Setting checksum for: workflow-job to 9WwYtuK1FLFjRWYF9mNinQY4XdjZz6qFpTyruw5b3Oo=
-
-workflow-job depends on: 
-workflow-api 2.41
-workflow-step-api 2.23
-workflow-support 3.7
-Setting checksum for: apache-httpcomponents-client-4-api to H6Wtr80EPFgqm27ESmo3Fm23e7bVt9LE+ZAq0mOmVjY=
-
-apache-httpcomponents-client-4-api has no dependencies
-Setting checksum for: branch-api to 8BjGhM2T02LhQTam1PXB36aZ3XvHH9xiDJTt1zFZZ10=
-
-branch-api depends on: 
-cloudbees-folder 6.15
-scm-api 2.6.4
-Setting checksum for: credentials to Yt1SWoBFW27T6u0cUdesZUYYMEI29DhA048HlOge3RI=
-
-credentials depends on: 
-structs 1.20
-Setting checksum for: jackson2-api to 2nJnob6/CTeTLvhkPlhf/dubBoAkuJwHSfwf7G/qgfs=
-
-jackson2-api depends on: 
-snakeyaml-api 1.27.0
-Setting checksum for: mailer to CwReqH78KJ/MrVWsUeTJA5RdloO3G0hmfhlEDkKi02g=
-
-mailer depends on: 
-display-url-api 2.3.4
-Setting checksum for: matrix-project to pp2mhQc0xxCSFEqijq9st+cK/n5uAFil8s6QVndYRt0=
-
-matrix-project depends on: 
-junit 1.48
-script-security 1.75
-Setting checksum for: workflow-api to KLm+2zNN9zyXNBwIGfU4HBuJ0T0hqoK+T/9Zxo9T8XM=
-
-workflow-api depends on: 
-workflow-step-api 2.23
-scm-api 2.6.4
-Setting checksum for: workflow-step-api to 4OOcvgw+v7LT+A7f70cNPH0DPH3q+sjG5VPn05HqEoc=
-
-workflow-step-api depends on: 
-structs 1.20
-Setting checksum for: workflow-support to gVZzlqd2JOq8lF5YkmUjS/gOEg1eNHhsaL3S3iaMHbA=
-
-workflow-support depends on: 
-workflow-api 2.41
-workflow-step-api 2.23
-scm-api 2.6.4
-script-security 1.75
-Setting checksum for: cloudbees-folder to vqUU9iK9k3WlVkbwGJ9sqBGVeQ+1kpm4dykagSSO07Q=
-
-cloudbees-folder has no dependencies
-Setting checksum for: scm-api to k1y65LRmeNWt+fqsmmgCn1KgTg0MickDinq5XKa2dtw=
-
-scm-api depends on: 
-structs 1.20
-Setting checksum for: structs to fnhhNWo3qmpydGLXrqcW3ZMHBxJS9zScJybWSnc/6zo=
-
-structs has no dependencies
-Setting checksum for: snakeyaml-api to ElUO5EweRQAHyVnzPS/6cW+4xq8hfZhIgPrEjd+FQuA=
-
-snakeyaml-api has no dependencies
-Setting checksum for: display-url-api to 1JoJw0ZFVBj0XrNNiD48gsoA1/pYzc4aRSIk4DJAHkE=
-
-display-url-api has no dependencies
-Setting checksum for: junit to OlfVq7Ed6wGPo2v1hEArWanCP/KmuPGUEhjxN8xuowI=
-
-junit depends on: 
-bootstrap4-api 4.6.0-1
-checks-api 1.3.0
-echarts-api 4.9.0-3
-plugin-util-api 1.6.1
-workflow-api 2.41
-workflow-step-api 2.23
-display-url-api 2.3.4
-jackson2-api 2.12.1
-script-security 1.75
-structs 1.20
-Setting checksum for: script-security to 46ntxSuoQmaVu6ShnDGuQcOk6WwgpH/PX+gOd4UZxLg=
-
-script-security has no dependencies
-Setting checksum for: bootstrap4-api to qveLAaUrWNYdm2dFUmSxtEvoAbhC6NDL+MTAKgJB95E=
-
-bootstrap4-api depends on: 
-font-awesome-api 5.15.2-1
-jquery3-api 3.5.1-2
-popper-api 1.16.1-1
-Setting checksum for: checks-api to QQL5n9poLsE/cHZr+nLH8OkJe7cdqmmjkwSvVk45d8A=
-
-checks-api depends on: 
-plugin-util-api 1.6.1
-workflow-step-api 2.23
-display-url-api 2.3.4
-Setting checksum for: echarts-api to yRVDFjl4CG7jhz0AarKBzMrVye0id6zPcGwbNroszvg=
-
-echarts-api depends on: 
-jquery3-api 3.5.1-2
-plugin-util-api 1.6.1
-jackson2-api 2.12.1
-Setting checksum for: plugin-util-api to 1KRhAek3TmyRnt21rQNVqACjZMme7Y9Gh0G9Mp9D9lo=
-
-plugin-util-api has no dependencies
-Setting checksum for: font-awesome-api to A1WiiR8jVcfDs/GvvKmVip8VUIZXf+wbBv3iSr12MT8=
-
-font-awesome-api depends on: 
-plugin-util-api 1.6.1
-Setting checksum for: jquery3-api to SA1bfDkAJzuB6CKLNPAr7n7doN3Mzzt8b2QkP8QW15w=
-
-jquery3-api has no dependencies
-Setting checksum for: popper-api to brqndVLQikoEW1G6DtNeXvuXDXz3zyGRYkvTBHAEIEI=
-
-popper-api has no dependencies
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Setting checksum for: jira to GNibrhpfZAD9bS2LOGjyrFcEurPOVpQrfdb2WCSDviU=
-Couldn't find checksum for job-dsl at version: latest
-
-job-dsl depends on: 
-structs 1.20
-script-security 1.75
-Setting checksum for: structs to fnhhNWo3qmpydGLXrqcW3ZMHBxJS9zScJybWSnc/6zo=
-
-structs has no dependencies
-Setting checksum for: script-security to 46ntxSuoQmaVu6ShnDGuQcOk6WwgpH/PX+gOd4UZxLg=
-
-script-security has no dependencies
-Setting checksum for: job-dsl to cHGjXXXQWT48vtaVugzuQRM/MXU7h67upMbgYkUnsiI=
-Setting checksum for: job-dsl to cHGjXXXQWT48vtaVugzuQRM/MXU7h67upMbgYkUnsiI=
-Setting checksum for: job-dsl to cHGjXXXQWT48vtaVugzuQRM/MXU7h67upMbgYkUnsiI=
-Couldn't find checksum for pipeline-utility-steps at version: latest
-
-pipeline-utility-steps depends on: 
-workflow-api 2.41
-workflow-step-api 2.23
-scm-api 2.6.4
-script-security 1.75
-structs 1.20
-Setting checksum for: workflow-api to KLm+2zNN9zyXNBwIGfU4HBuJ0T0hqoK+T/9Zxo9T8XM=
-
-workflow-api depends on: 
-workflow-step-api 2.23
-scm-api 2.6.4
-Setting checksum for: workflow-step-api to 4OOcvgw+v7LT+A7f70cNPH0DPH3q+sjG5VPn05HqEoc=
-
-workflow-step-api depends on: 
-structs 1.20
-Setting checksum for: scm-api to k1y65LRmeNWt+fqsmmgCn1KgTg0MickDinq5XKa2dtw=
-
-scm-api depends on: 
-structs 1.20
-Setting checksum for: script-security to 46ntxSuoQmaVu6ShnDGuQcOk6WwgpH/PX+gOd4UZxLg=
-
-script-security has no dependencies
-Setting checksum for: structs to fnhhNWo3qmpydGLXrqcW3ZMHBxJS9zScJybWSnc/6zo=
-
-structs has no dependencies
-Setting checksum for: pipeline-utility-steps to EXEMQGW8UExcyJhhh+G7Orfd0mXfd3Tn1t0AujJkuww=
-Setting checksum for: pipeline-utility-steps to EXEMQGW8UExcyJhhh+G7Orfd0mXfd3Tn1t0AujJkuww=
-Setting checksum for: pipeline-utility-steps to EXEMQGW8UExcyJhhh+G7Orfd0mXfd3Tn1t0AujJkuww=
-Setting checksum for: pipeline-utility-steps to EXEMQGW8UExcyJhhh+G7Orfd0mXfd3Tn1t0AujJkuww=
-Setting checksum for: pipeline-utility-steps to EXEMQGW8UExcyJhhh+G7Orfd0mXfd3Tn1t0AujJkuww=
-Setting checksum for: pipeline-utility-steps to EXEMQGW8UExcyJhhh+G7Orfd0mXfd3Tn1t0AujJkuww=
-Couldn't find checksum for slack at version: latest
-
-slack depends on: 
-workflow-step-api 2.23
-apache-httpcomponents-client-4-api 4.5.13-1.0
-credentials 2.3.14
-display-url-api 2.3.4
-jackson2-api 2.12.1
-junit 1.48
-mailer 1.32.1
-plain-credentials 1.7
-script-security 1.75
-structs 1.20
-token-macro 2.13
-Setting checksum for: workflow-step-api to 4OOcvgw+v7LT+A7f70cNPH0DPH3q+sjG5VPn05HqEoc=
-
-workflow-step-api depends on: 
-structs 1.20
-Setting checksum for: apache-httpcomponents-client-4-api to H6Wtr80EPFgqm27ESmo3Fm23e7bVt9LE+ZAq0mOmVjY=
-
-apache-httpcomponents-client-4-api has no dependencies
-Setting checksum for: credentials to Yt1SWoBFW27T6u0cUdesZUYYMEI29DhA048HlOge3RI=
-
-credentials depends on: 
-structs 1.20
-Setting checksum for: display-url-api to 1JoJw0ZFVBj0XrNNiD48gsoA1/pYzc4aRSIk4DJAHkE=
-
-display-url-api has no dependencies
-Setting checksum for: jackson2-api to 2nJnob6/CTeTLvhkPlhf/dubBoAkuJwHSfwf7G/qgfs=
-
-jackson2-api depends on: 
-snakeyaml-api 1.27.0
-Setting checksum for: junit to OlfVq7Ed6wGPo2v1hEArWanCP/KmuPGUEhjxN8xuowI=
-
-junit depends on: 
-bootstrap4-api 4.6.0-1
-checks-api 1.3.0
-echarts-api 4.9.0-3
-plugin-util-api 1.6.1
-workflow-api 2.41
-workflow-step-api 2.23
-display-url-api 2.3.4
-jackson2-api 2.12.1
-script-security 1.75
-structs 1.20
-Setting checksum for: mailer to CwReqH78KJ/MrVWsUeTJA5RdloO3G0hmfhlEDkKi02g=
-
-mailer depends on: 
-display-url-api 2.3.4
-Setting checksum for: plain-credentials to WoLKZrOX2sz2Y2lbUx/ffqmT1cHLA/G0aS2+gE0WO6g=
-
-plain-credentials depends on: 
-credentials 2.3.14
-Setting checksum for: script-security to 46ntxSuoQmaVu6ShnDGuQcOk6WwgpH/PX+gOd4UZxLg=
-
-script-security has no dependencies
-Setting checksum for: structs to fnhhNWo3qmpydGLXrqcW3ZMHBxJS9zScJybWSnc/6zo=
-
-structs has no dependencies
-Setting checksum for: token-macro to bFNh2Z5A/gU7MNPxLYZa54BMeHdtH5sjbvkeSbp3MzE=
-
-token-macro depends on: 
-workflow-step-api 2.23
-structs 1.20
-Setting checksum for: snakeyaml-api to ElUO5EweRQAHyVnzPS/6cW+4xq8hfZhIgPrEjd+FQuA=
-
-snakeyaml-api has no dependencies
-Setting checksum for: bootstrap4-api to qveLAaUrWNYdm2dFUmSxtEvoAbhC6NDL+MTAKgJB95E=
-
-bootstrap4-api depends on: 
-font-awesome-api 5.15.2-1
-jquery3-api 3.5.1-2
-popper-api 1.16.1-1
-Setting checksum for: checks-api to QQL5n9poLsE/cHZr+nLH8OkJe7cdqmmjkwSvVk45d8A=
-
-checks-api depends on: 
-plugin-util-api 1.6.1
-workflow-step-api 2.23
-display-url-api 2.3.4
-Setting checksum for: echarts-api to yRVDFjl4CG7jhz0AarKBzMrVye0id6zPcGwbNroszvg=
-
-echarts-api depends on: 
-jquery3-api 3.5.1-2
-plugin-util-api 1.6.1
-jackson2-api 2.12.1
-Setting checksum for: plugin-util-api to 1KRhAek3TmyRnt21rQNVqACjZMme7Y9Gh0G9Mp9D9lo=
-
-plugin-util-api has no dependencies
-Setting checksum for: workflow-api to KLm+2zNN9zyXNBwIGfU4HBuJ0T0hqoK+T/9Zxo9T8XM=
-
-workflow-api depends on: 
-workflow-step-api 2.23
-scm-api 2.6.4
-Setting checksum for: font-awesome-api to A1WiiR8jVcfDs/GvvKmVip8VUIZXf+wbBv3iSr12MT8=
-
-font-awesome-api depends on: 
-plugin-util-api 1.6.1
-Setting checksum for: jquery3-api to SA1bfDkAJzuB6CKLNPAr7n7doN3Mzzt8b2QkP8QW15w=
-
-jquery3-api has no dependencies
-Setting checksum for: popper-api to brqndVLQikoEW1G6DtNeXvuXDXz3zyGRYkvTBHAEIEI=
-
-popper-api has no dependencies
-Setting checksum for: scm-api to k1y65LRmeNWt+fqsmmgCn1KgTg0MickDinq5XKa2dtw=
-
-scm-api depends on: 
-structs 1.20
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Setting checksum for: slack to h4Czif4hC07TfTuJ95gXVIcpq5CyoieonuM/yMmYSgM=
-Couldn't find checksum for tap at version: latest
-
-tap depends on: 
-junit 1.48
-matrix-project 1.18
-Setting checksum for: junit to OlfVq7Ed6wGPo2v1hEArWanCP/KmuPGUEhjxN8xuowI=
-
-junit depends on: 
-bootstrap4-api 4.6.0-1
-checks-api 1.3.0
-echarts-api 4.9.0-3
-plugin-util-api 1.6.1
-workflow-api 2.41
-workflow-step-api 2.23
-display-url-api 2.3.4
-jackson2-api 2.12.1
-script-security 1.75
-structs 1.20
-Setting checksum for: matrix-project to pp2mhQc0xxCSFEqijq9st+cK/n5uAFil8s6QVndYRt0=
-
-matrix-project depends on: 
-junit 1.48
-script-security 1.75
-Setting checksum for: bootstrap4-api to qveLAaUrWNYdm2dFUmSxtEvoAbhC6NDL+MTAKgJB95E=
-
-bootstrap4-api depends on: 
-font-awesome-api 5.15.2-1
-jquery3-api 3.5.1-2
-popper-api 1.16.1-1
-Setting checksum for: checks-api to QQL5n9poLsE/cHZr+nLH8OkJe7cdqmmjkwSvVk45d8A=
-
-checks-api depends on: 
-plugin-util-api 1.6.1
-workflow-step-api 2.23
-display-url-api 2.3.4
-Setting checksum for: echarts-api to yRVDFjl4CG7jhz0AarKBzMrVye0id6zPcGwbNroszvg=
-
-echarts-api depends on: 
-jquery3-api 3.5.1-2
-plugin-util-api 1.6.1
-jackson2-api 2.12.1
-Setting checksum for: plugin-util-api to 1KRhAek3TmyRnt21rQNVqACjZMme7Y9Gh0G9Mp9D9lo=
-
-plugin-util-api has no dependencies
-Setting checksum for: workflow-api to KLm+2zNN9zyXNBwIGfU4HBuJ0T0hqoK+T/9Zxo9T8XM=
-
-workflow-api depends on: 
-workflow-step-api 2.23
-scm-api 2.6.4
-Setting checksum for: workflow-step-api to 4OOcvgw+v7LT+A7f70cNPH0DPH3q+sjG5VPn05HqEoc=
-
-workflow-step-api depends on: 
-structs 1.20
-Setting checksum for: display-url-api to 1JoJw0ZFVBj0XrNNiD48gsoA1/pYzc4aRSIk4DJAHkE=
-
-display-url-api has no dependencies
-Setting checksum for: jackson2-api to 2nJnob6/CTeTLvhkPlhf/dubBoAkuJwHSfwf7G/qgfs=
-
-jackson2-api depends on: 
-snakeyaml-api 1.27.0
-Setting checksum for: script-security to 46ntxSuoQmaVu6ShnDGuQcOk6WwgpH/PX+gOd4UZxLg=
-
-script-security has no dependencies
-Setting checksum for: structs to fnhhNWo3qmpydGLXrqcW3ZMHBxJS9zScJybWSnc/6zo=
-
-structs has no dependencies
-Setting checksum for: font-awesome-api to A1WiiR8jVcfDs/GvvKmVip8VUIZXf+wbBv3iSr12MT8=
-
-font-awesome-api depends on: 
-plugin-util-api 1.6.1
-Setting checksum for: jquery3-api to SA1bfDkAJzuB6CKLNPAr7n7doN3Mzzt8b2QkP8QW15w=
-
-jquery3-api has no dependencies
-Setting checksum for: popper-api to brqndVLQikoEW1G6DtNeXvuXDXz3zyGRYkvTBHAEIEI=
-
-popper-api has no dependencies
-Setting checksum for: scm-api to k1y65LRmeNWt+fqsmmgCn1KgTg0MickDinq5XKa2dtw=
-
-scm-api depends on: 
-structs 1.20
-Setting checksum for: snakeyaml-api to ElUO5EweRQAHyVnzPS/6cW+4xq8hfZhIgPrEjd+FQuA=
-
-snakeyaml-api has no dependencies
-Setting checksum for: tap to pUuYURlBYv4aIezhOfeUFdnRAIoNH2/rMxD8wLZS75I=
-Setting checksum for: tap to pUuYURlBYv4aIezhOfeUFdnRAIoNH2/rMxD8wLZS75I=
-Setting checksum for: tap to pUuYURlBYv4aIezhOfeUFdnRAIoNH2/rMxD8wLZS75I=
-Setting checksum for: tap to pUuYURlBYv4aIezhOfeUFdnRAIoNH2/rMxD8wLZS75I=
-Setting checksum for: tap to pUuYURlBYv4aIezhOfeUFdnRAIoNH2/rMxD8wLZS75I=
-Setting checksum for: tap to pUuYURlBYv4aIezhOfeUFdnRAIoNH2/rMxD8wLZS75I=
-Setting checksum for: tap to pUuYURlBYv4aIezhOfeUFdnRAIoNH2/rMxD8wLZS75I=
-Setting checksum for: tap to pUuYURlBYv4aIezhOfeUFdnRAIoNH2/rMxD8wLZS75I=
-Setting checksum for: tap to pUuYURlBYv4aIezhOfeUFdnRAIoNH2/rMxD8wLZS75I=
-Setting checksum for: tap to pUuYURlBYv4aIezhOfeUFdnRAIoNH2/rMxD8wLZS75I=
-Setting checksum for: tap to pUuYURlBYv4aIezhOfeUFdnRAIoNH2/rMxD8wLZS75I=
-Setting checksum for: tap to pUuYURlBYv4aIezhOfeUFdnRAIoNH2/rMxD8wLZS75I=
-Setting checksum for: tap to pUuYURlBYv4aIezhOfeUFdnRAIoNH2/rMxD8wLZS75I=
-Setting checksum for: tap to pUuYURlBYv4aIezhOfeUFdnRAIoNH2/rMxD8wLZS75I=
-Setting checksum for: tap to pUuYURlBYv4aIezhOfeUFdnRAIoNH2/rMxD8wLZS75I=
-Setting checksum for: tap to pUuYURlBYv4aIezhOfeUFdnRAIoNH2/rMxD8wLZS75I=
-Setting checksum for: tap to pUuYURlBYv4aIezhOfeUFdnRAIoNH2/rMxD8wLZS75I=
-Setting checksum for: tap to pUuYURlBYv4aIezhOfeUFdnRAIoNH2/rMxD8wLZS75I=
-Couldn't find checksum for build-with-parameters at version: latest
-
-build-with-parameters has no dependencies
-Setting checksum for: build-with-parameters to J6WfEUJXRNHIeNk8mDY7p0a6GedQw7EJnzjzFUylRwM=
-Couldn't find checksum for xvfb at version: latest
-
-xvfb has no dependencies
-Setting checksum for: xvfb to 8MvmzJy5jGS+UK2KmptruBRAc45sSHzhuKK1YhujE7g=
-Couldn't find checksum for monitoring at version: latest
-
-monitoring has no dependencies
-Setting checksum for: monitoring to NIOAqaVNTUB3EWROiMDctPDi+MnixUH5o5rmtZOCPGQ=
-Will install new plugin xvfb 1.1.3
-Will install new plugin build-with-parameters 1.5
-Will install new plugin job-dsl 1.77
-Will install new plugin slack 2.45
-Will install new plugin groovy-postbuild 2.5
-Will install new plugin jira 3.1.3
-Installed version (5.15.1-1) of font-awesome-api is less than minimum required version of 5.15.2-1, bundled plugin will be upgraded
-Will install new plugin tap 2.3
-Will install new plugin monitoring 1.86.0
-Will install new plugin badge 1.8
-Installed version (1.16.0-7) of popper-api is less than minimum required version of 1.16.1-1, bundled plugin will be upgraded
-Will install new plugin http_request 1.8.27
-Will install new plugin pipeline-utility-steps 2.6.1
-Will install new plugin artifactory 3.10.4
-Will install new plugin generic-webhook-trigger 1.72
-Will install new plugin build-user-vars-plugin 1.6
-Will install new plugin copyartifact 1.46
-Will install new plugin ivy 2.1
-Will install new plugin gradle 1.36
-Will install new plugin embeddable-build-status 2.0.3
 
 Installed plugins:
 ace-editor 1.1
-analysis-model-api 9.7.0
+analysis-model-api 9.8.1
 ant 1.11
 antisamy-markup-formatter 2.1
 apache-httpcomponents-client-4-api 4.5.13-1.0
 authentication-tokens 1.4
 authorize-project 1.3.0
-bootstrap4-api 4.6.0-1
+bootstrap4-api 4.6.0-2
 bouncycastle-api 2.18
 branch-api 2.6.2
 build-timeout 1.20
-checks-api 1.3.0
+checks-api 1.5.0
 cloudbees-folder 6.15
 command-launcher 1.5
 conditional-buildstep 1.4.1
 config-file-provider 3.7.0
-configuration-as-code 1.46
-credentials 2.3.14
+configuration-as-code 1.47
+credentials 2.3.15
 credentials-binding 1.24
-data-tables-api 1.10.23-1
+data-tables-api 1.10.23-3
 display-url-api 2.3.4
 durable-task 1.35
-echarts-api 4.9.0-3
-email-ext 2.81
+echarts-api 5.0.1-1
+email-ext 2.82
 extended-read-permission 3.2
 external-monitor-job 1.7
 extra-columns 1.22
-font-awesome-api 5.15.1-1
-forensics-api 0.9.3
+font-awesome-api 5.15.2-2
+forensics-api 1.0.0
 gerrit-trigger 2.32.0
-ghprb 1.42.1
-git 4.5.2
+ghprb 1.42.2
+git 4.6.0
 git-client 3.6.0
 git-parameter 0.9.13
 git-server 1.9
-github 1.32.0
-github-api 1.122
-github-branch-source 2.9.4
+github 1.33.1
+github-api 1.123
+github-branch-source 2.9.7
 gitlab-api 1.0.6
-gitlab-branch-source 1.5.3
-gitlab-plugin 1.5.13
+gitlab-branch-source 1.5.4
+gitlab-plugin 1.5.19
 greenballs 1.15.1
 h2-api 1.4.199
 handlebars 1.1.1
 handy-uri-templates-2-api 2.1.8-1.0
 jackson2-api 2.12.1
 javadoc 1.6
-jdk-tool 1.4
-jjwt-api 0.11.2-5.143e44951c52
+jdk-tool 1.5
+jjwt-api 0.11.2-9.c8b45b8bb173
 jobConfigHistory 2.26
 jquery 1.12.4-1
-jquery3-api 3.5.1-2
+jquery3-api 3.5.1-3
 jsch 0.1.55.2
 junit 1.48
 kubernetes 1.25.7
-kubernetes-client-api 4.11.1
+kubernetes-client-api 4.13.2-1
 kubernetes-credentials 0.8.0
 ldap 1.26
 lockable-resources 2.10
@@ -1179,48 +70,48 @@ parameterized-trigger 2.39
 pipeline-build-step 2.13
 pipeline-graph-analysis 1.10
 pipeline-input-step 2.12
-pipeline-maven 3.9.3
-pipeline-milestone-step 1.3.1
-pipeline-model-api 1.7.2
-pipeline-model-definition 1.7.2
-pipeline-model-extensions 1.7.2
+pipeline-maven 3.10.0
+pipeline-milestone-step 1.3.2
+pipeline-model-api 1.8.4
+pipeline-model-definition 1.8.4
+pipeline-model-extensions 1.8.4
 pipeline-rest-api 2.19
 pipeline-stage-step 2.5
-pipeline-stage-tags-metadata 1.7.2
+pipeline-stage-tags-metadata 1.8.4
 pipeline-stage-view 2.19
 plain-credentials 1.7
-plugin-util-api 1.6.1
-popper-api 1.16.0-7
+plugin-util-api 2.0.0
+popper-api 1.16.1-2
 promoted-builds 3.7
 rebuild 1.31
-resource-disposer 0.14
+resource-disposer 0.15
 run-condition 1.5
 scm-api 2.6.4
-script-security 1.75
+script-security 1.76
 simple-theme-plugin 0.6
 snakeyaml-api 1.27.0
 sonar 2.13
-ssh-agent 1.20
+ssh-agent 1.21
 ssh-credentials 1.18.1
 ssh-slaves 1.31.5
-structs 1.20
+structs 1.22
 timestamper 1.11.8
 token-macro 2.13
 trilead-api 1.0.13
 variant 1.4
-warnings-ng 8.7.0
+warnings-ng 8.10.0
 workflow-aggregator 2.6
 workflow-api 2.41
 workflow-basic-steps 2.23
-workflow-cps 2.87
-workflow-cps-global-lib 2.17
-workflow-durable-task-step 2.37
+workflow-cps 2.90
+workflow-cps-global-lib 2.18
+workflow-durable-task-step 2.38
 workflow-job 2.40
 workflow-multibranch 2.22
-workflow-scm-step 2.11
+workflow-scm-step 2.12
 workflow-step-api 2.23
 workflow-support 3.7
-ws-cleanup 0.38
+ws-cleanup 0.39
 xvnc 1.25
 
 Bundled plugins:
@@ -1230,22 +121,23 @@ ace-editor 1.1
 ant 1.11
 antisamy-markup-formatter 2.1
 apache-httpcomponents-client-4-api 4.5.13-1.0
-artifactory 3.10.4
+artifactory 3.10.5
 badge 1.8
-bootstrap4-api 4.6.0-1
+bootstrap4-api 4.6.0-2
+bouncycastle-api 2.18
 branch-api 2.6.2
-build-user-vars-plugin 1.6
+build-user-vars-plugin 1.7
 build-with-parameters 1.5
-checks-api 1.3.0
+checks-api 1.5.0
 cloudbees-folder 6.15
 config-file-provider 3.7.0
 copyartifact 1.46
-credentials 2.3.14
+credentials 2.3.15
 display-url-api 2.3.4
 durable-task 1.35
-echarts-api 4.9.0-3
+echarts-api 5.0.1-1
 embeddable-build-status 2.0.3
-font-awesome-api 5.15.2-1
+font-awesome-api 5.15.2-2
 generic-webhook-trigger 1.72
 gradle 1.36
 groovy-postbuild 2.5
@@ -1253,9 +145,9 @@ http_request 1.8.27
 ivy 2.1
 jackson2-api 2.12.1
 javadoc 1.6
-jira 3.1.3
+jira 3.2
 job-dsl 1.77
-jquery3-api 3.5.1-2
+jquery3-api 3.5.1-3
 jsch 0.1.55.2
 junit 1.48
 mailer 1.32.1
@@ -1264,99 +156,100 @@ maven-plugin 3.8
 monitoring 1.86.0
 pipeline-utility-steps 2.6.1
 plain-credentials 1.7
-plugin-util-api 1.6.1
-popper-api 1.16.1-1
+plugin-util-api 2.0.0
+popper-api 1.16.1-2
 run-condition 1.5
+saml 1.1.7
 scm-api 2.6.4
-script-security 1.75
+script-security 1.76
 slack 2.45
 snakeyaml-api 1.27.0
 ssh-credentials 1.18.1
-structs 1.20
+structs 1.22
 tap 2.3
 token-macro 2.13
 trilead-api 1.0.13
 workflow-api 2.41
 workflow-basic-steps 2.23
-workflow-cps 2.87
-workflow-durable-task-step 2.37
+workflow-cps 2.90
+workflow-durable-task-step 2.38
 workflow-job 2.40
-workflow-scm-step 2.11
+workflow-scm-step 2.12
 workflow-step-api 2.23
-workflow-support 3.7
+workflow-support 3.8
 xvfb 1.1.3
 
 Plugins that will be downloaded:
-artifactory 3.10.4
+artifactory 3.10.5
 badge 1.8
-build-user-vars-plugin 1.6
+build-user-vars-plugin 1.7
 build-with-parameters 1.5
 copyartifact 1.46
 embeddable-build-status 2.0.3
-font-awesome-api 5.15.2-1
 generic-webhook-trigger 1.72
 gradle 1.36
 groovy-postbuild 2.5
 http_request 1.8.27
 ivy 2.1
-jira 3.1.3
+jira 3.2
 job-dsl 1.77
 monitoring 1.86.0
 pipeline-utility-steps 2.6.1
-popper-api 1.16.1-1
+saml 1.1.7
 slack 2.45
 tap 2.3
+workflow-support 3.8
 xvfb 1.1.3
 
 Resulting plugin list:
 ace-editor 1.1
-analysis-model-api 9.7.0
+analysis-model-api 9.8.1
 ant 1.11
 antisamy-markup-formatter 2.1
 apache-httpcomponents-client-4-api 4.5.13-1.0
-artifactory 3.10.4
+artifactory 3.10.5
 authentication-tokens 1.4
 authorize-project 1.3.0
 badge 1.8
-bootstrap4-api 4.6.0-1
+bootstrap4-api 4.6.0-2
 bouncycastle-api 2.18
 branch-api 2.6.2
 build-timeout 1.20
-build-user-vars-plugin 1.6
+build-user-vars-plugin 1.7
 build-with-parameters 1.5
-checks-api 1.3.0
+checks-api 1.5.0
 cloudbees-folder 6.15
 command-launcher 1.5
 conditional-buildstep 1.4.1
 config-file-provider 3.7.0
-configuration-as-code 1.46
+configuration-as-code 1.47
 copyartifact 1.46
-credentials 2.3.14
+credentials 2.3.15
 credentials-binding 1.24
-data-tables-api 1.10.23-1
+data-tables-api 1.10.23-3
 display-url-api 2.3.4
 durable-task 1.35
-echarts-api 4.9.0-3
-email-ext 2.81
+echarts-api 5.0.1-1
+email-ext 2.82
 embeddable-build-status 2.0.3
 extended-read-permission 3.2
 external-monitor-job 1.7
 extra-columns 1.22
-font-awesome-api 5.15.2-1
-forensics-api 0.9.3
+font-awesome-api 5.15.2-2
+forensics-api 1.0.0
 generic-webhook-trigger 1.72
 gerrit-trigger 2.32.0
-ghprb 1.42.1
-git 4.5.2
+ghprb 1.42.2
+git 4.6.0
 git-client 3.6.0
 git-parameter 0.9.13
 git-server 1.9
-github 1.32.0
-github-api 1.122
-github-branch-source 2.9.4
+github 1.33.1
+github-api 1.123
+github-branch-source 2.9.7
 gitlab-api 1.0.6
-gitlab-branch-source 1.5.3
-gitlab-plugin 1.5.13
+gitlab-branch-source 1.5.4
+gitlab-plugin 1.5.19
 gradle 1.36
 greenballs 1.15.1
 groovy-postbuild 2.5
@@ -1367,17 +260,17 @@ http_request 1.8.27
 ivy 2.1
 jackson2-api 2.12.1
 javadoc 1.6
-jdk-tool 1.4
-jira 3.1.3
-jjwt-api 0.11.2-5.143e44951c52
+jdk-tool 1.5
+jira 3.2
+jjwt-api 0.11.2-9.c8b45b8bb173
 job-dsl 1.77
 jobConfigHistory 2.26
 jquery 1.12.4-1
-jquery3-api 3.5.1-2
+jquery3-api 3.5.1-3
 jsch 0.1.55.2
 junit 1.48
 kubernetes 1.25.7
-kubernetes-client-api 4.11.1
+kubernetes-client-api 4.13.2-1
 kubernetes-credentials 0.8.0
 ldap 1.26
 lockable-resources 2.10
@@ -1393,93 +286,54 @@ parameterized-trigger 2.39
 pipeline-build-step 2.13
 pipeline-graph-analysis 1.10
 pipeline-input-step 2.12
-pipeline-maven 3.9.3
-pipeline-milestone-step 1.3.1
-pipeline-model-api 1.7.2
-pipeline-model-definition 1.7.2
-pipeline-model-extensions 1.7.2
+pipeline-maven 3.10.0
+pipeline-milestone-step 1.3.2
+pipeline-model-api 1.8.4
+pipeline-model-definition 1.8.4
+pipeline-model-extensions 1.8.4
 pipeline-rest-api 2.19
 pipeline-stage-step 2.5
-pipeline-stage-tags-metadata 1.7.2
+pipeline-stage-tags-metadata 1.8.4
 pipeline-stage-view 2.19
 pipeline-utility-steps 2.6.1
 plain-credentials 1.7
-plugin-util-api 1.6.1
-popper-api 1.16.1-1
+plugin-util-api 2.0.0
+popper-api 1.16.1-2
 promoted-builds 3.7
 rebuild 1.31
-resource-disposer 0.14
+resource-disposer 0.15
 run-condition 1.5
+saml 1.1.7
 scm-api 2.6.4
-script-security 1.75
+script-security 1.76
 simple-theme-plugin 0.6
 slack 2.45
 snakeyaml-api 1.27.0
 sonar 2.13
-ssh-agent 1.20
+ssh-agent 1.21
 ssh-credentials 1.18.1
 ssh-slaves 1.31.5
-structs 1.20
+structs 1.22
 tap 2.3
 timestamper 1.11.8
 token-macro 2.13
 trilead-api 1.0.13
 variant 1.4
-warnings-ng 8.7.0
+warnings-ng 8.10.0
 workflow-aggregator 2.6
 workflow-api 2.41
 workflow-basic-steps 2.23
-workflow-cps 2.87
-workflow-cps-global-lib 2.17
-workflow-durable-task-step 2.37
+workflow-cps 2.90
+workflow-cps-global-lib 2.18
+workflow-durable-task-step 2.38
 workflow-job 2.40
 workflow-multibranch 2.22
-workflow-scm-step 2.11
+workflow-scm-step 2.12
 workflow-step-api 2.23
-workflow-support 3.7
-ws-cleanup 0.38
+workflow-support 3.8
+ws-cleanup 0.39
 xvfb 1.1.3
 xvnc 1.25
 
 Security warnings:
-Will use url: https://updates.jenkins.io/download/plugins/pipeline-utility-steps/2.6.1/pipeline-utility-steps.hpi to download pipeline-utility-steps plugin
-Will use url: https://updates.jenkins.io/download/plugins/font-awesome-api/5.15.2-1/font-awesome-api.hpi to download font-awesome-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/job-dsl/1.77/job-dsl.hpi to download job-dsl plugin
-Will use url: https://updates.jenkins.io/download/plugins/monitoring/1.86.0/monitoring.hpi to download monitoring plugin
-Will use url: https://updates.jenkins.io/download/plugins/jira/3.1.3/jira.hpi to download jira plugin
-Will use url: https://updates.jenkins.io/download/plugins/build-with-parameters/1.5/build-with-parameters.hpi to download build-with-parameters plugin
-Will use url: https://updates.jenkins.io/download/plugins/groovy-postbuild/2.5/groovy-postbuild.hpi to download groovy-postbuild plugin
-Will use url: https://updates.jenkins.io/download/plugins/slack/2.45/slack.hpi to download slack plugin
-Will use url: https://updates.jenkins.io/download/plugins/ivy/2.1/ivy.hpi to download ivy plugin
-Will use url: https://updates.jenkins.io/download/plugins/copyartifact/1.46/copyartifact.hpi to download copyartifact plugin
-Will use url: https://updates.jenkins.io/download/plugins/http_request/1.8.27/http_request.hpi to download http_request plugin
-Will use url: https://updates.jenkins.io/download/plugins/embeddable-build-status/2.0.3/embeddable-build-status.hpi to download embeddable-build-status plugin
-Will use url: https://updates.jenkins.io/download/plugins/generic-webhook-trigger/1.72/generic-webhook-trigger.hpi to download generic-webhook-trigger plugin
-Will use url: https://updates.jenkins.io/download/plugins/artifactory/3.10.4/artifactory.hpi to download artifactory plugin
-Will use url: https://updates.jenkins.io/download/plugins/xvfb/1.1.3/xvfb.hpi to download xvfb plugin
-Will use url: https://updates.jenkins.io/download/plugins/popper-api/1.16.1-1/popper-api.hpi to download popper-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/build-user-vars-plugin/1.6/build-user-vars-plugin.hpi to download build-user-vars-plugin plugin
-Will use url: https://updates.jenkins.io/download/plugins/gradle/1.36/gradle.hpi to download gradle plugin
-Will use url: https://updates.jenkins.io/download/plugins/tap/2.3/tap.hpi to download tap plugin
-Will use url: https://updates.jenkins.io/download/plugins/badge/1.8/badge.hpi to download badge plugin
-Checksum valid for: embeddable-build-status
-Checksum valid for: xvfb
-Checksum valid for: build-with-parameters
-Checksum valid for: copyartifact
-Checksum valid for: gradle
-Checksum valid for: http_request
-Checksum valid for: groovy-postbuild
-Checksum valid for: slack
-Checksum valid for: badge
-Checksum valid for: build-user-vars-plugin
-Checksum valid for: font-awesome-api
-Checksum valid for: tap
-Checksum valid for: generic-webhook-trigger
-Checksum valid for: ivy
-Checksum valid for: pipeline-utility-steps
-Checksum valid for: job-dsl
-Checksum valid for: monitoring
-Checksum valid for: jira
-Checksum valid for: artifactory
-Checksum valid for: popper-api
 Done

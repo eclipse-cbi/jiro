@@ -30,7 +30,7 @@ data:
             labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
             remoteFS: '/home/jenkins/'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -52,7 +52,7 @@ data:
             labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
             remoteFS: '/home/jenkins/'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -74,7 +74,7 @@ data:
             labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
             remoteFS: '/home/jenkins/'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -96,7 +96,7 @@ data:
             labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
             remoteFS: '/home/jenkins/'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -118,7 +118,7 @@ data:
             labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
             remoteFS: '/home/jenkins/'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -140,7 +140,7 @@ data:
             labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
             remoteFS: '/home/jenkins/'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -162,7 +162,7 @@ data:
             labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
             remoteFS: '/home/jenkins/'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -184,7 +184,7 @@ data:
             labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
             remoteFS: '/home/jenkins/'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -206,7 +206,7 @@ data:
             labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
             remoteFS: '/home/jenkins/'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -228,7 +228,7 @@ data:
             labelString: "hw.arch.ppc64 sw.os.aix sw.os.aix.7_1 ci.geo.ibmpdp ci.role.build ci.role.test"
             remoteFS: '/home/jenkins/'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -250,7 +250,7 @@ data:
             labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.geo.unb ci.role.test ci.role.build"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -261,7 +261,7 @@ data:
             labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.role.test ci.role.build ci.geo.unb"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -272,7 +272,7 @@ data:
             labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.role.test ci.role.build ci.geo.unb"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -283,7 +283,7 @@ data:
             labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.role.test ci.role.build ci.geo.unb"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -294,7 +294,7 @@ data:
             labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.geo.unb ci.role.test ci.role.build"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -305,7 +305,7 @@ data:
             labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.role.test ci.role.build ci.geo.unb"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -316,7 +316,7 @@ data:
             labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.6 ci.role.test ci.role.build ci.geo.unb"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -327,7 +327,7 @@ data:
             labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.test ci.role.build ci.geo.unb sw.tool.docker"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -338,7 +338,7 @@ data:
             labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.test ci.role.build ci.geo.unb sw.tool.docker"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -349,7 +349,7 @@ data:
             labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.test ci.role.build ci.geo.unb sw.tool.docker"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -360,7 +360,7 @@ data:
             labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.test ci.role.build ci.geo.unb sw.tool.docker"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -371,7 +371,7 @@ data:
             labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.test ci.role.build ci.geo.unb sw.tool.docker"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -382,7 +382,7 @@ data:
             labelString: "hw.arch.x86 sw.os.linux sw.os.cent sw.os.cent.7 ci.role.test ci.role.build ci.geo.unb sw.tool.docker"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -404,7 +404,7 @@ data:
             labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_11 ci.role.build ci.role.test ci.geo.unb"
             remoteFS: '/Users/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -415,7 +415,7 @@ data:
             labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_11 ci.role.build ci.role.test ci.geo.unb"
             remoteFS: '/Users/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -426,7 +426,7 @@ data:
             labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_13 ci.role.build ci.geo.unb ci.role.test"
             remoteFS: '/Users/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -437,7 +437,7 @@ data:
             labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_13 ci.role.build ci.role.test ci.geo.unb"
             remoteFS: '/Users/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -448,7 +448,7 @@ data:
             labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_14 ci.role.build ci.role.test ci.geo.unb"
             remoteFS: '/Users/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -459,7 +459,7 @@ data:
             labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_14 ci.role.build ci.role.test ci.geo.unb"
             remoteFS: '/Users/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -470,7 +470,7 @@ data:
             labelString: "hw.arch.x86 sw.os.osx sw.os.osx.10_14 ci.role.build ci.role.test ci.geo.unb"
             remoteFS: '/Users/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -481,7 +481,7 @@ data:
             labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -492,7 +492,7 @@ data:
             labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -503,7 +503,7 @@ data:
             labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.18 ci.role.test sw.tool.docker ci.geo.marist"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -514,7 +514,7 @@ data:
             labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.ubuntu sw.os.ubuntu.18 ci.role.test sw.tool.docker ci.geo.marist"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -525,7 +525,7 @@ data:
             labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.rhel sw.os.rhel.7 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -536,7 +536,7 @@ data:
             labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.rhel sw.os.rhel.7 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -547,7 +547,7 @@ data:
             labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.rhel sw.os.rhel.7 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -558,7 +558,7 @@ data:
             labelString: "hw.arch.s390x hw.arch.s390x.z15 sw.os.linux sw.os.rhel sw.os.rhel.7 ci.role.build ci.role.test sw.tool.docker ci.geo.marist"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -569,7 +569,7 @@ data:
             labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build ci.role.test"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -580,7 +580,7 @@ data:
             labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build ci.role.test"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -591,7 +591,7 @@ data:
             labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build ci.role.test"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -602,7 +602,7 @@ data:
             labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build ci.role.test"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -613,7 +613,7 @@ data:
             labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build ci.role.test"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -624,7 +624,7 @@ data:
             labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.cent sw.os.cent.7 ci.role.build ci.role.test"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -635,7 +635,7 @@ data:
             labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -646,7 +646,7 @@ data:
             labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -657,7 +657,7 @@ data:
             labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -668,7 +668,7 @@ data:
             labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -679,7 +679,7 @@ data:
             labelString: "hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 sw.tool.docker ci.geo.osu ci.role.build ci.role.test"
             remoteFS: '/home/jenkins/jenkins-agent'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -690,7 +690,7 @@ data:
             labelString: "hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker ci.geo.osu"
             remoteFS: '/home/jenkins/jenkins-agent'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -701,7 +701,7 @@ data:
             labelString: "hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker ci.geo.osu"
             remoteFS: '/home/jenkins/jenkins-agent'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -712,7 +712,7 @@ data:
             labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.18 ci.role.test sw.tool.docker"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -723,7 +723,7 @@ data:
             labelString: "ci.geo.unb hw.arch.ppc64le sw.os.linux sw.os.ubuntu sw.os.ubuntu.18 ci.role.test sw.tool.docker"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -734,7 +734,7 @@ data:
             labelString: "ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.test ci.role.build"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -745,7 +745,7 @@ data:
             labelString: "ci.geo.unb hw.arch.x86 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.test sw.tool.docker ci.role.build"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -756,7 +756,7 @@ data:
             labelString: "ci.geo.unb hw.arch.x86 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.test sw.tool.docker ci.role.build"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -767,7 +767,7 @@ data:
             labelString: "ci.geo.unb hw.arch.x86 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test sw.tool.docker"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -778,7 +778,7 @@ data:
             labelString: "ci.geo.unb hw.arch.x86 sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -789,7 +789,7 @@ data:
             labelString: "ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -800,7 +800,7 @@ data:
             labelString: "ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu sw.os.ubuntu.16 ci.role.build ci.role.test"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -811,7 +811,7 @@ data:
             labelString: "ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu sw.os.ubuntu.18 ci.role.test"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -822,7 +822,7 @@ data:
             labelString: "ci.geo.unb hw.arch.x86 sw.tool.docker sw.os.linux sw.os.ubuntu sw.os.ubuntu.18 ci.role.test"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -833,7 +833,7 @@ data:
             labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build ci.role.test"
             remoteFS: 'F:\Users\jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -849,7 +849,7 @@ data:
             labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build ci.role.test"
             remoteFS: 'F:\Users\jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -865,7 +865,7 @@ data:
             labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build ci.role.test"
             remoteFS: 'F:\Users\jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -881,7 +881,7 @@ data:
             labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build ci.role.test"
             remoteFS: 'F:\Users\jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -897,7 +897,7 @@ data:
             labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build ci.role.test"
             remoteFS: 'F:\Users\jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -913,7 +913,7 @@ data:
             labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build ci.role.test"
             remoteFS: 'F:\Users\jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -929,7 +929,7 @@ data:
             labelString: "docker proxy worker ci.geo.osu proxy artifactory"
             remoteFS: '/home/jenkins/jenkins-agent'
             numExecutors: 3
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -940,7 +940,7 @@ data:
             labelString: "docker worker ci.geo.osu"
             remoteFS: '/home/jenkins/jenkins-agent'
             numExecutors: 3
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -951,7 +951,7 @@ data:
             labelString: "artifactory ci.geo.unb"
             remoteFS: '/home/jenkins'
             numExecutors: 1
-            mode: EXCLUSIVE
+            mode: NORMAL
             retentionStrategy: "always"
             launcher:
               command:
@@ -1363,18 +1363,6 @@ data:
             triggers:
               skipScmCause: false
               skipUpstreamCause: false
-      gitLabConnectionConfig:
-        connections:
-          - clientBuilderId: "autodetect"
-            connectionTimeout: 10
-            ignoreCertificateErrors: false
-            name: "gitlab.eclipse.org"
-            readTimeout: 10
-            url: "https://gitlab.eclipse.org"
-      gitLabServers:
-        servers:
-          - name: "gitlab.eclipse.org"
-            serverUrl: "https://gitlab.eclipse.org"
       gitHubPluginConfig:
         configs:
           - name: "GitHub"
