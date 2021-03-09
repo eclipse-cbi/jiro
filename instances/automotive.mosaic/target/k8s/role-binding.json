@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "automotive.mosaic",
+         "org.eclipse.cbi.jiro/project.shortname": "mosaic"
+      },
+      "name": "mosaic",
+      "namespace": "mosaic"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "mosaic"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "mosaic",
+         "namespace": "mosaic"
+      }
+   ]
+}

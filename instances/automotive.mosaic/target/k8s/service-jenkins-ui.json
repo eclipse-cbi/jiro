@@ -1,0 +1,25 @@
+{
+   "apiVersion": "v1",
+   "kind": "Service",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "automotive.mosaic",
+         "org.eclipse.cbi.jiro/project.shortname": "mosaic"
+      },
+      "name": "jenkins-ui",
+      "namespace": "mosaic"
+   },
+   "spec": {
+      "ports": [
+         {
+            "name": "http",
+            "port": 80,
+            "protocol": "TCP",
+            "targetPort": 8080
+         }
+      ],
+      "selector": {
+         "org.eclipse.cbi.jiro/project.fullName": "automotive.mosaic"
+      }
+   }
+}
