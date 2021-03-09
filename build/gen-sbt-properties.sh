@@ -45,7 +45,7 @@ SBT_FOLDER="$(dirname "${CONFIG}")/.secrets/sbt"
 gen_properties() {
   local properties="${1}"
   for key in $(jq -r '. | keys[]' <<<"${properties}"); do
-    if $(jq -r '.["'"${key}"'"] | has("pass")' <<<"${properties}" 2>/dev/null); then 
+    if jq -e '.["'"${key}"'"] | has("pass")' <<<"${properties}" 2>/dev/null; then 
       local value value_pass
       value="$(jq -r '.["'"${key}"'"].pass' <<< "${properties}")"
       if [[ -f "${PASSWORD_STORE_DIR}/${value}.gpg" ]]; then
@@ -66,8 +66,6 @@ if [[ "$(jq -r '.sbt.generate' "${CONFIG}")" == "true" ]]; then
   for sbtFile in $(jq -r '.sbt.files | keys[]' "${CONFIG}"); do
     >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating sbt file ${sbtFile}"
     mkdir -p "$(dirname "${sbtFile}")"
-
-    echo "$(jq -r '.sbt.files["'"${sbtFile}"'"]' "${CONFIG}")"
     gen_properties "$(jq -r '.sbt.files["'"${sbtFile}"'"]' "${CONFIG}")" > "${SBT_FOLDER}/${sbtFile}"
   done
 fi
