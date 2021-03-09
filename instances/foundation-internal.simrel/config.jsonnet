@@ -7,6 +7,7 @@
   jenkins+: {
     plugins+: [
       "docker-workflow",
+      "build-blocker-plugin",
     ],
   },
   deployment+: {
