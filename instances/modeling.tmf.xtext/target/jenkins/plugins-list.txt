@@ -2,7 +2,6 @@
 copyartifact
 downstream-buildview
 envinject
-github-branch-source
 gradle
 groovy
 htmlpublisher
