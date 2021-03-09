@@ -149,6 +149,9 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/wrapper"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.sbt"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -175,6 +178,10 @@ data:
                     mountPath: /home/jenkins/.mavenrc
                     subPath: .mavenrc
                     readOnly: true
+                  - name: sbt-secret-dir
+                    mountPath: /home/jenkins/.sbt/.credentials
+                    subPath: .credentials
+                    readOnly: true
                 volumes:
                 - name: m2-secret-dir
                   secret:
@@ -182,6 +189,9 @@ data:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+                - name: sbt-secret-dir
+                  secret:
+                    secretName: sbt-secret-dir
           - containers:
             - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.5
               alwaysPullImage: true
@@ -234,6 +244,9 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/wrapper"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.sbt"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -260,6 +273,10 @@ data:
                     mountPath: /home/jenkins/.mavenrc
                     subPath: .mavenrc
                     readOnly: true
+                  - name: sbt-secret-dir
+                    mountPath: /home/jenkins/.sbt/.credentials
+                    subPath: .credentials
+                    readOnly: true
                 volumes:
                 - name: m2-secret-dir
                   secret:
@@ -267,6 +284,9 @@ data:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+                - name: sbt-secret-dir
+                  secret:
+                    secretName: sbt-secret-dir
           - containers:
             - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.5
               alwaysPullImage: true
@@ -319,6 +339,9 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/wrapper"
+            - emptyDirVolume:
+                memory: false
+                mountPath: "/home/jenkins/.sbt"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -345,6 +368,10 @@ data:
                     mountPath: /home/jenkins/.mavenrc
                     subPath: .mavenrc
                     readOnly: true
+                  - name: sbt-secret-dir
+                    mountPath: /home/jenkins/.sbt/.credentials
+                    subPath: .credentials
+                    readOnly: true
                 volumes:
                 - name: m2-secret-dir
                   secret:
@@ -352,6 +379,9 @@ data:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+                - name: sbt-secret-dir
+                  secret:
+                    secretName: sbt-secret-dir
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
@@ -367,7 +397,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/geotrellis
+        url: https://ci.eclipse.org/geotrellis
     
       mailer:
         replyToAddress: ci-admin@eclipse.org
@@ -418,7 +448,7 @@ data:
             manageHooks: false
         hookSecretConfigs:
           - credentialsId: "github-webhook-secret"
-        hookUrl: "https://ci-staging.eclipse.org/geotrellis/github-webhook/"
+        hookUrl: "https://ci.eclipse.org/geotrellis/github-webhook/"
     
     tool:
       jdk:
