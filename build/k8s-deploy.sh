@@ -70,6 +70,9 @@ fi
 if [[ -f "${instance}/target/.secrets/k8s/gradle-secret-dir.json" ]]; then
   oc apply -f "${instance}/target/.secrets/k8s/gradle-secret-dir.json"
 fi
+if [[ -f "${instance}/target/.secrets/k8s/sbt-secret-dir.json" ]]; then
+  oc apply -f "${instance}/target/.secrets/k8s/sbt-secret-dir.json"
+fi
 
 "${SCRIPT_FOLDER}/gen-dockerconfig-secrets.sh" "${instance}"
 
