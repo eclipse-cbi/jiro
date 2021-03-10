@@ -13,7 +13,7 @@
       "namespace": "tcf"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/tcf",
       "port": {
          "targetPort": "http"
