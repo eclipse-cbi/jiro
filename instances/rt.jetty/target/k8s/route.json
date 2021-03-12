@@ -13,7 +13,7 @@
       "namespace": "jetty"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/jetty",
       "port": {
          "targetPort": "http"
