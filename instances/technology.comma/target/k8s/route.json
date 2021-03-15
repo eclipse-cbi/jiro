@@ -1,0 +1,31 @@
+{
+   "apiVersion": "route.openshift.io/v1",
+   "kind": "Route",
+   "metadata": {
+      "annotations": {
+         "haproxy.router.openshift.io/timeout": "60s"
+      },
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.comma",
+         "org.eclipse.cbi.jiro/project.shortname": "comma"
+      },
+      "name": "comma",
+      "namespace": "comma"
+   },
+   "spec": {
+      "host": "ci.eclipse.org",
+      "path": "/comma",
+      "port": {
+         "targetPort": "http"
+      },
+      "tls": {
+         "insecureEdgeTerminationPolicy": "Redirect",
+         "termination": "edge"
+      },
+      "to": {
+         "kind": "Service",
+         "name": "jenkins-ui",
+         "weight": 100
+      }
+   }
+}
