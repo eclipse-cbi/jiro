@@ -6,7 +6,7 @@
          "kind": "PersistentVolume",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "modeling.gmp.graphiti",
+               "org.eclipse.cbi.jiro/project.fullName": "modeling.graphiti",
                "org.eclipse.cbi.jiro/project.shortname": "graphiti"
             },
             "name": "tools-jiro-graphiti"
@@ -35,7 +35,7 @@
          "kind": "PersistentVolumeClaim",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "modeling.gmp.graphiti",
+               "org.eclipse.cbi.jiro/project.fullName": "modeling.graphiti",
                "org.eclipse.cbi.jiro/project.shortname": "graphiti"
             },
             "name": "tools-claim-jiro-graphiti",

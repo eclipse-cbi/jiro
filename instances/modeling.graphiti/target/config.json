@@ -2,7 +2,7 @@
    "accessControl": {
       "primaryGroup": {
          "id": -1,
-         "name": "modeling.gmp.graphiti"
+         "name": "modeling.graphiti"
       },
       "supplementalGroups": [ ],
       "user": {
@@ -331,7 +331,7 @@
    "docker": {
       "master": {
          "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.263.3\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
-         "image": "modeling.gmp.graphiti",
+         "image": "modeling.graphiti",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
          "tag": "2.263.3"
@@ -397,7 +397,7 @@
                "Gerrit/ManualTrigger",
                "Gerrit/Retrigger"
             ],
-            "principal": "modeling.gmp.graphiti"
+            "principal": "modeling.graphiti"
          }
       ],
       "plugins": [ ],
@@ -533,7 +533,7 @@
       "files": {
          "settings-security.xml": {
             "master": {
-               "pass": "bots/modeling.gmp.graphiti/apache-maven-security-settings"
+               "pass": "bots/modeling.graphiti/apache-maven-security-settings"
             }
          },
          "settings.xml": {
@@ -548,16 +548,16 @@
             "servers": {
                "gpg.passphrase": {
                   "passphrase": {
-                     "pass": "bots/modeling.gmp.graphiti/gpg/passphrase"
+                     "pass": "bots/modeling.graphiti/gpg/passphrase"
                   }
                },
                "ossrh": {
                   "nexusProUrl": "https://oss.sonatype.org",
                   "password": {
-                     "pass": "bots/modeling.gmp.graphiti/oss.sonatype.org/password"
+                     "pass": "bots/modeling.graphiti/oss.sonatype.org/password"
                   },
                   "username": {
-                     "pass": "bots/modeling.gmp.graphiti/oss.sonatype.org/username"
+                     "pass": "bots/modeling.graphiti/oss.sonatype.org/username"
                   }
                },
                "repo.eclipse.org": {
@@ -579,10 +579,10 @@
    },
    "project": {
       "displayName": "Eclipse Graphiti",
-      "fullName": "modeling.gmp.graphiti",
+      "fullName": "modeling.graphiti",
       "resourcePacks": 1,
       "shortName": "graphiti",
-      "unixGroupName": "modeling.gmp.graphiti"
+      "unixGroupName": "modeling.graphiti"
    },
    "sbt": {
       "files": {

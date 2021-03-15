@@ -1,6 +1,6 @@
 {
   project+: {
-    fullName: "modeling.gmp.graphiti",
+    fullName: "modeling.graphiti",
     displayName: "Eclipse Graphiti",
   },
   deployment+: {

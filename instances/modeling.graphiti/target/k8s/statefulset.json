@@ -3,7 +3,7 @@
    "kind": "StatefulSet",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "modeling.gmp.graphiti",
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.graphiti",
          "org.eclipse.cbi.jiro/project.shortname": "graphiti"
       },
       "name": "graphiti",
@@ -13,14 +13,14 @@
       "replicas": 1,
       "selector": {
          "matchLabels": {
-            "org.eclipse.cbi.jiro/project.fullName": "modeling.gmp.graphiti"
+            "org.eclipse.cbi.jiro/project.fullName": "modeling.graphiti"
          }
       },
       "serviceName": "graphiti",
       "template": {
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "modeling.gmp.graphiti",
+               "org.eclipse.cbi.jiro/project.fullName": "modeling.graphiti",
                "org.eclipse.cbi.jiro/project.shortname": "graphiti"
             },
             "name": "graphiti"
@@ -66,7 +66,7 @@
                         "value": "true"
                      }
                   ],
-                  "image": "docker.io/eclipsecbijenkins/modeling.gmp.graphiti:2.263.3",
+                  "image": "docker.io/eclipsecbijenkins/modeling.graphiti:2.263.3",
                   "imagePullPolicy": "Always",
                   "lifecycle": {
                      "preStop": {

@@ -3,7 +3,7 @@
    "kind": "Service",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "modeling.gmp.graphiti",
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.graphiti",
          "org.eclipse.cbi.jiro/project.shortname": "graphiti"
       },
       "name": "jenkins-discovery",
@@ -19,7 +19,7 @@
          }
       ],
       "selector": {
-         "org.eclipse.cbi.jiro/project.fullName": "modeling.gmp.graphiti"
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.graphiti"
       }
    }
 }
