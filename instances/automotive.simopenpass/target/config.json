@@ -352,7 +352,7 @@
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
-      "maxConcurrency": 2,
+      "maxConcurrency": 4,
       "permissions": [
          {
             "grantedPermissions": [
@@ -519,11 +519,11 @@
          "resources": {
             "cpu": {
                "limit": "2000m",
-               "request": "250m"
+               "request": "550m"
             },
             "memory": {
-               "limit": "1536Mi",
-               "request": "1536Mi"
+               "limit": "2048Mi",
+               "request": "2048Mi"
             }
          },
          "stsName": "simopenpass"
@@ -580,7 +580,7 @@
    "project": {
       "displayName": "Eclipse sim@openPASS",
       "fullName": "automotive.simopenpass",
-      "resourcePacks": 1,
+      "resourcePacks": 2,
       "shortName": "simopenpass",
       "unixGroupName": "automotive.simopenpass"
    },
