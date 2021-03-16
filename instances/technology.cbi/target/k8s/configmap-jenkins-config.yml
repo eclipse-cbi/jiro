@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "technology.cbi"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.263.3"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.263.3"
+    org.eclipse.cbi.jiro/jenkins.version: "2.277.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.277.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cbi"
   namespace: "cbi"
   name: jenkins-config
@@ -124,7 +124,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.5
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.6
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -231,7 +231,7 @@ data:
                       secret:
                         secretName: gradle-secret-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.5
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.6
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -338,7 +338,7 @@ data:
                       secret:
                         secretName: gradle-secret-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.5
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.6
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -513,6 +513,8 @@ data:
             home: "/opt/tools/java/openjdk/latest"
           - name: "openjdk-ea-latest"
             home: "/opt/tools/java/openjdk/ea-latest"
+          - name: "openjdk-jdk17-latest"
+            home: "/opt/tools/java/openjdk/jdk-17/latest"
           - name: "openjdk-jdk16-latest"
             home: "/opt/tools/java/openjdk/jdk-16/latest"
           - name: "openjdk-jdk15-latest"
@@ -533,6 +535,8 @@ data:
             home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
           - name: "adoptopenjdk-hotspot-latest-lts"
             home: "/opt/tools/java/adoptopenjdk/hotspot-latest-lts"
+          - name: "adoptopenjdk-hotspot-jdk15-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-15/latest"
           - name: "adoptopenjdk-hotspot-jdk14-latest"
             home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-14/latest"
           - name: "adoptopenjdk-hotspot-jdk13-latest"
@@ -551,6 +555,8 @@ data:
             home: "/opt/tools/java/adoptopenjdk/openj9-latest"
           - name: "adoptopenjdk-openj9-latest-lts"
             home: "/opt/tools/java/adoptopenjdk/openj9-latest-lts"
+          - name: "adoptopenjdk-openj9-jdk15-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-15/latest"
           - name: "adoptopenjdk-openj9-jdk14-latest"
             home: "/opt/tools/java/adoptopenjdk/openj9-jdk-14/latest"
           - name: "adoptopenjdk-openj9-jdk13-latest"

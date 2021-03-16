@@ -4,7 +4,6 @@ cloudbees-jenkins-advisor
 cloudbees-disk-usage-simple
 embeddable-build-status
 favorite
-github-branch-source
 gradle
 handy-uri-templates-2-api
 htmlpublisher
@@ -12,11 +11,8 @@ icon-shim
 jenkins-design-language
 mask-passwords
 metrics
-pam-auth
 prometheus
 pubsub-light
 slack
 sse-gateway
 trilead-api
-gitlab-plugin
-gitlab-branch-source
