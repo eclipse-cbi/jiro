@@ -13,7 +13,7 @@
       "namespace": "acceleo"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/acceleo",
       "port": {
          "targetPort": "http"
