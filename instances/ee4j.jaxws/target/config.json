@@ -587,6 +587,21 @@
       "shortName": "jaxws",
       "unixGroupName": "ee4j.jaxws"
    },
+   "sbt": {
+      "files": {
+         ".credentials": {
+            "host": "repo.eclipse.org",
+            "password": {
+               "pass": "nexus/password"
+            },
+            "realm": "Sonatype Nexus Repository Manager",
+            "user": {
+               "pass": "nexus/username"
+            }
+         }
+      },
+      "generate": false
+   },
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-default": {

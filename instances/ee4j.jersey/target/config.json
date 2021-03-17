@@ -586,6 +586,21 @@
       "shortName": "jersey",
       "unixGroupName": "ee4j.jersey"
    },
+   "sbt": {
+      "files": {
+         ".credentials": {
+            "host": "repo.eclipse.org",
+            "password": {
+               "pass": "nexus/password"
+            },
+            "realm": "Sonatype Nexus Repository Manager",
+            "user": {
+               "pass": "nexus/username"
+            }
+         }
+      },
+      "generate": false
+   },
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-default": {

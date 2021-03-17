@@ -590,6 +590,21 @@
       "shortName": "capella",
       "unixGroupName": "polarsys.capella"
    },
+   "sbt": {
+      "files": {
+         ".credentials": {
+            "host": "repo.eclipse.org",
+            "password": {
+               "pass": "nexus/password"
+            },
+            "realm": "Sonatype Nexus Repository Manager",
+            "user": {
+               "pass": "nexus/username"
+            }
+         }
+      },
+      "generate": false
+   },
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-capella": {

@@ -584,6 +584,21 @@
       "shortName": "app4mc",
       "unixGroupName": "automotive.app4mc"
    },
+   "sbt": {
+      "files": {
+         ".credentials": {
+            "host": "repo.eclipse.org",
+            "password": {
+               "pass": "nexus/password"
+            },
+            "realm": "Sonatype Nexus Repository Manager",
+            "user": {
+               "pass": "nexus/username"
+            }
+         }
+      },
+      "generate": false
+   },
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-app4mc": {

@@ -1,4 +1,12 @@
 # GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
 jenkins:
   nodes:
     - permanent:
@@ -670,6 +678,8 @@ tool:
         home: "/opt/tools/java/openjdk/latest"
       - name: "openjdk-ea-latest"
         home: "/opt/tools/java/openjdk/ea-latest"
+      - name: "openjdk-jdk17-latest"
+        home: "/opt/tools/java/openjdk/jdk-17/latest"
       - name: "openjdk-jdk16-latest"
         home: "/opt/tools/java/openjdk/jdk-16/latest"
       - name: "openjdk-jdk15-latest"
@@ -690,6 +700,10 @@ tool:
         home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
       - name: "adoptopenjdk-hotspot-latest-lts"
         home: "/opt/tools/java/adoptopenjdk/hotspot-latest-lts"
+      - name: "adoptopenjdk-hotspot-jdk16-latest"
+        home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-16/latest"
+      - name: "adoptopenjdk-hotspot-jdk15-latest"
+        home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-15/latest"
       - name: "adoptopenjdk-hotspot-jdk14-latest"
         home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-14/latest"
       - name: "adoptopenjdk-hotspot-jdk13-latest"
@@ -708,6 +722,10 @@ tool:
         home: "/opt/tools/java/adoptopenjdk/openj9-latest"
       - name: "adoptopenjdk-openj9-latest-lts"
         home: "/opt/tools/java/adoptopenjdk/openj9-latest-lts"
+      - name: "adoptopenjdk-openj9-jdk16-latest"
+        home: "/opt/tools/java/adoptopenjdk/openj9-jdk-16/latest"
+      - name: "adoptopenjdk-openj9-jdk15-latest"
+        home: "/opt/tools/java/adoptopenjdk/openj9-jdk-15/latest"
       - name: "adoptopenjdk-openj9-jdk14-latest"
         home: "/opt/tools/java/adoptopenjdk/openj9-jdk-14/latest"
       - name: "adoptopenjdk-openj9-jdk13-latest"
