@@ -58,9 +58,7 @@ data:
         projectMatrix:
           permissions:
             - "Overall/Administer:admins"
-            - "Overall/Read:chris.guindon@eclipse-foundation.org"
-            - "Overall/Read:eric.poirier@eclipse-foundation.org"
-            - "Overall/Read:martin.lowe@eclipse-foundation.org"
+            - "Overall/Read:foundation-internal.webdev"
       markupFormatter: rawHtml
       crumbIssuer:
         standard:

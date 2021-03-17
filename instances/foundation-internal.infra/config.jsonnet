@@ -1,7 +1,7 @@
 {
   project+: {
     fullName: "foundation-internal.infra",
-    displayName: "Eclipse Foundation Infra"
+    displayName: "Eclipse Foundation Infra",
   },
   deployment+: {
     host: "foundation.eclipse.org",
@@ -14,19 +14,12 @@
     permissions: [
       {
         principal: "admins",
-        grantedPermissions: [
-          "Overall/Administer"
-        ],
+        grantedPermissions: ["Overall/Administer"],
       },
-    ] + [
       {
+        principal: "foundation-internal.webdev",
         grantedPermissions: [ "Overall/Read" ],
-        principal: principal
-      } for principal in [
-        "chris.guindon@eclipse-foundation.org", 
-        "eric.poirier@eclipse-foundation.org", 
-        "martin.lowe@eclipse-foundation.org",
-      ]
+      }
     ],
     plugins+: [
       "docker-workflow",

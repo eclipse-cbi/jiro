@@ -16,15 +16,13 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     staticAgentCount: 1,
     permissions: [
       {
-        grantedPermissions: permissionsTemplates.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger"],
-        principal: "foundation-internal.webdev"
+        principal: $.project.unixGroupName,
+        grantedPermissions: permissionsTemplates.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger",],
       },
       {
         principal: "admins",
-        grantedPermissions: [
-          "Overall/Administer"
-        ]
-      }
+        grantedPermissions: ["Overall/Administer"],
+      },
     ],
     plugins+: [
       "docker-workflow",

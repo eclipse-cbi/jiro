@@ -364,19 +364,7 @@
             "grantedPermissions": [
                "Overall/Read"
             ],
-            "principal": "chris.guindon@eclipse-foundation.org"
-         },
-         {
-            "grantedPermissions": [
-               "Overall/Read"
-            ],
-            "principal": "eric.poirier@eclipse-foundation.org"
-         },
-         {
-            "grantedPermissions": [
-               "Overall/Read"
-            ],
-            "principal": "martin.lowe@eclipse-foundation.org"
+            "principal": "foundation-internal.webdev"
          }
       ],
       "plugins": [
@@ -403,8 +391,8 @@
       "id": "2.263.3",
       "key_fingerprint": "FCEF32E745F2C3D5",
       "plugin_manager": {
-         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.5.0/jenkins-plugin-manager-2.5.0.jar",
-         "version": "2.5.0"
+         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.9.0/jenkins-plugin-manager-2.9.0.jar",
+         "version": "2.9.0"
       },
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
