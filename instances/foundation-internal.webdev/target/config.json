@@ -378,85 +378,7 @@
                "Gerrit/ManualTrigger",
                "Gerrit/Retrigger"
             ],
-            "principal": "chris.guindon@eclipse-foundation.org"
-         },
-         {
-            "grantedPermissions": [
-               "Agent/Build",
-               "Credentials/View",
-               "Job/Build",
-               "Job/Cancel",
-               "Job/Configure",
-               "Job/Create",
-               "Job/Delete",
-               "Job/Move",
-               "Job/Read",
-               "Job/Workspace",
-               "Overall/Read",
-               "Run/Delete",
-               "Run/Replay",
-               "Run/Update",
-               "SCM/Tag",
-               "View/Configure",
-               "View/Create",
-               "View/Delete",
-               "View/Read",
-               "Gerrit/ManualTrigger",
-               "Gerrit/Retrigger"
-            ],
-            "principal": "eric.poirier@eclipse-foundation.org"
-         },
-         {
-            "grantedPermissions": [
-               "Agent/Build",
-               "Credentials/View",
-               "Job/Build",
-               "Job/Cancel",
-               "Job/Configure",
-               "Job/Create",
-               "Job/Delete",
-               "Job/Move",
-               "Job/Read",
-               "Job/Workspace",
-               "Overall/Read",
-               "Run/Delete",
-               "Run/Replay",
-               "Run/Update",
-               "SCM/Tag",
-               "View/Configure",
-               "View/Create",
-               "View/Delete",
-               "View/Read",
-               "Gerrit/ManualTrigger",
-               "Gerrit/Retrigger"
-            ],
-            "principal": "martin.lowe@eclipse-foundation.org"
-         },
-         {
-            "grantedPermissions": [
-               "Agent/Build",
-               "Credentials/View",
-               "Job/Build",
-               "Job/Cancel",
-               "Job/Configure",
-               "Job/Create",
-               "Job/Delete",
-               "Job/Move",
-               "Job/Read",
-               "Job/Workspace",
-               "Overall/Read",
-               "Run/Delete",
-               "Run/Replay",
-               "Run/Update",
-               "SCM/Tag",
-               "View/Configure",
-               "View/Create",
-               "View/Delete",
-               "View/Read",
-               "Gerrit/ManualTrigger",
-               "Gerrit/Retrigger"
-            ],
-            "principal": "yi.liu@eclipse-foundation.org"
+            "principal": "foundation-internal.webdev"
          },
          {
             "grantedPermissions": [
@@ -490,8 +412,8 @@
       "id": "2.263.3",
       "key_fingerprint": "FCEF32E745F2C3D5",
       "plugin_manager": {
-         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.5.0/jenkins-plugin-manager-2.5.0.jar",
-         "version": "2.5.0"
+         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.9.0/jenkins-plugin-manager-2.9.0.jar",
+         "version": "2.9.0"
       },
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [

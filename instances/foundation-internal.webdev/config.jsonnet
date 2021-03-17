@@ -17,14 +17,8 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     permissions: [
       {
         grantedPermissions: permissionsTemplates.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger"],
-        principal: principal
-      } for principal in [
-        "chris.guindon@eclipse-foundation.org", 
-        "eric.poirier@eclipse-foundation.org", 
-        "martin.lowe@eclipse-foundation.org",
-        "yi.liu@eclipse-foundation.org",
-      ]
-    ] + [
+        principal: "foundation-internal.webdev"
+      },
       {
         principal: "admins",
         grantedPermissions: [
