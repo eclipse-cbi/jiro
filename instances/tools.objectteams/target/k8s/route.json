@@ -13,7 +13,7 @@
       "namespace": "objectteams"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/objectteams",
       "port": {
          "targetPort": "http"

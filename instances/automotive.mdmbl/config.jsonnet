@@ -4,7 +4,7 @@
     displayName: "Eclipse MDM|BL",
   },
   deployment+: {
-    host: "ci-staging.eclipse.org",
+    host: "ci.eclipse.org",
     cluster: "okd-c1",
   },
   jenkins+: {

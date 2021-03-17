@@ -13,7 +13,7 @@
       "namespace": "mdmbl"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/mdmbl",
       "port": {
          "targetPort": "http"
