@@ -19,7 +19,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           jnlp:
-            tunnel: "198.41.30.194:50016"
+            webSocket: true
             workDirSettings:
               disabled: false
               internalDir: "remoting"
@@ -30,9 +30,9 @@ jenkins:
                 - home: 'C:\ProgramData\chocolatey\lib\ant\apache-ant-1.10.5'
                   key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-1.9.6"
     - permanent:
-        name: "b9h15-macos10.12"
-        nodeDescription: "macOS 10.12 (Sierra), no login session, hosted on MacStadium"
-        labelString: "macos macos-10.12"
+        name: "b9h15-macos10.15"
+        nodeDescription: "macOS 10.15 (Catalina), no login session, hosted on MacStadium"
+        labelString: "macos macos-10.15"
         remoteFS: '/Users/genie.releng/jenkins_agent/'
         numExecutors: 1
         mode: EXCLUSIVE
