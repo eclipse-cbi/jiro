@@ -4,6 +4,9 @@
     displayName: "Eclipse Xtext",
     resourcePacks: 2,
   },
+  deployment+: {
+    cluster: "okd-c1",
+  },
   jenkins+: {
     staticAgentCount: 2,
     plugins+: [

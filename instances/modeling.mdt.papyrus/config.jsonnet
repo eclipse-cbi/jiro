@@ -11,7 +11,6 @@
     ],
   },
   deployment+: {
-    host: "ci.eclipse.org",
     cluster: "okd-c1",
   },
   clouds+: {
