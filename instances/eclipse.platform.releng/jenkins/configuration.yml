@@ -232,21 +232,3 @@ jenkins:
             disabled: false
             failIfWorkDirIsMissing: false
             internalDir: "remoting"
-  - permanent:
-      name: "6m8ka-macos11-a12z"
-      nodeDescription: "macOS 11 DTK @ MacStadium (Apple A12Z Bionic - 16GB)"
-      remoteFS: "/Users/genie.releng/jenkins_agent"
-      numExecutors: 1
-      labelString: "macos-11 macos-dtk apple-silicon"
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        ssh:
-          host: "199.7.163.21"
-          port: 22
-          credentialsId: "6m8ka-macos11-a12z-bot-ssh"
-          jvmOptions: "-Xmx512m"
-          sshHostKeyVerificationStrategy:
-            manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDJcrSfionJW8VUH6hzGN1BNjcVKObz171rIw4N1HFs6t9/gjcpAn7uvO/VnX6V3LsWEZ+VvPUi8VZ50czE7ThgER+edHapwvRiGe/kdkIZLRkAZgSAJhEnTLMhvin40a4/oAv/kNZWAhx+shd/fFXFDs/TJ7HrVTp/s6VvKY5JyaJUdS3CR+Y6Nt+NZgdh+qasS7vIttK0DKfZE6Cr94gduGYh6mam8EBtcAC3kdF1JgXU8ZvipI6uqDhtDBf1cjbESvM7ZMJPtYxsSOpHTanJ+mrLxXEg7TayOI+qCiKMJbjYCvvbVQXQrSRQ6fY7YYH72/mfmCLHbi400AlF76Hxn3CNOKR9juGQDQzdx417XrfpmX3H7USaT8AkvIXvKweofMwNUBwJejKoBsoG3fB4tMotMGSTUdkslmgJ+jm721JOEMAx2wE3pY79pVhZoqsXh9EHt3VQzTrKBF6CGgAtizTRp3r91GYVQwActlvx1NUZI/n2uTegZpuvTSSvYcM="
-
