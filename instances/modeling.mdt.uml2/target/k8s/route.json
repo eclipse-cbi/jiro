@@ -13,7 +13,7 @@
       "namespace": "uml2"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/uml2",
       "port": {
          "targetPort": "http"
