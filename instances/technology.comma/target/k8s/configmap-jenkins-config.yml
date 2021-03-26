@@ -36,6 +36,7 @@ data:
         Servers:
           - credentialsId: "gitlab-personal-access-token"
             name: "gitlab.eclipse.org"
+            secretToken: "{AQAAABAAAAAgrlD8OI0IjR1PdQQrcRcBtJ7I0/qa5rjIbG9tTNsToZO+I312HJRkbxfSbTA9ry2J}"
             serverUrl: "https://gitlab.eclipse.org"
       location:
         adminAddress: ci-admin@eclipse.org
