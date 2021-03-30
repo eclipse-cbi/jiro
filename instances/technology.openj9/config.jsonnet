@@ -64,6 +64,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "http_request",
       "jira",
       "job-dsl",
+      "parameter-separator",
       "pipeline-utility-steps",
       "slack",
       "tap",
