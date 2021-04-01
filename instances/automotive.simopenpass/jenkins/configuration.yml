@@ -1,3 +1,20 @@
+jenkins:
+  nodes:
+  - permanent:
+      labelString: "windows windows10"
+      launcher:
+        jnlp:
+          vmargs: "-Xmx512m"
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+      mode: EXCLUSIVE
+      name: "b9qls-windows-10"
+      nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure"
+      remoteFS: "C:\\Users\\genie.simopenpass\\jenkins_agent"
+      retentionStrategy: "always"
 unclassified:
   gitLabConnectionConfig:
     connections:

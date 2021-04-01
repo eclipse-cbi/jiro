@@ -22,68 +22,6 @@ metadata:
 data:
   jenkins.yaml: |
     # GENERATED FILE - DO NOT EDIT
-    unclassified:
-      gitLabConnectionConfig:
-        connections:
-          - apiTokenId: "gitlab-api-token"
-            clientBuilderId: "autodetect"
-            connectionTimeout: 10
-            ignoreCertificateErrors: false
-            name: "gitlab.eclipse.org"
-            readTimeout: 10
-            url: "https://gitlab.eclipse.org"
-      gitLabServers:
-        Servers:
-          - credentialsId: "gitlab-personal-access-token"
-            name: "gitlab.eclipse.org"
-            serverUrl: "https://gitlab.eclipse.org"
-      location:
-        adminAddress: ci-admin@eclipse.org
-        url: https://ci.eclipse.org/simopenpass
-      mailer:
-        replyToAddress: ci-admin@eclipse.org
-        smtpHost: mail.eclipse.org
-      email-ext:
-        defaultContentType: "text/html"
-        defaultReplyTo: "ci-admin@eclipse.org"
-        mailAccount:
-          address: "ci-admin@eclipse.org"
-          smtpHost: "mail.eclipse.org"
-      globalDefaultFlowDurabilityLevel:
-        durabilityHint: PERFORMANCE_OPTIMIZED
-      simple-theme-plugin:
-        elements:
-          - cssUrl:
-              url: "/simopenpass/userContent/theme/quicksilver.css"
-          - cssUrl:
-              url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
-          - jsUrl:
-              url: "/simopenpass/userContent/theme/title.js"
-      buildDiscarders:
-        configuredBuildDiscarders:
-          - "jobBuildDiscarder"
-          - simpleBuildDiscarder:
-              discarder:
-                logRotator:
-                  artifactNumToKeepStr: "5"
-                  numToKeepStr: "128"
-      sonarGlobalConfiguration:
-        buildWrapperEnabled: true
-        installations:
-          - name: "SonarCloud.io"
-            serverUrl: "https://sonarcloud.io"
-            triggers:
-              skipScmCause: false
-              skipUpstreamCause: false
-      gitHubPluginConfig:
-        configs:
-          - name: "GitHub"
-            apiUrl: "https://api.github.com"
-            credentialsId: "github-bot-token"
-            manageHooks: false
-        hookSecretConfigs:
-          - credentialsId: "github-webhook-secret"
-        hookUrl: "https://ci.eclipse.org/simopenpass/github-webhook/"
     #*******************************************************************************
     # Copyright (c) 2018 Eclipse Foundation and others.
     # This program and the accompanying materials are made available
@@ -93,6 +31,22 @@ data:
     # SPDX-License-Identifier: EPL-2.0 OR MIT
     #*******************************************************************************
     jenkins:
+      nodes:
+        - permanent:
+            labelString: "windows windows10"
+            launcher:
+              jnlp:
+                vmargs: "-Xmx512m"
+                webSocket: true
+                workDirSettings:
+                  disabled: false
+                  failIfWorkDirIsMissing: false
+                  internalDir: "remoting"
+            mode: EXCLUSIVE
+            name: "b9qls-windows-10"
+            nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure"
+            remoteFS: "C:\\Users\\genie.simopenpass\\jenkins_agent"
+            retentionStrategy: "always"
       numExecutors: 0
       scmCheckoutRetryCount: 2
       mode: EXCLUSIVE
@@ -409,6 +363,68 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
+    unclassified:
+      gitLabConnectionConfig:
+        connections:
+          - apiTokenId: "gitlab-api-token"
+            clientBuilderId: "autodetect"
+            connectionTimeout: 10
+            ignoreCertificateErrors: false
+            name: "gitlab.eclipse.org"
+            readTimeout: 10
+            url: "https://gitlab.eclipse.org"
+      gitLabServers:
+        Servers:
+          - credentialsId: "gitlab-personal-access-token"
+            name: "gitlab.eclipse.org"
+            serverUrl: "https://gitlab.eclipse.org"
+      location:
+        adminAddress: ci-admin@eclipse.org
+        url: https://ci.eclipse.org/simopenpass
+      mailer:
+        replyToAddress: ci-admin@eclipse.org
+        smtpHost: mail.eclipse.org
+      email-ext:
+        defaultContentType: "text/html"
+        defaultReplyTo: "ci-admin@eclipse.org"
+        mailAccount:
+          address: "ci-admin@eclipse.org"
+          smtpHost: "mail.eclipse.org"
+      globalDefaultFlowDurabilityLevel:
+        durabilityHint: PERFORMANCE_OPTIMIZED
+      simple-theme-plugin:
+        elements:
+          - cssUrl:
+              url: "/simopenpass/userContent/theme/quicksilver.css"
+          - cssUrl:
+              url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+          - jsUrl:
+              url: "/simopenpass/userContent/theme/title.js"
+      buildDiscarders:
+        configuredBuildDiscarders:
+          - "jobBuildDiscarder"
+          - simpleBuildDiscarder:
+              discarder:
+                logRotator:
+                  artifactNumToKeepStr: "5"
+                  numToKeepStr: "128"
+      sonarGlobalConfiguration:
+        buildWrapperEnabled: true
+        installations:
+          - name: "SonarCloud.io"
+            serverUrl: "https://sonarcloud.io"
+            triggers:
+              skipScmCause: false
+              skipUpstreamCause: false
+      gitHubPluginConfig:
+        configs:
+          - name: "GitHub"
+            apiUrl: "https://api.github.com"
+            credentialsId: "github-bot-token"
+            manageHooks: false
+        hookSecretConfigs:
+          - credentialsId: "github-webhook-secret"
+        hookUrl: "https://ci.eclipse.org/simopenpass/github-webhook/"
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
