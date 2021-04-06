@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.oomph",
+         "org.eclipse.cbi.jiro/project.shortname": "oomph"
+      },
+      "name": "oomph",
+      "namespace": "oomph"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "oomph"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "oomph",
+         "namespace": "oomph"
+      }
+   ]
+}
