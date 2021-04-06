@@ -9,6 +9,7 @@ groovy-postbuild
 http_request
 jira
 job-dsl
+parameter-separator
 pipeline-utility-steps
 slack
 tap
