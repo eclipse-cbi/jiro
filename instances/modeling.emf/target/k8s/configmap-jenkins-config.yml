@@ -375,7 +375,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/emf
+        url: https://ci.eclipse.org/emf
       mailer:
         replyToAddress: ci-admin@eclipse.org
         smtpHost: mail.eclipse.org
@@ -419,7 +419,7 @@ data:
             manageHooks: false
         hookSecretConfigs:
           - credentialsId: "github-webhook-secret"
-        hookUrl: "https://ci-staging.eclipse.org/emf/github-webhook/"
+        hookUrl: "https://ci.eclipse.org/emf/github-webhook/"
     tool:
       jdk:
         installations:

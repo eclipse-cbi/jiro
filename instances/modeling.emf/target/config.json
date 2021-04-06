@@ -322,11 +322,11 @@
    "deployment": {
       "cluster": "okd-c1",
       "controlPort": 8081,
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "jnlpPort": 50000,
       "prefix": "/emf",
       "uiPort": 8080,
-      "url": "https://ci-staging.eclipse.org/emf"
+      "url": "https://ci.eclipse.org/emf"
    },
    "docker": {
       "master": {
@@ -400,7 +400,10 @@
             "principal": "modeling.emf"
          }
       ],
-      "plugins": [ ],
+      "plugins": [
+         "multiple-scms",
+         "zentimestamp"
+      ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",
