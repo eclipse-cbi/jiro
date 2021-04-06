@@ -13,7 +13,7 @@
       "namespace": "jts"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/jts",
       "port": {
          "targetPort": "http"

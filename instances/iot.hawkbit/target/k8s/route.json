@@ -13,7 +13,7 @@
       "namespace": "hawkbit"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/hawkbit",
       "port": {
          "targetPort": "http"

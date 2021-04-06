@@ -13,7 +13,7 @@
       "namespace": "tm"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/tm",
       "port": {
          "targetPort": "http"
