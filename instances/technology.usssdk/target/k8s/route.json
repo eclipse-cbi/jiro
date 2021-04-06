@@ -13,7 +13,7 @@
       "namespace": "usssdk"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/usssdk",
       "port": {
          "targetPort": "http"
