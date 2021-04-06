@@ -5,6 +5,7 @@
   },
   jenkins+: {
     plugins+: [
+      "mail-watcher-plugin",
       "pipeline-utility-steps",
     ],
   },
