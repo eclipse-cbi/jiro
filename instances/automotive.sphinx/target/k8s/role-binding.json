@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "automotive.sphinx",
+         "org.eclipse.cbi.jiro/project.shortname": "sphinx"
+      },
+      "name": "sphinx",
+      "namespace": "sphinx"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "sphinx"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "sphinx",
+         "namespace": "sphinx"
+      }
+   ]
+}
