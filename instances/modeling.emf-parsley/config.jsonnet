@@ -6,6 +6,7 @@
   jenkins+: {
     plugins+: [
       "jacoco",
+      "mail-watcher-plugin",
       "warnings-ng",
     ],
   },

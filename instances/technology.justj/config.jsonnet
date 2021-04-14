@@ -6,6 +6,7 @@
   jenkins+: {
     plugins+: [
       "build-with-parameters",
+      "mail-watcher-plugin",
     ],
   },
 }

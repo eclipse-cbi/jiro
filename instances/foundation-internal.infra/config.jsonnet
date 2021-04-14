@@ -24,6 +24,7 @@
     plugins+: [
       "docker-workflow",
       "kubernetes-cli",
+      "mail-watcher-plugin",
       "slack",
     ],
   },

@@ -1,5 +1,6 @@
 # GENERATED FILE - DO NOT EDIT
 docker-workflow
 kubernetes-cli
+mail-watcher-plugin
 openshift-client
 slack

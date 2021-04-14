@@ -15,6 +15,10 @@ jenkins:
       nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure"
       remoteFS: "C:\\Users\\genie.simopenpass\\jenkins_agent"
       retentionStrategy: "always"
+      nodeProperties:
+      - watcher:
+          offlineAddresses: "releng@eclipse.org"
+          onlineAddresses: "releng@eclipse.org"
 unclassified:
   gitLabConnectionConfig:
     connections:

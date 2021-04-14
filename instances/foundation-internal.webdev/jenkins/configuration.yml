@@ -14,6 +14,10 @@ jenkins:
       name: "w9x5t-ubuntu1804"
       nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
       remoteFS: "/home/genie.webdev/jenkins-agent"
+      nodeProperties:
+      - watcher:
+          offlineAddresses: "releng@eclipse.org"
+          onlineAddresses: "releng@eclipse.org"
 
 unclassified:
   openShift:

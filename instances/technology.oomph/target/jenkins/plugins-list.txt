@@ -1,4 +1,5 @@
 # GENERATED FILE - DO NOT EDIT
 build-name-setter
+mail-watcher-plugin
 multiple-scms
 zentimestamp

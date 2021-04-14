@@ -1,4 +1,2 @@
 # GENERATED FILE - DO NOT EDIT
-build-blocker-plugin
-docker-workflow
 mail-watcher-plugin

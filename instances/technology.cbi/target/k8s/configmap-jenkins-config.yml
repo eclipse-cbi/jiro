@@ -22,14 +22,6 @@ metadata:
 data:
   jenkins.yaml: |
     # GENERATED FILE - DO NOT EDIT
-    #*******************************************************************************
-    # Copyright (c) 2018 Eclipse Foundation and others.
-    # This program and the accompanying materials are made available
-    # under the terms of the Eclipse Public License 2.0
-    # which is available at http://www.eclipse.org/legal/epl-v20.html,
-    # or the MIT License which is available at https://opensource.org/licenses/MIT.
-    # SPDX-License-Identifier: EPL-2.0 OR MIT
-    #*******************************************************************************
     jenkins:
       nodes:
         - permanent:
@@ -55,6 +47,9 @@ data:
                       key: "hudson.plugins.git.GitTool$DescriptorImpl@git"
                     - home: "/shared/common/apache-ant-1.8.4"
                       key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest"
+              - watcher:
+                  offlineAddresses: "releng@eclipse.org"
+                  onlineAddresses: "releng@eclipse.org"
             remoteFS: "/Users/genie.cbi"
         - permanent:
             labelString: "docker-build"
@@ -70,6 +65,10 @@ data:
             name: "fmlw3-ubuntu1804"
             nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
             remoteFS: "/home/genie.cbi/jenkins-agent"
+            nodeProperties:
+              - watcher:
+                  offlineAddresses: "releng@eclipse.org"
+                  onlineAddresses: "releng@eclipse.org"
       numExecutors: 0
       scmCheckoutRetryCount: 2
       mode: EXCLUSIVE
@@ -503,6 +502,9 @@ data:
         hookSecretConfigs:
           - credentialsId: "github-webhook-secret"
         hookUrl: "https://ci.eclipse.org/cbi/github-webhook/"
+      gitSCM:
+        createAccountBasedOnEmail: true
+        useExistingAccountWithSameEmail: true
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false

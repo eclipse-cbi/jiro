@@ -17,6 +17,10 @@ jenkins:
       numExecutors: 1
       remoteFS: "/Users/genie.justj/jenkins_agent/"
       retentionStrategy: "always"
+      nodeProperties:
+      - watcher:
+          offlineAddresses: "releng@eclipse.org"
+          onlineAddresses: "releng@eclipse.org"
   - permanent:
       labelString: "windows windows10"
       launcher:
@@ -35,6 +39,9 @@ jenkins:
           env:
           - key: "Path"
             value: "C:\\tools\\cygwin\\bin;$Path;"
+      - watcher:
+          offlineAddresses: "releng@eclipse.org"
+          onlineAddresses: "releng@eclipse.org"
       numExecutors: 1
       remoteFS: "C:\\Users\\genie.justj\\jenkins_agent"
       retentionStrategy: "always"

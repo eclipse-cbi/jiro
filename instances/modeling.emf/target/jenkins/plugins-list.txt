@@ -1,3 +1,4 @@
 # GENERATED FILE - DO NOT EDIT
+mail-watcher-plugin
 multiple-scms
 zentimestamp

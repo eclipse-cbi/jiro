@@ -23,6 +23,9 @@ jenkins:
             key: "hudson.plugins.git.GitTool$DescriptorImpl@git"
           - home: "/shared/common/apache-ant-1.8.4"
             key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest"
+      - watcher:
+          offlineAddresses: "releng@eclipse.org"
+          onlineAddresses: "releng@eclipse.org"
       remoteFS: "/Users/genie.cbi"
   - permanent:
       labelString: "docker-build"
@@ -38,6 +41,10 @@ jenkins:
       name: "fmlw3-ubuntu1804"
       nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
       remoteFS: "/home/genie.cbi/jenkins-agent"
+      nodeProperties:
+      - watcher:
+          offlineAddresses: "releng@eclipse.org"
+          onlineAddresses: "releng@eclipse.org"
 
 unclassified:
   slackNotifier:

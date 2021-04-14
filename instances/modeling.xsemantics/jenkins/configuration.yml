@@ -18,6 +18,9 @@ jenkins:
             key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk11-latest"
           - home: "/opt/public/common/apache-maven-latest"
             key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
+      - watcher:
+          offlineAddresses: "releng@eclipse.org"
+          onlineAddresses: "releng@eclipse.org"
       numExecutors: 2
       remoteFS: "/opt/public/hipp/homes/genie.xsemantics"
       retentionStrategy: "always"

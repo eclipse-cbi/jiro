@@ -16,3 +16,7 @@ jenkins:
           sshHostKeyVerificationStrategy:
             manuallyTrustedKeyVerificationStrategy:
               requireInitialManualTrust: true
+      nodeProperties:
+      - watcher:
+          offlineAddresses: "releng@eclipse.org"
+          onlineAddresses: "releng@eclipse.org"

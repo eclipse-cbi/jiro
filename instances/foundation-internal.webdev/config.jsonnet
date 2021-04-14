@@ -27,6 +27,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     plugins+: [
       "docker-workflow",
       "kubernetes-cli",
+      "mail-watcher-plugin",
       "openshift-client",
       "slack",
     ],

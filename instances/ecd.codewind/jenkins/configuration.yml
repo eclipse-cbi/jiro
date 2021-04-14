@@ -15,6 +15,10 @@ jenkins:
       numExecutors: 1
       nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
       remoteFS: "/home/genie.codewind/jenkins-agent"
+      nodeProperties:
+      - watcher:
+          offlineAddresses: "releng@eclipse.org"
+          onlineAddresses: "releng@eclipse.org"
   - permanent:
       labelString: "docker-build"
       launcher:
@@ -74,7 +78,7 @@ jenkins:
       name: "ub18-04"
       numExecutors: 1
       remoteFS: "/home/genie.codewind"
-      retentionStrategy: "always"                    
+      retentionStrategy: "always"
 unclassified:
   gitHubPluginConfig:
     configs:

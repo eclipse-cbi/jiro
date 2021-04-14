@@ -5,9 +5,10 @@
   },
   jenkins+: {
     plugins+: [
-      "xunit",
-      "embeddable-build-status",
       "cobertura",
+      "embeddable-build-status",
+      "mail-watcher-plugin",
+      "xunit",
     ],
   },
   deployment+: {

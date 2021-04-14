@@ -4,6 +4,11 @@
     displayName: "Eclipse sim@openPASS",
     resourcePacks: 2
   },
+  jenkins+: {
+    plugins+: [
+      "mail-watcher-plugin",
+    ],
+  },
   deployment+: {
     cluster: "okd-c1"
   },

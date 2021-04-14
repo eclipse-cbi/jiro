@@ -21,6 +21,9 @@ jenkins:
                   value: "$HOME/.nvm"
                 - key: "PATH"
                   value: "$HOME/.nvm/versions/node/v12.20.0/bin:$PATH"
+          - watcher:
+              offlineAddresses: "releng@eclipse.org"
+              onlineAddresses: "releng@eclipse.org"
         mode: EXCLUSIVE
         numExecutors: 1
         remoteFS: "/Users/genie.theia/jenkins_agent/"
@@ -43,6 +46,9 @@ jenkins:
               env:
                 - key: "Path"
                   value: "C:\\tools\\cygwin\\bin;C:\\Users\\genie.theia\\AppData\\Roaming\\npm;C:\\Program Files\\nodejs;$Path"
+          - watcher:
+              offlineAddresses: "releng@eclipse.org"
+              onlineAddresses: "releng@eclipse.org"
         numExecutors: 1
         remoteFS: "C:\\Users\\genie.theia\\jenkins_agent"
         retentionStrategy: "always"
@@ -421,6 +427,9 @@ unclassified:
     hookSecretConfigs:
       - credentialsId: "github-webhook-secret"
     hookUrl: "https://ci.eclipse.org/theia/github-webhook/"
+  gitSCM:
+    createAccountBasedOnEmail: true
+    useExistingAccountWithSameEmail: true
 tool:
   jdk:
     installations:

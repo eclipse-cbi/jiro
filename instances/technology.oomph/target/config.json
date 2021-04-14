@@ -402,6 +402,7 @@
       ],
       "plugins": [
          "build-name-setter",
+         "mail-watcher-plugin",
          "multiple-scms",
          "zentimestamp"
       ],

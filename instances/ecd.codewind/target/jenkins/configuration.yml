@@ -1,12 +1,4 @@
 # GENERATED FILE - DO NOT EDIT
-#*******************************************************************************
-# Copyright (c) 2018 Eclipse Foundation and others.
-# This program and the accompanying materials are made available
-# under the terms of the Eclipse Public License 2.0
-# which is available at http://www.eclipse.org/legal/epl-v20.html,
-# or the MIT License which is available at https://opensource.org/licenses/MIT.
-# SPDX-License-Identifier: EPL-2.0 OR MIT
-#*******************************************************************************
 jenkins:
   nodes:
     - permanent:
@@ -24,6 +16,10 @@ jenkins:
         numExecutors: 1
         nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
         remoteFS: "/home/genie.codewind/jenkins-agent"
+        nodeProperties:
+          - watcher:
+              offlineAddresses: "releng@eclipse.org"
+              onlineAddresses: "releng@eclipse.org"
     - permanent:
         labelString: "docker-build"
         launcher:
@@ -403,10 +399,10 @@ jenkins:
 unclassified:
   gitHubPluginConfig:
     configs:
-      - name: "GitHub"
-        apiUrl: "https://api.github.com"
-        credentialsId: "github-bot-token"
+      - credentialsId: "github-bot-token"
         manageHooks: false
+        name: "GitHub"
+        apiUrl: "https://api.github.com"
     hookSecretConfigs:
       - credentialsId: "github-webhook-secret"
     hookUrl: "https://ci.eclipse.org/codewind/github-webhook/"
@@ -449,6 +445,9 @@ unclassified:
         triggers:
           skipScmCause: false
           skipUpstreamCause: false
+  gitSCM:
+    createAccountBasedOnEmail: true
+    useExistingAccountWithSameEmail: true
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false

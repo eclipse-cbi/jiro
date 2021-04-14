@@ -402,6 +402,7 @@
       ],
       "plugins": [
          "jacoco",
+         "mail-watcher-plugin",
          "warnings-ng"
       ],
       "pluginsForceUpgrade": true,

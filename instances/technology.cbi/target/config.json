@@ -436,6 +436,7 @@
          "htmlpublisher",
          "icon-shim",
          "jenkins-design-language",
+         "mail-watcher-plugin",
          "mask-passwords",
          "metrics",
          "prometheus",
@@ -463,8 +464,8 @@
       "id": "2.277.1",
       "key_fingerprint": "FCEF32E745F2C3D5",
       "plugin_manager": {
-         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.5.0/jenkins-plugin-manager-2.5.0.jar",
-         "version": "2.5.0"
+         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.9.0/jenkins-plugin-manager-2.9.0.jar",
+         "version": "2.9.0"
       },
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
@@ -488,7 +489,7 @@
          "git-parameter",
          "github",
          "github-branch-source",
-         "gitlab-plugin",
+         "gitlab-plugin:1.5.13",
          "gitlab-branch-source",
          "greenballs",
          "jdk-tool",

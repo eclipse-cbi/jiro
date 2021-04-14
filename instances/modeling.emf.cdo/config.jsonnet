@@ -6,6 +6,7 @@
   jenkins+: {
     plugins+: [
       "build-name-setter",
+      "mail-watcher-plugin",
       "zentimestamp",
     ],
   },

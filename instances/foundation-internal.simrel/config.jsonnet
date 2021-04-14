@@ -6,8 +6,9 @@
   },
   jenkins+: {
     plugins+: [
-      "docker-workflow",
       "build-blocker-plugin",
+      "docker-workflow",
+      "mail-watcher-plugin",
     ],
   },
   deployment+: {

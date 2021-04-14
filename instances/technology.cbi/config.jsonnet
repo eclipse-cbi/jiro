@@ -17,6 +17,7 @@
       "htmlpublisher",
       "icon-shim",
       "jenkins-design-language",
+      "mail-watcher-plugin",
       "mask-passwords",
       "metrics",
       "prometheus",

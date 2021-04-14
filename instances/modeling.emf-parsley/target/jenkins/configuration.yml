@@ -21,6 +21,9 @@ jenkins:
                   key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk11-latest"
                 - home: "/opt/public/common/apache-maven-latest"
                   key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
+          - watcher:
+              offlineAddresses: "releng@eclipse.org"
+              onlineAddresses: "releng@eclipse.org"
         retentionStrategy: "always"
   numExecutors: 0
   scmCheckoutRetryCount: 2
@@ -397,6 +400,9 @@ unclassified:
     hookSecretConfigs:
       - credentialsId: "github-webhook-secret"
     hookUrl: "https://ci-staging.eclipse.org/emf-parsley/github-webhook/"
+  gitSCM:
+    createAccountBasedOnEmail: true
+    useExistingAccountWithSameEmail: true
 tool:
   jdk:
     installations:
