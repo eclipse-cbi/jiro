@@ -1,12 +1,4 @@
 # GENERATED FILE - DO NOT EDIT
-#*******************************************************************************
-# Copyright (c) 2018 Eclipse Foundation and others.
-# This program and the accompanying materials are made available
-# under the terms of the Eclipse Public License 2.0
-# which is available at http://www.eclipse.org/legal/epl-v20.html,
-# or the MIT License which is available at https://opensource.org/licenses/MIT.
-# SPDX-License-Identifier: EPL-2.0 OR MIT
-#*******************************************************************************
 jenkins:
   nodes:
     - permanent:
@@ -21,6 +13,7 @@ jenkins:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAoSSFhyrxA22Bsphc4ktfjwwHzJ+w3sX9ixNFIVks7swLdYnkoe6pUoeo4KNqvcEYLwcur/NSS83nKO3uk/aCXb222zeegxMWbJluuP5+Ora8RY5Vd5JhLridorPHx+xuSNhnowx5VCkBA7MAzapHx/6KIHVKspVKFW0Ddd2difyDBt3w8hghiNub6LV8Oj0nWmTLyWgcP0TgK2X2P4EcgBLLn9TJXqIqutzwlFjr0vRs3NxkbUm4vmILv/v3/LmsfeY+TQsXbjKOAKPmQ/b/DSfUzjqf7TIxQDuTYlSxWEYTEceKDJiPCPntyiRtuqyvacbiHtr6/g/w/DOiYRJb"
         mode: EXCLUSIVE
         name: "external-agent-01"
+        nodeDescription: "External build agent, provided by the Xtext project"
         numExecutors: 1
         remoteFS: "/home/xtextbot"
     - permanent:
@@ -35,6 +28,7 @@ jenkins:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDTgsftTryYb2zdbL3cgYyV6XEqfLX4UIHSe44lNf5nLDiVCb/w32eEz8aR5krb4M5M5IsDtPFRW/I4mpeiLBkvP/baNdqyZJxKrOCRPOmH7PGu6hhfPOVjjgN3mtoF4Cl01i/7kwqA+2palztf1LMfipTkps8gIWnR1qbZeOtdyE+5nCW2tn0lKHW7FCwRZZAzomAtFx5izgATY6LgFOhNJbWrQ3MdK3n26PR9DjLWqm7isEQg1F/+cbFmmWAsITwL+mB0wtXV2fPwXeEsQbuaL6f04mYzUuekbB/3ppraL9nqCSKrYsq6RQp2Pa5fZ5jR6EWLTNHpEEIXLGcbtvpN"
         mode: EXCLUSIVE
         name: "external-agent-02"
+        nodeDescription: "External build agent, provided by the Xtext project"
         numExecutors: 1
         remoteFS: "/home/xtextbot"
   numExecutors: 0
@@ -576,6 +570,9 @@ unclassified:
     hookSecretConfigs:
       - credentialsId: "github-webhook-secret"
     hookUrl: "https://ci.eclipse.org/xtext/github-webhook/"
+  gitSCM:
+    createAccountBasedOnEmail: true
+    useExistingAccountWithSameEmail: true
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
