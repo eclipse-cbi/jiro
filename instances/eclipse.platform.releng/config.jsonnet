@@ -11,6 +11,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     cluster: "okd-c1",
   },
   jenkins+: {
+    plugins+: [
+      "mail-watcher-plugin",
+    ],
     staticAgentCount: 10,
     permissions+: 
       permissionsTemplates.projectPermissions("sravankumarl@in.ibm.com", ["Agent/Connect", "Agent/Disconnect"]) +

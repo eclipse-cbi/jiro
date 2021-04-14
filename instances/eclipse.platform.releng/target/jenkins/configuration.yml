@@ -1,12 +1,4 @@
 # GENERATED FILE - DO NOT EDIT
-#*******************************************************************************
-# Copyright (c) 2018 Eclipse Foundation and others.
-# This program and the accompanying materials are made available
-# under the terms of the Eclipse Public License 2.0
-# which is available at http://www.eclipse.org/legal/epl-v20.html,
-# or the MIT License which is available at https://opensource.org/licenses/MIT.
-# SPDX-License-Identifier: EPL-2.0 OR MIT
-#*******************************************************************************
 jenkins:
   nodes:
     - permanent:
@@ -29,6 +21,9 @@ jenkins:
               locations:
                 - home: 'C:\ProgramData\chocolatey\lib\ant\apache-ant-1.10.5'
                   key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-1.9.6"
+          - watcher:
+              offlineAddresses: "releng@eclipse.org"
+              onlineAddresses: "releng@eclipse.org"
     - permanent:
         name: "b9h15-macos10.15"
         nodeDescription: "macOS 10.15 (Catalina), no login session, hosted on MacStadium"
@@ -45,6 +40,9 @@ jenkins:
               env:
                 - key: "PATH"
                   value: '$HOME/.cargo/bin:$PATH'
+          - watcher:
+              offlineAddresses: "releng@eclipse.org"
+              onlineAddresses: "releng@eclipse.org"
     - permanent:
         labelString: "macos macos-10.15"
         launcher:
@@ -60,6 +58,9 @@ jenkins:
                   value: "/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home"
                 - key: "PATH"
                   value: "/usr/local/bin/:/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+          - watcher:
+              offlineAddresses: "releng@eclipse.org"
+              onlineAddresses: "releng@eclipse.org"
         numExecutors: 1
         remoteFS: "/Users/genie.releng/jenkins_agent/"
         retentionStrategy: "always"
@@ -97,6 +98,9 @@ jenkins:
                   key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
                 - home: 'W:\Git\latest\x64\bin\git'
                   key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+          - watcher:
+              offlineAddresses: "releng@eclipse.org"
+              onlineAddresses: "releng@eclipse.org"
     - permanent:
         name: "zyt5z-centos7"
         nodeDescription: "Dedicated agent for performance tests, hosted on Azure"
@@ -123,6 +127,9 @@ jenkins:
                   key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
                 - home: '/usr/bin/java'
                   key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
+          - watcher:
+              offlineAddresses: "releng@eclipse.org"
+              onlineAddresses: "releng@eclipse.org"
     - permanent:
         name: "ppc64le-build"
         labelString: "ppcbuild"
@@ -239,23 +246,6 @@ jenkins:
               disabled: false
               failIfWorkDirIsMissing: false
               internalDir: "remoting"
-    - permanent:
-        name: "6m8ka-macos11-a12z"
-        nodeDescription: "macOS 11 DTK @ MacStadium (Apple A12Z Bionic - 16GB)"
-        remoteFS: "/Users/genie.releng/jenkins_agent"
-        numExecutors: 1
-        labelString: "macos-11 macos-dtk apple-silicon"
-        mode: EXCLUSIVE
-        retentionStrategy: "always"
-        launcher:
-          ssh:
-            host: "199.7.163.21"
-            port: 22
-            credentialsId: "6m8ka-macos11-a12z-bot-ssh"
-            jvmOptions: "-Xmx512m"
-            sshHostKeyVerificationStrategy:
-              manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDJcrSfionJW8VUH6hzGN1BNjcVKObz171rIw4N1HFs6t9/gjcpAn7uvO/VnX6V3LsWEZ+VvPUi8VZ50czE7ThgER+edHapwvRiGe/kdkIZLRkAZgSAJhEnTLMhvin40a4/oAv/kNZWAhx+shd/fFXFDs/TJ7HrVTp/s6VvKY5JyaJUdS3CR+Y6Nt+NZgdh+qasS7vIttK0DKfZE6Cr94gduGYh6mam8EBtcAC3kdF1JgXU8ZvipI6uqDhtDBf1cjbESvM7ZMJPtYxsSOpHTanJ+mrLxXEg7TayOI+qCiKMJbjYCvvbVQXQrSRQ6fY7YYH72/mfmCLHbi400AlF76Hxn3CNOKR9juGQDQzdx417XrfpmX3H7USaT8AkvIXvKweofMwNUBwJejKoBsoG3fB4tMotMGSTUdkslmgJ+jm721JOEMAx2wE3pY79pVhZoqsXh9EHt3VQzTrKBF6CGgAtizTRp3r91GYVQwActlvx1NUZI/n2uTegZpuvTSSvYcM="
   numExecutors: 0
   scmCheckoutRetryCount: 2
   mode: EXCLUSIVE
@@ -671,6 +661,9 @@ unclassified:
     hookSecretConfigs:
       - credentialsId: "github-webhook-secret"
     hookUrl: "https://ci.eclipse.org/releng/github-webhook/"
+  gitSCM:
+    createAccountBasedOnEmail: true
+    useExistingAccountWithSameEmail: true
 tool:
   jdk:
     installations:
