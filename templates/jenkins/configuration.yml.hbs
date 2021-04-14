@@ -214,6 +214,10 @@ unclassified:
       - credentialsId: "github-webhook-secret"
     hookUrl: "{{deployment.url}}/github-webhook/"
 
+  gitSCM:
+    createAccountBasedOnEmail: true
+    useExistingAccountWithSameEmail: true
+
 tool:
   {{> tools-jdk }}
   {{> tools-ant }}
