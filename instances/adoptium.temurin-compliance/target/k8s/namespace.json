@@ -1,0 +1,11 @@
+{
+   "apiVersion": "v1",
+   "kind": "Namespace",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "adoptium.temurin-compliance",
+         "org.eclipse.cbi.jiro/project.shortname": "temurin-compliance"
+      },
+      "name": "temurin-compliance"
+   }
+}

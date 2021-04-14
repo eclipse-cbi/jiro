@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "adoptium.temurin-compliance",
+         "org.eclipse.cbi.jiro/project.shortname": "temurin-compliance"
+      },
+      "name": "temurin-compliance",
+      "namespace": "temurin-compliance"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "temurin-compliance"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "temurin-compliance",
+         "namespace": "temurin-compliance"
+      }
+   ]
+}

@@ -1,0 +1,25 @@
+{
+   "apiVersion": "v1",
+   "kind": "Service",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "adoptium.temurin-compliance",
+         "org.eclipse.cbi.jiro/project.shortname": "temurin-compliance"
+      },
+      "name": "jenkins-discovery",
+      "namespace": "temurin-compliance"
+   },
+   "spec": {
+      "ports": [
+         {
+            "name": "jnlp",
+            "port": 50000,
+            "protocol": "TCP",
+            "targetPort": 50000
+         }
+      ],
+      "selector": {
+         "org.eclipse.cbi.jiro/project.fullName": "adoptium.temurin-compliance"
+      }
+   }
+}
