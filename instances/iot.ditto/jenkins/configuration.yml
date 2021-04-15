@@ -6,7 +6,7 @@ tool:
       - installSource:
           installers:
           - nodeJSInstaller:
-              id: "10.18.1"
+              id: "14.16.1"
               npmPackagesRefreshHours: 72
 unclassified:
   gitscm:
