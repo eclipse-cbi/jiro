@@ -9,7 +9,6 @@ tool:
               id: "14.16.1"
               npmPackagesRefreshHours: 72
 unclassified:
-  gitscm:
+  gitSCM:
     globalConfigName: Eclipse Ditto committers
     globalConfigEmail: ditto-dev@eclipse.org
-    createAccountBasedOnEmail: false

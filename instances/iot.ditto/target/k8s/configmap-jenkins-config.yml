@@ -30,7 +30,7 @@ data:
               - installSource:
                   installers:
                     - nodeJSInstaller:
-                        id: "10.18.1"
+                        id: "14.16.1"
                         npmPackagesRefreshHours: 72
       jdk:
         installations:
@@ -146,10 +146,11 @@ data:
           - name: "Default"
             home: "git"
     unclassified:
-      gitscm:
+      gitSCM:
         globalConfigName: Eclipse Ditto committers
         globalConfigEmail: ditto-dev@eclipse.org
-        createAccountBasedOnEmail: false
+        createAccountBasedOnEmail: true
+        useExistingAccountWithSameEmail: true
       location:
         adminAddress: ci-admin@eclipse.org
         url: https://ci.eclipse.org/ditto
@@ -197,14 +198,6 @@ data:
         hookSecretConfigs:
           - credentialsId: "github-webhook-secret"
         hookUrl: "https://ci.eclipse.org/ditto/github-webhook/"
-    #*******************************************************************************
-    # Copyright (c) 2018 Eclipse Foundation and others.
-    # This program and the accompanying materials are made available
-    # under the terms of the Eclipse Public License 2.0
-    # which is available at http://www.eclipse.org/legal/epl-v20.html,
-    # or the MIT License which is available at https://opensource.org/licenses/MIT.
-    # SPDX-License-Identifier: EPL-2.0 OR MIT
-    #*******************************************************************************
     jenkins:
       numExecutors: 0
       scmCheckoutRetryCount: 2
