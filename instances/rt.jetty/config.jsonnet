@@ -21,6 +21,10 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         principal: "kitlo@us.ibm.com",
         grantedPermissions: permissionsTemplates.committerPermissionsList,
       },
+      {
+        principal: "matthias.sohn@sap.com",
+        grantedPermissions: permissionsTemplates.committerPermissionsList,
+      },
     ],
   },
   deployment+: {
