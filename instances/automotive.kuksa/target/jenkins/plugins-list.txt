@@ -1,5 +1,4 @@
 # GENERATED FILE - DO NOT EDIT
 cobertura
 embeddable-build-status
-mail-watcher-plugin
 xunit

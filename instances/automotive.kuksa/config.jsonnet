@@ -7,7 +7,6 @@
     plugins+: [
       "cobertura",
       "embeddable-build-status",
-      "mail-watcher-plugin",
       "xunit",
     ],
   },

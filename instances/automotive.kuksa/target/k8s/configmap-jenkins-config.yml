@@ -40,10 +40,6 @@ data:
                 sshHostKeyVerificationStrategy:
                   manuallyTrustedKeyVerificationStrategy:
                     requireInitialManualTrust: true
-            nodeProperties:
-              - watcher:
-                  offlineAddresses: "releng@eclipse.org"
-                  onlineAddresses: "releng@eclipse.org"
       numExecutors: 0
       scmCheckoutRetryCount: 2
       mode: EXCLUSIVE
