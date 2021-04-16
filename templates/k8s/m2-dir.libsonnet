@@ -154,6 +154,15 @@ local Kube = import "kube.libsonnet";
             </provides>
             <configuration><jdkHome>/opt/tools/java/openjdk/jdk-16/latest</jdkHome></configuration>
           </toolchain>
+          <toolchain>
+            <type>jdk</type>
+            <provides>
+              <id>JavaSE-17</id>
+              <version>17</version>
+              <vendor>openjdk</vendor>
+            </provides>
+            <configuration><jdkHome>/opt/tools/java/openjdk/jdk-17/latest</jdkHome></configuration>
+          </toolchain>
         </toolchains>
       |||
     }
