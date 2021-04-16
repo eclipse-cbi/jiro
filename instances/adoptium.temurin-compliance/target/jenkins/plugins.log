@@ -99,7 +99,7 @@ timestamper 1.12
 token-macro 2.13
 trilead-api 1.0.13
 variant 1.4
-warnings-ng 9.0.0
+warnings-ng 9.0.1
 workflow-aggregator 2.6
 workflow-api 2.42
 workflow-basic-steps 2.23
@@ -321,7 +321,7 @@ timestamper 1.12
 token-macro 2.13
 trilead-api 1.0.13
 variant 1.4
-warnings-ng 9.0.0
+warnings-ng 9.0.1
 workflow-aggregator 2.6
 workflow-api 2.42
 workflow-basic-steps 2.23

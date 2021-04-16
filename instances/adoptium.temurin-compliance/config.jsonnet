@@ -15,6 +15,10 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         principal: "slambert@gmail.com",
         grantedPermissions: permissionsTemplates.committerPermissionsList,
       },
+      {
+        principal: "sxa@redhat.com",
+        grantedPermissions: permissionsTemplates.committerPermissionsList,
+      },
     ],
     plugins+: [
       "artifactory",

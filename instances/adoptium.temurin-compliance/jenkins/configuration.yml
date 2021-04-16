@@ -1,0 +1,11 @@
+jenkins:
+
+security:
+  globalJobDslSecurityConfiguration:
+    useScriptSecurity: false
+
+tool:
+  xvfbInstallation:
+    installations:
+    - name: "default"
+      home: ""
