@@ -19,6 +19,10 @@ jenkins:
       - watcher:
           offlineAddresses: "releng@eclipse.org"
           onlineAddresses: "releng@eclipse.org"
+      - toolLocation:
+          locations:
+          - home: "C:\\Program Files\\Git\\bin\\git"
+            key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
 unclassified:
   gitLabConnectionConfig:
     connections:
