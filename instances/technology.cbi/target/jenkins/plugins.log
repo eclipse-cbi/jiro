@@ -17,7 +17,7 @@ command-launcher 1.5
 conditional-buildstep 1.4.1
 config-file-provider 3.7.0
 configuration-as-code 1.47
-credentials 2.3.17
+credentials 2.3.18
 credentials-binding 1.24
 data-tables-api 1.10.23-3
 display-url-api 2.3.4
@@ -45,7 +45,7 @@ greenballs 1.15.1
 h2-api 1.4.199
 handlebars 3.0.8
 handy-uri-templates-2-api 2.1.8-1.0
-jackson2-api 2.12.2
+jackson2-api 2.12.3
 javadoc 1.6
 jdk-tool 1.5
 jjwt-api 0.11.2-9.c8b45b8bb173
@@ -99,7 +99,7 @@ timestamper 1.12
 token-macro 2.15
 trilead-api 1.0.13
 variant 1.4
-warnings-ng 9.0.0
+warnings-ng 9.0.1
 workflow-aggregator 2.6
 workflow-api 2.42
 workflow-basic-steps 2.23
@@ -126,7 +126,7 @@ checks-api 1.7.0
 cloudbees-disk-usage-simple 0.10
 cloudbees-folder 6.15
 cloudbees-jenkins-advisor 3.2.4
-credentials 2.3.17
+credentials 2.3.18
 display-url-api 2.3.4
 durable-task 1.35
 echarts-api 5.0.2-1
@@ -138,7 +138,7 @@ gradle 1.36
 handy-uri-templates-2-api 2.1.8-1.0
 htmlpublisher 1.25
 icon-shim 3.0.0
-jackson2-api 2.12.2
+jackson2-api 2.12.3
 javadoc 1.6
 jenkins-design-language 1.24.6
 jquery3-api 3.6.0-1
@@ -157,11 +157,11 @@ pipeline-stage-step 2.5
 plain-credentials 1.7
 plugin-util-api 2.1.0
 popper-api 1.16.1-2
-prometheus 2.0.9
+prometheus 2.0.10
 pubsub-light 1.13
 scm-api 2.6.4
 script-security 1.76
-slack 2.46
+slack 2.47
 snakeyaml-api 1.27.0
 sse-gateway 1.24
 ssh-credentials 1.18.1
@@ -192,9 +192,9 @@ jenkins-design-language 1.24.6
 mail-watcher-plugin 1.16
 mask-passwords 3.0
 metrics 4.0.2.7
-prometheus 2.0.9
+prometheus 2.0.10
 pubsub-light 1.13
-slack 2.46
+slack 2.47
 sse-gateway 1.24
 support-core 2.73
 
@@ -219,7 +219,7 @@ command-launcher 1.5
 conditional-buildstep 1.4.1
 config-file-provider 3.7.0
 configuration-as-code 1.47
-credentials 2.3.17
+credentials 2.3.18
 credentials-binding 1.24
 data-tables-api 1.10.23-3
 display-url-api 2.3.4
@@ -252,7 +252,7 @@ handlebars 3.0.8
 handy-uri-templates-2-api 2.1.8-1.0
 htmlpublisher 1.25
 icon-shim 3.0.0
-jackson2-api 2.12.2
+jackson2-api 2.12.3
 javadoc 1.6
 jdk-tool 1.5
 jenkins-design-language 1.24.6
@@ -293,7 +293,7 @@ pipeline-stage-view 2.19
 plain-credentials 1.7
 plugin-util-api 2.1.0
 popper-api 1.16.1-2
-prometheus 2.0.9
+prometheus 2.0.10
 promoted-builds 3.9.1
 pubsub-light 1.13
 rebuild 1.32
@@ -302,7 +302,7 @@ run-condition 1.5
 scm-api 2.6.4
 script-security 1.76
 simple-theme-plugin 0.6
-slack 2.46
+slack 2.47
 snakeyaml-api 1.27.0
 sonar 2.13
 sse-gateway 1.24
@@ -315,7 +315,7 @@ timestamper 1.12
 token-macro 2.15
 trilead-api 1.0.13
 variant 1.4
-warnings-ng 9.0.0
+warnings-ng 9.0.1
 workflow-aggregator 2.6
 workflow-api 2.42
 workflow-basic-steps 2.23
