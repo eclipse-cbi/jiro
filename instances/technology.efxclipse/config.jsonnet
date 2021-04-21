@@ -5,5 +5,8 @@
   },
   gradle+: {
     generate: true
-  }
+  },
+  deployment+: {
+    cluster: "okd-c1"
+  },
 }

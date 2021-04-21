@@ -8,4 +8,7 @@
       "nodejs",
     ],
   },
+  deployment+: {
+    cluster: "okd-c1"
+  },
 }

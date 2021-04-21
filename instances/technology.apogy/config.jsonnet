@@ -8,4 +8,7 @@
       "dashboard-view",
     ],
   },
+  deployment+: {
+    cluster: "okd-c1"
+  },
 }

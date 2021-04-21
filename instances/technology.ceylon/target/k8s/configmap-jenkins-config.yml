@@ -529,3 +529,6 @@ data:
         hookSecretConfigs:
           - credentialsId: "github-webhook-secret"
         hookUrl: "https://ci.eclipse.org/ceylon/github-webhook/"
+      gitSCM:
+        createAccountBasedOnEmail: true
+        useExistingAccountWithSameEmail: true
