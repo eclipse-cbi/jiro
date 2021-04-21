@@ -64,6 +64,14 @@ unclassified:
   gitSCM:
     createAccountBasedOnEmail: true
     useExistingAccountWithSameEmail: true
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
 jenkins:
   numExecutors: 0
   scmCheckoutRetryCount: 2
@@ -77,10 +85,9 @@ jenkins:
     projectMatrix:
       permissions:
         - "Overall/Administer:admins"
+        - "Job/Read:anonymous"
         - "Overall/Read:anonymous"
         - "Job/ExtendedRead:common"
-        - "Job/Read:common"
-        - "Overall/Administer:frederic.gurr@eclipse-foundation.org"
         - "Agent/Build:technology.dash"
         - "Credentials/View:technology.dash"
         - "Gerrit/ManualTrigger:technology.dash"

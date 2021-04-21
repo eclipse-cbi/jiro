@@ -356,14 +356,14 @@
       "permissions": [
          {
             "grantedPermissions": [
-               "Overall/Read"
+               "Overall/Read",
+               "Job/Read"
             ],
             "principal": "anonymous"
          },
          {
             "grantedPermissions": [
-               "Job/ExtendedRead",
-               "Job/Read"
+               "Job/ExtendedRead"
             ],
             "principal": "common"
          },
@@ -398,12 +398,6 @@
                "Gerrit/Retrigger"
             ],
             "principal": "technology.dash"
-         },
-         {
-            "grantedPermissions": [
-               "Overall/Administer"
-            ],
-            "principal": "frederic.gurr@eclipse-foundation.org"
          }
       ],
       "plugins": [ ],
@@ -411,7 +405,7 @@
       "staticAgentCount": 0,
       "theme": "quicksilver",
       "timezone": "America/Toronto",
-      "version": "2.263.3"
+      "version": "latest"
    },
    "jiroMaster": {
       "docker": {
