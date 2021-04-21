@@ -1,3 +1,5 @@
+local permissionsTemplates = import '../../templates/permissions.libsonnet';
+
 {
   project+: {
     fullName: "foundation-internal.infra",
@@ -19,6 +21,10 @@
       {
         principal: "foundation-internal.webdev",
         grantedPermissions: [ "Overall/Read" ],
+      },
+      {
+        principal: "foundation-internal.it",
+        grantedPermissions: permissionsTemplates.committerPermissionsList,
       }
     ],
     plugins+: [
