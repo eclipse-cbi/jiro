@@ -12,7 +12,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     cluster: "okd-c1",
   },
   jenkins+: {
-    version: "2.263.3",
+    version: "2.277.3",
     staticAgentCount: 1,
     permissions: [
       {

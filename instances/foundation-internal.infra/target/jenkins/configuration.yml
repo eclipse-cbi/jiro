@@ -31,6 +31,25 @@ jenkins:
     projectMatrix:
       permissions:
         - "Overall/Administer:admins"
+        - "Agent/Build:foundation-internal.it"
+        - "Credentials/View:foundation-internal.it"
+        - "Job/Build:foundation-internal.it"
+        - "Job/Cancel:foundation-internal.it"
+        - "Job/Configure:foundation-internal.it"
+        - "Job/Create:foundation-internal.it"
+        - "Job/Delete:foundation-internal.it"
+        - "Job/Move:foundation-internal.it"
+        - "Job/Read:foundation-internal.it"
+        - "Job/Workspace:foundation-internal.it"
+        - "Overall/Read:foundation-internal.it"
+        - "Run/Delete:foundation-internal.it"
+        - "Run/Replay:foundation-internal.it"
+        - "Run/Update:foundation-internal.it"
+        - "SCM/Tag:foundation-internal.it"
+        - "View/Configure:foundation-internal.it"
+        - "View/Create:foundation-internal.it"
+        - "View/Delete:foundation-internal.it"
+        - "View/Read:foundation-internal.it"
         - "Overall/Read:foundation-internal.webdev"
   markupFormatter: rawHtml
   crumbIssuer:
@@ -58,7 +77,7 @@ jenkins:
         podRetention: "never"
         templates:
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.5
+              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.7
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -143,7 +162,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.5
+              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.7
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -228,7 +247,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.5
+              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.7
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
