@@ -393,9 +393,7 @@
                "View/Configure",
                "View/Create",
                "View/Delete",
-               "View/Read",
-               "Gerrit/ManualTrigger",
-               "Gerrit/Retrigger"
+               "View/Read"
             ],
             "principal": "technology.comma"
          }

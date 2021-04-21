@@ -1,3 +1,5 @@
+local permissionsTemplates = import '../../templates/permissions.libsonnet';
+
 {
   project+: {
     fullName: "technology.comma",
@@ -5,6 +7,9 @@
   },
   jenkins+: {
     version: "2.263.4",
+    permissions:
+      // workaround to avoid errors, when the Gerrit plugin is disabled
+      permissionsTemplates.projectPermissions($.project.unixGroupName, permissionsTemplates.committerPermissionsList),
   },
   deployment+: {
     cluster: "okd-c1"
