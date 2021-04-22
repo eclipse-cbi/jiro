@@ -151,7 +151,7 @@ data:
                 name: "basic"
                 namespace: "cbi"
                 nodeUsageMode: NORMAL
-                label: ""
+                label: "basic"
                 envVars:
                   - envVar:
                       key: "JAVA_TOOL_OPTIONS"

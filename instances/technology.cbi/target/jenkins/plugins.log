@@ -125,7 +125,7 @@ branch-api 2.6.3
 checks-api 1.7.0
 cloudbees-disk-usage-simple 0.10
 cloudbees-folder 6.15
-cloudbees-jenkins-advisor 3.2.4
+cloudbees-jenkins-advisor 3.2.5
 credentials 2.3.18
 display-url-api 2.3.4
 durable-task 1.35
@@ -182,7 +182,7 @@ workflow-support 3.8
 Plugins that will be downloaded:
 basic-branch-build-strategies 1.3.2
 cloudbees-disk-usage-simple 0.10
-cloudbees-jenkins-advisor 3.2.4
+cloudbees-jenkins-advisor 3.2.5
 embeddable-build-status 2.0.3
 favorite 2.3.3
 gradle 1.36
@@ -214,7 +214,7 @@ build-timeout 1.20
 checks-api 1.7.0
 cloudbees-disk-usage-simple 0.10
 cloudbees-folder 6.15
-cloudbees-jenkins-advisor 3.2.4
+cloudbees-jenkins-advisor 3.2.5
 command-launcher 1.5
 conditional-buildstep 1.4.1
 config-file-provider 3.7.0
