@@ -9,4 +9,7 @@
       "mail-watcher-plugin",
     ],
   },
+  deployment+: {
+    cluster: "okd-c1"
+  },
 }

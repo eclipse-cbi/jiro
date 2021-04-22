@@ -8,4 +8,7 @@
       "gerrit-code-review",
     ],
   },
+  deployment+: {
+    cluster: "okd-c1"
+  },
 }

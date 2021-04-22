@@ -9,4 +9,7 @@
       "embeddable-build-status",
     ],
   },
+  deployment+: {
+    cluster: "okd-c1"
+  },
 }
