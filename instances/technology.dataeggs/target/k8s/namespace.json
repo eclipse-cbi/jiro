@@ -1,0 +1,11 @@
+{
+   "apiVersion": "v1",
+   "kind": "Namespace",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.dataeggs",
+         "org.eclipse.cbi.jiro/project.shortname": "dataeggs"
+      },
+      "name": "dataeggs"
+   }
+}
