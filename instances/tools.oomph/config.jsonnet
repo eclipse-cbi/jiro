@@ -1,6 +1,6 @@
 {
   project+: {
-    fullName: "technology.oomph",
+    fullName: "tools.oomph",
     displayName: "Eclipse Oomph",
   },
   jenkins+: {
