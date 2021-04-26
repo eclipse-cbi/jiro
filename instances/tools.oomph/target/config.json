@@ -2,7 +2,7 @@
    "accessControl": {
       "primaryGroup": {
          "id": -1,
-         "name": "technology.oomph"
+         "name": "tools.oomph"
       },
       "supplementalGroups": [ ],
       "user": {
@@ -98,7 +98,9 @@
                      }
                   ]
                },
-               "labels": [ ],
+               "labels": [
+                  "basic"
+               ],
                "maxHeap": "256m",
                "mode": "NORMAL",
                "name": "basic",
@@ -331,7 +333,7 @@
    "docker": {
       "master": {
          "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.263.3\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
-         "image": "technology.oomph",
+         "image": "tools.oomph",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
          "tag": "2.263.3"
@@ -397,7 +399,7 @@
                "Gerrit/ManualTrigger",
                "Gerrit/Retrigger"
             ],
-            "principal": "technology.oomph"
+            "principal": "tools.oomph"
          }
       ],
       "plugins": [
@@ -538,7 +540,7 @@
       "files": {
          "settings-security.xml": {
             "master": {
-               "pass": "bots/technology.oomph/apache-maven-security-settings"
+               "pass": "bots/tools.oomph/apache-maven-security-settings"
             }
          },
          "settings.xml": {
@@ -553,16 +555,16 @@
             "servers": {
                "gpg.passphrase": {
                   "passphrase": {
-                     "pass": "bots/technology.oomph/gpg/passphrase"
+                     "pass": "bots/tools.oomph/gpg/passphrase"
                   }
                },
                "ossrh": {
                   "nexusProUrl": "https://oss.sonatype.org",
                   "password": {
-                     "pass": "bots/technology.oomph/oss.sonatype.org/password"
+                     "pass": "bots/tools.oomph/oss.sonatype.org/password"
                   },
                   "username": {
-                     "pass": "bots/technology.oomph/oss.sonatype.org/username"
+                     "pass": "bots/tools.oomph/oss.sonatype.org/username"
                   }
                },
                "repo.eclipse.org": {
@@ -584,10 +586,10 @@
    },
    "project": {
       "displayName": "Eclipse Oomph",
-      "fullName": "technology.oomph",
+      "fullName": "tools.oomph",
       "resourcePacks": 1,
       "shortName": "oomph",
-      "unixGroupName": "technology.oomph"
+      "unixGroupName": "tools.oomph"
    },
    "sbt": {
       "files": {

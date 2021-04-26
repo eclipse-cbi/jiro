@@ -6,7 +6,7 @@
    "kind": "ConfigMap",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "technology.oomph",
+         "org.eclipse.cbi.jiro/project.fullName": "tools.oomph",
          "org.eclipse.cbi.jiro/project.shortname": "oomph"
       },
       "name": "known-hosts",
