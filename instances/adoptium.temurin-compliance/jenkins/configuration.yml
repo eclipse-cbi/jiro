@@ -9,3 +9,90 @@ tool:
     installations:
     - name: "default"
       home: ""
+
+  nodes:
+  - permanent
+      name: "jck-packet-ubuntu2004-x64-1"
+      nodeDescription: "Intel Atom system hosted at packet"
+      labelString: "ci.role.test hw.arch.x86 sw.os.linux"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "147.75.83.133"
+          port: "22"
+          credentialsId: "xxxxxxx-xxxx-"
+          javaPath: ""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6AZ52BYtn9IHiTNleFhxPuzfVZ62i8OaRJVvCzheTU2mRePox9ipTv3V/okLuMRtD01gpXQpqax3CqaiSpc+bw/8Utcoe3zQaIEX61bvC6lA5eLN60662z3LH1Mf/QxYb2BNSRjvMtzK5+QnbHQJIX1091kOCu/0KLPrgd78ItYnZj3ZMUUWCycjQwsxcJPLNDL7oKBAkNwIjVfD5cPJMIkatTD7Li82E3rNfg/mfshTvdzHzkxryaIx9G9KwmdXtgWiWH4ZVpz3TvadZITyTy67PFbQrClVN+EOPw8jg0n4aMOckc6+Dk8bsDzwWIm2KuTP3BCU3U/VHSK3u7BKhY0tBw88x4jXmZuT+UASLSFFfyUMwHJYjiUuev8FYwVdxy1z5ZMnjaEq/ovemliRBRpOUdgKpegiLxsUZ8hJRwRX5rAD/74nJdMRdtDYYq74lrdcddakyyfxR0lq8/i9AV+kXTEgBCmZeGDXfgFFKb/3GXnnevST0szUnm/ZSkRk="
+  - permanent
+      name: "jck-marist-ubuntu2004-s390x-1"
+      nodeDescription: "2-core 8Gb zLinux machine hosted at Marist"
+      labelString: "ci.role.test hw.arch.s390x sw.os.linux"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "148.100.84.95"
+          port: "22"
+          credentialsId: "xxxxxxx-xxxx-"
+          javaPath: ""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDK0XaYiD+TSQoEmNoJ4TJl8yWUnYSqdLezQTU7RvqiqZUr7y2Fj0kcV1oP8j0+PgBDhEv3pl3zBQeHPlFeomcAb7by0M9GAkrM24tA/Vjld5Nmceagqnabv9Q/lpz2Bi+ke0rOirMI5Ekv/Y5HDf8Sr9AfRvPpvwCwXR0kugssr3+gvetjKQBYJil2IBcsaAEW/yuHFV2W5r9TowjLvORvTYCN5bGNlDye1YBwzs5y0YslgdS8wObsaeExZH57mnQ79nEljPWVIP5gzfraunRX4iGEtOJxEL2O02j58LelbTxaHlL13o89n6M0N8dyqwNwKlOv/LPsmKC0oEA/aPEbHirzDyxNYcTuS4or4F5AyGrjr8mQYiWep93hiJand1Mymrb8XsHNV2qwQRZrNP1IHZ4IaKuI7PJYzyfEA/ksDgrGOoAbc5Aj6QWaG1ep//XvYKPzyWeR8SDV68f/Avobt5nmqEHyeYFfjcfDpDZQvdP2SUtRPa++iD2BQsMsc1M="
+  - permanent
+      name: "jck-marist-ubuntu2004-s390x-2"
+      nodeDescription: "2-core 8Gb zLinux machine hosted at Marist"
+      labelString: "ci.role.test hw.arch.x64 sw.os.linux"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "148.100.84.175"
+          port: "22"
+          credentialsId: "xxxxxxx-xxxx-"
+          javaPath: ""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDCSTNTGL3mf3dBPWjkBF2JgQceXIyuTmyXhxvFPzSXn8wFmG9Nz09L0jLyfL5NtbN4nZe65fc7/bhfo4bnr9PmDTcIldW7Y59ScTC3ink9YNYiRJpYsuJ14T0scLHPfb6rRv6MpRGsulGL0dnbbPAJE8RQ9om1JEid/unE/IpbCgfuodQQ0wjVxwc5UpcmJ8G2/spuW8QApZzVUqaUyiBSDtOnczBXcdOIX1t74RN9jf1sxVzjjEfjatQkgK7hnHFczAJPBGOQgApVYWKi/bKKtlT0w3XwdaFw9l5a5+JyKogpmR2EjG9Je3Vy2S4ZhvpMGat0mudOeoE9zvIhSCNPkX0NYyF8BdCqAaky33tXZH+XnM3XAaqGZLADn+RmLvKx2ZyFU9VFGkd0gscljCi8etvBGE7+ZbSZLa8LCydvDedzLM+2HhRraR758cV0r51Rv7DqRfH2DAjZA76KKeHRA9NrRbMKisbYvzxC8GnJb/BOxBp942usQqpa0HZBczM="
+  - permanent
+      name: "jck-ibm-aix71-ppc64-1"
+      nodeDescription: "AIX 7.1 machine hosted by IBM Garage"
+      labelString: "ci.role.test hw.arch.ppc64 sw.os.aix"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "129.33.196.193"
+          port: "22"
+          credentialsId: "xxxxxxx-xxxx-"
+          javaPath: ""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC4GkmQ7X68j466DbrsXdXl4wBG2qWLOPd0YoYuAJzExewHkGzpdWd3OICeOy3vOg1IjEA5hyxhiu/nHhobxnPX0eM/m9BENgRH+YigOyMa1wfpJptQMbwE+HRQ+zX73hs08mw3obVx/WUieAbnk2XpqeizaDhZO+HtHT1T7JJdrSvzt7jIHb91g5jdU8McpGBPWEvHRE3iVBV725MXLv+ZOdeUWZyMwg2nT+vdgOMTk6yxVJ9uOAmv5yk04YFGx7Dxjz70JYaA3YiOdjeZ6kRoSG2TdvyH+o2DSaydT6RTpgmkSdyQhLIgUV1bOUB/0Xmrr+t51QX+a3yVRodGUd2H"
+  - permanent
+      name: "jck-ibm-aix71-ppc64-1"
+      nodeDescription: "AIX 7.1 machine hosted by IBM Garage"
+      labelString: "ci.role.test hw.arch.ppc64 sw.os.aix"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "129.33.196.194"
+          port: "22"
+          credentialsId: "xxxxxxx-xxxx-"
+          javaPath: ""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNwu6/wfZp6gtGcI5DNPod4ZTBWY4g+JsxUX9Slr9BCLQLSfGwp8T3CH1drwLIxhc0c5O5IeTWbxUdsQBRfRLP92MssN5w2nbuwKZdvyEF8SkdNjEsM7OUmk01cEd99smMr256D0r07ccE0mAmn0teUfCur9qSTynXpie/sfaNzfufedIsC5xu+dbwnEu5FjHjwm8Pwnf16Q6gP7jvtfN5jJvjQmpFOHRgghndumjTVmPLvgGU9IbLLRqK6VBCEow/gMuWX7jULzxhuLZEQ+OIyPR/792D+wE9MjVIXHb25DjUtIhpw5iZMBYcADjlTinDR0HTgUABAbkWGTi22NUZ"
