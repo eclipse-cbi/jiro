@@ -44,6 +44,8 @@ data:
                       key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk11-latest"
                     - home: "/opt/public/common/apache-maven-latest"
                       key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
+                    - home: "/opt/public/common/java/oracle/jdk-8_x64-latest"
+                      key: "hudson.model.JDK$DescriptorImpl@oracle-jdk8-latest"
               - watcher:
                   offlineAddresses: "releng@eclipse.org"
                   onlineAddresses: "releng@eclipse.org"
@@ -130,7 +132,7 @@ data:
                 name: "basic"
                 namespace: "cdo"
                 nodeUsageMode: NORMAL
-                label: ""
+                label: "basic"
                 envVars:
                   - envVar:
                       key: "JAVA_TOOL_OPTIONS"
