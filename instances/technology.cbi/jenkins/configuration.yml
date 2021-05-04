@@ -1,33 +1,6 @@
 jenkins:
   nodes:
   - permanent:
-      launcher:
-        ssh:
-          credentialsId: "78cd25b2-cbb1-4a7f-8888-5f742271148e"
-          host: "mac-tests2"
-          sshHostKeyVerificationStrategy:
-            manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDI1Vs9ZuP6MeO2HbL2se+cXN7/xIQ/08WxTTxKf/6whsaFuFcIEZ7xB1ANeKwLA0mv3HhK43azBIg0Xcwbb9s91wFuiBlASAoLK8NKisyXsoGRjV4ShvzkAWPybQTQi9Z/I5sbMB590qlIu3EIrtRz8O1f0sXMnbZwCm/PMcq72uT5Fykjh7iM1NnEVjfCLECf8cyaHzMWOTkUwjaITuXsaRZHKvzyENejrCOYaO4PMTk0FJfyApB8mzthgtKsfMMrz/ccXNT3o5iC2I3Y1pbsWf1nBkaJD+t1wACkwv0j12BYdlLE6ZEAirvUd2ICy0hgFSyUkxTCW6nT6t+MyTP/"
-      mode: EXCLUSIVE
-      name: "mac-tests2"
-      nodeProperties:
-      - envVars:
-          env:
-          - key: "JAVA_HOME"
-            value: "/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home"
-      - toolLocation:
-          locations:
-          - home: "/shared/common/apache-maven-latest"
-            key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
-          - home: "/usr/bin/git"
-            key: "hudson.plugins.git.GitTool$DescriptorImpl@git"
-          - home: "/shared/common/apache-ant-1.8.4"
-            key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest"
-      - watcher:
-          offlineAddresses: "releng@eclipse.org"
-          onlineAddresses: "releng@eclipse.org"
-      remoteFS: "/Users/genie.cbi"
-  - permanent:
       labelString: "docker-build"
       launcher:
         ssh:
@@ -39,8 +12,9 @@ jenkins:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeTB1LA7FnUI8kNrY8zVx/Ywy1RN4tJj11W9QWFWTr6gAJgSNEneKIa8hnjZEPddYOIsBOQ9VSvgXYGFRKEFXW23zskuWEyCqSZ/e7RTw2VTCh5nfUZlX1eG7iujn1mpineX/+hRR7HtxDM9MPhpbrq6HVjXuSx8mex9vu4p20ZVZkewedmtG2+qYDDTsv8uw0kX+kkyRuE6An14omsCQ+8mJ17zQnGXN2CnrXXMOWbgH9BC8RZUvNZOzNY1JkWf9EqY2Tz3YJPgUM+9qVj3/BEjGopEIUT/jDuk2NnOo+V1GT8aWzwmBjv91F7wgjuQ72cV8GeSbxz0utQ9isuMkp"
       mode: EXCLUSIVE
       name: "fmlw3-ubuntu1804"
-      nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
+      nodeDescription: "4vCPU, 16GB RAM, Hosted @ Azure"
       remoteFS: "/home/genie.cbi/jenkins-agent"
+      numExecutors: 2
       nodeProperties:
       - watcher:
           offlineAddresses: "releng@eclipse.org"
