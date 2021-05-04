@@ -16,6 +16,12 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     staticAgentCount: 1,
     permissions: [
       {
+        principal: "anonymous",
+        grantedPermissions: [
+          "Overall/Read",
+        ]
+      },
+      {
         principal: $.project.unixGroupName,
         grantedPermissions: permissionsTemplates.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger",],
       },
