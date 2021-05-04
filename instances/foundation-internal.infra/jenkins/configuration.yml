@@ -12,8 +12,9 @@ jenkins:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDL8Aa786HyCSHYcj/dSwRpaO5als+/j4YxsbGbuXVZsKsVhJLHZvnihntnvPter9UdodsPF/RjnJXdUsKar1qExhq0uVMPgXSEQlUPd7incDz/cL/yfWEYX1N7PL9cevtYfySTmNpoa7I0khrrfReiR4wr4BbX2CaTE0QAVHYJf5qtylqay3mf7HX1oCjpzp+FbAV5e+RY+rjRg5qdhP9fXVH35cdQh0OhRt1Kr8rrmENdJyyU9ZrLMgIAinfhvmx6anOPIu5MLz+awdfn1/uMkQguWX8Smurs3WYsVvdFwfq5t0PgAUrrOKXcTL/rLAXGeqL1OFdPAWlvs97hMsyn"
       mode: EXCLUSIVE
       name: "mlv8w-ubuntu1804"
-      nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
+      nodeDescription: "4vCPU, 16GB RAM, Hosted @ Azure"
       remoteFS: "/home/genie.infra/jenkins-agent"
+      numExecutors: 2
       nodeProperties:
       - watcher:
           offlineAddresses: "releng@eclipse.org"
