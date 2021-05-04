@@ -118,7 +118,7 @@ data:
             name: "basic"
             namespace: "viatra"
             nodeUsageMode: NORMAL
-            label: ""
+            label: "basic"
             envVars:
             - envVar:
                 key: "JAVA_TOOL_OPTIONS"
@@ -452,7 +452,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/viatra
+        url: https://ci.eclipse.org/viatra
     
       mailer:
         replyToAddress: ci-admin@eclipse.org
@@ -503,7 +503,11 @@ data:
             manageHooks: false
         hookSecretConfigs:
           - credentialsId: "github-webhook-secret"
-        hookUrl: "https://ci-staging.eclipse.org/viatra/github-webhook/"
+        hookUrl: "https://ci.eclipse.org/viatra/github-webhook/"
+    
+      gitSCM:
+        createAccountBasedOnEmail: true
+        useExistingAccountWithSameEmail: true
     
     tool:
       jdk:

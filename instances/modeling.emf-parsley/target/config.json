@@ -98,7 +98,9 @@
                      }
                   ]
                },
-               "labels": [ ],
+               "labels": [
+                  "basic"
+               ],
                "maxHeap": "256m",
                "mode": "NORMAL",
                "name": "basic",
@@ -322,11 +324,11 @@
    "deployment": {
       "cluster": "okd-c1",
       "controlPort": 8081,
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "jnlpPort": 50000,
       "prefix": "/emf-parsley",
       "uiPort": 8080,
-      "url": "https://ci-staging.eclipse.org/emf-parsley"
+      "url": "https://ci.eclipse.org/emf-parsley"
    },
    "docker": {
       "master": {

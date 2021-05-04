@@ -13,7 +13,7 @@
       "namespace": "emf-parsley"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/emf-parsley",
       "port": {
          "targetPort": "http"

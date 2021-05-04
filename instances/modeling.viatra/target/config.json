@@ -98,7 +98,9 @@
                      }
                   ]
                },
-               "labels": [ ],
+               "labels": [
+                  "basic"
+               ],
                "maxHeap": "256m",
                "mode": "NORMAL",
                "name": "basic",
@@ -425,11 +427,11 @@
    "deployment": {
       "cluster": "okd-c1",
       "controlPort": 8081,
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "jnlpPort": 50000,
       "prefix": "/viatra",
       "uiPort": 8080,
-      "url": "https://ci-staging.eclipse.org/viatra"
+      "url": "https://ci.eclipse.org/viatra"
    },
    "docker": {
       "master": {

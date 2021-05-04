@@ -13,7 +13,7 @@
       "namespace": "viatra"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/viatra",
       "port": {
          "targetPort": "http"

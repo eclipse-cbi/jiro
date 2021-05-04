@@ -13,7 +13,7 @@
       "namespace": "cdo"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/cdo",
       "port": {
          "targetPort": "http"
