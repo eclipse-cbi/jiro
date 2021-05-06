@@ -11,17 +11,18 @@ bootstrap4-api 4.6.0-3
 bouncycastle-api 2.20
 branch-api 2.6.2
 build-timeout 1.20
+caffeine-api 2.9.1-23.v51c4e2c879c8
 checks-api 1.7.0
 cloudbees-folder 6.15
 command-launcher 1.5
 conditional-buildstep 1.4.1
 config-file-provider 3.8.0
-configuration-as-code 1.49
+configuration-as-code 1.50
 credentials 2.3.18
 credentials-binding 1.24
 data-tables-api 1.10.23-3
 display-url-api 2.3.4
-durable-task 1.35
+durable-task 1.36
 echarts-api 5.1.0-2
 email-ext 2.82
 extended-read-permission 3.2
@@ -29,7 +30,7 @@ external-monitor-job 1.7
 extra-columns 1.23
 font-awesome-api 5.15.2-2
 forensics-api 1.0.0
-gerrit-trigger 2.33.0
+gerrit-trigger 2.34.0
 ghprb 1.42.2
 git 4.7.1
 git-client 3.7.1
@@ -37,7 +38,7 @@ git-parameter 0.9.13
 git-server 1.9
 github 1.33.1
 github-api 1.123
-github-branch-source 2.9.7
+github-branch-source 2.9.9
 gitlab-api 1.0.6
 gitlab-branch-source 1.5.4
 gitlab-plugin 1.5.13
@@ -117,11 +118,27 @@ xvnc 1.25
 Bundled plugins:
 
 All requested plugins:
-jacoco 3.1.1
+bootstrap4-api 4.6.0-3
+checks-api 1.7.0
+dashboard-view 2.15
+display-url-api 2.3.4
+echarts-api 5.1.0-2
+font-awesome-api 5.15.2-2
+jackson2-api 2.12.3
+jquery3-api 3.6.0-1
+junit 1.49
+plugin-util-api 2.1.0
+popper-api 1.16.1-2
+scm-api 2.6.4
+script-security 1.76
+snakeyaml-api 1.27.0
 structs 1.22
+workflow-api 2.42
+workflow-step-api 2.23
+workflow-support 3.8
 
 Plugins that will be downloaded:
-jacoco 3.1.1
+dashboard-view 2.15
 
 Resulting plugin list:
 ace-editor 1.1
@@ -135,17 +152,19 @@ bootstrap4-api 4.6.0-3
 bouncycastle-api 2.20
 branch-api 2.6.2
 build-timeout 1.20
+caffeine-api 2.9.1-23.v51c4e2c879c8
 checks-api 1.7.0
 cloudbees-folder 6.15
 command-launcher 1.5
 conditional-buildstep 1.4.1
 config-file-provider 3.8.0
-configuration-as-code 1.49
+configuration-as-code 1.50
 credentials 2.3.18
 credentials-binding 1.24
+dashboard-view 2.15
 data-tables-api 1.10.23-3
 display-url-api 2.3.4
-durable-task 1.35
+durable-task 1.36
 echarts-api 5.1.0-2
 email-ext 2.82
 extended-read-permission 3.2
@@ -153,7 +172,7 @@ external-monitor-job 1.7
 extra-columns 1.23
 font-awesome-api 5.15.2-2
 forensics-api 1.0.0
-gerrit-trigger 2.33.0
+gerrit-trigger 2.34.0
 ghprb 1.42.2
 git 4.7.1
 git-client 3.7.1
@@ -161,7 +180,7 @@ git-parameter 0.9.13
 git-server 1.9
 github 1.33.1
 github-api 1.123
-github-branch-source 2.9.7
+github-branch-source 2.9.9
 gitlab-api 1.0.6
 gitlab-branch-source 1.5.4
 gitlab-plugin 1.5.13
@@ -170,7 +189,6 @@ h2-api 1.4.199
 handlebars 3.0.8
 handy-uri-templates-2-api 2.1.8-1.0
 jackson2-api 2.12.3
-jacoco 3.1.1
 javadoc 1.6
 jdk-tool 1.5
 jjwt-api 0.11.2-9.c8b45b8bb173

@@ -5,6 +5,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     fullName: "ecd.che.che4z",
     displayName: "Eclipse Che4z"
   },
+  deployment+: {
+    cluster: "okd-c1"
+  },
   jenkins+: {
     permissions:
       // workaround to avoid errors, when the Gerrit plugin is disabled

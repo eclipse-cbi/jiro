@@ -117,11 +117,13 @@ xvnc 1.25
 Bundled plugins:
 
 All requested plugins:
-jacoco 3.1.1
+embeddable-build-status 2.0.3
+script-security 1.76
 structs 1.22
+workflow-step-api 2.23
 
 Plugins that will be downloaded:
-jacoco 3.1.1
+embeddable-build-status 2.0.3
 
 Resulting plugin list:
 ace-editor 1.1
@@ -148,6 +150,7 @@ display-url-api 2.3.4
 durable-task 1.35
 echarts-api 5.1.0-2
 email-ext 2.82
+embeddable-build-status 2.0.3
 extended-read-permission 3.2
 external-monitor-job 1.7
 extra-columns 1.23
@@ -170,7 +173,6 @@ h2-api 1.4.199
 handlebars 3.0.8
 handy-uri-templates-2-api 2.1.8-1.0
 jackson2-api 2.12.3
-jacoco 3.1.1
 javadoc 1.6
 jdk-tool 1.5
 jjwt-api 0.11.2-9.c8b45b8bb173

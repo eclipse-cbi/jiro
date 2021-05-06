@@ -397,6 +397,10 @@ unclassified:
       - credentialsId: "github-webhook-secret"
     hookUrl: "https://ci.eclipse.org/glsp/github-webhook/"
 
+  gitSCM:
+    createAccountBasedOnEmail: true
+    useExistingAccountWithSameEmail: true
+
 tool:
   jdk:
     installations:

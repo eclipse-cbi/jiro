@@ -320,7 +320,7 @@
       }
    },
    "deployment": {
-      "cluster": "ci-c1",
+      "cluster": "okd-c1",
       "controlPort": 8081,
       "host": "ci.eclipse.org",
       "jnlpPort": 50000,
@@ -614,10 +614,10 @@
             "servers": {
                "https://index.docker.io/v1/": {
                   "password": {
-                     "pass": "docker.com/default-image-puller/ci-c1/password"
+                     "pass": "docker.com/default-image-puller/okd-c1/password"
                   },
                   "username": {
-                     "pass": "docker.com/default-image-puller/ci-c1/username"
+                     "pass": "docker.com/default-image-puller/okd-c1/username"
                   }
                }
             },
@@ -631,10 +631,10 @@
             "servers": {
                "https://index.docker.io/v1/": {
                   "password": {
-                     "pass": "docker.com/default-image-puller/ci-c1/password"
+                     "pass": "docker.com/default-image-puller/okd-c1/password"
                   },
                   "username": {
-                     "pass": "docker.com/default-image-puller/ci-c1/username"
+                     "pass": "docker.com/default-image-puller/okd-c1/username"
                   }
                }
             },

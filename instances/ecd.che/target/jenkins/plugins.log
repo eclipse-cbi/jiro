@@ -117,11 +117,14 @@ xvnc 1.25
 Bundled plugins:
 
 All requested plugins:
-jacoco 3.1.1
+job-dsl 1.77
+purge-build-queue-plugin 1.0
+script-security 1.76
 structs 1.22
 
 Plugins that will be downloaded:
-jacoco 3.1.1
+job-dsl 1.77
+purge-build-queue-plugin 1.0
 
 Resulting plugin list:
 ace-editor 1.1
@@ -170,10 +173,10 @@ h2-api 1.4.199
 handlebars 3.0.8
 handy-uri-templates-2-api 2.1.8-1.0
 jackson2-api 2.12.3
-jacoco 3.1.1
 javadoc 1.6
 jdk-tool 1.5
 jjwt-api 0.11.2-9.c8b45b8bb173
+job-dsl 1.77
 jobConfigHistory 2.27
 jquery 1.12.4-1
 jquery3-api 3.6.0-1
@@ -208,6 +211,7 @@ plain-credentials 1.7
 plugin-util-api 2.1.0
 popper-api 1.16.1-2
 promoted-builds 3.9.1
+purge-build-queue-plugin 1.0
 rebuild 1.32
 resource-disposer 0.15
 run-condition 1.5
