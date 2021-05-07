@@ -13,7 +13,7 @@
       "namespace": "temurin-compliance"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/temurin-compliance",
       "port": {
          "targetPort": "http"

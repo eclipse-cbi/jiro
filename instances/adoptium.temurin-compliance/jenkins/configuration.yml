@@ -1,5 +1,3 @@
-jenkins:
-
 security:
   globalJobDslSecurityConfiguration:
     useScriptSecurity: false
@@ -10,6 +8,7 @@ tool:
     - name: "default"
       home: ""
 
+jenkins:
   nodes:
   - permanent:
       name: "jck-packet-ubuntu2004-x64-1"

@@ -41,7 +41,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     ],
   },
   deployment+: {
-    host: "ci-staging.eclipse.org",
     cluster: "okd-c1",
   }
 }
