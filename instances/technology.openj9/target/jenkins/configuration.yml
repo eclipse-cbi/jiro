@@ -901,6 +901,86 @@ jenkins:
                 - key: "TEMP"
                   value: "c:\\temp"
     - permanent:
+        name: "win2012-x86-7"
+        nodeDescription: "oj9-win2012-7 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
+        labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build ci.role.test"
+        remoteFS: 'F:\Users\jenkins'
+        numExecutors: 1
+        mode: NORMAL
+        retentionStrategy: "always"
+        launcher:
+          command:
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.48.12.135 \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
+        nodeProperties:
+          - envVars:
+              env:
+                - key: "TEMP"
+                  value: "c:\\temp"
+    - permanent:
+        name: "win2012-x86-8"
+        nodeDescription: "oj9-win2012-8 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
+        labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build ci.role.test"
+        remoteFS: 'F:\Users\jenkins'
+        numExecutors: 1
+        mode: NORMAL
+        retentionStrategy: "always"
+        launcher:
+          command:
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.48.12.151 \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
+        nodeProperties:
+          - envVars:
+              env:
+                - key: "TEMP"
+                  value: "c:\\temp"
+    - permanent:
+        name: "win2012-x86-9"
+        nodeDescription: "oj9-win2012-9 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
+        labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build ci.role.test"
+        remoteFS: 'F:\Users\jenkins'
+        numExecutors: 1
+        mode: NORMAL
+        retentionStrategy: "always"
+        launcher:
+          command:
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.48.12.158 \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
+        nodeProperties:
+          - envVars:
+              env:
+                - key: "TEMP"
+                  value: "c:\\temp"
+    - permanent:
+        name: "win2012-x86-10"
+        nodeDescription: "oj9-win2012-10 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
+        labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build ci.role.test"
+        remoteFS: 'F:\Users\jenkins'
+        numExecutors: 1
+        mode: NORMAL
+        retentionStrategy: "always"
+        launcher:
+          command:
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.48.12.132 \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
+        nodeProperties:
+          - envVars:
+              env:
+                - key: "TEMP"
+                  value: "c:\\temp"
+    - permanent:
+        name: "win2012-x86-11"
+        nodeDescription: "oj9-win2012-11 - Windows Server 2012 R2 - 8CPU 8GB Ram 100GB Disk"
+        labelString: "hw.arch.x86 sw.os.windows sw.os.windows.2012 ci.geo.softlayer ci.role.build ci.role.test"
+        remoteFS: 'F:\Users\jenkins'
+        numExecutors: 1
+        mode: NORMAL
+        retentionStrategy: "always"
+        launcher:
+          command:
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.openj9 jenkins@169.48.12.139 \"curl --output slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; exec java -jar slave.jar\""
+        nodeProperties:
+          - envVars:
+              env:
+                - key: "TEMP"
+                  value: "c:\\temp"
+    - permanent:
         name: "worker-1"
         nodeDescription: "eclipse-openj9-proxy Linux PPC64LE Ubuntu 16.04. 4CPU 8GB Ram 78GB Disk"
         labelString: "docker proxy worker ci.geo.osu proxy artifactory"
@@ -1051,7 +1131,7 @@ jenkins:
             name: "basic"
             namespace: "openj9"
             nodeUsageMode: NORMAL
-            label: ""
+            label: "basic"
             envVars:
               - envVar:
                   key: "JAVA_TOOL_OPTIONS"
@@ -1349,6 +1429,9 @@ unclassified:
     hookSecretConfigs:
       - credentialsId: "github-webhook-secret"
     hookUrl: "https://ci.eclipse.org/openj9/github-webhook/"
+  gitSCM:
+    createAccountBasedOnEmail: true
+    useExistingAccountWithSameEmail: true
 tool:
   xvfbInstallation:
     installations:
