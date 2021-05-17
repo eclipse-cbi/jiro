@@ -1031,6 +1031,28 @@ unclassified:
   slackNotifier:
     teamDomain: "openj9"
     tokenCredentialId: "slack-token"
+  globalLibraries:
+    libraries:
+    - defaultVersion: "master"
+      name: "openjdk-jenkins-helper"
+      retriever:
+        modernSCM:
+          scm:
+            github:
+              configuredByUrl: true
+              credentialsId: "github-bot"
+              id: "f122a373-6034-4231-bcff-269916e95ace"
+              repoOwner: "adoptium"
+              repository: "jenkins-helper"
+              repositoryUrl: "https://github.com/adoptium/jenkins-helper.git"
+              traits:
+              - gitHubBranchDiscovery:
+                  strategyId: 1
+              - gitHubPullRequestDiscovery:
+                  strategyId: 1
+              - gitHubForkDiscovery:
+                  strategyId: 1
+                  trust: "gitHubTrustPermissions"
 
 tool:
   xvfbInstallation:
