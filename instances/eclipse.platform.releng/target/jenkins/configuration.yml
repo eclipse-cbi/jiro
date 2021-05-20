@@ -102,6 +102,47 @@ jenkins:
               offlineAddresses: "releng@eclipse.org"
               onlineAddresses: "releng@eclipse.org"
     - permanent:
+        name: "rs68g-win10"
+        nodeDescription: "Windows 10 Pro, hosted on Azure"
+        labelString: "windows"
+        remoteFS: 'C:\Users\genie.releng\ci'
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "13.68.249.87"
+            port: "22"
+            credentialsId: "rs68g-win10-ssh"
+            javaPath: 'C:\Program Files\AdoptOpenJDK\jdk-8.0.292.10-hotspot\bin\java.exe'
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDAkHWAKiWv/T3uaCBj8RdbPR4BW3GBdb5Digq4lpwnFc5xCLCZ/Wke6GBEBlai+zJndjm5sNYgKAAGUOFvW1t0ZCFxgS+uZ+tu2eyDoGyCAvS+XzbzN4pEGf3x/2GJE2aWoesrdx/Uhc/8J3cZG04Fy1SsllW36j4e/20PnZaCtPRBuU/9ZlX4pUDKIUDV+7ejOTTViAzxV0IqUQagiKLv1rxgkRQRgy49+oszYbTFmO7Sqy8L20sSRpSjO0eym6CTpbdjJSm70ZjlJNFocwREmlISNtdPPzY56NWQKf6qpzTlw94zZGVV/0WNdapn3pWS3OLIttVB1C1f1nHBdwvmooFgFiTJzfWaqY9wZFy+jNDi8BHHauLYySIh2PT65XWltnnJcwPM/87nk0hESuBglq3580mGbqoqYmoYhVOsJgn0r0HOHoCsfrUkk9EbUzuUh4TmbR9d6c+zrXe/p6XW8MNNoD1FC+IpruUiEIK9sJ25LAdeXP0hupL9SbddlCc="
+        nodeProperties:
+          - envVars:
+              env:
+                - key: "JAVA_HOME"
+                  value: 'C:\Program Files\AdoptOpenJDK\jdk-8.0.292.10-hotspot'
+                - key: "PATH"
+                  value: 'C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\ProgramData\GooGet;C:\Users\SSHD\AppData\Local\Microsoft\WindowsApps;C:\ProgramData\chocolatey\bin'
+                - key: "VS90_HOME"
+                  value: 'C:\Program Files (x86)\Microsoft Visual Studio\2019'
+                - key: "VS90COMNTOOLS"
+                  value: 'C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools'
+          - toolLocation:
+              locations:
+                - home: 'C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.1\bin\mvn.cmd'
+                  key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
+                - home: 'C:\ProgramData\chocolatey\bin\ant.bat'
+                  key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-1.9.6"
+                - home: 'C:\Program Files\AdoptOpenJDK\jdk-8.0.292.10-hotspot\bin\java'
+                  key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
+                - home: 'C:\tools\cygwin\bin\git'
+                  key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+          - watcher:
+              offlineAddresses: "releng@eclipse.org"
+              onlineAddresses: "releng@eclipse.org"
+    - permanent:
         name: "zyt5z-centos7"
         nodeDescription: "Dedicated agent for performance tests, hosted on Azure"
         labelString: "performance docker-build"
@@ -332,7 +373,7 @@ jenkins:
             name: "basic"
             namespace: "releng"
             nodeUsageMode: NORMAL
-            label: ""
+            label: "basic"
             envVars:
               - envVar:
                   key: "JAVA_TOOL_OPTIONS"
