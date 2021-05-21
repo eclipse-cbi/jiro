@@ -98,7 +98,9 @@
                      }
                   ]
                },
-               "labels": [ ],
+               "labels": [
+                  "basic"
+               ],
                "maxHeap": "256m",
                "mode": "NORMAL",
                "name": "basic",
@@ -400,7 +402,9 @@
             "principal": "ecd.glsp"
          }
       ],
-      "plugins": [ ],
+      "plugins": [
+         "github-checks"
+      ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",

@@ -118,7 +118,7 @@ data:
             name: "basic"
             namespace: "glsp"
             nodeUsageMode: NORMAL
-            label: ""
+            label: "basic"
             envVars:
             - envVar:
                 key: "JAVA_TOOL_OPTIONS"

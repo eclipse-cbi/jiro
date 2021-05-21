@@ -6,4 +6,9 @@
   deployment+: {
     cluster: "okd-c1"
   },
+  jenkins+: {
+    plugins+: [
+      "github-checks",
+    ],
+  },
 }
