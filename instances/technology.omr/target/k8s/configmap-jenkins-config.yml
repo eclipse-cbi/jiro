@@ -614,7 +614,7 @@ data:
                 name: "basic"
                 namespace: "omr"
                 nodeUsageMode: NORMAL
-                label: ""
+                label: "basic"
                 envVars:
                   - envVar:
                       key: "JAVA_TOOL_OPTIONS"
@@ -907,6 +907,9 @@ data:
         hookSecretConfigs:
           - credentialsId: "github-webhook-secret"
         hookUrl: "https://ci.eclipse.org/omr/github-webhook/"
+      gitSCM:
+        createAccountBasedOnEmail: true
+        useExistingAccountWithSameEmail: true
     tool:
       jdk:
         installations:
@@ -1007,6 +1010,8 @@ data:
         installations:
           - name: "apache-maven-latest"
             home: "/opt/tools/apache-maven/latest"
+          - name: "apache-maven-3.8.1"
+            home: "/opt/tools/apache-maven/3.8.1"
           - name: "apache-maven-3.6.3"
             home: "/opt/tools/apache-maven/3.6.3"
           - name: "apache-maven-3.6.0"

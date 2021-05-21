@@ -1,4 +1,12 @@
 # GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
 jenkins:
   nodes:
     - permanent:
@@ -114,7 +122,7 @@ jenkins:
             host: "13.68.249.87"
             port: "22"
             credentialsId: "rs68g-win10-ssh"
-            javaPath: 'C:\Program Files\AdoptOpenJDK\jdk-8.0.292.10-hotspot\bin\java.exe'
+            javaPath: '"C:\Program Files\AdoptOpenJDK\jdk-8.0.292.10-hotspot\bin\java.exe"'
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDAkHWAKiWv/T3uaCBj8RdbPR4BW3GBdb5Digq4lpwnFc5xCLCZ/Wke6GBEBlai+zJndjm5sNYgKAAGUOFvW1t0ZCFxgS+uZ+tu2eyDoGyCAvS+XzbzN4pEGf3x/2GJE2aWoesrdx/Uhc/8J3cZG04Fy1SsllW36j4e/20PnZaCtPRBuU/9ZlX4pUDKIUDV+7ejOTTViAzxV0IqUQagiKLv1rxgkRQRgy49+oszYbTFmO7Sqy8L20sSRpSjO0eym6CTpbdjJSm70ZjlJNFocwREmlISNtdPPzY56NWQKf6qpzTlw94zZGVV/0WNdapn3pWS3OLIttVB1C1f1nHBdwvmooFgFiTJzfWaqY9wZFy+jNDi8BHHauLYySIh2PT65XWltnnJcwPM/87nk0hESuBglq3580mGbqoqYmoYhVOsJgn0r0HOHoCsfrUkk9EbUzuUh4TmbR9d6c+zrXe/p6XW8MNNoD1FC+IpruUiEIK9sJ25LAdeXP0hupL9SbddlCc="
@@ -805,6 +813,8 @@ tool:
     installations:
       - name: "apache-maven-latest"
         home: "/opt/tools/apache-maven/latest"
+      - name: "apache-maven-3.8.1"
+        home: "/opt/tools/apache-maven/3.8.1"
       - name: "apache-maven-3.6.3"
         home: "/opt/tools/apache-maven/3.6.3"
       - name: "apache-maven-3.6.0"

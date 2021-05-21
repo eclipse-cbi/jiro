@@ -107,6 +107,8 @@ tool:
     installations:
       - name: "apache-maven-latest"
         home: "/opt/tools/apache-maven/latest"
+      - name: "apache-maven-3.8.1"
+        home: "/opt/tools/apache-maven/3.8.1"
       - name: "apache-maven-3.6.3"
         home: "/opt/tools/apache-maven/3.6.3"
       - name: "apache-maven-3.6.0"
@@ -212,7 +214,7 @@ jenkins:
             name: "basic"
             namespace: "paho"
             nodeUsageMode: NORMAL
-            label: ""
+            label: "basic"
             envVars:
               - envVar:
                   key: "JAVA_TOOL_OPTIONS"
@@ -505,3 +507,6 @@ unclassified:
     hookSecretConfigs:
       - credentialsId: "github-webhook-secret"
     hookUrl: "https://ci.eclipse.org/paho/github-webhook/"
+  gitSCM:
+    createAccountBasedOnEmail: true
+    useExistingAccountWithSameEmail: true

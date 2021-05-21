@@ -22,6 +22,14 @@ metadata:
 data:
   jenkins.yaml: |
     # GENERATED FILE - DO NOT EDIT
+    #*******************************************************************************
+    # Copyright (c) 2018 Eclipse Foundation and others.
+    # This program and the accompanying materials are made available
+    # under the terms of the Eclipse Public License 2.0
+    # which is available at http://www.eclipse.org/legal/epl-v20.html,
+    # or the MIT License which is available at https://opensource.org/licenses/MIT.
+    # SPDX-License-Identifier: EPL-2.0 OR MIT
+    #*******************************************************************************
     jenkins:
       nodes:
         - permanent:
@@ -122,7 +130,7 @@ data:
                 name: "basic"
                 namespace: "kuksa"
                 nodeUsageMode: NORMAL
-                label: ""
+                label: "basic"
                 envVars:
                   - envVar:
                       key: "JAVA_TOOL_OPTIONS"
@@ -518,6 +526,8 @@ data:
         installations:
           - name: "apache-maven-latest"
             home: "/opt/tools/apache-maven/latest"
+          - name: "apache-maven-3.8.1"
+            home: "/opt/tools/apache-maven/3.8.1"
           - name: "apache-maven-3.6.3"
             home: "/opt/tools/apache-maven/3.6.3"
           - name: "apache-maven-3.6.0"

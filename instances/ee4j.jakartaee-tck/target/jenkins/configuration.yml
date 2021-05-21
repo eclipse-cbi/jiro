@@ -84,8 +84,8 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitCpu: "4380m"
-          resourceRequestCpu: "4080m"
+          resourceLimitCpu: "4460m"
+          resourceRequestCpu: "4160m"
           resourceLimitMemory: "16384Mi"
           resourceRequestMemory: "16384Mi"
           ttyEnabled: true
@@ -95,7 +95,7 @@ jenkins:
         name: "basic"
         namespace: "jakartaee-tck"
         nodeUsageMode: NORMAL
-        label: ""
+        label: "basic"
         envVars:
         - envVar:
             key: "JAVA_TOOL_OPTIONS"
@@ -169,8 +169,8 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitCpu: "4380m"
-          resourceRequestCpu: "4080m"
+          resourceLimitCpu: "4460m"
+          resourceRequestCpu: "4160m"
           resourceLimitMemory: "16384Mi"
           resourceRequestMemory: "16384Mi"
           ttyEnabled: true
@@ -254,8 +254,8 @@ jenkins:
             successThreshold: 0
             timeoutSeconds: 0
           name: "jnlp"
-          resourceLimitCpu: "4380m"
-          resourceRequestCpu: "4080m"
+          resourceLimitCpu: "4460m"
+          resourceRequestCpu: "4160m"
           resourceLimitMemory: "16384Mi"
           resourceRequestMemory: "16384Mi"
           ttyEnabled: true
@@ -397,6 +397,10 @@ unclassified:
       - credentialsId: "github-webhook-secret"
     hookUrl: "https://ci.eclipse.org/jakartaee-tck/github-webhook/"
 
+  gitSCM:
+    createAccountBasedOnEmail: true
+    useExistingAccountWithSameEmail: true
+
 tool:
   jdk:
     installations:
@@ -497,6 +501,8 @@ tool:
     installations:
     - name: "apache-maven-latest"
       home: "/opt/tools/apache-maven/latest"
+    - name: "apache-maven-3.8.1"
+      home: "/opt/tools/apache-maven/3.8.1"
     - name: "apache-maven-3.6.3"
       home: "/opt/tools/apache-maven/3.6.3"
     - name: "apache-maven-3.6.0"

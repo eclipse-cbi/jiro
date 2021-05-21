@@ -55,8 +55,8 @@
                "kubernetes": {
                   "resources": {
                      "cpu": {
-                        "limit": "4380m",
-                        "request": "4080m"
+                        "limit": "4460m",
+                        "request": "4160m"
                      },
                      "memory": {
                         "limit": "16384Mi",
@@ -98,7 +98,9 @@
                      }
                   ]
                },
-               "labels": [ ],
+               "labels": [
+                  "basic"
+               ],
                "maxHeap": "256m",
                "mode": "NORMAL",
                "name": "basic",
@@ -156,8 +158,8 @@
                "kubernetes": {
                   "resources": {
                      "cpu": {
-                        "limit": "4380m",
-                        "request": "4080m"
+                        "limit": "4460m",
+                        "request": "4160m"
                      },
                      "memory": {
                         "limit": "16384Mi",
@@ -253,8 +255,8 @@
                "kubernetes": {
                   "resources": {
                      "cpu": {
-                        "limit": "4380m",
-                        "request": "4080m"
+                        "limit": "4460m",
+                        "request": "4160m"
                      },
                      "memory": {
                         "limit": "16384Mi",
@@ -428,8 +430,8 @@
       "id": "2.263.3",
       "key_fingerprint": "FCEF32E745F2C3D5",
       "plugin_manager": {
-         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.5.0/jenkins-plugin-manager-2.5.0.jar",
-         "version": "2.5.0"
+         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.9.0/jenkins-plugin-manager-2.9.0.jar",
+         "version": "2.9.0"
       },
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
@@ -453,7 +455,7 @@
          "git-parameter",
          "github",
          "github-branch-source",
-         "gitlab-plugin",
+         "gitlab-plugin:1.5.13",
          "gitlab-branch-source",
          "greenballs",
          "jdk-tool",
@@ -498,8 +500,8 @@
       "agents": {
          "defaultResources": {
             "cpu": {
-               "limit": "4380m",
-               "request": "4080m"
+               "limit": "4460m",
+               "request": "4160m"
             },
             "memory": {
                "limit": "16384Mi",
@@ -588,7 +590,7 @@
    "project": {
       "displayName": "Eclipse Jakarta EE TCK",
       "fullName": "ee4j.jakartaee-tck",
-      "resourcePacks": 51,
+      "resourcePacks": 52,
       "shortName": "jakartaee-tck",
       "unixGroupName": "ee4j.jakartaee-tck"
    },

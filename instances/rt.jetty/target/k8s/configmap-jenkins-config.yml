@@ -194,7 +194,7 @@ data:
             name: "basic"
             namespace: "jetty"
             nodeUsageMode: NORMAL
-            label: ""
+            label: "basic"
             envVars:
             - envVar:
                 key: "JAVA_TOOL_OPTIONS"
@@ -600,6 +600,8 @@ data:
         installations:
         - name: "apache-maven-latest"
           home: "/opt/tools/apache-maven/latest"
+        - name: "apache-maven-3.8.1"
+          home: "/opt/tools/apache-maven/3.8.1"
         - name: "apache-maven-3.6.3"
           home: "/opt/tools/apache-maven/3.6.3"
         - name: "apache-maven-3.6.0"

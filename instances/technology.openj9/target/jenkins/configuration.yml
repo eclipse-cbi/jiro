@@ -1,4 +1,12 @@
 # GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
 jenkins:
   nodes:
     - permanent:
@@ -1382,6 +1390,28 @@ unclassified:
   slackNotifier:
     teamDomain: "openj9"
     tokenCredentialId: "slack-token"
+  globalLibraries:
+    libraries:
+      - defaultVersion: "master"
+        name: "openjdk-jenkins-helper"
+        retriever:
+          modernSCM:
+            scm:
+              github:
+                configuredByUrl: true
+                credentialsId: "github-bot"
+                id: "f122a373-6034-4231-bcff-269916e95ace"
+                repoOwner: "adoptium"
+                repository: "jenkins-helper"
+                repositoryUrl: "https://github.com/adoptium/jenkins-helper.git"
+                traits:
+                  - gitHubBranchDiscovery:
+                      strategyId: 1
+                  - gitHubPullRequestDiscovery:
+                      strategyId: 1
+                  - gitHubForkDiscovery:
+                      strategyId: 1
+                      trust: "gitHubTrustPermissions"
   location:
     adminAddress: ci-admin@eclipse.org
     url: https://ci.eclipse.org/openj9
@@ -1536,6 +1566,8 @@ tool:
     installations:
       - name: "apache-maven-latest"
         home: "/opt/tools/apache-maven/latest"
+      - name: "apache-maven-3.8.1"
+        home: "/opt/tools/apache-maven/3.8.1"
       - name: "apache-maven-3.6.3"
         home: "/opt/tools/apache-maven/3.6.3"
       - name: "apache-maven-3.6.0"

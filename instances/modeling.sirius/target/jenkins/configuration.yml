@@ -95,7 +95,7 @@ jenkins:
         name: "basic"
         namespace: "sirius"
         nodeUsageMode: NORMAL
-        label: ""
+        label: "basic"
         envVars:
         - envVar:
             key: "JAVA_TOOL_OPTIONS"
@@ -397,6 +397,10 @@ unclassified:
       - credentialsId: "github-webhook-secret"
     hookUrl: "https://ci.eclipse.org/sirius/github-webhook/"
 
+  gitSCM:
+    createAccountBasedOnEmail: true
+    useExistingAccountWithSameEmail: true
+
 tool:
   jdk:
     installations:
@@ -497,6 +501,8 @@ tool:
     installations:
     - name: "apache-maven-latest"
       home: "/opt/tools/apache-maven/latest"
+    - name: "apache-maven-3.8.1"
+      home: "/opt/tools/apache-maven/3.8.1"
     - name: "apache-maven-3.6.3"
       home: "/opt/tools/apache-maven/3.6.3"
     - name: "apache-maven-3.6.0"
