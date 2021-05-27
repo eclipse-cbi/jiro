@@ -1,6 +1,6 @@
 {
   project+: {
-    fullName: "ee4j.jms",
+    fullName: "ee4j.messaging",
     displayName: "Jakarta Messaging",
   },
   deployment+: {

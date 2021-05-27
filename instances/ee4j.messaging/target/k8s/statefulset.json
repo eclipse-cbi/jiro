@@ -3,27 +3,27 @@
    "kind": "StatefulSet",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jms",
-         "org.eclipse.cbi.jiro/project.shortname": "jms"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.messaging",
+         "org.eclipse.cbi.jiro/project.shortname": "messaging"
       },
-      "name": "jms",
-      "namespace": "jms"
+      "name": "messaging",
+      "namespace": "messaging"
    },
    "spec": {
       "replicas": 1,
       "selector": {
          "matchLabels": {
-            "org.eclipse.cbi.jiro/project.fullName": "ee4j.jms"
+            "org.eclipse.cbi.jiro/project.fullName": "ee4j.messaging"
          }
       },
-      "serviceName": "jms",
+      "serviceName": "messaging",
       "template": {
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "ee4j.jms",
-               "org.eclipse.cbi.jiro/project.shortname": "jms"
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j.messaging",
+               "org.eclipse.cbi.jiro/project.shortname": "messaging"
             },
-            "name": "jms"
+            "name": "messaging"
          },
          "spec": {
             "affinity": {
@@ -51,11 +51,11 @@
                   "env": [
                      {
                         "name": "JAVA_OPTS",
-                        "value": "-showversion -XshowSettings:vm -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -XX:+DisableExplicitGC -Duser.timezone=America/Toronto -Dhudson.footerURL=https://ci.eclipse.org -Dhudson.model.UsageStatistics.disabled=true -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Djenkins.model.Jenkins.exitCodeOnRestart=0 -Djenkins.model.Jenkins.slaveAgentPort=50000 -Djenkins.model.Jenkins.slaveAgentPortEnforce=true -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false -Djenkins.install.runSetupWizard=false -Djenkins.ui.refresh=true -Djenkins.security.ManagePermission=true -DexecutableWar.jetty.disableCustomSessionIdCookieName=false -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.jms -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml -Dio.jenkins.plugins.casc.ConfigurationAsCode.initialDelay=5000 -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=docker.io/eclipsecbi/jiro-agent-basic:remoting-4.5 -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180 -Dkubernetes.websocket.ping.interval=30000"
+                        "value": "-showversion -XshowSettings:vm -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -XX:+DisableExplicitGC -Duser.timezone=America/Toronto -Dhudson.footerURL=https://ci.eclipse.org -Dhudson.model.UsageStatistics.disabled=true -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Djenkins.model.Jenkins.exitCodeOnRestart=0 -Djenkins.model.Jenkins.slaveAgentPort=50000 -Djenkins.model.Jenkins.slaveAgentPortEnforce=true -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false -Djenkins.install.runSetupWizard=false -Djenkins.ui.refresh=true -Djenkins.security.ManagePermission=true -DexecutableWar.jetty.disableCustomSessionIdCookieName=false -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.messaging -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml -Dio.jenkins.plugins.casc.ConfigurationAsCode.initialDelay=5000 -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=docker.io/eclipsecbi/jiro-agent-basic:remoting-4.5 -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180 -Dkubernetes.websocket.ping.interval=30000"
                      },
                      {
                         "name": "JENKINS_OPTS",
-                        "value": "--prefix=/jms --webroot=/var/cache/jenkins/war --pluginroot=/var/cache/jenkins/plugins --controlPort=8081"
+                        "value": "--prefix=/messaging --webroot=/var/cache/jenkins/war --pluginroot=/var/cache/jenkins/plugins --controlPort=8081"
                      },
                      {
                         "name": "PLUGINS_FORCE_UPGRADE",
@@ -66,7 +66,7 @@
                         "value": "true"
                      }
                   ],
-                  "image": "docker.io/eclipsecbijenkins/ee4j.jms:2.263.3",
+                  "image": "docker.io/eclipsecbijenkins/ee4j.messaging:2.263.3",
                   "imagePullPolicy": "Always",
                   "lifecycle": {
                      "preStop": {
@@ -82,7 +82,7 @@
                   "livenessProbe": {
                      "failureThreshold": 5,
                      "httpGet": {
-                        "path": "/jms/login",
+                        "path": "/messaging/login",
                         "port": 8080,
                         "scheme": "HTTP"
                      },
@@ -145,7 +145,7 @@
                   ]
                }
             ],
-            "serviceAccountName": "jms",
+            "serviceAccountName": "messaging",
             "terminationGracePeriodSeconds": 1200,
             "volumes": [
                {

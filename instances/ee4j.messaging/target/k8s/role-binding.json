@@ -3,22 +3,22 @@
    "kind": "RoleBinding",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jms",
-         "org.eclipse.cbi.jiro/project.shortname": "jms"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.messaging",
+         "org.eclipse.cbi.jiro/project.shortname": "messaging"
       },
-      "name": "jms",
-      "namespace": "jms"
+      "name": "messaging",
+      "namespace": "messaging"
    },
    "roleRef": {
       "kind": "Role",
       "name": "jenkins-master-owner",
-      "namespace": "jms"
+      "namespace": "messaging"
    },
    "subjects": [
       {
          "kind": "ServiceAccount",
-         "name": "jms",
-         "namespace": "jms"
+         "name": "messaging",
+         "namespace": "messaging"
       }
    ]
 }

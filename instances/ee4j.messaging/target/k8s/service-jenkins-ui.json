@@ -3,11 +3,11 @@
    "kind": "Service",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jms",
-         "org.eclipse.cbi.jiro/project.shortname": "jms"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.messaging",
+         "org.eclipse.cbi.jiro/project.shortname": "messaging"
       },
       "name": "jenkins-ui",
-      "namespace": "jms"
+      "namespace": "messaging"
    },
    "spec": {
       "ports": [
@@ -19,7 +19,7 @@
          }
       ],
       "selector": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jms"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.messaging"
       }
    }
 }

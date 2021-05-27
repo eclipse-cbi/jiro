@@ -6,10 +6,10 @@
          "kind": "PersistentVolume",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "ee4j.jms",
-               "org.eclipse.cbi.jiro/project.shortname": "jms"
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j.messaging",
+               "org.eclipse.cbi.jiro/project.shortname": "messaging"
             },
-            "name": "tools-jiro-jms"
+            "name": "tools-jiro-messaging"
          },
          "spec": {
             "accessModes": [
@@ -19,8 +19,8 @@
                "storage": "20Gi"
             },
             "claimRef": {
-               "name": "tools-claim-jiro-jms",
-               "namespace": "jms"
+               "name": "tools-claim-jiro-messaging",
+               "namespace": "messaging"
             },
             "nfs": {
                "path": "/home/data/c1-ci.eclipse.org/buildtools",
@@ -35,11 +35,11 @@
          "kind": "PersistentVolumeClaim",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "ee4j.jms",
-               "org.eclipse.cbi.jiro/project.shortname": "jms"
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j.messaging",
+               "org.eclipse.cbi.jiro/project.shortname": "messaging"
             },
-            "name": "tools-claim-jiro-jms",
-            "namespace": "jms"
+            "name": "tools-claim-jiro-messaging",
+            "namespace": "messaging"
          },
          "spec": {
             "accessModes": [

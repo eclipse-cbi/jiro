@@ -3,11 +3,11 @@
    "kind": "Role",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jms",
-         "org.eclipse.cbi.jiro/project.shortname": "jms"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.messaging",
+         "org.eclipse.cbi.jiro/project.shortname": "messaging"
       },
       "name": "jenkins-master-owner",
-      "namespace": "jms"
+      "namespace": "messaging"
    },
    "rules": [
       {

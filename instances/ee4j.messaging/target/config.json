@@ -2,18 +2,18 @@
    "accessControl": {
       "primaryGroup": {
          "id": -1,
-         "name": "ee4j.jms"
+         "name": "ee4j.messaging"
       },
       "supplementalGroups": [ ],
       "user": {
          "id": -1,
-         "name": "genie.jms"
+         "name": "genie.messaging"
       }
    },
    "clouds": {
       "kubernetes": {
          "kind": "kubernetes",
-         "namespace": "jms",
+         "namespace": "messaging",
          "podRetention": "never",
          "templates": {
             "basic": {
@@ -98,7 +98,9 @@
                      }
                   ]
                },
-               "labels": [ ],
+               "labels": [
+                  "basic"
+               ],
                "maxHeap": "256m",
                "mode": "NORMAL",
                "name": "basic",
@@ -324,14 +326,14 @@
       "controlPort": 8081,
       "host": "ci.eclipse.org",
       "jnlpPort": 50000,
-      "prefix": "/jms",
+      "prefix": "/messaging",
       "uiPort": 8080,
-      "url": "https://ci.eclipse.org/jms"
+      "url": "https://ci.eclipse.org/messaging"
    },
    "docker": {
       "master": {
          "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.263.3\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
-         "image": "ee4j.jms",
+         "image": "ee4j.messaging",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
          "tag": "2.263.3"
@@ -397,7 +399,7 @@
                "Gerrit/ManualTrigger",
                "Gerrit/Retrigger"
             ],
-            "principal": "ee4j.jms"
+            "principal": "ee4j.messaging"
          }
       ],
       "plugins": [ ],
@@ -420,8 +422,8 @@
       "id": "2.263.3",
       "key_fingerprint": "FCEF32E745F2C3D5",
       "plugin_manager": {
-         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.5.0/jenkins-plugin-manager-2.5.0.jar",
-         "version": "2.5.0"
+         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.9.0/jenkins-plugin-manager-2.9.0.jar",
+         "version": "2.9.0"
       },
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
@@ -445,7 +447,7 @@
          "git-parameter",
          "github",
          "github-branch-source",
-         "gitlab-plugin",
+         "gitlab-plugin:1.5.13",
          "gitlab-branch-source",
          "greenballs",
          "jdk-tool",
@@ -498,10 +500,10 @@
                "request": "4096Mi"
             }
          },
-         "namespace": "jms"
+         "namespace": "messaging"
       },
       "master": {
-         "namespace": "jms",
+         "namespace": "messaging",
          "probe": {
             "liveness": {
                "delaySeconds": 480,
@@ -526,14 +528,14 @@
                "request": "1536Mi"
             }
          },
-         "stsName": "jms"
+         "stsName": "messaging"
       }
    },
    "maven": {
       "files": {
          "settings-security.xml": {
             "master": {
-               "pass": "bots/ee4j.jms/apache-maven-security-settings"
+               "pass": "bots/ee4j.messaging/apache-maven-security-settings"
             }
          },
          "settings.xml": {
@@ -548,16 +550,16 @@
             "servers": {
                "gpg.passphrase": {
                   "passphrase": {
-                     "pass": "bots/ee4j.jms/gpg/passphrase"
+                     "pass": "bots/ee4j.messaging/gpg/passphrase"
                   }
                },
                "ossrh": {
                   "nexusProUrl": "https://jakarta.oss.sonatype.org",
                   "password": {
-                     "pass": "bots/ee4j.jms/oss.sonatype.org/password"
+                     "pass": "bots/ee4j.messaging/oss.sonatype.org/password"
                   },
                   "username": {
-                     "pass": "bots/ee4j.jms/oss.sonatype.org/username"
+                     "pass": "bots/ee4j.messaging/oss.sonatype.org/username"
                   }
                },
                "repo.eclipse.org": {
@@ -579,10 +581,10 @@
    },
    "project": {
       "displayName": "Jakarta Messaging",
-      "fullName": "ee4j.jms",
+      "fullName": "ee4j.messaging",
       "resourcePacks": 1,
-      "shortName": "jms",
-      "unixGroupName": "ee4j.jms"
+      "shortName": "messaging",
+      "unixGroupName": "ee4j.messaging"
    },
    "sbt": {
       "files": {
@@ -602,7 +604,7 @@
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-default": {
-            "namespace": "jms",
+            "namespace": "messaging",
             "servers": {
                "https://index.docker.io/v1/": {
                   "password": {
@@ -618,8 +620,8 @@
                "pull"
             ]
          },
-         "dockerconfigjson-for-pull-as-jms": {
-            "namespace": "jms",
+         "dockerconfigjson-for-pull-as-messaging": {
+            "namespace": "messaging",
             "servers": {
                "https://index.docker.io/v1/": {
                   "password": {
@@ -630,7 +632,7 @@
                   }
                }
             },
-            "serviceAccount": "jms",
+            "serviceAccount": "messaging",
             "type": [
                "pull"
             ]
@@ -638,7 +640,7 @@
       },
       "gerrit-trigger-plugin": {
          "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-         "username": "genie.jms"
+         "username": "genie.messaging"
       }
    }
 }
