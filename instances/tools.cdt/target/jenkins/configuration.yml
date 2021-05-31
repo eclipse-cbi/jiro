@@ -1,71 +1,20 @@
 # GENERATED FILE - DO NOT EDIT
-unclassified:
-  throttleJobProperty:
-    categories:
-      - categoryName: "low-priority-jobs"
-        maxConcurrentPerNode: 0
-        maxConcurrentTotal: 0
-  timestamperConfig:
-    allPipelines: true
-  location:
-    adminAddress: ci-admin@eclipse.org
-    url: https://ci.eclipse.org/cdt
-  mailer:
-    replyToAddress: ci-admin@eclipse.org
-    smtpHost: mail.eclipse.org
-  email-ext:
-    defaultContentType: "text/html"
-    defaultReplyTo: "ci-admin@eclipse.org"
-    mailAccount:
-      address: "ci-admin@eclipse.org"
-      smtpHost: "mail.eclipse.org"
-  globalDefaultFlowDurabilityLevel:
-    durabilityHint: PERFORMANCE_OPTIMIZED
-  simple-theme-plugin:
-    elements:
-      - cssUrl:
-          url: "/cdt/userContent/theme/quicksilver.css"
-      - cssUrl:
-          url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
-      - jsUrl:
-          url: "/cdt/userContent/theme/title.js"
-  buildDiscarders:
-    configuredBuildDiscarders:
-      - "jobBuildDiscarder"
-      - simpleBuildDiscarder:
-          discarder:
-            logRotator:
-              artifactNumToKeepStr: "5"
-              numToKeepStr: "128"
-  sonarGlobalConfiguration:
-    buildWrapperEnabled: true
-    installations:
-      - name: "SonarCloud.io"
-        serverUrl: "https://sonarcloud.io"
-        triggers:
-          skipScmCause: false
-          skipUpstreamCause: false
-  gitHubPluginConfig:
-    configs:
-      - name: "GitHub"
-        apiUrl: "https://api.github.com"
-        credentialsId: "github-bot-token"
-        manageHooks: false
-    hookSecretConfigs:
-      - credentialsId: "github-webhook-secret"
-    hookUrl: "https://ci.eclipse.org/cdt/github-webhook/"
-  gitSCM:
-    createAccountBasedOnEmail: true
-    useExistingAccountWithSameEmail: true
-#*******************************************************************************
-# Copyright (c) 2018 Eclipse Foundation and others.
-# This program and the accompanying materials are made available
-# under the terms of the Eclipse Public License 2.0
-# which is available at http://www.eclipse.org/legal/epl-v20.html,
-# or the MIT License which is available at https://opensource.org/licenses/MIT.
-# SPDX-License-Identifier: EPL-2.0 OR MIT
-#*******************************************************************************
 jenkins:
+  nodes:
+    - permanent:
+        name: "windows-agent"
+        nodeDescription: "Agent provided by the project"
+        remoteFS: "C:/Users/jenkins-agent"
+        numExecutors: 1
+        launcher:
+          jnlp:
+            webSocket: true
+            workDirSettings:
+              disabled: false
+              failIfWorkDirIsMissing: false
+              internalDir: "remoting"
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
   numExecutors: 0
   scmCheckoutRetryCount: 2
   mode: EXCLUSIVE
@@ -382,6 +331,64 @@ jenkins:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+unclassified:
+  throttleJobProperty:
+    categories:
+      - categoryName: "low-priority-jobs"
+        maxConcurrentPerNode: 0
+        maxConcurrentTotal: 0
+  timestamperConfig:
+    allPipelines: true
+  location:
+    adminAddress: ci-admin@eclipse.org
+    url: https://ci.eclipse.org/cdt
+  mailer:
+    replyToAddress: ci-admin@eclipse.org
+    smtpHost: mail.eclipse.org
+  email-ext:
+    defaultContentType: "text/html"
+    defaultReplyTo: "ci-admin@eclipse.org"
+    mailAccount:
+      address: "ci-admin@eclipse.org"
+      smtpHost: "mail.eclipse.org"
+  globalDefaultFlowDurabilityLevel:
+    durabilityHint: PERFORMANCE_OPTIMIZED
+  simple-theme-plugin:
+    elements:
+      - cssUrl:
+          url: "/cdt/userContent/theme/quicksilver.css"
+      - cssUrl:
+          url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+      - jsUrl:
+          url: "/cdt/userContent/theme/title.js"
+  buildDiscarders:
+    configuredBuildDiscarders:
+      - "jobBuildDiscarder"
+      - simpleBuildDiscarder:
+          discarder:
+            logRotator:
+              artifactNumToKeepStr: "5"
+              numToKeepStr: "128"
+  sonarGlobalConfiguration:
+    buildWrapperEnabled: true
+    installations:
+      - name: "SonarCloud.io"
+        serverUrl: "https://sonarcloud.io"
+        triggers:
+          skipScmCause: false
+          skipUpstreamCause: false
+  gitHubPluginConfig:
+    configs:
+      - name: "GitHub"
+        apiUrl: "https://api.github.com"
+        credentialsId: "github-bot-token"
+        manageHooks: false
+    hookSecretConfigs:
+      - credentialsId: "github-webhook-secret"
+    hookUrl: "https://ci.eclipse.org/cdt/github-webhook/"
+  gitSCM:
+    createAccountBasedOnEmail: true
+    useExistingAccountWithSameEmail: true
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false

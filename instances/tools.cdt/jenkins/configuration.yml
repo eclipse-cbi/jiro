@@ -1,3 +1,20 @@
+jenkins:
+  nodes:
+  - permanent:
+      name: "windows-agent"
+      nodeDescription: "Agent provided by the project"
+      remoteFS: "C:/Users/jenkins-agent"
+      numExecutors: 1
+      launcher:
+        jnlp:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+
 unclassified:
   throttleJobProperty:
     categories:
