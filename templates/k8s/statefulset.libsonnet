@@ -146,10 +146,13 @@ local Kube = import "kube.libsonnet";
                     "-Djenkins.ui.refresh=true",
                     "-Djenkins.security.ManagePermission=true",
                     
+                    # See https://issues.jenkins.io/browse/JENKINS-50379
+                    "-Dorg.jenkinsci.plugins.durabletask.BourneShellScript.HEARTBEAT_CHECK_INTERVAL=7200",
+
                     # See https://github.com/jenkinsci/extras-executable-war/blob/master/README.md
                     "-DexecutableWar.jetty.disableCustomSessionIdCookieName=false",
                     "-DexecutableWar.jetty.sessionIdCookieName=JSESSIONID." + config.project.shortName,
-                    
+
                     "-Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml",
 
                     # Useless for Jenkins >= 2.199 and JCasC >= 1.36
