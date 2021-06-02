@@ -95,3 +95,26 @@ jenkins:
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNwu6/wfZp6gtGcI5DNPod4ZTBWY4g+JsxUX9Slr9BCLQLSfGwp8T3CH1drwLIxhc0c5O5IeTWbxUdsQBRfRLP92MssN5w2nbuwKZdvyEF8SkdNjEsM7OUmk01cEd99smMr256D0r07ccE0mAmn0teUfCur9qSTynXpie/sfaNzfufedIsC5xu+dbwnEu5FjHjwm8Pwnf16Q6gP7jvtfN5jJvjQmpFOHRgghndumjTVmPLvgGU9IbLLRqK6VBCEow/gMuWX7jULzxhuLZEQ+OIyPR/792D+wE9MjVIXHb25DjUtIhpw5iZMBYcADjlTinDR0HTgUABAbkWGTi22NUZ"
+
+unclassified:
+  globalLibraries:
+    libraries:
+    - defaultVersion: "master"
+      name: "openjdk-jenkins-helper"
+      retriever:
+        modernSCM:
+          scm:
+            github:
+              configuredByUrl: true
+              id: ""
+              repoOwner: "adoptium"
+              repository: "jenkins-helper"
+              repositoryUrl: "https://github.com/adoptium/jenkins-helper"
+              traits:
+              - gitHubBranchDiscovery:
+                  strategyId: 1
+              - gitHubPullRequestDiscovery:
+                  strategyId: 1
+              - gitHubForkDiscovery:
+                  strategyId: 1
+                  trust: "gitHubTrustPermissions"
