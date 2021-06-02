@@ -22,20 +22,12 @@ metadata:
 data:
   jenkins.yaml: |
     # GENERATED FILE - DO NOT EDIT
-    #*******************************************************************************
-    # Copyright (c) 2018 Eclipse Foundation and others.
-    # This program and the accompanying materials are made available
-    # under the terms of the Eclipse Public License 2.0
-    # which is available at http://www.eclipse.org/legal/epl-v20.html,
-    # or the MIT License which is available at https://opensource.org/licenses/MIT.
-    # SPDX-License-Identifier: EPL-2.0 OR MIT
-    #*******************************************************************************
     jenkins:
       nodes:
         - permanent:
             name: "deb10-x64-1"
             nodeDescription: "Linux x86"
-            labelString: "Linux x86 compile:riscv64 sw.os.linux hw.arch.x86 ci.role.build.riscv64"
+            labelString: "Linux x86 UNB compile:riscv64:cross"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -51,7 +43,7 @@ data:
         - permanent:
             name: "eclipseomr-1"
             nodeDescription: "eclipseomr-1 Linux PPCLE Ubuntu 16.04"
-            labelString: "Linux PPCLE"
+            labelString: "Linux PPCLE compile:plinux"
             remoteFS: '/home/jenkins/jenkins-agent'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -62,7 +54,7 @@ data:
         - permanent:
             name: "eclipseomr-2"
             nodeDescription: "eclipseomr-2 OSU Linux PPCLE Ubuntu 16.04"
-            labelString: "Linux PPCLE"
+            labelString: "Linux PPCLE compile:plinux"
             remoteFS: '/home/jenkins/jenkins-agent'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -73,7 +65,7 @@ data:
         - permanent:
             name: "omr-aix71p8-1"
             nodeDescription: "omr-aix71p8-1 AIX PPC64"
-            labelString: "aix ppc"
+            labelString: "aix ppc compile:aix"
             remoteFS: '/home/jenkins/'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -89,7 +81,7 @@ data:
         - permanent:
             name: "omr-aix71p8-2"
             nodeDescription: "omr-aix71p8-2 AIX PPC64"
-            labelString: "aix ppc"
+            labelString: "aix ppc compile:aix"
             remoteFS: '/home/jenkins/'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -105,7 +97,7 @@ data:
         - permanent:
             name: "osx1013-unb-01"
             nodeDescription: "OSX x86"
-            labelString: "OSX x86 UNB"
+            labelString: "OSX x86 UNB compile:xosx"
             remoteFS: '/Users/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -116,7 +108,7 @@ data:
         - permanent:
             name: "osx1013-unb-02"
             nodeDescription: "OSX x86"
-            labelString: "OSX x86 UNB"
+            labelString: "OSX x86 UNB compile:xosx"
             remoteFS: '/Users/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -127,7 +119,7 @@ data:
         - permanent:
             name: "osx1014-unb-01"
             nodeDescription: "OSX x86"
-            labelString: "OSX x86 UNB"
+            labelString: "OSX x86 UNB compile:xosx"
             remoteFS: '/Users/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -149,7 +141,7 @@ data:
         - permanent:
             name: "ub1604-p8-unb-01"
             nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB compile:plinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -160,7 +152,7 @@ data:
         - permanent:
             name: "ub1604-p8-unb-02"
             nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB compile:plinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -171,7 +163,7 @@ data:
         - permanent:
             name: "ub1604-p8-unb-03"
             nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB compile:plinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -182,7 +174,7 @@ data:
         - permanent:
             name: "ub1604-p8-unb-04"
             nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB compile:plinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -193,7 +185,7 @@ data:
         - permanent:
             name: "ub1604-p8-unb-05"
             nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB compile:plinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -204,7 +196,7 @@ data:
         - permanent:
             name: "ub1604-p8-unb-06"
             nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB compile:plinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -215,7 +207,7 @@ data:
         - permanent:
             name: "ub1604-p8-unb-07"
             nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB compile:plinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -226,7 +218,7 @@ data:
         - permanent:
             name: "ub1604-p8-unb-08"
             nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB compile:plinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -237,7 +229,7 @@ data:
         - permanent:
             name: "ub1604-p8-unb-09"
             nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB compile:plinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -248,7 +240,7 @@ data:
         - permanent:
             name: "ub1604-p8-unb-10"
             nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB"
+            labelString: "Linux PPCLE UNB compile:plinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -259,7 +251,7 @@ data:
         - permanent:
             name: "ub1604-x86-unb-01"
             nodeDescription: "Linux x86"
-            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -270,7 +262,7 @@ data:
         - permanent:
             name: "ub1604-x86-unb-02"
             nodeDescription: "Linux x86"
-            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -281,7 +273,7 @@ data:
         - permanent:
             name: "ub1604-x86-unb-03"
             nodeDescription: "Linux x86"
-            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -292,7 +284,7 @@ data:
         - permanent:
             name: "ub1604-x86-unb-04"
             nodeDescription: "Linux x86"
-            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -303,7 +295,7 @@ data:
         - permanent:
             name: "ub1604-x86-unb-05"
             nodeDescription: "Linux x86"
-            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -314,7 +306,7 @@ data:
         - permanent:
             name: "ub1604-x86-unb-06"
             nodeDescription: "Linux x86"
-            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -325,7 +317,7 @@ data:
         - permanent:
             name: "ub1604-x86-unb-07"
             nodeDescription: "Linux x86"
-            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -336,7 +328,7 @@ data:
         - permanent:
             name: "ub1604-x86-unb-08"
             nodeDescription: "Linux x86"
-            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -347,7 +339,7 @@ data:
         - permanent:
             name: "ub1604-x86-unb-10"
             nodeDescription: "Linux x86"
-            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -358,7 +350,7 @@ data:
         - permanent:
             name: "ub1604-x86-unb-11"
             nodeDescription: "Linux x86"
-            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -369,7 +361,7 @@ data:
         - permanent:
             name: "ub1604-x86-unb-12"
             nodeDescription: "Linux x86"
-            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -380,7 +372,7 @@ data:
         - permanent:
             name: "ub1604-x86-unb-13"
             nodeDescription: "Linux x86"
-            labelString: "Linux x86 UNB compile:aarch64 compile:arm"
+            labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -391,7 +383,7 @@ data:
         - permanent:
             name: "ub16-s390x-01"
             nodeDescription: "zLinux node"
-            labelString: "Linux 390"
+            labelString: "Linux 390 compile:zlinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -402,7 +394,7 @@ data:
         - permanent:
             name: "ub16-s390x-02"
             nodeDescription: "zLinux node"
-            labelString: "Linux 390"
+            labelString: "Linux 390 compile:zlinux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -413,7 +405,7 @@ data:
         - permanent:
             name: "win2012-x86-1"
             nodeDescription: "Windows x86 "
-            labelString: "Windows x86"
+            labelString: "Windows x86 compile:xwindows"
             remoteFS: 'c:\jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -424,7 +416,7 @@ data:
         - permanent:
             name: "win2012-x86-2"
             nodeDescription: "Windows x86 "
-            labelString: "Windows x86"
+            labelString: "Windows x86 compile:xwindows"
             remoteFS: 'c:\jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -435,7 +427,7 @@ data:
         - permanent:
             name: "ZISVJD03"
             nodeDescription: "zOS node"
-            labelString: "zOS 390"
+            labelString: "zOS 390 compile:zos"
             remoteFS: '/openzdk/jenkins/'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -477,7 +469,7 @@ data:
         - permanent:
             name: "ZISVJD04"
             nodeDescription: "zOS node"
-            labelString: "zOS 390"
+            labelString: "zOS 390 compile:zos"
             remoteFS: '/openzdk/jenkins/'
             numExecutors: 1
             mode: EXCLUSIVE
