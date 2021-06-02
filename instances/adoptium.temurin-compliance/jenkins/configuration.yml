@@ -95,6 +95,34 @@ jenkins:
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNwu6/wfZp6gtGcI5DNPod4ZTBWY4g+JsxUX9Slr9BCLQLSfGwp8T3CH1drwLIxhc0c5O5IeTWbxUdsQBRfRLP92MssN5w2nbuwKZdvyEF8SkdNjEsM7OUmk01cEd99smMr256D0r07ccE0mAmn0teUfCur9qSTynXpie/sfaNzfufedIsC5xu+dbwnEu5FjHjwm8Pwnf16Q6gP7jvtfN5jJvjQmpFOHRgghndumjTVmPLvgGU9IbLLRqK6VBCEow/gMuWX7jULzxhuLZEQ+OIyPR/792D+wE9MjVIXHb25DjUtIhpw5iZMBYcADjlTinDR0HTgUABAbkWGTi22NUZ"
+  - permanent:
+      name: "p0smh-winsrv-tc"
+      nodeDescription: "Windows Server 2019, hosted on Azure"
+      remoteFS: "c:/Users/genie.temurin-comp"
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        jnlp:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+  - permanent:
+      name: "x0vrb-winsrv-tc"
+      nodeDescription: "Windows Server 2019, hosted on Azure"
+      remoteFS: "c:/Users/genie.temurin-comp"
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        jnlp:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
 
 unclassified:
   globalLibraries:
