@@ -62,7 +62,7 @@ jenkins:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDCSTNTGL3mf3dBPWjkBF2JgQceXIyuTmyXhxvFPzSXn8wFmG9Nz09L0jLyfL5NtbN4nZe65fc7/bhfo4bnr9PmDTcIldW7Y59ScTC3ink9YNYiRJpYsuJ14T0scLHPfb6rRv6MpRGsulGL0dnbbPAJE8RQ9om1JEid/unE/IpbCgfuodQQ0wjVxwc5UpcmJ8G2/spuW8QApZzVUqaUyiBSDtOnczBXcdOIX1t74RN9jf1sxVzjjEfjatQkgK7hnHFczAJPBGOQgApVYWKi/bKKtlT0w3XwdaFw9l5a5+JyKogpmR2EjG9Je3Vy2S4ZhvpMGat0mudOeoE9zvIhSCNPkX0NYyF8BdCqAaky33tXZH+XnM3XAaqGZLADn+RmLvKx2ZyFU9VFGkd0gscljCi8etvBGE7+ZbSZLa8LCydvDedzLM+2HhRraR758cV0r51Rv7DqRfH2DAjZA76KKeHRA9NrRbMKisbYvzxC8GnJb/BOxBp942usQqpa0HZBczM="
   - permanent:
-      name: "tck-siteox-solaris10u11-sparcv9-1"
+      name: "jck-siteox-solaris10u11-sparcv9-1"
       nodeDescription: "Solaris Sparc system hosted at SiteOx"
       labelString: "ci.role.test hw.arch.sparcv9 sw.os.sunos"
       remoteFS: '/export/home/jenkins'
@@ -77,7 +77,7 @@ jenkins:
           javaPath: ""
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6AZ52BYtn9IHiTNleFhxPuzfVZ62i8OaRJVvCzheTU2mRePox9ipTv3V/okLuMRtD01gpXQpqax3CqaiSpc+bw/8Utcoe3zQaIEX61bvC6lA5eLN60662z3LH1Mf/QxYb2BNSRjvMtzK5+QnbHQJIX1091kOCu/0KLPrgd78ItYnZj3ZMUUWCycjQwsxcJPLNDL7oKBAkNwIjVfD5cPJMIkatTD7Li82E3rNfg/mfshTvdzHzkxryaIx9G9KwmdXtgWiWH4ZVpz3TvadZITyTy67PFbQrClVN+EOPw8jg0n4aMOckc6+Dk8bsDzwWIm2KuTP3BCU3U/VHSK3u7BKhY0tBw88x4jXmZuT+UASLSFFfyUMwHJYjiUuev8FYwVdxy1z5ZMnjaEq/ovemliRBRpOUdgKpegiLxsUZ8hJRwRX5rAD/74nJdMRdtDYYq74lrdcddakyyfxR0lq8/i9AV+kXTEgBCmZeGDXfgFFKb/3GXnnevST0szUnm/ZSkRk="  
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAp/NbukWZHk5Ij437q3DwEh37KkkPYG1BxFggd6YyNll2nLvhFc60qdZUq/vG7WgenlIEnli3FHh7npx8AGRyK7Wvad+oMuc4ExT0dZfphXhahHxxIhg0lESEYccnf0VG5KKRLD6dak0u1iypVynFmjreq0wLyb2Mzzm8IEP5yak="  
       nodeProperties:
       - toolLocation:
           locations:
