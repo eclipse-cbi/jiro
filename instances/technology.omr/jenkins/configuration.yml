@@ -113,7 +113,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"wget -qO slave.jar https://ci.eclipse.org/openj9/jnlpJars/slave.jar ; java -jar slave.jar\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar\""
   - permanent:
       name: "ub1604-p8-unb-01"
       nodeDescription: "Linux PPCLE UNB"
