@@ -71,7 +71,7 @@ local clouds = import "clouds.libsonnet";
     uiPort: 8080,
     jnlpPort: 50000,
     controlPort: 8081,
-    cluster: "ci-c1",
+    cluster: "okd-c1",
   },
   kubernetes: {
     master: {
