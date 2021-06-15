@@ -384,31 +384,7 @@
                "View/Delete",
                "View/Read"
             ],
-            "principal": "slambert@gmail.com"
-         },
-         {
-            "grantedPermissions": [
-               "Agent/Build",
-               "Credentials/View",
-               "Job/Build",
-               "Job/Cancel",
-               "Job/Configure",
-               "Job/Create",
-               "Job/Delete",
-               "Job/Move",
-               "Job/Read",
-               "Job/Workspace",
-               "Overall/Read",
-               "Run/Delete",
-               "Run/Replay",
-               "Run/Update",
-               "SCM/Tag",
-               "View/Configure",
-               "View/Create",
-               "View/Delete",
-               "View/Read"
-            ],
-            "principal": "sxa@redhat.com"
+            "principal": "adoptium.temurin-compliance"
          }
       ],
       "plugins": [

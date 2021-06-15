@@ -12,15 +12,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         grantedPermissions: ["Overall/Administer"],
       },
       {
-        principal: "slambert@gmail.com",
-        grantedPermissions: permissionsTemplates.committerPermissionsList,
-      },
-      {
-        principal: "sxa@redhat.com",
-        grantedPermissions: permissionsTemplates.committerPermissionsList,
-      },
-      {
-        principal: "georgeadams1995@gmail.com",
+        principal: $.project.unixGroupName,
         grantedPermissions: permissionsTemplates.committerPermissionsList,
       },
     ],
@@ -44,7 +36,4 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "monitoring ",
     ],
   },
-  deployment+: {
-    cluster: "okd-c1",
-  }
 }

@@ -217,6 +217,32 @@ data:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDCSTNTGL3mf3dBPWjkBF2JgQceXIyuTmyXhxvFPzSXn8wFmG9Nz09L0jLyfL5NtbN4nZe65fc7/bhfo4bnr9PmDTcIldW7Y59ScTC3ink9YNYiRJpYsuJ14T0scLHPfb6rRv6MpRGsulGL0dnbbPAJE8RQ9om1JEid/unE/IpbCgfuodQQ0wjVxwc5UpcmJ8G2/spuW8QApZzVUqaUyiBSDtOnczBXcdOIX1t74RN9jf1sxVzjjEfjatQkgK7hnHFczAJPBGOQgApVYWKi/bKKtlT0w3XwdaFw9l5a5+JyKogpmR2EjG9Je3Vy2S4ZhvpMGat0mudOeoE9zvIhSCNPkX0NYyF8BdCqAaky33tXZH+XnM3XAaqGZLADn+RmLvKx2ZyFU9VFGkd0gscljCi8etvBGE7+ZbSZLa8LCydvDedzLM+2HhRraR758cV0r51Rv7DqRfH2DAjZA76KKeHRA9NrRbMKisbYvzxC8GnJb/BOxBp942usQqpa0HZBczM="
         - permanent:
+            name: "jck-siteox-solaris10u11-sparcv9-1"
+            nodeDescription: "Solaris Sparc system hosted at SiteOx"
+            labelString: "ci.role.test hw.arch.sparcv9 sw.os.sunos"
+            remoteFS: '/export/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              ssh:
+                host: "cloud.siteox.com"
+                port: "21222"
+                credentialsId: "jenkins-jck-ssh"
+                javaPath: ""
+                sshHostKeyVerificationStrategy:
+                  manuallyProvidedKeyVerificationStrategy:
+                    key: "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAp/NbukWZHk5Ij437q3DwEh37KkkPYG1BxFggd6YyNll2nLvhFc60qdZUq/vG7WgenlIEnli3FHh7npx8AGRyK7Wvad+oMuc4ExT0dZfphXhahHxxIhg0lESEYccnf0VG5KKRLD6dak0u1iypVynFmjreq0wLyb2Mzzm8IEP5yak="
+            nodeProperties:
+              - toolLocation:
+                  locations:
+                    - home: "/opt/csw/bin/git"
+                      key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+              - envVars:
+                  env:
+                    - key: "PATH"
+                      value: "/opt/csw/bin:/usr/bin:/bin:/usr/local/bin"
+        - permanent:
             name: "jck-ibm-aix71-ppc64-1"
             nodeDescription: "AIX 7.1 machine hosted by IBM Garage"
             labelString: "ci.role.test hw.arch.ppc64 sw.os.aix"
@@ -250,6 +276,34 @@ data:
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNwu6/wfZp6gtGcI5DNPod4ZTBWY4g+JsxUX9Slr9BCLQLSfGwp8T3CH1drwLIxhc0c5O5IeTWbxUdsQBRfRLP92MssN5w2nbuwKZdvyEF8SkdNjEsM7OUmk01cEd99smMr256D0r07ccE0mAmn0teUfCur9qSTynXpie/sfaNzfufedIsC5xu+dbwnEu5FjHjwm8Pwnf16Q6gP7jvtfN5jJvjQmpFOHRgghndumjTVmPLvgGU9IbLLRqK6VBCEow/gMuWX7jULzxhuLZEQ+OIyPR/792D+wE9MjVIXHb25DjUtIhpw5iZMBYcADjlTinDR0HTgUABAbkWGTi22NUZ"
+        - permanent:
+            name: "p0smh-winsrv-tc"
+            nodeDescription: "Windows Server 2019, hosted on Azure"
+            remoteFS: "c:/Users/genie.temurin-comp"
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              jnlp:
+                webSocket: true
+                workDirSettings:
+                  disabled: false
+                  failIfWorkDirIsMissing: false
+                  internalDir: "remoting"
+        - permanent:
+            name: "x0vrb-winsrv-tc"
+            nodeDescription: "Windows Server 2019, hosted on Azure"
+            remoteFS: "c:/Users/genie.temurin-comp"
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              jnlp:
+                webSocket: true
+                workDirSettings:
+                  disabled: false
+                  failIfWorkDirIsMissing: false
+                  internalDir: "remoting"
       numExecutors: 0
       scmCheckoutRetryCount: 2
       mode: EXCLUSIVE
@@ -262,44 +316,25 @@ data:
         projectMatrix:
           permissions:
             - "Overall/Administer:admins"
-            - "Agent/Build:slambert@gmail.com"
-            - "Credentials/View:slambert@gmail.com"
-            - "Job/Build:slambert@gmail.com"
-            - "Job/Cancel:slambert@gmail.com"
-            - "Job/Configure:slambert@gmail.com"
-            - "Job/Create:slambert@gmail.com"
-            - "Job/Delete:slambert@gmail.com"
-            - "Job/Move:slambert@gmail.com"
-            - "Job/Read:slambert@gmail.com"
-            - "Job/Workspace:slambert@gmail.com"
-            - "Overall/Read:slambert@gmail.com"
-            - "Run/Delete:slambert@gmail.com"
-            - "Run/Replay:slambert@gmail.com"
-            - "Run/Update:slambert@gmail.com"
-            - "SCM/Tag:slambert@gmail.com"
-            - "View/Configure:slambert@gmail.com"
-            - "View/Create:slambert@gmail.com"
-            - "View/Delete:slambert@gmail.com"
-            - "View/Read:slambert@gmail.com"
-            - "Agent/Build:sxa@redhat.com"
-            - "Credentials/View:sxa@redhat.com"
-            - "Job/Build:sxa@redhat.com"
-            - "Job/Cancel:sxa@redhat.com"
-            - "Job/Configure:sxa@redhat.com"
-            - "Job/Create:sxa@redhat.com"
-            - "Job/Delete:sxa@redhat.com"
-            - "Job/Move:sxa@redhat.com"
-            - "Job/Read:sxa@redhat.com"
-            - "Job/Workspace:sxa@redhat.com"
-            - "Overall/Read:sxa@redhat.com"
-            - "Run/Delete:sxa@redhat.com"
-            - "Run/Replay:sxa@redhat.com"
-            - "Run/Update:sxa@redhat.com"
-            - "SCM/Tag:sxa@redhat.com"
-            - "View/Configure:sxa@redhat.com"
-            - "View/Create:sxa@redhat.com"
-            - "View/Delete:sxa@redhat.com"
-            - "View/Read:sxa@redhat.com"
+            - "Agent/Build:adoptium.temurin-compliance"
+            - "Credentials/View:adoptium.temurin-compliance"
+            - "Job/Build:adoptium.temurin-compliance"
+            - "Job/Cancel:adoptium.temurin-compliance"
+            - "Job/Configure:adoptium.temurin-compliance"
+            - "Job/Create:adoptium.temurin-compliance"
+            - "Job/Delete:adoptium.temurin-compliance"
+            - "Job/Move:adoptium.temurin-compliance"
+            - "Job/Read:adoptium.temurin-compliance"
+            - "Job/Workspace:adoptium.temurin-compliance"
+            - "Overall/Read:adoptium.temurin-compliance"
+            - "Run/Delete:adoptium.temurin-compliance"
+            - "Run/Replay:adoptium.temurin-compliance"
+            - "Run/Update:adoptium.temurin-compliance"
+            - "SCM/Tag:adoptium.temurin-compliance"
+            - "View/Configure:adoptium.temurin-compliance"
+            - "View/Create:adoptium.temurin-compliance"
+            - "View/Delete:adoptium.temurin-compliance"
+            - "View/Read:adoptium.temurin-compliance"
       markupFormatter: rawHtml
       crumbIssuer:
         standard:
@@ -581,6 +616,27 @@ data:
                       configMap:
                         name: m2-dir
     unclassified:
+      globalLibraries:
+        libraries:
+          - defaultVersion: "master"
+            name: "openjdk-jenkins-helper"
+            retriever:
+              modernSCM:
+                scm:
+                  github:
+                    configuredByUrl: true
+                    id: ""
+                    repoOwner: "adoptium"
+                    repository: "jenkins-helper"
+                    repositoryUrl: "https://github.com/adoptium/jenkins-helper"
+                    traits:
+                      - gitHubBranchDiscovery:
+                          strategyId: 1
+                      - gitHubPullRequestDiscovery:
+                          strategyId: 1
+                      - gitHubForkDiscovery:
+                          strategyId: 1
+                          trust: "gitHubTrustPermissions"
       location:
         adminAddress: ci-admin@eclipse.org
         url: https://ci.eclipse.org/temurin-compliance
