@@ -15,6 +15,16 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         principal: $.project.unixGroupName,
         grantedPermissions: permissionsTemplates.committerPermissionsList,
       },
+      {
+        // https://bugs.eclipse.org/bugs/show_bug.cgi?id=574230
+        principal: "georgeadams1995@gmail.com",
+        grantedPermissions: ["Agent/ExtendedRead"]
+      },
+      {
+        // https://bugs.eclipse.org/bugs/show_bug.cgi?id=574230
+        principal: "sxa@redhat.com",
+        grantedPermissions: ["Agent/ExtendedRead"]
+      },
     ],
     plugins+: [
       "artifactory",

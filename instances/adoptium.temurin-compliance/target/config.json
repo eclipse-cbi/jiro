@@ -385,6 +385,18 @@
                "View/Read"
             ],
             "principal": "adoptium.temurin-compliance"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/ExtendedRead"
+            ],
+            "principal": "georgeadams1995@gmail.com"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/ExtendedRead"
+            ],
+            "principal": "sxa@redhat.com"
          }
       ],
       "plugins": [
