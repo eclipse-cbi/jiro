@@ -87,6 +87,8 @@ jenkins:
           env:
           - key: "PATH"
             value: "/opt/csw/bin:/usr/bin:/bin:/usr/local/bin"
+          - key: "GIT_SSH"
+            value: "/opt/csw/bin/ssh"
   - permanent:
       name: "jck-ibm-aix71-ppc64-1"
       nodeDescription: "AIX 7.1 machine hosted by IBM Garage"
