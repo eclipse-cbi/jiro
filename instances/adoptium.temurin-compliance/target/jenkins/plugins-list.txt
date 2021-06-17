@@ -15,4 +15,5 @@ slack
 tap
 build-with-parameters
 xvfb
-monitoring 
+monitoring
+xunit
