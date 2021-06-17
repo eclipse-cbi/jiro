@@ -163,6 +163,11 @@ jenkins:
       name: "gn324-macos11-x64"
       remoteFS: "/Users/jenkins"
       retentionStrategy: "always"
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "PATH+USR_LOCAL_BIN"
+            value: "/usr/local/bin:/opt/X11/bin"
   - permanent:
       launcher:
         ssh:
@@ -175,6 +180,11 @@ jenkins:
       name: "iywk3-macos11-x64"
       remoteFS: "/Users/jenkins"
       retentionStrategy: "always"
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "PATH+USR_LOCAL_BIN"
+            value: "/usr/local/bin:/opt/X11/bin"
 
 unclassified:
   globalLibraries:
