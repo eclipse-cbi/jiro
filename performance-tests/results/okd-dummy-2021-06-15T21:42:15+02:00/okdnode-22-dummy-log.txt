@@ -1,0 +1,7 @@
+Jun 15 21:42:47 INFO: Scheduling perf job on okdnode-22...
+00:00:05 If you don't see a command prompt, try pressing enter.
+00:00:01 another step
+00:00:02 yet another step
+00:00:01 INFO: Done!
+00:00:00 {"node_name": "okdnode-22", "time": {"elapsed": "0:04.80", "real": 4.80, "kernel": 0.05, "user": 0.13, "percent": "3%"}, "memory": {"max_rss": 10776, "avg_rss": 0, "avg_tot": 0, "avg_unsh_data": 0, "avg_unsh_stack": 0, "avg_sh_txt": 0, "page_size": 4096, "major_page_fault": 0, "recoverable_page_fault": 1800, "swap_number": 0, "involuntary_context_switch": 0, "wait_number": 1783}, "io": {"fs_input": 0, "fs_output": 22288, "socket_msg_rcv": 0, "socket_msg_sent": 0, "exit_status": 0}}
+00:00:01 pod "perfpod-okdnode-22" deleted

@@ -1,0 +1,32 @@
+{
+   "io": {
+      "exit_status": 0,
+      "fs_input": 25144,
+      "fs_output": 3152280,
+      "socket_msg_rcv": 0,
+      "socket_msg_sent": 0
+   },
+   "memory": {
+      "avg_rss": 0,
+      "avg_sh_txt": 0,
+      "avg_tot": 0,
+      "avg_unsh_data": 0,
+      "avg_unsh_stack": 0,
+      "involuntary_context_switch": 117960,
+      "major_page_fault": 335,
+      "max_rss": 1728584,
+      "page_size": 4096,
+      "recoverable_page_fault": 2755539,
+      "swap_number": 0,
+      "wait_number": 2717272
+   },
+   "node_name": "okdnode-25",
+   "time": {
+      "elapsed": "20:45.09",
+      "kernel": 32.68,
+      "percent": "127%",
+      "pod_scheduling": "00:00:08",
+      "real": 1245.0899999999999,
+      "user": 1555.27
+   }
+}

@@ -1,0 +1,32 @@
+{
+   "io": {
+      "exit_status": 0,
+      "fs_input": 0,
+      "fs_output": 3152256,
+      "socket_msg_rcv": 0,
+      "socket_msg_sent": 0
+   },
+   "memory": {
+      "avg_rss": 0,
+      "avg_sh_txt": 0,
+      "avg_tot": 0,
+      "avg_unsh_data": 0,
+      "avg_unsh_stack": 0,
+      "involuntary_context_switch": 119798,
+      "major_page_fault": 473,
+      "max_rss": 1804560,
+      "page_size": 4096,
+      "recoverable_page_fault": 16639770,
+      "swap_number": 0,
+      "wait_number": 4447926
+   },
+   "node_name": "okdnode-5",
+   "time": {
+      "elapsed": "35:41.57",
+      "kernel": 127.81,
+      "percent": "139%",
+      "pod_scheduling": "00:00:12",
+      "real": 2141.5700000000002,
+      "user": 2867.1100000000001
+   }
+}

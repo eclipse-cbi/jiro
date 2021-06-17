@@ -1,0 +1,7 @@
+Jun 15 21:42:37 INFO: Scheduling perf job on okdnode-17...
+00:00:05 If you don't see a command prompt, try pressing enter.
+00:00:02 another step
+00:00:02 yet another step
+00:00:01 INFO: Done!
+00:00:00 {"node_name": "okdnode-17", "time": {"elapsed": "0:04.77", "real": 4.77, "kernel": 0.09, "user": 0.20, "percent": "6%"}, "memory": {"max_rss": 10784, "avg_rss": 0, "avg_tot": 0, "avg_unsh_data": 0, "avg_unsh_stack": 0, "avg_sh_txt": 0, "page_size": 4096, "major_page_fault": 0, "recoverable_page_fault": 1826, "swap_number": 0, "involuntary_context_switch": 2, "wait_number": 1824}, "io": {"fs_input": 0, "fs_output": 22288, "socket_msg_rcv": 0, "socket_msg_sent": 0, "exit_status": 0}}
+00:00:01 pod "perfpod-okdnode-17" deleted

@@ -1,0 +1,1803 @@
+Jun 16 00:45:13 INFO: Scheduling perf job on okdnode-25...
+00:00:05 If you don't see a command prompt, try pressing enter.
+00:00:01 INFO: Cloning https://github.com/google/guava...
+00:02:38 INFO: Checkouting tags/v30.1.1...
+00:00:00 INFO: Building with Maven...
+00:00:01 Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)
+00:00:00 Maven home: /workdir/apache-maven-3.6.3
+00:00:00 Java version: 11.0.11, vendor: Red Hat, Inc., runtime: /usr/lib/jvm/java-11-openjdk-11.0.11.0.9-1.el7_9.x86_64
+00:00:00 Default locale: en_US, platform encoding: UTF-8
+00:00:00 OS name: "linux", version: "5.10.19-200.fc33.x86_64", arch: "amd64", family: "unix"
+00:00:00 [INFO] Scanning for projects...
+00:00:07 [INFO] ------------------------------------------------------------------------
+00:00:00 [INFO] Reactor Build Order:
+00:00:00 [INFO] 
+00:00:00 [INFO] Guava Maven Parent                                                 [pom]
+00:00:00 [INFO] Guava: Google Core Libraries for Java                           [bundle]
+00:00:00 [INFO] Guava BOM                                                          [pom]
+00:00:00 [INFO] Guava Testing Library                                              [jar]
+00:00:00 [INFO] Guava Unit Tests                                                   [jar]
+00:00:00 [INFO] Guava GWT compatible libs                                          [jar]
+00:00:00 [INFO] 
+00:00:00 [INFO] -------------------< com.google.guava:guava-parent >--------------------
+00:00:00 [INFO] Building Guava Maven Parent 30.1.1-jre                             [1/6]
+00:00:00 [INFO] --------------------------------[ pom ]---------------------------------
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava-parent ---
+00:00:03 [INFO] 
+00:00:00 [INFO] --- maven-javadoc-plugin:3.1.0:jar (attach-docs) @ guava-parent ---
+00:00:06 [INFO] 
+00:00:00 [INFO] --- maven-install-plugin:2.4:install (default-install) @ guava-parent ---
+00:00:01 [INFO] Installing /workdir/guava/pom.xml to /workdir/m2repo/com/google/guava/guava-parent/30.1.1-jre/guava-parent-30.1.1-jre.pom
+00:00:00 [INFO] 
+00:00:00 [INFO] -----------------------< com.google.guava:guava >-----------------------
+00:00:00 [INFO] Building Guava: Google Core Libraries for Java 30.1.1-jre          [2/6]
+00:00:00 [INFO] -------------------------------[ bundle ]-------------------------------
+00:00:02 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava ---
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-dependency-plugin:3.1.1:unpack-dependencies (unpack-jdk-sources) @ guava ---
+00:00:02 [INFO] 
+00:00:00 [INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ guava ---
+00:00:03 [INFO] Using 'UTF-8' encoding to copy filtered resources.
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered properties files.
+00:00:00 [INFO] Copying 0 resource
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ guava ---
+00:00:01 [INFO] Changes detected - recompiling the module!
+00:00:00 [INFO] Compiling 1 source file to /workdir/guava/guava/target/classes
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-compiler-plugin:3.8.1:compile (main-compile) @ guava ---
+00:00:00 [INFO] Changes detected - recompiling the module!
+00:00:00 [INFO] Compiling 586 source files to /workdir/guava/guava/target/classes
+00:00:08 [WARNING] /workdir/guava/guava/src/com/google/common/hash/LittleEndianByteArray.java:[19,16] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/primitives/UnsignedBytes.java:[28,16] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/util/concurrent/AbstractFuture.java:[1249,26] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/util/concurrent/AbstractFuture.java:[1257,15] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/util/concurrent/AbstractFuture.java:[1259,26] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/util/concurrent/AbstractFuture.java:[1264,57] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/util/concurrent/AbstractFuture.java:[1266,36] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/util/concurrent/AbstractFuture.java:[1267,37] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/util/concurrent/AbstractFuture.java:[1267,58] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/LittleEndianByteArray.java:[156,26] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/LittleEndianByteArray.java:[167,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/LittleEndianByteArray.java:[169,24] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/LittleEndianByteArray.java:[175,65] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/LittleEndianByteArray.java:[177,30] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/LittleEndianByteArray.java:[178,31] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/LittleEndianByteArray.java:[178,52] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/primitives/UnsignedBytes.java:[315,20] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/primitives/UnsignedBytes.java:[337,30] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/primitives/UnsignedBytes.java:[339,26] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/primitives/UnsignedBytes.java:[345,67] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/primitives/UnsignedBytes.java:[347,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/primitives/UnsignedBytes.java:[348,33] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/primitives/UnsignedBytes.java:[348,54] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/cache/Striped64.java:[109,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/cache/Striped64.java:[267,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/cache/Striped64.java:[288,26] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/cache/Striped64.java:[290,22] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/cache/Striped64.java:[295,63] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/cache/Striped64.java:[297,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/cache/Striped64.java:[298,29] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/cache/Striped64.java:[298,50] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/Striped64.java:[109,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/Striped64.java:[267,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/Striped64.java:[288,26] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/Striped64.java:[290,22] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/Striped64.java:[295,63] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/Striped64.java:[297,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/Striped64.java:[298,29] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/Striped64.java:[298,50] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [INFO] /workdir/guava/guava/src/com/google/common/util/concurrent/MoreExecutors.java: Some input files use or override a deprecated API.
+00:00:00 [INFO] /workdir/guava/guava/src/com/google/common/util/concurrent/MoreExecutors.java: Recompile with -Xlint:deprecation for details.
+00:00:00 [INFO] /workdir/guava/guava/src/com/google/common/collect/ImmutableMap.java: Some input files use unchecked or unsafe operations.
+00:00:00 [INFO] /workdir/guava/guava/src/com/google/common/collect/ImmutableMap.java: Recompile with -Xlint:unchecked for details.
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-bundle-plugin:2.5.0:manifest (bundle-manifest) @ guava ---
+00:00:02 [INFO] 
+00:00:00 [INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ guava ---
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered resources.
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered properties files.
+00:00:00 [INFO] skip non existing resourceDirectory /workdir/guava/guava/test
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ guava ---
+00:00:00 [INFO] No sources to compile
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-surefire-plugin:2.7.2:test (default-test) @ guava ---
+00:00:02 [INFO] Tests are skipped.
+00:00:00 [INFO] 
+00:00:00 [INFO] --- animal-sniffer-maven-plugin:1.18:check (check-java-version-compatibility) @ guava ---
+00:00:02 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+00:00:01 [INFO] 
+00:00:00 [INFO] --- maven-bundle-plugin:2.5.0:bundle (default-bundle) @ guava ---
+00:00:02 [INFO] 
+00:00:00 [INFO] >>> maven-source-plugin:3.2.1:jar (attach-sources) > generate-sources @ guava >>>
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava ---
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-dependency-plugin:3.1.1:unpack-dependencies (unpack-jdk-sources) @ guava ---
+00:00:00 [INFO] 
+00:00:00 [INFO] <<< maven-source-plugin:3.2.1:jar (attach-sources) < generate-sources @ guava <<<
+00:00:00 [INFO] 
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-source-plugin:3.2.1:jar (attach-sources) @ guava ---
+00:00:01 [INFO] Building jar: /workdir/guava/guava/target/guava-30.1.1-jre-sources.jar
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-javadoc-plugin:3.1.0:jar (attach-docs) @ guava ---
+00:00:09 [INFO] Building jar: /workdir/guava/guava/target/guava-30.1.1-jre-javadoc.jar
+00:00:01 [INFO] 
+00:00:00 [INFO] --- maven-install-plugin:3.0.0-M1:install (default-install) @ guava ---
+00:00:00 [INFO] Installing /workdir/guava/guava/target/guava-30.1.1-jre.jar to /workdir/m2repo/com/google/guava/guava/30.1.1-jre/guava-30.1.1-jre.jar
+00:00:00 [INFO] Installing /workdir/guava/guava/pom.xml to /workdir/m2repo/com/google/guava/guava/30.1.1-jre/guava-30.1.1-jre.pom
+00:00:00 [INFO] Installing /workdir/guava/guava/target/guava-30.1.1-jre-sources.jar to /workdir/m2repo/com/google/guava/guava/30.1.1-jre/guava-30.1.1-jre-sources.jar
+00:00:00 [INFO] Installing /workdir/guava/guava/target/guava-30.1.1-jre-javadoc.jar to /workdir/m2repo/com/google/guava/guava/30.1.1-jre/guava-30.1.1-jre-javadoc.jar
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-bundle-plugin:2.5.0:install (default-install) @ guava ---
+00:00:00 [INFO] Writing OBR metadata
+00:00:00 [INFO] Installing com/google/guava/guava/30.1.1-jre/guava-30.1.1-jre.jar
+00:00:00 [INFO] Writing OBR metadata
+00:00:00 [INFO] 
+00:00:00 [INFO] ---------------------< com.google.guava:guava-bom >---------------------
+00:00:00 [INFO] Building Guava BOM 30.1.1-jre                                      [3/6]
+00:00:00 [INFO] --------------------------------[ pom ]---------------------------------
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:1.2:enforce (enforce-maven) @ guava-bom ---
+00:00:01 [INFO] 
+00:00:00 [INFO] --- maven-install-plugin:2.4:install (default-install) @ guava-bom ---
+00:00:00 [INFO] Installing /workdir/guava/guava-bom/pom.xml to /workdir/m2repo/com/google/guava/guava-bom/30.1.1-jre/guava-bom-30.1.1-jre.pom
+00:00:00 [INFO] 
+00:00:00 [INFO] -------------------< com.google.guava:guava-testlib >-------------------
+00:00:00 [INFO] Building Guava Testing Library 30.1.1-jre                          [4/6]
+00:00:00 [INFO] --------------------------------[ jar ]---------------------------------
+00:00:01 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava-testlib ---
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ guava-testlib ---
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered resources.
+00:00:00 [INFO] Copying 0 resource
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ guava-testlib ---
+00:00:00 [INFO] Changes detected - recompiling the module!
+00:00:00 [INFO] Compiling 287 source files to /workdir/guava/guava-testlib/target/classes
+00:00:02 [INFO] /workdir/guava/guava-testlib/src/com/google/common/collect/testing/Helpers.java: Some input files use or override a deprecated API.
+00:00:00 [INFO] /workdir/guava/guava-testlib/src/com/google/common/collect/testing/Helpers.java: Recompile with -Xlint:deprecation for details.
+00:00:00 [INFO] /workdir/guava/guava-testlib/src/com/google/common/collect/testing/AbstractContainerTester.java: Some input files use unchecked or unsafe operations.
+00:00:00 [INFO] /workdir/guava/guava-testlib/src/com/google/common/collect/testing/AbstractContainerTester.java: Recompile with -Xlint:unchecked for details.
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ guava-testlib ---
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered resources.
+00:00:00 [INFO] Copying 0 resource
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ guava-testlib ---
+00:00:00 [INFO] Changes detected - recompiling the module!
+00:00:00 [INFO] Compiling 35 source files to /workdir/guava/guava-testlib/target/test-classes
+00:00:00 [INFO] /workdir/guava/guava-testlib/test/com/google/common/testing/GcFinalizationTest.java: /workdir/guava/guava-testlib/test/com/google/common/testing/GcFinalizationTest.java uses or overrides a deprecated API.
+00:00:00 [INFO] /workdir/guava/guava-testlib/test/com/google/common/testing/GcFinalizationTest.java: Recompile with -Xlint:deprecation for details.
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-surefire-plugin:2.7.2:test (default-test) @ guava-testlib ---
+00:00:00 [INFO] Tests are skipped.
+00:00:00 [INFO] 
+00:00:00 [INFO] --- animal-sniffer-maven-plugin:1.18:check (check-java-version-compatibility) @ guava-testlib ---
+00:00:00 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+00:00:01 [INFO] 
+00:00:00 [INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ guava-testlib ---
+00:00:00 [INFO] Building jar: /workdir/guava/guava-testlib/target/guava-testlib-30.1.1-jre.jar
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-jar-plugin:3.2.0:test-jar (create-test-jar) @ guava-testlib ---
+00:00:00 [INFO] Building jar: /workdir/guava/guava-testlib/target/guava-testlib-30.1.1-jre-tests.jar
+00:00:00 [INFO] 
+00:00:00 [INFO] >>> maven-source-plugin:3.2.1:jar (attach-sources) > generate-sources @ guava-testlib >>>
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava-testlib ---
+00:00:00 [INFO] 
+00:00:00 [INFO] <<< maven-source-plugin:3.2.1:jar (attach-sources) < generate-sources @ guava-testlib <<<
+00:00:00 [INFO] 
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-source-plugin:3.2.1:jar (attach-sources) @ guava-testlib ---
+00:00:00 [INFO] Building jar: /workdir/guava/guava-testlib/target/guava-testlib-30.1.1-jre-sources.jar
+00:00:00 [INFO] 
+00:00:00 [INFO] >>> maven-source-plugin:3.2.1:test-jar (attach-test-sources) > generate-sources @ guava-testlib >>>
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava-testlib ---
+00:00:00 [INFO] 
+00:00:00 [INFO] <<< maven-source-plugin:3.2.1:test-jar (attach-test-sources) < generate-sources @ guava-testlib <<<
+00:00:00 [INFO] 
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-source-plugin:3.2.1:test-jar (attach-test-sources) @ guava-testlib ---
+00:00:00 [INFO] Building jar: /workdir/guava/guava-testlib/target/guava-testlib-30.1.1-jre-test-sources.jar
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-javadoc-plugin:3.1.0:jar (attach-docs) @ guava-testlib ---
+00:00:05 [INFO] Building jar: /workdir/guava/guava-testlib/target/guava-testlib-30.1.1-jre-javadoc.jar
+00:00:01 [INFO] 
+00:00:00 [INFO] --- maven-install-plugin:2.4:install (default-install) @ guava-testlib ---
+00:00:00 [INFO] Installing /workdir/guava/guava-testlib/target/guava-testlib-30.1.1-jre.jar to /workdir/m2repo/com/google/guava/guava-testlib/30.1.1-jre/guava-testlib-30.1.1-jre.jar
+00:00:00 [INFO] Installing /workdir/guava/guava-testlib/pom.xml to /workdir/m2repo/com/google/guava/guava-testlib/30.1.1-jre/guava-testlib-30.1.1-jre.pom
+00:00:00 [INFO] Installing /workdir/guava/guava-testlib/target/guava-testlib-30.1.1-jre-tests.jar to /workdir/m2repo/com/google/guava/guava-testlib/30.1.1-jre/guava-testlib-30.1.1-jre-tests.jar
+00:00:00 [INFO] Installing /workdir/guava/guava-testlib/target/guava-testlib-30.1.1-jre-sources.jar to /workdir/m2repo/com/google/guava/guava-testlib/30.1.1-jre/guava-testlib-30.1.1-jre-sources.jar
+00:00:00 [INFO] Installing /workdir/guava/guava-testlib/target/guava-testlib-30.1.1-jre-test-sources.jar to /workdir/m2repo/com/google/guava/guava-testlib/30.1.1-jre/guava-testlib-30.1.1-jre-test-sources.jar
+00:00:00 [INFO] Installing /workdir/guava/guava-testlib/target/guava-testlib-30.1.1-jre-javadoc.jar to /workdir/m2repo/com/google/guava/guava-testlib/30.1.1-jre/guava-testlib-30.1.1-jre-javadoc.jar
+00:00:00 [INFO] 
+00:00:00 [INFO] --------------------< com.google.guava:guava-tests >--------------------
+00:00:00 [INFO] Building Guava Unit Tests 30.1.1-jre                               [5/6]
+00:00:00 [INFO] --------------------------------[ jar ]---------------------------------
+00:00:05 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava-tests ---
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ guava-tests ---
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered resources.
+00:00:00 [INFO] skip non existing resourceDirectory /workdir/guava/guava-tests/src
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ guava-tests ---
+00:00:00 [INFO] No sources to compile
+00:00:00 [INFO] 
+00:00:00 [INFO] --- build-helper-maven-plugin:1.7:add-test-source (add-benchmark-sources) @ guava-tests ---
+00:00:00 [INFO] Test Source directory: /workdir/guava/guava-tests/benchmark added.
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ guava-tests ---
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered resources.
+00:00:00 [INFO] Copying 6 resources
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ guava-tests ---
+00:00:00 [INFO] Changes detected - recompiling the module!
+00:00:00 [INFO] Compiling 556 source files to /workdir/guava/guava-tests/target/test-classes
+00:00:10 [WARNING] /workdir/guava/guava-tests/test/com/google/common/hash/MacHashFunctionTest.java:[32,24] sun.security.jca.ProviderList is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava-tests/test/com/google/common/hash/MacHashFunctionTest.java:[33,24] sun.security.jca.Providers is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava-tests/benchmark/com/google/common/util/concurrent/ExecutionListBenchmark.java:[579,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava-tests/benchmark/com/google/common/util/concurrent/ExecutionListBenchmark.java:[598,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava-tests/benchmark/com/google/common/util/concurrent/ExecutionListBenchmark.java:[600,24] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava-tests/benchmark/com/google/common/util/concurrent/ExecutionListBenchmark.java:[605,65] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava-tests/benchmark/com/google/common/util/concurrent/ExecutionListBenchmark.java:[607,30] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava-tests/benchmark/com/google/common/util/concurrent/ExecutionListBenchmark.java:[608,31] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava-tests/benchmark/com/google/common/util/concurrent/ExecutionListBenchmark.java:[608,52] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava-tests/test/com/google/common/hash/MacHashFunctionTest.java:[82,5] sun.security.jca.ProviderList is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava-tests/test/com/google/common/hash/MacHashFunctionTest.java:[82,30] sun.security.jca.Providers is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava-tests/test/com/google/common/hash/MacHashFunctionTest.java:[83,5] sun.security.jca.Providers is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava-tests/test/com/google/common/hash/MacHashFunctionTest.java:[83,31] sun.security.jca.ProviderList is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava-tests/test/com/google/common/hash/MacHashFunctionTest.java:[89,7] sun.security.jca.Providers is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava-tests/test/com/google/common/util/concurrent/AbstractFutureFallbackAtomicHelperTest.java:[57,46] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava-tests/test/com/google/common/util/concurrent/AbstractFutureFallbackAtomicHelperTest.java:[66,23] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [INFO] /workdir/guava/guava-tests/test/com/google/common/util/concurrent/InterruptionUtil.java: Some input files use or override a deprecated API.
+00:00:00 [INFO] /workdir/guava/guava-tests/test/com/google/common/util/concurrent/InterruptionUtil.java: Recompile with -Xlint:deprecation for details.
+00:00:00 [INFO] /workdir/guava/guava-tests/benchmark/com/google/common/util/concurrent/FuturesGetCheckedBenchmark.java: /workdir/guava/guava-tests/benchmark/com/google/common/util/concurrent/FuturesGetCheckedBenchmark.java uses or overrides a deprecated API that is marked for removal.
+00:00:00 [INFO] /workdir/guava/guava-tests/benchmark/com/google/common/util/concurrent/FuturesGetCheckedBenchmark.java: Recompile with -Xlint:removal for details.
+00:00:00 [INFO] /workdir/guava/guava-tests/benchmark/com/google/common/base/EnumsBenchmark.java: Some input files use unchecked or unsafe operations.
+00:00:00 [INFO] /workdir/guava/guava-tests/benchmark/com/google/common/base/EnumsBenchmark.java: Recompile with -Xlint:unchecked for details.
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-surefire-plugin:2.7.2:test (default-test) @ guava-tests ---
+00:00:00 [INFO] Tests are skipped.
+00:00:00 [INFO] 
+00:00:00 [INFO] --- animal-sniffer-maven-plugin:1.18:check (check-java-version-compatibility) @ guava-tests ---
+00:00:00 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ guava-tests ---
+00:00:00 [INFO] Skipping packaging of the jar
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-jar-plugin:3.2.0:test-jar (create-test-jar) @ guava-tests ---
+00:00:01 [INFO] Building jar: /workdir/guava/guava-tests/target/guava-tests-30.1.1-jre-tests.jar
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-javadoc-plugin:3.1.0:jar (attach-docs) @ guava-tests ---
+00:00:00 [INFO] 
+00:00:00 [INFO] >>> maven-source-plugin:3.2.1:jar (attach-sources) > generate-sources @ guava-tests >>>
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava-tests ---
+00:00:00 [INFO] 
+00:00:00 [INFO] <<< maven-source-plugin:3.2.1:jar (attach-sources) < generate-sources @ guava-tests <<<
+00:00:00 [INFO] 
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-source-plugin:3.2.1:jar (attach-sources) @ guava-tests ---
+00:00:00 [INFO] No sources in project. Archive not created.
+00:00:00 [INFO] 
+00:00:00 [INFO] >>> maven-source-plugin:3.2.1:test-jar (attach-test-sources) > generate-sources @ guava-tests >>>
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava-tests ---
+00:00:00 [INFO] 
+00:00:00 [INFO] <<< maven-source-plugin:3.2.1:test-jar (attach-test-sources) < generate-sources @ guava-tests <<<
+00:00:00 [INFO] 
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-source-plugin:3.2.1:test-jar (attach-test-sources) @ guava-tests ---
+00:00:00 [INFO] Building jar: /workdir/guava/guava-tests/target/guava-tests-30.1.1-jre-test-sources.jar
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-install-plugin:2.4:install (default-install) @ guava-tests ---
+00:00:00 [INFO] No primary artifact to install, installing attached artifacts instead.
+00:00:00 [INFO] Installing /workdir/guava/guava-tests/pom.xml to /workdir/m2repo/com/google/guava/guava-tests/30.1.1-jre/guava-tests-30.1.1-jre.pom
+00:00:00 [INFO] Installing /workdir/guava/guava-tests/target/guava-tests-30.1.1-jre-tests.jar to /workdir/m2repo/com/google/guava/guava-tests/30.1.1-jre/guava-tests-30.1.1-jre-tests.jar
+00:00:00 [INFO] Installing /workdir/guava/guava-tests/target/guava-tests-30.1.1-jre-test-sources.jar to /workdir/m2repo/com/google/guava/guava-tests/30.1.1-jre/guava-tests-30.1.1-jre-test-sources.jar
+00:00:00 [INFO] 
+00:00:00 [INFO] ---------------------< com.google.guava:guava-gwt >---------------------
+00:00:00 [INFO] Building Guava GWT compatible libs 30.1.1-jre                      [6/6]
+00:00:00 [INFO] --------------------------------[ jar ]---------------------------------
+00:00:22 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava-gwt ---
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-dependency-plugin:3.1.1:unpack-dependencies (unpack-failureaccess-sources) @ guava-gwt ---
+00:00:01 [INFO] Unpacking /workdir/m2repo/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar to /workdir/guava/guava-gwt/target/failureaccess-sources with includes "" and excludes "META-INF/MANIFEST.MF"
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-dependency-plugin:3.1.1:unpack-dependencies (unpack-guava-sources) @ guava-gwt ---
+00:00:00 [INFO] Unpacking /workdir/guava/guava/target/guava-30.1.1-jre-sources.jar to /workdir/guava/guava-gwt/target/guava-sources with includes "" and excludes "META-INF/MANIFEST.MF"
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-dependency-plugin:3.1.1:unpack-dependencies (unpack-guava-testlib-sources) @ guava-gwt ---
+00:00:00 [INFO] Unpacking /workdir/guava/guava-testlib/target/guava-testlib-30.1.1-jre-sources.jar to /workdir/guava/guava-gwt/target/guava-test-sources with includes "" and excludes "META-INF/MANIFEST.MF"
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-dependency-plugin:3.1.1:unpack-dependencies (unpack-guava-testlib-test-sources) @ guava-gwt ---
+00:00:00 [INFO] Unpacking /workdir/guava/guava-testlib/target/guava-testlib-30.1.1-jre-test-sources.jar to /workdir/guava/guava-gwt/target/guava-test-sources with includes "" and excludes "META-INF/MANIFEST.MF"
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-dependency-plugin:3.1.1:unpack-dependencies (unpack-guava-test-sources) @ guava-gwt ---
+00:00:00 [INFO] Unpacking /workdir/guava/guava-tests/target/guava-tests-30.1.1-jre-test-sources.jar to /workdir/guava/guava-gwt/target/guava-test-sources with includes "" and excludes "META-INF/MANIFEST.MF"
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-antrun-plugin:1.6:run (copy-gwt-files) @ guava-gwt ---
+00:00:01 [INFO] Executing tasks
+00:00:00 
+00:00:00 copy-gwt-resources:
+00:00:01      [copy] Copying 322 files to /workdir/guava/guava-gwt/target/guava-gwt-sources
+00:00:00      [copy] Copied 28 empty directories to 7 empty directories under /workdir/guava/guava-gwt/target/guava-gwt-sources
+00:00:00      [copy] Copying 1 file to /workdir/guava/guava-gwt/target/guava-gwt-sources
+00:00:00      [copy] Copying 1 file to /workdir/guava/guava-gwt/target/guava-gwt-sources
+00:00:00      [copy] Copying 1 file to /workdir/guava/guava-gwt/target/guava-gwt-sources
+00:00:00      [copy] Copying 439 files to /workdir/guava/guava-gwt/target/guava-test-gwt-sources
+00:00:00      [copy] Copied 36 empty directories to 9 empty directories under /workdir/guava/guava-gwt/target/guava-test-gwt-sources
+00:00:00 [INFO] Executed tasks
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ guava-gwt ---
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered resources.
+00:00:00 [INFO] Copying 17 resources
+00:00:00 [INFO] Copying 57 resources
+00:00:00 [INFO] Copying 325 resources
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ guava-gwt ---
+00:00:00 [INFO] Nothing to compile - all classes are up to date
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ guava-gwt ---
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered resources.
+00:00:00 [INFO] Copying 6 resources
+00:00:00 [INFO] Copying 6 resources
+00:00:00 [INFO] Copying 439 resources
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ guava-gwt ---
+00:00:00 [INFO] Changes detected - recompiling the module!
+00:00:00 [INFO] Compiling 2 source files to /workdir/guava/guava-gwt/target/test-classes
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-surefire-plugin:2.7.2:test (default-test) @ guava-gwt ---
+00:00:00 [INFO] Tests are skipped.
+00:00:00 [INFO] 
+00:00:00 [INFO] --- gwt-maven-plugin:2.8.2:compile (gwt-compile) @ guava-gwt ---
+00:00:26 [INFO] 
+00:00:00 [INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ guava-gwt ---
+00:00:00 [INFO] Building jar: /workdir/guava/guava-gwt/target/guava-gwt-30.1.1-jre.jar
+00:00:01 [INFO] 
+00:00:00 [INFO] --- gwt-maven-plugin:2.8.2:test (gwt-test) @ guava-gwt ---
+00:00:00 [INFO] 
+00:00:00 [INFO] >>> maven-source-plugin:3.2.1:jar (attach-sources) > generate-sources @ guava-gwt >>>
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava-gwt ---
+00:00:00 [INFO] 
+00:00:00 [INFO] <<< maven-source-plugin:3.2.1:jar (attach-sources) < generate-sources @ guava-gwt <<<
+00:00:00 [INFO] 
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-source-plugin:3.2.1:jar (attach-sources) @ guava-gwt ---
+00:00:00 [INFO] Building jar: /workdir/guava/guava-gwt/target/guava-gwt-30.1.1-jre-sources.jar
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-javadoc-plugin:3.1.0:jar (attach-docs) @ guava-gwt ---
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-install-plugin:2.4:install (default-install) @ guava-gwt ---
+00:00:00 [INFO] Installing /workdir/guava/guava-gwt/target/guava-gwt-30.1.1-jre.jar to /workdir/m2repo/com/google/guava/guava-gwt/30.1.1-jre/guava-gwt-30.1.1-jre.jar
+00:00:00 [INFO] Installing /workdir/guava/guava-gwt/pom.xml to /workdir/m2repo/com/google/guava/guava-gwt/30.1.1-jre/guava-gwt-30.1.1-jre.pom
+00:00:00 [INFO] Installing /workdir/guava/guava-gwt/target/guava-gwt-30.1.1-jre-sources.jar to /workdir/m2repo/com/google/guava/guava-gwt/30.1.1-jre/guava-gwt-30.1.1-jre-sources.jar
+00:00:00 [INFO] ------------------------------------------------------------------------
+00:00:00 [INFO] Reactor Summary for Guava Maven Parent 30.1.1-jre:
+00:00:00 [INFO] 
+00:00:00 [INFO] Guava Maven Parent ................................. SUCCESS [  9.785 s]
+00:00:00 [INFO] Guava: Google Core Libraries for Java .............. SUCCESS [ 36.617 s]
+00:00:00 [INFO] Guava BOM .......................................... SUCCESS [  0.915 s]
+00:00:00 [INFO] Guava Testing Library .............................. SUCCESS [  9.831 s]
+00:00:00 [INFO] Guava Unit Tests ................................... SUCCESS [ 16.313 s]
+00:00:00 [INFO] Guava GWT compatible libs .......................... SUCCESS [ 51.871 s]
+00:00:00 [INFO] ------------------------------------------------------------------------
+00:00:00 [INFO] BUILD SUCCESS
+00:00:00 [INFO] ------------------------------------------------------------------------
+00:00:00 [INFO] Total time:  02:11 min
+00:00:00 [INFO] Finished at: 2021-06-15T22:50:10Z
+00:00:00 [INFO] ------------------------------------------------------------------------
+00:00:00 
+00:00:00 real	2m12.607s
+00:00:00 user	2m18.635s
+00:00:00 sys	0m8.302s
+00:00:00 INFO: Running tests...
+00:00:01 Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)
+00:00:00 Maven home: /workdir/apache-maven-3.6.3
+00:00:00 Java version: 11.0.11, vendor: Red Hat, Inc., runtime: /usr/lib/jvm/java-11-openjdk-11.0.11.0.9-1.el7_9.x86_64
+00:00:00 Default locale: en_US, platform encoding: UTF-8
+00:00:00 OS name: "linux", version: "5.10.19-200.fc33.x86_64", arch: "amd64", family: "unix"
+00:00:00 [INFO] Scanning for projects...
+00:00:01 [INFO] ------------------------------------------------------------------------
+00:00:00 [INFO] Reactor Build Order:
+00:00:00 [INFO] 
+00:00:00 [INFO] Guava Maven Parent                                                 [pom]
+00:00:00 [INFO] Guava: Google Core Libraries for Java                           [bundle]
+00:00:00 [INFO] Guava BOM                                                          [pom]
+00:00:00 [INFO] Guava Testing Library                                              [jar]
+00:00:00 [INFO] Guava Unit Tests                                                   [jar]
+00:00:00 [INFO] Guava GWT compatible libs                                          [jar]
+00:00:00 [INFO] 
+00:00:00 [INFO] -------------------< com.google.guava:guava-parent >--------------------
+00:00:00 [INFO] Building Guava Maven Parent 30.1.1-jre                             [1/6]
+00:00:00 [INFO] --------------------------------[ pom ]---------------------------------
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava-parent ---
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-javadoc-plugin:3.1.0:jar (attach-docs) @ guava-parent ---
+00:00:00 [INFO] Skipping javadoc generation
+00:00:00 [INFO] 
+00:00:00 [INFO] -----------------------< com.google.guava:guava >-----------------------
+00:00:00 [INFO] Building Guava: Google Core Libraries for Java 30.1.1-jre          [2/6]
+00:00:00 [INFO] -------------------------------[ bundle ]-------------------------------
+00:00:01 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-resources-plugin/maven-metadata.xml
+00:00:00 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-resources-plugin/maven-metadata.xml (874 B at 3.9 kB/s)
+00:00:00 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/maven-metadata.xml
+00:00:00 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/maven-metadata.xml (663 B at 21 kB/s)
+00:00:00 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-deploy-plugin/maven-metadata.xml
+00:00:00 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-deploy-plugin/maven-metadata.xml (749 B at 24 kB/s)
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava ---
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-dependency-plugin:3.1.1:unpack-dependencies (unpack-jdk-sources) @ guava ---
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ guava ---
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered resources.
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered properties files.
+00:00:00 [INFO] Copying 0 resource
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ guava ---
+00:00:00 [INFO] Nothing to compile - all classes are up to date
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-compiler-plugin:3.8.1:compile (main-compile) @ guava ---
+00:00:00 [INFO] Changes detected - recompiling the module!
+00:00:01 [INFO] Compiling 586 source files to /workdir/guava/guava/target/classes
+00:00:07 [WARNING] /workdir/guava/guava/src/com/google/common/hash/LittleEndianByteArray.java:[19,16] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/primitives/UnsignedBytes.java:[28,16] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/util/concurrent/AbstractFuture.java:[1249,26] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/util/concurrent/AbstractFuture.java:[1257,15] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/util/concurrent/AbstractFuture.java:[1259,26] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/util/concurrent/AbstractFuture.java:[1264,57] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/util/concurrent/AbstractFuture.java:[1266,36] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/util/concurrent/AbstractFuture.java:[1267,37] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/util/concurrent/AbstractFuture.java:[1267,58] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/LittleEndianByteArray.java:[156,26] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/LittleEndianByteArray.java:[167,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/LittleEndianByteArray.java:[169,24] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/LittleEndianByteArray.java:[175,65] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/LittleEndianByteArray.java:[177,30] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/LittleEndianByteArray.java:[178,31] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/LittleEndianByteArray.java:[178,52] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/primitives/UnsignedBytes.java:[315,20] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/primitives/UnsignedBytes.java:[337,30] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/primitives/UnsignedBytes.java:[339,26] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/primitives/UnsignedBytes.java:[345,67] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/primitives/UnsignedBytes.java:[347,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/primitives/UnsignedBytes.java:[348,33] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/primitives/UnsignedBytes.java:[348,54] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/cache/Striped64.java:[109,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/cache/Striped64.java:[267,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/cache/Striped64.java:[288,26] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/cache/Striped64.java:[290,22] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/cache/Striped64.java:[295,63] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/cache/Striped64.java:[297,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/cache/Striped64.java:[298,29] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/cache/Striped64.java:[298,50] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/Striped64.java:[109,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/Striped64.java:[267,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/Striped64.java:[288,26] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/Striped64.java:[290,22] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/Striped64.java:[295,63] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/Striped64.java:[297,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/Striped64.java:[298,29] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [WARNING] /workdir/guava/guava/src/com/google/common/hash/Striped64.java:[298,50] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+00:00:00 [INFO] /workdir/guava/guava/src/com/google/common/util/concurrent/MoreExecutors.java: Some input files use or override a deprecated API.
+00:00:00 [INFO] /workdir/guava/guava/src/com/google/common/util/concurrent/MoreExecutors.java: Recompile with -Xlint:deprecation for details.
+00:00:00 [INFO] /workdir/guava/guava/src/com/google/common/collect/ImmutableMap.java: Some input files use unchecked or unsafe operations.
+00:00:00 [INFO] /workdir/guava/guava/src/com/google/common/collect/ImmutableMap.java: Recompile with -Xlint:unchecked for details.
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-bundle-plugin:2.5.0:manifest (bundle-manifest) @ guava ---
+00:00:03 [INFO] 
+00:00:00 [INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ guava ---
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered resources.
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered properties files.
+00:00:00 [INFO] skip non existing resourceDirectory /workdir/guava/guava/test
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ guava ---
+00:00:00 [INFO] No sources to compile
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-surefire-plugin:2.7.2:test (default-test) @ guava ---
+00:00:00 [INFO] No tests to run.
+00:00:00 [INFO] Surefire report directory: /workdir/guava/guava/target/surefire-reports
+00:00:00 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit3/2.7.2/surefire-junit3-2.7.2.pom
+00:00:00 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit3/2.7.2/surefire-junit3-2.7.2.pom (1.7 kB at 50 kB/s)
+00:00:00 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-providers/2.7.2/surefire-providers-2.7.2.pom
+00:00:00 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-providers/2.7.2/surefire-providers-2.7.2.pom (1.8 kB at 55 kB/s)
+00:00:00 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit3/2.7.2/surefire-junit3-2.7.2.jar
+00:00:00 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit3/2.7.2/surefire-junit3-2.7.2.jar (26 kB at 204 kB/s)
+00:00:00 
+00:00:00 -------------------------------------------------------
+00:00:00  T E S T S
+00:00:00 -------------------------------------------------------
+00:00:00 There are no tests to run.
+00:00:00 
+00:00:00 Results :
+00:00:00 
+00:00:00 Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+00:00:00 
+00:00:00 [INFO] 
+00:00:00 [INFO] --- animal-sniffer-maven-plugin:1.18:check (check-java-version-compatibility) @ guava ---
+00:00:00 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+00:00:01 [INFO] 
+00:00:00 [INFO] --- maven-bundle-plugin:2.5.0:bundle (default-bundle) @ guava ---
+00:00:02 [INFO] 
+00:00:01 [INFO] >>> maven-source-plugin:3.2.1:jar (attach-sources) > generate-sources @ guava >>>
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava ---
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-dependency-plugin:3.1.1:unpack-dependencies (unpack-jdk-sources) @ guava ---
+00:00:00 [INFO] 
+00:00:00 [INFO] <<< maven-source-plugin:3.2.1:jar (attach-sources) < generate-sources @ guava <<<
+00:00:00 [INFO] 
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-source-plugin:3.2.1:jar (attach-sources) @ guava ---
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-javadoc-plugin:3.1.0:jar (attach-docs) @ guava ---
+00:00:00 [INFO] Skipping javadoc generation
+00:00:00 [INFO] 
+00:00:00 [INFO] ---------------------< com.google.guava:guava-bom >---------------------
+00:00:00 [INFO] Building Guava BOM 30.1.1-jre                                      [3/6]
+00:00:00 [INFO] --------------------------------[ pom ]---------------------------------
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:1.2:enforce (enforce-maven) @ guava-bom ---
+00:00:00 [INFO] 
+00:00:00 [INFO] -------------------< com.google.guava:guava-testlib >-------------------
+00:00:00 [INFO] Building Guava Testing Library 30.1.1-jre                          [4/6]
+00:00:00 [INFO] --------------------------------[ jar ]---------------------------------
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava-testlib ---
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ guava-testlib ---
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered resources.
+00:00:00 [INFO] Copying 0 resource
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ guava-testlib ---
+00:00:00 [INFO] Nothing to compile - all classes are up to date
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ guava-testlib ---
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered resources.
+00:00:00 [INFO] Copying 0 resource
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ guava-testlib ---
+00:00:00 [INFO] Nothing to compile - all classes are up to date
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-surefire-plugin:2.7.2:test (default-test) @ guava-testlib ---
+00:00:00 [INFO] Surefire report directory: /workdir/guava/guava-testlib/target/surefire-reports
+00:00:00 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit4/2.7.2/surefire-junit4-2.7.2.pom
+00:00:00 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit4/2.7.2/surefire-junit4-2.7.2.pom (2.2 kB at 65 kB/s)
+00:00:00 [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit4/2.7.2/surefire-junit4-2.7.2.jar
+00:00:01 [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit4/2.7.2/surefire-junit4-2.7.2.jar (25 kB at 21 kB/s)
+00:00:01 
+00:00:00 -------------------------------------------------------
+00:00:00  T E S T S
+00:00:00 -------------------------------------------------------
+00:00:00 Running com.google.common.collect.testing.FeatureSpecificTestSuiteBuilderTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 sec
+00:00:00 Running com.google.common.collect.testing.HelpersTest
+00:00:00 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.collect.testing.IteratorTesterTest
+00:00:00 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec
+00:00:00 Running com.google.common.collect.testing.MapTestSuiteBuilderTests
+00:00:00 Tests run: 1815, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.572 sec
+00:00:00 Running com.google.common.collect.testing.MinimalCollectionTest
+00:00:00 Tests run: 151, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec
+00:00:00 Running com.google.common.collect.testing.MinimalIterableTest
+00:00:00 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.testing.MinimalSetTest
+00:00:00 Tests run: 187, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 sec
+00:00:00 Running com.google.common.collect.testing.OpenJdk6ListTests
+00:00:04 Tests run: 6831, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.07 sec
+00:00:00 Running com.google.common.collect.testing.OpenJdk6MapTests
+00:00:30 Tests run: 321081, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 29.873 sec
+00:00:02 Running com.google.common.collect.testing.OpenJdk6QueueTests
+00:00:01 Tests run: 2031, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.293 sec
+00:00:00 Running com.google.common.collect.testing.OpenJdk6SetTests
+00:00:03 Tests run: 36329, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.395 sec
+00:00:00 Running com.google.common.collect.testing.OpenJdk6Tests
+00:00:35 Tests run: 366272, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 34.688 sec
+00:00:03 Running com.google.common.collect.testing.SafeTreeMapTest
+00:00:12 Tests run: 117807, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.215 sec
+00:00:01 Running com.google.common.collect.testing.SafeTreeMapTest$ReserializedMapTests
+00:00:00 Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+00:00:00 Running com.google.common.collect.testing.SafeTreeSetTest
+00:00:00 Tests run: 509, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 sec
+00:00:00 Running com.google.common.collect.testing.features.FeatureEnumTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.testing.features.FeatureUtilTest
+00:00:00 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+00:00:00 Running com.google.common.testing.ArbitraryInstancesTest
+00:00:00 Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.183 sec
+00:00:00 Running com.google.common.testing.ClassSanityTesterTest
+00:00:00 Tests run: 71, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.111 sec
+00:00:00 Running com.google.common.testing.EqualsTesterTest
+00:00:00 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.testing.EquivalenceTesterTest
+00:00:00 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.testing.FakeTickerTest
+00:00:00 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 sec
+00:00:00 Running com.google.common.testing.FreshValueGeneratorTest
+00:00:00 Tests run: 64, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.153 sec
+00:00:00 Running com.google.common.testing.GcFinalizationTest
+00:00:01 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.31 sec
+00:00:00 Running com.google.common.testing.NullPointerTesterTest
+00:00:00 Tests run: 67, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 sec
+00:00:00 Running com.google.common.testing.RelationshipTesterTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.testing.SerializableTesterTest
+00:00:00 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.testing.TearDownStackTest
+00:00:00 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.testing.TestLogHandlerTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+00:00:00 Running com.google.common.testing.anotherpackage.ForwardingWrapperTesterTest
+00:00:00 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+00:00:00 Running com.google.common.util.concurrent.testing.TestingExecutorsTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 sec
+00:00:00 
+00:00:00 Results :
+00:00:00 
+00:00:00 Tests run: 853415, Failures: 0, Errors: 0, Skipped: 0
+00:00:00 
+00:00:00 [INFO] 
+00:00:00 [INFO] --- animal-sniffer-maven-plugin:1.18:check (check-java-version-compatibility) @ guava-testlib ---
+00:00:00 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ guava-testlib ---
+00:00:01 [INFO] 
+00:00:00 [INFO] --- maven-jar-plugin:3.2.0:test-jar (create-test-jar) @ guava-testlib ---
+00:00:00 [INFO] 
+00:00:00 [INFO] >>> maven-source-plugin:3.2.1:jar (attach-sources) > generate-sources @ guava-testlib >>>
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava-testlib ---
+00:00:00 [INFO] 
+00:00:00 [INFO] <<< maven-source-plugin:3.2.1:jar (attach-sources) < generate-sources @ guava-testlib <<<
+00:00:00 [INFO] 
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-source-plugin:3.2.1:jar (attach-sources) @ guava-testlib ---
+00:00:00 [INFO] 
+00:00:00 [INFO] >>> maven-source-plugin:3.2.1:test-jar (attach-test-sources) > generate-sources @ guava-testlib >>>
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava-testlib ---
+00:00:00 [INFO] 
+00:00:00 [INFO] <<< maven-source-plugin:3.2.1:test-jar (attach-test-sources) < generate-sources @ guava-testlib <<<
+00:00:00 [INFO] 
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-source-plugin:3.2.1:test-jar (attach-test-sources) @ guava-testlib ---
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-javadoc-plugin:3.1.0:jar (attach-docs) @ guava-testlib ---
+00:00:00 [INFO] Skipping javadoc generation
+00:00:00 [INFO] 
+00:00:00 [INFO] --------------------< com.google.guava:guava-tests >--------------------
+00:00:00 [INFO] Building Guava Unit Tests 30.1.1-jre                               [5/6]
+00:00:00 [INFO] --------------------------------[ jar ]---------------------------------
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava-tests ---
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ guava-tests ---
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered resources.
+00:00:00 [INFO] skip non existing resourceDirectory /workdir/guava/guava-tests/src
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ guava-tests ---
+00:00:00 [INFO] No sources to compile
+00:00:00 [INFO] 
+00:00:00 [INFO] --- build-helper-maven-plugin:1.7:add-test-source (add-benchmark-sources) @ guava-tests ---
+00:00:00 [INFO] Test Source directory: /workdir/guava/guava-tests/benchmark added.
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ guava-tests ---
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered resources.
+00:00:00 [INFO] Copying 6 resources
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ guava-tests ---
+00:00:00 [INFO] Nothing to compile - all classes are up to date
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-surefire-plugin:2.7.2:test (default-test) @ guava-tests ---
+00:00:00 [INFO] Surefire report directory: /workdir/guava/guava-tests/target/surefire-reports
+00:00:01 
+00:00:00 -------------------------------------------------------
+00:00:00  T E S T S
+00:00:00 -------------------------------------------------------
+00:00:00 Running com.google.common.base.AbstractIteratorTest
+00:00:00 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 sec
+00:00:00 Running com.google.common.base.AsciiTest
+00:00:00 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+00:00:00 Running com.google.common.base.CaseFormatTest
+00:00:00 Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.134 sec
+00:00:00 Running com.google.common.base.CharMatcherTest
+00:00:00 Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.348 sec
+00:00:00 Running com.google.common.base.CharsetsTest
+00:00:00 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.base.ConverterTest
+00:00:00 Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+00:00:00 Running com.google.common.base.DefaultsTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.base.EnumsTest
+00:00:00 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 sec
+00:00:00 Running com.google.common.base.EquivalenceTest
+00:00:00 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec
+00:00:00 Running com.google.common.base.FinalizableReferenceQueueClassLoaderUnloadingTest
+00:00:00 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.127 sec
+00:00:00 Running com.google.common.base.FinalizableReferenceQueueTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 sec
+00:00:00 Running com.google.common.base.FunctionsTest
+00:00:00 Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 sec
+00:00:00 Running com.google.common.base.JoinerTest
+00:00:00 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+00:00:00 Running com.google.common.base.ObjectsTest
+00:00:00 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.base.OptionalTest
+00:00:00 Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+00:00:00 Running com.google.common.base.PreconditionsTest
+00:00:00 Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 sec
+00:00:00 Running com.google.common.base.PredicatesTest
+00:00:01 Tests run: 87, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 sec
+00:00:00 Running com.google.common.base.SplitterTest
+00:00:00 Tests run: 104, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec
+00:00:00 Running com.google.common.base.StandardSystemPropertyTest
+00:00:00 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.base.StopwatchTest
+00:00:00 Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+00:00:00 Running com.google.common.base.StringsTest
+00:00:00 Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+00:00:00 Running com.google.common.base.SuppliersTest
+00:00:00 Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.328 sec
+00:00:00 Running com.google.common.base.ThrowablesTest
+00:00:00 Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+00:00:00 Running com.google.common.base.ToStringHelperTest
+00:00:00 Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+00:00:00 Running com.google.common.base.Utf8Test
+00:00:01 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.331 sec
+00:00:00 Running com.google.common.base.VerifyTest
+00:00:00 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.cache.AbstractCacheTest
+00:00:00 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+00:00:00 Running com.google.common.cache.AbstractLoadingCacheTest
+00:00:00 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.cache.CacheBuilderGwtTest
+00:00:00 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+00:00:00 Running com.google.common.cache.CacheBuilderSpecTest
+00:00:00 Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+00:00:00 Running com.google.common.cache.CacheBuilderTest
+00:00:10 Tests run: 46, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.336 sec
+00:00:00 Running com.google.common.cache.CacheEvictionTest
+00:00:00 Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
+00:00:00 Running com.google.common.cache.CacheExpirationTest
+00:00:00 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.cache.CacheLoaderTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.cache.CacheLoadingTest
+00:00:00 Tests run: 46, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.454 sec
+00:00:00 Running com.google.common.cache.CacheManualTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.cache.CacheReferencesTest
+00:00:00 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+00:00:00 Running com.google.common.cache.CacheRefreshTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.cache.CacheStatsTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+00:00:00 Running com.google.common.cache.EmptyCachesTest
+00:00:07 Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.473 sec
+00:00:00 Running com.google.common.cache.ForwardingCacheTest
+00:00:00 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.225 sec
+00:00:00 Running com.google.common.cache.ForwardingLoadingCacheTest
+00:00:00 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 sec
+00:00:00 Running com.google.common.cache.LocalCacheMapComputeTest
+00:00:00 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.31 sec
+00:00:00 Running com.google.common.cache.LocalCacheTest
+00:00:02 Tests run: 9567, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.595 sec
+00:00:00 Running com.google.common.cache.LocalLoadingCacheTest
+00:00:00 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.cache.LongAdderTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.cache.NullCacheTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.cache.PopulatedCachesTest
+00:00:02 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.361 sec
+00:00:00 Running com.google.common.cache.RemovalNotificationTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.AbstractBiMapTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.AbstractIteratorTest
+00:00:00 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 sec
+00:00:00 Running com.google.common.collect.AbstractMapEntryTest
+00:00:00 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.AbstractSequentialIteratorTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.ArrayListMultimapTest
+00:00:02 Tests run: 6044, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.281 sec
+00:00:00 Running com.google.common.collect.ArrayTableTest
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+00:00:00 Running com.google.common.collect.CollectSpliteratorsTest
+00:00:00 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 sec
+00:00:00 Running com.google.common.collect.Collections2Test
+00:00:00 Tests run: 1284, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.133 sec
+00:00:00 Running com.google.common.collect.CompactHashMapTest
+00:00:00 Tests run: 3840, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.692 sec
+00:00:00 Running com.google.common.collect.CompactHashMapTest$FloodingTest
+00:00:01 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 sec
+00:00:00 Running com.google.common.collect.CompactHashSetTest
+00:00:00 Tests run: 1570, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.314 sec
+00:00:00 Running com.google.common.collect.CompactHashSetTest$FloodingTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 sec
+00:00:00 Running com.google.common.collect.CompactLinkedHashMapTest
+00:00:00 Tests run: 4048, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.469 sec
+00:00:00 Running com.google.common.collect.CompactLinkedHashMapTest$FloodingTest
+00:00:01 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 sec
+00:00:00 Running com.google.common.collect.CompactLinkedHashSetTest
+00:00:00 Tests run: 1112, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.184 sec
+00:00:00 Running com.google.common.collect.CompactLinkedHashSetTest$FloodingTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 sec
+00:00:00 Running com.google.common.collect.ComparatorsTest
+00:00:00 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+00:00:00 Running com.google.common.collect.ComparisonChainTest
+00:00:00 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.ConcurrentHashMultisetBasherTest
+00:00:11 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.521 sec
+00:00:00 Running com.google.common.collect.ConcurrentHashMultisetTest
+00:00:01 Tests run: 3345, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.657 sec
+00:00:00 Running com.google.common.collect.ContiguousSetTest
+00:00:00 Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+00:00:00 Running com.google.common.collect.ContiguousSetTest$BuiltTests
+00:00:00 Tests run: 905, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.096 sec
+00:00:00 Running com.google.common.collect.CountTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.DiscreteDomainTest
+00:00:00 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.EmptyImmutableTableTest
+00:00:00 Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.EnumBiMapTest
+00:00:01 Tests run: 4084, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.479 sec
+00:00:00 Running com.google.common.collect.EnumHashBiMapTest
+00:00:00 Tests run: 4220, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.451 sec
+00:00:00 Running com.google.common.collect.EnumMultisetTest
+00:00:00 Tests run: 870, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 sec
+00:00:00 Running com.google.common.collect.EvictingQueueTest
+00:00:00 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.FauxveridesTest
+00:00:00 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+00:00:00 Running com.google.common.collect.FilteredCollectionsTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.FilteredCollectionsTest$Collections2FilterArrayListTest
+00:00:00 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.FilteredCollectionsTest$IterablesFilterArrayListTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.FilteredCollectionsTest$SetsFilterHashSetTest
+00:00:00 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.FilteredCollectionsTest$SetsFilterNavigableSetTest
+00:00:00 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+00:00:00 Running com.google.common.collect.FilteredCollectionsTest$SetsFilterSortedSetTest
+00:00:00 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.FilteredMultimapTest
+00:00:00 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec
+00:00:00 Running com.google.common.collect.FluentIterableTest
+00:00:00 Tests run: 105, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+00:00:00 Running com.google.common.collect.ForMapMultimapAsMapImplementsMapTest
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+00:00:00 Running com.google.common.collect.ForwardingCollectionTest
+00:00:00 Tests run: 377, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec
+00:00:00 Running com.google.common.collect.ForwardingConcurrentMapTest
+00:00:00 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+00:00:00 Running com.google.common.collect.ForwardingDequeTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.collect.ForwardingListIteratorTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.ForwardingListMultimapTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+00:00:00 Running com.google.common.collect.ForwardingListTest
+00:00:01 Tests run: 721, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.444 sec
+00:00:00 Running com.google.common.collect.ForwardingMapTest
+00:00:00 Tests run: 1718, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.159 sec
+00:00:00 Running com.google.common.collect.ForwardingMultimapTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.collect.ForwardingMultisetTest
+00:00:00 Tests run: 1718, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.174 sec
+00:00:00 Running com.google.common.collect.ForwardingNavigableMapTest
+00:00:03 Tests run: 32243, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.66 sec
+00:00:00 Running com.google.common.collect.ForwardingNavigableSetTest
+00:00:00 Tests run: 507, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 sec
+00:00:00 Running com.google.common.collect.ForwardingObjectTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+00:00:00 Running com.google.common.collect.ForwardingQueueTest
+00:00:00 Tests run: 228, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+00:00:00 Running com.google.common.collect.ForwardingSetMultimapTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.ForwardingSetTest
+00:00:00 Tests run: 439, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec
+00:00:00 Running com.google.common.collect.ForwardingSortedMapImplementsMapTest
+00:00:00 Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.ForwardingSortedMapTest
+00:00:01 Tests run: 10970, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.883 sec
+00:00:00 Running com.google.common.collect.ForwardingSortedMultisetTest
+00:00:02 Tests run: 24156, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.804 sec
+00:00:00 Running com.google.common.collect.ForwardingSortedSetMultimapTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+00:00:00 Running com.google.common.collect.ForwardingSortedSetTest
+00:00:00 Tests run: 982, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 sec
+00:00:00 Running com.google.common.collect.ForwardingTableTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.GeneralRangeTest
+00:00:00 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.HashBasedTableTest
+00:00:00 Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+00:00:00 Running com.google.common.collect.HashBiMapTest
+00:00:00 Tests run: 4505, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.361 sec
+00:00:00 Running com.google.common.collect.HashMultimapTest
+00:00:01 Tests run: 5715, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.549 sec
+00:00:00 Running com.google.common.collect.HashMultisetTest
+00:00:00 Tests run: 1863, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.146 sec
+00:00:00 Running com.google.common.collect.HashingTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+00:00:00 Running com.google.common.collect.ImmutableBiMapTest
+00:00:03 Tests run: 12463, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.084 sec
+00:00:00 Running com.google.common.collect.ImmutableBiMapTest$BiMapSpecificTests
+00:00:00 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+00:00:00 Running com.google.common.collect.ImmutableBiMapTest$CreationTests
+00:00:00 Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.ImmutableBiMapTest$FloodingTest
+00:00:02 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.891 sec
+00:00:00 Running com.google.common.collect.ImmutableBiMapTest$InverseMapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.ImmutableBiMapTest$MapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.ImmutableClassToInstanceMapTest
+00:00:00 Tests run: 1422, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 sec
+00:00:00 Running com.google.common.collect.ImmutableCollectionTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+00:00:00 Running com.google.common.collect.ImmutableEnumMapTest
+00:00:00 Tests run: 1319, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 sec
+00:00:00 Running com.google.common.collect.ImmutableListMultimapTest
+00:00:01 Tests run: 8851, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.236 sec
+00:00:00 Running com.google.common.collect.ImmutableListTest
+00:00:04 Tests run: 4254, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.229 sec
+00:00:00 Running com.google.common.collect.ImmutableListTest$BasicTests
+00:00:00 Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+00:00:00 Running com.google.common.collect.ImmutableListTest$ConcurrentTests
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.ImmutableListTest$CreationTests
+00:00:00 Tests run: 49, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.ImmutableMapTest
+00:00:03 Tests run: 12364, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.012 sec
+00:00:00 Running com.google.common.collect.ImmutableMapTest$CreationTests
+00:00:00 Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.collect.ImmutableMapTest$FloodingTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.449 sec
+00:00:00 Running com.google.common.collect.ImmutableMapTest$MapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.ImmutableMapTest$MapTestsWithBadHashes
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.ImmutableMapTest$MapTestsWithSingletonUnhashableValue
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.ImmutableMapTest$MapTestsWithUnhashableValues
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.ImmutableMapTest$ReserializedMapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.ImmutableMapTest$SingletonMapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.ImmutableMultimapAsMapImplementsMapTest
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.ImmutableMultimapTest
+00:00:00 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.ImmutableMultisetTest
+00:00:02 Tests run: 4665, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.842 sec
+00:00:00 Running com.google.common.collect.ImmutableMultisetTest$FloodingTest
+00:00:01 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.473 sec
+00:00:00 Running com.google.common.collect.ImmutableRangeMapTest
+00:00:07 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.221 sec
+00:00:00 Running com.google.common.collect.ImmutableRangeSetTest
+00:00:00 Tests run: 758, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.327 sec
+00:00:00 Running com.google.common.collect.ImmutableSetMultimapAsMapImplementsMapTest
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.ImmutableSetMultimapTest
+00:00:01 Tests run: 8546, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.739 sec
+00:00:00 Running com.google.common.collect.ImmutableSetTest
+00:00:01 Tests run: 3110, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.983 sec
+00:00:00 Running com.google.common.collect.ImmutableSetTest$FloodingTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.317 sec
+00:00:00 Running com.google.common.collect.ImmutableSortedMapTest
+00:00:08 Tests run: 66271, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.91 sec
+00:00:00 Running com.google.common.collect.ImmutableSortedMapTest$CreationTests
+00:00:00 Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+00:00:00 Running com.google.common.collect.ImmutableSortedMapTest$HeadMapInclusiveTests
+00:00:00 Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.ImmutableSortedMapTest$HeadMapTests
+00:00:00 Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+00:00:00 Running com.google.common.collect.ImmutableSortedMapTest$MapTests
+00:00:00 Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.ImmutableSortedMapTest$ReserializedMapTests
+00:00:00 Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.collect.ImmutableSortedMapTest$SingletonMapTests
+00:00:00 Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.ImmutableSortedMapTest$SubMapTests
+00:00:00 Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.ImmutableSortedMapTest$TailExclusiveMapTests
+00:00:00 Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec
+00:00:00 Running com.google.common.collect.ImmutableSortedMapTest$TailMapTests
+00:00:00 Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.ImmutableSortedMultisetTest
+00:00:03 Tests run: 20613, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.686 sec
+00:00:00 Running com.google.common.collect.ImmutableSortedSetTest
+00:00:04 Tests run: 17064, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.536 sec
+00:00:00 Running com.google.common.collect.ImmutableTableTest
+00:00:00 Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 sec
+00:00:00 Running com.google.common.collect.InternersTest
+00:00:00 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 sec
+00:00:00 Running com.google.common.collect.IterablesTest
+00:00:00 Tests run: 132, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec
+00:00:00 Running com.google.common.collect.IteratorsTest
+00:00:00 Tests run: 582, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.159 sec
+00:00:00 Running com.google.common.collect.LinkedHashMultimapTest
+00:00:01 Tests run: 6062, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.654 sec
+00:00:00 Running com.google.common.collect.LinkedHashMultisetTest
+00:00:00 Tests run: 1965, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.182 sec
+00:00:00 Running com.google.common.collect.LinkedListMultimapTest
+00:00:01 Tests run: 6282, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.848 sec
+00:00:00 Running com.google.common.collect.ListsImplTest
+00:00:00 Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.ListsTest
+00:00:02 Tests run: 5933, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.844 sec
+00:00:00 Running com.google.common.collect.MapMakerInternalMapTest
+00:00:00 Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+00:00:00 Running com.google.common.collect.MapMakerTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+00:00:00 Running com.google.common.collect.MapMakerTest$MakerTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+00:00:00 Running com.google.common.collect.MapsCollectionTest
+00:00:18 Tests run: 234922, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.772 sec
+00:00:02 Running com.google.common.collect.MapsSortedTransformValuesTest
+00:00:00 Tests run: 66, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.collect.MapsTest
+00:00:00 Tests run: 92, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec
+00:00:00 Running com.google.common.collect.MapsTest$FilteredBiMapTest
+00:00:00 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.MapsTest$FilteredMapTest
+00:00:00 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.MapsTest$FilteredSortedMapTest
+00:00:00 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.MapsTransformValuesTest
+00:00:00 Tests run: 66, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.MapsTransformValuesUnmodifiableIteratorTest
+00:00:00 Tests run: 66, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.MinMaxPriorityQueueTest
+00:00:01 Tests run: 253, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.188 sec
+00:00:00 Running com.google.common.collect.MoreCollectorsTest
+00:00:00 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.MultimapBuilderTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+00:00:00 Running com.google.common.collect.MultimapsCollectionTest
+00:00:04 Tests run: 37867, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.474 sec
+00:00:00 Running com.google.common.collect.MultimapsFilterEntriesAsMapTest
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+00:00:00 Running com.google.common.collect.MultimapsTest
+00:00:00 Tests run: 58, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 sec
+00:00:00 Running com.google.common.collect.MultimapsTransformValuesAsMapTest
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.collect.MultisetsCollectionTest
+00:00:01 Tests run: 23303, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.632 sec
+00:00:01 Running com.google.common.collect.MultisetsImmutableEntryTest
+00:00:00 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.MultisetsTest
+00:00:00 Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.collect.MutableClassToInstanceMapTest
+00:00:00 Tests run: 1757, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.171 sec
+00:00:00 Running com.google.common.collect.NewCustomTableTest
+00:00:00 Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.ObjectArraysTest
+00:00:00 Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.OrderingTest
+00:00:01 Tests run: 69, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.376 sec
+00:00:00 Running com.google.common.collect.PeekingIteratorTest
+00:00:00 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec
+00:00:00 Running com.google.common.collect.QueuesTest
+00:00:06 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.926 sec
+00:00:00 Running com.google.common.collect.RangeNonGwtTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.RangeTest
+00:00:00 Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.RegularImmutableAsListTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.RegularImmutableTableTest
+00:00:00 Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.SetOperationsTest
+00:00:00 Tests run: 1619, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.111 sec
+00:00:00 Running com.google.common.collect.SetOperationsTest$MoreTests
+00:00:00 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+00:00:00 Running com.google.common.collect.SetsTest
+00:00:00 Tests run: 2282, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.189 sec
+00:00:00 Running com.google.common.collect.SimpleAbstractMultisetTest
+00:00:00 Tests run: 699, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 sec
+00:00:00 Running com.google.common.collect.SingletonImmutableTableTest
+00:00:00 Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.SortedIterablesTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+00:00:00 Running com.google.common.collect.SortedListsTest
+00:00:00 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.StreamsTest
+00:00:00 Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 sec
+00:00:00 Running com.google.common.collect.SubMapMultimapAsMapImplementsMapTest
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.collect.SynchronizedBiMapTest
+00:00:01 Tests run: 6844, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.551 sec
+00:00:00 Running com.google.common.collect.SynchronizedDequeTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.SynchronizedMapTest
+00:00:00 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+00:00:00 Running com.google.common.collect.SynchronizedMultimapTest
+00:00:01 Tests run: 5646, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.712 sec
+00:00:00 Running com.google.common.collect.SynchronizedNavigableMapTest
+00:00:02 Tests run: 32384, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.213 sec
+00:00:00 Running com.google.common.collect.SynchronizedNavigableSetTest
+00:00:01 Tests run: 8953, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.223 sec
+00:00:00 Running com.google.common.collect.SynchronizedQueueTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.SynchronizedSetTest
+00:00:00 Tests run: 506, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 sec
+00:00:00 Running com.google.common.collect.SynchronizedTableTest
+00:00:00 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest
+00:00:01 Tests run: 7480, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.547 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$ArrayColumnMapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$ArrayColumnTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$ArrayRowMapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$ArrayRowTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$HashColumnMapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$HashColumnTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$HashRowMapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$HashRowTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$TransformValueColumnMapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$TransformValueColumnTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$TransformValueRowMapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$TransformValueRowTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$TransposeColumnTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$TransposeRowTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$TreeColumnMapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$TreeColumnTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$TreeRowMapHeadMapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$TreeRowMapSubMapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$TreeRowMapTailMapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$TreeRowMapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$TreeRowTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$UnmodifiableHashColumnMapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$UnmodifiableHashColumnTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$UnmodifiableHashRowMapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$UnmodifiableHashRowTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$UnmodifiableTreeColumnMapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$UnmodifiableTreeColumnTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$UnmodifiableTreeRowMapTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.TableCollectionTest$UnmodifiableTreeRowTests
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TableCollectorsTest$ToImmutableTableTest
+00:00:00 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+00:00:00 Running com.google.common.collect.TableCollectorsTest$ToTableTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.TablesTest
+00:00:00 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TablesTransformValuesTest
+00:00:00 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TopKSelectorTest
+00:00:00 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.201 sec
+00:00:00 Running com.google.common.collect.TransposedTableTest
+00:00:00 Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TreeBasedTableTest
+00:00:01 Tests run: 3883, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.274 sec
+00:00:00 Running com.google.common.collect.TreeBasedTableTest$TreeRowTest
+00:00:00 Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.TreeMultimapExplicitTest
+00:00:00 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.TreeMultimapNaturalTest
+00:00:03 Tests run: 40220, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.283 sec
+00:00:00 Running com.google.common.collect.TreeMultisetTest
+00:00:09 Tests run: 103115, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.637 sec
+00:00:00 Running com.google.common.collect.TreeRangeMapTest
+00:00:07 Tests run: 3276, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.528 sec
+00:00:00 Running com.google.common.collect.TreeRangeSetTest
+00:00:21 Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.349 sec
+00:00:00 Running com.google.common.collect.TreeTraverserTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.collect.UnmodifiableIteratorTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.collect.UnmodifiableListIteratorTest
+00:00:00 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.collect.UnmodifiableMultimapAsMapImplementsMapTest
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.escape.ArrayBasedCharEscaperTest
+00:00:00 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.escape.ArrayBasedEscaperMapTest
+00:00:00 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.escape.ArrayBasedUnicodeEscaperTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.escape.CharEscaperBuilderTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.escape.EscapersTest
+00:00:00 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.escape.UnicodeEscaperTest
+00:00:00 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.eventbus.AsyncEventBusTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.eventbus.DispatcherTest
+00:00:00 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.eventbus.EventBusTest
+00:00:00 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.414 sec
+00:00:00 Running com.google.common.eventbus.ReentrantEventsTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.eventbus.SubscriberRegistryTest
+00:00:00 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.eventbus.SubscriberTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.eventbus.outside.AnnotatedSubscriberFinderTests$AbstractNotAnnotatedInSuperclassTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.eventbus.outside.AnnotatedSubscriberFinderTests$AnnotatedAndAbstractInSuperclassTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.eventbus.outside.AnnotatedSubscriberFinderTests$AnnotatedNotAbstractInSuperclassTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+00:00:00 Running com.google.common.eventbus.outside.AnnotatedSubscriberFinderTests$BaseSubscriberFinderTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+00:00:00 Running com.google.common.eventbus.outside.AnnotatedSubscriberFinderTests$DeepInterfaceTest
+00:00:00 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.eventbus.outside.AnnotatedSubscriberFinderTests$NeitherAbstractNorAnnotatedInSuperclassTest
+00:00:00 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.eventbus.outside.OutsideEventBusTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.graph.DefaultNetworkImplementationsTest
+00:00:00 Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+00:00:00 Running com.google.common.graph.ElementOrderTest
+00:00:00 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+00:00:00 Running com.google.common.graph.EndpointPairTest
+00:00:00 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.graph.GraphEquivalenceTest
+00:00:00 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.graph.GraphMutationTest
+00:00:03 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.387 sec
+00:00:00 Running com.google.common.graph.GraphPropertiesTest
+00:00:00 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.graph.GraphsTest
+00:00:00 Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec
+00:00:00 Running com.google.common.graph.ImmutableNetworkTest
+00:00:00 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.graph.ImmutableValueGraphTest
+00:00:00 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.graph.MapCacheTest
+00:00:00 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.graph.NetworkEquivalenceTest
+00:00:00 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.graph.NetworkMutationTest
+00:00:09 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.86 sec
+00:00:00 Running com.google.common.graph.StandardImmutableDirectedGraphTest
+00:00:00 Tests run: 130, Failures: 0, Errors: 0, Skipped: 60, Time elapsed: 0.096 sec
+00:00:00 Running com.google.common.graph.StandardImmutableDirectedNetworkTest
+00:00:01 Tests run: 392, Failures: 0, Errors: 0, Skipped: 187, Time elapsed: 0.325 sec
+00:00:00 Running com.google.common.graph.StandardImmutableGraphAdditionalTest
+00:00:00 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.graph.StandardImmutableUndirectedGraphTest
+00:00:00 Tests run: 124, Failures: 0, Errors: 0, Skipped: 56, Time elapsed: 0.077 sec
+00:00:00 Running com.google.common.graph.StandardMutableDirectedGraphTest
+00:00:00 Tests run: 260, Failures: 0, Errors: 0, Skipped: 37, Time elapsed: 0.082 sec
+00:00:00 Running com.google.common.graph.StandardMutableDirectedNetworkTest
+00:00:00 Tests run: 392, Failures: 0, Errors: 0, Skipped: 71, Time elapsed: 0.161 sec
+00:00:00 Running com.google.common.graph.StandardMutableUndirectedGraphTest
+00:00:00 Tests run: 248, Failures: 0, Errors: 0, Skipped: 37, Time elapsed: 0.074 sec
+00:00:00 Running com.google.common.graph.StandardMutableUndirectedNetworkTest
+00:00:00 Tests run: 368, Failures: 0, Errors: 0, Skipped: 67, Time elapsed: 0.173 sec
+00:00:00 Running com.google.common.graph.TraverserTest
+00:00:00 Tests run: 112, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+00:00:00 Running com.google.common.graph.ValueGraphTest
+00:00:00 Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+00:00:00 Running com.google.common.hash.AbstractByteHasherTest
+00:00:00 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+00:00:00 Running com.google.common.hash.AbstractNonStreamingHashFunctionTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+00:00:00 Running com.google.common.hash.AbstractStreamingHasherTest
+00:00:02 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.765 sec
+00:00:00 Running com.google.common.hash.BloomFilterTest
+00:00:03 Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.067 sec
+00:00:00 Running com.google.common.hash.ChecksumHashFunctionTest
+00:00:00 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.hash.Crc32cHashFunctionTest
+00:00:00 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
+00:00:00 Running com.google.common.hash.FarmHashFingerprint64Test
+00:00:00 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+00:00:00 Running com.google.common.hash.FunnelsTest
+00:00:00 Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.11 sec
+00:00:00 Running com.google.common.hash.HashCodeTest
+00:00:00 Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.hash.HashingInputStreamTest
+00:00:00 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 sec
+00:00:00 Running com.google.common.hash.HashingOutputStreamTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.hash.HashingTest
+00:00:05 Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.143 sec
+00:00:00 Running com.google.common.hash.MacHashFunctionTest
+00:00:00 Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 sec
+00:00:00 Running com.google.common.hash.MessageDigestHashFunctionTest
+00:00:00 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+00:00:00 Running com.google.common.hash.Murmur3Hash128Test
+00:00:00 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.088 sec
+00:00:00 Running com.google.common.hash.Murmur3Hash32Test
+00:00:00 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 sec
+00:00:00 Running com.google.common.hash.SipHashFunctionTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+00:00:00 Running com.google.common.html.HtmlEscapersTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.io.AppendableWriterTest
+00:00:00 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.io.BaseEncodingTest
+00:00:00 Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+00:00:00 Running com.google.common.io.ByteSinkTest
+00:00:00 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.io.ByteSourceTest
+00:00:00 Tests run: 2223, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 sec
+00:00:00 Running com.google.common.io.ByteStreamsTest
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 sec
+00:00:00 Running com.google.common.io.CharSequenceReaderTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.io.CharSinkTest
+00:00:00 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.io.CharSourceTest
+00:00:00 Tests run: 1539, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 sec
+00:00:00 Running com.google.common.io.CharStreamsTest
+00:00:00 Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+00:00:00 Running com.google.common.io.CloseablesTest
+00:00:00 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+00:00:00 Running com.google.common.io.CloserTest
+00:00:00 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.io.CountingInputStreamTest
+00:00:00 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.io.CountingOutputStreamTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.io.FileBackedOutputStreamTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.124 sec
+00:00:00 Running com.google.common.io.FilesFileTraverserTest
+00:00:00 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+00:00:00 Running com.google.common.io.FilesSimplifyPathTest
+00:00:00 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.265 sec
+00:00:00 Running com.google.common.io.FilesTest
+00:00:01 Tests run: 1161, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.176 sec
+00:00:00 Running com.google.common.io.FlushablesTest
+00:00:00 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+00:00:00 Running com.google.common.io.LineBufferTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.io.LittleEndianDataInputStreamTest
+00:00:00 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.io.LittleEndianDataOutputStreamTest
+00:00:00 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.io.MoreFilesFileTraverserTest
+00:00:00 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 sec
+00:00:00 Running com.google.common.io.MoreFilesTest
+00:00:06 Tests run: 1150, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.683 sec
+00:00:00 Running com.google.common.io.MultiInputStreamTest
+00:00:01 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.487 sec
+00:00:00 Running com.google.common.io.MultiReaderTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.io.PatternFilenameFilterTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+00:00:00 Running com.google.common.io.ResourcesTest
+00:00:00 Tests run: 773, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.101 sec
+00:00:00 Running com.google.common.math.BigDecimalMathTest
+00:00:00 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+00:00:00 Running com.google.common.math.BigIntegerMathTest
+00:00:01 Tests run: 63, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.85 sec
+00:00:00 Running com.google.common.math.DoubleMathTest
+00:00:02 Tests run: 68, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.224 sec
+00:00:00 Running com.google.common.math.DoubleUtilsTest
+00:00:00 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.math.IntMathTest
+00:00:00 Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.166 sec
+00:00:00 Running com.google.common.math.LinearTransformationTest
+00:00:00 Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.math.LongMathTest
+00:00:20 Tests run: 69, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.047 sec
+00:00:00 Running com.google.common.math.MathPreconditionsTest
+00:00:00 Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.math.PairedStatsAccumulatorTest
+00:00:00 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+00:00:00 Running com.google.common.math.PairedStatsTest
+00:00:00 Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+00:00:00 Running com.google.common.math.QuantilesAlgorithmTest
+00:00:00 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.math.QuantilesTest
+00:00:04 Tests run: 58, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.432 sec
+00:00:00 Running com.google.common.math.StatsAccumulatorTest
+00:00:00 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.315 sec
+00:00:00 Running com.google.common.math.StatsTest
+00:00:00 Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.333 sec
+00:00:00 Running com.google.common.net.HostAndPortTest
+00:00:00 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.net.HostSpecifierTest
+00:00:00 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
+00:00:00 Running com.google.common.net.HttpHeadersTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.net.InetAddressesTest
+00:00:00 Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+00:00:00 Running com.google.common.net.InternetDomainNameTest
+00:00:00 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+00:00:00 Running com.google.common.net.MediaTypeTest
+00:00:00 Tests run: 49, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+00:00:00 Running com.google.common.net.PercentEscaperTest
+00:00:00 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.net.UrlEscapersTest
+00:00:00 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+00:00:00 Running com.google.common.primitives.BooleansTest
+00:00:00 Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+00:00:00 Running com.google.common.primitives.ByteArrayAsListTest
+00:00:00 Tests run: 896, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 sec
+00:00:00 Running com.google.common.primitives.BytesTest
+00:00:00 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.primitives.CharArrayAsListTest
+00:00:01 Tests run: 896, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 sec
+00:00:00 Running com.google.common.primitives.CharsTest
+00:00:00 Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.146 sec
+00:00:00 Running com.google.common.primitives.DoubleArrayAsListTest
+00:00:00 Tests run: 896, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 sec
+00:00:00 Running com.google.common.primitives.DoublesTest
+00:00:02 Tests run: 46, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.232 sec
+00:00:00 Running com.google.common.primitives.FloatArrayAsListTest
+00:00:00 Tests run: 896, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 sec
+00:00:00 Running com.google.common.primitives.FloatsTest
+00:00:02 Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.218 sec
+00:00:00 Running com.google.common.primitives.ImmutableDoubleArrayTest
+00:00:03 Tests run: 2334, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.355 sec
+00:00:00 Running com.google.common.primitives.ImmutableIntArrayTest
+00:00:02 Tests run: 2333, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.269 sec
+00:00:00 Running com.google.common.primitives.ImmutableLongArrayTest
+00:00:02 Tests run: 2333, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.288 sec
+00:00:00 Running com.google.common.primitives.IntArrayAsListTest
+00:00:00 Tests run: 896, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 sec
+00:00:00 Running com.google.common.primitives.IntsTest
+00:00:00 Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+00:00:00 Running com.google.common.primitives.LongArrayAsListTest
+00:00:00 Tests run: 896, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 sec
+00:00:00 Running com.google.common.primitives.LongsTest
+00:00:00 Tests run: 46, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.primitives.PrimitivesTest
+00:00:00 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.primitives.ShortArrayAsListTest
+00:00:00 Tests run: 896, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 sec
+00:00:00 Running com.google.common.primitives.ShortsTest
+00:00:00 Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+00:00:00 Running com.google.common.primitives.SignedBytesTest
+00:00:00 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.primitives.UnsignedBytesTest
+00:00:00 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+00:00:00 Running com.google.common.primitives.UnsignedIntegerTest
+00:00:00 Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+00:00:00 Running com.google.common.primitives.UnsignedIntsTest
+00:00:00 Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 sec
+00:00:00 Running com.google.common.primitives.UnsignedLongTest
+00:00:00 Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+00:00:00 Running com.google.common.primitives.UnsignedLongsTest
+00:00:00 Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 sec
+00:00:00 Running com.google.common.reflect.AbstractInvocationHandlerTest
+00:00:00 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+00:00:00 Running com.google.common.reflect.ClassPathTest
+00:00:01 Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.214 sec
+00:00:00 Running com.google.common.reflect.ElementTest
+00:00:00 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.reflect.ImmutableTypeToInstanceMapTest
+00:00:00 Tests run: 712, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 sec
+00:00:00 Running com.google.common.reflect.InvokableTest
+00:00:00 Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+00:00:00 Running com.google.common.reflect.MutableTypeToInstanceMapTest
+00:00:00 Tests run: 831, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 sec
+00:00:00 Running com.google.common.reflect.ParameterTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.reflect.ReflectionTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.reflect.TypeParameterTest
+00:00:00 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.reflect.TypeResolverTest
+00:00:00 Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+00:00:00 Running com.google.common.reflect.TypeTokenResolutionTest
+00:00:00 Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec
+00:00:00 Running com.google.common.reflect.TypeTokenSubtypeTest
+00:00:00 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+00:00:00 Running com.google.common.reflect.TypeTokenTest
+00:00:00 Tests run: 172, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 sec
+00:00:00 Running com.google.common.reflect.TypeVisitorTest
+00:00:00 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.reflect.TypesTest
+00:00:00 Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.util.concurrent.AbstractExecutionThreadServiceTest
+00:00:00 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+00:00:00 Running com.google.common.util.concurrent.AbstractFutureCancellationCauseTest
+00:00:00 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+00:00:00 Running com.google.common.util.concurrent.AbstractFutureFallbackAtomicHelperTest
+00:05:06 Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 306.018 sec
+00:00:00 Running com.google.common.util.concurrent.AbstractFutureInnocuousThreadTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+00:00:00 Running com.google.common.util.concurrent.AbstractFutureTest
+00:02:27 Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 146.712 sec
+00:00:00 Running com.google.common.util.concurrent.AbstractIdleServiceTest
+00:00:00 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.util.concurrent.AbstractIdleServiceTest$FunctionalTest
+00:00:00 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.util.concurrent.AbstractListeningExecutorServiceTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.util.concurrent.AbstractScheduledServiceTest
+00:00:00 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.301 sec
+00:00:00 Running com.google.common.util.concurrent.AbstractScheduledServiceTest$SchedulerTest
+00:00:11 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.409 sec
+00:00:00 Running com.google.common.util.concurrent.AbstractServiceTest
+00:00:00 Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+00:00:00 Running com.google.common.util.concurrent.AggregateFutureStateFallbackAtomicHelperTest
+00:00:04 Tests run: 160, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.821 sec
+00:00:00 Running com.google.common.util.concurrent.AtomicDoubleArrayTest
+00:00:01 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.209 sec
+00:00:00 Running com.google.common.util.concurrent.AtomicDoubleTest
+00:00:00 Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.util.concurrent.AtomicLongMapBasherTest
+00:00:02 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.384 sec
+00:00:00 Running com.google.common.util.concurrent.AtomicLongMapTest
+00:00:00 Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 sec
+00:00:00 Running com.google.common.util.concurrent.AtomicsTest
+00:00:00 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.util.concurrent.CallablesTest
+00:00:00 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.util.concurrent.ClosingFutureTest$FinishToFutureTest
+00:00:57 Tests run: 65, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 57.091 sec
+00:00:00 Running com.google.common.util.concurrent.ClosingFutureTest$FinishToValueAndCloserTest
+00:00:57 Tests run: 64, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 57.066 sec
+00:00:00 Running com.google.common.util.concurrent.CycleDetectingLockFactoryTest
+00:00:00 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 sec
+00:00:00 Running com.google.common.util.concurrent.ExecutionListTest
+00:00:00 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.util.concurrent.ExecutionSequencerTest
+00:00:00 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.227 sec
+00:00:00 Running com.google.common.util.concurrent.FakeTimeLimiterTest
+00:00:00 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.util.concurrent.FluentFutureTest
+00:00:00 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.util.concurrent.ForwardingBlockingDequeTest
+00:00:01 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 sec
+00:00:00 Running com.google.common.util.concurrent.ForwardingBlockingQueueTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 sec
+00:00:00 Running com.google.common.util.concurrent.ForwardingExecutorServiceTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+00:00:00 Running com.google.common.util.concurrent.ForwardingFutureTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+00:00:00 Running com.google.common.util.concurrent.ForwardingListenableFutureTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+00:00:00 Running com.google.common.util.concurrent.ForwardingListeningExecutorServiceTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec
+00:00:00 Running com.google.common.util.concurrent.ForwardingObjectTesterTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+00:00:00 Running com.google.common.util.concurrent.FutureCallbackTest
+00:00:00 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 sec
+00:00:00 Running com.google.common.util.concurrent.FuturesGetCheckedTest
+00:00:00 Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 sec
+00:00:00 Running com.google.common.util.concurrent.FuturesGetDoneTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.util.concurrent.FuturesGetUncheckedTest
+00:00:00 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.util.concurrent.FuturesTest
+00:00:03 Tests run: 160, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.666 sec
+00:00:00 Running com.google.common.util.concurrent.FuturesTransformAsyncTest
+00:00:00 Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.util.concurrent.FuturesTransformTest
+00:00:00 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.util.concurrent.GeneratedMonitorTest
+00:00:10 Tests run: 980, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.128 sec
+00:00:00 Running com.google.common.util.concurrent.InterruptibleMonitorTest
+00:00:00 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.721 sec
+00:00:00 Running com.google.common.util.concurrent.InterruptibleTaskTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.util.concurrent.JdkFutureAdaptersTest
+00:00:00 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+00:00:00 Running com.google.common.util.concurrent.ListenableFutureTaskTest
+00:00:01 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.util.concurrent.ListenerCallQueueTest
+00:00:00 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+00:00:00 Running com.google.common.util.concurrent.ListeningScheduledExecutorServiceTest
+00:00:00 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.util.concurrent.MoreExecutorsTest
+00:00:00 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.134 sec
+00:00:00 Running com.google.common.util.concurrent.RateLimiterTest
+00:00:00 Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.088 sec
+00:00:00 Running com.google.common.util.concurrent.RunnablesTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+00:00:00 Running com.google.common.util.concurrent.SequentialExecutorTest
+00:00:00 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+00:00:00 Running com.google.common.util.concurrent.ServiceManagerTest
+00:00:01 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.519 sec
+00:00:00 Running com.google.common.util.concurrent.ServiceTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.util.concurrent.SettableFutureTest
+00:00:00 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+00:00:00 Running com.google.common.util.concurrent.SimpleTimeLimiterTest
+00:00:11 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.54 sec
+00:00:00 Running com.google.common.util.concurrent.StripedTest
+00:00:01 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.808 sec
+00:00:00 Running com.google.common.util.concurrent.SupplementalMonitorTest
+00:00:00 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.util.concurrent.ThreadFactoryBuilderTest
+00:00:00 Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+00:00:00 Running com.google.common.util.concurrent.TrustedInputFutureTest
+00:00:00 Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec
+00:00:00 Running com.google.common.util.concurrent.TrustedListenableFutureTaskTest
+00:00:01 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 sec
+00:00:00 Running com.google.common.util.concurrent.UncaughtExceptionHandlersTest
+00:00:00 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 sec
+00:00:00 Running com.google.common.util.concurrent.UninterruptibleFutureTest
+00:00:02 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.006 sec
+00:00:00 Running com.google.common.util.concurrent.UninterruptibleMonitorTest
+00:00:00 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.721 sec
+00:00:00 Running com.google.common.util.concurrent.UninterruptiblesTest
+00:00:13 Tests run: 49, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.681 sec
+00:00:00 Running com.google.common.util.concurrent.UntrustedInputFutureTest
+00:00:00 Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec
+00:00:00 Running com.google.common.util.concurrent.WrappingExecutorServiceTest
+00:00:00 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.util.concurrent.WrappingScheduledExecutorServiceTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+00:00:00 Running com.google.common.xml.XmlEscapersTest
+00:00:00 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec
+00:00:00 
+00:00:00 Results :
+00:00:00 
+00:00:00 Tests run: 858390, Failures: 0, Errors: 0, Skipped: 515
+00:00:00 
+00:00:00 [INFO] 
+00:00:00 [INFO] --- animal-sniffer-maven-plugin:1.18:check (check-java-version-compatibility) @ guava-tests ---
+00:00:00 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ guava-tests ---
+00:00:00 [INFO] Skipping packaging of the jar
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-jar-plugin:3.2.0:test-jar (create-test-jar) @ guava-tests ---
+00:00:01 [INFO] 
+00:00:00 [INFO] --- maven-javadoc-plugin:3.1.0:jar (attach-docs) @ guava-tests ---
+00:00:00 [INFO] Skipping javadoc generation
+00:00:00 [INFO] 
+00:00:00 [INFO] >>> maven-source-plugin:3.2.1:jar (attach-sources) > generate-sources @ guava-tests >>>
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava-tests ---
+00:00:00 [INFO] 
+00:00:00 [INFO] <<< maven-source-plugin:3.2.1:jar (attach-sources) < generate-sources @ guava-tests <<<
+00:00:00 [INFO] 
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-source-plugin:3.2.1:jar (attach-sources) @ guava-tests ---
+00:00:00 [INFO] No sources in project. Archive not created.
+00:00:00 [INFO] 
+00:00:00 [INFO] >>> maven-source-plugin:3.2.1:test-jar (attach-test-sources) > generate-sources @ guava-tests >>>
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava-tests ---
+00:00:00 [INFO] 
+00:00:00 [INFO] <<< maven-source-plugin:3.2.1:test-jar (attach-test-sources) < generate-sources @ guava-tests <<<
+00:00:00 [INFO] 
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-source-plugin:3.2.1:test-jar (attach-test-sources) @ guava-tests ---
+00:00:00 [INFO] 
+00:00:00 [INFO] ---------------------< com.google.guava:guava-gwt >---------------------
+00:00:00 [INFO] Building Guava GWT compatible libs 30.1.1-jre                      [6/6]
+00:00:00 [INFO] --------------------------------[ jar ]---------------------------------
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava-gwt ---
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-dependency-plugin:3.1.1:unpack-dependencies (unpack-failureaccess-sources) @ guava-gwt ---
+00:00:00 [INFO] Unpacking /workdir/m2repo/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar to /workdir/guava/guava-gwt/target/failureaccess-sources with includes "" and excludes "META-INF/MANIFEST.MF"
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-dependency-plugin:3.1.1:unpack-dependencies (unpack-guava-sources) @ guava-gwt ---
+00:00:00 [INFO] Unpacking /workdir/guava/guava/target/guava-30.1.1-jre-sources.jar to /workdir/guava/guava-gwt/target/guava-sources with includes "" and excludes "META-INF/MANIFEST.MF"
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-dependency-plugin:3.1.1:unpack-dependencies (unpack-guava-testlib-sources) @ guava-gwt ---
+00:00:00 [INFO] Unpacking /workdir/guava/guava-testlib/target/guava-testlib-30.1.1-jre-sources.jar to /workdir/guava/guava-gwt/target/guava-test-sources with includes "" and excludes "META-INF/MANIFEST.MF"
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-dependency-plugin:3.1.1:unpack-dependencies (unpack-guava-testlib-test-sources) @ guava-gwt ---
+00:00:00 [INFO] Unpacking /workdir/guava/guava-testlib/target/guava-testlib-30.1.1-jre-test-sources.jar to /workdir/guava/guava-gwt/target/guava-test-sources with includes "" and excludes "META-INF/MANIFEST.MF"
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-dependency-plugin:3.1.1:unpack-dependencies (unpack-guava-test-sources) @ guava-gwt ---
+00:00:00 [INFO] Unpacking /workdir/guava/guava-tests/target/guava-tests-30.1.1-jre-test-sources.jar to /workdir/guava/guava-gwt/target/guava-test-sources with includes "" and excludes "META-INF/MANIFEST.MF"
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-antrun-plugin:1.6:run (copy-gwt-files) @ guava-gwt ---
+00:00:01 [INFO] Executing tasks
+00:00:00 
+00:00:00 copy-gwt-resources:
+00:00:00 [INFO] Executed tasks
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ guava-gwt ---
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered resources.
+00:00:00 [INFO] Copying 17 resources
+00:00:00 [INFO] Copying 57 resources
+00:00:00 [INFO] Copying 325 resources
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ guava-gwt ---
+00:00:00 [INFO] Nothing to compile - all classes are up to date
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ guava-gwt ---
+00:00:00 [INFO] Using 'UTF-8' encoding to copy filtered resources.
+00:00:00 [INFO] Copying 6 resources
+00:00:00 [INFO] Copying 6 resources
+00:00:00 [INFO] Copying 439 resources
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ guava-gwt ---
+00:00:00 [INFO] Nothing to compile - all classes are up to date
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-surefire-plugin:2.7.2:test (default-test) @ guava-gwt ---
+00:00:00 [INFO] Tests are skipped.
+00:00:00 [INFO] 
+00:00:00 [INFO] --- gwt-maven-plugin:2.8.2:compile (gwt-compile) @ guava-gwt ---
+00:00:05 [INFO] 
+00:00:00 [INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ guava-gwt ---
+00:00:00 [INFO] 
+00:00:00 [INFO] --- gwt-maven-plugin:2.8.2:test (gwt-test) @ guava-gwt ---
+00:00:00 [INFO] 
+00:00:00 [INFO] -------------------------------------------------------
+00:00:00 [INFO]  T E S T S
+00:00:00 [INFO] -------------------------------------------------------
+00:00:00 [INFO] Running com.google.gwt.junit.tools.GWTTestSuite@3d8c7aca
+00:00:01 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+00:00:00 [INFO] 
+00:00:00 [INFO] Results :
+00:00:00 [INFO] 
+00:00:00 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+00:00:00 [INFO] 
+00:00:00 [INFO] 
+00:00:00 [INFO] >>> maven-source-plugin:3.2.1:jar (attach-sources) > generate-sources @ guava-gwt >>>
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-versions) @ guava-gwt ---
+00:00:00 [INFO] 
+00:00:00 [INFO] <<< maven-source-plugin:3.2.1:jar (attach-sources) < generate-sources @ guava-gwt <<<
+00:00:00 [INFO] 
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-source-plugin:3.2.1:jar (attach-sources) @ guava-gwt ---
+00:00:00 [INFO] 
+00:00:00 [INFO] --- maven-javadoc-plugin:3.1.0:jar (attach-docs) @ guava-gwt ---
+00:00:00 [INFO] Skipping javadoc generation
+00:00:00 [INFO] ------------------------------------------------------------------------
+00:00:00 [INFO] Reactor Summary for Guava Maven Parent 30.1.1-jre:
+00:00:00 [INFO] 
+00:00:00 [INFO] Guava Maven Parent ................................. SUCCESS [  0.536 s]
+00:00:00 [INFO] Guava: Google Core Libraries for Java .............. SUCCESS [ 15.385 s]
+00:00:00 [INFO] Guava BOM .......................................... SUCCESS [  0.030 s]
+00:00:00 [INFO] Guava Testing Library .............................. SUCCESS [01:34 min]
+00:00:00 [INFO] Guava Unit Tests ................................... SUCCESS [14:34 min]
+00:00:00 [INFO] Guava GWT compatible libs .......................... SUCCESS [  7.691 s]
+00:00:00 [INFO] ------------------------------------------------------------------------
+00:00:00 [INFO] BUILD SUCCESS
+00:00:00 [INFO] ------------------------------------------------------------------------
+00:00:00 [INFO] Total time:  16:34 min
+00:00:00 [INFO] Finished at: 2021-06-15T23:06:45Z
+00:00:00 [INFO] ------------------------------------------------------------------------
+00:00:00 
+00:00:00 real	16m35.319s
+00:00:00 user	23m8.639s
+00:00:00 sys	0m24.138s
+00:00:00 INFO: Done!
+00:00:00 {"node_name": "okdnode-25", "time": {"elapsed": "21:27.80", "real": 1287.80, "kernel": 35.99, "user": 1554.16, "percent": "123%"}, "memory": {"max_rss": 1825132, "avg_rss": 0, "avg_tot": 0, "avg_unsh_data": 0, "avg_unsh_stack": 0, "avg_sh_txt": 0, "page_size": 4096, "major_page_fault": 357, "recoverable_page_fault": 2793132, "swap_number": 0, "involuntary_context_switch": 90647, "wait_number": 3886255}, "io": {"fs_input": 24264, "fs_output": 3152512, "socket_msg_rcv": 0, "socket_msg_sent": 0, "exit_status": 0}}
+00:00:02 pod "perfpod-okdnode-25" deleted

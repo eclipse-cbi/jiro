@@ -1,0 +1,32 @@
+{
+   "io": {
+      "exit_status": 0,
+      "fs_input": 32,
+      "fs_output": 3155248,
+      "socket_msg_rcv": 0,
+      "socket_msg_sent": 0
+   },
+   "memory": {
+      "avg_rss": 0,
+      "avg_sh_txt": 0,
+      "avg_tot": 0,
+      "avg_unsh_data": 0,
+      "avg_unsh_stack": 0,
+      "involuntary_context_switch": 72908,
+      "major_page_fault": 566,
+      "max_rss": 1835892,
+      "page_size": 4096,
+      "recoverable_page_fault": 2835521,
+      "swap_number": 0,
+      "wait_number": 2855170
+   },
+   "node_name": "okdnode-vm3",
+   "time": {
+      "elapsed": "30:01.69",
+      "kernel": 130.62,
+      "percent": "133%",
+      "pod_scheduling": "00:00:06",
+      "real": 1801.6900000000001,
+      "user": 2278.2600000000002
+   }
+}
