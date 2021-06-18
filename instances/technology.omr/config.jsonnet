@@ -29,6 +29,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       },
     ],
     plugins+: [
+      "embeddable-build-status",
       "envinject",
       "generic-webhook-trigger",
       "gradle",
