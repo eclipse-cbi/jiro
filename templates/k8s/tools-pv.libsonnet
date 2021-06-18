@@ -20,6 +20,9 @@ local Kube = import "kube.libsonnet";
         path: "/home/data/c1-ci.eclipse.org/buildtools",
         readOnly: true,
       },
+      mountOptions: [
+        "vers=4.2", "rw", "proto=tcp", "rsize=32768", "wsize=32768", "timeo=600", "fg", "hard", "retrans=10", "intr", "relatime", "nodiratime", "async",
+      ],
     },
   },
 
