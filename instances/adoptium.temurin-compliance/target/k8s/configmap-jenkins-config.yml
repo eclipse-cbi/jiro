@@ -155,6 +155,14 @@ data:
         installations:
           - name: "Default"
             home: "git"
+    #*******************************************************************************
+    # Copyright (c) 2018 Eclipse Foundation and others.
+    # This program and the accompanying materials are made available
+    # under the terms of the Eclipse Public License 2.0
+    # which is available at http://www.eclipse.org/legal/epl-v20.html,
+    # or the MIT License which is available at https://opensource.org/licenses/MIT.
+    # SPDX-License-Identifier: EPL-2.0 OR MIT
+    #*******************************************************************************
     jenkins:
       nodes:
         - permanent:
@@ -233,7 +241,7 @@ data:
               - envVars:
                   env:
                     - key: "PATH"
-                      value: "/opt/csw/bin:/usr/bin:/bin:/usr/local/bin"
+                      value: "/opt/csw/bin:/usr/bin:/bin:/usr/local/bin:/usr/sbin"
                     - key: "GIT_SSH"
                       value: "/opt/csw/bin/ssh"
         - permanent:
@@ -310,6 +318,11 @@ data:
             name: "gn324-macos11-x64"
             remoteFS: "/Users/jenkins"
             retentionStrategy: "always"
+            nodeProperties:
+              - envVars:
+                  env:
+                    - key: "PATH+USR_LOCAL_BIN"
+                      value: "/usr/local/bin:/opt/X11/bin"
         - permanent:
             launcher:
               ssh:
@@ -322,6 +335,11 @@ data:
             name: "iywk3-macos11-x64"
             remoteFS: "/Users/jenkins"
             retentionStrategy: "always"
+            nodeProperties:
+              - envVars:
+                  env:
+                    - key: "PATH+USR_LOCAL_BIN"
+                      value: "/usr/local/bin:/opt/X11/bin"
       numExecutors: 0
       scmCheckoutRetryCount: 2
       mode: EXCLUSIVE

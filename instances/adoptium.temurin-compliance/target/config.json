@@ -419,7 +419,7 @@
          "monitoring "
       ],
       "pluginsForceUpgrade": true,
-      "staticAgentCount": 0,
+      "staticAgentCount": 10,
       "theme": "quicksilver",
       "timezone": "America/Toronto",
       "version": "latest"
@@ -535,12 +535,12 @@
          },
          "resources": {
             "cpu": {
-               "limit": "2000m",
-               "request": "250m"
+               "limit": "3500m",
+               "request": "1750m"
             },
             "memory": {
-               "limit": "1536Mi",
-               "request": "1536Mi"
+               "limit": "4096Mi",
+               "request": "4096Mi"
             }
          },
          "stsName": "temurin-compliance"

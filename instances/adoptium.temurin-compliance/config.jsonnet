@@ -4,8 +4,10 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   project+: {
     fullName: "adoptium.temurin-compliance",
     displayName: "Eclipse Temurin Compliance",
+    
   },
   jenkins+: {
+    staticAgentCount: 10,
     permissions: [
       {
         principal: "admins",

@@ -77,7 +77,7 @@ jenkins:
           javaPath: ""
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAp/NbukWZHk5Ij437q3DwEh37KkkPYG1BxFggd6YyNll2nLvhFc60qdZUq/vG7WgenlIEnli3FHh7npx8AGRyK7Wvad+oMuc4ExT0dZfphXhahHxxIhg0lESEYccnf0VG5KKRLD6dak0u1iypVynFmjreq0wLyb2Mzzm8IEP5yak="  
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCU7ijnBvaekFhtL7JvJgshdnBjelP6KacCQVcgq4qYALHY7z6lEeXONiTrByc0bgv5ZiCJA5xlyAOYAKJoQCBuSy//eeQPw9EfnufAvQja3+40JZVxXQl4XzyiV+Hm74SugUJ+S5XY8leJ+tieNqEBl7HFr+viKYa/pyfxdHO51n9XGheZZMuT3cu7YoWqVZ2g34gFVgS4nOBQM+u8/8RntWt6+ZAQXyVGCXapl/UUFjGwlwtuBtaHiOnlOg2z/HyqdThlZTkuNcaJ14owLguNTPGSnnfgKgFLuE4Ki6vVcckrJixnlc4C4olf0oHQqv7xiIwLUfBR71QXMVEctlt"
       nodeProperties:
       - toolLocation:
           locations:
