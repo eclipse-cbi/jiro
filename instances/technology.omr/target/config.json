@@ -436,6 +436,7 @@
          }
       ],
       "plugins": [
+         "embeddable-build-status",
          "envinject",
          "generic-webhook-trigger",
          "gradle"
