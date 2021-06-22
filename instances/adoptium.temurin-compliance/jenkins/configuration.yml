@@ -160,7 +160,8 @@ jenkins:
   - permanent:
       name: "p0smh-winsrv-tc"
       nodeDescription: "Windows Server 2019, hosted on Azure"
-      remoteFS: "c:/Users/genie.temurin-comp"
+      labelString: "sw.os.windows hw.arch.x86 ci.role.test"
+      remoteFS: "c:/Users/jenkins"
       numExecutors: 1
       mode: EXCLUSIVE
       retentionStrategy: "always"
@@ -174,7 +175,8 @@ jenkins:
   - permanent:
       name: "x0vrb-winsrv-tc"
       nodeDescription: "Windows Server 2019, hosted on Azure"
-      remoteFS: "c:/Users/genie.temurin-comp"
+      labelString: "sw.os.windows hw.arch.x86 ci.role.test"
+      remoteFS: "c:/Users/jenkins"
       numExecutors: 1
       mode: EXCLUSIVE
       retentionStrategy: "always"
