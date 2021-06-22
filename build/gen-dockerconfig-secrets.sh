@@ -90,7 +90,7 @@ deploy_secret() {
   oc create secret generic "${secretName}" -n "${namespace}" \
     --from-file=.dockerconfigjson=/dev/stdin \
     --type=kubernetes.io/dockerconfigjson \
-    --dry-run -o yaml <<<"$(dockerconfigjson "${secretConfig}" | jsonnet -)" \
+    --dry-run=client -o yaml <<<"$(dockerconfigjson "${secretConfig}" | jsonnet -)" \
   | kubectl apply -f -
   
   local type
