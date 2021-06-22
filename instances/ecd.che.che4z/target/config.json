@@ -479,7 +479,7 @@
          "greenballs",
          "jdk-tool",
          "jobConfigHistory",
-         "kubernetes:1.25.7",
+         "kubernetes:1.29.7",
          "ldap",
          "mailer",
          "matrix-auth",
