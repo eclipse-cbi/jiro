@@ -27,8 +27,6 @@ jenkins:
         - "Job/ExtendedRead:common"
         - "Agent/Build:iot.hono"
         - "Credentials/View:iot.hono"
-        - "Gerrit/ManualTrigger:iot.hono"
-        - "Gerrit/Retrigger:iot.hono"
         - "Job/Build:iot.hono"
         - "Job/Cancel:iot.hono"
         - "Job/Configure:iot.hono"
