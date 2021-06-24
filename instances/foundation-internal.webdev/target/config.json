@@ -94,7 +94,9 @@
                      }
                   ]
                },
-               "labels": [ ],
+               "labels": [
+                  "basic"
+               ],
                "maxHeap": "256m",
                "mode": "NORMAL",
                "name": "basic",
@@ -345,6 +347,12 @@
       "permissions": [
          {
             "grantedPermissions": [
+               "Overall/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
                "Agent/Build",
                "Credentials/View",
                "Job/Build",
@@ -402,8 +410,8 @@
       "id": "2.277.3",
       "key_fingerprint": "FCEF32E745F2C3D5",
       "plugin_manager": {
-         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.9.0/jenkins-plugin-manager-2.9.0.jar",
-         "version": "2.9.0"
+         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.9.2/jenkins-plugin-manager-2.9.2.jar",
+         "version": "2.9.2"
       },
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
@@ -432,7 +440,7 @@
          "greenballs",
          "jdk-tool",
          "jobConfigHistory",
-         "kubernetes:1.25.7",
+         "kubernetes",
          "ldap",
          "mailer",
          "matrix-auth",

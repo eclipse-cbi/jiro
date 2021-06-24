@@ -13,8 +13,9 @@ jenkins:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCZt0a9fSaLDdGRGSBE1vBN47xvsgxwe44zFlelq4/3rGhOVHdisScbd+y0jlZoe4Q8nmZ2k96ubV4fG12V8tA6JPr/jcS50QkaJlHaEeXCt+rPK1aagQXiitdOEmmDm9FntneCsvhw6n8j3U0hXLZf7iQfYCRMzUVKu0G9dCNe+YiDHosHc24GKsqyeIOGh1HnL1UjIkOxwCa5G0n/vTImQ6cLUym6PUmznzhvdj8Fc7KzPnl87wPzI9xfyacvbIghGklmbL3gel2gNEbThU6saNPCZZJ+4hxzHFuCFgWFFiwUo31s9XbmTduu+m5ZQpYw949bGj96ArmSKtDw1Sgz"
         mode: EXCLUSIVE
         name: "w9x5t-ubuntu1804"
-        nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
+        nodeDescription: "4vCPU, 16GB RAM, Hosted @ Azure"
         remoteFS: "/home/genie.webdev/jenkins-agent"
+        numExecutors: 2
         nodeProperties:
           - watcher:
               offlineAddresses: "releng@eclipse.org"
@@ -31,6 +32,7 @@ jenkins:
     projectMatrix:
       permissions:
         - "Overall/Administer:admins"
+        - "Overall/Read:anonymous"
         - "Agent/Build:foundation-internal.webdev"
         - "Credentials/View:foundation-internal.webdev"
         - "Gerrit/ManualTrigger:foundation-internal.webdev"
@@ -98,7 +100,7 @@ jenkins:
             name: "basic"
             namespace: "foundation-internal-webdev"
             nodeUsageMode: NORMAL
-            label: ""
+            label: "basic"
             envVars:
               - envVar:
                   key: "JAVA_TOOL_OPTIONS"
@@ -541,6 +543,8 @@ tool:
     installations:
       - name: "apache-maven-latest"
         home: "/opt/tools/apache-maven/latest"
+      - name: "apache-maven-3.8.1"
+        home: "/opt/tools/apache-maven/3.8.1"
       - name: "apache-maven-3.6.3"
         home: "/opt/tools/apache-maven/3.6.3"
       - name: "apache-maven-3.6.0"
