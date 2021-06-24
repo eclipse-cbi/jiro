@@ -329,6 +329,7 @@ jenkins:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC+x0lYgzZ7DYztDpZEgT++P6o6cAwWlUV8rzopns+5H35NCVwSH9gllvgbXzw16ensX9CKRJLuZCB2/hdK7a9uGsgQ3PhtXCMHmt1z7GUcfJIf+qiBcmG/116+8qt7GyFqodRc0KV3+JaeMCZmXLW6Koxu2Tponi65eij3sbXryIxjqrEPDUDAKFeaeOpvEtv8/6Nq9fWHdDo1Lvu1qEF0pcEg9Cf06PZYXVAmYpBa0A01IHSGkxamQY46K25AgvQt215AIMWXkOQ0qLHc77+1bTapVSlopM4XPTo9EUiKUzRgexKzSmh+9TepwCG4/vaTOMYgi1DAapC6pz+07YSNGN7vc0gpYLQbIb48DCwv56qwKspy6sZUaR6viVhiuIsnoVgf6ZPbyKoRX93m0Y57Ot+eI1ECEG3TYydDgcClMLpHuRvAAdpfLQEQaGIMVAlm0nTSlYa+gNaN5K7a7tP/r+rGhRnRad1rXHpLlEZal4zgCHgZNULd/n0jzuk8NWM="
         name: "gn324-macos11-x64"
+        labelString: "ci.role.test hw.arch.x86 sw.os.osx"
         remoteFS: "/Users/jenkins"
         retentionStrategy: "always"
         nodeProperties:
@@ -346,6 +347,7 @@ jenkins:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDBwg62nFjnE1Dr2f4K4Reh9RuoAwew1PYmvHo7KIfoH0suzuOgSZ9rCPapAiA4uygLAeYMqhacuratHTe8Bsl9h2BWbsV5sl5L1zkf6aoKWqo0jVYATyQfX6hbkdWArM9TxGORokUKOsUE7xmWcrH58YV2olZyM6YTyQbPzD4VBf64ZfCHmMr0lCMA4opAc4dx++4WOigHwOCXSmWH9/zMLZDs4osIaos04LygW68dnEcrIvVxVCw9HKNbKu8GaVmC5qBl7A6+h2sp3jUaA9wzXhe0d33ZuWcVq4w9KTaBgCaXmUwt1CYCN74QG/gADB8bUct18IIRucHcxyvWTqu/1puzSWxDuyMktAeDyymNVmVpS4fc30tsBvOBIx9u04w+PpWf9CLtYMVzue2oGhnWIczQ7oip4ho5ovDALMWf05vqMgOJIzipCvV9jYu6RESN6E+UKCxteAmmLkC7YjwjFNA42WgK1jLC0emHjwXsDr7JdTI3KBGqz0YYpPK5m18="
         name: "iywk3-macos11-x64"
+        labelString: "ci.role.test hw.arch.x86 sw.os.osx"
         remoteFS: "/Users/jenkins"
         retentionStrategy: "always"
         nodeProperties:

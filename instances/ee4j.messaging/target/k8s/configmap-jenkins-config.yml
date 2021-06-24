@@ -424,10 +424,6 @@ data:
         createAccountBasedOnEmail: true
         useExistingAccountWithSameEmail: true
     
-      gitSCM:
-        createAccountBasedOnEmail: true
-        useExistingAccountWithSameEmail: true
-    
     tool:
       jdk:
         installations:

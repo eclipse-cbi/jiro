@@ -56,7 +56,7 @@ jquery 1.12.4-1
 jquery3-api 3.6.0-1
 jsch 0.1.55.2
 junit 1.50
-kubernetes 1.25.7
+kubernetes 1.30.0
 kubernetes-client-api 5.4.1
 kubernetes-credentials 0.9.0
 ldap 1.26
@@ -65,6 +65,7 @@ mailer 1.34
 matrix-auth 2.6.7
 matrix-project 1.18
 maven-plugin 3.8
+metrics 4.0.2.8
 momentjs 1.1.1
 okhttp-api 3.14.9
 pam-auth 1.6
@@ -102,16 +103,16 @@ timestamper 1.13
 token-macro 2.13
 trilead-api 1.0.13
 variant 1.4
-warnings-ng 9.2.0
+warnings-ng 9.2.1
 workflow-aggregator 2.6
-workflow-api 2.44
+workflow-api 2.45
 workflow-basic-steps 2.23
 workflow-cps 2.92
 workflow-cps-global-lib 2.19
 workflow-durable-task-step 2.39
 workflow-job 2.41
 workflow-multibranch 2.24
-workflow-scm-step 2.12
+workflow-scm-step 2.13
 workflow-step-api 2.23
 workflow-support 3.8
 ws-cleanup 0.39
@@ -149,7 +150,7 @@ scm-api 2.6.4
 script-security 1.77
 snakeyaml-api 1.29.1
 structs 1.23
-workflow-api 2.45
+workflow-api 2.46
 workflow-basic-steps 2.23
 workflow-cps 2.92
 workflow-durable-task-step 2.39
@@ -164,8 +165,7 @@ envinject 2.3.0
 envinject-api 1.7
 generic-webhook-trigger 1.74
 gradle 1.36
-workflow-api 2.45
-workflow-scm-step 2.13
+workflow-api 2.46
 
 Resulting plugin list:
 ace-editor 1.1
@@ -229,7 +229,7 @@ jquery 1.12.4-1
 jquery3-api 3.6.0-1
 jsch 0.1.55.2
 junit 1.50
-kubernetes 1.25.7
+kubernetes 1.30.0
 kubernetes-client-api 5.4.1
 kubernetes-credentials 0.9.0
 ldap 1.26
@@ -238,6 +238,7 @@ mailer 1.34
 matrix-auth 2.6.7
 matrix-project 1.18
 maven-plugin 3.8
+metrics 4.0.2.8
 momentjs 1.1.1
 okhttp-api 3.14.9
 pam-auth 1.6
@@ -275,9 +276,9 @@ timestamper 1.13
 token-macro 2.13
 trilead-api 1.0.13
 variant 1.4
-warnings-ng 9.2.0
+warnings-ng 9.2.1
 workflow-aggregator 2.6
-workflow-api 2.45
+workflow-api 2.46
 workflow-basic-steps 2.23
 workflow-cps 2.92
 workflow-cps-global-lib 2.19

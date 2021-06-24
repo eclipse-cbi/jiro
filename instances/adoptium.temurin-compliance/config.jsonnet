@@ -46,6 +46,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "build-with-parameters",
       "xvfb",
       "monitoring ",
+      "xunit",
     ],
   },
 }

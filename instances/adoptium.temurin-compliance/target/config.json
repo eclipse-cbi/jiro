@@ -416,7 +416,8 @@
          "tap",
          "build-with-parameters",
          "xvfb",
-         "monitoring "
+         "monitoring ",
+         "xunit"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 10,

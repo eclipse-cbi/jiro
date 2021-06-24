@@ -171,16 +171,6 @@ data:
               apiVersion: v1
               kind: Pod
               spec:
-                affinity:
-                  nodeAffinity:
-                    preferredDuringSchedulingIgnoredDuringExecution:
-                    - weight: 1
-                      preference:
-                        matchExpressions:
-                        - key: speed
-                          operator: NotIn
-                          values:
-                          - slow
                 containers:
                 - name: jnlp
                   volumeMounts:
@@ -288,16 +278,6 @@ data:
               apiVersion: v1
               kind: Pod
               spec:
-                affinity:
-                  nodeAffinity:
-                    preferredDuringSchedulingIgnoredDuringExecution:
-                    - weight: 1
-                      preference:
-                        matchExpressions:
-                        - key: speed
-                          operator: NotIn
-                          values:
-                          - slow
                 containers:
                 - name: jnlp
                   volumeMounts:
@@ -405,16 +385,6 @@ data:
               apiVersion: v1
               kind: Pod
               spec:
-                affinity:
-                  nodeAffinity:
-                    preferredDuringSchedulingIgnoredDuringExecution:
-                    - weight: 1
-                      preference:
-                        matchExpressions:
-                        - key: speed
-                          operator: NotIn
-                          values:
-                          - slow
                 containers:
                 - name: jnlp
                   volumeMounts:
