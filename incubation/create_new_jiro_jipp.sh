@@ -6,14 +6,14 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-script_name="$(basename "${BASH_SOURCE[]}")"
+script_name="$(basename "${BASH_SOURCE[0]}")"
 script_folder="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 ci_admin_dir="${script_folder}/../../ci-admin"
 
 project_name="${1:-}"
 display_name="${2:-}"
-short_name=${project_name##*.}
+short_name="${project_name##*.}"
 hostname="ci.eclipse.org"
 
 usage() {
