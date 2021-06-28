@@ -96,6 +96,23 @@ jenkins:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDOAtFDmpy1wZWch5nLQsyvo0JMIy5bGpDNtofoMzr0QAKngH8sqdnokjakiylKkbJP+6H2UMHYBz5cwZN3vnnnJEGPwA5IrMVNxd4m48Sc3QOpEdLSnk+DFJwgFluBseJZ2UtQOFQJJPIBigdJ4vdUyyklAMgnQ5jqoipuCNBF0YZWCd2zDVev0/eWZiq+jR+N561NCnc/jW+qrruB/VH9v+ykSdkWIlNezxLtFKcb7B2alh3kYIeOFu9azLkXcrnORbO2z4aoR4hgmaOeqk9MU8S7HdYd+cndQqQ3tsexQa34K74rQPdGfB++i1VNKnDLBL0rLUAAPdI2+LjegFDDpUJFze7Cf6XGYaI+/Ax3mOIWp9P84wPgRRYw6Sv6QQTdUJpgfCgIQgc/AW5vEE4zvSkYVwPEJ4K29u8rs7zNVWELZxV4UXk2n0XL4KK+oA45cz5w6kRbt9APgVGz3kC/EOJGCnN9HWMMZNsTWylcFHFrsVIYwZZRZvcN5/7I+ZM="
   - permanent:
+      name: "jck-linaru-ubuntu2004-aarch64-2"
+      nodeDescription: "2-core 4Gb aarch64 machine hosted by Linaro"
+      labelString: "ci.role.test hw.arch.aarch64 sw.os.linux"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "213.146.141.66"
+          port: "22"
+          credentialsId: "jenkins-jck-ssh"
+          javaPath: ""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDinzUAlFXglh3hQ3+Ls3EKb4i45QNDP/clYb05AzTJMejBlIChDmUKTIh4swKbxwX9Ue0kIG3EadTRPt8GO+bL1lCClOz/cWUB7rlQaAb0EjJ1Wk71i9mJDOkSjjJlguLnvjNRLlr26RQYsFYa618bR1VKfjHGhvlUOq7ahNZck3ZOxqfhIbngIsga09EX0zZ4KUDtgCL9bhmS2Rqv4BPk8wqH0ALp+BABo0ryfVwoLNfW6+IMlB3zF315yH2upZtbj03tjH+KhPv8a4MnsTIlll0b4Ew7h04FPExE00MQScDtIQ75J/4ETbjJyvybFbJTf7vo6DrI/TQVsguNFmrRuU4Nw4iSyvyL9Ui9bM+ZPNA0C7dAgq0XQhMobveO6qc3OE93HSJHdDIZ3XaLaE96AfXrPH57AzJRXAVUAXfzUAV1fuSNDLCx3zCSlFampRot2jhRZfHjYlyYw1eyPUiabL5ZAByFHc2LRoFubpk9e9caoZbmEofMbEUbTna0OME= root@jck-linaro-ubuntu2004-armv8-2"
+  - permanent:
       name: "jck-siteox-solaris10u11-sparcv9-1"
       nodeDescription: "Solaris Sparc system hosted at SiteOx"
       labelString: "ci.role.test hw.arch.sparcv9 sw.os.sunos"
