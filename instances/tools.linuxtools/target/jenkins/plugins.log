@@ -121,10 +121,12 @@ xvnc 1.25
 Bundled plugins:
 
 All requested plugins:
+build-with-parameters 1.5.1
 jacoco 3.1.1
 structs 1.23
 
 Plugins that will be downloaded:
+build-with-parameters 1.5.1
 jacoco 3.1.1
 
 Resulting plugin list:
@@ -140,6 +142,7 @@ bootstrap5-api 5.0.1-2
 bouncycastle-api 2.20
 branch-api 2.6.2
 build-timeout 1.20
+build-with-parameters 1.5.1
 caffeine-api 2.9.1-23.v51c4e2c879c8
 checks-api 1.7.0
 cloudbees-folder 6.15

@@ -403,7 +403,8 @@
          }
       ],
       "plugins": [
-         "jacoco"
+         "jacoco",
+         "build-with-parameters"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,

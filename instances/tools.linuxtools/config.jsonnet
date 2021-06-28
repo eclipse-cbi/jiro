@@ -6,6 +6,7 @@
   jenkins+: {
     plugins+: [
       "jacoco",
+      "build-with-parameters"
     ],
   },
   deployment+: {
