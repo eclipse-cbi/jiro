@@ -124,6 +124,62 @@ jenkins:
           - key: "GIT_SSH"
             value: "/opt/csw/bin/ssh"
   - permanent:
+      name: "jck-packet_esxi-solaris10u11-x64-1"
+      nodeDescription: "Solaris x64 system hosted at Packet"
+      labelString: "ci.role.test hw.arch.x86 sw.os.sunos"
+      remoteFS: '/export/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "147.75.85.211"
+          port: "22"
+          credentialsId: "jenkins-jck-ssh"
+          javaPath: ""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCU7ijnBvaekFhtL7JvJgshdnBjelP6KacCQVcgq4qYALHY7z6lEeXONiTrByc0bgv5ZiCJA5xlyAOYAKJoQCBuSy//eeQPw9EfnufAvQja3+40JZVxXQl4XzyiV+Hm74SugUJ+S5XY8leJ+tieNqEBl7HFr+viKYa/pyfxdHO51n9XGheZZMuT3cu7YoWqVZ2g34gFVgS4nOBQM+u8/8RntWt6+ZAQXyVGCXapl/UUFjGwlwtuBtaHiOnlOg2z/HyqdThlZTkuNcaJ14owLguNTPGSnnfgKgFLuE4Ki6vVcckrJixnlc4C4olf0oHQqv7xiIwLUfBR71QXMVEctlt"
+      nodeProperties:
+      - toolLocation:
+          locations:
+          - home: "/opt/csw/bin/git"
+            key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+      - envVars:
+          env:
+          - key: "PATH"
+            value: "/opt/csw/bin:/usr/bin:/bin:/usr/local/bin:/usr/sbin"
+          - key: "GIT_SSH"
+            value: "/opt/csw/bin/ssh"
+  - permanent:
+      name: "jck-packet_esxi-solaris10u11-x64-2"
+      nodeDescription: "Solaris x64 system hosted at Packet"
+      labelString: "ci.role.test hw.arch.x86 sw.os.sunos"
+      remoteFS: '/export/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "147.75.85.214"
+          port: "22"
+          credentialsId: "jenkins-jck-ssh"
+          javaPath: ""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCU7ijnBvaekFhtL7JvJgshdnBjelP6KacCQVcgq4qYALHY7z6lEeXONiTrByc0bgv5ZiCJA5xlyAOYAKJoQCBuSy//eeQPw9EfnufAvQja3+40JZVxXQl4XzyiV+Hm74SugUJ+S5XY8leJ+tieNqEBl7HFr+viKYa/pyfxdHO51n9XGheZZMuT3cu7YoWqVZ2g34gFVgS4nOBQM+u8/8RntWt6+ZAQXyVGCXapl/UUFjGwlwtuBtaHiOnlOg2z/HyqdThlZTkuNcaJ14owLguNTPGSnnfgKgFLuE4Ki6vVcckrJixnlc4C4olf0oHQqv7xiIwLUfBR71QXMVEctlt"
+      nodeProperties:
+      - toolLocation:
+          locations:
+          - home: "/opt/csw/bin/git"
+            key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+      - envVars:
+          env:
+          - key: "PATH"
+            value: "/opt/csw/bin:/usr/bin:/bin:/usr/local/bin:/usr/sbin"
+          - key: "GIT_SSH"
+            value: "/opt/csw/bin/ssh"
+  - permanent:
       name: "jck-ibm-aix71-ppc64-1"
       nodeDescription: "AIX 7.1 machine hosted by IBM Garage"
       labelString: "ci.role.test hw.arch.ppc64 sw.os.aix"
