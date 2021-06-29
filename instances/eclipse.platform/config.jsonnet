@@ -4,6 +4,11 @@
     displayName: "Eclipse Platform",
     resourcePacks: 3,
   },
+  jenkins+: {
+    plugins+: [
+      "gerrit-code-review",
+    ],
+  },
   deployment+: {
     cluster: "okd-c1",
   },
