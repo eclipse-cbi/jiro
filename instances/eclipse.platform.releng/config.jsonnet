@@ -13,6 +13,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   jenkins+: {
     plugins+: [
       "mail-watcher-plugin",
+      "gerrit-code-review",
     ],
     staticAgentCount: 10,
     permissions+: 
