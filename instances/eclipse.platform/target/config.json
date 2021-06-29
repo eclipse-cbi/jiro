@@ -505,7 +505,9 @@
             "principal": "eclipse.platform"
          }
       ],
-      "plugins": [ ],
+      "plugins": [
+         "gerrit-code-review"
+      ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",
