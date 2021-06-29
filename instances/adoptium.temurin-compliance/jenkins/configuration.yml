@@ -124,8 +124,8 @@ jenkins:
           - key: "GIT_SSH"
             value: "/opt/csw/bin/ssh"
   - permanent:
-      name: "jck-packet_esxi-solaris10u11-x64-1"
-      nodeDescription: "Solaris x64 system hosted at Packet"
+      name: "jck-equinix_esxi-solaris10u11-x64-1"
+      nodeDescription: "Solaris x64 system hosted at Equinix"
       labelString: "ci.role.test hw.arch.x86 sw.os.sunos"
       remoteFS: '/export/home/jenkins'
       numExecutors: 1
@@ -152,8 +152,8 @@ jenkins:
           - key: "GIT_SSH"
             value: "/opt/csw/bin/ssh"
   - permanent:
-      name: "jck-packet_esxi-solaris10u11-x64-2"
-      nodeDescription: "Solaris x64 system hosted at Packet"
+      name: "jck-equinix_esxi-solaris10u11-x64-2"
+      nodeDescription: "Solaris x64 system hosted at Equinix"
       labelString: "ci.role.test hw.arch.x86 sw.os.sunos"
       remoteFS: '/export/home/jenkins'
       numExecutors: 1
