@@ -171,7 +171,7 @@ jenkins:
     - permanent:
         name: "jck-marist-ubuntu2004-s390x-2"
         nodeDescription: "2-core 8Gb zLinux machine hosted at Marist"
-        labelString: "ci.role.test hw.arch.x64 sw.os.linux"
+        labelString: "ci.role.test hw.arch.s390x sw.os.linux"
         remoteFS: '/home/jenkins'
         numExecutors: 1
         mode: EXCLUSIVE
@@ -220,6 +220,23 @@ jenkins:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDOAtFDmpy1wZWch5nLQsyvo0JMIy5bGpDNtofoMzr0QAKngH8sqdnokjakiylKkbJP+6H2UMHYBz5cwZN3vnnnJEGPwA5IrMVNxd4m48Sc3QOpEdLSnk+DFJwgFluBseJZ2UtQOFQJJPIBigdJ4vdUyyklAMgnQ5jqoipuCNBF0YZWCd2zDVev0/eWZiq+jR+N561NCnc/jW+qrruB/VH9v+ykSdkWIlNezxLtFKcb7B2alh3kYIeOFu9azLkXcrnORbO2z4aoR4hgmaOeqk9MU8S7HdYd+cndQqQ3tsexQa34K74rQPdGfB++i1VNKnDLBL0rLUAAPdI2+LjegFDDpUJFze7Cf6XGYaI+/Ax3mOIWp9P84wPgRRYw6Sv6QQTdUJpgfCgIQgc/AW5vEE4zvSkYVwPEJ4K29u8rs7zNVWELZxV4UXk2n0XL4KK+oA45cz5w6kRbt9APgVGz3kC/EOJGCnN9HWMMZNsTWylcFHFrsVIYwZZRZvcN5/7I+ZM="
     - permanent:
+        name: "jck-linaru-ubuntu2004-aarch64-2"
+        nodeDescription: "2-core 4Gb aarch64 machine hosted by Linaro"
+        labelString: "ci.role.test hw.arch.aarch64 sw.os.linux"
+        remoteFS: '/home/jenkins'
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "213.146.141.66"
+            port: "22"
+            credentialsId: "jenkins-jck-ssh"
+            javaPath: ""
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDinzUAlFXglh3hQ3+Ls3EKb4i45QNDP/clYb05AzTJMejBlIChDmUKTIh4swKbxwX9Ue0kIG3EadTRPt8GO+bL1lCClOz/cWUB7rlQaAb0EjJ1Wk71i9mJDOkSjjJlguLnvjNRLlr26RQYsFYa618bR1VKfjHGhvlUOq7ahNZck3ZOxqfhIbngIsga09EX0zZ4KUDtgCL9bhmS2Rqv4BPk8wqH0ALp+BABo0ryfVwoLNfW6+IMlB3zF315yH2upZtbj03tjH+KhPv8a4MnsTIlll0b4Ew7h04FPExE00MQScDtIQ75J/4ETbjJyvybFbJTf7vo6DrI/TQVsguNFmrRuU4Nw4iSyvyL9Ui9bM+ZPNA0C7dAgq0XQhMobveO6qc3OE93HSJHdDIZ3XaLaE96AfXrPH57AzJRXAVUAXfzUAV1fuSNDLCx3zCSlFampRot2jhRZfHjYlyYw1eyPUiabL5ZAByFHc2LRoFubpk9e9caoZbmEofMbEUbTna0OME= root@jck-linaro-ubuntu2004-armv8-2"
+    - permanent:
         name: "jck-siteox-solaris10u11-sparcv9-1"
         nodeDescription: "Solaris Sparc system hosted at SiteOx"
         labelString: "ci.role.test hw.arch.sparcv9 sw.os.sunos"
@@ -263,7 +280,7 @@ jenkins:
             javaPath: ""
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCU7ijnBvaekFhtL7JvJgshdnBjelP6KacCQVcgq4qYALHY7z6lEeXONiTrByc0bgv5ZiCJA5xlyAOYAKJoQCBuSy//eeQPw9EfnufAvQja3+40JZVxXQl4XzyiV+Hm74SugUJ+S5XY8leJ+tieNqEBl7HFr+viKYa/pyfxdHO51n9XGheZZMuT3cu7YoWqVZ2g34gFVgS4nOBQM+u8/8RntWt6+ZAQXyVGCXapl/UUFjGwlwtuBtaHiOnlOg2z/HyqdThlZTkuNcaJ14owLguNTPGSnnfgKgFLuE4Ki6vVcckrJixnlc4C4olf0oHQqv7xiIwLUfBR71QXMVEctlt"
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+d9NhtO+upb6IUZyQaGeloHM/Njr1pUXWRoQUBqam2d1n0NY/0BS9avXnWwZEa7rpCcQNdT+P3xsuT+Iu9I1Gqla2+oCiF+k3h0noblu1N5v6xi+j3aZO/bJk15BE6TwNFkaFgJXiydgB3FJNMWYKHkbezleSIkTshWYtmDErmFRGijVZ+2thdom9kexGhEXeQToQA+CIYle0X6+/E+brQhOBE0BDgAmTVs/ofeHO1T/67wPZqnXqI3RcvYKjJdnsnYpQj04EyUTyg2T3Ei4F+nLAbFMRgKOMkjFsu34My9BdQgcnItFSK7yoxh5h+d/kaUUxd5B8BhLCIq349Lmp"
         nodeProperties:
           - toolLocation:
               locations:
@@ -291,7 +308,7 @@ jenkins:
             javaPath: ""
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCU7ijnBvaekFhtL7JvJgshdnBjelP6KacCQVcgq4qYALHY7z6lEeXONiTrByc0bgv5ZiCJA5xlyAOYAKJoQCBuSy//eeQPw9EfnufAvQja3+40JZVxXQl4XzyiV+Hm74SugUJ+S5XY8leJ+tieNqEBl7HFr+viKYa/pyfxdHO51n9XGheZZMuT3cu7YoWqVZ2g34gFVgS4nOBQM+u8/8RntWt6+ZAQXyVGCXapl/UUFjGwlwtuBtaHiOnlOg2z/HyqdThlZTkuNcaJ14owLguNTPGSnnfgKgFLuE4Ki6vVcckrJixnlc4C4olf0oHQqv7xiIwLUfBR71QXMVEctlt"
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCroTdaTZjsE1VsnFIT8M+3Uakyb+tNTul5VU+FnixD41MdkcSzZpBfa7Wf5nLb96+q/U8rlruZfTr5o9OLWNnDvN7FN07cDBU8t8/8RK6kuXlzeJmjlcLeN4MLb2adRgDm46cbevly9yNoSdk0Q7wWwlyec11nbKL09HxbJ1ddHfD45HEpAWdLKlidJbNLh5pQVd9/eoLMgVKo70meYqGgLqWAppZqeJSb0qZq7jPChh0ZyX8W4BeGYNyf4leoCjXdZRw3mikTsobrgpzmOCF4nOPlj0qEa14ie9q8oDshnb01Xmm1FLA9+WmF8JMzzn+gtpvwqObrnTKSABKd3yKP"
         nodeProperties:
           - toolLocation:
               locations:
