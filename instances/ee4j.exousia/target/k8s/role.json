@@ -1,0 +1,46 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "Role",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.exousia",
+         "org.eclipse.cbi.jiro/project.shortname": "exousia"
+      },
+      "name": "jenkins-master-owner",
+      "namespace": "exousia"
+   },
+   "rules": [
+      {
+         "apiGroups": [
+            ""
+         ],
+         "resources": [
+            "pods",
+            "pods/exec"
+         ],
+         "verbs": [
+            "create",
+            "delete",
+            "get",
+            "list",
+            "patch",
+            "update",
+            "watch"
+         ]
+      },
+      {
+         "apiGroups": [
+            ""
+         ],
+         "resources": [
+            "pods/log",
+            "events"
+         ],
+         "verbs": [
+            "get",
+            "list",
+            "watch"
+         ]
+      }
+   ]
+}

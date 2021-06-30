@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.exousia",
+         "org.eclipse.cbi.jiro/project.shortname": "exousia"
+      },
+      "name": "exousia",
+      "namespace": "exousia"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "exousia"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "exousia",
+         "namespace": "exousia"
+      }
+   ]
+}
