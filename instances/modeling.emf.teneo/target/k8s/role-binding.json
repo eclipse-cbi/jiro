@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.emf.teneo",
+         "org.eclipse.cbi.jiro/project.shortname": "teneo"
+      },
+      "name": "teneo",
+      "namespace": "teneo"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "teneo"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "teneo",
+         "namespace": "teneo"
+      }
+   ]
+}
