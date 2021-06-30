@@ -33,8 +33,13 @@ jenkins:
         mode: EXCLUSIVE
         retentionStrategy: "always"
         launcher:
-          command:
-            command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@208.52.161.179 "curl https://ci.eclipse.org/releng/jnlpJars/slave.jar > /Users/genie.releng/jenkins_agent/remoting/slave.jar; java -jar /Users/genie.releng/jenkins_agent/remoting/slave.jar"'
+          ssh:
+            credentialsId: "b9h15-macos10.15-bot-ssh"
+            host: "208.52.161.179"
+            port: 22
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3Mo4/c9Hn6sA594UEGHVxCKbu/QtophcofQIfrX1cJwkxfx/MGjMhllrWw49SfpNPh/VOlR4T7r3xeFq9TM+sDXAii54deTENpqg5q1uBOx9hi+7W8MhKpuJEhwL37kTQHSjcnIcexpm76Tbyd3QtHU3xQzMCjfREfqIAWkWaKbdzNVu1JJRcwqRXDDzPNkoLfYUZtdQi/XiROlX5zYh3/GpQctGkL3y8mdkeUY7RGUDKTjd7osAK59IR30H2KFRfewey9YnMnIKM0cokA8t3KDvAwmXFLQ+iAxG1RFLZQ88iz7agO1clNYFR3+2ersXcMu/AZUoA6sBsBXIJ9419"
         nodeProperties:
           - envVars:
               env:
@@ -46,8 +51,13 @@ jenkins:
     - permanent:
         labelString: "macos macos-10.15"
         launcher:
-          command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie.releng@207.254.46.148 \"curl https://ci.eclipse.org/releng/jnlpJars/slave.jar > /Users/genie.releng/jenkins_agent/remoting/slave.jar; java -jar /Users/genie.releng/jenkins_agent/remoting/slave.jar\""
+          ssh:
+            credentialsId: "ta9y0-macos10.15-bot-ssh"
+            host: "207.254.46.148"
+            port: 22
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCejyvfy3TfWh2CwKcEwj3BdLRb5ZpCw1k846vwpq/RzKEpIWFXarfH3KcDSDFUXQFSxxDCOokbfvPYxG+MyqmkQZ+g8nAahVX07rKIZu7AudHVPmYNOr8+iwKst38MuBB77UEKWwIaAov8UcM4bC6xPGc7SDVW59bMa151GN/dSDKHqTgKz2vMS62tdUG4D/bVYVYzmwSDOs85wnsX+oZe8TXABEt94jy10uDpgSkABdzNl/0m/C1boSIi3hOBrWuIk676PNj2lcUWz69SSUlmFElI7q9Mo+1TxuA0KQxy9D87mkRQ6lesZv/+CQJMhVuIso+APktrQ9uw3RhAbGoVq3MtANEoy3yv005HKIxnsVhUhkSCB1/EFSerbVBLndVXqY/3R7NgJDI0kbYg8VLLRWCoALveiO40Ss7tiHrTHXY2hFBsrhAzPTCZGLUbCjVc6tN+at1hjXhSJoB0h5uInywgMc1TfiJapihvrFoJlU+OhkJ/+oP6BgwVWDohiGE="
         mode: EXCLUSIVE
         name: "ta9y0-macos-10.15"
         nodeDescription: "macOS 10.15 (Catalina), with login session, hosted on MacStadium"

@@ -491,7 +491,8 @@
          }
       ],
       "plugins": [
-         "mail-watcher-plugin"
+         "mail-watcher-plugin",
+         "gerrit-code-review"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 10,
