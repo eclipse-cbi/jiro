@@ -47,7 +47,7 @@ jenkins:
   - permanent:
       name: "jck-marist-ubuntu2004-s390x-2"
       nodeDescription: "2-core 8Gb zLinux machine hosted at Marist"
-      labelString: "ci.role.test hw.arch.x64 sw.os.linux"
+      labelString: "ci.role.test hw.arch.s390x sw.os.linux"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
