@@ -20,7 +20,7 @@ conditional-buildstep 1.4.1
 config-file-provider 3.8.0
 configuration-as-code 1.51
 credentials 2.5
-credentials-binding 1.25
+credentials-binding 1.26
 data-tables-api 1.10.25-1
 display-url-api 2.3.5
 durable-task 1.37
@@ -30,7 +30,7 @@ extended-read-permission 3.2
 external-monitor-job 1.7
 extra-columns 1.23
 font-awesome-api 5.15.3-3
-forensics-api 1.1.0
+forensics-api 1.2.0
 gerrit-trigger 2.34.0
 ghprb 1.42.2
 git 4.7.2
@@ -51,11 +51,11 @@ jackson2-api 2.12.3
 javadoc 1.6
 jdk-tool 1.5
 jjwt-api 0.11.2-9.c8b45b8bb173
-jobConfigHistory 2.27
+jobConfigHistory 2.28
 jquery 1.12.4-1
 jquery3-api 3.6.0-1
 jsch 0.1.55.2
-junit 1.50
+junit 1.51
 kubernetes 1.30.0
 kubernetes-client-api 5.4.1
 kubernetes-credentials 0.9.0
@@ -103,9 +103,9 @@ timestamper 1.13
 token-macro 2.13
 trilead-api 1.0.13
 variant 1.4
-warnings-ng 9.2.1
+warnings-ng 9.3.0
 workflow-aggregator 2.6
-workflow-api 2.45
+workflow-api 2.46
 workflow-basic-steps 2.23
 workflow-cps 2.92
 workflow-cps-global-lib 2.19
@@ -125,6 +125,8 @@ bootstrap4-api 4.6.0-3
 bootstrap5-api 5.0.1-2
 caffeine-api 2.9.1-23.v51c4e2c879c8
 checks-api 1.7.0
+config-file-provider 3.8.0
+credentials 2.5
 display-url-api 2.3.5
 echarts-api 5.1.2-2
 font-awesome-api 5.15.3-3
@@ -132,15 +134,20 @@ htmlpublisher 1.25
 jackson2-api 2.12.3
 jacoco 3.1.1
 jquery3-api 3.6.0-1
-junit 1.50
+junit 1.51
 matrix-project 1.18
+nodejs 1.4.0
+plain-credentials 1.7
 plugin-util-api 2.3.0
 popper-api 1.16.1-2
 popper2-api 2.5.4-2
 scm-api 2.6.4
 script-security 1.77
 snakeyaml-api 1.29.1
+ssh-credentials 1.18.1
 structs 1.23
+token-macro 2.13
+trilead-api 1.0.13
 workflow-api 2.46
 workflow-step-api 2.23
 workflow-support 3.8
@@ -148,7 +155,7 @@ workflow-support 3.8
 Plugins that will be downloaded:
 htmlpublisher 1.25
 jacoco 3.1.1
-workflow-api 2.46
+nodejs 1.4.0
 
 Resulting plugin list:
 ace-editor 1.1
@@ -171,7 +178,7 @@ conditional-buildstep 1.4.1
 config-file-provider 3.8.0
 configuration-as-code 1.51
 credentials 2.5
-credentials-binding 1.25
+credentials-binding 1.26
 data-tables-api 1.10.25-1
 display-url-api 2.3.5
 durable-task 1.37
@@ -181,7 +188,7 @@ extended-read-permission 3.2
 external-monitor-job 1.7
 extra-columns 1.23
 font-awesome-api 5.15.3-3
-forensics-api 1.1.0
+forensics-api 1.2.0
 gerrit-trigger 2.34.0
 ghprb 1.42.2
 git 4.7.2
@@ -204,11 +211,11 @@ jacoco 3.1.1
 javadoc 1.6
 jdk-tool 1.5
 jjwt-api 0.11.2-9.c8b45b8bb173
-jobConfigHistory 2.27
+jobConfigHistory 2.28
 jquery 1.12.4-1
 jquery3-api 3.6.0-1
 jsch 0.1.55.2
-junit 1.50
+junit 1.51
 kubernetes 1.30.0
 kubernetes-client-api 5.4.1
 kubernetes-credentials 0.9.0
@@ -220,6 +227,7 @@ matrix-project 1.18
 maven-plugin 3.8
 metrics 4.0.2.8
 momentjs 1.1.1
+nodejs 1.4.0
 okhttp-api 3.14.9
 pam-auth 1.6
 parameterized-trigger 2.39
@@ -256,7 +264,7 @@ timestamper 1.13
 token-macro 2.13
 trilead-api 1.0.13
 variant 1.4
-warnings-ng 9.2.1
+warnings-ng 9.3.0
 workflow-aggregator 2.6
 workflow-api 2.46
 workflow-basic-steps 2.23

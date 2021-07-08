@@ -404,7 +404,8 @@
       ],
       "plugins": [
          "jacoco",
-         "htmlpublisher"
+         "htmlpublisher",
+         "nodejs"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
