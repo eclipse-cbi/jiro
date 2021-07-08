@@ -1,0 +1,14 @@
+tool:
+  nodejs:
+    installations:
+    - name: "node"
+      properties:
+      - installSource:
+          installers:
+          - nodeJSInstaller:
+              id: "14.17.3"
+              npmPackagesRefreshHours: 72
+unclassified:
+  gitSCM:
+    globalConfigName: Eclipse Kapua committers
+    globalConfigEmail: kapua-dev@eclipse.org
