@@ -28,6 +28,10 @@ PERF_POD="$(sed 's/\./-/g' <<<"perfpod-${NODE}")"
 
 mkdir -p "${LOG_FOLDER}"
 
+if ! kubectl --v=0 --context="${CONTEXT}" get namespace "${NAMESPACE}"; then
+  kubectl --v=0 --context="${CONTEXT}" create namespace "${NAMESPACE}" || :
+fi
+
 PERF_TEST_JAVA_HOME="$(docker run "${PERF_TEST_IMAGE}" /bin/bash -c 'readlink -f "$(dirname "$(readlink -f "$(which java)")")/.."')"
 
 read -r -d '' POD_OVERRIDE<<EOM || :
@@ -60,12 +64,13 @@ read -r -d '' POD_OVERRIDE<<EOM || :
           "/bin/bash",
           "-c",
           |||
+            sleep 5
             cat <<EOF > /tmp/run.sh
             %s
             EOF
             chmod u+x /tmp/run.sh
             ( /usr/bin/time -f '{"node_name": "${NODE}", "time": {"elapsed": "%%E", "real": %%e, "kernel": %%S, "user": %%U, "percent": "%%P"}, "memory": {"max_rss": %%M, "avg_rss": %%t, "avg_tot": %%K, "avg_unsh_data": %%D, "avg_unsh_stack": %%p, "avg_sh_txt": %%X, "page_size": %%Z, "major_page_fault": %%F, "recoverable_page_fault": %%R, "swap_number": %%W, "involuntary_context_switch": %%c, "wait_number": %%w}, "io": {"fs_input": %%I, "fs_output": %%O, "socket_msg_rcv": %%r, "socket_msg_sent": %%s, "exit_status": %%x}}' /tmp/run.sh ) 2>&1
-          ||| % (importstr "${BUILD_SCRIPT}"),
+          ||| % std.strReplace((importstr "${BUILD_SCRIPT}"), "$", "\\\\$"),
         ],
         workingDir: "/workdir",
         volumeMounts: [
@@ -98,7 +103,7 @@ echo "INFO: Running performance tests on ${NODE}"
 
 echo "INFO: Scheduling perf job on ${NODE}..." | ts > "${LOG_FOLDER}/${LOG_NAME}-log.txt"
 
-kubectl --context="${CONTEXT}" \
+( kubectl --context="${CONTEXT}" \
   run --attach=true --rm=true \
   --namespace="${NAMESPACE}" \
   --image="${PERF_TEST_IMAGE}" \
@@ -106,9 +111,9 @@ kubectl --context="${CONTEXT}" \
   --restart="Never" \
   --overrides="$(jsonnet - <<<"${POD_OVERRIDE}")" \
   "${PERF_POD}" \
-  2>&1 | ts -i "%H:%M:%S" >> "${LOG_FOLDER}/${LOG_NAME}-log.txt"
+  2>&1 | ts -i "%H:%M:%S" >> "${LOG_FOLDER}/${LOG_NAME}-log.txt" ) || :
 
-tail -n2 "${LOG_FOLDER}/${LOG_NAME}-log.txt" | head -n1 | cut -c 10- | jq > "${LOG_FOLDER}/${LOG_NAME}-time.json"
+grep '{"node_name": "' "${LOG_FOLDER}/${LOG_NAME}-log.txt" | cut -c 10- | jq > "${LOG_FOLDER}/${LOG_NAME}-time.json"
 
 time_to_schedule="$(head -n2 "${LOG_FOLDER}/${LOG_NAME}-log.txt" | tail -n1 | cut -c -8)"
 jsonnet -e "(import \"${LOG_FOLDER}/${LOG_NAME}-time.json\")+{time+: {pod_scheduling: \"${time_to_schedule}\"}}" > "${LOG_FOLDER}/${LOG_NAME}-time.json2"
