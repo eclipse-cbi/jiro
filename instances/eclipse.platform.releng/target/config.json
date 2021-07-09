@@ -555,7 +555,7 @@
          "rebuild",
          "simple-theme-plugin",
          "sonar",
-         "ssh-agent",
+         "ssh-agent:1.21",
          "ssh-slaves",
          "timestamper",
          "warnings-ng",

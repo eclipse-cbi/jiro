@@ -112,9 +112,6 @@ jenkins:
                   key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
                 - home: 'C:\tools\cygwin\bin\git'
                   key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
-          - watcher:
-              offlineAddresses: "releng@eclipse.org"
-              onlineAddresses: "releng@eclipse.org"
     - permanent:
         name: "zyt5z-centos7"
         nodeDescription: "Dedicated agent for performance tests, hosted on Azure"
