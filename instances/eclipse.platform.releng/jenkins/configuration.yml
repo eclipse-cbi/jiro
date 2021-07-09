@@ -74,43 +74,6 @@ jenkins:
       remoteFS: "/Users/genie.releng/jenkins_agent/"
       retentionStrategy: "always"
   - permanent:
-      name: "windows-server-2016-1"
-      nodeDescription: ""
-      labelString: "windows"
-      remoteFS: 'C:\Users\genie_releng\ci'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: 'ssh -C -i /run/secrets/jenkins/ssh/id_rsa.releng genie_releng@35.196.82.59 "W:\Java\Oracle\jdk1.8.0-latest\x64\bin\java.exe -Djava.io.tmpdir=c:\Users\genie_releng\temp -jar c:\Users\genie_releng\slave.jar"'
-      nodeProperties:
-      - envVars:
-          env:
-          - key: "JAVA_HOME"
-            value: 'W:\Java\Oracle\jdk1.8.0-latest\x64'
-          - key: "MSSDK2003SP1"
-            value: 'W:\Microsoft\Platform SDK\Windows Server 2003 SP1'
-          - key: "PATH"
-            value: 'C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin;C:\ProgramData\GooGet;C:\Program Files\Google\Compute Engine\metadata_scripts;C:\Program Files\Google\Compute Engine\sysprep;C:\Users\SSHD\AppData\Local\Microsoft\WindowsApps;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin;C:\ProgramData\GooGet;C:\Program Files\Google\Compute Engine\metadata_scripts;C:\Program Files\Google\Compute Engine\sysprep;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin;C:\ProgramData\GooGet;C:\Program Files\Google\Compute Engine\metadata_scripts;C:\Program Files\Google\Compute Engine\sysprep;W:\Git\latest\x64\bin;W:\Java\Oracle\jdk1.8.0-latest\x64\bin;W:\Microsoft\Visual Studio\9.0\VC\bin;P:\apache-ant\latest\bin;P:\apache-maven\latest\bin;C:\Users\genie_releng\AppData\Local\Microsoft\WindowsApps;C:\Users\genie_releng\.cargo\bin'
-          - key: "VS90_HOME"
-            value: 'W:\Microsoft\Visual Studio\9.0'
-          - key: "VS90COMNTOOLS"
-            value: 'W:\Microsoft\Visual Studio\9.0\Common7\Tools'
-      - toolLocation:
-          locations:
-          - home: 'P:\apache-maven\latest\bin\mvn.cmd'
-            key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
-          - home: 'P:\apache-ant\latest\bin\ant.bat'
-            key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-1.9.6"
-          - home: 'W:\Java\Oracle\jdk1.8.0-latest\x64\bin\java'
-            key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
-          - home: 'W:\Git\latest\x64\bin\git'
-            key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
-      - watcher:
-          offlineAddresses: "releng@eclipse.org"
-          onlineAddresses: "releng@eclipse.org"
-  - permanent:
       name: "rs68g-win10"
       nodeDescription: "Windows 10 Pro, hosted on Azure"
       labelString: "windows"
