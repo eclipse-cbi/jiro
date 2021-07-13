@@ -98,3 +98,7 @@ jq -r '.docker.master.dockerfile' "${CONFIG_JSON}" > "${dockerfile}"
 
 INFO "Building ${image}:${tag} from ${dockerfile} (push=${PUSH_IMAGES})"
 dockerw build "${image}" "${tag}" "${dockerfile}" "$(dirname "${dockerfile}")" "${PUSH_IMAGES}" false
+
+# remove ${build_dir}/ref/plugins/ to save disk space, comment out for debugging purposes
+build_dir="$(readlink -f "${INSTANCE}/target/jenkins")"
+rm -rf "${build_dir}/ref/plugins/"
