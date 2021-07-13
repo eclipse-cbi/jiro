@@ -382,21 +382,12 @@
                "View/Configure",
                "View/Create",
                "View/Delete",
-               "View/Read"
+               "View/Read",
+               "Agent/Connect",
+               "Agent/Disconnect",
+               "Agent/ExtendedRead"
             ],
             "principal": "adoptium.temurin-compliance"
-         },
-         {
-            "grantedPermissions": [
-               "Agent/ExtendedRead"
-            ],
-            "principal": "georgeadams1995@gmail.com"
-         },
-         {
-            "grantedPermissions": [
-               "Agent/ExtendedRead"
-            ],
-            "principal": "sxa@redhat.com"
          }
       ],
       "plugins": [
