@@ -17,7 +17,7 @@ local Kube = import "kube.libsonnet";
       },
       nfs: {
         server: "bambam",
-        path: "/home/data/c1-ci.eclipse.org/buildtools",
+        path: "/home/data/cbi/buildtools",
         readOnly: true,
       },
       mountOptions: [
