@@ -364,6 +364,23 @@ jenkins:
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDtygfAPmqmBzCiO1yrjuX2LjSBha9p5z8CyhDZv+TywsaSz5Y72qDO/V/QVMiHZ29VN4iv+m8LHI0SX4z9bLtagPt1hzAgK4diaLZJLTa0c6qkrXLuHfDmt3lFZwgdD3xUKJXRb9hJopazkLVRflnEa7rtE/gBV1GlhBNSiMogHJm8gObghAkWbe7oZyg0mZH0MoX47GihkaXMvWOpt8dfW2+64Sq6axa7KDGqwyRx5aL2sWJCNARZjceFbuue4LooYd1cLnR7jeRMImo87201m+gX4IXsQX8f97QI8zurmFjj47V/X4GFjx2yJLDKOODBVCobUr1Legie8Ge6yc8QT/WRUwuZa2lEAGcx2olcFpb0SOP98OoEYof32cCMdSVUVsLBIYSNqJCCeEe+uggGrN7m3WNkvI+qAiCDmuQqYL+1kVaCxu/kzm1rxFBtJmQIBI7LKXHkuV2gwUvFXIiY6BpfnHZSit/dND0zvQfi9swsOUz0LIUzLTrybNrZats="
+  - permanent:
+      name: "mythicbeasts-mvyo8-debian10-aarch32"
+      nodeDescription: "RaspberryPi 4 with Debian 10 hosted at Mythic Beast"
+      labelString: "ci.role.test hw.arch.aarch32 sw.os.linux"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "ssh.temurin.hostedpi.com"
+          port: "5378"
+          credentialsId: "jenkins-jck-ssh"
+          javaPath: "/usr/lib/jvm/jdk8/bin/java"
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCh9fSlecuTODPF1Zb5ZQucDfSXQirndHwoq62dE7v4hhNAOqP13hOHRMM0LVNjgebp6IbtY9L5ui4gNeOW6d5WOlnZm3R7zm8UPRCgc064se/T3lL/cUPweIX5tlCfqeAHB4KKWENg3OQw/2pbQ+mGpIATjw6JJ82UG1VnAb/S4PGfOLPy5L/n6DLOaogaMcnDIPiM/0iykaJVdVsmmmIjEPLmzV4zDT9zkNoARNLNtFUj6iZMWzICTyrkE2JAHttdbUexdx8tArk0NdSq9xv971KqFNIEZg/Vo+rSBKmFs2gSDVUnTJSENwTdoudmy0A7vjC1iDMruqDS/QgAJvjV"
 unclassified:
   globalLibraries:
     libraries:
