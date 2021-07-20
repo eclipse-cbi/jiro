@@ -134,14 +134,6 @@ tool:
     installations:
       - name: "Default"
         home: "git"
-#*******************************************************************************
-# Copyright (c) 2018 Eclipse Foundation and others.
-# This program and the accompanying materials are made available
-# under the terms of the Eclipse Public License 2.0
-# which is available at http://www.eclipse.org/legal/epl-v20.html,
-# or the MIT License which is available at https://opensource.org/licenses/MIT.
-# SPDX-License-Identifier: EPL-2.0 OR MIT
-#*******************************************************************************
 jenkins:
   nodes:
     - permanent:
@@ -464,6 +456,40 @@ jenkins:
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSnnvGjC0hFBQ7AMf+7Fv+UrXYMvG5ngN3wbPt3ABZ7wSfaHlll2+2N6NSWChTVahWQCFoDWQy1TyzvjRZq69gdaDW7voIa1lglns0hFRt6FTNEtZyVU1bJ4ugbRfvpP4OjH1SSTww3UqBEmvv215tU1sdHfIJKNWWRo0hbgQS8QGBtDF8pDK68CCquXMV62JbBUzRa3bE+OdoLL37m57mBlWLUG4t7O26F758vAdwXn9jzovc9CQdki2jfkRTK/OsrwaHHyOheqjBGFE9HFJ7J8HyRlXvRQi0EHp9f5vDwERzDhbEJy2RZ+KDZ4qnL/HCKpKaS/K107jSkbElAAHV"
+    - permanent:
+        name: "jck-digitalocean-ubuntu2004-x64-1"
+        nodeDescription: "Intel Xeon system hosted at digitalocean"
+        labelString: "ci.role.test hw.arch.x86 sw.os.linux"
+        remoteFS: '/home/jenkins'
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "178.62.54.114"
+            port: "22"
+            credentialsId: "jenkins-jck-ssh"
+            javaPath: ""
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDFX/QboG247pAS/oU1I8jIBDpztdXJp2VisbQ7h4Av6JAG8nN+JVmBdsqOHuARxEQb8xQXa5ZRVz2x02JKiDuzslFg6Eb/lpFapfVLO0vI2YPhWCPddRj1jqEuDkuL3hyIq3uoOc3mhdJAre6oL587C1jKQERvOfpqhLbR026WO8DcwSXGvj11Urfv/P3T6dIx/6O1y6P24Rm8VYUI7Vqh/B+7kbyLMm6CBscvKGsJ5ripYTBrjp/dI+FS+Pe1e6r8qx4wzb8a7EaKq7fAqu4szh+hxAj1AUHm7JObOAQ0phdDVWa10tQ4lAjxBrDs/fYGWirDmuXBfUUTUWavR31K1G2DuSl+T29adkP92sEKStqqfChsv7mt5MrA67fTMgEr1UM+aKcQGFYcxUNh+EznuYHfzUps13maXgJ52dj6N2ev+RCft1nsSB5V63sBobRBJgBVJtQaZVpK0RX1JOh2+SYRPgsy8FquNNBBsh05czB9eFdKRFXcZgTzc2KakJ0="
+    - permanent:
+        name: "jck-digitalocean-ubuntu2004-x64-2"
+        nodeDescription: "Intel Xeon system hosted at digitalocean"
+        labelString: "ci.role.test hw.arch.x86 sw.os.linux"
+        remoteFS: '/home/jenkins'
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "188.166.144.71"
+            port: "22"
+            credentialsId: "jenkins-jck-ssh"
+            javaPath: ""
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDtygfAPmqmBzCiO1yrjuX2LjSBha9p5z8CyhDZv+TywsaSz5Y72qDO/V/QVMiHZ29VN4iv+m8LHI0SX4z9bLtagPt1hzAgK4diaLZJLTa0c6qkrXLuHfDmt3lFZwgdD3xUKJXRb9hJopazkLVRflnEa7rtE/gBV1GlhBNSiMogHJm8gObghAkWbe7oZyg0mZH0MoX47GihkaXMvWOpt8dfW2+64Sq6axa7KDGqwyRx5aL2sWJCNARZjceFbuue4LooYd1cLnR7jeRMImo87201m+gX4IXsQX8f97QI8zurmFjj47V/X4GFjx2yJLDKOODBVCobUr1Legie8Ge6yc8QT/WRUwuZa2lEAGcx2olcFpb0SOP98OoEYof32cCMdSVUVsLBIYSNqJCCeEe+uggGrN7m3WNkvI+qAiCDmuQqYL+1kVaCxu/kzm1rxFBtJmQIBI7LKXHkuV2gwUvFXIiY6BpfnHZSit/dND0zvQfi9swsOUz0LIUzLTrybNrZats="
   numExecutors: 0
   scmCheckoutRetryCount: 2
   mode: EXCLUSIVE
