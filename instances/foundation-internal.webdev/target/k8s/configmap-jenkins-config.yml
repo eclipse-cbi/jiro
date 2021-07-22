@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "foundation-internal.webdev"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.277.3"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.277.3"
+    org.eclipse.cbi.jiro/jenkins.version: "2.289.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.289.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "foundation-internal-webdev"
   namespace: "foundation-internal-webdev"
   name: jenkins-config
@@ -473,6 +473,8 @@ data:
             home: "/opt/tools/java/openjdk/latest"
           - name: "openjdk-ea-latest"
             home: "/opt/tools/java/openjdk/ea-latest"
+          - name: "openjdk-jdk18-latest"
+            home: "/opt/tools/java/openjdk/jdk-18/latest"
           - name: "openjdk-jdk17-latest"
             home: "/opt/tools/java/openjdk/jdk-17/latest"
           - name: "openjdk-jdk16-latest"
