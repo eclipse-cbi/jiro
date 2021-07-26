@@ -113,6 +113,23 @@ jenkins:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDinzUAlFXglh3hQ3+Ls3EKb4i45QNDP/clYb05AzTJMejBlIChDmUKTIh4swKbxwX9Ue0kIG3EadTRPt8GO+bL1lCClOz/cWUB7rlQaAb0EjJ1Wk71i9mJDOkSjjJlguLnvjNRLlr26RQYsFYa618bR1VKfjHGhvlUOq7ahNZck3ZOxqfhIbngIsga09EX0zZ4KUDtgCL9bhmS2Rqv4BPk8wqH0ALp+BABo0ryfVwoLNfW6+IMlB3zF315yH2upZtbj03tjH+KhPv8a4MnsTIlll0b4Ew7h04FPExE00MQScDtIQ75J/4ETbjJyvybFbJTf7vo6DrI/TQVsguNFmrRuU4Nw4iSyvyL9Ui9bM+ZPNA0C7dAgq0XQhMobveO6qc3OE93HSJHdDIZ3XaLaE96AfXrPH57AzJRXAVUAXfzUAV1fuSNDLCx3zCSlFampRot2jhRZfHjYlyYw1eyPUiabL5ZAByFHc2LRoFubpk9e9caoZbmEofMbEUbTna0OME= root@jck-linaro-ubuntu2004-armv8-2"
   - permanent:
+      name: "jck-equinix-ubuntu2004-aarch64-1"
+      nodeDescription: "Altra system loaned for TCK work from Equinix"
+      labelString: "ci.role.test hw.arch.aarch64 sw.os.linux"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "145.40.81.247"
+          port: "22"
+          credentialsId: "jenkins-jck-ssh"
+          javaPath: ""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC7Ss6S7xfSLL71bYzoe3eEcAp2FWZv6GhEfLKReBzKKFkxcFA5Q/2a8/VZmhPryZLsATVOOJCv4a0QFPoxeWMGctdvbQTqJ1iLKnkXhu+WLhTQeUwftjg+tfTDbJ5q7Yi82o4MAZM9HDk43qfDHx1XhZO9LVq32sqGY2qMl1DlfLj1wD/QoHUpYooR2BORO8ypAcWKLSG4b7ihrWvdgvpdJpYp8zkHyTRpY6tBpsQ53Eq7luR1Gamrb8DSt+9efC3SLRYaaE9RP2qDoIA3pFOKh9uO5W/uCRyEeHa+J5/trB9QbbUfQIqsnxMZugpdYZwu0ojHOeAwj0JW5I/ScdFBUnZofEqQLLKX/nH6r7YEB8a50f4JejhdPk4uqYdG3vpdgaCm058QgqX7wnW+X1p2en73eAbfTDCYT1yJHGo0kTNdcsdvUAqs8DNxDTEI9Vdbk59ZZZnxaMz7j6EEoQhm4ETZpPYW+NgkaRTAlByqgWQ1JRNnsCsST+A1ASDPjNU= root@jck-equinix-ubuntu2004-aarch64-1"
+  - permanent:
       name: "jck-siteox-solaris10u11-sparcv9-1"
       nodeDescription: "Solaris Sparc system hosted at SiteOx"
       labelString: "ci.role.test hw.arch.sparcv9 sw.os.sunos"
