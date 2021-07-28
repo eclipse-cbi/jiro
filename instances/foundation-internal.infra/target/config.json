@@ -359,6 +359,12 @@
          },
          {
             "grantedPermissions": [
+               "Overall/Read"
+            ],
+            "principal": "wayne.beaton@eclipse-foundation.org"
+         },
+         {
+            "grantedPermissions": [
                "Agent/Build",
                "Credentials/View",
                "Job/Build",

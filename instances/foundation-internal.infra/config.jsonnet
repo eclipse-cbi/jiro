@@ -23,6 +23,10 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         grantedPermissions: [ "Overall/Read" ],
       },
       {
+        principal: "wayne.beaton@eclipse-foundation.org",
+        grantedPermissions: [ "Overall/Read" ],
+      },
+      {
         principal: "foundation-internal.it",
         grantedPermissions: permissionsTemplates.committerPermissionsList,
       }

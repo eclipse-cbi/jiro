@@ -52,6 +52,7 @@ jenkins:
         - "View/Delete:foundation-internal.it"
         - "View/Read:foundation-internal.it"
         - "Overall/Read:foundation-internal.webdev"
+        - "Overall/Read:wayne.beaton@eclipse-foundation.org"
   markupFormatter: rawHtml
   crumbIssuer:
     standard:

@@ -131,7 +131,7 @@ bouncycastle-api 2.21
 branch-api 2.6.5
 caffeine-api 2.9.1-23.v51c4e2c879c8
 checks-api 1.7.2
-cloudbees-folder 6.15
+cloudbees-folder 6.16
 credentials 2.5
 credentials-binding 1.27
 display-url-api 2.3.5
@@ -140,7 +140,7 @@ docker-workflow 1.26
 durable-task 1.38
 echarts-api 5.1.2-3
 font-awesome-api 5.15.3-4
-git-client 3.8.0
+git-client 3.9.0
 git-server 1.10
 jackson2-api 2.12.4
 javadoc 1.6
@@ -170,7 +170,7 @@ snakeyaml-api 1.29.1
 ssh-credentials 1.19
 sshd 3.1.0
 structs 1.23
-token-macro 2.15
+token-macro 266.v44a80cf277fd
 trilead-api 1.0.13
 workflow-api 2.46
 workflow-basic-steps 2.23
@@ -184,11 +184,14 @@ workflow-step-api 2.24
 workflow-support 3.8
 
 Plugins that will be downloaded:
+cloudbees-folder 6.16
 docker-commons 1.17
 docker-workflow 1.26
+git-client 3.9.0
 kubernetes-cli 1.10.3
 mail-watcher-plugin 1.16
 slack 2.48
+token-macro 266.v44a80cf277fd
 
 Resulting plugin list:
 ace-editor 1.1
@@ -205,7 +208,7 @@ branch-api 2.6.5
 build-timeout 1.20
 caffeine-api 2.9.1-23.v51c4e2c879c8
 checks-api 1.7.2
-cloudbees-folder 6.15
+cloudbees-folder 6.16
 command-launcher 1.6
 conditional-buildstep 1.4.1
 config-file-provider 3.8.1
@@ -227,7 +230,7 @@ forensics-api 1.2.1
 gerrit-trigger 2.34.0
 ghprb 1.42.2
 git 4.8.0
-git-client 3.8.0
+git-client 3.9.0
 git-parameter 0.9.13
 git-server 1.10
 github 1.33.1
@@ -297,7 +300,7 @@ ssh-slaves 1.32.0
 sshd 3.1.0
 structs 1.23
 timestamper 1.13
-token-macro 2.15
+token-macro 266.v44a80cf277fd
 trilead-api 1.0.13
 variant 1.4
 warnings-ng 9.4.0
