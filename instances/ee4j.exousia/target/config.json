@@ -402,7 +402,9 @@
             "principal": "ee4j.exousia"
          }
       ],
-      "plugins": [ ],
+      "plugins": [
+         "envinject"
+      ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",
