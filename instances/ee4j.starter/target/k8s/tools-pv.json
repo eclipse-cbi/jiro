@@ -38,7 +38,7 @@
                "async"
             ],
             "nfs": {
-               "path": "/home/data/c1-ci.eclipse.org/buildtools",
+               "path": "/home/data/cbi/buildtools",
                "readOnly": true,
                "server": "bambam"
             },
