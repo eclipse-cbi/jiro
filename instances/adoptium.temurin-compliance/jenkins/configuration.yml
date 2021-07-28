@@ -122,7 +122,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         ssh:
-          host: "145.40.81.247"
+          host: "139.178.86.125"
           port: "22"
           credentialsId: "jenkins-jck-ssh"
           javaPath: ""
