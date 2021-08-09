@@ -13,7 +13,7 @@
       "namespace": "oomph"
    },
    "spec": {
-      "host": "ci-staging.eclipse.org",
+      "host": "ci.eclipse.org",
       "path": "/oomph",
       "port": {
          "targetPort": "http"

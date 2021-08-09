@@ -102,7 +102,7 @@ data:
       clouds:
         - kubernetes:
             name: "kubernetes"
-            containerCapStr: "2"
+            containerCapStr: "8"
             jenkinsUrl: "http://jenkins-ui.oomph.svc.cluster.local/oomph"
             jenkinsTunnel: "jenkins-discovery.oomph.svc.cluster.local:50000"
             maxRequestsPerHostStr: "32"
@@ -364,6 +364,91 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
+              - containers:
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.5
+                    alwaysPullImage: true
+                    livenessProbe:
+                      failureThreshold: 0
+                      initialDelaySeconds: 0
+                      periodSeconds: 0
+                      successThreshold: 0
+                      timeoutSeconds: 0
+                    name: "jnlp"
+                    resourceLimitCpu: "4000m"
+                    resourceRequestCpu: "4000m"
+                    resourceLimitMemory: "16384Mi"
+                    resourceRequestMemory: "16384Mi"
+                    ttyEnabled: true
+                    command: ""
+                    args: ""
+                instanceCap: -1
+                name: "jipp-basic-agent-16gb"
+                namespace: "oomph"
+                nodeUsageMode: NORMAL
+                label: "basic-16gb"
+                envVars:
+                  - envVar:
+                      key: "JAVA_TOOL_OPTIONS"
+                      value: ""
+                  - envVar:
+                      key: "JENKINS_REMOTING_JAVA_OPTS"
+                      value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  - envVar:
+                      key: "OPENJ9_JAVA_OPTIONS"
+                      value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+                  - envVar:
+                      key: "_JAVA_OPTIONS"
+                      value: ""
+                volumes:
+                  - persistentVolumeClaim:
+                      claimName: "tools-claim-jiro-oomph"
+                      mountPath: "/opt/tools"
+                      readOnly: true
+                  - configMapVolume:
+                      configMapName: "known-hosts"
+                      mountPath: "/home/jenkins/.ssh/"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/repository"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/wrapper"
+                workspaceVolume:
+                  emptyDirWorkspaceVolume:
+                    memory: false
+                yaml: |
+                  apiVersion: v1
+                  kind: Pod
+                  spec:
+                    containers:
+                    - name: jnlp
+                      volumeMounts:
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings-security.xml
+                        subPath: settings-security.xml
+                        readOnly: true
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings.xml
+                        subPath: settings.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.m2/toolchains.xml
+                        subPath: toolchains.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.mavenrc
+                        subPath: .mavenrc
+                        readOnly: true
+                    volumes:
+                    - name: m2-secret-dir
+                      secret:
+                        secretName: m2-secret-dir
+                    - name: m2-dir
+                      configMap:
+                        name: m2-dir
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
@@ -378,7 +463,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci-staging.eclipse.org/oomph
+        url: https://ci.eclipse.org/oomph
       mailer:
         replyToAddress: ci-admin@eclipse.org
         smtpHost: mail.eclipse.org
@@ -422,7 +507,7 @@ data:
             manageHooks: false
         hookSecretConfigs:
           - credentialsId: "github-webhook-secret"
-        hookUrl: "https://ci-staging.eclipse.org/oomph/github-webhook/"
+        hookUrl: "https://ci.eclipse.org/oomph/github-webhook/"
       gitSCM:
         createAccountBasedOnEmail: true
         useExistingAccountWithSameEmail: true
@@ -433,6 +518,8 @@ data:
             home: "/opt/tools/java/openjdk/latest"
           - name: "openjdk-ea-latest"
             home: "/opt/tools/java/openjdk/ea-latest"
+          - name: "openjdk-jdk18-latest"
+            home: "/opt/tools/java/openjdk/jdk-18/latest"
           - name: "openjdk-jdk17-latest"
             home: "/opt/tools/java/openjdk/jdk-17/latest"
           - name: "openjdk-jdk16-latest"
