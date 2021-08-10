@@ -3,7 +3,7 @@ security:
     useScriptSecurity: false
 
 tool:
-  xvfbInstallation:
+  xvfb:
     installations:
     - name: "default"
       home: ""
