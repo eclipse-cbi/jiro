@@ -5,9 +5,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     fullName: "ee4j.mail",
     displayName: "Jakarta Mail",
   },
-  deployment+: {
-    cluster: "okd-c1"
-  },
   jenkins+: {
     theme: "quicksilver-light",
     // workaround to avoid errors, when the Gerrit plugin is disabled

@@ -10,8 +10,4 @@
       "warnings-ng",
     ],
   },
-  deployment+: {
-    host: "ci.eclipse.org",
-    cluster: "okd-c1",
-  }
 }

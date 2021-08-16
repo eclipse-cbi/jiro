@@ -9,7 +9,4 @@
       "pipeline-utility-steps",
     ],
   },
-  deployment+: {
-    cluster: "okd-c1",
-  },
 }

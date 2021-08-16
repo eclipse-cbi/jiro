@@ -7,9 +7,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     resourcePacks: 4,
     unixGroupName: "eclipse.platform",
   },
-  deployment+: {
-    cluster: "okd-c1",
-  },
   jenkins+: {
     plugins+: [
       "mail-watcher-plugin",

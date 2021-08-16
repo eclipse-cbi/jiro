@@ -8,7 +8,4 @@
       "job-dsl",
     ],
   },
-  deployment+: {
-    cluster: "okd-c1"
-  },
 }

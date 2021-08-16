@@ -6,9 +6,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     displayName: "Eclipse Glassfish",
     resourcePacks: 16
   },
-  deployment+: {
-    cluster: "okd-c1",
-  },
   jenkins+: {
     agentConnectionTimeout: 300,
     theme: "quicksilver-light",

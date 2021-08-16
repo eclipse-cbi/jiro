@@ -11,8 +11,4 @@
       "mail-watcher-plugin",
     ],
   },
-  deployment+: {
-    host: "ci.eclipse.org",
-    cluster: "okd-c1",
-  }
 }

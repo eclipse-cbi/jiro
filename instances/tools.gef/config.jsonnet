@@ -11,7 +11,4 @@
       "slack",
     ],
   },
-  deployment+: {
-    cluster: "okd-c1",
-  },
 }

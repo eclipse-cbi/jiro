@@ -3,9 +3,6 @@
     fullName: "technology.skills",
     displayName: "Eclipse Skills",
   },
-  deployment+: {
-    cluster: "okd-c1"
-  },
   jenkins+: {
     plugins+: [
       "blueocean",

@@ -3,10 +3,6 @@
     fullName: "modeling.viatra",
     displayName: "Eclipse VIATRA",
   },
-  deployment+: {
-    host: "ci.eclipse.org",
-    cluster: "okd-c1",
-  },
   clouds+: {
     kubernetes+: { 
       local currentCloud = self,

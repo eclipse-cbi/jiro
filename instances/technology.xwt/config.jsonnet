@@ -5,9 +5,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     fullName: "technology.xwt",
     displayName: "Eclipse XWT"
   },
-  deployment+: {
-    cluster: "okd-c1"
-  },
   jenkins+: {
     permissions+: [
       {

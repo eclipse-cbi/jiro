@@ -11,7 +11,4 @@
       "javadoc",
     ],
   },
-  deployment+: {
-    cluster: "okd-c1",
-  },
 }

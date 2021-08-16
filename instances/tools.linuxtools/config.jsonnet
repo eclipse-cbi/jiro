@@ -9,7 +9,4 @@
       "build-with-parameters"
     ],
   },
-  deployment+: {
-    cluster: "okd-c1",
-  },
 }

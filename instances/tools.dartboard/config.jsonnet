@@ -8,7 +8,4 @@
       "mask-passwords",
     ],
   },
-  deployment+: {
-    cluster: "okd-c1",
-  },
 }

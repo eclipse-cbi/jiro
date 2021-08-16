@@ -9,7 +9,4 @@
       "description-setter",
     ],
   },
-  deployment+: {
-    cluster: "okd-c1",
-  },
 }

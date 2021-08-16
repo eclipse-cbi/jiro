@@ -4,9 +4,6 @@
     displayName: "Eclipse Jakarta EE TCK",
     resourcePacks: 52,
   },
-  deployment+: {
-    cluster: "okd-c1",
-  },
   jenkins+: {
     maxConcurrency: 25,
     agentConnectionTimeout: 300,

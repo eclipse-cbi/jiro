@@ -10,7 +10,4 @@
       "junit-attachments",
     ],
   },
-  deployment+: {
-    cluster: "okd-c1",
-  },
 }

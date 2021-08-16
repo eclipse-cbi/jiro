@@ -17,8 +17,4 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "show-build-parameters",
     ],
   },
-  deployment+: {
-    host: "ci.eclipse.org",
-    cluster: "okd-c1",
-  }
 }

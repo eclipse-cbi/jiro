@@ -10,9 +10,6 @@
       "zentimestamp",
     ],
   },
-  deployment+: {
-    cluster: "okd-c1",
-  },
   clouds+: {
     kubernetes+: { 
       local currentCloud = self,

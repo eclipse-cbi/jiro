@@ -4,9 +4,6 @@
     displayName: "Eclipse Codewind",
     resourcePacks: 3,
   },
-  deployment+: {
-    cluster: "okd-c1"
-  },
   jenkins+: {
     staticAgentCount: 1,
     plugins+: [

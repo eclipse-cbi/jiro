@@ -5,10 +5,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     fullName: "technology.omr",
     displayName: "Eclipse OMR",
   },
-  deployment+: {
-    host: "ci.eclipse.org",
-    cluster: "okd-c1",
-  },
   jenkins+: {
     staticAgentCount: 40,
     permissions: permissionsTemplates.projectPermissions($.project.unixGroupName, permissionsTemplates.committerPermissionsList + ["Agent/Connect", "Agent/Disconnect"]) + [

@@ -13,9 +13,6 @@
       "gradle",
     ],
   },
-  deployment+: {
-    cluster: "okd-c1"
-  },
   gradle+: {
     generate: true,
   },

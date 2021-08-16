@@ -3,7 +3,4 @@
     fullName: "modeling.mdht",
     displayName: "Eclipse Model Driven Health Tools"
   },
-  deployment+: {
-    cluster: "okd-c1",
-  },
 }
