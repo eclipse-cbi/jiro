@@ -405,7 +405,8 @@
       "plugins": [
          "copyartifact",
          "docker-workflow",
-         "envinject"
+         "envinject",
+         "embeddable-build-status"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,

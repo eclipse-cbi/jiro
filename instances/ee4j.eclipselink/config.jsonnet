@@ -9,6 +9,7 @@
       "copyartifact",
       "docker-workflow",
       "envinject",
+      "embeddable-build-status",
     ],
   },
   deployment+: {
