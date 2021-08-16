@@ -1,5 +1,6 @@
 local jiroMasters = import '../../jiro-masters/masters.jsonnet';
 local permissions = import 'permissions.libsonnet';
+local plugins = import 'plugins.libsonnet';
 local clouds = import "clouds.libsonnet";
 { 
   project: {
@@ -29,7 +30,7 @@ local clouds = import "clouds.libsonnet";
     theme: "quicksilver",
     # see https://github.com/jenkinsci/docker/pull/577
     pluginsForceUpgrade: true,
-    plugins: [],
+    plugins: plugins.additionalPlugins($.project.fullName),
     permissions: permissions.projectPermissions($.project.unixGroupName, 
       permissions.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger",]),
   },
