@@ -38,7 +38,7 @@ mkdir -p "${target}"
 if jq -e '(.jenkins.plugins | length) > 0' "${instance}/target/config.json" > /dev/null; then
   rm -f "${target}/plugins-list" # old name
   echo "# GENERATED FILE - DO NOT EDIT" > "${target}/plugins-list.txt"
-  jq -r '.jenkins.plugins | unique' "${instance}/target/config.json" >> "${target}/plugins-list.txt"
+  jq -r '.jenkins.plugins | unique[]' "${instance}/target/config.json" >> "${target}/plugins-list.txt"
 fi
 
 jenkinsTemplateFolder="${SCRIPT_FOLDER}/../templates/jenkins"
