@@ -6,3 +6,4 @@ description-setter
 envinject
 extended-choice-parameter
 groovy
+jacoco

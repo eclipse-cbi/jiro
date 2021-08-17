@@ -2,6 +2,7 @@
 artifactory
 badge
 build-user-vars-plugin
+build-with-parameters
 copyartifact
 embeddable-build-status
 generic-webhook-trigger
@@ -9,11 +10,10 @@ groovy-postbuild
 http_request
 jira
 job-dsl
+monitoring 
 parameter-separator
 pipeline-utility-steps
 slack
 tap
-build-with-parameters
-xvfb
-monitoring 
 xunit
+xvfb

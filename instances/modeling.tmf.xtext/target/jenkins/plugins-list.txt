@@ -1,4 +1,5 @@
 # GENERATED FILE - DO NOT EDIT
+build-user-vars-plugin
 copyartifact
 downstream-buildview
 envinject
@@ -8,4 +9,3 @@ htmlpublisher
 parameterized-scheduler
 show-build-parameters
 slack
-build-user-vars-plugin

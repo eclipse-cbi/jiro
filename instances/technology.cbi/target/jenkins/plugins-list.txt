@@ -1,7 +1,7 @@
 # GENERATED FILE - DO NOT EDIT
 basic-branch-build-strategies
-cloudbees-jenkins-advisor
 cloudbees-disk-usage-simple
+cloudbees-jenkins-advisor
 embeddable-build-status
 favorite
 gradle

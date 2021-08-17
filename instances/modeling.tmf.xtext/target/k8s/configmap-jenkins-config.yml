@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.263.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.289.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "xtext"
   namespace: "xtext"
   name: jenkins-config
@@ -116,7 +116,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.5
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.7
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -223,7 +223,7 @@ data:
                       secret:
                         secretName: gradle-secret-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.5
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.7
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -330,7 +330,7 @@ data:
                       secret:
                         secretName: gradle-secret-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.5
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.7
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -437,7 +437,7 @@ data:
                       secret:
                         secretName: gradle-secret-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.5
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.7
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -614,6 +614,8 @@ data:
             home: "/opt/tools/java/openjdk/latest"
           - name: "openjdk-ea-latest"
             home: "/opt/tools/java/openjdk/ea-latest"
+          - name: "openjdk-jdk18-latest"
+            home: "/opt/tools/java/openjdk/jdk-18/latest"
           - name: "openjdk-jdk17-latest"
             home: "/opt/tools/java/openjdk/jdk-17/latest"
           - name: "openjdk-jdk16-latest"
