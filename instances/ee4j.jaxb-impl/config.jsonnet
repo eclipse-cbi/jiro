@@ -6,7 +6,6 @@
   jenkins+: {
     plugins+: [
       "envinject",
-      "jacoco",
       "copyartifact",
     ],
   },
