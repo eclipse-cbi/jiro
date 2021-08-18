@@ -4,7 +4,7 @@
     displayName: "Jakarta Annotations"
   },
   jenkins+: {
-    plugins: [
+    plugins+: [
       "copyartifact",
     ],
   },

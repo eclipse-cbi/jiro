@@ -392,6 +392,7 @@
          }
       ],
       "plugins": [
+         "jacoco",
          "copyartifact"
       ],
       "pluginsForceUpgrade": true,

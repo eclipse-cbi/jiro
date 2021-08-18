@@ -4,7 +4,7 @@
     displayName: "Jakarta Concurrency"
   },
   jenkins+: {
-    plugins: [
+    plugins+: [
       "copyartifact",
     ],
   },

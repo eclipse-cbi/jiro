@@ -4,7 +4,7 @@
     displayName: "Jakarta Expression Language"
   },
   jenkins+: {
-    plugins: [
+    plugins+: [
       "copyartifact",
     ],
   },

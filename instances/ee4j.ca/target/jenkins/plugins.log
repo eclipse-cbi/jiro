@@ -107,7 +107,7 @@ variant 1.4
 warnings-ng 9.5.0
 workflow-aggregator 2.6
 workflow-api 2.46
-workflow-basic-steps 2.23
+workflow-basic-steps 2.24
 workflow-cps 2.93
 workflow-cps-global-lib 2.21
 workflow-durable-task-step 2.39
@@ -132,6 +132,7 @@ display-url-api 2.3.5
 echarts-api 5.1.2-9
 font-awesome-api 5.15.3-4
 jackson2-api 2.12.4
+jacoco 3.3.0
 jquery3-api 3.6.0-2
 junit 1.52
 matrix-project 1.19
@@ -148,6 +149,7 @@ workflow-support 3.8
 
 Plugins that will be downloaded:
 copyartifact 1.46.1
+jacoco 3.3.0
 
 Resulting plugin list:
 ace-editor 1.1
@@ -199,6 +201,7 @@ h2-api 1.4.199
 handlebars 3.0.8
 handy-uri-templates-2-api 2.1.8-1.0
 jackson2-api 2.12.4
+jacoco 3.3.0
 javadoc 1.6
 jdk-tool 1.5
 jjwt-api 0.11.2-9.c8b45b8bb173
@@ -258,7 +261,7 @@ variant 1.4
 warnings-ng 9.5.0
 workflow-aggregator 2.6
 workflow-api 2.46
-workflow-basic-steps 2.23
+workflow-basic-steps 2.24
 workflow-cps 2.93
 workflow-cps-global-lib 2.21
 workflow-durable-task-step 2.39
