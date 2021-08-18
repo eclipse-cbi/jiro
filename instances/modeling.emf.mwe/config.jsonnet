@@ -4,7 +4,7 @@
     displayName: "Eclipse Modeling Workflow Engine"
   },
   jenkins+: {
-    plugins: [
+    plugins+: [
       "slack",
       "parameterized-scheduler",
     ],
