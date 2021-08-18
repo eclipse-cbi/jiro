@@ -107,7 +107,7 @@ variant 1.4
 warnings-ng 9.5.0
 workflow-aggregator 2.6
 workflow-api 2.46
-workflow-basic-steps 2.23
+workflow-basic-steps 2.24
 workflow-cps 2.93
 workflow-cps-global-lib 2.21
 workflow-durable-task-step 2.39
@@ -184,7 +184,6 @@ build-blocker-plugin 1.7.7
 docker-commons 1.17
 docker-workflow 1.26
 mail-watcher-plugin 1.16
-workflow-basic-steps 2.24
 
 Resulting plugin list:
 ace-editor 1.1
