@@ -1,3 +1,3 @@
 # GENERATED FILE - DO NOT EDIT
-mail-watcher-plugin
 gerrit-code-review
+mail-watcher-plugin
