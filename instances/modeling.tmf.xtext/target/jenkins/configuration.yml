@@ -324,7 +324,7 @@ jenkins:
                 command: ""
                 args: ""
             instanceCap: -1
-            name: "centos-7-agent-6gb"
+            name: "centos-7-6gb"
             namespace: "xtext"
             nodeUsageMode: EXCLUSIVE
             label: "centos-7-6gb"
