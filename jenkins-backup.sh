@@ -47,19 +47,21 @@ rm -rf "${backupInstance}"
 mkdir -p "${backupInstance}/jobs"
 mkdir -p "${backupInstance}/views"
 
-
-for job in $("${CLI}" "${instance}" list-jobs); do 
+no_of_processes=4
+for job in $("${CLI}" "${instance}" list-jobs); do
+  while [ $(jobs | wc -l) -ge ${no_of_processes} ] ; do sleep 1 ; done
   >&2 echo "Backing up job '${job}'..."
-  "${CLI}" "${instance}" get-job "${job}" > "${backupInstance}/jobs/${job}.xml"
+  "${CLI}" "${instance}" get-job "${job}" > "${backupInstance}/jobs/${job}.xml" &
 done
 
-for view in $("${CLI}" "${instance}" groovy = < "${SCRIPT_FOLDER}/groovy/cli/list-views.groovy"); do 
+for view in $("${CLI}" "${instance}" groovy = < "${SCRIPT_FOLDER}/groovy/cli/list-views.groovy"); do
+  while [ $(jobs | wc -l) -ge ${no_of_processes} ] ; do sleep 1 ; done
   >&2 echo "Backing up view '${view}'..."
-  "${CLI}" "${instance}" get-view "${view}" > "${backupInstance}/views/${view}.xml"
+  "${CLI}" "${instance}" get-view "${view}" > "${backupInstance}/views/${view}.xml" &
 done
 
 >&2 echo "Backing up credentials..."
-"${CLI}" "${instance}" list-credentials-as-xml > "${backupInstance}/credentials.xml" "system::system::jenkins"
+"${CLI}" "${instance}" list-credentials-as-xml > "${backupInstance}/credentials.xml" "system::system::jenkins" &
 
 >&2 echo "Backing up plugins list..."
 "${CLI}" "${instance}" list-plugins > "${backupInstance}/plugins"
