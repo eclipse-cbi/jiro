@@ -4,7 +4,7 @@
     displayName: "Eclipse CBI",
   },
   jenkins+: {
-    version: "2.289.3",
+    version: "2.303.1",
     staticAgentCount: 3,
     plugins+: [
       "basic-branch-build-strategies",
