@@ -1,0 +1,138 @@
+#! /usr/bin/env bash
+#*******************************************************************************
+# Copyright (c) 2020 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html
+# SPDX-License-Identifier: EPL-2.0
+#*******************************************************************************
+
+# Bash strict-mode
+set -o errexit
+set -o nounset
+set -o pipefail
+
+IFS=$'\n\t'
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+SCRIPT_NAME="$(basename "$(readlink -f "${BASH_SOURCE[0]}")")"
+KUBECTL_BIN="${KUBECTL_BIN:-"kubectl"}"
+
+CBI_HOME="${CBI_HOME:-"~/.cbi"}"
+# resolve ~ for latter tests
+CBI_HOME="$(readlink -f "${CBI_HOME/#~\//${HOME}/}")"
+
+CBI_CONFIG="${CBI_HOME}/config"
+
+if [[ ! -f ${CBI_CONFIG} ]]; then
+  echo "ERROR: File '${CBI_CONFIG}' does not exists"
+  echo "Create one to configure the location of the kubeconfig file and the associated context. Example:"
+  echo '{"kubeconfig": { "path": "~/.kube/config", "contextMapping": { "okd-c1": "okd", "ci-c1": "openshift" }}}' | jq -M
+  exit 1
+fi
+
+_kubeconfig() {
+  local kubeconfig
+  kubeconfig="$(jq -r '.kubeconfig.path' <"${CBI_CONFIG}")"
+  kubeconfig=${kubeconfig:-"~/.kube/config"}
+  # resolve ~ for latter tests
+  kubeconfig="$(readlink -f "${kubeconfig/#~\//${HOME}/}")"
+
+  if [[ ! -f "${kubeconfig}" ]]; then
+    echo "ERROR: Cannot find kubeconfig file '${kubeconfig}'"
+    exit 2
+  fi
+
+  echo "${kubeconfig}"
+}
+
+_context() {
+  local contextMapping="${1}"
+  if ! jq -e '.kubeconfig.contextMapping["'"${contextMapping}"'"]' "${CBI_CONFIG}" > /dev/null; then
+    echo "ERROR: Cannot find contextMapping for given '${contextMapping}' in ${CBI_CONFIG}"
+    exit 3
+  fi
+
+  jq -r '.kubeconfig.contextMapping["'"${contextMapping}"'"]' <"${CBI_CONFIG}"
+}
+
+_context() {
+  local contextMapping="${1}"
+  if ! jq -e '.kubeconfig.contextMapping["'"${contextMapping}"'"]' "${CBI_CONFIG}" > /dev/null; then
+    echo "ERROR: Cannot find contextMapping for given '${contextMapping}' in ${CBI_CONFIG}"
+    exit 3
+  fi
+
+  jq -r '.kubeconfig.contextMapping["'"${contextMapping}"'"]' <"${CBI_CONFIG}"
+}
+
+_usage() {
+  local b="\033[1m"
+  local u="\033[4m"
+  local r="\033[0m"
+  printf "${b}NAME${r}\n"
+  printf "    ${b}%s${r} -- A wrapper of kubectl handling JIRO instances context\n\n" "${SCRIPT_NAME}"
+  printf "${b}SYNOPSIS${r}\n"
+  printf "    ${b}%s${r} [${u}OPTION${r}]...\n\n" "${SCRIPT_NAME}"
+  printf "${b}DESCRIPTION${r}\n"
+  printf "    ${b}%s${r} is a wrapper for invoking ${b}kubectl${r} handling context mapping for the given project. See ${b}kubectl${r} documentation on your system for further information about it.\n\n" "${SCRIPT_NAME}"
+  printf "    ${b}-p${r}, ${b}--project${r}\n"
+  printf "        Project full name.\n\n"
+  printf "    ${b}-h${r}, ${b}--help${r}\n"
+  printf "        print this help and exit.\n\n"
+}
+
+OPTIONS=p:h
+LONGOPTS=context:,help
+
+! PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTS --name "$0" -- "$@")
+if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
+  >&2 echo "ERROR: an error occured while parsing the program arguments"
+  >&2 echo "${PARSED}"
+  _usage
+  exit 2
+fi
+# read getopt’s output this way to handle the quoting right:
+eval set -- "$PARSED"
+
+# parameter default values
+printHelp="n"
+context=""
+
+# now enjoy the options in order and nicely split until we see --
+while true; do
+    case "$1" in
+        -h|--help)
+            printHelp="y"
+            shift
+            ;;
+        -p|--project=)
+            project="${2}"
+            shift 2
+            ;;
+        --)
+            shift
+            break
+            ;;
+        *)
+            >&2 echo "ERROR: an error occured while reading the program arguments (programming error)."
+            _usage
+            exit 3
+            ;;
+    esac
+done
+
+if [[ "${printHelp}" == "y" ]]; then
+  _usage
+  exit 0
+fi
+
+if [[ ! -d "${SCRIPT_FOLDER}/../instances/${project}" ]]; then
+    >&2 echo "ERROR: the specified project '${project}' does not exists"
+    _usage
+    exit 1
+fi
+
+config="$(jsonnet "${SCRIPT_FOLDER}/../instances/${project}/jiro.jsonnet")"
+kubecontext="$(_context "$(jq -r '.["config.json"].deployment.cluster' <<<"${config}")")"
+kubenamespace="$(jq -r '.["config.json"].kubernetes.master.namespace' <<<"${config}")"
+"${KUBECTL_BIN}" "${1}" --context="${kubecontext}" --kubeconfig="$(_kubeconfig)" --namespace="${kubenamespace}" "${@:2}"
