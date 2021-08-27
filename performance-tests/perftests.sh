@@ -15,7 +15,7 @@ set -o pipefail
 IFS=$'\n\t'
 
 SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
-export CONTEXT="${CONTEXT:-"okd-admin"}"
+export CONTEXT="${CONTEXT:-"okd"}"
 
 BUILD_SCRIPT="${1:-"${SCRIPT_FOLDER}/tests/dummy/run.sh"}"
 TEST_NAME="$(basename "$(dirname "${BUILD_SCRIPT}")")"
