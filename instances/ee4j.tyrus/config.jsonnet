@@ -5,5 +5,10 @@
   },
   maven+: {
     showVersion: false,
-  }
+  },
+  jenkins+: {
+    plugins+: [
+      "copyartifact",
+    ],
+  },
 }
