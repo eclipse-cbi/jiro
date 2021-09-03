@@ -6,7 +6,7 @@
          "kind": "PersistentVolume",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "tools.cdt.tcf",
+               "org.eclipse.cbi.jiro/project.fullName": "tools.tcf",
                "org.eclipse.cbi.jiro/project.shortname": "tcf"
             },
             "name": "tools-jiro-tcf"
@@ -50,7 +50,7 @@
          "kind": "PersistentVolumeClaim",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "tools.cdt.tcf",
+               "org.eclipse.cbi.jiro/project.fullName": "tools.tcf",
                "org.eclipse.cbi.jiro/project.shortname": "tcf"
             },
             "name": "tools-claim-jiro-tcf",

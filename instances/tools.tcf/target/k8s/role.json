@@ -3,7 +3,7 @@
    "kind": "Role",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "tools.cdt.tcf",
+         "org.eclipse.cbi.jiro/project.fullName": "tools.tcf",
          "org.eclipse.cbi.jiro/project.shortname": "tcf"
       },
       "name": "jenkins-master-owner",

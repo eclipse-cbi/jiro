@@ -3,23 +3,23 @@
    "kind": "Service",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "tools.cdt.tcf",
+         "org.eclipse.cbi.jiro/project.fullName": "tools.tcf",
          "org.eclipse.cbi.jiro/project.shortname": "tcf"
       },
-      "name": "jenkins-discovery",
+      "name": "jenkins-ui",
       "namespace": "tcf"
    },
    "spec": {
       "ports": [
          {
-            "name": "jnlp",
-            "port": 50000,
+            "name": "http",
+            "port": 80,
             "protocol": "TCP",
-            "targetPort": 50000
+            "targetPort": 8080
          }
       ],
       "selector": {
-         "org.eclipse.cbi.jiro/project.fullName": "tools.cdt.tcf"
+         "org.eclipse.cbi.jiro/project.fullName": "tools.tcf"
       }
    }
 }

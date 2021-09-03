@@ -1,7 +1,8 @@
 {
   project+: {
-    fullName: "tools.cdt.tcf",
+    fullName: "tools.tcf",
     displayName: "Eclipse Target Communication Framework",
+    unixGroupName: "tools.cdt.tcf",
   },
   jenkins+: {
     plugins+: [
