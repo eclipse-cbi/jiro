@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.tahu",
+         "org.eclipse.cbi.jiro/project.shortname": "tahu"
+      },
+      "name": "tahu",
+      "namespace": "tahu"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "tahu"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "tahu",
+         "namespace": "tahu"
+      }
+   ]
+}
