@@ -38,7 +38,6 @@ FILE_SERVER_PW_ROOT="$(jq -r '.["file_server"]["pw_root"]' "${SCRIPT_FOLDER}/../
 
 DB_SERVER="$(jq -r '.["db_server"]["server"]' "${SCRIPT_FOLDER}/../.localconfig")"
 DB_SERVER_USER="$(jq -r '.["db_server"]["user"]' "${SCRIPT_FOLDER}/../.localconfig")"
-DB_SERVER_PW="$(jq -r '.["db_server"]["pw"]' "${SCRIPT_FOLDER}/../.localconfig")"
 DB_SERVER_MYSQL_USER="$(jq -r '.["db_server"]["mysql_user"]' "${SCRIPT_FOLDER}/../.localconfig")"
 DB_SERVER_MYSQL_PW="$(jq -r '.["db_server"]["mysql_pw"]' "${SCRIPT_FOLDER}/../.localconfig")"
 
@@ -131,7 +130,6 @@ remove_jipp_from_db() {
 
   local user="${DB_SERVER_USER}"
   local server="${DB_SERVER}"
-  local pw="${DB_SERVER_PW}"
   local mysqlUser="${DB_SERVER_MYSQL_USER}"
   local mysqlPw="${DB_SERVER_MYSQL_PW}"
 
@@ -152,10 +150,6 @@ remove_jipp_from_db() {
   spawn ssh $user@$server
 
   expect {
-    -re \"$passwordPrompt\" {
-      send  \"$pw\r\"
-      exp_continue
-    }
     #TODO: only works one time
     -re \"passphrase\" {
       interact -o \"\r\" return
@@ -246,7 +240,7 @@ echo "Copying backup tar.gz to ${FILE_SERVER}:/tmp..."
 scp "backup/${BACKUP_FILE_NAME}" "${FILE_SERVER}:/tmp/"
 
 delete_question "${PROJECT_NAME}"
-
+#
 remove_jipp_from_db "${PROJECT_NAME}"
 
 mv_jipp_backup_to_archive "${SHORT_NAME}" "${BACKUP_FILE_NAME}"
