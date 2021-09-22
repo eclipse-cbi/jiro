@@ -13,7 +13,7 @@ jenkins:
   - permanent:
       name: "jck-packet-ubuntu2004-x64-1"
       nodeDescription: "Intel Atom system hosted at packet"
-      labelString: "ci.role.test hw.arch.x86 sw.os.linux"
+      labelString: "ci.role.test hw.arch.x86 sw.os.linux sw.tool.docker"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -115,7 +115,7 @@ jenkins:
   - permanent:
       name: "jck-equinix-ubuntu2004-aarch64-1"
       nodeDescription: "Altra system loaned for TCK work from Equinix"
-      labelString: "ci.role.test hw.arch.aarch64 sw.os.linux"
+      labelString: "ci.role.test hw.arch.aarch64 sw.os.linux sw.tool.docker"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -385,7 +385,7 @@ jenkins:
   - permanent:
       name: "jck-digitalocean-ubuntu2004-x64-2"
       nodeDescription: "Intel Xeon system hosted at digitalocean"
-      labelString: "ci.role.test hw.arch.x86 sw.os.linux"
+      labelString: "ci.role.test hw.arch.x86 sw.os.linux sw.tool.docker"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
