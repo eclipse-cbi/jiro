@@ -30,7 +30,7 @@ e.g. for Eclipse CBI JIPP: `jenkins-reload.sh technology.cbi`
 
 Every Jenkins instance has it's own folder under instances/<project_id>, which contains a `config.jsonnet` file.
 
-A minimal configuration in [instances/technology.cbi/config.jsonnet](https://github.com/eclipse-cbi/jiro/tree/master/instances/technology.cbi/config.jsonnet) would look like this: 
+A minimal configuration in [instances/technology.cbi/config.jsonnet](https://github.com/eclipse-cbi/jiro/tree/master/instances/technology.cbi/config.jsonnet) would look like this:
 
 ```jsonnet
 {
@@ -65,7 +65,8 @@ For testing purposes or in case of a regression, other versions can be specified
 
 ### Additional Jenkins plugins
 
-List of plugins that are installed by default: [https://github.com/eclipse-cbi/jiro-masters/jiro.libsonnet](https://github.com/eclipse-cbi/jiro-masters/blob/master/jiro.libsonnet#L48)
+List of plugins that are installed by default:  
+[https://github.com/eclipse-cbi/jiro-masters/jiro.libsonnet](https://github.com/eclipse-cbi/jiro-masters/blob/master/jiro.libsonnet#L48)
 
 Additional plugins can be specified like this:
 
@@ -83,6 +84,9 @@ Additional plugins can be specified like this:
   },
 }
 ```
+
+Additional plugins for multiple JIPPs (e.g. all ee4j.* instances) can be specified in:  
+[templates/plugins.libsonnet](https://github.com/eclipse-cbi/jiro/blob/master/templates/plugins.libsonnet)
 
 ### Resource packs
 
@@ -142,7 +146,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     displayName: "Eclipse CBI",
   },
   jenkins+: {
-    permissions+: 
+    permissions+:
       permissionsTemplates.projectPermissions("webmaster@eclipse.org", ["Agent/Connect", "Agent/Disconnect"])
   }
 }
@@ -183,6 +187,42 @@ Specific deployment options like host, prefix or cluster can be set.
     cluster: "okd-c1",
   }
 }
+```
+
+### Set additional JCasC options
+
+Specific JCasC options like static build agents, plugin configs, etc can be defined in `instances/<project_name>/jenkins/configuration.yml`.
+
+E.g. [instances/technology.cbi/jenkins/configuration.yml](https://github.com/eclipse-cbi/jiro/blob/master/instances/technology.cbi/jenkins/configuration.yml)
+
+```jsonnet
+jenkins:
+  nodes:
+  - permanent:
+      labelString: "docker-build"
+      launcher:
+        ssh:
+          credentialsId: "[...]"
+          host: "13.77.107.72"
+          jvmOptions: "-Xmx256m -Xms256m"
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "[...]"
+      mode: EXCLUSIVE
+      name: "fmlw3-ubuntu1804"
+      nodeDescription: "4vCPU, 16GB RAM, Hosted @ Azure"
+      remoteFS: "/home/genie.cbi/jenkins-agent"
+      numExecutors: 2
+      nodeProperties:
+      - watcher:
+          offlineAddresses: "releng@eclipse.org"
+          onlineAddresses: "releng@eclipse.org"
+
+unclassified:
+  slackNotifier:
+    teamDomain: "eclipsefoundation"
+    tokenCredentialId: "[...]"
+
 ```
 
 ### Build tools
