@@ -110,6 +110,14 @@ data:
             home: "/opt/tools/java/adoptopenjdk/openj9-jdk-9/latest"
           - name: "adoptopenjdk-openj9-jdk8-latest"
             home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
+          - name: "temurin-latest"
+            home: "/opt/tools/java/temurin/latest"
+          - name: "temurin-jdk17-latest"
+            home: "/opt/tools/java/temurin/jdk-17/latest"
+          - name: "temurin-jdk11-latest"
+            home: "/opt/tools/java/temurin/jdk-11/latest"
+          - name: "temurin-jdk8-latest"
+            home: "/opt/tools/java/temurin/jdk-8/latest"
           - name: "oracle-latest"
             home: "/opt/tools/java/oracle/latest"
           - name: "oracle-jdk10-latest"
@@ -141,6 +149,8 @@ data:
         installations:
           - name: "apache-maven-latest"
             home: "/opt/tools/apache-maven/latest"
+          - name: "apache-maven-3.8.3"
+            home: "/opt/tools/apache-maven/3.8.3"
           - name: "apache-maven-3.8.2"
             home: "/opt/tools/apache-maven/3.8.2"
           - name: "apache-maven-3.8.1"
@@ -464,6 +474,24 @@ data:
                   env:
                     - key: "PATH+USR_LOCAL_BIN"
                       value: "/usr/local/bin:/opt/X11/bin"
+        - permanent:
+            name: "esmv4-macos11-arm64"
+            labelString: "ci.role.test hw.arch.aarch64 sw.os.osx"
+            remoteFS: "/Users/jenkins"
+            retentionStrategy: "always"
+            launcher:
+              ssh:
+                credentialsId: "jenkins-jck-ssh"
+                host: "207.254.28.13"
+                port: 22
+                sshHostKeyVerificationStrategy:
+                  manuallyProvidedKeyVerificationStrategy:
+                    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCZ2Z2bQGzynx48oPrOs6yLqHx4m3b6YlGwTEBvJ7oVbPlOZIqIKnmJUKVXgzw6wwMFTNpgBnWzDC8gGg/HhlLnafmu9wHQPtpXIo+fxc9cxBNDZVey6tibrUx889jli5FVZPnWFgKAX6jt34huTzOH56g4LFjOO0Wrc/bbzpccrKsr+3IFsXqRuwJ2HQGCYUg9jfdt6Gh+zEhqqnOIbjycXxrOIZsN/sR607gZ2bpLBkLic4oo5/zUjqNXK7ZOB+VmK28D8iI3j3qVw0Omnw4Do/rC/qj9BYJ2JEgAHMUGB1ZCDajOziMKQEk2xQYG7In+NyEuugBWfuYglPJi/qQXJGdsTHNqamC+CSGy/fp6PjEKgIbL1M1hLadrkBn/6RLhEptJPTY/ax4SN+I7kgP+6PLKE7sThgMMMbxcTP5EYnK3H2glqD5OPRLMETYryJrmlDBa+qrIn69CRV9JeiuK+JNCt3nWpR2sIvaYf+JylEogy17jb9BCqEQ5/qiGZc8="
+            nodeProperties:
+              - envVars:
+                  env:
+                    - key: "PATH+USR_LOCAL_BIN"
+                      value: "/usr/local/bin:/opt/homebrew/bin:/opt/X11/bin"
         - permanent:
             name: "jck-skytap-aix71-ppc64-1"
             nodeDescription: "AIX 7.1 machine hosted by Skytap"

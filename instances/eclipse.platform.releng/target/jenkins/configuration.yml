@@ -257,6 +257,26 @@ jenkins:
               disabled: false
               failIfWorkDirIsMissing: false
               internalDir: "remoting"
+    - permanent:
+        labelString: "macos macos11"
+        launcher:
+          ssh:
+            credentialsId: "nc1ht-macos11-arm64-bot-ssh"
+            host: "208.52.190.236"
+            port: 22
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDlJ+kqOy9HUXkD3mqw1QCVc7srM8ZMIdtrVeHBSXw9nHWyRymVJYJz6g8685PZpWJ90PPnSqozaE4/RKauzVQZN0UG95r+R7D+4aVNePfe4IRICSqgFohQHJrWEX+EomERJDEshwGaYcUqa9RzqImdChmyjJekP3Nl5CcSLwUhm6DwfEhEAyvcFe1DxO4QERgWIX9tLKvn9f97G52jKGypHvtQAj0KMmpGftJviokhKLLunZnuv6Hn/5kYMFpLg8q0eelHqTjZhAGnowKXOjv1NdubrJilureoMnpTnf0sua9IRyDSgvIbXT1kII+uyRvO6R33twbhjjVeFAuZcoLcDhqMHzQkxHRNPdQDfO/6HOhnvRKfn3QAQ6dkW+SHkjwFu3TWAr+tnYbSLD312jQeIxSQQ+XktzFiqV98gFIKt0IhHrfgZOY8KwvOI0+uEVq12EueLkGcp0XpPyItFj5UBvDJjslV/QoE3EtBseWjJslvmUgzXYcdxpzdk7lLDO8="
+        name: "nc1ht-macos11-arm64"
+        nodeProperties:
+          - toolLocation:
+              locations:
+                - home: "/usr/local/openjdk-17/Contents/Home/bin"
+                  key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk17-latest"
+                - home: "/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home/bin"
+                  key: "hudson.model.JDK$DescriptorImpl@adoptopenjdk-hotspot-jdk11-latest"
+        remoteFS: "/Users/genie.releng"
+        retentionStrategy: "always"
   numExecutors: 0
   scmCheckoutRetryCount: 2
   mode: EXCLUSIVE
@@ -746,6 +766,14 @@ tool:
         home: "/opt/tools/java/adoptopenjdk/openj9-jdk-9/latest"
       - name: "adoptopenjdk-openj9-jdk8-latest"
         home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
+      - name: "temurin-latest"
+        home: "/opt/tools/java/temurin/latest"
+      - name: "temurin-jdk17-latest"
+        home: "/opt/tools/java/temurin/jdk-17/latest"
+      - name: "temurin-jdk11-latest"
+        home: "/opt/tools/java/temurin/jdk-11/latest"
+      - name: "temurin-jdk8-latest"
+        home: "/opt/tools/java/temurin/jdk-8/latest"
       - name: "oracle-latest"
         home: "/opt/tools/java/oracle/latest"
       - name: "oracle-jdk10-latest"
@@ -777,6 +805,8 @@ tool:
     installations:
       - name: "apache-maven-latest"
         home: "/opt/tools/apache-maven/latest"
+      - name: "apache-maven-3.8.3"
+        home: "/opt/tools/apache-maven/3.8.3"
       - name: "apache-maven-3.8.2"
         home: "/opt/tools/apache-maven/3.8.2"
       - name: "apache-maven-3.8.1"
