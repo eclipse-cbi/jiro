@@ -586,6 +586,18 @@ jenkins:
         nodeDescription: "Container host is equinix-ubuntu2004-aarch64-1"
         remoteFS: "/home/jenkins"
         retentionStrategy: "always"
+    - permanent:
+        labelString: "ci.role.test hw.arch.x86 sw.os.alpine"
+        launcher:
+          ssh:
+            credentialsId: "jenkins-jck-ssh"
+            host: "178.62.54.114"
+            port: 2222
+            sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+        name: "jck-digitalocean-containerized-alpine313-x64-1"
+        nodeDescription: "Container host is digitalocean-ubuntu2004-x64-1"
+        remoteFS: "/home/jenkins"
+        retentionStrategy: "always"
   numExecutors: 0
   scmCheckoutRetryCount: 2
   mode: EXCLUSIVE
