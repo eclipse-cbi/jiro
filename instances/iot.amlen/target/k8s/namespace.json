@@ -1,0 +1,11 @@
+{
+   "apiVersion": "v1",
+   "kind": "Namespace",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.amlen",
+         "org.eclipse.cbi.jiro/project.shortname": "amlen"
+      },
+      "name": "amlen"
+   }
+}

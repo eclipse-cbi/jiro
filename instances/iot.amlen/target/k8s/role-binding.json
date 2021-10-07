@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.amlen",
+         "org.eclipse.cbi.jiro/project.shortname": "amlen"
+      },
+      "name": "amlen",
+      "namespace": "amlen"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "amlen"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "amlen",
+         "namespace": "amlen"
+      }
+   ]
+}
