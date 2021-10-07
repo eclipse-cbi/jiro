@@ -416,6 +416,30 @@ jenkins:
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCh9fSlecuTODPF1Zb5ZQucDfSXQirndHwoq62dE7v4hhNAOqP13hOHRMM0LVNjgebp6IbtY9L5ui4gNeOW6d5WOlnZm3R7zm8UPRCgc064se/T3lL/cUPweIX5tlCfqeAHB4KKWENg3OQw/2pbQ+mGpIATjw6JJ82UG1VnAb/S4PGfOLPy5L/n6DLOaogaMcnDIPiM/0iykaJVdVsmmmIjEPLmzV4zDT9zkNoARNLNtFUj6iZMWzICTyrkE2JAHttdbUexdx8tArk0NdSq9xv971KqFNIEZg/Vo+rSBKmFs2gSDVUnTJSENwTdoudmy0A7vjC1iDMruqDS/QgAJvjV"
+  - permanent:
+      labelString: "ci.role.test hw.arch.x86 sw.os.alpine"
+      launcher:
+        ssh:
+          credentialsId: "jenkins-jck-ssh"
+          host: "147.75.83.133"
+          port: 2222
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+      name: "jck-equinix-containerized-alpine313-x64-1"
+      nodeDescription: "Container host is equinix-ubuntu2004-x64-1"
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
+  - permanent:
+      labelString: "ci.role.test hw.arch.aarch32 sw.os.linux"
+      launcher:
+        ssh:
+          credentialsId: "jenkins-jck-ssh"
+          host: "139.178.86.125"
+          port: 2222
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+      name: "jck-equinix-containerized-ubuntu2004-aarch32-1"
+      nodeDescription: "Container host is equinix-ubuntu2004-aarch64-1"
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
 unclassified:
   globalLibraries:
     libraries:
