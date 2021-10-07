@@ -405,7 +405,8 @@
       "plugins": [
          "build-blocker-plugin",
          "docker-workflow",
-         "mail-watcher-plugin"
+         "mail-watcher-plugin",
+         "date-parameter"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,

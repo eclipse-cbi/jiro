@@ -9,6 +9,7 @@
       "build-blocker-plugin",
       "docker-workflow",
       "mail-watcher-plugin",
+      "date-parameter",
     ],
   },
 }
