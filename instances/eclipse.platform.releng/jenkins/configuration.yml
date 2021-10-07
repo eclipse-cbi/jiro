@@ -48,32 +48,6 @@ jenkins:
           offlineAddresses: "releng@eclipse.org"
           onlineAddresses: "releng@eclipse.org"
   - permanent:
-      labelString: "macos macos-10.15"
-      launcher:
-        ssh:
-          credentialsId: "ta9y0-macos10.15-bot-ssh"
-          host: "207.254.46.148"
-          port: 22
-          sshHostKeyVerificationStrategy:
-            manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCejyvfy3TfWh2CwKcEwj3BdLRb5ZpCw1k846vwpq/RzKEpIWFXarfH3KcDSDFUXQFSxxDCOokbfvPYxG+MyqmkQZ+g8nAahVX07rKIZu7AudHVPmYNOr8+iwKst38MuBB77UEKWwIaAov8UcM4bC6xPGc7SDVW59bMa151GN/dSDKHqTgKz2vMS62tdUG4D/bVYVYzmwSDOs85wnsX+oZe8TXABEt94jy10uDpgSkABdzNl/0m/C1boSIi3hOBrWuIk676PNj2lcUWz69SSUlmFElI7q9Mo+1TxuA0KQxy9D87mkRQ6lesZv/+CQJMhVuIso+APktrQ9uw3RhAbGoVq3MtANEoy3yv005HKIxnsVhUhkSCB1/EFSerbVBLndVXqY/3R7NgJDI0kbYg8VLLRWCoALveiO40Ss7tiHrTHXY2hFBsrhAzPTCZGLUbCjVc6tN+at1hjXhSJoB0h5uInywgMc1TfiJapihvrFoJlU+OhkJ/+oP6BgwVWDohiGE="
-      mode: EXCLUSIVE
-      name: "ta9y0-macos-10.15"
-      nodeDescription: "macOS 10.15 (Catalina), with login session, hosted on MacStadium"
-      nodeProperties:
-      - envVars:
-          env:
-          - key: "JAVA_HOME"
-            value: "/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home"
-          - key: "PATH"
-            value: "/usr/local/bin/:/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
-      - watcher:
-          offlineAddresses: "releng@eclipse.org"
-          onlineAddresses: "releng@eclipse.org"
-      numExecutors: 1
-      remoteFS: "/Users/genie.releng/jenkins_agent/"
-      retentionStrategy: "always"
-  - permanent:
       name: "rs68g-win10"
       nodeDescription: "Windows 10 Pro, hosted on Azure"
       labelString: "windows"

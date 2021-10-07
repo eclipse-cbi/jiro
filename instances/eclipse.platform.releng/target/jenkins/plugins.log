@@ -137,7 +137,7 @@ display-url-api 2.3.5
 echarts-api 5.2.1-2
 font-awesome-api 5.15.4-1
 gerrit-code-review 0.4.7
-git 4.8.2
+git 4.8.3
 git-client 3.10.0
 jackson2-api 2.13.0-226.v0c5dd2d2fd2a
 javadoc 1.6
@@ -169,6 +169,7 @@ workflow-support 3.8
 Plugins that will be downloaded:
 echarts-api 5.2.1-2
 gerrit-code-review 0.4.7
+git 4.8.3
 mail-watcher-plugin 1.16
 
 Resulting plugin list:
@@ -206,7 +207,7 @@ forensics-api 1.4.0
 gerrit-code-review 0.4.7
 gerrit-trigger 2.35.1
 ghprb 1.42.2
-git 4.8.2
+git 4.8.3
 git-client 3.10.0
 git-parameter 0.9.13
 git-server 1.10
