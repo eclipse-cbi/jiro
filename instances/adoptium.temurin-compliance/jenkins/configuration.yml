@@ -62,6 +62,23 @@ jenkins:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDCSTNTGL3mf3dBPWjkBF2JgQceXIyuTmyXhxvFPzSXn8wFmG9Nz09L0jLyfL5NtbN4nZe65fc7/bhfo4bnr9PmDTcIldW7Y59ScTC3ink9YNYiRJpYsuJ14T0scLHPfb6rRv6MpRGsulGL0dnbbPAJE8RQ9om1JEid/unE/IpbCgfuodQQ0wjVxwc5UpcmJ8G2/spuW8QApZzVUqaUyiBSDtOnczBXcdOIX1t74RN9jf1sxVzjjEfjatQkgK7hnHFczAJPBGOQgApVYWKi/bKKtlT0w3XwdaFw9l5a5+JyKogpmR2EjG9Je3Vy2S4ZhvpMGat0mudOeoE9zvIhSCNPkX0NYyF8BdCqAaky33tXZH+XnM3XAaqGZLADn+RmLvKx2ZyFU9VFGkd0gscljCi8etvBGE7+ZbSZLa8LCydvDedzLM+2HhRraR758cV0r51Rv7DqRfH2DAjZA76KKeHRA9NrRbMKisbYvzxC8GnJb/BOxBp942usQqpa0HZBczM="
   - permanent:
+      name: "jck-marist-rhel7-s390x-1"
+      nodeDescription: "2-core 4Gb zLinux machine hosted at Marist Cloud"
+      labelString: "ci.role.test hw.arch.s390x sw.os.linux"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "148.100.84.144"
+          port: "22"
+          credentialsId: "jenkins-jck-ssh"
+          javaPath: ""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDK0XaYiD+TSQoEmNoJ4TJl8yWUnYSqdLezQTU7RvqiqZUr7y2Fj0kcV1oP8j0+PgBDhEv3pl3zBQeHPlFeomcAb7by0M9GAkrM24tA/Vjld5Nmceagqnabv9Q/lpz2Bi+ke0rOirMI5Ekv/Y5HDf8Sr9AfRvPpvwCwXR0kugssr3+gvetjKQBYJil2IBcsaAEW/yuHFV2W5r9TowjLvORvTYCN5bGNlDye1YBwzs5y0YslgdS8wObsaeExZH57mnQ79nEljPWVIP5gzfraunRX4iGEtOJxEL2O02j58LelbTxaHlL13o89n6M0N8dyqwNwKlOv/LPsmKC0oEA/aPEbHirzDyxNYcTuS4or4F5AyGrjr8mQYiWep93hiJand1Mymrb8XsHNV2qwQRZrNP1IHZ4IaKuI7PJYzyfEA/ksDgrGOoAbc5Aj6QWaG1ep//XvYKPzyWeR8SDV68f/Avobt5nmqEHyeYFfjcfDpDZQvdP2SUtRPa++iD2BQsMsc1M="
+  - permanent:
       name: "jck-osuosl-ubuntu2004-ppc64le-1"
       nodeDescription: "2-core 4Gb zLinux machine hosted at Marist"
       labelString: "ci.role.test hw.arch.ppc64le sw.os.linux"
