@@ -21,19 +21,19 @@ config-file-provider 3.8.1
 configuration-as-code 1.54
 credentials 2.6.1
 credentials-binding 1.27
-data-tables-api 1.11.2-1
+data-tables-api 1.11.3-1
 display-url-api 2.3.5
 durable-task 1.39
-echarts-api 5.2.1-1
+echarts-api 5.2.1-2
 email-ext 2.83
 extended-read-permission 3.2
 external-monitor-job 1.7
 extra-columns 1.24
 font-awesome-api 5.15.4-1
 forensics-api 1.4.0
-gerrit-trigger 2.35.1
+gerrit-trigger 2.35.2
 ghprb 1.42.2
-git 4.8.2
+git 4.9.0
 git-client 3.10.0
 git-parameter 0.9.13
 git-server 1.10
@@ -56,7 +56,7 @@ jquery 1.12.4-1
 jquery3-api 3.6.0-2
 jsch 0.1.55.2
 junit 1.53
-kubernetes 1.30.1
+kubernetes 1.30.3
 kubernetes-client-api 5.4.1
 kubernetes-credentials 0.9.0
 ldap 2.7
@@ -137,7 +137,7 @@ display-url-api 2.3.5
 echarts-api 5.2.1-2
 font-awesome-api 5.15.4-1
 gerrit-code-review 0.4.7
-git 4.8.3
+git 4.9.0
 git-client 3.10.0
 jackson2-api 2.13.0-226.v0c5dd2d2fd2a
 javadoc 1.6
@@ -167,9 +167,7 @@ workflow-step-api 2.24
 workflow-support 3.8
 
 Plugins that will be downloaded:
-echarts-api 5.2.1-2
 gerrit-code-review 0.4.7
-git 4.8.3
 mail-watcher-plugin 1.16
 
 Resulting plugin list:
@@ -194,7 +192,7 @@ config-file-provider 3.8.1
 configuration-as-code 1.54
 credentials 2.6.1
 credentials-binding 1.27
-data-tables-api 1.11.2-1
+data-tables-api 1.11.3-1
 display-url-api 2.3.5
 durable-task 1.39
 echarts-api 5.2.1-2
@@ -205,9 +203,9 @@ extra-columns 1.24
 font-awesome-api 5.15.4-1
 forensics-api 1.4.0
 gerrit-code-review 0.4.7
-gerrit-trigger 2.35.1
+gerrit-trigger 2.35.2
 ghprb 1.42.2
-git 4.8.3
+git 4.9.0
 git-client 3.10.0
 git-parameter 0.9.13
 git-server 1.10
@@ -230,7 +228,7 @@ jquery 1.12.4-1
 jquery3-api 3.6.0-2
 jsch 0.1.55.2
 junit 1.53
-kubernetes 1.30.1
+kubernetes 1.30.3
 kubernetes-client-api 5.4.1
 kubernetes-credentials 0.9.0
 ldap 2.7
