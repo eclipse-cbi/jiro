@@ -117,6 +117,7 @@ jenkins:
         - configMapVolume:
             configMapName: "known-hosts"
             mountPath: "/home/jenkins/.ssh/"
+            subPath: "."
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/"
@@ -202,6 +203,7 @@ jenkins:
         - configMapVolume:
             configMapName: "known-hosts"
             mountPath: "/home/jenkins/.ssh/"
+            subPath: "."
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/"
@@ -287,6 +289,7 @@ jenkins:
         - configMapVolume:
             configMapName: "known-hosts"
             mountPath: "/home/jenkins/.ssh/"
+            subPath: "."
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/"

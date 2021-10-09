@@ -137,7 +137,7 @@ jacoco 3.3.0
 jquery3-api 3.6.0-2
 junit 1.53
 matrix-project 1.19
-nodejs 1.4.0
+nodejs 1.4.1
 plain-credentials 1.7
 plugin-util-api 2.5.0
 popper-api 1.16.1-2
@@ -156,7 +156,7 @@ workflow-support 3.8
 Plugins that will be downloaded:
 htmlpublisher 1.26
 jacoco 3.3.0
-nodejs 1.4.0
+nodejs 1.4.1
 
 Resulting plugin list:
 ace-editor 1.1
@@ -228,7 +228,7 @@ matrix-project 1.19
 maven-plugin 3.13
 metrics 4.0.2.8
 momentjs 1.1.1
-nodejs 1.4.0
+nodejs 1.4.1
 okhttp-api 3.14.9
 pam-auth 1.6
 parameterized-trigger 2.41
