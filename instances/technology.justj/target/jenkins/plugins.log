@@ -1,7 +1,7 @@
 
 Installed plugins:
 ace-editor 1.1
-analysis-model-api 10.3.1
+analysis-model-api 10.5.1
 ant 1.12
 antisamy-markup-formatter 2.1
 apache-httpcomponents-client-4-api 4.5.13-1.0
@@ -117,7 +117,7 @@ workflow-scm-step 2.13
 workflow-step-api 2.24
 workflow-support 3.8
 ws-cleanup 0.39
-xvnc 1.25
+xvnc 1.28
 
 Bundled plugins:
 
@@ -159,7 +159,7 @@ mail-watcher-plugin 1.16
 
 Resulting plugin list:
 ace-editor 1.1
-analysis-model-api 10.3.1
+analysis-model-api 10.5.1
 ant 1.12
 antisamy-markup-formatter 2.1
 apache-httpcomponents-client-4-api 4.5.13-1.0
@@ -277,7 +277,7 @@ workflow-scm-step 2.13
 workflow-step-api 2.24
 workflow-support 3.8
 ws-cleanup 0.39
-xvnc 1.25
+xvnc 1.28
 
 Security warnings:
 Done

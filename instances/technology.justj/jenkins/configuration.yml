@@ -60,3 +60,18 @@ jenkins:
             disabled: false
             failIfWorkDirIsMissing: false
             internalDir: "remoting"
+  - permanent:
+      labelString: "macos macos-11 arm64"
+      launcher:
+        ssh:
+          credentialsId: "w8qlf-macos11-arm64-bot-ssh"
+          host: "208.52.170.174"
+          jvmOptions: "-Xmx256m"
+          port: 22
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6+qT5aiFFqU70gw+d9+ZJN3oF/9yWStUtJfFIqboLDMWv/+L+1a8nOaobwT8U867Vwwwo0IvErq4eL+5IUXiNBdEu501WL82pfVMU3C509dRpkNqAT9Ymu3cLiPWhJ6BM9r5cCyaGIWYwsNTmvkLO2WRSt20b3TaQxhzyEewuI97OpoZPQCo2EIJqaOjnlynmbyhJjkJ98B10BCcaUbtKjyEhKXv2OmqpGf61or+mfmBEfOrW2HrE3mbE/ZRgPqb5nT/q6C7ObhVA/L0oGG+Gy1DSJnqSN2vy+kWsPAfGcI/1hh9xOS3wiJorEc3hvZYWH3PgyU5KwyRNAoB1LXVE/JyLtmcL36uwkLLcVROJtcVw6j3vSZgFFp7LiUEiYSVtwqwm74dlD/W7qO9pKEWQDltywk8NwqTTvhvSN9WXDMtSrRFfuRYJEVQquu5SHxTJLzQ2v/T+CRAD3WMKbTEILY+d7wOJrPNoxLbVQ+/joE96opoCI1BlgGchF3Q66hM="
+      mode: EXCLUSIVE
+      name: "w8qlf-macos11-arm64"
+      remoteFS: "/Users/genie.justj/jenkins"
+      retentionStrategy: "always"
