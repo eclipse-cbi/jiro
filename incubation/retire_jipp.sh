@@ -15,7 +15,7 @@ BACKUP_FILE_NAME="jenkins_backup-${PROJECT_NAME}.tar.gz"
 
 usage() {
   printf "Usage: %s project_name\n" "${SCRIPT_NAME}"
-  printf "\t%-16s full name (e.g. technology.cbi for CBI project).\n" "project_name"
+  printf "\t%-16s project name (e.g. technology.cbi for CBI project).\n" "project_name"
 }
 
 # check that project name is not empty
@@ -25,21 +25,24 @@ if [[ -z "${PROJECT_NAME}" ]]; then
  exit 1
 fi
 
-if [[ ! -f "${SCRIPT_FOLDER}/../.localconfig" ]]; then
-  echo "ERROR: File '$(readlink -f "${SCRIPT_FOLDER}/../.localconfig")' does not exists"
+
+# read .localconfig
+local_config_path="${SCRIPT_FOLDER}/../.localconfig"
+if [[ ! -f "${local_config_path}" ]]; then
+  echo "ERROR: File '$(readlink -f "${local_config_path}")' does not exists"
   echo "Create one to configure db and file server credentials. Example:"
   echo '{"db_server": {"server": "myserver", "user": "user", "pw": "<path in pass>", "mysql_user": "username", "mysql_pw": "<path in pass>"},"file_server": {"server": "myserver2", "user": "user2", "pw": "<path in pass>", "pw_root": "<path in pass>"}}' | jq -M
 fi
 
-FILE_SERVER="$(jq -r '.["file_server"]["server"]' "${SCRIPT_FOLDER}/../.localconfig")"
-FILE_SERVER_USER="$(jq -r '.["file_server"]["user"]' "${SCRIPT_FOLDER}/../.localconfig")"
-FILE_SERVER_PW="$(jq -r '.["file_server"]["pw"]' "${SCRIPT_FOLDER}/../.localconfig")"
-FILE_SERVER_PW_ROOT="$(jq -r '.["file_server"]["pw_root"]' "${SCRIPT_FOLDER}/../.localconfig")"
+FILE_SERVER="$(jq -r '.["file_server"]["server"]' "${local_config_path}")"
+FILE_SERVER_USER="$(jq -r '.["file_server"]["user"]' "${local_config_path}")"
+FILE_SERVER_PW="$(jq -r '.["file_server"]["pw"]' "${local_config_path}")"
+FILE_SERVER_PW_ROOT="$(jq -r '.["file_server"]["pw_root"]' "${local_config_path}")"
 
-DB_SERVER="$(jq -r '.["db_server"]["server"]' "${SCRIPT_FOLDER}/../.localconfig")"
-DB_SERVER_USER="$(jq -r '.["db_server"]["user"]' "${SCRIPT_FOLDER}/../.localconfig")"
-DB_SERVER_MYSQL_USER="$(jq -r '.["db_server"]["mysql_user"]' "${SCRIPT_FOLDER}/../.localconfig")"
-DB_SERVER_MYSQL_PW="$(jq -r '.["db_server"]["mysql_pw"]' "${SCRIPT_FOLDER}/../.localconfig")"
+DB_SERVER="$(jq -r '.["db_server"]["server"]' "${local_config_path}")"
+DB_SERVER_USER="$(jq -r '.["db_server"]["user"]' "${local_config_path}")"
+DB_SERVER_MYSQL_USER="$(jq -r '.["db_server"]["mysql_user"]' "${local_config_path}")"
+DB_SERVER_MYSQL_PW="$(jq -r '.["db_server"]["mysql_pw"]' "${local_config_path}")"
 
 create_retire_script() {
   local short_name="${1:-}"
