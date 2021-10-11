@@ -13,6 +13,8 @@ PROJECT_NAME="${1:-}"
 SHORT_NAME="${PROJECT_NAME##*.}"
 BACKUP_FILE_NAME="jenkins_backup-${PROJECT_NAME}.tar.gz"
 
+CI_ADMIN_ROOT="${SCRIPT_FOLDER}/../../ci-admin"
+
 usage() {
   printf "Usage: %s project_name\n" "${SCRIPT_NAME}"
   printf "\t%-16s project name (e.g. technology.cbi for CBI project).\n" "project_name"
@@ -31,18 +33,13 @@ local_config_path="${SCRIPT_FOLDER}/../.localconfig"
 if [[ ! -f "${local_config_path}" ]]; then
   echo "ERROR: File '$(readlink -f "${local_config_path}")' does not exists"
   echo "Create one to configure db and file server credentials. Example:"
-  echo '{"db_server": {"server": "myserver", "user": "user", "pw": "<path in pass>", "mysql_user": "username", "mysql_pw": "<path in pass>"},"file_server": {"server": "myserver2", "user": "user2", "pw": "<path in pass>", "pw_root": "<path in pass>"}}' | jq -M
+  echo '{"file_server": {"server": "myserver2", "user": "user2", "pw": "<path in pass>", "pw_root": "<path in pass>"}}' | jq -M
 fi
 
 FILE_SERVER="$(jq -r '.["file_server"]["server"]' "${local_config_path}")"
 FILE_SERVER_USER="$(jq -r '.["file_server"]["user"]' "${local_config_path}")"
 FILE_SERVER_PW="$(jq -r '.["file_server"]["pw"]' "${local_config_path}")"
 FILE_SERVER_PW_ROOT="$(jq -r '.["file_server"]["pw_root"]' "${local_config_path}")"
-
-DB_SERVER="$(jq -r '.["db_server"]["server"]' "${local_config_path}")"
-DB_SERVER_USER="$(jq -r '.["db_server"]["user"]' "${local_config_path}")"
-DB_SERVER_MYSQL_USER="$(jq -r '.["db_server"]["mysql_user"]' "${local_config_path}")"
-DB_SERVER_MYSQL_PW="$(jq -r '.["db_server"]["mysql_pw"]' "${local_config_path}")"
 
 create_retire_script() {
   local short_name="${1:-}"
@@ -125,58 +122,6 @@ delete_project() {
 
   echo "Deleting project in Jiro..."
   rm -rf "../instances/${project_name}"
-  echo "TODO: Commit changes to Jiro Git repo..."
-}
-
-remove_jipp_from_db() {
-  local project_name="${1:-}"
-
-  local user="${DB_SERVER_USER}"
-  local server="${DB_SERVER}"
-  local mysqlUser="${DB_SERVER_MYSQL_USER}"
-  local mysqlPw="${DB_SERVER_MYSQL_PW}"
-
-  local userPrompt="$user@$server:~> *"
-  local passwordPrompt="\[Pp\]assword:*"
-  local mysqlPasswordPrompt="Enter \[Pp\]assword: *"
-  local mysqlPrompt="MariaDB \[eclipsefoundation\]> *"
-  local mysqlDeleteQuery="DELETE FROM ProjectServices WHERE ProjectID = \\\"$project_name\\\";"
-  local mysqlQuery="SELECT * FROM ProjectServices WHERE ProjectID=\\\"$project_name\\\";"
-
-  echo "Removing ${project_name} from ProjectServices DB..."
-
-  expect -c "
-  #5 seconds timeout
-  set timeout 5
-
-  # ssh to remote
-  spawn ssh $user@$server
-
-  expect {
-    #TODO: only works one time
-    -re \"passphrase\" {
-      interact -o \"\r\" return
-    }
-  }
-  expect -re \"$userPrompt\"
-
-  # use mysql
-  send \"mysql -u $mysqlUser -p -h foundation eclipsefoundation\r\"
-  interact -o -nobuffer -re \"$mysqlPasswordPrompt\" return
-  send \"[exec pass $mysqlPw]\r\"
-  expect -re \"$mysqlPrompt\"
-
-  send \"$mysqlDeleteQuery\r\"
-  expect -re \"Query OK, 1 row affected*\"
-
-  send \"$mysqlQuery\r\"
-  #TODO: fail if expect fails?
-  expect -re \"Empty set*\"
-
-  # exit mysql and ssh
-  send \"exit\rexit\r\"
-  expect eof
-"
 }
 
 mv_jipp_backup_to_archive() {
@@ -243,11 +188,12 @@ echo "Copying backup tar.gz to ${FILE_SERVER}:/tmp..."
 scp "backup/${BACKUP_FILE_NAME}" "${FILE_SERVER}:/tmp/"
 
 delete_question "${PROJECT_NAME}"
-#
-remove_jipp_from_db "${PROJECT_NAME}"
+
+"${CI_ADMIN_ROOT}/jenkins/db_access.sh" "remove_jipp" "${PROJECT_NAME}"
 
 mv_jipp_backup_to_archive "${SHORT_NAME}" "${BACKUP_FILE_NAME}"
 
+echo
 echo "TODO:"
 echo "- commit and push changes to jiro repo"
 echo "- comment on Bugzilla ticket"
