@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.kiso-testing",
+         "org.eclipse.cbi.jiro/project.shortname": "kiso-testing"
+      },
+      "name": "kiso-testing",
+      "namespace": "kiso-testing"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "kiso-testing"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "kiso-testing",
+         "namespace": "kiso-testing"
+      }
+   ]
+}

@@ -1,0 +1,31 @@
+{
+   "apiVersion": "route.openshift.io/v1",
+   "kind": "Route",
+   "metadata": {
+      "annotations": {
+         "haproxy.router.openshift.io/timeout": "60s"
+      },
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.kiso-testing",
+         "org.eclipse.cbi.jiro/project.shortname": "kiso-testing"
+      },
+      "name": "kiso-testing",
+      "namespace": "kiso-testing"
+   },
+   "spec": {
+      "host": "ci.eclipse.org",
+      "path": "/kiso-testing",
+      "port": {
+         "targetPort": "http"
+      },
+      "tls": {
+         "insecureEdgeTerminationPolicy": "Redirect",
+         "termination": "edge"
+      },
+      "to": {
+         "kind": "Service",
+         "name": "jenkins-ui",
+         "weight": 100
+      }
+   }
+}
