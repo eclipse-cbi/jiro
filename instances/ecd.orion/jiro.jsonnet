@@ -1,5 +1,3 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
-}
+jiro.newJiro("ecd.orion", "Eclipse Orion")

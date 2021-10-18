@@ -1,5 +1,11 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("iot.paho", "Eclipse Paho") {
+  "config.json"+: {
+    jenkins+: {
+      plugins+: [
+        "gradle",
+      ],
+    },
+  }
 }

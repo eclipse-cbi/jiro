@@ -1,5 +1,9 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("technology.efxclipse", "Eclipse e(fx)clipse") {
+  "config.json"+: {
+    gradle+: {
+      generate: true
+    },
+  },
 }

@@ -1,5 +1,13 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("automotive.kuksa", "Eclipse Kuksa") {
+  "config.json"+: {
+    jenkins+: {
+      plugins+: [
+        "cobertura",
+        "embeddable-build-status",
+        "xunit",
+      ],
+    },
+  },
 }

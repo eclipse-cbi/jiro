@@ -1,5 +1,12 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("technology.lemminx", "Eclipse LemMinX") {
+  "config.json"+: {
+    jenkins+: {
+      plugins+: [
+        "blueocean",
+        "embeddable-build-status",
+      ],
+    },
+  },
 }

@@ -1,5 +1,11 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("ee4j.wasp", "Eclipse WaSP") {
+  "config.json"+: {
+    jenkins+: {
+      plugins+: [
+        "envinject",
+      ],
+    }
+  }
 }

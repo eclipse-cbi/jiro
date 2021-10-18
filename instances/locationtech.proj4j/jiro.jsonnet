@@ -1,5 +1,3 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
-}
+jiro.newJiro("locationtech.proj4j", "LocationTech Proj4J")

@@ -1,5 +1,13 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("iot.kura", "Eclipse Kura") {
+  "config.json"+: {
+    jenkins+: {
+      plugins+: [
+        "clone-workspace-scm",
+        "jacoco",
+        "junit-attachments",
+      ],
+    },
+  }
 }

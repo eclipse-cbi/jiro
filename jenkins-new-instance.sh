@@ -49,22 +49,9 @@ fi
 
 mkdir -p "${SCRIPT_FOLDER}/instances/${project_name}"
 
-cat <<EOF > "${SCRIPT_FOLDER}/instances/${project_name}/config.jsonnet"
-{
-  project+: {
-    fullName: "${project_name}",
-    displayName: "${display_name}",
-  },
-  deployment+: {
-    cluster: "okd-c1"
-  },
-}
-EOF
-
 cat <<EOG > "${SCRIPT_FOLDER}/instances/${project_name}//jiro.jsonnet"
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
-}
+jiro.newJiro("${project_name}", "${display_name}")
+
 EOG

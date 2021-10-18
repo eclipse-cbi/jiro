@@ -1,5 +1,9 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("locationtech.geotrellis", "LocationTech GeoTrellis") {
+  "config.json"+: {
+    sbt+: {
+      generate: true,
+    }
+  }
 }

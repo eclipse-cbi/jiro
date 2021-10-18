@@ -1,5 +1,12 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("technology.justj", "Eclipse JustJ") {
+  "config.json"+: {
+    jenkins+: {
+      plugins+: [
+        "build-with-parameters",
+        "mail-watcher-plugin",
+      ],
+    },
+  },
 }

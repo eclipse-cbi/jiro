@@ -1,5 +1,14 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("technology.ease", "Eclipse Advanced Scripting Environment (EASE)") {
+  "config.json"+: {
+    jenkins+: {
+      plugins+: [
+        "blueocean",
+        "code-coverage-api",
+        "copyartifact",
+        "embeddable-build-status",
+      ],
+    },
+  },
 }

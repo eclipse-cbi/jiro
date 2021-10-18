@@ -1,7 +1,15 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("technology.basyx", "Eclipse BaSyx") {
+  "config.json"+: {
+    jenkins+: {
+      plugins+: [
+        "envinject",
+        "cmakebuilder",
+        "gerrit-code-review",
+      ],
+    },
+  },
   "k8s/statefulset.json"+: {
     spec+: {
       template+: {

@@ -1,5 +1,12 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("modeling.emf.mwe", "Eclipse Modeling Workflow Engine") {
+  "config.json"+: {
+    jenkins+: {
+      plugins+: [
+        "slack",
+        "parameterized-scheduler",
+      ],
+    },
+  }
 }

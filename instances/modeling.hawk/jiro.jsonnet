@@ -1,5 +1,11 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("modeling.hawk", "Eclipse Hawk") {
+  "config.json"+: {
+    jenkins+: {
+      plugins+: [
+        "slack",
+      ],
+    },
+  }
 }

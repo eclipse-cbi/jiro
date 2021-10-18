@@ -1,5 +1,14 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("tools.tcf", "Eclipse Target Communication Framework") {
+  "config.json"+: {
+    project+: {
+      unixGroupName: "tools.cdt.tcf",
+    },
+    jenkins+: {
+      plugins+: [
+        "warnings-ng",
+      ]
+    }
+  },
 }

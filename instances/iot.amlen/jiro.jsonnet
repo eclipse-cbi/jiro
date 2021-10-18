@@ -1,5 +1,9 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("iot.amlen", "Eclipse Amlen") {
+  "config.json"+: {
+    deployment+: {
+      cluster: "okd-c1"
+    },
+  }
 }

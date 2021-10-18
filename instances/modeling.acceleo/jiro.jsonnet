@@ -1,5 +1,12 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("modeling.acceleo", "Eclipse Acceleo") {
+  "config.json"+: {
+    jenkins+: {
+      plugins+: [
+        "jacoco",
+        "warnings-ng",
+      ],
+    },
+  }
 }

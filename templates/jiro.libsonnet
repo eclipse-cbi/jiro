@@ -1,6 +1,6 @@
 local Kube = import "k8s/kube.libsonnet";
-{
-  "config.json": import "config.libsonnet",
+local newJiro(projectFullName, projectDisplayName) = {
+  "config.json": (import "config.libsonnet").newConfig(projectFullName, projectDisplayName),
   // Kubernetes files
   "k8s/resource-quotas.json": (import "k8s/resource-quotas.libsonnet").gen($["config.json"]),
   "k8s/limit-range.json": (import "k8s/limit-range.libsonnet").gen($["config.json"]),
@@ -12,9 +12,13 @@ local Kube = import "k8s/kube.libsonnet";
   "k8s/service-jenkins-ui.json": (import "k8s/service-jenkins-ui.libsonnet").gen($["config.json"]),
   "k8s/service-jenkins-discovery.json": (import "k8s/service-jenkins-discovery.libsonnet").gen($["config.json"]),
   "k8s/known-hosts.json": (import "k8s/known-hosts.libsonnet").gen($["config.json"]),
-  "k8s/tools-pv.json": Kube.List([ 
-      (import "k8s/tools-pv.libsonnet").gen_pv($["config.json"]), 
-      (import "k8s/tools-pv.libsonnet").gen_pvc($["config.json"]) 
+  "k8s/tools-pv.json": Kube.List([
+      (import "k8s/tools-pv.libsonnet").gen_pv($["config.json"]),
+      (import "k8s/tools-pv.libsonnet").gen_pvc($["config.json"])
   ]),
   "k8s/statefulset.json": (import "k8s/statefulset.libsonnet").gen($["config.json"]),
+};
+
+{
+  newJiro:: newJiro,
 }

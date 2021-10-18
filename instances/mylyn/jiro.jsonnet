@@ -1,5 +1,12 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("mylyn", "Eclipse Mylyn") {
+  "config.json"+: {
+    jenkins+: {
+      plugins+: [
+        "xunit",
+        "warnings-ng",
+      ]
+    }
+  },
 }

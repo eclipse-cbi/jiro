@@ -2,11 +2,12 @@ local jiroMasters = import '../../jiro-masters/masters.jsonnet';
 local permissions = import 'permissions.libsonnet';
 local plugins = import 'plugins.libsonnet';
 local clouds = import "clouds.libsonnet";
-{ 
+
+local newConfig(projectFullName, projectDisplayName) = {
   project: {
     shortName: std.split(self.fullName, ".")[std.length(std.split(self.fullName, "."))-1],
-    fullName: error 'Must set "project.fullName"',
-    displayName: error 'Must set "project.displayName"',
+    fullName: projectFullName,
+    displayName: projectDisplayName,
     unixGroupName: $.project.fullName,
     resourcePacks: 1,
   },
@@ -31,7 +32,7 @@ local clouds = import "clouds.libsonnet";
     # see https://github.com/jenkinsci/docker/pull/577
     pluginsForceUpgrade: true,
     plugins: plugins.additionalPlugins($.project.fullName),
-    permissions: permissions.projectPermissions($.project.unixGroupName, 
+    permissions: permissions.projectPermissions($.project.unixGroupName,
       permissions.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger",]),
   },
   jiroMaster: if ($.jenkins.version == "latest") then jiroMasters.masters[jiroMasters.latest] else jiroMasters.masters[$.jenkins.version],
@@ -78,7 +79,7 @@ local clouds = import "clouds.libsonnet";
     master: {
       namespace: $.project.shortName,
       stsName: $.project.shortName,
-      resources: { 
+      resources: {
         local Const = import "k8s/resource-packs.libsonnet",
         cpu: {
           request: "%dm" % std.min(Const.master_max_cpu_req, Const.master_base_cpu_req + std.max(0, $.jenkins.maxConcurrency - Const.master_min_agent_for_additional_resources + $.jenkins.staticAgentCount) * Const.master_cpu_per_agent),
@@ -213,7 +214,7 @@ local clouds = import "clouds.libsonnet";
         # The namespace inside which this secret should be created
         namespace: $.kubernetes.agents.namespace,
         # type of secret to link: mount or pull (or both). See oc secrets link  --help
-        type: ["pull",], 
+        type: ["pull",],
         servers: {
           "https://index.docker.io/v1/": {
             username: {
@@ -232,4 +233,8 @@ local clouds = import "clouds.libsonnet";
       },
     },
   }
+};
+
+{
+  newConfig:: newConfig
 }

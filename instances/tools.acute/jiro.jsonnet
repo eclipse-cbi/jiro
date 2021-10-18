@@ -1,5 +1,11 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("tools.acute", "Eclipse aCute") {
+  "config.json"+: {
+    jenkins+: {
+      plugins+: [
+        "envinject",
+      ],
+    },
+  },
 }

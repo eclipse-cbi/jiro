@@ -1,5 +1,14 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("technology.skills", "Eclipse Skills") {
+  "config.json"+: {
+    jenkins+: {
+      plugins+: [
+        "blueocean",
+        "code-coverage-api",
+        "copyartifact",
+        "embeddable-build-status",
+      ],
+    },
+  },
 }

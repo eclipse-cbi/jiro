@@ -1,5 +1,15 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+jiro.newJiro("technology.egit", "Eclipse EGit") {
+  "config.json"+: {
+    project+: {
+      resourcePacks: 2,
+    },
+    jenkins+: {
+      theme: "quicksilver-light",
+      plugins+: [
+        "dashboard-view",
+      ],
+    }
+  },
 }

@@ -1,7 +1,15 @@
 local jiro = import '../../templates/jiro.libsonnet';
 
-jiro+ {
-  "config.json"+: import "config.jsonnet",
+local jiro = import '../../templates/jiro.libsonnet';
+
+jiro.newJiro("eclipse.pde", "Eclipse Plugin Development Environment (PDE)") {
+  "config.json"+: {
+    jenkins+: {
+      plugins+: [
+        "gerrit-code-review",
+      ],
+    },
+  },
   "k8s/statefulset.json"+: {
     spec+: {
       template+: {
