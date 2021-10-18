@@ -83,9 +83,15 @@ install_additional_plugins() {
         --war '${image_wd}/$(basename "${war_file}")' > ${image_wd}/plugins.log" | TRACE
 }
 
-mkdir -p "${INSTANCE}/target/jenkins/ref/plugins"
+TARGET_JENKINS_DIR="${INSTANCE}/target/jenkins"
+
+mkdir -p "${TARGET_JENKINS_DIR}/ref/plugins"
 if jq -e '(.jenkins.plugins | length) > 0' "${CONFIG_JSON}" > /dev/null; then
+  rm -f "${TARGET_JENKINS_DIR}/plugins-list" # old name
+  echo "# GENERATED FILE - DO NOT EDIT" > "${TARGET_JENKINS_DIR}/plugins-list.txt"
+  jq -r '.jenkins.plugins | unique[]' "${INSTANCE}/target/config.json" >> "${TARGET_JENKINS_DIR}/plugins-list.txt"
   INFO "Some additional plugins need to be installed"
+  #only runs when additional plugins are specified, otherwise plugins are updated only in master image (every 3 days)
   install_additional_plugins
 fi
 
