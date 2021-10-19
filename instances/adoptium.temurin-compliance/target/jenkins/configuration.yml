@@ -208,6 +208,23 @@ jenkins:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDCSTNTGL3mf3dBPWjkBF2JgQceXIyuTmyXhxvFPzSXn8wFmG9Nz09L0jLyfL5NtbN4nZe65fc7/bhfo4bnr9PmDTcIldW7Y59ScTC3ink9YNYiRJpYsuJ14T0scLHPfb6rRv6MpRGsulGL0dnbbPAJE8RQ9om1JEid/unE/IpbCgfuodQQ0wjVxwc5UpcmJ8G2/spuW8QApZzVUqaUyiBSDtOnczBXcdOIX1t74RN9jf1sxVzjjEfjatQkgK7hnHFczAJPBGOQgApVYWKi/bKKtlT0w3XwdaFw9l5a5+JyKogpmR2EjG9Je3Vy2S4ZhvpMGat0mudOeoE9zvIhSCNPkX0NYyF8BdCqAaky33tXZH+XnM3XAaqGZLADn+RmLvKx2ZyFU9VFGkd0gscljCi8etvBGE7+ZbSZLa8LCydvDedzLM+2HhRraR758cV0r51Rv7DqRfH2DAjZA76KKeHRA9NrRbMKisbYvzxC8GnJb/BOxBp942usQqpa0HZBczM="
     - permanent:
+        name: "jck-marist-rhel7-s390x-1"
+        nodeDescription: "2-core 4Gb zLinux machine hosted at Marist Cloud"
+        labelString: "ci.role.test hw.arch.s390x sw.os.linux"
+        remoteFS: '/home/jenkins'
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "148.100.84.144"
+            port: "22"
+            credentialsId: "jenkins-jck-ssh"
+            javaPath: ""
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBCQ3k2UtFTNTPZDpbyjwuwodCW3iZ5v45naMsVnVbW665eYuanAAL9cCvCLQONUDwmacvKw5sAQlWH6xeNVxxSJTUPdAFrg00rLi23VKqX/rYKjqbcRrUEx/cXgQ25SEVRys+T4onH0mu0Eww2s5rMPWf9qbhEVKkaMIJDm4VPsRIs4bJQoDqd0wqEYlnksmNd1aecYoWtcF8/h5ce8w8iNITTfX+c8uTPSsveadOge11EZIc1uFoX1vfwcq5Ne4dchheH1RuBPFVoZETAuxCIgomcYaXn3TOr+5EIAfA6C8x5yEAuUJ+Yme59gLozBUHZV+SaEu4K5kSLf3dohyH"
+    - permanent:
         name: "jck-osuosl-ubuntu2004-ppc64le-1"
         nodeDescription: "2-core 4Gb zLinux machine hosted at Marist"
         labelString: "ci.role.test hw.arch.ppc64le sw.os.linux"
@@ -591,7 +608,7 @@ jenkins:
             javaPath: "/usr/lib/jvm/jdk8/bin/java"
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCh9fSlecuTODPF1Zb5ZQucDfSXQirndHwoq62dE7v4hhNAOqP13hOHRMM0LVNjgebp6IbtY9L5ui4gNeOW6d5WOlnZm3R7zm8UPRCgc064se/T3lL/cUPweIX5tlCfqeAHB4KKWENg3OQw/2pbQ+mGpIATjw6JJ82UG1VnAb/S4PGfOLPy5L/n6DLOaogaMcnDIPiM/0iykaJVdVsmmmIjEPLmzV4zDT9zkNoARNLNtFUj6iZMWzICTyrkE2JAHttdbUexdx8tArk0NdSq9xv971KqFNIEZg/Vo+rSBKmFs2gSDVUnTJSENwTdoudmy0A7vjC1iDMruqDS/QgAJvjV"
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDKhRM5aejXDVO4p5SH49g7oz+za5TBVO6ZujHWx/IvY1XorayXUIO7Ke66Kb/Ju7XOaYXZtujiHTgwmQAK2AL4Rp/uyUQ4La/cnHysgN1FI3l53IYPwkrViJYp8VbvqFSZbD1QtaILWCzsuDXYcGD5vBIGrxHUnVOQybgEmW/4BulXe0qNfJEuDS+fYH8U1qO76Ss7zBzH+fCiMeyJ2i+uddYzj6I1297y6kD7dGM61FZF/JdCvIfIqPcZ4iQZPg4d2l33WpO5oegDwrFRKxSN71mgS8g7P4SgXd1/mQGX6Zm37MhK+mVKJpHQ+8I5RPQYK8TbKkXYiq5Gw7BmH2Cx"
     - permanent:
         labelString: "ci.role.test hw.arch.x86 sw.os.alpine"
         launcher:
