@@ -77,7 +77,7 @@ jenkins:
           javaPath: ""
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDK0XaYiD+TSQoEmNoJ4TJl8yWUnYSqdLezQTU7RvqiqZUr7y2Fj0kcV1oP8j0+PgBDhEv3pl3zBQeHPlFeomcAb7by0M9GAkrM24tA/Vjld5Nmceagqnabv9Q/lpz2Bi+ke0rOirMI5Ekv/Y5HDf8Sr9AfRvPpvwCwXR0kugssr3+gvetjKQBYJil2IBcsaAEW/yuHFV2W5r9TowjLvORvTYCN5bGNlDye1YBwzs5y0YslgdS8wObsaeExZH57mnQ79nEljPWVIP5gzfraunRX4iGEtOJxEL2O02j58LelbTxaHlL13o89n6M0N8dyqwNwKlOv/LPsmKC0oEA/aPEbHirzDyxNYcTuS4or4F5AyGrjr8mQYiWep93hiJand1Mymrb8XsHNV2qwQRZrNP1IHZ4IaKuI7PJYzyfEA/ksDgrGOoAbc5Aj6QWaG1ep//XvYKPzyWeR8SDV68f/Avobt5nmqEHyeYFfjcfDpDZQvdP2SUtRPa++iD2BQsMsc1M="
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBCQ3k2UtFTNTPZDpbyjwuwodCW3iZ5v45naMsVnVbW665eYuanAAL9cCvCLQONUDwmacvKw5sAQlWH6xeNVxxSJTUPdAFrg00rLi23VKqX/rYKjqbcRrUEx/cXgQ25SEVRys+T4onH0mu0Eww2s5rMPWf9qbhEVKkaMIJDm4VPsRIs4bJQoDqd0wqEYlnksmNd1aecYoWtcF8/h5ce8w8iNITTfX+c8uTPSsveadOge11EZIc1uFoX1vfwcq5Ne4dchheH1RuBPFVoZETAuxCIgomcYaXn3TOr+5EIAfA6C8x5yEAuUJ+Yme59gLozBUHZV+SaEu4K5kSLf3dohyH"
   - permanent:
       name: "jck-osuosl-ubuntu2004-ppc64le-1"
       nodeDescription: "2-core 4Gb zLinux machine hosted at Marist"
