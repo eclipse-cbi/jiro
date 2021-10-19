@@ -1,9 +1,9 @@
 
 Installed plugins:
 ace-editor 1.1
-analysis-model-api 10.3.1
+analysis-model-api 10.5.2
 ant 1.12
-antisamy-markup-formatter 2.1
+antisamy-markup-formatter 2.3
 apache-httpcomponents-client-4-api 4.5.13-1.0
 authentication-tokens 1.4
 authorize-project 1.4.0
@@ -25,12 +25,12 @@ data-tables-api 1.11.3-1
 display-url-api 2.3.5
 durable-task 1.39
 echarts-api 5.2.1-2
-email-ext 2.83
+email-ext 2.84
 extended-read-permission 3.2
 external-monitor-job 1.7
 extra-columns 1.24
 font-awesome-api 5.15.4-1
-forensics-api 1.4.0
+forensics-api 1.5.0
 gerrit-trigger 2.35.2
 ghprb 1.42.2
 git 4.9.0
@@ -56,7 +56,7 @@ jquery 1.12.4-1
 jquery3-api 3.6.0-2
 jsch 0.1.55.2
 junit 1.53
-kubernetes 1.30.3
+kubernetes 1.30.4
 kubernetes-client-api 5.4.1
 kubernetes-credentials 0.9.0
 ldap 2.7
@@ -104,20 +104,20 @@ timestamper 1.13
 token-macro 266.v44a80cf277fd
 trilead-api 1.0.13
 variant 1.4
-warnings-ng 9.5.0
+warnings-ng 9.5.1
 workflow-aggregator 2.6
-workflow-api 2.46
+workflow-api 2.47
 workflow-basic-steps 2.24
 workflow-cps 2.94
 workflow-cps-global-lib 2.21
 workflow-durable-task-step 2.40
-workflow-job 2.41
+workflow-job 2.42
 workflow-multibranch 2.26
 workflow-scm-step 2.13
 workflow-step-api 2.24
 workflow-support 3.8
 ws-cleanup 0.39
-xvnc 1.25
+xvnc 1.28
 
 Bundled plugins:
 
@@ -131,7 +131,7 @@ echarts-api 5.2.1-2
 envinject 2.4.0
 envinject-api 1.7
 font-awesome-api 5.15.4-1
-jackson2-api 2.13.0-226.v0c5dd2d2fd2a
+jackson2-api 2.13.0-230.v59243c64b0a5
 jacoco 3.3.0
 jquery3-api 3.6.0-2
 junit 1.53
@@ -143,20 +143,21 @@ scm-api 2.6.5
 script-security 1.78
 snakeyaml-api 1.29.1
 structs 1.23
-workflow-api 2.46
+workflow-api 2.47
 workflow-step-api 2.24
 workflow-support 3.8
 
 Plugins that will be downloaded:
 envinject 2.4.0
 envinject-api 1.7
+jackson2-api 2.13.0-230.v59243c64b0a5
 jacoco 3.3.0
 
 Resulting plugin list:
 ace-editor 1.1
-analysis-model-api 10.3.1
+analysis-model-api 10.5.2
 ant 1.12
-antisamy-markup-formatter 2.1
+antisamy-markup-formatter 2.3
 apache-httpcomponents-client-4-api 4.5.13-1.0
 authentication-tokens 1.4
 authorize-project 1.4.0
@@ -178,14 +179,14 @@ data-tables-api 1.11.3-1
 display-url-api 2.3.5
 durable-task 1.39
 echarts-api 5.2.1-2
-email-ext 2.83
+email-ext 2.84
 envinject 2.4.0
 envinject-api 1.7
 extended-read-permission 3.2
 external-monitor-job 1.7
 extra-columns 1.24
 font-awesome-api 5.15.4-1
-forensics-api 1.4.0
+forensics-api 1.5.0
 gerrit-trigger 2.35.2
 ghprb 1.42.2
 git 4.9.0
@@ -202,7 +203,7 @@ greenballs 1.15.1
 h2-api 1.4.199
 handlebars 3.0.8
 handy-uri-templates-2-api 2.1.8-1.0
-jackson2-api 2.13.0-226.v0c5dd2d2fd2a
+jackson2-api 2.13.0-230.v59243c64b0a5
 jacoco 3.3.0
 javadoc 1.6
 jdk-tool 1.5
@@ -212,7 +213,7 @@ jquery 1.12.4-1
 jquery3-api 3.6.0-2
 jsch 0.1.55.2
 junit 1.53
-kubernetes 1.30.3
+kubernetes 1.30.4
 kubernetes-client-api 5.4.1
 kubernetes-credentials 0.9.0
 ldap 2.7
@@ -260,20 +261,20 @@ timestamper 1.13
 token-macro 266.v44a80cf277fd
 trilead-api 1.0.13
 variant 1.4
-warnings-ng 9.5.0
+warnings-ng 9.5.1
 workflow-aggregator 2.6
-workflow-api 2.46
+workflow-api 2.47
 workflow-basic-steps 2.24
 workflow-cps 2.94
 workflow-cps-global-lib 2.21
 workflow-durable-task-step 2.40
-workflow-job 2.41
+workflow-job 2.42
 workflow-multibranch 2.26
 workflow-scm-step 2.13
 workflow-step-api 2.24
 workflow-support 3.8
 ws-cleanup 0.39
-xvnc 1.25
+xvnc 1.28
 
 Security warnings:
 envinject (2.4.0): SECURITY-248 Exposure of sensitive build variables stored by EnvInject 1.90 and earlier https://jenkins.io/security/advisory/2018-02-26/#SECURITY-248
