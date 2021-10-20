@@ -359,7 +359,7 @@ data:
                 javaPath: ""
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
-                    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+d9NhtO+upb6IUZyQaGeloHM/Njr1pUXWRoQUBqam2d1n0NY/0BS9avXnWwZEa7rpCcQNdT+P3xsuT+Iu9I1Gqla2+oCiF+k3h0noblu1N5v6xi+j3aZO/bJk15BE6TwNFkaFgJXiydgB3FJNMWYKHkbezleSIkTshWYtmDErmFRGijVZ+2thdom9kexGhEXeQToQA+CIYle0X6+/E+brQhOBE0BDgAmTVs/ofeHO1T/67wPZqnXqI3RcvYKjJdnsnYpQj04EyUTyg2T3Ei4F+nLAbFMRgKOMkjFsu34My9BdQgcnItFSK7yoxh5h+d/kaUUxd5B8BhLCIq349Lmp"
+                    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFwVDhvC9DUrWAldwgSylWrZNgffpFcm2p+y4yrSso0WbVOCTR4J6DGhHIPAq8ZpR7h0p75WEPBm31bDB0Kpw8Ph1736Ssvl6coMk5u+ONfv6ugx3/O1r8+1RoTeEO4I3zRlvMALhkavBamiCcogyGUJi6RhpR0U7Hj+JQdrZ+uSX+Tl2KhOC/Nfh4PuRql4jib4wMGksSsTJ+VR+MZw5u+R2JUK1gELQTtsDY8teiCyAR91Qt13QKmTjid+ctfVOztlJczfxSkc1KFaHxWVRZS9XfPrznsoOtVlmF0pw6OL6grNCx6yh6Il0I4ril/fbh6c5bqG22NgXxI0fIow+x"
             nodeProperties:
               - toolLocation:
                   locations:
@@ -387,7 +387,7 @@ data:
                 javaPath: ""
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
-                    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCroTdaTZjsE1VsnFIT8M+3Uakyb+tNTul5VU+FnixD41MdkcSzZpBfa7Wf5nLb96+q/U8rlruZfTr5o9OLWNnDvN7FN07cDBU8t8/8RK6kuXlzeJmjlcLeN4MLb2adRgDm46cbevly9yNoSdk0Q7wWwlyec11nbKL09HxbJ1ddHfD45HEpAWdLKlidJbNLh5pQVd9/eoLMgVKo70meYqGgLqWAppZqeJSb0qZq7jPChh0ZyX8W4BeGYNyf4leoCjXdZRw3mikTsobrgpzmOCF4nOPlj0qEa14ie9q8oDshnb01Xmm1FLA9+WmF8JMzzn+gtpvwqObrnTKSABKd3yKP"
+                    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDZci9jCIDYQUjIThr0Br/Y7KOtK6Lq/6TNMYcGmHBpYrGYP0vUu730Q2NO0IxHggOYr6oGYbpFheRNFoi7BW2htok64bPeK228UQmG/35cVJzXz4RVPX/HGa8mwjVHZ7Uk9O2FSP361OgAj6Btww0bIz6CRAtGOmHtvp9Yh6Zh9KUuuSVEuS+K/N23on1pl8ug7yK1tWPURuNf+wTVndarU+GYWO9FawyJQOWG+1B9HvklRuyh6NzvH0Hy0rF2/1fEpe6iYAL9Mh4i1paaiIi+VtEM6FzVO5oSck7m1e3IpsFYG9xGPhYeT2/R0MbU+KGe3EPtCWIIjnlFb2KsqXmp"
             nodeProperties:
               - toolLocation:
                   locations:
