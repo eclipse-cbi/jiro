@@ -610,7 +610,7 @@ jenkins:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDKhRM5aejXDVO4p5SH49g7oz+za5TBVO6ZujHWx/IvY1XorayXUIO7Ke66Kb/Ju7XOaYXZtujiHTgwmQAK2AL4Rp/uyUQ4La/cnHysgN1FI3l53IYPwkrViJYp8VbvqFSZbD1QtaILWCzsuDXYcGD5vBIGrxHUnVOQybgEmW/4BulXe0qNfJEuDS+fYH8U1qO76Ss7zBzH+fCiMeyJ2i+uddYzj6I1297y6kD7dGM61FZF/JdCvIfIqPcZ4iQZPg4d2l33WpO5oegDwrFRKxSN71mgS8g7P4SgXd1/mQGX6Zm37MhK+mVKJpHQ+8I5RPQYK8TbKkXYiq5Gw7BmH2Cx"
     - permanent:
-        labelString: "ci.role.test hw.arch.x86 sw.os.alpine"
+        labelString: "ci.role.test hw.arch.x86 sw.os.alpine-linux"
         launcher:
           ssh:
             credentialsId: "jenkins-jck-ssh"
@@ -634,7 +634,7 @@ jenkins:
         remoteFS: "/home/jenkins"
         retentionStrategy: "always"
     - permanent:
-        labelString: "ci.role.test hw.arch.x86 sw.os.alpine"
+        labelString: "ci.role.test hw.arch.x86 sw.os.alpine-linux"
         launcher:
           ssh:
             credentialsId: "jenkins-jck-ssh"
