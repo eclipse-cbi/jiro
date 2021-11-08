@@ -4,7 +4,7 @@
     displayName: "Eclipse CBI",
   },
   jenkins+: {
-    version: "2.303.2",
+    version: "2.303.3",
     staticAgentCount: 3,
     plugins+: [
       "basic-branch-build-strategies",
@@ -15,7 +15,6 @@
       "gradle",
       "handy-uri-templates-2-api",
       "htmlpublisher",
-      "icon-shim",
       "jenkins-design-language",
       "mail-watcher-plugin",
       "mask-passwords",
