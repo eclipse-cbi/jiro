@@ -10,7 +10,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     prefix: "/ci/" + $.project.shortName,
   },
   jenkins+: {
-    version: "2.303.2",
+    version: "2.303.3",
     staticAgentCount: 1,
     permissions: [
       {

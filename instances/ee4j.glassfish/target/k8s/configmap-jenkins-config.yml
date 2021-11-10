@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "glassfish"
   namespace: "glassfish"
   name: jenkins-config
@@ -96,7 +96,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -182,7 +182,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -268,7 +268,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

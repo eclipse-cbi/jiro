@@ -104,13 +104,13 @@ timestamper 1.13
 token-macro 267.vcdaea6462991
 trilead-api 1.0.13
 variant 1.4
-warnings-ng 9.6.0
+warnings-ng 9.7.0
 workflow-aggregator 2.6
 workflow-api 2.47
 workflow-basic-steps 2.24
 workflow-cps 2633.v6baeedc13805
 workflow-cps-global-lib 545.v7b28cce323cf
-workflow-durable-task-step 2.40
+workflow-durable-task-step 1097.veac1aacfbda8
 workflow-job 2.42
 workflow-multibranch 2.26
 workflow-scm-step 2.13
@@ -144,7 +144,6 @@ font-awesome-api 5.15.4-1
 gradle 1.37.1
 handy-uri-templates-2-api 2.1.8-1.0
 htmlpublisher 1.27
-icon-shim 3.0.0
 jackson2-api 2.13.0-230.v59243c64b0a5
 javadoc 1.6
 jenkins-design-language 1.25.1
@@ -181,7 +180,7 @@ variant 1.4
 workflow-api 2.47
 workflow-basic-steps 2.24
 workflow-cps 2633.v6baeedc13805
-workflow-durable-task-step 2.40
+workflow-durable-task-step 1097.veac1aacfbda8
 workflow-job 2.42
 workflow-scm-step 2.13
 workflow-step-api 2.24
@@ -195,7 +194,6 @@ embeddable-build-status 2.0.3
 favorite 2.3.3
 gradle 1.37.1
 htmlpublisher 1.27
-icon-shim 3.0.0
 jenkins-design-language 1.25.1
 mail-watcher-plugin 1.16
 mask-passwords 3.0
@@ -260,7 +258,6 @@ h2-api 1.4.199
 handlebars 3.0.8
 handy-uri-templates-2-api 2.1.8-1.0
 htmlpublisher 1.27
-icon-shim 3.0.0
 jackson2-api 2.13.0-230.v59243c64b0a5
 javadoc 1.6
 jdk-tool 1.5
@@ -326,13 +323,13 @@ timestamper 1.13
 token-macro 267.vcdaea6462991
 trilead-api 1.0.13
 variant 1.4
-warnings-ng 9.6.0
+warnings-ng 9.7.0
 workflow-aggregator 2.6
 workflow-api 2.47
 workflow-basic-steps 2.24
 workflow-cps 2633.v6baeedc13805
 workflow-cps-global-lib 545.v7b28cce323cf
-workflow-durable-task-step 2.40
+workflow-durable-task-step 1097.veac1aacfbda8
 workflow-job 2.42
 workflow-multibranch 2.26
 workflow-scm-step 2.13
