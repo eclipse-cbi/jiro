@@ -1289,38 +1289,40 @@ for this first.**
 </tr>
 <tr class="even">
 <td><p>2. Import GPG keyring with <code>--batch</code> and trust the keys non-interactively in a shell build step (before the Maven call)<code></p>
-<p><code>gpg --batch --import "${KEYRING}"</code><br />
-<code>for fpr in $(gpg --list-keys --with-colons  | awk -F: '/fpr:/ {print $10}' | sort -u);</code><br />
-<code>do</code><br />
-<code>  echo -e "5\ny\n" |  gpg --batch --command-fd 0 --expert --edit-key $fpr trust;</code><br />
-<code>done</code></p>
-<p></code></p></td>
+<p><pre><code>gpg --batch --import "${KEYRING}"
+for fpr in $(gpg --list-keys --with-colons  | awk -F: '/fpr:/ {print $10}' | sort -u);
+do
+  echo -e "5\ny\n" |  gpg --batch --command-fd 0 --expert --edit-key $fpr trust;
+done
+</code></pre></p>
+</td>
 <td><figure>
 <img src="img/GpgImport.png" title="GpgImport.png" width="700" alt="" /><figcaption>GpgImport.png</figcaption>
 </figure></td>
 </tr>
 <tr class="odd">
 <td><p>3. If a newer GPG version (&gt; 2.1+) is used, <code>--pinentry-mode loopback</code> needs to be added as gpg argument in the pom.xml. <strong>This does not need to be added when using the "centos-7"/"migration" pod template (which uses GPG 2.0.22)!</strong></p>
-<p><plugin><br />
-<code>  </code><groupId><code>org.apache.maven.plugins</code></groupId><br />
-<code>  </code><artifactId><code>maven-gpg-plugin</code></artifactId><br />
-<code>  </code><version><code>1.6</code></version><br />
-<code>  </code><executions><br />
-<code>    </code><execution><br />
-<code>      </code><id><code>sign-artifacts</code></id><br />
-<code>        </code><phase><code>verify</code></phase><br />
-<code>        </code><goals><br />
-<code>          </code><goal><code>sign</code></goal><br />
-<code>        </code></goals><br />
-<code>        </code><strong><configuration></strong><br />
-<code>          </code><strong><gpgArguments></strong><br />
-<code>            </code><strong><arg><code>--pinentry-mode</code></arg></strong><br />
-<code>            </code><strong><arg><code>loopback</code></arg></strong><br />
-<code>          </code><strong></gpgArguments></strong><br />
-<code>        </code><strong></configuration></strong><br />
-<code>    </code></execution><br />
-<code>  </code></executions><br />
-</plugin></p></td>
+<p><pre><code>&lt;plugin&gt;
+  &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+  &lt;artifactId&gt;maven-gpg-plugin&lt;/artifactId&gt;
+  &lt;version&gt;1.6&lt;/version&gt;
+  &lt;executions&gt;
+    &lt;execution&gt;
+      &lt;id&gt;sign-artifacts&lt;/id&gt;
+        &lt;phase&gt;verify&lt;/phase&gt;
+        &lt;goals&gt;
+          &lt;goal&gt;sign&lt;/goal&gt;
+        &lt;/goals&gt;
+        &lt;configuration&gt;
+          &lt;gpgArguments&gt;
+            &lt;arg&gt;--pinentry-mode&lt;/arg&gt;
+            &lt;arg&gt;loopback&lt;/arg&gt;
+          &lt;/gpgArguments&gt;
+        &lt;/configuration&gt;
+    &lt;/execution&gt;
+  &lt;/executions&gt;
+&lt;/plugin&gt;
+</code></pre></p></td>
 <td></td>
 </tr>
 </tbody>
