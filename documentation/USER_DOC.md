@@ -1279,54 +1279,45 @@ for this first.**
 
 #### Required steps for a freestyle job
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p>1. Insert <code>secret-subkeys.asc</code> as secret file in job</p></td>
-<td><figure>
-<img src="img/InjectSecretFile2.png" title="File:InjectSecretFile2.png" alt="" /><figcaption><a href="File:InjectSecretFile2.png">File:InjectSecretFile2.png</a></figcaption>
-</figure></td>
-</tr>
-<tr class="even">
-<td><p>2. Import GPG keyring with <code>--batch</code> and trust the keys non-interactively in a shell build step (before the Maven call)<code></p>
-<p><pre><code>gpg --batch --import "${KEYRING}"
-for fpr in $(gpg --list-keys --with-colons  | awk -F: '/fpr:/ {print $10}' | sort -u);
-do
-  echo -e "5\ny\n" |  gpg --batch --command-fd 0 --expert --edit-key $fpr trust;
-done
-</code></pre></p>
-</td>
-<td><figure>
-<img src="img/GpgImport.png" title="GpgImport.png" width="700" alt="" /><figcaption>GpgImport.png</figcaption>
-</figure></td>
-</tr>
-<tr class="odd">
-<td><p>3. If a newer GPG version (&gt; 2.1+) is used, <code>--pinentry-mode loopback</code> needs to be added as gpg argument in the pom.xml. <strong>This does not need to be added when using the "centos-7"/"migration" pod template (which uses GPG 2.0.22)!</strong></p>
-<p><pre><code>&lt;plugin&gt;
-  &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-  &lt;artifactId&gt;maven-gpg-plugin&lt;/artifactId&gt;
-  &lt;version&gt;1.6&lt;/version&gt;
-  &lt;executions&gt;
-    &lt;execution&gt;
-      &lt;id&gt;sign-artifacts&lt;/id&gt;
-        &lt;phase&gt;verify&lt;/phase&gt;
-        &lt;goals&gt;
-          &lt;goal&gt;sign&lt;/goal&gt;
-        &lt;/goals&gt;
-        &lt;configuration&gt;
-          &lt;gpgArguments&gt;
-            &lt;arg&gt;--pinentry-mode&lt;/arg&gt;
-            &lt;arg&gt;loopback&lt;/arg&gt;
-          &lt;/gpgArguments&gt;
-        &lt;/configuration&gt;
-    &lt;/execution&gt;
-  &lt;/executions&gt;
-&lt;/plugin&gt;
-</code></pre></p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+1. Insert <code>secret-subkeys.asc</code> as secret file in job
+
+  ![InjectSecretFile2.png](img/InjectSecretFile2.png "InjectSecretFile2.png")
+
+2. Import GPG keyring with <code>--batch</code> and trust the keys non-interactively in a shell build step (before the Maven call)
+
+  ```bash
+  gpg --batch --import "${KEYRING}"
+  for fpr in $(gpg --list-keys --with-colons  | awk -F: '/fpr:/ {print $10}' | sort -u);
+  do
+     echo -e "5\ny\n" |  gpg --batch --command-fd 0 --expert --edit-key $fpr trust;
+  done
+```
+![GpgImport.png](img/GpgImport.png "GpgImport.png")
+
+3. If a newer GPG version (&gt; 2.1+) is used, <code>--pinentry-mode loopback</code> needs to be added as gpg argument in the pom.xml. <strong>This does not need to be added when using the "centos-7"/"migration" pod template (which uses GPG 2.0.22)!
+
+  ```xml
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-gpg-plugin</artifactId>
+  <version>1.6</version>
+  <executions>
+    <execution>
+      <id>sign-artifacts</id>
+        <phase>verify</phase>
+        <goals>
+          <goal>sign</goal>
+        </goals>
+        <configuration>
+          <gpgArguments>
+            <arg>--pinentry-mode</arg>
+            <arg>loopback</arg>
+          </gpgArguments>
+        </configuration>
+    </execution>
+  </executions>
+</plugin>
+```
 
 #### Required steps for a pipeline job
 
