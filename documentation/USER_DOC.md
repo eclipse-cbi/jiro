@@ -1,4 +1,4 @@
-![Jenkins_logo.png](Jenkins_logo.png "Jenkins_logo.png")
+![Jenkins_logo.png](img/Jenkins_logo.png "Jenkins_logo.png")
 
 Jenkins is a continuous integration (CI) server. It is in use on Eclipse
 servers for Eclipse projects as part of the [Common Build Infrastructure
@@ -410,7 +410,7 @@ pipeline {
 
 For **freestyle jobs** the label can be specified in the job
 configuration under "Restrict where this project can be run":
-![<File:RestrictWhereThisProjectCanBeRun.png>](RestrictWhereThisProjectCanBeRun.png
+![<File:RestrictWhereThisProjectCanBeRun.png>](img/RestrictWhereThisProjectCanBeRun.png
 "File:RestrictWhereThisProjectCanBeRun.png")
 
 Example for **pipeline jobs**:
@@ -944,7 +944,7 @@ You need to activate the *SSH Agent* plugin in your job configuration
 and select the proper credentials `genie.`*`projectname`*`
 (ssh://projects-storage.eclipse.org) `.
 
-![project-storage-ssh-agent.png](project-storage-ssh-agent.png
+![project-storage-ssh-agent.png](img/project-storage-ssh-agent.png
 "project-storage-ssh-agent.png")
 
 Then you can use `ssh`, `scp`, `rsync` and `sftp` commands to deploy
@@ -1284,7 +1284,7 @@ for this first.**
 <tr class="odd">
 <td><p>1. Insert <code>secret-subkeys.asc</code> as secret file in job</p></td>
 <td><figure>
-<img src="InjectSecretFile2.png" title="File:InjectSecretFile2.png" alt="" /><figcaption><a href="File:InjectSecretFile2.png">File:InjectSecretFile2.png</a></figcaption>
+<img src="img/InjectSecretFile2.png" title="File:InjectSecretFile2.png" alt="" /><figcaption><a href="File:InjectSecretFile2.png">File:InjectSecretFile2.png</a></figcaption>
 </figure></td>
 </tr>
 <tr class="even">
@@ -1296,7 +1296,7 @@ for this first.**
 <code>done</code></p>
 <p></code></p></td>
 <td><figure>
-<img src="GpgImport.png" title="GpgImport.png" width="700" alt="" /><figcaption>GpgImport.png</figcaption>
+<img src="img/GpgImport.png" title="GpgImport.png" width="700" alt="" /><figcaption>GpgImport.png</figcaption>
 </figure></td>
 </tr>
 <tr class="odd">
@@ -1954,10 +1954,10 @@ order to run a Jenkins job to verify each new patchset uploaded to
 Gerrit for code review. Jenkins (named "CI Bot") will then also vote on
 these changes using the "Verify" voting category.
 
-![Jgit.gerrit-reviewer.png](Jgit.gerrit-reviewer.png
+![Jgit.gerrit-reviewer.png](img/Jgit.gerrit-reviewer.png
 "Jgit.gerrit-reviewer.png")
 
-![Jgit.gerrit-vote.png](Jgit.gerrit-vote.png "Jgit.gerrit-vote.png")
+![Jgit.gerrit-vote.png](img/Jgit.gerrit-vote.png "Jgit.gerrit-vote.png")
 
 Below, the configuration sections for the Git plugin and the Gerrit
 trigger plugin of the verification job used by the EGit project may
@@ -1969,7 +1969,7 @@ serve as an example.
     select *String Parameter*. Set the parameter *Name* to
     **GERRIT_REFSPEC** and *Default Value* to **refs/heads/master**.
 
-![Gerrit-refspec-param.png](Gerrit-refspec-param.png
+![Gerrit-refspec-param.png](img/Gerrit-refspec-param.png
 "Gerrit-refspec-param.png")
 
 #### Configuration of Source Code Management
@@ -1986,7 +1986,7 @@ serve as an example.
 1.  Under *Additional Behaviours*, add **Strategy for choosing what to
     build** and select **Gerrit Trigger** as a strategy.
 
-![Jgit.gerrit-git-config.png](Jgit.gerrit-git-config.png
+![Jgit.gerrit-git-config.png](img/Jgit.gerrit-git-config.png
 "Jgit.gerrit-git-config.png")
 
 Note that the section **Branches to build** won't be used and may be
@@ -1996,7 +1996,7 @@ deleted.
 
 1.  Under *Build Triggers*, select **Gerrit event**.
 
-![Jgit.gerrit-gerrit-config.png](Jgit.gerrit-gerrit-config.png
+![Jgit.gerrit-gerrit-config.png](img/Jgit.gerrit-gerrit-config.png
 "Jgit.gerrit-gerrit-config.png")
 
 1.  Under *Trigger on*, click on *Add* and select at least **Patchset
@@ -2006,7 +2006,7 @@ deleted.
     triggered for the latest patch set if the comment is exactly **CI
     Bot, run a build please**.
 
-![gerrit-trigger-events.png](gerrit-trigger-events.png
+![gerrit-trigger-events.png](img/gerrit-trigger-events.png
 "gerrit-trigger-events.png")
 
 1.  Finally, configure at least one *Gerrit Project*. The pattern is the
@@ -2017,7 +2017,7 @@ deleted.
     patches submitted for the master branche, or `**` to build patches
     submitted to each and every branches. Set the type to **Path**.
 
-![gerrit-trigger-project.png](gerrit-trigger-project.png
+![gerrit-trigger-project.png](img/gerrit-trigger-project.png
 "gerrit-trigger-project.png")
 
 #### Configuration of the build action
