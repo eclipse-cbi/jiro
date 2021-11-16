@@ -1283,7 +1283,6 @@ please see https://wiki.eclipse.org/Jenkins#Custom_container_on_Jiro_3
   ![InjectSecretFile2.png](img/InjectSecretFile2.png "InjectSecretFile2.png")
 
 2. Import GPG keyring with <code>--batch</code> and trust the keys non-interactively in a shell build step (before the Maven call)
-
   ```bash
   gpg --batch --import "${KEYRING}"
   for fpr in $(gpg --list-keys --with-colons  | awk -F: '/fpr:/ {print $10}' | sort -u);
@@ -1294,7 +1293,6 @@ please see https://wiki.eclipse.org/Jenkins#Custom_container_on_Jiro_3
 ![GpgImport.png](img/GpgImport.png "GpgImport.png")
 
 3. If a newer GPG version (&gt; 2.1+) is used, <code>--pinentry-mode loopback</code> needs to be added as gpg argument in the pom.xml. **This does not need to be added when using the "centos-7"/"migration" pod template (which uses GPG 2.0.22)!**
-
   ```xml
 <plugin>
   <groupId>org.apache.maven.plugins</groupId>
@@ -1959,7 +1957,6 @@ serve as an example.
 1.  Check *This project is parameterized*. Click the *Add* button and
     select *String Parameter*. Set the parameter *Name* to
     **GERRIT_REFSPEC** and *Default Value* to **refs/heads/master**.
-
   ![Gerrit-refspec-param.png](img/Gerrit-refspec-param.png
 "Gerrit-refspec-param.png")
 
@@ -1972,7 +1969,6 @@ serve as an example.
 
 3.  Under *Additional Behaviours*, add **Strategy for choosing what to
     build** and select **Gerrit Trigger** as a strategy.
-
   ![Jgit.gerrit-git-config.png](img/Jgit.gerrit-git-config.png
 "Jgit.gerrit-git-config.png")
 
