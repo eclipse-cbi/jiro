@@ -1293,7 +1293,7 @@ please see https://wiki.eclipse.org/Jenkins#Custom_container_on_Jiro_3
 ```
 ![GpgImport.png](img/GpgImport.png "GpgImport.png")
 
-3. If a newer GPG version (&gt; 2.1+) is used, <code>--pinentry-mode loopback</code> needs to be added as gpg argument in the pom.xml. <strong>This does not need to be added when using the "centos-7"/"migration" pod template (which uses GPG 2.0.22)!
+3. If a newer GPG version (&gt; 2.1+) is used, <code>--pinentry-mode loopback</code> needs to be added as gpg argument in the pom.xml. **This does not need to be added when using the "centos-7"/"migration" pod template (which uses GPG 2.0.22)!**
 
   ```xml
 <plugin>
