@@ -2,7 +2,7 @@
 
 Jenkins is a continuous integration (CI) server. It is in use on Eclipse
 servers for Eclipse projects as part of the [Common Build Infrastructure
-(CBI)](CBI "wikilink"). This page is about the hosted service at
+(CBI)](CBI). This page is about the hosted service at
 Eclipse.org. For more information on the project itself, or to download
 Jenkins, please see the [Jenkins project](https://jenkins.io) page.
 
@@ -12,11 +12,7 @@ Jenkins instances are maintained by the Eclipse Webmasters/Release
 Engineers.
 
   - List of Jenkins Instances Per Project (JIPP):
-      - <https://ci.eclipse.org/> (bare-metal infra and cluster-based
-        infra **after migration**)
-      - <https://ci-staging.eclipse.org/> (cluster-based infra,
-        temporary domain during migration, while old and new JIPP are
-        both still active)
+      - https://ci.eclipse.org/ (cluster-based infra)
 
 ## Asking for Help
 
@@ -29,7 +25,7 @@ Engineers.
 ## Requesting a JIPP instance for CBI
 
 Please see
-[CBI\#Requesting_a_JIPP_instance](CBI#Requesting_a_JIPP_instance "wikilink")
+[CBI\#Requesting_a_JIPP_instance](CBI#Requesting_a_JIPP_instance)
 
 # Jenkins configuration and tools (clustered infra)
 
@@ -191,7 +187,7 @@ As such, starting with JDK 11, the Eclipse Foundation *will not* provide
 any version of the Oracle JDK licensed under the -commercial- OTN terms.
 Previous versions listed below, will stay available as is. See the
 *cosmetic and packaging differences* between Oracle's OpenJDK Builds
-(GPL+CE) — simply named [OpenJDK](#OpenJDK "wikilink") above — and
+(GPL+CE) — simply named [OpenJDK](#OpenJDK) above — and
 Oracle JDK (OTN) on [Oracle Director of Product Management's blog
 post](https://blogs.oracle.com/java-platform-group/oracle-jdk-releases-for-java-11-and-later).
 
@@ -226,7 +222,7 @@ Edition](https://developer.ibm.com/javasdk/downloads/).
   - apache-ant-latest (1.10.5, automatically installed from Apache
     server)
 
-## Default plugins - Jiro (ci-staging.eclipse.org/xxx and ci.eclipse.org/xxx)
+## Default plugins - Jiro
 
 <div style="column-count:4;-moz-column-count:4;-webkit-column-count:4">
 
@@ -332,31 +328,15 @@ Edition](https://developer.ibm.com/javasdk/downloads/).
 
 ## FAQ
 
-### Is my project's JIPP running on the old infra or Jiro?
 
-If your JIPP is hosted on ci.eclipse.org/<name of your project>, you can
-check the list of JIPPs on <https://ci.eclipse.org>:
-
-  - if it says <project-name> (hipp1-10), it's on the old infra
-  - if it says <project-name> (openshift), it's on the new infra (Jiro)
-
-If your JIPP is currently hosted on ci-staging.eclipse.org, it's in the
-migration process and will be hosted at ci.eclipse.org, once the
-migration is done.
-See also here:
-<https://wiki.eclipse.org/CBI/Jenkins_Migration_FAQ#What.E2.80.99s_the_plan.3F>.
-
-For migration specific question, please see also
-<https://wiki.eclipse.org/CBI/Jenkins_Migration_FAQ>.
-
-### How do I run a Java/Maven build on the new infra?
+### How do I run a Java/Maven build on the cluster-based infra?
 
 The most simple way is to create a Jenkinsfile in your git repo and
 create a multi branch pipeline job in your Jenkins instance. See
 <https://jenkins.io/doc/pipeline/tour/hello-world/> for more
 information. See below a simple Jenkinsfile. Note that the full list of
 available tools name can be found in the
-[tools](#Tools_\(and_locations_on_the_default_JNLP_agent_container\) "wikilink")
+[tools](#Tools_\(and_locations_on_the_default_JNLP_agent_container\))
 section of this page.
 
 ``` groovy
@@ -394,16 +374,11 @@ pipeline {
 }
 ```
 
-### How do I run UI-tests on the new infra?
+### How do I run UI-tests on the cluster-based infra?
 
   - In general, you can use a pre-built/custom docker image and Jenkins
     pipelines, see
     <https://wiki.eclipse.org/Jenkins#How_do_I_run_my_build_in_a_custom_container.3F>.
-  - To ease the migration/transition, we provide a pod template based on
-    CentOS 7 (label: "centos-7"), which was formerly know as the
-    migration pod template (the label "migration" still works). This
-    docker image should be quite close to the environment on the old
-    infrastructure.
   - If your project requires specific dependencies, you can try to use
     the "centos-7" pod template. If it does not work, use a
     pre-build/custom docker image.
@@ -547,12 +522,12 @@ on how the pod template can be used with freestyle or pipeline jobs.
 
 #### My build fails with: "\[ERROR\] Unrecognized VM option '+UseContainerSupport'", what do I need to do?
 
-Your build is still running with a JDK \< 8 (e.g. JDK 6). **Since these
+Your build is still running with a JDK &lt; 8 (e.g. JDK 6). **Since these
 are really old and unsupported JDKs we urge you to switch to a more
 recent JDK, at least JDK 8.** If that's not immediately possible - for
 reasons - you will need to use the following workaround:
 
-Unset the environment variables "JAVA_TOOL_OPTIONS" and
+Unset the environment variables "JAVA_TOOL_OPTIONS" an
 "_JAVA_OPTIONS" by creating two string build parameters with the those
 names:
 
@@ -574,7 +549,7 @@ official images) do not support running as an arbitrary user. Actually,
 most of them expect to run as root, which is definitely a [bad
 practice](https://medium.com/@mccode/processes-in-containers-should-not-run-as-root-2feae3f0df3b).
 See also question below about [how to run a container as
-root](#How_can_I_run_my_build_in_a_container_with_root_privileges? "wikilink").
+root](#How_can_I_run_my_build_in_a_container_with_root_privileges?).
 
 Moreover, some programs like `ssh` search for a mapping between the user
 ID (1000100000) and a user name on the system (here a container). It's
@@ -743,8 +718,13 @@ You need to use a Jenkins pipeline to do so. Then you can specify a
 Kubernetes pod template. See an example below.
 
 You can either use already existing "official" docker images, for
-example the `maven:`<version>`-alpine` images or create your own custom
+example the <code>maven: &lt;version&gt;-alpine</code> images or create your own custom
 docker image.
+
+**Important:** Docker images need to be hosted on supported registries. We currently support:  **docker.io**, **quay.io** and **gcr.io**
+
+**Important:** Currently, docker images can **not be built** (as in created) on our Jenkins CI instances.
+See also: https://wiki.eclipse.org/Jenkins#I_want_to_build_a_custom_Docker_image_.28with_docker_build.29.2C_but_it_does_not_work._What_should_I_do.3F
 
 ``` groovy
 pipeline {
@@ -871,6 +851,7 @@ spec:
   }
 }
 ```
+**Important:** Do not forget to replace <code>&lt;project_shortname&gt;</code> in the claimName with your project name (e.g. <code>tools-claim-jiro-cbi</code> for the CBI project).
 
 #### In a custom container the build can't write to /home/jenkins, what do I need to do?
 
@@ -915,16 +896,14 @@ spec:
 }
 ```
 
+**Note:** We are not satisfied with this workaround and are actively looking for a more convenient way to let projects use custom containers without specifying a bunch of volume mounts.
+
 ### How do I deploy artifacts to download.eclipse.org?
 
 You cannot just `cp` stuff to a folder. You need to do that with `ssh`.
 Therefore SSH credentials need to be set up on the project's Jenkins
-instance. This is already set up for all instances on our new
-infrastructure (check if "openshift" is shown behind the project name in
-the list of Jenkins instances on <https://ci.eclipse.org>). If it's not
-set up, you can [request write
-access](https://bugs.eclipse.org/bugs/enter_bug.cgi?product=Community&component=CI-Jenkins&short_desc=Grant%20access%20to%20projects%20storage%20service%20to%20the%20Jenkins%20instance%20of%20project%20XXXXXX)
-to the projects storage service for your Jenkins instance.
+instance. This is already set up by default for all instances on our
+infrastructure.
 
 This service provide access to the Eclipse Foundation file servers
 storage:
@@ -934,7 +913,6 @@ storage:
   - `/home/data/httpd/download.polarsys.org`
   - `/home/data/httpd/download.locationtech.org`
 
-Then, we will configure your Jenkins instance with SSH credentials.
 Depending on how you run your build, the way you will use them are
 different. See the different cases below.
 
@@ -1042,7 +1020,7 @@ Maven invocation).
 ```
 
 This uses the sshexec goal to delete old files and upload to copy new
-files. Note \*/\*\* for all directories. <toDir></toDir> appears to be
+files. Note \*/\*\* for all directories. &lt;toDir&gt;&lt;/toDir&gt; appears to be
 relative to the path given in the URL.
 
 Be careful with paths and properties to ensure you upload to the correct
@@ -1077,6 +1055,10 @@ pipeline {
 ```
 
 #### Pipeline job with custom pod template
+
+**Important:** A 'jnlp' container is automatically added, when a custom pod template is used to ensure connectivity
+between the Jenkins master and the pod. If you want to deploy files to download.eclipse.org, you only need to specify
+the known-hosts volume for the JNLP container (as seen below) to avoid "host verification failed" errors.
 
 ``` groovy
 pipeline {
@@ -1131,15 +1113,19 @@ spec:
 
 ### How do I use the local Nexus server as proxy for Maven Central (artifact caching)?
 
-Every JIPP on the new infra already has a Maven settings file set up
-that specifies our [local Nexus instance](https://repo.eclipse.org) as
-cache for Maven Central.
+Every JIPP has a Maven settings file set up that specifies our [local Nexus instance](https://repo.eclipse.org) as cache for Maven Central.
+
+**Important:** In [Jiro](https://github.com/eclipse-cbi/jiro) this works out of the box for the default pod templates (labels: basic, centos-7).
+No additional configuration is required for Freestyle and Pipeline jobs. For custom containers, see below:
+[Custom container on Jiro](https://wiki.eclipse.org/Jenkins#Custom_container_on_Jiro)
 
 #### Custom container on Jiro
 
 You need to add the settings-xml volume, like shown below. Please note,
 the m2-repo volume is required as well, otherwise
 /home/jenkins/.m2/repository is not writable.
+
+**Note:** In custom containers the <code>user.home</code> environment variable needs to be set to <code>/home/jenkins</code> via MAVEN_OPTS, otherwise settings.xml and settings-security.xml can not be found.
 
 ``` groovy
 pipeline {
@@ -1202,11 +1188,19 @@ use Maven (or Gradle) to deploy your artifacts. This is also described
 here:
 <https://wiki.eclipse.org/Services/Nexus#Deploying_artifacts_to_repo.eclipse.org>.
 
+**Note:** On our cluster-based infra (Jiro), a separate Maven settings file for deployment to Nexus is not required.
+All information is contained in the default Maven settings file located at
+<code>/home/jenkins/.m2/settings.xml</code>, which does not need to be specified explicitly
+in your job configuration.
+
 #### Custom container on Jiro
 
 You need to add the settings-xml volume, like shown below. Please note,
 the m2-repo volume is required as well, otherwise
 /home/jenkins/.m2/repository is not writable.
+
+**Note:** In custom containers the <code>user.home</code> environment variable needs to
+be set to <code>/home/jenkins</code> via MAVEN_OPTS, otherwise settings.xml and settings-security.xml can not be found.
 
 ``` groovy
 pipeline {
@@ -1277,6 +1271,11 @@ project.
 bug](https://bugs.eclipse.org/bugs/enter_bug.cgi?product=Community&component=CI-Jenkins&short_desc=OSSRH%20setup%20for%20project%20XXX)
 for this first.**
 
+**Note:** On our cluster-based infra (Jiro), a separate Maven settings file for deployment to OSSRH is not necessary.
+All information is contained in the default Maven settings file located at <code>/home/jenkins/.m2/settings.xml</code>,
+which does not need to be specified explicitly in your job configuration.<br> If you are using a custom container,
+please see https://wiki.eclipse.org/Jenkins#Custom_container_on_Jiro_3
+
 #### Required steps for a freestyle job
 
 1. Insert <code>secret-subkeys.asc</code> as secret file in job
@@ -1335,7 +1334,7 @@ pipeline {
             steps {
                 sh "mvn -B -U archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false"
                 sh '''cat >my-app/pom.xml <<EOL
-<project ns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.mycompany.app</groupId>
@@ -1504,10 +1503,9 @@ For a freestyle job configuration two things need to be done:
     add "Secret text", name the variable "SONARCLOUD_TOKEN" and select
     the right credential (e.g. "Sonarcloud token").
 
-\# either a shell build step or a Maven build step can be used to run
+2.  Either a shell build step or a Maven build step can be used to run
 the sonar goal with the right parameters:
-
-``` bash
+  ``` bash
 mvn clean verify sonar:sonar -Dsonar.projectKey=<project-name> -Dsonar.organization=<organization> -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=${SONARCLOUD_TOKEN}
 ```
 
@@ -1523,7 +1521,7 @@ withCredentials([string(credentialsId: 'sonarcloud-token', variable: 'SONARCLOUD
 }
 ```
 
-**Please note: <project-name> and <organization> should be replaced with
+**Please note: &lt;project-name&gt; and &lt;organization&gt; should be replaced with
 the corresponding project name and organization.**
 
 ### Can projects get admin access on their Jiro JIPP?
@@ -1604,14 +1602,14 @@ request](https://bugs.eclipse.org/bugs/enter_bug.cgi?product=Community&component
 the Eclipse IT team will create one for you.
 
 Note that each and every Eclipse project automatically gets a Git
-repository with `git.eclipse.org/www.eclipse.org/`<project_name> (see
+repository with <code>git.eclipse.org/www.eclipse.org/&lt;project_name&gt;</code> (see
 this [repository
 index](https://git.eclipse.org/r/plugins/gitiles/www.eclipse.org/) for
 complete list). This is not where you want to push your Hugo sources.
 This repository contains the webpages that are automatically and
 regularly pulled and published on the www.eclipse.org HTTP server. All
 the content from the master branch will eventually be available at the
-URL **https://www.eclipse.org/\<project_name/\>**.
+URL **[https://www.eclipse.org/&lt;project_name&gt;](https://www.eclipse.org/&lt;project_name&gt;)**.
 
 Once your Hugo sources are in the proper repository, create a file named
 `Jenkinsfile` at the root of the repository with the following content
@@ -1741,17 +1739,17 @@ to your Hugo source repository, build the website and push it to the
 `git.eclipse.org/www.eclipse.org/`<project_name>`.git` repository. As
 mentioned above, the Eclipse Foundation website's infrastructure will
 eventually pull the content of the latter and your website will be
-published and available on **http://www.eclipse.org/\<project_name\>**.
+published and available on **[https://www.eclipse.org/&lt;project_name&gt;](https://www.eclipse.org/&lt;project_name&gt;)**
 
 If you don't have a Jenkins instance already, [ask for
-one](CBI#Requesting_a_JIPP_instance "wikilink"). If you need assistance
+one](CBI#Requesting_a_JIPP_instance). If you need assistance
 with the process, [open a
 ticket](https://bugs.eclipse.org/bugs/enter_bug.cgi?product=Community&component=CI-Jenkins).
 
 ## About resource packs and quotas
 
-The new infrastructure offers us the ability to prevent one of the major
-drawback of the old one: resource starvation. On the old infrastructure,
+Our cluster-based infrastructure offers us the ability to prevent one of the major
+drawback of the old infrastructure: resource starvation. On the old infrastructure,
 one project could eat up all the resources of the machine and starve
 others, resulting in unpredictable build times, machine instabilities
 and unfairness. As such, we've defined resource quotas on the clustered
@@ -1764,7 +1762,7 @@ memory (vCPU/RAM) that we allocate to projects for build jobs. All of
 them combined makes a pool of resources (its **quota**) available to a
 project to run builds at any given time. More information about how many
 resource packs a project can get can be found on the [CBI wiki
-page](CBI#Additional_Resource_Packs "wikilink").
+page](CBI#Additional_Resource_Packs).
 
 ### What about running build jobs concurrently?
 
@@ -1814,7 +1812,7 @@ is aligned with the default concurrency level we set for all
 If projects want to customize the resources for a build job, projects
 need to use a [Jenkins pipeline](https://jenkins.io/doc/book/pipeline/).
 See the [section
-above](Jenkins#What_is_killing_my_build.3F_I.27m_using_custom_containers.21 "wikilink")
+above](Jenkins#What_is_killing_my_build.3F_I.27m_using_custom_containers.21)
 to learn how to do that.
 
 ### What does CPU burst means?
@@ -1909,7 +1907,7 @@ GHPRB plugin in your jobs.
 Instructions how to set up GHPRB plugin in jobs can be found here:
 <https://github.com/jenkinsci/ghprb-plugin/blob/master/README.md>
 
-'''Please note: ''' the 'Use github hooks for build triggering' option
+**Please note: ** the 'Use github hooks for build triggering' option
 has to be disabled, since it requires admin permissions for the GitHub
 bot user, which we don't allow. With this option turned off, Jenkins is
 polling GitHub instead. Which should work just fine in most cases.
@@ -1962,24 +1960,20 @@ serve as an example.
     select *String Parameter*. Set the parameter *Name* to
     **GERRIT_REFSPEC** and *Default Value* to **refs/heads/master**.
 
-![Gerrit-refspec-param.png](img/Gerrit-refspec-param.png
+  ![Gerrit-refspec-param.png](img/Gerrit-refspec-param.png
 "Gerrit-refspec-param.png")
 
 #### Configuration of Source Code Management
 
 1.  Under *Source Code Management* select Git.
 
-<!-- end list -->
-
-1.  Under *Repositories*, click on *Advanced* and change the **Refspec**
+2.  Under *Repositories*, click on *Advanced* and change the **Refspec**
     to **${GERRIT_REFSPEC}**.
 
-<!-- end list -->
-
-1.  Under *Additional Behaviours*, add **Strategy for choosing what to
+3.  Under *Additional Behaviours*, add **Strategy for choosing what to
     build** and select **Gerrit Trigger** as a strategy.
 
-![Jgit.gerrit-git-config.png](img/Jgit.gerrit-git-config.png
+  ![Jgit.gerrit-git-config.png](img/Jgit.gerrit-git-config.png
 "Jgit.gerrit-git-config.png")
 
 Note that the section **Branches to build** won't be used and may be
@@ -1988,29 +1982,26 @@ deleted.
 #### Configuration of Build Triggers
 
 1.  Under *Build Triggers*, select **Gerrit event**.
-
-![Jgit.gerrit-gerrit-config.png](img/Jgit.gerrit-gerrit-config.png
+  ![Jgit.gerrit-gerrit-config.png](img/Jgit.gerrit-gerrit-config.png
 "Jgit.gerrit-gerrit-config.png")
 
-1.  Under *Trigger on*, click on *Add* and select at least **Patchset
+2.  Under *Trigger on*, click on *Add* and select at least **Patchset
     Created**. This will configure the job to run on each new patchset.
     You can also add additional trigger, like **Comment Added Contains
     Regular Expression**. In the example below, a build will be
     triggered for the latest patch set if the comment is exactly **CI
     Bot, run a build please**.
-
-![gerrit-trigger-events.png](img/gerrit-trigger-events.png
+  ![gerrit-trigger-events.png](img/gerrit-trigger-events.png
 "gerrit-trigger-events.png")
 
-1.  Finally, configure at least one *Gerrit Project*. The pattern is the
+3.  Finally, configure at least one *Gerrit Project*. The pattern is the
     name of project (i.e. if your repository is
-    `git.eclipse.org/`<xx>`/`<yy>`.git`, then fill the pattern `xx/yy`).
+    <code>git.eclipse.org/&lt;xx&gt;/&lt;yy&gt;.git</code>, then fill the pattern `xx/yy`).
     The *Branches* section is the list of branch to listen for events as
     configured above. Generally, you want one, named **master** to build
     patches submitted for the master branche, or `**` to build patches
     submitted to each and every branches. Set the type to **Path**.
-
-![gerrit-trigger-project.png](img/gerrit-trigger-project.png
+  ![gerrit-trigger-project.png](img/gerrit-trigger-project.png
 "gerrit-trigger-project.png")
 
 #### Configuration of the build action
@@ -2023,7 +2014,7 @@ to "clean verify".
 
 # Cluster migration
 
-See [CBI/Jenkins_Migration_FAQ](CBI/Jenkins_Migration_FAQ "wikilink")
+See [CBI/Jenkins_Migration_FAQ](CBI/Jenkins_Migration_FAQ)
 
 # CI Best Practices
 
@@ -2037,7 +2028,7 @@ See [CBI/Jenkins_Migration_FAQ](CBI/Jenkins_Migration_FAQ "wikilink")
     than 5 builds with artifacts
   - Clean out your old/deprecated build jobs regularly
 
-See also [CI_best_practices](CI_best_practices "wikilink")
+See also [CI_best_practices](CI_best_practices)
 
 # Jenkins Pipeline Best Practices
 
@@ -2082,6 +2073,10 @@ by setting the system property
 `-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn`.
 This can also be set in an environment variable `MAVEN_OPTS`.
 
+**Note:** On the new clustered infrastructure, both the <code>--batch-mode</code> and the system
+property <code>Slf4jMavenTransferListener</code> are set in all provided agents via
+<code>MAVEN_OPTS</code> and <code>MAVEN_CONFIG</code> environment variables.
+
 ### Parallel Tycho build
 
 Tycho plugins are not marked thread-safe. Nevertheless many projects use
@@ -2099,6 +2094,11 @@ On nodes that are re-used for multiple builds, do not delete the Jenkins
 workspace at the start/end of the build. Otherwise you have to clone the
 repository again on next build. It's faster to use `git reset -fdx`
 instead.
+
+**Important:** This tip does not apply to dynamic agents on our clustered infrastructure
+as agents are ephemeral and workspaces are eventually lost at the end of the builds.
+Deleting Jenkins workspaces at the end of the build is then a waste of time as this will
+be done by the system anyway after the agent is shutdown.
 
 ### Disable secondary artifacts in gerrit builds
 
@@ -2123,4 +2123,5 @@ If you configure jobs via pipeline, you probably want to [configure them
 for performance instead of
 durability](https://jenkins.io/doc/book/pipeline/scaling-pipeline/).
 
-[Category:Releng](Category:Releng "wikilink")
+**Note:** On the new clustered infrastructure, the default pipeline durability is
+already set to _performance_ by default on all Jenkins instances.
