@@ -1,27 +1,14 @@
 # GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
 jenkins:
   nodes:
-    - permanent:
-        labelString: "macos macos-10.12"
-        launcher:
-          ssh:
-            credentialsId: "b9h15-macos10.12-bot-ssh"
-            host: "208.52.161.179"
-            jvmOptions: "-Xmx256m"
-            port: 22
-            sshHostKeyVerificationStrategy:
-              manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3Mo4/c9Hn6sA594UEGHVxCKbu/QtophcofQIfrX1cJwkxfx/MGjMhllrWw49SfpNPh/VOlR4T7r3xeFq9TM+sDXAii54deTENpqg5q1uBOx9hi+7W8MhKpuJEhwL37kTQHSjcnIcexpm76Tbyd3QtHU3xQzMCjfREfqIAWkWaKbdzNVu1JJRcwqRXDDzPNkoLfYUZtdQi/XiROlX5zYh3/GpQctGkL3y8mdkeUY7RGUDKTjd7osAK59IR30H2KFRfewey9YnMnIKM0cokA8t3KDvAwmXFLQ+iAxG1RFLZQ88iz7agO1clNYFR3+2ersXcMu/AZUoA6sBsBXIJ9419"
-            workDir: "/Users/genie.justj/jenkins_agent/cache"
-        name: "b9h15-macos10.12"
-        mode: EXCLUSIVE
-        numExecutors: 1
-        remoteFS: "/Users/genie.justj/jenkins_agent/"
-        retentionStrategy: "always"
-        nodeProperties:
-          - watcher:
-              offlineAddresses: "releng@eclipse.org"
-              onlineAddresses: "releng@eclipse.org"
     - permanent:
         labelString: "windows windows10"
         launcher:
