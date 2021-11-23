@@ -56,7 +56,7 @@ jquery 1.12.4-1
 jquery3-api 3.6.0-2
 jsch 0.1.55.2
 junit 1.53
-kubernetes 1.30.6
+kubernetes 1.30.7
 kubernetes-client-api 5.4.1
 kubernetes-credentials 0.9.0
 ldap 2.7
@@ -126,7 +126,7 @@ ace-editor 1.1
 apache-httpcomponents-client-4-api 4.5.13-1.0
 authentication-tokens 1.4
 bootstrap4-api 4.6.0-3
-bootstrap5-api 5.1.3-1
+bootstrap5-api 5.1.3-3
 bouncycastle-api 2.25
 branch-api 2.7.0
 caffeine-api 2.9.2-29.v717aac953ff3
@@ -134,12 +134,13 @@ checks-api 1.7.2
 cloudbees-folder 6.16
 credentials 2.6.1
 credentials-binding 1.27
+disable-failed-job 1.15
 display-url-api 2.3.5
 docker-commons 1.17
 docker-workflow 1.26
-durable-task 1.39
+durable-task 493.v195aefbb0ff2
 echarts-api 5.2.2-1
-font-awesome-api 5.15.4-1
+font-awesome-api 5.15.4-3
 git-client 3.10.0
 git-server 1.10
 jackson2-api 2.13.0-230.v59243c64b0a5
@@ -155,11 +156,11 @@ mailer 1.34
 maven-plugin 3.15.1
 openshift-client 1.0.35
 pipeline-input-step 2.12
-pipeline-model-api 1.9.2
-pipeline-model-definition 1.9.2
-pipeline-model-extensions 1.9.2
+pipeline-model-api 1.9.3
+pipeline-model-definition 1.9.3
+pipeline-model-extensions 1.9.3
 pipeline-stage-step 2.5
-pipeline-stage-tags-metadata 1.9.2
+pipeline-stage-tags-metadata 1.9.3
 plain-credentials 1.7
 plugin-util-api 2.5.1
 popper-api 1.16.1-2
@@ -170,14 +171,14 @@ slack 2.48
 snakeyaml-api 1.29.1
 ssh-credentials 1.19
 sshd 3.1.0
-structs 1.23
+structs 1.24
 token-macro 267.vcdaea6462991
 trilead-api 1.0.13
 workflow-api 2.47
 workflow-basic-steps 2.24
 workflow-cps 2633.v6baeedc13805
-workflow-cps-global-lib 545.v7b28cce323cf
-workflow-durable-task-step 1097.veac1aacfbda8
+workflow-cps-global-lib 548.v9085a486966a
+workflow-durable-task-step 1101.vf832bc1ac745
 workflow-job 2.42
 workflow-multibranch 2.26
 workflow-scm-step 2.13
@@ -185,12 +186,23 @@ workflow-step-api 2.24
 workflow-support 3.8
 
 Plugins that will be downloaded:
+bootstrap5-api 5.1.3-3
+disable-failed-job 1.15
 docker-commons 1.17
 docker-workflow 1.26
+durable-task 493.v195aefbb0ff2
+font-awesome-api 5.15.4-3
 kubernetes-cli 1.10.3
 mail-watcher-plugin 1.16
 openshift-client 1.0.35
+pipeline-model-api 1.9.3
+pipeline-model-definition 1.9.3
+pipeline-model-extensions 1.9.3
+pipeline-stage-tags-metadata 1.9.3
 slack 2.48
+structs 1.24
+workflow-cps-global-lib 548.v9085a486966a
+workflow-durable-task-step 1101.vf832bc1ac745
 
 Resulting plugin list:
 ace-editor 1.1
@@ -201,7 +213,7 @@ apache-httpcomponents-client-4-api 4.5.13-1.0
 authentication-tokens 1.4
 authorize-project 1.4.0
 bootstrap4-api 4.6.0-3
-bootstrap5-api 5.1.3-1
+bootstrap5-api 5.1.3-3
 bouncycastle-api 2.25
 branch-api 2.7.0
 build-timeout 1.20
@@ -215,16 +227,17 @@ configuration-as-code 1.54
 credentials 2.6.1
 credentials-binding 1.27
 data-tables-api 1.11.3-4
+disable-failed-job 1.15
 display-url-api 2.3.5
 docker-commons 1.17
 docker-workflow 1.26
-durable-task 1.39
+durable-task 493.v195aefbb0ff2
 echarts-api 5.2.2-1
 email-ext 2.84
 extended-read-permission 3.2
 external-monitor-job 1.7
 extra-columns 1.24
-font-awesome-api 5.15.4-1
+font-awesome-api 5.15.4-3
 forensics-api 1.6.0
 gerrit-trigger 2.35.2
 ghprb 1.42.2
@@ -251,7 +264,7 @@ jquery 1.12.4-1
 jquery3-api 3.6.0-2
 jsch 0.1.55.2
 junit 1.53
-kubernetes 1.30.6
+kubernetes 1.30.7
 kubernetes-cli 1.10.3
 kubernetes-client-api 5.4.1
 kubernetes-credentials 0.9.0
@@ -273,12 +286,12 @@ pipeline-graph-analysis 1.11
 pipeline-input-step 2.12
 pipeline-maven 3.10.0
 pipeline-milestone-step 1.3.2
-pipeline-model-api 1.9.2
-pipeline-model-definition 1.9.2
-pipeline-model-extensions 1.9.2
+pipeline-model-api 1.9.3
+pipeline-model-definition 1.9.3
+pipeline-model-extensions 1.9.3
 pipeline-rest-api 2.19
 pipeline-stage-step 2.5
-pipeline-stage-tags-metadata 1.9.2
+pipeline-stage-tags-metadata 1.9.3
 pipeline-stage-view 2.19
 plain-credentials 1.7
 plugin-util-api 2.5.1
@@ -298,7 +311,7 @@ ssh-agent 1.23
 ssh-credentials 1.19
 ssh-slaves 1.33.0
 sshd 3.1.0
-structs 1.23
+structs 1.24
 timestamper 1.13
 token-macro 267.vcdaea6462991
 trilead-api 1.0.13
@@ -308,8 +321,8 @@ workflow-aggregator 2.6
 workflow-api 2.47
 workflow-basic-steps 2.24
 workflow-cps 2633.v6baeedc13805
-workflow-cps-global-lib 545.v7b28cce323cf
-workflow-durable-task-step 1097.veac1aacfbda8
+workflow-cps-global-lib 548.v9085a486966a
+workflow-durable-task-step 1101.vf832bc1ac745
 workflow-job 2.42
 workflow-multibranch 2.26
 workflow-scm-step 2.13

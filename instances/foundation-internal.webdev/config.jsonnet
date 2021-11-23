@@ -30,6 +30,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       },
     ],
     plugins+: [
+      "disable-failed-job",
       "docker-workflow",
       "kubernetes-cli",
       "mail-watcher-plugin",

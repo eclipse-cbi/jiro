@@ -1,4 +1,5 @@
 # GENERATED FILE - DO NOT EDIT
+disable-failed-job
 docker-workflow
 kubernetes-cli
 mail-watcher-plugin
