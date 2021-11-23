@@ -506,6 +506,86 @@ data:
                       key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
                     - home: '/u/jenkins/jenkins-zos/git'
                       key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+        - permanent:
+            name: "ZISVJD09"
+            nodeDescription: "zOS node"
+            labelString: "zOS 390 compile:zos"
+            remoteFS: '/u/user1/'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@148.100.36.158 \"/openzdk/rocket/bin/curl -s --insecure -L -O https://ci.eclipse.org/omr/jnlpJars/slave.jar ; /usr/lpp/java/J8.0_64/bin/java -Dfile.encoding=ISO8859_1 -jar slave.jar\""
+            nodeProperties:
+              - envVars:
+                  env:
+                    - key: "_BPXK_AUTOCVT"
+                      value: 'ON'
+                    - key: "_C89_CCMODE"
+                      value: '1'
+                    - key: "_CC_CCMODE"
+                      value: '1'
+                    - key: "_CEE_RUNOPTS"
+                      value: 'FILETAG(AUTOCVT,AUTOTAG) POSIX(ON)'
+                    - key: "_CXX_CCMODE"
+                      value: '1'
+                    - key: "_TAG_REDIR_ERR"
+                      value: 'txt'
+                    - key: "_TAG_REDIR_OUT"
+                      value: 'txt'
+                    - key: "LIBPATH"
+                      value: '/openzdk/rocket/lib:$LIBPATH'
+                    - key: "PATH"
+                      value: '/u/user1/jenkins-zos:/u/user1/CMake/bin:/openzdk/rocket/bin:$PATH'
+                    - key: "PERL5LIB"
+                      value: '/openzdk/rocket/lib/perl5'
+              - toolLocation:
+                  locations:
+                    - home: '/usr/lpp/java/J8.0_64/bin/java'
+                      key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
+                    - home: '/u/users/jenkins-zos/git'
+                      key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+        - permanent:
+            name: "ZISVJD10"
+            nodeDescription: "zOS node"
+            labelString: "zOS 390 compile:zos"
+            remoteFS: '/u/user1/'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              command:
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@148.100.36.159 \"/openzdk/rocket/bin/curl -s --insecure -L -O https://ci.eclipse.org/omr/jnlpJars/slave.jar ; /usr/lpp/java/J8.0_64/bin/java -Dfile.encoding=ISO8859_1 -jar slave.jar\""
+            nodeProperties:
+              - envVars:
+                  env:
+                    - key: "_BPXK_AUTOCVT"
+                      value: 'ON'
+                    - key: "_C89_CCMODE"
+                      value: '1'
+                    - key: "_CC_CCMODE"
+                      value: '1'
+                    - key: "_CEE_RUNOPTS"
+                      value: 'FILETAG(AUTOCVT,AUTOTAG) POSIX(ON)'
+                    - key: "_CXX_CCMODE"
+                      value: '1'
+                    - key: "_TAG_REDIR_ERR"
+                      value: 'txt'
+                    - key: "_TAG_REDIR_OUT"
+                      value: 'txt'
+                    - key: "LIBPATH"
+                      value: '/openzdk/rocket/lib:$LIBPATH'
+                    - key: "PATH"
+                      value: '/u/user1/jenkins-zos:/u/user1/CMake/bin:/openzdk/rocket/bin:$PATH'
+                    - key: "PERL5LIB"
+                      value: '/openzdk/rocket/lib/perl5'
+              - toolLocation:
+                  locations:
+                    - home: '/usr/lpp/java/J8.0_64/bin/java'
+                      key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
+                    - home: '/u/users/jenkins-zos/git'
+                      key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
       numExecutors: 0
       scmCheckoutRetryCount: 2
       mode: EXCLUSIVE
