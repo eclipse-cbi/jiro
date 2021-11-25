@@ -516,7 +516,7 @@ data:
             retentionStrategy: "always"
             launcher:
               command:
-                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@148.100.36.158 \"/openzdk/rocket/bin/curl -s --insecure -L -O https://ci.eclipse.org/omr/jnlpJars/slave.jar ; /usr/lpp/java/J8.0_64/bin/java -Dfile.encoding=ISO8859_1 -jar slave.jar\""
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr user1@148.100.36.158 \"/openzdk/rocket/bin/curl -s --insecure -L -O https://ci.eclipse.org/omr/jnlpJars/slave.jar ; /usr/lpp/java/J8.0_64/bin/java -Dfile.encoding=ISO8859_1 -jar slave.jar\""
             nodeProperties:
               - envVars:
                   env:
@@ -556,7 +556,7 @@ data:
             retentionStrategy: "always"
             launcher:
               command:
-                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@148.100.36.159 \"/openzdk/rocket/bin/curl -s --insecure -L -O https://ci.eclipse.org/omr/jnlpJars/slave.jar ; /usr/lpp/java/J8.0_64/bin/java -Dfile.encoding=ISO8859_1 -jar slave.jar\""
+                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr user1@148.100.36.159 \"/openzdk/rocket/bin/curl -s --insecure -L -O https://ci.eclipse.org/omr/jnlpJars/slave.jar ; /usr/lpp/java/J8.0_64/bin/java -Dfile.encoding=ISO8859_1 -jar slave.jar\""
             nodeProperties:
               - envVars:
                   env:
