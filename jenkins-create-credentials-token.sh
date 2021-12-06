@@ -98,6 +98,7 @@ help() {
   printf "Available commands:\n"
   printf "Command\t\t\tDescription\n\n"
   printf "default\t\t\tCreate any kind of credentials (secret text/token).\n"
+  printf "github\t\t\tCreate github.com token credentials (secret text/token).\n"
   printf "gitlab\t\t\tCreate gitlab.eclipse.org token credentials (secret text/token).\n"
   printf "sonarcloud\t\tCreate sonarcloud.io credentials (secret text/token).\n"
   printf "npmjs\t\t\tCreate npmjs credentials (secret text/token).\n"
@@ -119,6 +120,21 @@ sonarcloud() {
   token="$(pass "/cbi-pass/bots/${project_name}/sonarcloud.io/token")"
 
   _create_string_credentials "${project_name}" "sonarcloud-token${suffix}" "SonarCloud token for ${short_name}${suffix}" "${token}"
+}
+
+github() {
+  local project_name="${1:-}"
+
+  # check that project name is not empty
+  if [[ -z "${project_name}" ]]; then
+    printf "ERROR: a project name must be given.\n"
+    exit 1
+  fi
+
+  local token
+  token="$(pass "/cbi-pass/bots/${project_name}/github.com/api-token")"
+
+  _create_string_credentials "${project_name}" "github-bot-token" "GitHub Bot token" "${token}" "api.github.com"
 }
 
 gitlab() {
