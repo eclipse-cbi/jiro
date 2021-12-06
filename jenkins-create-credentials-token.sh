@@ -12,13 +12,15 @@ set -o pipefail
 IFS=$'\n\t'
 script_name="$(basename "${BASH_SOURCE[0]}")"
 script_folder="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+JENKINS_CLI="${script_folder}/jenkins-cli.sh"
+INSTANCES="${script_folder}/instances"
 
 
 _create_domain_xml() {
     local project_name="${1:-}"
     local domain_name="${2:-}"
     echo "  Creating domain '${domain_name}'..."
-    "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${project_name}" create-credentials-domain-by-xml system::system::jenkins <<EOF
+    "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "create-credentials-domain-by-xml" "system::system::jenkins" <<EOF
 <com.cloudbees.plugins.credentials.domains.Domain>
   <name>${domain_name}</name>
 </com.cloudbees.plugins.credentials.domains.Domain>
@@ -32,7 +34,24 @@ _create_string_credentials_xml() {
     local secret="${4:-}"
     local description="${5:-}"
     echo "  Creating string credential '${id}' in domain ${domain_name}..."
-    "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${project_name}" create-credentials-by-xml system::system::jenkins "${domain_name}" <<EOF
+    "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "create-credentials-by-xml" "system::system::jenkins" "${domain_name}" <<EOF
+<org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl>
+  <scope>GLOBAL</scope>
+  <id>${id}</id>
+  <description>${description}</description>
+  <secret>${secret}</secret>
+</org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl>
+EOF
+}
+
+_update_string_credentials_xml() {
+    local project_name="${1:-}"
+    local domain_name="${2:-}"
+    local id="${3:-}"
+    local secret="${4:-}"
+    local description="${5:-}"
+    echo "  Updating string credential '${id}'..."
+    "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "update-credentials-by-xml" "system::system::jenkins" "${domain_name}" "${id}" <<EOF
 <org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl>
   <scope>GLOBAL</scope>
   <id>${id}</id>
@@ -59,7 +78,7 @@ _create_string_credentials() {
     fi
 
     # check if credentials already exist
-    reply="$("${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${project_name}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}" 2>&1 || true)"
+    reply="$("${JENKINS_CLI}" "${INSTANCES}/${project_name}" "get-credentials-as-xml" "system::system::jenkins" "${domain_name}" "${id}" 2>&1 || true)"
     #echo "reply: ${reply}"
     if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then
         _create_domain_xml "${project_name}" "${domain_name}"
@@ -67,7 +86,7 @@ _create_string_credentials() {
     elif [[ "${reply}" == "No such credential" ]]; then
         _create_string_credentials_xml "${project_name}" "${domain_name}" "${id}" "${secret}" "${description}"
     elif [[ "${reply}" == "<org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl"* ]]; then
-        echo "  Credential ${id} already exists."
+        _update_string_credentials_xml "${project_name}" "${domain_name}" "${id}" "${secret}" "${description}"
     else
         echo "Unexpected reply: ${reply}"
         exit 1
@@ -81,6 +100,7 @@ help() {
   printf "default\t\t\tCreate any kind of credentials (secret text/token).\n"
   printf "gitlab\t\t\tCreate gitlab.eclipse.org token credentials (secret text/token).\n"
   printf "sonarcloud\t\tCreate sonarcloud.io credentials (secret text/token).\n"
+  printf "npmjs\t\t\tCreate npmjs credentials (secret text/token).\n"
   exit 0
 }
 
@@ -114,6 +134,21 @@ gitlab() {
   token="$(pass "/cbi-pass/bots/${project_name}/gitlab.eclipse.org/token")"
 
   _create_string_credentials "${project_name}" "gitlab-api-token" "GitLab token for ${project_name}" "${token}" "gitlab.eclipse.org"
+}
+
+npmjs() {
+  local project_name="${1:-}"
+
+  # check that project name is not empty
+  if [[ -z "${project_name}" ]]; then
+    printf "ERROR: a project name must be given.\n"
+    exit 1
+  fi
+
+  local token
+  token="$(pass "/cbi-pass/bots/${project_name}/npmjs.com/token")"
+
+  _create_string_credentials "${project_name}" "npmjs-token" "npmjs.com token" "${token}"
 }
 
 _default_usage() {
