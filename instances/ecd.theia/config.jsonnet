@@ -5,6 +5,7 @@
   },
   jenkins+: {
     plugins+: [
+      "embeddable-build-status",
       "mail-watcher-plugin",
       "pipeline-utility-steps",
     ],
