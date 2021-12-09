@@ -391,7 +391,9 @@
             "principal": "ecd.emfcloud"
          }
       ],
-      "plugins": [ ],
+      "plugins": [
+         "github-checks"
+      ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",
