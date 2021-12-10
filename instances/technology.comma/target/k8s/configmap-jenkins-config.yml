@@ -527,6 +527,8 @@ data:
         installations:
           - name: "apache-maven-latest"
             home: "/opt/tools/apache-maven/latest"
+          - name: "apache-maven-3.8.4"
+            home: "/opt/tools/apache-maven/3.8.4"
           - name: "apache-maven-3.8.3"
             home: "/opt/tools/apache-maven/3.8.3"
           - name: "apache-maven-3.8.2"
