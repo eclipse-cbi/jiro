@@ -384,9 +384,7 @@
                "View/Configure",
                "View/Create",
                "View/Delete",
-               "View/Read",
-               "Gerrit/ManualTrigger",
-               "Gerrit/Retrigger"
+               "View/Read"
             ],
             "principal": "ee4j.openmq"
          }
@@ -432,7 +430,6 @@
          "extended-read-permission",
          "external-monitor-job",
          "extra-columns",
-         "gerrit-trigger",
          "ghprb",
          "git",
          "git-parameter",
@@ -628,10 +625,6 @@
                "pull"
             ]
          }
-      },
-      "gerrit-trigger-plugin": {
-         "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-         "username": "genie.openmq"
       }
    }
 }
