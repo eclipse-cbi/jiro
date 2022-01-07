@@ -85,7 +85,11 @@ jenkins:
       - envVars:
           env:
           - key: "PATH"
-            value: '/opt/IBM/xlC/13.1.3/bin:/opt/freeware/bin:$PATH'
+            value: '/opt/cmake-3.17.1/bin:/opt/IBM/xlC/13.1.3/bin:/opt/freeware/bin:$PATH'
+      - toolLocation:
+          locations:
+          - home: '/opt/freeware/bin/git'
+            key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
   - permanent:
       name: "p8-java1-ibm02"
       nodeDescription: "AIX v7.1 PPC64 from OSU"
@@ -101,7 +105,11 @@ jenkins:
       - envVars:
           env:
           - key: "PATH"
-            value: '/opt/IBM/xlC/13.1.3/bin:/opt/freeware/bin:$PATH'
+            value: '/opt/cmake-3.17.1/bin:/opt/IBM/xlC/13.1.3/bin:/opt/freeware/bin:$PATH'
+      - toolLocation:
+          locations:
+          - home: '/opt/freeware/bin/git'
+            key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
   - permanent:
       name: "osx1013-unb-01"
       nodeDescription: "OSX x86"
