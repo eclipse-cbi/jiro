@@ -148,6 +148,14 @@ tool:
     installations:
       - name: "Default"
         home: "git"
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
 jenkins:
   nodes:
     - permanent:
@@ -451,6 +459,36 @@ jenkins:
               internalDir: "remoting"
     - permanent:
         name: "h6jkd-win2019-x64"
+        nodeDescription: "Windows Server 2019, hosted on Azure"
+        labelString: "sw.os.windows hw.arch.x86 ci.role.test"
+        remoteFS: "c:/Users/jenkins"
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          jnlp:
+            webSocket: true
+            workDirSettings:
+              disabled: false
+              failIfWorkDirIsMissing: false
+              internalDir: "remoting"
+    - permanent:
+        name: "p1ba9-win2019-x64"
+        nodeDescription: "Windows Server 2019, hosted on Azure"
+        labelString: "sw.os.windows hw.arch.x86 ci.role.test"
+        remoteFS: "c:/Users/jenkins"
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          jnlp:
+            webSocket: true
+            workDirSettings:
+              disabled: false
+              failIfWorkDirIsMissing: false
+              internalDir: "remoting"
+    - permanent:
+        name: "wmk6e-win2019-x64"
         nodeDescription: "Windows Server 2019, hosted on Azure"
         labelString: "sw.os.windows hw.arch.x86 ci.role.test"
         remoteFS: "c:/Users/jenkins"
