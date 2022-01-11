@@ -3,11 +3,11 @@
    "kind": "Role",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jacc",
-         "org.eclipse.cbi.jiro/project.shortname": "jacc"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.authorization",
+         "org.eclipse.cbi.jiro/project.shortname": "authorization"
       },
       "name": "jenkins-master-owner",
-      "namespace": "jacc"
+      "namespace": "authorization"
    },
    "rules": [
       {

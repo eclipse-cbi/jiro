@@ -21,7 +21,7 @@
 }
 
 .ui-refresh .page-header__brand-name:after {
-  content: 'Jakarta Authorizaion';
+  content: 'Jakarta Authorization';
   visibility: visible;
   font-size: 18px;
   line-height: 24px;

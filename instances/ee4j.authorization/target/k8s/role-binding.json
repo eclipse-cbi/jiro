@@ -3,22 +3,22 @@
    "kind": "RoleBinding",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jacc",
-         "org.eclipse.cbi.jiro/project.shortname": "jacc"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.authorization",
+         "org.eclipse.cbi.jiro/project.shortname": "authorization"
       },
-      "name": "jacc",
-      "namespace": "jacc"
+      "name": "authorization",
+      "namespace": "authorization"
    },
    "roleRef": {
       "kind": "Role",
       "name": "jenkins-master-owner",
-      "namespace": "jacc"
+      "namespace": "authorization"
    },
    "subjects": [
       {
          "kind": "ServiceAccount",
-         "name": "jacc",
-         "namespace": "jacc"
+         "name": "authorization",
+         "namespace": "authorization"
       }
    ]
 }

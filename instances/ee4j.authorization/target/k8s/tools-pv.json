@@ -6,10 +6,10 @@
          "kind": "PersistentVolume",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "ee4j.jacc",
-               "org.eclipse.cbi.jiro/project.shortname": "jacc"
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j.authorization",
+               "org.eclipse.cbi.jiro/project.shortname": "authorization"
             },
-            "name": "tools-jiro-jacc"
+            "name": "tools-jiro-authorization"
          },
          "spec": {
             "accessModes": [
@@ -19,8 +19,8 @@
                "storage": "20Gi"
             },
             "claimRef": {
-               "name": "tools-claim-jiro-jacc",
-               "namespace": "jacc"
+               "name": "tools-claim-jiro-authorization",
+               "namespace": "authorization"
             },
             "mountOptions": [
                "vers=4.2",
@@ -50,11 +50,11 @@
          "kind": "PersistentVolumeClaim",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "ee4j.jacc",
-               "org.eclipse.cbi.jiro/project.shortname": "jacc"
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j.authorization",
+               "org.eclipse.cbi.jiro/project.shortname": "authorization"
             },
-            "name": "tools-claim-jiro-jacc",
-            "namespace": "jacc"
+            "name": "tools-claim-jiro-authorization",
+            "namespace": "authorization"
          },
          "spec": {
             "accessModes": [

@@ -1,1 +1,1 @@
-document.title = "Jakarta Authorizaion - " + document.title;
+document.title = "Jakarta Authorization - " + document.title;

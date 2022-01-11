@@ -1,7 +1,7 @@
 {
   project+: {
-    fullName: "ee4j.jacc",
-    displayName: "Jakarta Authorizaion",
+    fullName: "ee4j.authorization",
+    displayName: "Jakarta Authorization",
   },
   jenkins+: {
     plugins+: [

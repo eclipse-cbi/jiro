@@ -2,18 +2,18 @@
    "accessControl": {
       "primaryGroup": {
          "id": -1,
-         "name": "ee4j.jacc"
+         "name": "ee4j.authorization"
       },
       "supplementalGroups": [ ],
       "user": {
          "id": -1,
-         "name": "genie.jacc"
+         "name": "genie.authorization"
       }
    },
    "clouds": {
       "kubernetes": {
          "kind": "kubernetes",
-         "namespace": "jacc",
+         "namespace": "authorization",
          "podRetention": "never",
          "templates": {
             "basic": {
@@ -315,14 +315,14 @@
       "controlPort": 8081,
       "host": "ci.eclipse.org",
       "jnlpPort": 50000,
-      "prefix": "/jacc",
+      "prefix": "/authorization",
       "uiPort": 8080,
-      "url": "https://ci.eclipse.org/jacc"
+      "url": "https://ci.eclipse.org/authorization"
    },
    "docker": {
       "master": {
          "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.303.3\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
-         "image": "ee4j.jacc",
+         "image": "ee4j.authorization",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
          "tag": "2.303.3"
@@ -388,7 +388,7 @@
                "Gerrit/ManualTrigger",
                "Gerrit/Retrigger"
             ],
-            "principal": "ee4j.jacc"
+            "principal": "ee4j.authorization"
          }
       ],
       "plugins": [
@@ -492,10 +492,10 @@
                "request": "4096Mi"
             }
          },
-         "namespace": "jacc"
+         "namespace": "authorization"
       },
       "master": {
-         "namespace": "jacc",
+         "namespace": "authorization",
          "probe": {
             "liveness": {
                "delaySeconds": 480,
@@ -520,14 +520,14 @@
                "request": "1536Mi"
             }
          },
-         "stsName": "jacc"
+         "stsName": "authorization"
       }
    },
    "maven": {
       "files": {
          "settings-security.xml": {
             "master": {
-               "pass": "bots/ee4j.jacc/apache-maven-security-settings"
+               "pass": "bots/ee4j.authorization/apache-maven-security-settings"
             }
          },
          "settings.xml": {
@@ -542,16 +542,16 @@
             "servers": {
                "gpg.passphrase": {
                   "passphrase": {
-                     "pass": "bots/ee4j.jacc/gpg/passphrase"
+                     "pass": "bots/ee4j.authorization/gpg/passphrase"
                   }
                },
                "ossrh": {
                   "nexusProUrl": "https://jakarta.oss.sonatype.org",
                   "password": {
-                     "pass": "bots/ee4j.jacc/oss.sonatype.org/password"
+                     "pass": "bots/ee4j.authorization/oss.sonatype.org/password"
                   },
                   "username": {
-                     "pass": "bots/ee4j.jacc/oss.sonatype.org/username"
+                     "pass": "bots/ee4j.authorization/oss.sonatype.org/username"
                   }
                },
                "repo.eclipse.org": {
@@ -572,11 +572,11 @@
       "transferListenerLogLevel": "warn"
    },
    "project": {
-      "displayName": "Jakarta Authorizaion",
-      "fullName": "ee4j.jacc",
+      "displayName": "Jakarta Authorization",
+      "fullName": "ee4j.authorization",
       "resourcePacks": 1,
-      "shortName": "jacc",
-      "unixGroupName": "ee4j.jacc"
+      "shortName": "authorization",
+      "unixGroupName": "ee4j.authorization"
    },
    "sbt": {
       "files": {
@@ -595,8 +595,25 @@
    },
    "secrets": {
       "dockerconfigjson": {
+         "dockerconfigjson-for-pull-as-authorization": {
+            "namespace": "authorization",
+            "servers": {
+               "https://index.docker.io/v1/": {
+                  "password": {
+                     "pass": "docker.com/default-image-puller/okd-c1/password"
+                  },
+                  "username": {
+                     "pass": "docker.com/default-image-puller/okd-c1/username"
+                  }
+               }
+            },
+            "serviceAccount": "authorization",
+            "type": [
+               "pull"
+            ]
+         },
          "dockerconfigjson-for-pull-as-default": {
-            "namespace": "jacc",
+            "namespace": "authorization",
             "servers": {
                "https://index.docker.io/v1/": {
                   "password": {
@@ -611,28 +628,11 @@
             "type": [
                "pull"
             ]
-         },
-         "dockerconfigjson-for-pull-as-jacc": {
-            "namespace": "jacc",
-            "servers": {
-               "https://index.docker.io/v1/": {
-                  "password": {
-                     "pass": "docker.com/default-image-puller/okd-c1/password"
-                  },
-                  "username": {
-                     "pass": "docker.com/default-image-puller/okd-c1/username"
-                  }
-               }
-            },
-            "serviceAccount": "jacc",
-            "type": [
-               "pull"
-            ]
          }
       },
       "gerrit-trigger-plugin": {
          "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-         "username": "genie.jacc"
+         "username": "genie.authorization"
       }
    }
 }
