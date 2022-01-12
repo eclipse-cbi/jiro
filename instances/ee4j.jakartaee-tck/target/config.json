@@ -394,6 +394,7 @@
       "plugins": [
          "jacoco",
          "blueocean",
+         "bootstraped-multi-test-results-report",
          "copyartifact",
          "description-setter",
          "envinject",

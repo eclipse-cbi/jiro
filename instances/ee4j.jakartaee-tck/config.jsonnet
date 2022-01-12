@@ -10,6 +10,7 @@
     theme: "quicksilver-light",
     plugins+: [
       "blueocean",
+      "bootstraped-multi-test-results-report",
       "copyartifact",
       "description-setter",
       "envinject",
