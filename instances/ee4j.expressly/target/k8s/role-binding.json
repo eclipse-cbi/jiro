@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.expressly",
+         "org.eclipse.cbi.jiro/project.shortname": "expressly"
+      },
+      "name": "expressly",
+      "namespace": "expressly"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "expressly"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "expressly",
+         "namespace": "expressly"
+      }
+   ]
+}
