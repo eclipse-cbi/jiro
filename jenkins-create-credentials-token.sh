@@ -23,6 +23,7 @@ _create_domain_xml() {
     "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "create-credentials-domain-by-xml" "system::system::jenkins" <<EOF
 <com.cloudbees.plugins.credentials.domains.Domain>
   <name>${domain_name}</name>
+  <specifications/>
 </com.cloudbees.plugins.credentials.domains.Domain>
 EOF
 }
@@ -97,6 +98,7 @@ _create_string_credentials() {
 help() {
   printf "Available commands:\n"
   printf "Command\t\t\tDescription\n\n"
+  printf "auto\t\t\tTest which token credentials exist and create them (except for sonarcloud).\n"
   printf "default\t\t\tCreate any kind of credentials (secret text/token).\n"
   printf "github\t\t\tCreate github.com token credentials (secret text/token).\n"
   printf "gitlab\t\t\tCreate gitlab.eclipse.org token credentials (secret text/token).\n"
@@ -105,9 +107,8 @@ help() {
   exit 0
 }
 
-sonarcloud() {
+auto() {
   local project_name="${1:-}"
-  local suffix="${2:-}" # optional
 
   # check that project name is not empty
   if [[ -z "${project_name}" ]]; then
@@ -115,11 +116,26 @@ sonarcloud() {
     exit 1
   fi
 
-  local short_name="${project_name##*.}"
-  local token
-  token="$(pass "/cbi-pass/bots/${project_name}/sonarcloud.io/token")"
+  echo "Checking for github.com API token..."
+  if pass "/cbi-pass/bots/${project_name}/github.com/api-token" 2&> /dev/null; then
+    github "${project_name}"
+  else
+    echo "  No API token found."
+  fi
+  echo "Checking for gitlab.eclipse.org API token..."
+  if pass "/cbi-pass/bots/${project_name}/gitlab.eclipse.org/token" 2&> /dev/null; then
+    gitlab "${project_name}"
+  else
+    echo "  No API token found."
+  fi
+  echo "Checking for npmjs.com API token..."
+  if pass "/cbi-pass/bots/${project_name}/npmjs.com/token" 2&> /dev/null; then
+    npmjs "${project_name}"
+  else
+    echo "  No API token found."
+  fi
 
-  _create_string_credentials "${project_name}" "sonarcloud-token${suffix}" "SonarCloud token for ${short_name}${suffix}" "${token}"
+  #sonarcloud is excluded for now due to possible suffixes
 }
 
 github() {
@@ -150,6 +166,23 @@ gitlab() {
   token="$(pass "/cbi-pass/bots/${project_name}/gitlab.eclipse.org/token")"
 
   _create_string_credentials "${project_name}" "gitlab-api-token" "GitLab token for ${project_name}" "${token}" "gitlab.eclipse.org"
+}
+
+sonarcloud() {
+  local project_name="${1:-}"
+  local suffix="${2:-}" # optional
+
+  # check that project name is not empty
+  if [[ -z "${project_name}" ]]; then
+    printf "ERROR: a project name must be given.\n"
+    exit 1
+  fi
+
+  local short_name="${project_name##*.}"
+  local token
+  token="$(pass "/cbi-pass/bots/${project_name}/sonarcloud.io/token")"
+
+  _create_string_credentials "${project_name}" "sonarcloud-token${suffix}" "SonarCloud token for ${short_name}${suffix}" "${token}"
 }
 
 npmjs() {
