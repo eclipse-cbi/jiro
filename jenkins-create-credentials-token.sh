@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
+#*******************************************************************************
+# Copyright (c) 2020 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
 
-# This script creates string credentials in the Jenkins credentials store
+# This script creates string credentials (token) in the Jenkins credentials store
 
 # TODO: update credentials
 
@@ -181,6 +189,10 @@ sonarcloud() {
   local short_name="${project_name##*.}"
   local token
   token="$(pass "/cbi-pass/bots/${project_name}/sonarcloud.io/token")"
+
+  if [[ -n "${suffix}" ]]; then
+    suffix="-${suffix}"
+  fi
 
   _create_string_credentials "${project_name}" "sonarcloud-token${suffix}" "SonarCloud token for ${short_name}${suffix}" "${token}"
 }
