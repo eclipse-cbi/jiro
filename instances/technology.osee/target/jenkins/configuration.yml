@@ -7,7 +7,7 @@ tool:
           - installSource:
               installers:
                 - nodeJSInstaller:
-                    id: "15.13.0"
+                    id: "16.10.0"
                     npmPackagesRefreshHours: 72
   jdk:
     installations:
