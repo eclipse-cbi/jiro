@@ -1,4 +1,12 @@
 # GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
 jenkins:
   nodes:
     - permanent:
@@ -39,38 +47,6 @@ jenkins:
         launcher:
           command:
             command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.53 \"wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar\""
-    - permanent:
-        name: "omr-aix71p8-1"
-        nodeDescription: "omr-aix71p8-1 AIX PPC64"
-        labelString: "aix ppc compile:aix"
-        remoteFS: '/home/jenkins/'
-        numExecutors: 1
-        mode: EXCLUSIVE
-        retentionStrategy: "always"
-        launcher:
-          command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix jenkins@129.40.40.107 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
-        nodeProperties:
-          - envVars:
-              env:
-                - key: "PATH"
-                  value: '/home/jenkins/tools/bin:/opt/IBM/xlC/13.1.3/bin:/opt/freeware/bin:$PATH'
-    - permanent:
-        name: "omr-aix71p8-2"
-        nodeDescription: "omr-aix71p8-2 AIX PPC64"
-        labelString: "aix ppc compile:aix"
-        remoteFS: '/home/jenkins/'
-        numExecutors: 1
-        mode: EXCLUSIVE
-        retentionStrategy: "always"
-        launcher:
-          command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix jenkins@129.40.40.108 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
-        nodeProperties:
-          - envVars:
-              env:
-                - key: "PATH"
-                  value: '/opt/IBM/xlC/13.1.3/bin:/opt/freeware/bin:/home/jenkins/tools/bin:$PATH'
     - permanent:
         name: "p8-java1-ibm01"
         nodeDescription: "AIX v7.1 PPC64 from OSU"
