@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ecd.cdt.cloud",
+         "org.eclipse.cbi.jiro/project.shortname": "cloud"
+      },
+      "name": "cloud",
+      "namespace": "cloud"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "cloud"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "cloud",
+         "namespace": "cloud"
+      }
+   ]
+}
