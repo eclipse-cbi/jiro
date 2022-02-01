@@ -22,6 +22,14 @@ metadata:
 data:
   jenkins.yaml: |
     # GENERATED FILE - DO NOT EDIT
+    #*******************************************************************************
+    # Copyright (c) 2018 Eclipse Foundation and others.
+    # This program and the accompanying materials are made available
+    # under the terms of the Eclipse Public License 2.0
+    # which is available at http://www.eclipse.org/legal/epl-v20.html,
+    # or the MIT License which is available at https://opensource.org/licenses/MIT.
+    # SPDX-License-Identifier: EPL-2.0 OR MIT
+    #*******************************************************************************
     jenkins:
       nodes:
         - permanent:
@@ -64,6 +72,21 @@ data:
                   failIfWorkDirIsMissing: false
                   internalDir: "remoting"
         - permanent:
+            labelString: "linux aarch64"
+            name: "kf0gm-project-provided-aarch64"
+            nodeDescription: "Agent provided by the project"
+            remoteFS: "/home/justj/build"
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              jnlp:
+                webSocket: true
+                workDirSettings:
+                  disabled: false
+                  failIfWorkDirIsMissing: false
+                  internalDir: "remoting"
+        - permanent:
             labelString: "macos macos-11 arm64"
             launcher:
               ssh:
@@ -93,6 +116,8 @@ data:
             - "Job/Read:anonymous"
             - "Overall/Read:anonymous"
             - "Job/ExtendedRead:common"
+            - "Agent/Connect:ed.merks@gmail.com"
+            - "Agent/Disconnect:ed.merks@gmail.com"
             - "Agent/Build:technology.justj"
             - "Credentials/View:technology.justj"
             - "Gerrit/ManualTrigger:technology.justj"

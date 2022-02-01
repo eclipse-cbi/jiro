@@ -389,6 +389,32 @@
                "Gerrit/Retrigger"
             ],
             "principal": "technology.justj"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Connect",
+               "Agent/Disconnect"
+            ],
+            "principal": "ed.merks@gmail.com"
          }
       ],
       "plugins": [
