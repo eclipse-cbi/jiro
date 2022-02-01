@@ -1,3 +1,4 @@
+local permissionsTemplates = import '../../templates/permissions.libsonnet';
 {
   project+: {
     fullName: "modeling.tmf.xtext",
@@ -5,6 +6,8 @@
     resourcePacks: 2,
   },
   jenkins+: {
+    // workaround to avoid errors, when the Gerrit plugin is disabled
+    permissions: permissionsTemplates.projectPermissions($.project.unixGroupName, permissionsTemplates.committerPermissionsList),
     staticAgentCount: 2,
     plugins+: [
       "copyartifact",
@@ -23,7 +26,7 @@
     generate: true,
   },
   clouds+: {
-    kubernetes+: { 
+    kubernetes+: {
       local currentCloud = self,
       templates+: {
         "centos-7-6gb": currentCloud.templates["centos-7"] {
