@@ -148,14 +148,6 @@ tool:
     installations:
       - name: "Default"
         home: "git"
-#*******************************************************************************
-# Copyright (c) 2018 Eclipse Foundation and others.
-# This program and the accompanying materials are made available
-# under the terms of the Eclipse Public License 2.0
-# which is available at http://www.eclipse.org/legal/epl-v20.html,
-# or the MIT License which is available at https://opensource.org/licenses/MIT.
-# SPDX-License-Identifier: EPL-2.0 OR MIT
-#*******************************************************************************
 jenkins:
   nodes:
     - permanent:
@@ -688,29 +680,29 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Agent/Build:adoptium.temurin-compliance"
-        - "Agent/Connect:adoptium.temurin-compliance"
-        - "Agent/Disconnect:adoptium.temurin-compliance"
-        - "Agent/ExtendedRead:adoptium.temurin-compliance"
-        - "Credentials/View:adoptium.temurin-compliance"
-        - "Job/Build:adoptium.temurin-compliance"
-        - "Job/Cancel:adoptium.temurin-compliance"
-        - "Job/Configure:adoptium.temurin-compliance"
-        - "Job/Create:adoptium.temurin-compliance"
-        - "Job/Delete:adoptium.temurin-compliance"
-        - "Job/Move:adoptium.temurin-compliance"
-        - "Job/Read:adoptium.temurin-compliance"
-        - "Job/Workspace:adoptium.temurin-compliance"
-        - "Overall/Read:adoptium.temurin-compliance"
-        - "Run/Delete:adoptium.temurin-compliance"
-        - "Run/Replay:adoptium.temurin-compliance"
-        - "Run/Update:adoptium.temurin-compliance"
-        - "SCM/Tag:adoptium.temurin-compliance"
-        - "View/Configure:adoptium.temurin-compliance"
-        - "View/Create:adoptium.temurin-compliance"
-        - "View/Delete:adoptium.temurin-compliance"
-        - "View/Read:adoptium.temurin-compliance"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Agent/Build:adoptium.temurin-compliance"
+        - "GROUP:Agent/Connect:adoptium.temurin-compliance"
+        - "GROUP:Agent/Disconnect:adoptium.temurin-compliance"
+        - "GROUP:Agent/ExtendedRead:adoptium.temurin-compliance"
+        - "GROUP:Credentials/View:adoptium.temurin-compliance"
+        - "GROUP:Job/Build:adoptium.temurin-compliance"
+        - "GROUP:Job/Cancel:adoptium.temurin-compliance"
+        - "GROUP:Job/Configure:adoptium.temurin-compliance"
+        - "GROUP:Job/Create:adoptium.temurin-compliance"
+        - "GROUP:Job/Delete:adoptium.temurin-compliance"
+        - "GROUP:Job/Move:adoptium.temurin-compliance"
+        - "GROUP:Job/Read:adoptium.temurin-compliance"
+        - "GROUP:Job/Workspace:adoptium.temurin-compliance"
+        - "GROUP:Overall/Read:adoptium.temurin-compliance"
+        - "GROUP:Run/Delete:adoptium.temurin-compliance"
+        - "GROUP:Run/Replay:adoptium.temurin-compliance"
+        - "GROUP:Run/Update:adoptium.temurin-compliance"
+        - "GROUP:SCM/Tag:adoptium.temurin-compliance"
+        - "GROUP:View/Configure:adoptium.temurin-compliance"
+        - "GROUP:View/Create:adoptium.temurin-compliance"
+        - "GROUP:View/Delete:adoptium.temurin-compliance"
+        - "GROUP:View/Read:adoptium.temurin-compliance"
   markupFormatter: rawHtml
   crumbIssuer:
     standard:
