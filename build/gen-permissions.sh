@@ -38,6 +38,6 @@ EOM
 for permObject in $(jq -c "${JQ_PROG} | .[]" "${json}"); do
   principal=$(jq -r .principal <<< "${permObject}")
   for perm in $(jq -r '.permissions[]' <<< "${permObject}"); do
-    echo "- \"${perm}:${principal}\""
+    echo "- \"GROUP:${perm}:${principal}\""
   done
 done
