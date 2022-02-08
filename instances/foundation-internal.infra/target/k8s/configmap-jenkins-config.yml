@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "foundation-internal.infra"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.303.3"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.version: "2.319.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "foundation-internal-infra"
   namespace: "foundation-internal-infra"
   name: jenkins-config
@@ -54,28 +54,28 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Agent/Build:foundation-internal.it"
-            - "Credentials/View:foundation-internal.it"
-            - "Job/Build:foundation-internal.it"
-            - "Job/Cancel:foundation-internal.it"
-            - "Job/Configure:foundation-internal.it"
-            - "Job/Create:foundation-internal.it"
-            - "Job/Delete:foundation-internal.it"
-            - "Job/Move:foundation-internal.it"
-            - "Job/Read:foundation-internal.it"
-            - "Job/Workspace:foundation-internal.it"
-            - "Overall/Read:foundation-internal.it"
-            - "Run/Delete:foundation-internal.it"
-            - "Run/Replay:foundation-internal.it"
-            - "Run/Update:foundation-internal.it"
-            - "SCM/Tag:foundation-internal.it"
-            - "View/Configure:foundation-internal.it"
-            - "View/Create:foundation-internal.it"
-            - "View/Delete:foundation-internal.it"
-            - "View/Read:foundation-internal.it"
-            - "Overall/Read:foundation-internal.webdev"
-            - "Overall/Read:wayne.beaton@eclipse-foundation.org"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Agent/Build:foundation-internal.it"
+            - "GROUP:Credentials/View:foundation-internal.it"
+            - "GROUP:Job/Build:foundation-internal.it"
+            - "GROUP:Job/Cancel:foundation-internal.it"
+            - "GROUP:Job/Configure:foundation-internal.it"
+            - "GROUP:Job/Create:foundation-internal.it"
+            - "GROUP:Job/Delete:foundation-internal.it"
+            - "GROUP:Job/Move:foundation-internal.it"
+            - "GROUP:Job/Read:foundation-internal.it"
+            - "GROUP:Job/Workspace:foundation-internal.it"
+            - "GROUP:Overall/Read:foundation-internal.it"
+            - "GROUP:Run/Delete:foundation-internal.it"
+            - "GROUP:Run/Replay:foundation-internal.it"
+            - "GROUP:Run/Update:foundation-internal.it"
+            - "GROUP:SCM/Tag:foundation-internal.it"
+            - "GROUP:View/Configure:foundation-internal.it"
+            - "GROUP:View/Create:foundation-internal.it"
+            - "GROUP:View/Delete:foundation-internal.it"
+            - "GROUP:View/Read:foundation-internal.it"
+            - "GROUP:Overall/Read:foundation-internal.webdev"
+            - "GROUP:Overall/Read:wayne.beaton@eclipse-foundation.org"
       markupFormatter: rawHtml
       crumbIssuer:
         standard:
@@ -102,7 +102,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -188,7 +188,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -274,7 +274,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0

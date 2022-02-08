@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:iot.keyple"
-        - "Credentials/View:iot.keyple"
-        - "Gerrit/ManualTrigger:iot.keyple"
-        - "Gerrit/Retrigger:iot.keyple"
-        - "Job/Build:iot.keyple"
-        - "Job/Cancel:iot.keyple"
-        - "Job/Configure:iot.keyple"
-        - "Job/Create:iot.keyple"
-        - "Job/Delete:iot.keyple"
-        - "Job/Move:iot.keyple"
-        - "Job/Read:iot.keyple"
-        - "Job/Workspace:iot.keyple"
-        - "Overall/Read:iot.keyple"
-        - "Run/Delete:iot.keyple"
-        - "Run/Replay:iot.keyple"
-        - "Run/Update:iot.keyple"
-        - "SCM/Tag:iot.keyple"
-        - "View/Configure:iot.keyple"
-        - "View/Create:iot.keyple"
-        - "View/Delete:iot.keyple"
-        - "View/Read:iot.keyple"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:iot.keyple"
+        - "GROUP:Credentials/View:iot.keyple"
+        - "GROUP:Gerrit/ManualTrigger:iot.keyple"
+        - "GROUP:Gerrit/Retrigger:iot.keyple"
+        - "GROUP:Job/Build:iot.keyple"
+        - "GROUP:Job/Cancel:iot.keyple"
+        - "GROUP:Job/Configure:iot.keyple"
+        - "GROUP:Job/Create:iot.keyple"
+        - "GROUP:Job/Delete:iot.keyple"
+        - "GROUP:Job/Move:iot.keyple"
+        - "GROUP:Job/Read:iot.keyple"
+        - "GROUP:Job/Workspace:iot.keyple"
+        - "GROUP:Overall/Read:iot.keyple"
+        - "GROUP:Run/Delete:iot.keyple"
+        - "GROUP:Run/Replay:iot.keyple"
+        - "GROUP:Run/Update:iot.keyple"
+        - "GROUP:SCM/Tag:iot.keyple"
+        - "GROUP:View/Configure:iot.keyple"
+        - "GROUP:View/Create:iot.keyple"
+        - "GROUP:View/Delete:iot.keyple"
+        - "GROUP:View/Read:iot.keyple"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

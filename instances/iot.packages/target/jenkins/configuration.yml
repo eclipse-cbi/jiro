@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:iot.packages"
-        - "Credentials/View:iot.packages"
-        - "Gerrit/ManualTrigger:iot.packages"
-        - "Gerrit/Retrigger:iot.packages"
-        - "Job/Build:iot.packages"
-        - "Job/Cancel:iot.packages"
-        - "Job/Configure:iot.packages"
-        - "Job/Create:iot.packages"
-        - "Job/Delete:iot.packages"
-        - "Job/Move:iot.packages"
-        - "Job/Read:iot.packages"
-        - "Job/Workspace:iot.packages"
-        - "Overall/Read:iot.packages"
-        - "Run/Delete:iot.packages"
-        - "Run/Replay:iot.packages"
-        - "Run/Update:iot.packages"
-        - "SCM/Tag:iot.packages"
-        - "View/Configure:iot.packages"
-        - "View/Create:iot.packages"
-        - "View/Delete:iot.packages"
-        - "View/Read:iot.packages"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:iot.packages"
+        - "GROUP:Credentials/View:iot.packages"
+        - "GROUP:Gerrit/ManualTrigger:iot.packages"
+        - "GROUP:Gerrit/Retrigger:iot.packages"
+        - "GROUP:Job/Build:iot.packages"
+        - "GROUP:Job/Cancel:iot.packages"
+        - "GROUP:Job/Configure:iot.packages"
+        - "GROUP:Job/Create:iot.packages"
+        - "GROUP:Job/Delete:iot.packages"
+        - "GROUP:Job/Move:iot.packages"
+        - "GROUP:Job/Read:iot.packages"
+        - "GROUP:Job/Workspace:iot.packages"
+        - "GROUP:Overall/Read:iot.packages"
+        - "GROUP:Run/Delete:iot.packages"
+        - "GROUP:Run/Replay:iot.packages"
+        - "GROUP:Run/Update:iot.packages"
+        - "GROUP:SCM/Tag:iot.packages"
+        - "GROUP:View/Configure:iot.packages"
+        - "GROUP:View/Create:iot.packages"
+        - "GROUP:View/Delete:iot.packages"
+        - "GROUP:View/Read:iot.packages"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:iot.californium"
-        - "Credentials/View:iot.californium"
-        - "Gerrit/ManualTrigger:iot.californium"
-        - "Gerrit/Retrigger:iot.californium"
-        - "Job/Build:iot.californium"
-        - "Job/Cancel:iot.californium"
-        - "Job/Configure:iot.californium"
-        - "Job/Create:iot.californium"
-        - "Job/Delete:iot.californium"
-        - "Job/Move:iot.californium"
-        - "Job/Read:iot.californium"
-        - "Job/Workspace:iot.californium"
-        - "Overall/Read:iot.californium"
-        - "Run/Delete:iot.californium"
-        - "Run/Replay:iot.californium"
-        - "Run/Update:iot.californium"
-        - "SCM/Tag:iot.californium"
-        - "View/Configure:iot.californium"
-        - "View/Create:iot.californium"
-        - "View/Delete:iot.californium"
-        - "View/Read:iot.californium"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:iot.californium"
+        - "GROUP:Credentials/View:iot.californium"
+        - "GROUP:Gerrit/ManualTrigger:iot.californium"
+        - "GROUP:Gerrit/Retrigger:iot.californium"
+        - "GROUP:Job/Build:iot.californium"
+        - "GROUP:Job/Cancel:iot.californium"
+        - "GROUP:Job/Configure:iot.californium"
+        - "GROUP:Job/Create:iot.californium"
+        - "GROUP:Job/Delete:iot.californium"
+        - "GROUP:Job/Move:iot.californium"
+        - "GROUP:Job/Read:iot.californium"
+        - "GROUP:Job/Workspace:iot.californium"
+        - "GROUP:Overall/Read:iot.californium"
+        - "GROUP:Run/Delete:iot.californium"
+        - "GROUP:Run/Replay:iot.californium"
+        - "GROUP:Run/Update:iot.californium"
+        - "GROUP:SCM/Tag:iot.californium"
+        - "GROUP:View/Configure:iot.californium"
+        - "GROUP:View/Create:iot.californium"
+        - "GROUP:View/Delete:iot.californium"
+        - "GROUP:View/Read:iot.californium"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

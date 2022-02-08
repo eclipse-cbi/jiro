@@ -152,31 +152,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:soa.winery"
-        - "Credentials/View:soa.winery"
-        - "Gerrit/ManualTrigger:soa.winery"
-        - "Gerrit/Retrigger:soa.winery"
-        - "Job/Build:soa.winery"
-        - "Job/Cancel:soa.winery"
-        - "Job/Configure:soa.winery"
-        - "Job/Create:soa.winery"
-        - "Job/Delete:soa.winery"
-        - "Job/Move:soa.winery"
-        - "Job/Read:soa.winery"
-        - "Job/Workspace:soa.winery"
-        - "Overall/Read:soa.winery"
-        - "Run/Delete:soa.winery"
-        - "Run/Replay:soa.winery"
-        - "Run/Update:soa.winery"
-        - "SCM/Tag:soa.winery"
-        - "View/Configure:soa.winery"
-        - "View/Create:soa.winery"
-        - "View/Delete:soa.winery"
-        - "View/Read:soa.winery"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:soa.winery"
+        - "GROUP:Credentials/View:soa.winery"
+        - "GROUP:Gerrit/ManualTrigger:soa.winery"
+        - "GROUP:Gerrit/Retrigger:soa.winery"
+        - "GROUP:Job/Build:soa.winery"
+        - "GROUP:Job/Cancel:soa.winery"
+        - "GROUP:Job/Configure:soa.winery"
+        - "GROUP:Job/Create:soa.winery"
+        - "GROUP:Job/Delete:soa.winery"
+        - "GROUP:Job/Move:soa.winery"
+        - "GROUP:Job/Read:soa.winery"
+        - "GROUP:Job/Workspace:soa.winery"
+        - "GROUP:Overall/Read:soa.winery"
+        - "GROUP:Run/Delete:soa.winery"
+        - "GROUP:Run/Replay:soa.winery"
+        - "GROUP:Run/Update:soa.winery"
+        - "GROUP:SCM/Tag:soa.winery"
+        - "GROUP:View/Configure:soa.winery"
+        - "GROUP:View/Create:soa.winery"
+        - "GROUP:View/Delete:soa.winery"
+        - "GROUP:View/Read:soa.winery"
   markupFormatter: rawHtml
   crumbIssuer:
     standard:
@@ -203,7 +203,7 @@ jenkins:
         podRetention: "never"
         templates:
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -289,7 +289,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -375,7 +375,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0

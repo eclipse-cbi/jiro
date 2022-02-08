@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:iot.oneofour"
-        - "Credentials/View:iot.oneofour"
-        - "Gerrit/ManualTrigger:iot.oneofour"
-        - "Gerrit/Retrigger:iot.oneofour"
-        - "Job/Build:iot.oneofour"
-        - "Job/Cancel:iot.oneofour"
-        - "Job/Configure:iot.oneofour"
-        - "Job/Create:iot.oneofour"
-        - "Job/Delete:iot.oneofour"
-        - "Job/Move:iot.oneofour"
-        - "Job/Read:iot.oneofour"
-        - "Job/Workspace:iot.oneofour"
-        - "Overall/Read:iot.oneofour"
-        - "Run/Delete:iot.oneofour"
-        - "Run/Replay:iot.oneofour"
-        - "Run/Update:iot.oneofour"
-        - "SCM/Tag:iot.oneofour"
-        - "View/Configure:iot.oneofour"
-        - "View/Create:iot.oneofour"
-        - "View/Delete:iot.oneofour"
-        - "View/Read:iot.oneofour"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:iot.oneofour"
+        - "GROUP:Credentials/View:iot.oneofour"
+        - "GROUP:Gerrit/ManualTrigger:iot.oneofour"
+        - "GROUP:Gerrit/Retrigger:iot.oneofour"
+        - "GROUP:Job/Build:iot.oneofour"
+        - "GROUP:Job/Cancel:iot.oneofour"
+        - "GROUP:Job/Configure:iot.oneofour"
+        - "GROUP:Job/Create:iot.oneofour"
+        - "GROUP:Job/Delete:iot.oneofour"
+        - "GROUP:Job/Move:iot.oneofour"
+        - "GROUP:Job/Read:iot.oneofour"
+        - "GROUP:Job/Workspace:iot.oneofour"
+        - "GROUP:Overall/Read:iot.oneofour"
+        - "GROUP:Run/Delete:iot.oneofour"
+        - "GROUP:Run/Replay:iot.oneofour"
+        - "GROUP:Run/Update:iot.oneofour"
+        - "GROUP:SCM/Tag:iot.oneofour"
+        - "GROUP:View/Configure:iot.oneofour"
+        - "GROUP:View/Create:iot.oneofour"
+        - "GROUP:View/Delete:iot.oneofour"
+        - "GROUP:View/Read:iot.oneofour"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

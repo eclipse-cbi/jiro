@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "embed-cdt"
   namespace: "embed-cdt"
   name: jenkins-config
@@ -23,7 +23,7 @@ data:
   jenkins.yaml: |
     # GENERATED FILE - DO NOT EDIT
     unclassified:
-      timestamperConfig:
+      timestamper:
         allPipelines: true
       location:
         adminAddress: ci-admin@eclipse.org
@@ -87,31 +87,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:iot.embed-cdt"
-            - "Credentials/View:iot.embed-cdt"
-            - "Gerrit/ManualTrigger:iot.embed-cdt"
-            - "Gerrit/Retrigger:iot.embed-cdt"
-            - "Job/Build:iot.embed-cdt"
-            - "Job/Cancel:iot.embed-cdt"
-            - "Job/Configure:iot.embed-cdt"
-            - "Job/Create:iot.embed-cdt"
-            - "Job/Delete:iot.embed-cdt"
-            - "Job/Move:iot.embed-cdt"
-            - "Job/Read:iot.embed-cdt"
-            - "Job/Workspace:iot.embed-cdt"
-            - "Overall/Read:iot.embed-cdt"
-            - "Run/Delete:iot.embed-cdt"
-            - "Run/Replay:iot.embed-cdt"
-            - "Run/Update:iot.embed-cdt"
-            - "SCM/Tag:iot.embed-cdt"
-            - "View/Configure:iot.embed-cdt"
-            - "View/Create:iot.embed-cdt"
-            - "View/Delete:iot.embed-cdt"
-            - "View/Read:iot.embed-cdt"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:iot.embed-cdt"
+            - "GROUP:Credentials/View:iot.embed-cdt"
+            - "GROUP:Gerrit/ManualTrigger:iot.embed-cdt"
+            - "GROUP:Gerrit/Retrigger:iot.embed-cdt"
+            - "GROUP:Job/Build:iot.embed-cdt"
+            - "GROUP:Job/Cancel:iot.embed-cdt"
+            - "GROUP:Job/Configure:iot.embed-cdt"
+            - "GROUP:Job/Create:iot.embed-cdt"
+            - "GROUP:Job/Delete:iot.embed-cdt"
+            - "GROUP:Job/Move:iot.embed-cdt"
+            - "GROUP:Job/Read:iot.embed-cdt"
+            - "GROUP:Job/Workspace:iot.embed-cdt"
+            - "GROUP:Overall/Read:iot.embed-cdt"
+            - "GROUP:Run/Delete:iot.embed-cdt"
+            - "GROUP:Run/Replay:iot.embed-cdt"
+            - "GROUP:Run/Update:iot.embed-cdt"
+            - "GROUP:SCM/Tag:iot.embed-cdt"
+            - "GROUP:View/Configure:iot.embed-cdt"
+            - "GROUP:View/Create:iot.embed-cdt"
+            - "GROUP:View/Delete:iot.embed-cdt"
+            - "GROUP:View/Read:iot.embed-cdt"
       markupFormatter: rawHtml
       crumbIssuer:
         standard:
@@ -138,7 +138,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -224,7 +224,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -310,7 +310,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0

@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "glassfish"
   namespace: "glassfish"
   name: jenkins-config
@@ -44,29 +44,29 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:ee4j.glassfish"
-            - "Credentials/View:ee4j.glassfish"
-            - "Job/Build:ee4j.glassfish"
-            - "Job/Cancel:ee4j.glassfish"
-            - "Job/Configure:ee4j.glassfish"
-            - "Job/Create:ee4j.glassfish"
-            - "Job/Delete:ee4j.glassfish"
-            - "Job/Move:ee4j.glassfish"
-            - "Job/Read:ee4j.glassfish"
-            - "Job/Workspace:ee4j.glassfish"
-            - "Overall/Read:ee4j.glassfish"
-            - "Run/Delete:ee4j.glassfish"
-            - "Run/Replay:ee4j.glassfish"
-            - "Run/Update:ee4j.glassfish"
-            - "SCM/Tag:ee4j.glassfish"
-            - "View/Configure:ee4j.glassfish"
-            - "View/Create:ee4j.glassfish"
-            - "View/Delete:ee4j.glassfish"
-            - "View/Read:ee4j.glassfish"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:ee4j.glassfish"
+            - "GROUP:Credentials/View:ee4j.glassfish"
+            - "GROUP:Job/Build:ee4j.glassfish"
+            - "GROUP:Job/Cancel:ee4j.glassfish"
+            - "GROUP:Job/Configure:ee4j.glassfish"
+            - "GROUP:Job/Create:ee4j.glassfish"
+            - "GROUP:Job/Delete:ee4j.glassfish"
+            - "GROUP:Job/Move:ee4j.glassfish"
+            - "GROUP:Job/Read:ee4j.glassfish"
+            - "GROUP:Job/Workspace:ee4j.glassfish"
+            - "GROUP:Overall/Read:ee4j.glassfish"
+            - "GROUP:Run/Delete:ee4j.glassfish"
+            - "GROUP:Run/Replay:ee4j.glassfish"
+            - "GROUP:Run/Update:ee4j.glassfish"
+            - "GROUP:SCM/Tag:ee4j.glassfish"
+            - "GROUP:View/Configure:ee4j.glassfish"
+            - "GROUP:View/Create:ee4j.glassfish"
+            - "GROUP:View/Delete:ee4j.glassfish"
+            - "GROUP:View/Read:ee4j.glassfish"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -96,7 +96,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -182,7 +182,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -268,7 +268,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

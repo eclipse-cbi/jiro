@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "gemini"
   namespace: "gemini"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:rt.gemini"
-            - "Credentials/View:rt.gemini"
-            - "Gerrit/ManualTrigger:rt.gemini"
-            - "Gerrit/Retrigger:rt.gemini"
-            - "Job/Build:rt.gemini"
-            - "Job/Cancel:rt.gemini"
-            - "Job/Configure:rt.gemini"
-            - "Job/Create:rt.gemini"
-            - "Job/Delete:rt.gemini"
-            - "Job/Move:rt.gemini"
-            - "Job/Read:rt.gemini"
-            - "Job/Workspace:rt.gemini"
-            - "Overall/Read:rt.gemini"
-            - "Run/Delete:rt.gemini"
-            - "Run/Replay:rt.gemini"
-            - "Run/Update:rt.gemini"
-            - "SCM/Tag:rt.gemini"
-            - "View/Configure:rt.gemini"
-            - "View/Create:rt.gemini"
-            - "View/Delete:rt.gemini"
-            - "View/Read:rt.gemini"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:rt.gemini"
+            - "GROUP:Credentials/View:rt.gemini"
+            - "GROUP:Gerrit/ManualTrigger:rt.gemini"
+            - "GROUP:Gerrit/Retrigger:rt.gemini"
+            - "GROUP:Job/Build:rt.gemini"
+            - "GROUP:Job/Cancel:rt.gemini"
+            - "GROUP:Job/Configure:rt.gemini"
+            - "GROUP:Job/Create:rt.gemini"
+            - "GROUP:Job/Delete:rt.gemini"
+            - "GROUP:Job/Move:rt.gemini"
+            - "GROUP:Job/Read:rt.gemini"
+            - "GROUP:Job/Workspace:rt.gemini"
+            - "GROUP:Overall/Read:rt.gemini"
+            - "GROUP:Run/Delete:rt.gemini"
+            - "GROUP:Run/Replay:rt.gemini"
+            - "GROUP:Run/Update:rt.gemini"
+            - "GROUP:SCM/Tag:rt.gemini"
+            - "GROUP:View/Configure:rt.gemini"
+            - "GROUP:View/Create:rt.gemini"
+            - "GROUP:View/Delete:rt.gemini"
+            - "GROUP:View/Read:rt.gemini"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

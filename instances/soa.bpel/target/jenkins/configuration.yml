@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:soa.bpel"
-        - "Credentials/View:soa.bpel"
-        - "Gerrit/ManualTrigger:soa.bpel"
-        - "Gerrit/Retrigger:soa.bpel"
-        - "Job/Build:soa.bpel"
-        - "Job/Cancel:soa.bpel"
-        - "Job/Configure:soa.bpel"
-        - "Job/Create:soa.bpel"
-        - "Job/Delete:soa.bpel"
-        - "Job/Move:soa.bpel"
-        - "Job/Read:soa.bpel"
-        - "Job/Workspace:soa.bpel"
-        - "Overall/Read:soa.bpel"
-        - "Run/Delete:soa.bpel"
-        - "Run/Replay:soa.bpel"
-        - "Run/Update:soa.bpel"
-        - "SCM/Tag:soa.bpel"
-        - "View/Configure:soa.bpel"
-        - "View/Create:soa.bpel"
-        - "View/Delete:soa.bpel"
-        - "View/Read:soa.bpel"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:soa.bpel"
+        - "GROUP:Credentials/View:soa.bpel"
+        - "GROUP:Gerrit/ManualTrigger:soa.bpel"
+        - "GROUP:Gerrit/Retrigger:soa.bpel"
+        - "GROUP:Job/Build:soa.bpel"
+        - "GROUP:Job/Cancel:soa.bpel"
+        - "GROUP:Job/Configure:soa.bpel"
+        - "GROUP:Job/Create:soa.bpel"
+        - "GROUP:Job/Delete:soa.bpel"
+        - "GROUP:Job/Move:soa.bpel"
+        - "GROUP:Job/Read:soa.bpel"
+        - "GROUP:Job/Workspace:soa.bpel"
+        - "GROUP:Overall/Read:soa.bpel"
+        - "GROUP:Run/Delete:soa.bpel"
+        - "GROUP:Run/Replay:soa.bpel"
+        - "GROUP:Run/Update:soa.bpel"
+        - "GROUP:SCM/Tag:soa.bpel"
+        - "GROUP:View/Configure:soa.bpel"
+        - "GROUP:View/Create:soa.bpel"
+        - "GROUP:View/Delete:soa.bpel"
+        - "GROUP:View/Read:soa.bpel"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "simrel"
   namespace: "simrel"
   name: jenkins-config
@@ -83,31 +83,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Agent/Build:callisto-dev"
-            - "Credentials/View:callisto-dev"
-            - "Gerrit/ManualTrigger:callisto-dev"
-            - "Gerrit/Retrigger:callisto-dev"
-            - "Job/Build:callisto-dev"
-            - "Job/Cancel:callisto-dev"
-            - "Job/Configure:callisto-dev"
-            - "Job/Create:callisto-dev"
-            - "Job/Delete:callisto-dev"
-            - "Job/Move:callisto-dev"
-            - "Job/Read:callisto-dev"
-            - "Job/Workspace:callisto-dev"
-            - "Overall/Read:callisto-dev"
-            - "Run/Delete:callisto-dev"
-            - "Run/Replay:callisto-dev"
-            - "Run/Update:callisto-dev"
-            - "SCM/Tag:callisto-dev"
-            - "View/Configure:callisto-dev"
-            - "View/Create:callisto-dev"
-            - "View/Delete:callisto-dev"
-            - "View/Read:callisto-dev"
-            - "Job/ExtendedRead:common"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Agent/Build:callisto-dev"
+            - "GROUP:Credentials/View:callisto-dev"
+            - "GROUP:Gerrit/ManualTrigger:callisto-dev"
+            - "GROUP:Gerrit/Retrigger:callisto-dev"
+            - "GROUP:Job/Build:callisto-dev"
+            - "GROUP:Job/Cancel:callisto-dev"
+            - "GROUP:Job/Configure:callisto-dev"
+            - "GROUP:Job/Create:callisto-dev"
+            - "GROUP:Job/Delete:callisto-dev"
+            - "GROUP:Job/Move:callisto-dev"
+            - "GROUP:Job/Read:callisto-dev"
+            - "GROUP:Job/Workspace:callisto-dev"
+            - "GROUP:Overall/Read:callisto-dev"
+            - "GROUP:Run/Delete:callisto-dev"
+            - "GROUP:Run/Replay:callisto-dev"
+            - "GROUP:Run/Update:callisto-dev"
+            - "GROUP:SCM/Tag:callisto-dev"
+            - "GROUP:View/Configure:callisto-dev"
+            - "GROUP:View/Create:callisto-dev"
+            - "GROUP:View/Delete:callisto-dev"
+            - "GROUP:View/Read:callisto-dev"
+            - "GROUP:Job/ExtendedRead:common"
       markupFormatter: rawHtml
       crumbIssuer:
         standard:
@@ -134,7 +134,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -220,7 +220,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -306,7 +306,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0

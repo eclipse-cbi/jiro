@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:locationtech.spatial4j"
-        - "Credentials/View:locationtech.spatial4j"
-        - "Gerrit/ManualTrigger:locationtech.spatial4j"
-        - "Gerrit/Retrigger:locationtech.spatial4j"
-        - "Job/Build:locationtech.spatial4j"
-        - "Job/Cancel:locationtech.spatial4j"
-        - "Job/Configure:locationtech.spatial4j"
-        - "Job/Create:locationtech.spatial4j"
-        - "Job/Delete:locationtech.spatial4j"
-        - "Job/Move:locationtech.spatial4j"
-        - "Job/Read:locationtech.spatial4j"
-        - "Job/Workspace:locationtech.spatial4j"
-        - "Overall/Read:locationtech.spatial4j"
-        - "Run/Delete:locationtech.spatial4j"
-        - "Run/Replay:locationtech.spatial4j"
-        - "Run/Update:locationtech.spatial4j"
-        - "SCM/Tag:locationtech.spatial4j"
-        - "View/Configure:locationtech.spatial4j"
-        - "View/Create:locationtech.spatial4j"
-        - "View/Delete:locationtech.spatial4j"
-        - "View/Read:locationtech.spatial4j"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:locationtech.spatial4j"
+        - "GROUP:Credentials/View:locationtech.spatial4j"
+        - "GROUP:Gerrit/ManualTrigger:locationtech.spatial4j"
+        - "GROUP:Gerrit/Retrigger:locationtech.spatial4j"
+        - "GROUP:Job/Build:locationtech.spatial4j"
+        - "GROUP:Job/Cancel:locationtech.spatial4j"
+        - "GROUP:Job/Configure:locationtech.spatial4j"
+        - "GROUP:Job/Create:locationtech.spatial4j"
+        - "GROUP:Job/Delete:locationtech.spatial4j"
+        - "GROUP:Job/Move:locationtech.spatial4j"
+        - "GROUP:Job/Read:locationtech.spatial4j"
+        - "GROUP:Job/Workspace:locationtech.spatial4j"
+        - "GROUP:Overall/Read:locationtech.spatial4j"
+        - "GROUP:Run/Delete:locationtech.spatial4j"
+        - "GROUP:Run/Replay:locationtech.spatial4j"
+        - "GROUP:Run/Update:locationtech.spatial4j"
+        - "GROUP:SCM/Tag:locationtech.spatial4j"
+        - "GROUP:View/Configure:locationtech.spatial4j"
+        - "GROUP:View/Create:locationtech.spatial4j"
+        - "GROUP:View/Delete:locationtech.spatial4j"
+        - "GROUP:View/Read:locationtech.spatial4j"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "capella"
   namespace: "capella"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:polarsys.capella"
-            - "Credentials/View:polarsys.capella"
-            - "Gerrit/ManualTrigger:polarsys.capella"
-            - "Gerrit/Retrigger:polarsys.capella"
-            - "Job/Build:polarsys.capella"
-            - "Job/Cancel:polarsys.capella"
-            - "Job/Configure:polarsys.capella"
-            - "Job/Create:polarsys.capella"
-            - "Job/Delete:polarsys.capella"
-            - "Job/Move:polarsys.capella"
-            - "Job/Read:polarsys.capella"
-            - "Job/Workspace:polarsys.capella"
-            - "Overall/Read:polarsys.capella"
-            - "Run/Delete:polarsys.capella"
-            - "Run/Replay:polarsys.capella"
-            - "Run/Update:polarsys.capella"
-            - "SCM/Tag:polarsys.capella"
-            - "View/Configure:polarsys.capella"
-            - "View/Create:polarsys.capella"
-            - "View/Delete:polarsys.capella"
-            - "View/Read:polarsys.capella"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:polarsys.capella"
+            - "GROUP:Credentials/View:polarsys.capella"
+            - "GROUP:Gerrit/ManualTrigger:polarsys.capella"
+            - "GROUP:Gerrit/Retrigger:polarsys.capella"
+            - "GROUP:Job/Build:polarsys.capella"
+            - "GROUP:Job/Cancel:polarsys.capella"
+            - "GROUP:Job/Configure:polarsys.capella"
+            - "GROUP:Job/Create:polarsys.capella"
+            - "GROUP:Job/Delete:polarsys.capella"
+            - "GROUP:Job/Move:polarsys.capella"
+            - "GROUP:Job/Read:polarsys.capella"
+            - "GROUP:Job/Workspace:polarsys.capella"
+            - "GROUP:Overall/Read:polarsys.capella"
+            - "GROUP:Run/Delete:polarsys.capella"
+            - "GROUP:Run/Replay:polarsys.capella"
+            - "GROUP:Run/Update:polarsys.capella"
+            - "GROUP:SCM/Tag:polarsys.capella"
+            - "GROUP:View/Configure:polarsys.capella"
+            - "GROUP:View/Create:polarsys.capella"
+            - "GROUP:View/Delete:polarsys.capella"
+            - "GROUP:View/Read:polarsys.capella"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

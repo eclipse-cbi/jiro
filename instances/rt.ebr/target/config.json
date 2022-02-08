@@ -20,16 +20,16 @@
                "agentWorkdir": "/home/jenkins/jenkins-agent",
                "docker": {
                   "aliases": [
-                     "docker.io/eclipsecbijenkins/basic-agent:4.10.1",
-                     "docker.io/eclipsecbijenkins/jenkins-agent:4.10.1",
-                     "docker.io/eclipsecbi/jenkins-jnlp-agent:4.10.1"
+                     "docker.io/eclipsecbijenkins/basic-agent:4.11.2",
+                     "docker.io/eclipsecbijenkins/jenkins-agent:4.11.2",
+                     "docker.io/eclipsecbi/jenkins-jnlp-agent:4.11.2"
                   ],
                   "context": "basic",
-                  "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM docker.io/eclipsecbi/jiro-agent-basic:spec\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/home/jenkins\"\n\nVOLUME [ \"/home/jenkins\", ]\nWORKDIR \"/home/jenkins\"\nENTRYPOINT [ \"uid_entrypoint\", \"/usr/local/bin/jenkins-agent\" ]\n\nADD \"https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.10.1/remoting-4.10.1.jar\" \"/usr/share/jenkins/agent.jar\" \nADD \"https://github.com/jenkinsci/docker-inbound-agent/raw/4.10-3/jenkins-agent\" \"/usr/local/bin/jenkins-agent\"\n\nRUN sed -e 's/JAVA_OPTS/JAVA_OPTS \\$JENKINS_REMOTING_JAVA_OPTS/g' /usr/local/bin/jenkins-agent > /usr/local/bin/jenkins-agent.sed \\\n    && mv /usr/local/bin/jenkins-agent.sed /usr/local/bin/jenkins-agent\n\nRUN chmod 755 \"$(dirname \"/usr/share/jenkins/agent.jar\")\" \\\n  && chmod 644 \"/usr/share/jenkins/agent.jar\" \\\n  && chmod ug+rx \"/usr/local/bin/jenkins-agent\" \\\n  && chgrp 0 \"/usr/local/bin/jenkins-agent\"\n\nUSER 10001:0\n",
+                  "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM docker.io/eclipsecbi/jiro-agent-basic:spec\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/home/jenkins\"\n\nVOLUME [ \"/home/jenkins\", ]\nWORKDIR \"/home/jenkins\"\nENTRYPOINT [ \"uid_entrypoint\", \"/usr/local/bin/jenkins-agent\" ]\n\nADD \"https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.11.2/remoting-4.11.2.jar\" \"/usr/share/jenkins/agent.jar\" \nADD \"https://github.com/jenkinsci/docker-inbound-agent/raw/4.11.2-2/jenkins-agent\" \"/usr/local/bin/jenkins-agent\"\n\nRUN sed -e 's/JAVA_OPTS/JAVA_OPTS \\$JENKINS_REMOTING_JAVA_OPTS/g' /usr/local/bin/jenkins-agent > /usr/local/bin/jenkins-agent.sed \\\n    && mv /usr/local/bin/jenkins-agent.sed /usr/local/bin/jenkins-agent\n\nRUN chmod 755 \"$(dirname \"/usr/share/jenkins/agent.jar\")\" \\\n  && chmod 644 \"/usr/share/jenkins/agent.jar\" \\\n  && chmod ug+rx \"/usr/local/bin/jenkins-agent\" \\\n  && chgrp 0 \"/usr/local/bin/jenkins-agent\"\n\nUSER 10001:0\n",
                   "image": "jiro-agent-basic",
                   "registry": "docker.io",
                   "repository": "eclipsecbi",
-                  "tag": "remoting-4.10.1"
+                  "tag": "remoting-4.11.2"
                },
                "env": {
                   "JAVA_TOOL_OPTIONS": [ ],
@@ -104,11 +104,11 @@
                   "jar": "/usr/share/jenkins/agent.jar",
                   "startupScript": {
                      "name": "jenkins-agent",
-                     "url": "https://github.com/jenkinsci/docker-inbound-agent/raw/4.10-3/jenkins-agent",
-                     "version": "4.10-3"
+                     "url": "https://github.com/jenkinsci/docker-inbound-agent/raw/4.11.2-2/jenkins-agent",
+                     "version": "4.11.2-2"
                   },
-                  "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.10.1/remoting-4.10.1.jar",
-                  "version": "4.10.1"
+                  "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.11.2/remoting-4.11.2.jar",
+                  "version": "4.11.2"
                },
                "startupScript": "/usr/local/bin/jenkins-agent",
                "username": "jenkins"
@@ -117,17 +117,17 @@
                "agentWorkdir": "/home/jenkins/jenkins-agent",
                "docker": {
                   "aliases": [
-                     "docker.io/eclipsecbijenkins/jipp-migration-agent:4.10.1",
-                     "docker.io/eclipsecbijenkins/migration-fat-agent:4.10.1",
-                     "docker.io/eclipsecbijenkins/ui-test-agent:4.10.1",
-                     "docker.io/eclipsecbijenkins/ui-tests-agent:4.10.1"
+                     "docker.io/eclipsecbijenkins/jipp-migration-agent:4.11.2",
+                     "docker.io/eclipsecbijenkins/migration-fat-agent:4.11.2",
+                     "docker.io/eclipsecbijenkins/ui-test-agent:4.11.2",
+                     "docker.io/eclipsecbijenkins/ui-tests-agent:4.11.2"
                   ],
                   "context": "centos-7",
-                  "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM docker.io/eclipsecbi/jiro-agent-centos-7:spec\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/home/jenkins\"\n\nVOLUME [ \"/home/jenkins\", ]\nWORKDIR \"/home/jenkins\"\nENTRYPOINT [ \"uid_entrypoint\", \"/usr/local/bin/jenkins-agent\" ]\n\nADD \"https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.10.1/remoting-4.10.1.jar\" \"/usr/share/jenkins/agent.jar\" \nADD \"https://github.com/jenkinsci/docker-inbound-agent/raw/4.10-3/jenkins-agent\" \"/usr/local/bin/jenkins-agent\"\n\nRUN sed -e 's/JAVA_OPTS/JAVA_OPTS \\$JENKINS_REMOTING_JAVA_OPTS/g' /usr/local/bin/jenkins-agent > /usr/local/bin/jenkins-agent.sed \\\n    && mv /usr/local/bin/jenkins-agent.sed /usr/local/bin/jenkins-agent\n\nRUN chmod 755 \"$(dirname \"/usr/share/jenkins/agent.jar\")\" \\\n  && chmod 644 \"/usr/share/jenkins/agent.jar\" \\\n  && chmod ug+rx \"/usr/local/bin/jenkins-agent\" \\\n  && chgrp 0 \"/usr/local/bin/jenkins-agent\"\n\nUSER 10001:0\n",
+                  "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM docker.io/eclipsecbi/jiro-agent-centos-7:spec\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/home/jenkins\"\n\nVOLUME [ \"/home/jenkins\", ]\nWORKDIR \"/home/jenkins\"\nENTRYPOINT [ \"uid_entrypoint\", \"/usr/local/bin/jenkins-agent\" ]\n\nADD \"https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.11.2/remoting-4.11.2.jar\" \"/usr/share/jenkins/agent.jar\" \nADD \"https://github.com/jenkinsci/docker-inbound-agent/raw/4.11.2-2/jenkins-agent\" \"/usr/local/bin/jenkins-agent\"\n\nRUN sed -e 's/JAVA_OPTS/JAVA_OPTS \\$JENKINS_REMOTING_JAVA_OPTS/g' /usr/local/bin/jenkins-agent > /usr/local/bin/jenkins-agent.sed \\\n    && mv /usr/local/bin/jenkins-agent.sed /usr/local/bin/jenkins-agent\n\nRUN chmod 755 \"$(dirname \"/usr/share/jenkins/agent.jar\")\" \\\n  && chmod 644 \"/usr/share/jenkins/agent.jar\" \\\n  && chmod ug+rx \"/usr/local/bin/jenkins-agent\" \\\n  && chgrp 0 \"/usr/local/bin/jenkins-agent\"\n\nUSER 10001:0\n",
                   "image": "jiro-agent-centos-7",
                   "registry": "docker.io",
                   "repository": "eclipsecbi",
-                  "tag": "remoting-4.10.1"
+                  "tag": "remoting-4.11.2"
                },
                "env": {
                   "JAVA_TOOL_OPTIONS": [ ],
@@ -204,11 +204,11 @@
                   "jar": "/usr/share/jenkins/agent.jar",
                   "startupScript": {
                      "name": "jenkins-agent",
-                     "url": "https://github.com/jenkinsci/docker-inbound-agent/raw/4.10-3/jenkins-agent",
-                     "version": "4.10-3"
+                     "url": "https://github.com/jenkinsci/docker-inbound-agent/raw/4.11.2-2/jenkins-agent",
+                     "version": "4.11.2-2"
                   },
-                  "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.10.1/remoting-4.10.1.jar",
-                  "version": "4.10.1"
+                  "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.11.2/remoting-4.11.2.jar",
+                  "version": "4.11.2"
                },
                "startupScript": "/usr/local/bin/jenkins-agent",
                "username": "jenkins"
@@ -218,11 +218,11 @@
                "docker": {
                   "aliases": [ ],
                   "context": "centos-8",
-                  "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM docker.io/eclipsecbi/jiro-agent-centos-8:spec\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/home/jenkins\"\n\nVOLUME [ \"/home/jenkins\", ]\nWORKDIR \"/home/jenkins\"\nENTRYPOINT [ \"uid_entrypoint\", \"/usr/local/bin/jenkins-agent\" ]\n\nADD \"https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.10.1/remoting-4.10.1.jar\" \"/usr/share/jenkins/agent.jar\" \nADD \"https://github.com/jenkinsci/docker-inbound-agent/raw/4.10-3/jenkins-agent\" \"/usr/local/bin/jenkins-agent\"\n\nRUN sed -e 's/JAVA_OPTS/JAVA_OPTS \\$JENKINS_REMOTING_JAVA_OPTS/g' /usr/local/bin/jenkins-agent > /usr/local/bin/jenkins-agent.sed \\\n    && mv /usr/local/bin/jenkins-agent.sed /usr/local/bin/jenkins-agent\n\nRUN chmod 755 \"$(dirname \"/usr/share/jenkins/agent.jar\")\" \\\n  && chmod 644 \"/usr/share/jenkins/agent.jar\" \\\n  && chmod ug+rx \"/usr/local/bin/jenkins-agent\" \\\n  && chgrp 0 \"/usr/local/bin/jenkins-agent\"\n\nUSER 10001:0\n",
+                  "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM docker.io/eclipsecbi/jiro-agent-centos-8:spec\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/home/jenkins\"\n\nVOLUME [ \"/home/jenkins\", ]\nWORKDIR \"/home/jenkins\"\nENTRYPOINT [ \"uid_entrypoint\", \"/usr/local/bin/jenkins-agent\" ]\n\nADD \"https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.11.2/remoting-4.11.2.jar\" \"/usr/share/jenkins/agent.jar\" \nADD \"https://github.com/jenkinsci/docker-inbound-agent/raw/4.11.2-2/jenkins-agent\" \"/usr/local/bin/jenkins-agent\"\n\nRUN sed -e 's/JAVA_OPTS/JAVA_OPTS \\$JENKINS_REMOTING_JAVA_OPTS/g' /usr/local/bin/jenkins-agent > /usr/local/bin/jenkins-agent.sed \\\n    && mv /usr/local/bin/jenkins-agent.sed /usr/local/bin/jenkins-agent\n\nRUN chmod 755 \"$(dirname \"/usr/share/jenkins/agent.jar\")\" \\\n  && chmod 644 \"/usr/share/jenkins/agent.jar\" \\\n  && chmod ug+rx \"/usr/local/bin/jenkins-agent\" \\\n  && chgrp 0 \"/usr/local/bin/jenkins-agent\"\n\nUSER 10001:0\n",
                   "image": "jiro-agent-centos-8",
                   "registry": "docker.io",
                   "repository": "eclipsecbi",
-                  "tag": "remoting-4.10.1"
+                  "tag": "remoting-4.11.2"
                },
                "env": {
                   "JAVA_TOOL_OPTIONS": [ ],
@@ -298,11 +298,11 @@
                   "jar": "/usr/share/jenkins/agent.jar",
                   "startupScript": {
                      "name": "jenkins-agent",
-                     "url": "https://github.com/jenkinsci/docker-inbound-agent/raw/4.10-3/jenkins-agent",
-                     "version": "4.10-3"
+                     "url": "https://github.com/jenkinsci/docker-inbound-agent/raw/4.11.2-2/jenkins-agent",
+                     "version": "4.11.2-2"
                   },
-                  "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.10.1/remoting-4.10.1.jar",
-                  "version": "4.10.1"
+                  "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.11.2/remoting-4.11.2.jar",
+                  "version": "4.11.2"
                },
                "startupScript": "/usr/local/bin/jenkins-agent",
                "username": "jenkins"
@@ -321,11 +321,11 @@
    },
    "docker": {
       "master": {
-         "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.303.3\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
+         "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.319.2\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
          "image": "rt.ebr",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
-         "tag": "2.303.3"
+         "tag": "2.319.2"
       }
    },
    "gradle": {
@@ -404,11 +404,11 @@
          "image": "jiro-master",
          "registry": "docker.io",
          "repository": "eclipsecbi",
-         "tag": "2.303.3"
+         "tag": "2.319.2"
       },
       "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM eclipsecbi/adoptopenjdk-coreutils:openjdk11-openj9-debian-slim\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/var/jenkins\"\n\n# jenkins version being bundled in this docker image\nENV JENKINS_HOME=\"/var/jenkins\"\nENV JENKINS_WAR=\"/usr/share/jenkins/jenkins.war\"\nENV COPY_REFERENCE_FILE_LOG=\"/var/jenkins/copy_reference_file.log\"\nENV REF=\"/usr/share/jenkins/ref\"\n\nVOLUME [ \"/var/jenkins\", \"/var/cache/jenkins/war\", \"/var/cache/jenkins/plugins\" ]\nWORKDIR \"/var/jenkins\"\n\nENTRYPOINT [\"uid_entrypoint\", \"/usr/bin/dumb-init\", \"--\", \"/usr/local/bin/jenkins.sh\"]\n\nRUN mkdir -p $(dirname \"/usr/share/jenkins/jenkins.war\") && mkdir -p \"/usr/share/jenkins/ref\"\n\nCOPY scripts/* /usr/local/bin/\nRUN chmod ug+x /usr/local/bin/*\n\nCOPY war/jenkins.war \"/usr/share/jenkins/jenkins.war\"\nCOPY ref/ \"/usr/share/jenkins/ref/\"\n",
       "home": "/var/jenkins",
-      "id": "2.303.3",
+      "id": "2.319.2",
       "key_fingerprint": "FCEF32E745F2C3D5",
       "plugin_manager": {
          "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.9.2/jenkins-plugin-manager-2.9.2.jar",
@@ -464,7 +464,7 @@
       "pubkey": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\n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\nZ77i4FhdLio04srxWsN+FkRwkBJdkJ8VKEE=\n=0xpA\n-----END PGP PUBLIC KEY BLOCK-----",
       "ref": "/usr/share/jenkins/ref",
       "remoting": {
-         "version": "4.10.1"
+         "version": "4.11.2"
       },
       "scripts": {
          "jenkins": "https://github.com/jenkinsci/docker/raw/master/jenkins.sh",
@@ -472,9 +472,9 @@
       },
       "updateCenter": "https://updates.jenkins.io",
       "username": "jenkins",
-      "version": "2.303.3",
+      "version": "2.319.2",
       "war": "/usr/share/jenkins/jenkins.war",
-      "warBaseUrl": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/2.303.3",
+      "warBaseUrl": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/2.319.2",
       "webroot": "/var/cache/jenkins/war"
    },
    "kubernetes": {

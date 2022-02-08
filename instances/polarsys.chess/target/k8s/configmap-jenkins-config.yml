@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "chess"
   namespace: "chess"
   name: jenkins-config
@@ -99,31 +99,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:polarsys.chess"
-            - "Credentials/View:polarsys.chess"
-            - "Gerrit/ManualTrigger:polarsys.chess"
-            - "Gerrit/Retrigger:polarsys.chess"
-            - "Job/Build:polarsys.chess"
-            - "Job/Cancel:polarsys.chess"
-            - "Job/Configure:polarsys.chess"
-            - "Job/Create:polarsys.chess"
-            - "Job/Delete:polarsys.chess"
-            - "Job/Move:polarsys.chess"
-            - "Job/Read:polarsys.chess"
-            - "Job/Workspace:polarsys.chess"
-            - "Overall/Read:polarsys.chess"
-            - "Run/Delete:polarsys.chess"
-            - "Run/Replay:polarsys.chess"
-            - "Run/Update:polarsys.chess"
-            - "SCM/Tag:polarsys.chess"
-            - "View/Configure:polarsys.chess"
-            - "View/Create:polarsys.chess"
-            - "View/Delete:polarsys.chess"
-            - "View/Read:polarsys.chess"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:polarsys.chess"
+            - "GROUP:Credentials/View:polarsys.chess"
+            - "GROUP:Gerrit/ManualTrigger:polarsys.chess"
+            - "GROUP:Gerrit/Retrigger:polarsys.chess"
+            - "GROUP:Job/Build:polarsys.chess"
+            - "GROUP:Job/Cancel:polarsys.chess"
+            - "GROUP:Job/Configure:polarsys.chess"
+            - "GROUP:Job/Create:polarsys.chess"
+            - "GROUP:Job/Delete:polarsys.chess"
+            - "GROUP:Job/Move:polarsys.chess"
+            - "GROUP:Job/Read:polarsys.chess"
+            - "GROUP:Job/Workspace:polarsys.chess"
+            - "GROUP:Overall/Read:polarsys.chess"
+            - "GROUP:Run/Delete:polarsys.chess"
+            - "GROUP:Run/Replay:polarsys.chess"
+            - "GROUP:Run/Update:polarsys.chess"
+            - "GROUP:SCM/Tag:polarsys.chess"
+            - "GROUP:View/Configure:polarsys.chess"
+            - "GROUP:View/Create:polarsys.chess"
+            - "GROUP:View/Delete:polarsys.chess"
+            - "GROUP:View/Read:polarsys.chess"
       markupFormatter: rawHtml
       crumbIssuer:
         standard:
@@ -150,7 +150,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -236,7 +236,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -322,7 +322,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0

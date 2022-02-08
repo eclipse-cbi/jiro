@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:iot.fog05"
-        - "Credentials/View:iot.fog05"
-        - "Gerrit/ManualTrigger:iot.fog05"
-        - "Gerrit/Retrigger:iot.fog05"
-        - "Job/Build:iot.fog05"
-        - "Job/Cancel:iot.fog05"
-        - "Job/Configure:iot.fog05"
-        - "Job/Create:iot.fog05"
-        - "Job/Delete:iot.fog05"
-        - "Job/Move:iot.fog05"
-        - "Job/Read:iot.fog05"
-        - "Job/Workspace:iot.fog05"
-        - "Overall/Read:iot.fog05"
-        - "Run/Delete:iot.fog05"
-        - "Run/Replay:iot.fog05"
-        - "Run/Update:iot.fog05"
-        - "SCM/Tag:iot.fog05"
-        - "View/Configure:iot.fog05"
-        - "View/Create:iot.fog05"
-        - "View/Delete:iot.fog05"
-        - "View/Read:iot.fog05"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:iot.fog05"
+        - "GROUP:Credentials/View:iot.fog05"
+        - "GROUP:Gerrit/ManualTrigger:iot.fog05"
+        - "GROUP:Gerrit/Retrigger:iot.fog05"
+        - "GROUP:Job/Build:iot.fog05"
+        - "GROUP:Job/Cancel:iot.fog05"
+        - "GROUP:Job/Configure:iot.fog05"
+        - "GROUP:Job/Create:iot.fog05"
+        - "GROUP:Job/Delete:iot.fog05"
+        - "GROUP:Job/Move:iot.fog05"
+        - "GROUP:Job/Read:iot.fog05"
+        - "GROUP:Job/Workspace:iot.fog05"
+        - "GROUP:Overall/Read:iot.fog05"
+        - "GROUP:Run/Delete:iot.fog05"
+        - "GROUP:Run/Replay:iot.fog05"
+        - "GROUP:Run/Update:iot.fog05"
+        - "GROUP:SCM/Tag:iot.fog05"
+        - "GROUP:View/Configure:iot.fog05"
+        - "GROUP:View/Create:iot.fog05"
+        - "GROUP:View/Delete:iot.fog05"
+        - "GROUP:View/Read:iot.fog05"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

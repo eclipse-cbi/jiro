@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:science.texlipse"
-        - "Credentials/View:science.texlipse"
-        - "Gerrit/ManualTrigger:science.texlipse"
-        - "Gerrit/Retrigger:science.texlipse"
-        - "Job/Build:science.texlipse"
-        - "Job/Cancel:science.texlipse"
-        - "Job/Configure:science.texlipse"
-        - "Job/Create:science.texlipse"
-        - "Job/Delete:science.texlipse"
-        - "Job/Move:science.texlipse"
-        - "Job/Read:science.texlipse"
-        - "Job/Workspace:science.texlipse"
-        - "Overall/Read:science.texlipse"
-        - "Run/Delete:science.texlipse"
-        - "Run/Replay:science.texlipse"
-        - "Run/Update:science.texlipse"
-        - "SCM/Tag:science.texlipse"
-        - "View/Configure:science.texlipse"
-        - "View/Create:science.texlipse"
-        - "View/Delete:science.texlipse"
-        - "View/Read:science.texlipse"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:science.texlipse"
+        - "GROUP:Credentials/View:science.texlipse"
+        - "GROUP:Gerrit/ManualTrigger:science.texlipse"
+        - "GROUP:Gerrit/Retrigger:science.texlipse"
+        - "GROUP:Job/Build:science.texlipse"
+        - "GROUP:Job/Cancel:science.texlipse"
+        - "GROUP:Job/Configure:science.texlipse"
+        - "GROUP:Job/Create:science.texlipse"
+        - "GROUP:Job/Delete:science.texlipse"
+        - "GROUP:Job/Move:science.texlipse"
+        - "GROUP:Job/Read:science.texlipse"
+        - "GROUP:Job/Workspace:science.texlipse"
+        - "GROUP:Overall/Read:science.texlipse"
+        - "GROUP:Run/Delete:science.texlipse"
+        - "GROUP:Run/Replay:science.texlipse"
+        - "GROUP:Run/Update:science.texlipse"
+        - "GROUP:SCM/Tag:science.texlipse"
+        - "GROUP:View/Configure:science.texlipse"
+        - "GROUP:View/Create:science.texlipse"
+        - "GROUP:View/Delete:science.texlipse"
+        - "GROUP:View/Read:science.texlipse"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:iot.tinydtls"
-        - "Credentials/View:iot.tinydtls"
-        - "Gerrit/ManualTrigger:iot.tinydtls"
-        - "Gerrit/Retrigger:iot.tinydtls"
-        - "Job/Build:iot.tinydtls"
-        - "Job/Cancel:iot.tinydtls"
-        - "Job/Configure:iot.tinydtls"
-        - "Job/Create:iot.tinydtls"
-        - "Job/Delete:iot.tinydtls"
-        - "Job/Move:iot.tinydtls"
-        - "Job/Read:iot.tinydtls"
-        - "Job/Workspace:iot.tinydtls"
-        - "Overall/Read:iot.tinydtls"
-        - "Run/Delete:iot.tinydtls"
-        - "Run/Replay:iot.tinydtls"
-        - "Run/Update:iot.tinydtls"
-        - "SCM/Tag:iot.tinydtls"
-        - "View/Configure:iot.tinydtls"
-        - "View/Create:iot.tinydtls"
-        - "View/Delete:iot.tinydtls"
-        - "View/Read:iot.tinydtls"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:iot.tinydtls"
+        - "GROUP:Credentials/View:iot.tinydtls"
+        - "GROUP:Gerrit/ManualTrigger:iot.tinydtls"
+        - "GROUP:Gerrit/Retrigger:iot.tinydtls"
+        - "GROUP:Job/Build:iot.tinydtls"
+        - "GROUP:Job/Cancel:iot.tinydtls"
+        - "GROUP:Job/Configure:iot.tinydtls"
+        - "GROUP:Job/Create:iot.tinydtls"
+        - "GROUP:Job/Delete:iot.tinydtls"
+        - "GROUP:Job/Move:iot.tinydtls"
+        - "GROUP:Job/Read:iot.tinydtls"
+        - "GROUP:Job/Workspace:iot.tinydtls"
+        - "GROUP:Overall/Read:iot.tinydtls"
+        - "GROUP:Run/Delete:iot.tinydtls"
+        - "GROUP:Run/Replay:iot.tinydtls"
+        - "GROUP:Run/Update:iot.tinydtls"
+        - "GROUP:SCM/Tag:iot.tinydtls"
+        - "GROUP:View/Configure:iot.tinydtls"
+        - "GROUP:View/Create:iot.tinydtls"
+        - "GROUP:View/Delete:iot.tinydtls"
+        - "GROUP:View/Read:iot.tinydtls"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

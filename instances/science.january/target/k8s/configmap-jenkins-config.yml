@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "january"
   namespace: "january"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:science.january"
-            - "Credentials/View:science.january"
-            - "Gerrit/ManualTrigger:science.january"
-            - "Gerrit/Retrigger:science.january"
-            - "Job/Build:science.january"
-            - "Job/Cancel:science.january"
-            - "Job/Configure:science.january"
-            - "Job/Create:science.january"
-            - "Job/Delete:science.january"
-            - "Job/Move:science.january"
-            - "Job/Read:science.january"
-            - "Job/Workspace:science.january"
-            - "Overall/Read:science.january"
-            - "Run/Delete:science.january"
-            - "Run/Replay:science.january"
-            - "Run/Update:science.january"
-            - "SCM/Tag:science.january"
-            - "View/Configure:science.january"
-            - "View/Create:science.january"
-            - "View/Delete:science.january"
-            - "View/Read:science.january"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:science.january"
+            - "GROUP:Credentials/View:science.january"
+            - "GROUP:Gerrit/ManualTrigger:science.january"
+            - "GROUP:Gerrit/Retrigger:science.january"
+            - "GROUP:Job/Build:science.january"
+            - "GROUP:Job/Cancel:science.january"
+            - "GROUP:Job/Configure:science.january"
+            - "GROUP:Job/Create:science.january"
+            - "GROUP:Job/Delete:science.january"
+            - "GROUP:Job/Move:science.january"
+            - "GROUP:Job/Read:science.january"
+            - "GROUP:Job/Workspace:science.january"
+            - "GROUP:Overall/Read:science.january"
+            - "GROUP:Run/Delete:science.january"
+            - "GROUP:Run/Replay:science.january"
+            - "GROUP:Run/Update:science.january"
+            - "GROUP:SCM/Tag:science.january"
+            - "GROUP:View/Configure:science.january"
+            - "GROUP:View/Create:science.january"
+            - "GROUP:View/Delete:science.january"
+            - "GROUP:View/Read:science.january"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

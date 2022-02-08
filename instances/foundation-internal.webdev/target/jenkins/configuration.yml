@@ -31,29 +31,29 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Overall/Read:anonymous"
-        - "Agent/Build:foundation-internal.webdev"
-        - "Credentials/View:foundation-internal.webdev"
-        - "Gerrit/ManualTrigger:foundation-internal.webdev"
-        - "Gerrit/Retrigger:foundation-internal.webdev"
-        - "Job/Build:foundation-internal.webdev"
-        - "Job/Cancel:foundation-internal.webdev"
-        - "Job/Configure:foundation-internal.webdev"
-        - "Job/Create:foundation-internal.webdev"
-        - "Job/Delete:foundation-internal.webdev"
-        - "Job/Move:foundation-internal.webdev"
-        - "Job/Read:foundation-internal.webdev"
-        - "Job/Workspace:foundation-internal.webdev"
-        - "Overall/Read:foundation-internal.webdev"
-        - "Run/Delete:foundation-internal.webdev"
-        - "Run/Replay:foundation-internal.webdev"
-        - "Run/Update:foundation-internal.webdev"
-        - "SCM/Tag:foundation-internal.webdev"
-        - "View/Configure:foundation-internal.webdev"
-        - "View/Create:foundation-internal.webdev"
-        - "View/Delete:foundation-internal.webdev"
-        - "View/Read:foundation-internal.webdev"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Agent/Build:foundation-internal.webdev"
+        - "GROUP:Credentials/View:foundation-internal.webdev"
+        - "GROUP:Gerrit/ManualTrigger:foundation-internal.webdev"
+        - "GROUP:Gerrit/Retrigger:foundation-internal.webdev"
+        - "GROUP:Job/Build:foundation-internal.webdev"
+        - "GROUP:Job/Cancel:foundation-internal.webdev"
+        - "GROUP:Job/Configure:foundation-internal.webdev"
+        - "GROUP:Job/Create:foundation-internal.webdev"
+        - "GROUP:Job/Delete:foundation-internal.webdev"
+        - "GROUP:Job/Move:foundation-internal.webdev"
+        - "GROUP:Job/Read:foundation-internal.webdev"
+        - "GROUP:Job/Workspace:foundation-internal.webdev"
+        - "GROUP:Overall/Read:foundation-internal.webdev"
+        - "GROUP:Run/Delete:foundation-internal.webdev"
+        - "GROUP:Run/Replay:foundation-internal.webdev"
+        - "GROUP:Run/Update:foundation-internal.webdev"
+        - "GROUP:SCM/Tag:foundation-internal.webdev"
+        - "GROUP:View/Configure:foundation-internal.webdev"
+        - "GROUP:View/Create:foundation-internal.webdev"
+        - "GROUP:View/Delete:foundation-internal.webdev"
+        - "GROUP:View/Read:foundation-internal.webdev"
   markupFormatter: rawHtml
   crumbIssuer:
     standard:
@@ -80,7 +80,7 @@ jenkins:
         podRetention: "never"
         templates:
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -166,7 +166,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -252,7 +252,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0

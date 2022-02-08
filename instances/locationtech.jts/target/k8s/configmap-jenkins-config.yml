@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jts"
   namespace: "jts"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:locationtech.jts"
-            - "Credentials/View:locationtech.jts"
-            - "Gerrit/ManualTrigger:locationtech.jts"
-            - "Gerrit/Retrigger:locationtech.jts"
-            - "Job/Build:locationtech.jts"
-            - "Job/Cancel:locationtech.jts"
-            - "Job/Configure:locationtech.jts"
-            - "Job/Create:locationtech.jts"
-            - "Job/Delete:locationtech.jts"
-            - "Job/Move:locationtech.jts"
-            - "Job/Read:locationtech.jts"
-            - "Job/Workspace:locationtech.jts"
-            - "Overall/Read:locationtech.jts"
-            - "Run/Delete:locationtech.jts"
-            - "Run/Replay:locationtech.jts"
-            - "Run/Update:locationtech.jts"
-            - "SCM/Tag:locationtech.jts"
-            - "View/Configure:locationtech.jts"
-            - "View/Create:locationtech.jts"
-            - "View/Delete:locationtech.jts"
-            - "View/Read:locationtech.jts"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:locationtech.jts"
+            - "GROUP:Credentials/View:locationtech.jts"
+            - "GROUP:Gerrit/ManualTrigger:locationtech.jts"
+            - "GROUP:Gerrit/Retrigger:locationtech.jts"
+            - "GROUP:Job/Build:locationtech.jts"
+            - "GROUP:Job/Cancel:locationtech.jts"
+            - "GROUP:Job/Configure:locationtech.jts"
+            - "GROUP:Job/Create:locationtech.jts"
+            - "GROUP:Job/Delete:locationtech.jts"
+            - "GROUP:Job/Move:locationtech.jts"
+            - "GROUP:Job/Read:locationtech.jts"
+            - "GROUP:Job/Workspace:locationtech.jts"
+            - "GROUP:Overall/Read:locationtech.jts"
+            - "GROUP:Run/Delete:locationtech.jts"
+            - "GROUP:Run/Replay:locationtech.jts"
+            - "GROUP:Run/Update:locationtech.jts"
+            - "GROUP:SCM/Tag:locationtech.jts"
+            - "GROUP:View/Configure:locationtech.jts"
+            - "GROUP:View/Create:locationtech.jts"
+            - "GROUP:View/Delete:locationtech.jts"
+            - "GROUP:View/Read:locationtech.jts"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:polarsys.esf"
-        - "Credentials/View:polarsys.esf"
-        - "Gerrit/ManualTrigger:polarsys.esf"
-        - "Gerrit/Retrigger:polarsys.esf"
-        - "Job/Build:polarsys.esf"
-        - "Job/Cancel:polarsys.esf"
-        - "Job/Configure:polarsys.esf"
-        - "Job/Create:polarsys.esf"
-        - "Job/Delete:polarsys.esf"
-        - "Job/Move:polarsys.esf"
-        - "Job/Read:polarsys.esf"
-        - "Job/Workspace:polarsys.esf"
-        - "Overall/Read:polarsys.esf"
-        - "Run/Delete:polarsys.esf"
-        - "Run/Replay:polarsys.esf"
-        - "Run/Update:polarsys.esf"
-        - "SCM/Tag:polarsys.esf"
-        - "View/Configure:polarsys.esf"
-        - "View/Create:polarsys.esf"
-        - "View/Delete:polarsys.esf"
-        - "View/Read:polarsys.esf"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:polarsys.esf"
+        - "GROUP:Credentials/View:polarsys.esf"
+        - "GROUP:Gerrit/ManualTrigger:polarsys.esf"
+        - "GROUP:Gerrit/Retrigger:polarsys.esf"
+        - "GROUP:Job/Build:polarsys.esf"
+        - "GROUP:Job/Cancel:polarsys.esf"
+        - "GROUP:Job/Configure:polarsys.esf"
+        - "GROUP:Job/Create:polarsys.esf"
+        - "GROUP:Job/Delete:polarsys.esf"
+        - "GROUP:Job/Move:polarsys.esf"
+        - "GROUP:Job/Read:polarsys.esf"
+        - "GROUP:Job/Workspace:polarsys.esf"
+        - "GROUP:Overall/Read:polarsys.esf"
+        - "GROUP:Run/Delete:polarsys.esf"
+        - "GROUP:Run/Replay:polarsys.esf"
+        - "GROUP:Run/Update:polarsys.esf"
+        - "GROUP:SCM/Tag:polarsys.esf"
+        - "GROUP:View/Configure:polarsys.esf"
+        - "GROUP:View/Create:polarsys.esf"
+        - "GROUP:View/Delete:polarsys.esf"
+        - "GROUP:View/Read:polarsys.esf"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

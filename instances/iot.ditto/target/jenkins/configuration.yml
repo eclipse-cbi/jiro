@@ -205,31 +205,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:iot.ditto"
-        - "Credentials/View:iot.ditto"
-        - "Gerrit/ManualTrigger:iot.ditto"
-        - "Gerrit/Retrigger:iot.ditto"
-        - "Job/Build:iot.ditto"
-        - "Job/Cancel:iot.ditto"
-        - "Job/Configure:iot.ditto"
-        - "Job/Create:iot.ditto"
-        - "Job/Delete:iot.ditto"
-        - "Job/Move:iot.ditto"
-        - "Job/Read:iot.ditto"
-        - "Job/Workspace:iot.ditto"
-        - "Overall/Read:iot.ditto"
-        - "Run/Delete:iot.ditto"
-        - "Run/Replay:iot.ditto"
-        - "Run/Update:iot.ditto"
-        - "SCM/Tag:iot.ditto"
-        - "View/Configure:iot.ditto"
-        - "View/Create:iot.ditto"
-        - "View/Delete:iot.ditto"
-        - "View/Read:iot.ditto"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:iot.ditto"
+        - "GROUP:Credentials/View:iot.ditto"
+        - "GROUP:Gerrit/ManualTrigger:iot.ditto"
+        - "GROUP:Gerrit/Retrigger:iot.ditto"
+        - "GROUP:Job/Build:iot.ditto"
+        - "GROUP:Job/Cancel:iot.ditto"
+        - "GROUP:Job/Configure:iot.ditto"
+        - "GROUP:Job/Create:iot.ditto"
+        - "GROUP:Job/Delete:iot.ditto"
+        - "GROUP:Job/Move:iot.ditto"
+        - "GROUP:Job/Read:iot.ditto"
+        - "GROUP:Job/Workspace:iot.ditto"
+        - "GROUP:Overall/Read:iot.ditto"
+        - "GROUP:Run/Delete:iot.ditto"
+        - "GROUP:Run/Replay:iot.ditto"
+        - "GROUP:Run/Update:iot.ditto"
+        - "GROUP:SCM/Tag:iot.ditto"
+        - "GROUP:View/Configure:iot.ditto"
+        - "GROUP:View/Create:iot.ditto"
+        - "GROUP:View/Delete:iot.ditto"
+        - "GROUP:View/Read:iot.ditto"
   markupFormatter: rawHtml
   crumbIssuer:
     standard:
@@ -256,7 +256,7 @@ jenkins:
         podRetention: "never"
         templates:
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -342,7 +342,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -428,7 +428,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0

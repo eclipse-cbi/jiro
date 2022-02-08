@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:iot.keti"
-        - "Credentials/View:iot.keti"
-        - "Gerrit/ManualTrigger:iot.keti"
-        - "Gerrit/Retrigger:iot.keti"
-        - "Job/Build:iot.keti"
-        - "Job/Cancel:iot.keti"
-        - "Job/Configure:iot.keti"
-        - "Job/Create:iot.keti"
-        - "Job/Delete:iot.keti"
-        - "Job/Move:iot.keti"
-        - "Job/Read:iot.keti"
-        - "Job/Workspace:iot.keti"
-        - "Overall/Read:iot.keti"
-        - "Run/Delete:iot.keti"
-        - "Run/Replay:iot.keti"
-        - "Run/Update:iot.keti"
-        - "SCM/Tag:iot.keti"
-        - "View/Configure:iot.keti"
-        - "View/Create:iot.keti"
-        - "View/Delete:iot.keti"
-        - "View/Read:iot.keti"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:iot.keti"
+        - "GROUP:Credentials/View:iot.keti"
+        - "GROUP:Gerrit/ManualTrigger:iot.keti"
+        - "GROUP:Gerrit/Retrigger:iot.keti"
+        - "GROUP:Job/Build:iot.keti"
+        - "GROUP:Job/Cancel:iot.keti"
+        - "GROUP:Job/Configure:iot.keti"
+        - "GROUP:Job/Create:iot.keti"
+        - "GROUP:Job/Delete:iot.keti"
+        - "GROUP:Job/Move:iot.keti"
+        - "GROUP:Job/Read:iot.keti"
+        - "GROUP:Job/Workspace:iot.keti"
+        - "GROUP:Overall/Read:iot.keti"
+        - "GROUP:Run/Delete:iot.keti"
+        - "GROUP:Run/Replay:iot.keti"
+        - "GROUP:Run/Update:iot.keti"
+        - "GROUP:SCM/Tag:iot.keti"
+        - "GROUP:View/Configure:iot.keti"
+        - "GROUP:View/Create:iot.keti"
+        - "GROUP:View/Delete:iot.keti"
+        - "GROUP:View/Read:iot.keti"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

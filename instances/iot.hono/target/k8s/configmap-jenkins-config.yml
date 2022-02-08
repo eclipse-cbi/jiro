@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "hono"
   namespace: "hono"
   name: jenkins-config
@@ -44,29 +44,29 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:iot.hono"
-            - "Credentials/View:iot.hono"
-            - "Job/Build:iot.hono"
-            - "Job/Cancel:iot.hono"
-            - "Job/Configure:iot.hono"
-            - "Job/Create:iot.hono"
-            - "Job/Delete:iot.hono"
-            - "Job/Move:iot.hono"
-            - "Job/Read:iot.hono"
-            - "Job/Workspace:iot.hono"
-            - "Overall/Read:iot.hono"
-            - "Run/Delete:iot.hono"
-            - "Run/Replay:iot.hono"
-            - "Run/Update:iot.hono"
-            - "SCM/Tag:iot.hono"
-            - "View/Configure:iot.hono"
-            - "View/Create:iot.hono"
-            - "View/Delete:iot.hono"
-            - "View/Read:iot.hono"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:iot.hono"
+            - "GROUP:Credentials/View:iot.hono"
+            - "GROUP:Job/Build:iot.hono"
+            - "GROUP:Job/Cancel:iot.hono"
+            - "GROUP:Job/Configure:iot.hono"
+            - "GROUP:Job/Create:iot.hono"
+            - "GROUP:Job/Delete:iot.hono"
+            - "GROUP:Job/Move:iot.hono"
+            - "GROUP:Job/Read:iot.hono"
+            - "GROUP:Job/Workspace:iot.hono"
+            - "GROUP:Overall/Read:iot.hono"
+            - "GROUP:Run/Delete:iot.hono"
+            - "GROUP:Run/Replay:iot.hono"
+            - "GROUP:Run/Update:iot.hono"
+            - "GROUP:SCM/Tag:iot.hono"
+            - "GROUP:View/Configure:iot.hono"
+            - "GROUP:View/Create:iot.hono"
+            - "GROUP:View/Delete:iot.hono"
+            - "GROUP:View/Read:iot.hono"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -96,7 +96,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -182,7 +182,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -268,7 +268,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

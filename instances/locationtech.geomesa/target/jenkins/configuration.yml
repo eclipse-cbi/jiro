@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:locationtech.geomesa"
-        - "Credentials/View:locationtech.geomesa"
-        - "Gerrit/ManualTrigger:locationtech.geomesa"
-        - "Gerrit/Retrigger:locationtech.geomesa"
-        - "Job/Build:locationtech.geomesa"
-        - "Job/Cancel:locationtech.geomesa"
-        - "Job/Configure:locationtech.geomesa"
-        - "Job/Create:locationtech.geomesa"
-        - "Job/Delete:locationtech.geomesa"
-        - "Job/Move:locationtech.geomesa"
-        - "Job/Read:locationtech.geomesa"
-        - "Job/Workspace:locationtech.geomesa"
-        - "Overall/Read:locationtech.geomesa"
-        - "Run/Delete:locationtech.geomesa"
-        - "Run/Replay:locationtech.geomesa"
-        - "Run/Update:locationtech.geomesa"
-        - "SCM/Tag:locationtech.geomesa"
-        - "View/Configure:locationtech.geomesa"
-        - "View/Create:locationtech.geomesa"
-        - "View/Delete:locationtech.geomesa"
-        - "View/Read:locationtech.geomesa"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:locationtech.geomesa"
+        - "GROUP:Credentials/View:locationtech.geomesa"
+        - "GROUP:Gerrit/ManualTrigger:locationtech.geomesa"
+        - "GROUP:Gerrit/Retrigger:locationtech.geomesa"
+        - "GROUP:Job/Build:locationtech.geomesa"
+        - "GROUP:Job/Cancel:locationtech.geomesa"
+        - "GROUP:Job/Configure:locationtech.geomesa"
+        - "GROUP:Job/Create:locationtech.geomesa"
+        - "GROUP:Job/Delete:locationtech.geomesa"
+        - "GROUP:Job/Move:locationtech.geomesa"
+        - "GROUP:Job/Read:locationtech.geomesa"
+        - "GROUP:Job/Workspace:locationtech.geomesa"
+        - "GROUP:Overall/Read:locationtech.geomesa"
+        - "GROUP:Run/Delete:locationtech.geomesa"
+        - "GROUP:Run/Replay:locationtech.geomesa"
+        - "GROUP:Run/Update:locationtech.geomesa"
+        - "GROUP:SCM/Tag:locationtech.geomesa"
+        - "GROUP:View/Configure:locationtech.geomesa"
+        - "GROUP:View/Create:locationtech.geomesa"
+        - "GROUP:View/Delete:locationtech.geomesa"
+        - "GROUP:View/Read:locationtech.geomesa"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
