@@ -91,31 +91,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:ecd.codewind"
-        - "Credentials/View:ecd.codewind"
-        - "Gerrit/ManualTrigger:ecd.codewind"
-        - "Gerrit/Retrigger:ecd.codewind"
-        - "Job/Build:ecd.codewind"
-        - "Job/Cancel:ecd.codewind"
-        - "Job/Configure:ecd.codewind"
-        - "Job/Create:ecd.codewind"
-        - "Job/Delete:ecd.codewind"
-        - "Job/Move:ecd.codewind"
-        - "Job/Read:ecd.codewind"
-        - "Job/Workspace:ecd.codewind"
-        - "Overall/Read:ecd.codewind"
-        - "Run/Delete:ecd.codewind"
-        - "Run/Replay:ecd.codewind"
-        - "Run/Update:ecd.codewind"
-        - "SCM/Tag:ecd.codewind"
-        - "View/Configure:ecd.codewind"
-        - "View/Create:ecd.codewind"
-        - "View/Delete:ecd.codewind"
-        - "View/Read:ecd.codewind"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:ecd.codewind"
+        - "GROUP:Credentials/View:ecd.codewind"
+        - "GROUP:Gerrit/ManualTrigger:ecd.codewind"
+        - "GROUP:Gerrit/Retrigger:ecd.codewind"
+        - "GROUP:Job/Build:ecd.codewind"
+        - "GROUP:Job/Cancel:ecd.codewind"
+        - "GROUP:Job/Configure:ecd.codewind"
+        - "GROUP:Job/Create:ecd.codewind"
+        - "GROUP:Job/Delete:ecd.codewind"
+        - "GROUP:Job/Move:ecd.codewind"
+        - "GROUP:Job/Read:ecd.codewind"
+        - "GROUP:Job/Workspace:ecd.codewind"
+        - "GROUP:Overall/Read:ecd.codewind"
+        - "GROUP:Run/Delete:ecd.codewind"
+        - "GROUP:Run/Replay:ecd.codewind"
+        - "GROUP:Run/Update:ecd.codewind"
+        - "GROUP:SCM/Tag:ecd.codewind"
+        - "GROUP:View/Configure:ecd.codewind"
+        - "GROUP:View/Create:ecd.codewind"
+        - "GROUP:View/Delete:ecd.codewind"
+        - "GROUP:View/Read:ecd.codewind"
   markupFormatter: rawHtml
   crumbIssuer:
     standard:
@@ -142,7 +142,7 @@ jenkins:
         podRetention: "never"
         templates:
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -228,7 +228,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -314,7 +314,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0

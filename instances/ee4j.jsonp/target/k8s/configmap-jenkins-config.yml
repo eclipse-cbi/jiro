@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jsonp"
   namespace: "jsonp"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:ee4j.jsonp"
-            - "Credentials/View:ee4j.jsonp"
-            - "Gerrit/ManualTrigger:ee4j.jsonp"
-            - "Gerrit/Retrigger:ee4j.jsonp"
-            - "Job/Build:ee4j.jsonp"
-            - "Job/Cancel:ee4j.jsonp"
-            - "Job/Configure:ee4j.jsonp"
-            - "Job/Create:ee4j.jsonp"
-            - "Job/Delete:ee4j.jsonp"
-            - "Job/Move:ee4j.jsonp"
-            - "Job/Read:ee4j.jsonp"
-            - "Job/Workspace:ee4j.jsonp"
-            - "Overall/Read:ee4j.jsonp"
-            - "Run/Delete:ee4j.jsonp"
-            - "Run/Replay:ee4j.jsonp"
-            - "Run/Update:ee4j.jsonp"
-            - "SCM/Tag:ee4j.jsonp"
-            - "View/Configure:ee4j.jsonp"
-            - "View/Create:ee4j.jsonp"
-            - "View/Delete:ee4j.jsonp"
-            - "View/Read:ee4j.jsonp"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:ee4j.jsonp"
+            - "GROUP:Credentials/View:ee4j.jsonp"
+            - "GROUP:Gerrit/ManualTrigger:ee4j.jsonp"
+            - "GROUP:Gerrit/Retrigger:ee4j.jsonp"
+            - "GROUP:Job/Build:ee4j.jsonp"
+            - "GROUP:Job/Cancel:ee4j.jsonp"
+            - "GROUP:Job/Configure:ee4j.jsonp"
+            - "GROUP:Job/Create:ee4j.jsonp"
+            - "GROUP:Job/Delete:ee4j.jsonp"
+            - "GROUP:Job/Move:ee4j.jsonp"
+            - "GROUP:Job/Read:ee4j.jsonp"
+            - "GROUP:Job/Workspace:ee4j.jsonp"
+            - "GROUP:Overall/Read:ee4j.jsonp"
+            - "GROUP:Run/Delete:ee4j.jsonp"
+            - "GROUP:Run/Replay:ee4j.jsonp"
+            - "GROUP:Run/Update:ee4j.jsonp"
+            - "GROUP:SCM/Tag:ee4j.jsonp"
+            - "GROUP:View/Configure:ee4j.jsonp"
+            - "GROUP:View/Create:ee4j.jsonp"
+            - "GROUP:View/Delete:ee4j.jsonp"
+            - "GROUP:View/Read:ee4j.jsonp"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

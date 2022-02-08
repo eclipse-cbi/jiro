@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:ee4j.metro"
-        - "Credentials/View:ee4j.metro"
-        - "Gerrit/ManualTrigger:ee4j.metro"
-        - "Gerrit/Retrigger:ee4j.metro"
-        - "Job/Build:ee4j.metro"
-        - "Job/Cancel:ee4j.metro"
-        - "Job/Configure:ee4j.metro"
-        - "Job/Create:ee4j.metro"
-        - "Job/Delete:ee4j.metro"
-        - "Job/Move:ee4j.metro"
-        - "Job/Read:ee4j.metro"
-        - "Job/Workspace:ee4j.metro"
-        - "Overall/Read:ee4j.metro"
-        - "Run/Delete:ee4j.metro"
-        - "Run/Replay:ee4j.metro"
-        - "Run/Update:ee4j.metro"
-        - "SCM/Tag:ee4j.metro"
-        - "View/Configure:ee4j.metro"
-        - "View/Create:ee4j.metro"
-        - "View/Delete:ee4j.metro"
-        - "View/Read:ee4j.metro"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:ee4j.metro"
+        - "GROUP:Credentials/View:ee4j.metro"
+        - "GROUP:Gerrit/ManualTrigger:ee4j.metro"
+        - "GROUP:Gerrit/Retrigger:ee4j.metro"
+        - "GROUP:Job/Build:ee4j.metro"
+        - "GROUP:Job/Cancel:ee4j.metro"
+        - "GROUP:Job/Configure:ee4j.metro"
+        - "GROUP:Job/Create:ee4j.metro"
+        - "GROUP:Job/Delete:ee4j.metro"
+        - "GROUP:Job/Move:ee4j.metro"
+        - "GROUP:Job/Read:ee4j.metro"
+        - "GROUP:Job/Workspace:ee4j.metro"
+        - "GROUP:Overall/Read:ee4j.metro"
+        - "GROUP:Run/Delete:ee4j.metro"
+        - "GROUP:Run/Replay:ee4j.metro"
+        - "GROUP:Run/Update:ee4j.metro"
+        - "GROUP:SCM/Tag:ee4j.metro"
+        - "GROUP:View/Configure:ee4j.metro"
+        - "GROUP:View/Create:ee4j.metro"
+        - "GROUP:View/Delete:ee4j.metro"
+        - "GROUP:View/Read:ee4j.metro"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:ee4j.parsson"
-        - "Credentials/View:ee4j.parsson"
-        - "Gerrit/ManualTrigger:ee4j.parsson"
-        - "Gerrit/Retrigger:ee4j.parsson"
-        - "Job/Build:ee4j.parsson"
-        - "Job/Cancel:ee4j.parsson"
-        - "Job/Configure:ee4j.parsson"
-        - "Job/Create:ee4j.parsson"
-        - "Job/Delete:ee4j.parsson"
-        - "Job/Move:ee4j.parsson"
-        - "Job/Read:ee4j.parsson"
-        - "Job/Workspace:ee4j.parsson"
-        - "Overall/Read:ee4j.parsson"
-        - "Run/Delete:ee4j.parsson"
-        - "Run/Replay:ee4j.parsson"
-        - "Run/Update:ee4j.parsson"
-        - "SCM/Tag:ee4j.parsson"
-        - "View/Configure:ee4j.parsson"
-        - "View/Create:ee4j.parsson"
-        - "View/Delete:ee4j.parsson"
-        - "View/Read:ee4j.parsson"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:ee4j.parsson"
+        - "GROUP:Credentials/View:ee4j.parsson"
+        - "GROUP:Gerrit/ManualTrigger:ee4j.parsson"
+        - "GROUP:Gerrit/Retrigger:ee4j.parsson"
+        - "GROUP:Job/Build:ee4j.parsson"
+        - "GROUP:Job/Cancel:ee4j.parsson"
+        - "GROUP:Job/Configure:ee4j.parsson"
+        - "GROUP:Job/Create:ee4j.parsson"
+        - "GROUP:Job/Delete:ee4j.parsson"
+        - "GROUP:Job/Move:ee4j.parsson"
+        - "GROUP:Job/Read:ee4j.parsson"
+        - "GROUP:Job/Workspace:ee4j.parsson"
+        - "GROUP:Overall/Read:ee4j.parsson"
+        - "GROUP:Run/Delete:ee4j.parsson"
+        - "GROUP:Run/Replay:ee4j.parsson"
+        - "GROUP:Run/Update:ee4j.parsson"
+        - "GROUP:SCM/Tag:ee4j.parsson"
+        - "GROUP:View/Configure:ee4j.parsson"
+        - "GROUP:View/Create:ee4j.parsson"
+        - "GROUP:View/Delete:ee4j.parsson"
+        - "GROUP:View/Read:ee4j.parsson"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

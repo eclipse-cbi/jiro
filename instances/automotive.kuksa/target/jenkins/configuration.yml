@@ -28,31 +28,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Agent/Build:automotive.kuksa"
-        - "Credentials/View:automotive.kuksa"
-        - "Gerrit/ManualTrigger:automotive.kuksa"
-        - "Gerrit/Retrigger:automotive.kuksa"
-        - "Job/Build:automotive.kuksa"
-        - "Job/Cancel:automotive.kuksa"
-        - "Job/Configure:automotive.kuksa"
-        - "Job/Create:automotive.kuksa"
-        - "Job/Delete:automotive.kuksa"
-        - "Job/Move:automotive.kuksa"
-        - "Job/Read:automotive.kuksa"
-        - "Job/Workspace:automotive.kuksa"
-        - "Overall/Read:automotive.kuksa"
-        - "Run/Delete:automotive.kuksa"
-        - "Run/Replay:automotive.kuksa"
-        - "Run/Update:automotive.kuksa"
-        - "SCM/Tag:automotive.kuksa"
-        - "View/Configure:automotive.kuksa"
-        - "View/Create:automotive.kuksa"
-        - "View/Delete:automotive.kuksa"
-        - "View/Read:automotive.kuksa"
-        - "Job/ExtendedRead:common"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Agent/Build:automotive.kuksa"
+        - "GROUP:Credentials/View:automotive.kuksa"
+        - "GROUP:Gerrit/ManualTrigger:automotive.kuksa"
+        - "GROUP:Gerrit/Retrigger:automotive.kuksa"
+        - "GROUP:Job/Build:automotive.kuksa"
+        - "GROUP:Job/Cancel:automotive.kuksa"
+        - "GROUP:Job/Configure:automotive.kuksa"
+        - "GROUP:Job/Create:automotive.kuksa"
+        - "GROUP:Job/Delete:automotive.kuksa"
+        - "GROUP:Job/Move:automotive.kuksa"
+        - "GROUP:Job/Read:automotive.kuksa"
+        - "GROUP:Job/Workspace:automotive.kuksa"
+        - "GROUP:Overall/Read:automotive.kuksa"
+        - "GROUP:Run/Delete:automotive.kuksa"
+        - "GROUP:Run/Replay:automotive.kuksa"
+        - "GROUP:Run/Update:automotive.kuksa"
+        - "GROUP:SCM/Tag:automotive.kuksa"
+        - "GROUP:View/Configure:automotive.kuksa"
+        - "GROUP:View/Create:automotive.kuksa"
+        - "GROUP:View/Delete:automotive.kuksa"
+        - "GROUP:View/Read:automotive.kuksa"
+        - "GROUP:Job/ExtendedRead:common"
   markupFormatter: rawHtml
   crumbIssuer:
     standard:
@@ -79,7 +79,7 @@ jenkins:
         podRetention: "never"
         templates:
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -165,7 +165,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -251,7 +251,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0

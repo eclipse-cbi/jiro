@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:ecd.sprotty"
-        - "Credentials/View:ecd.sprotty"
-        - "Gerrit/ManualTrigger:ecd.sprotty"
-        - "Gerrit/Retrigger:ecd.sprotty"
-        - "Job/Build:ecd.sprotty"
-        - "Job/Cancel:ecd.sprotty"
-        - "Job/Configure:ecd.sprotty"
-        - "Job/Create:ecd.sprotty"
-        - "Job/Delete:ecd.sprotty"
-        - "Job/Move:ecd.sprotty"
-        - "Job/Read:ecd.sprotty"
-        - "Job/Workspace:ecd.sprotty"
-        - "Overall/Read:ecd.sprotty"
-        - "Run/Delete:ecd.sprotty"
-        - "Run/Replay:ecd.sprotty"
-        - "Run/Update:ecd.sprotty"
-        - "SCM/Tag:ecd.sprotty"
-        - "View/Configure:ecd.sprotty"
-        - "View/Create:ecd.sprotty"
-        - "View/Delete:ecd.sprotty"
-        - "View/Read:ecd.sprotty"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:ecd.sprotty"
+        - "GROUP:Credentials/View:ecd.sprotty"
+        - "GROUP:Gerrit/ManualTrigger:ecd.sprotty"
+        - "GROUP:Gerrit/Retrigger:ecd.sprotty"
+        - "GROUP:Job/Build:ecd.sprotty"
+        - "GROUP:Job/Cancel:ecd.sprotty"
+        - "GROUP:Job/Configure:ecd.sprotty"
+        - "GROUP:Job/Create:ecd.sprotty"
+        - "GROUP:Job/Delete:ecd.sprotty"
+        - "GROUP:Job/Move:ecd.sprotty"
+        - "GROUP:Job/Read:ecd.sprotty"
+        - "GROUP:Job/Workspace:ecd.sprotty"
+        - "GROUP:Overall/Read:ecd.sprotty"
+        - "GROUP:Run/Delete:ecd.sprotty"
+        - "GROUP:Run/Replay:ecd.sprotty"
+        - "GROUP:Run/Update:ecd.sprotty"
+        - "GROUP:SCM/Tag:ecd.sprotty"
+        - "GROUP:View/Configure:ecd.sprotty"
+        - "GROUP:View/Create:ecd.sprotty"
+        - "GROUP:View/Delete:ecd.sprotty"
+        - "GROUP:View/Read:ecd.sprotty"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

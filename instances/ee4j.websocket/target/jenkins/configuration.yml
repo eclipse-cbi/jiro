@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:ee4j.websocket"
-        - "Credentials/View:ee4j.websocket"
-        - "Gerrit/ManualTrigger:ee4j.websocket"
-        - "Gerrit/Retrigger:ee4j.websocket"
-        - "Job/Build:ee4j.websocket"
-        - "Job/Cancel:ee4j.websocket"
-        - "Job/Configure:ee4j.websocket"
-        - "Job/Create:ee4j.websocket"
-        - "Job/Delete:ee4j.websocket"
-        - "Job/Move:ee4j.websocket"
-        - "Job/Read:ee4j.websocket"
-        - "Job/Workspace:ee4j.websocket"
-        - "Overall/Read:ee4j.websocket"
-        - "Run/Delete:ee4j.websocket"
-        - "Run/Replay:ee4j.websocket"
-        - "Run/Update:ee4j.websocket"
-        - "SCM/Tag:ee4j.websocket"
-        - "View/Configure:ee4j.websocket"
-        - "View/Create:ee4j.websocket"
-        - "View/Delete:ee4j.websocket"
-        - "View/Read:ee4j.websocket"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:ee4j.websocket"
+        - "GROUP:Credentials/View:ee4j.websocket"
+        - "GROUP:Gerrit/ManualTrigger:ee4j.websocket"
+        - "GROUP:Gerrit/Retrigger:ee4j.websocket"
+        - "GROUP:Job/Build:ee4j.websocket"
+        - "GROUP:Job/Cancel:ee4j.websocket"
+        - "GROUP:Job/Configure:ee4j.websocket"
+        - "GROUP:Job/Create:ee4j.websocket"
+        - "GROUP:Job/Delete:ee4j.websocket"
+        - "GROUP:Job/Move:ee4j.websocket"
+        - "GROUP:Job/Read:ee4j.websocket"
+        - "GROUP:Job/Workspace:ee4j.websocket"
+        - "GROUP:Overall/Read:ee4j.websocket"
+        - "GROUP:Run/Delete:ee4j.websocket"
+        - "GROUP:Run/Replay:ee4j.websocket"
+        - "GROUP:Run/Update:ee4j.websocket"
+        - "GROUP:SCM/Tag:ee4j.websocket"
+        - "GROUP:View/Configure:ee4j.websocket"
+        - "GROUP:View/Create:ee4j.websocket"
+        - "GROUP:View/Delete:ee4j.websocket"
+        - "GROUP:View/Read:ee4j.websocket"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jkube"
   namespace: "jkube"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:ecd.jkube"
-            - "Credentials/View:ecd.jkube"
-            - "Gerrit/ManualTrigger:ecd.jkube"
-            - "Gerrit/Retrigger:ecd.jkube"
-            - "Job/Build:ecd.jkube"
-            - "Job/Cancel:ecd.jkube"
-            - "Job/Configure:ecd.jkube"
-            - "Job/Create:ecd.jkube"
-            - "Job/Delete:ecd.jkube"
-            - "Job/Move:ecd.jkube"
-            - "Job/Read:ecd.jkube"
-            - "Job/Workspace:ecd.jkube"
-            - "Overall/Read:ecd.jkube"
-            - "Run/Delete:ecd.jkube"
-            - "Run/Replay:ecd.jkube"
-            - "Run/Update:ecd.jkube"
-            - "SCM/Tag:ecd.jkube"
-            - "View/Configure:ecd.jkube"
-            - "View/Create:ecd.jkube"
-            - "View/Delete:ecd.jkube"
-            - "View/Read:ecd.jkube"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:ecd.jkube"
+            - "GROUP:Credentials/View:ecd.jkube"
+            - "GROUP:Gerrit/ManualTrigger:ecd.jkube"
+            - "GROUP:Gerrit/Retrigger:ecd.jkube"
+            - "GROUP:Job/Build:ecd.jkube"
+            - "GROUP:Job/Cancel:ecd.jkube"
+            - "GROUP:Job/Configure:ecd.jkube"
+            - "GROUP:Job/Create:ecd.jkube"
+            - "GROUP:Job/Delete:ecd.jkube"
+            - "GROUP:Job/Move:ecd.jkube"
+            - "GROUP:Job/Read:ecd.jkube"
+            - "GROUP:Job/Workspace:ecd.jkube"
+            - "GROUP:Overall/Read:ecd.jkube"
+            - "GROUP:Run/Delete:ecd.jkube"
+            - "GROUP:Run/Replay:ecd.jkube"
+            - "GROUP:Run/Update:ecd.jkube"
+            - "GROUP:SCM/Tag:ecd.jkube"
+            - "GROUP:View/Configure:ecd.jkube"
+            - "GROUP:View/Create:ecd.jkube"
+            - "GROUP:View/Delete:ecd.jkube"
+            - "GROUP:View/Read:ecd.jkube"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "theia"
   namespace: "theia"
   name: jenkins-config
@@ -86,31 +86,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:ecd.theia"
-            - "Credentials/View:ecd.theia"
-            - "Gerrit/ManualTrigger:ecd.theia"
-            - "Gerrit/Retrigger:ecd.theia"
-            - "Job/Build:ecd.theia"
-            - "Job/Cancel:ecd.theia"
-            - "Job/Configure:ecd.theia"
-            - "Job/Create:ecd.theia"
-            - "Job/Delete:ecd.theia"
-            - "Job/Move:ecd.theia"
-            - "Job/Read:ecd.theia"
-            - "Job/Workspace:ecd.theia"
-            - "Overall/Read:ecd.theia"
-            - "Run/Delete:ecd.theia"
-            - "Run/Replay:ecd.theia"
-            - "Run/Update:ecd.theia"
-            - "SCM/Tag:ecd.theia"
-            - "View/Configure:ecd.theia"
-            - "View/Create:ecd.theia"
-            - "View/Delete:ecd.theia"
-            - "View/Read:ecd.theia"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:ecd.theia"
+            - "GROUP:Credentials/View:ecd.theia"
+            - "GROUP:Gerrit/ManualTrigger:ecd.theia"
+            - "GROUP:Gerrit/Retrigger:ecd.theia"
+            - "GROUP:Job/Build:ecd.theia"
+            - "GROUP:Job/Cancel:ecd.theia"
+            - "GROUP:Job/Configure:ecd.theia"
+            - "GROUP:Job/Create:ecd.theia"
+            - "GROUP:Job/Delete:ecd.theia"
+            - "GROUP:Job/Move:ecd.theia"
+            - "GROUP:Job/Read:ecd.theia"
+            - "GROUP:Job/Workspace:ecd.theia"
+            - "GROUP:Overall/Read:ecd.theia"
+            - "GROUP:Run/Delete:ecd.theia"
+            - "GROUP:Run/Replay:ecd.theia"
+            - "GROUP:Run/Update:ecd.theia"
+            - "GROUP:SCM/Tag:ecd.theia"
+            - "GROUP:View/Configure:ecd.theia"
+            - "GROUP:View/Create:ecd.theia"
+            - "GROUP:View/Delete:ecd.theia"
+            - "GROUP:View/Read:ecd.theia"
       markupFormatter: rawHtml
       crumbIssuer:
         standard:
@@ -137,7 +137,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -223,7 +223,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -309,7 +309,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0

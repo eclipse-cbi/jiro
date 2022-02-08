@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:ee4j.authentication"
-        - "Credentials/View:ee4j.authentication"
-        - "Gerrit/ManualTrigger:ee4j.authentication"
-        - "Gerrit/Retrigger:ee4j.authentication"
-        - "Job/Build:ee4j.authentication"
-        - "Job/Cancel:ee4j.authentication"
-        - "Job/Configure:ee4j.authentication"
-        - "Job/Create:ee4j.authentication"
-        - "Job/Delete:ee4j.authentication"
-        - "Job/Move:ee4j.authentication"
-        - "Job/Read:ee4j.authentication"
-        - "Job/Workspace:ee4j.authentication"
-        - "Overall/Read:ee4j.authentication"
-        - "Run/Delete:ee4j.authentication"
-        - "Run/Replay:ee4j.authentication"
-        - "Run/Update:ee4j.authentication"
-        - "SCM/Tag:ee4j.authentication"
-        - "View/Configure:ee4j.authentication"
-        - "View/Create:ee4j.authentication"
-        - "View/Delete:ee4j.authentication"
-        - "View/Read:ee4j.authentication"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:ee4j.authentication"
+        - "GROUP:Credentials/View:ee4j.authentication"
+        - "GROUP:Gerrit/ManualTrigger:ee4j.authentication"
+        - "GROUP:Gerrit/Retrigger:ee4j.authentication"
+        - "GROUP:Job/Build:ee4j.authentication"
+        - "GROUP:Job/Cancel:ee4j.authentication"
+        - "GROUP:Job/Configure:ee4j.authentication"
+        - "GROUP:Job/Create:ee4j.authentication"
+        - "GROUP:Job/Delete:ee4j.authentication"
+        - "GROUP:Job/Move:ee4j.authentication"
+        - "GROUP:Job/Read:ee4j.authentication"
+        - "GROUP:Job/Workspace:ee4j.authentication"
+        - "GROUP:Overall/Read:ee4j.authentication"
+        - "GROUP:Run/Delete:ee4j.authentication"
+        - "GROUP:Run/Replay:ee4j.authentication"
+        - "GROUP:Run/Update:ee4j.authentication"
+        - "GROUP:SCM/Tag:ee4j.authentication"
+        - "GROUP:View/Configure:ee4j.authentication"
+        - "GROUP:View/Create:ee4j.authentication"
+        - "GROUP:View/Delete:ee4j.authentication"
+        - "GROUP:View/Read:ee4j.authentication"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

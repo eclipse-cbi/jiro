@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "releng"
   namespace: "releng"
   name: jenkins-config
@@ -285,35 +285,35 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Agent/Connect:akurtakov@gmail.com"
-            - "Agent/Disconnect:akurtakov@gmail.com"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:eclipse.platform"
-            - "Credentials/View:eclipse.platform"
-            - "Gerrit/ManualTrigger:eclipse.platform"
-            - "Gerrit/Retrigger:eclipse.platform"
-            - "Job/Build:eclipse.platform"
-            - "Job/Cancel:eclipse.platform"
-            - "Job/Configure:eclipse.platform"
-            - "Job/Create:eclipse.platform"
-            - "Job/Delete:eclipse.platform"
-            - "Job/Move:eclipse.platform"
-            - "Job/Read:eclipse.platform"
-            - "Job/Workspace:eclipse.platform"
-            - "Overall/Read:eclipse.platform"
-            - "Run/Delete:eclipse.platform"
-            - "Run/Replay:eclipse.platform"
-            - "Run/Update:eclipse.platform"
-            - "SCM/Tag:eclipse.platform"
-            - "View/Configure:eclipse.platform"
-            - "View/Create:eclipse.platform"
-            - "View/Delete:eclipse.platform"
-            - "View/Read:eclipse.platform"
-            - "Agent/Connect:sravankumarl@in.ibm.com"
-            - "Agent/Disconnect:sravankumarl@in.ibm.com"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Agent/Connect:akurtakov@gmail.com"
+            - "GROUP:Agent/Disconnect:akurtakov@gmail.com"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:eclipse.platform"
+            - "GROUP:Credentials/View:eclipse.platform"
+            - "GROUP:Gerrit/ManualTrigger:eclipse.platform"
+            - "GROUP:Gerrit/Retrigger:eclipse.platform"
+            - "GROUP:Job/Build:eclipse.platform"
+            - "GROUP:Job/Cancel:eclipse.platform"
+            - "GROUP:Job/Configure:eclipse.platform"
+            - "GROUP:Job/Create:eclipse.platform"
+            - "GROUP:Job/Delete:eclipse.platform"
+            - "GROUP:Job/Move:eclipse.platform"
+            - "GROUP:Job/Read:eclipse.platform"
+            - "GROUP:Job/Workspace:eclipse.platform"
+            - "GROUP:Overall/Read:eclipse.platform"
+            - "GROUP:Run/Delete:eclipse.platform"
+            - "GROUP:Run/Replay:eclipse.platform"
+            - "GROUP:Run/Update:eclipse.platform"
+            - "GROUP:SCM/Tag:eclipse.platform"
+            - "GROUP:View/Configure:eclipse.platform"
+            - "GROUP:View/Create:eclipse.platform"
+            - "GROUP:View/Delete:eclipse.platform"
+            - "GROUP:View/Read:eclipse.platform"
+            - "GROUP:Agent/Connect:sravankumarl@in.ibm.com"
+            - "GROUP:Agent/Disconnect:sravankumarl@in.ibm.com"
       markupFormatter: rawHtml
       crumbIssuer:
         standard:
@@ -340,7 +340,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -438,7 +438,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -536,7 +536,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0

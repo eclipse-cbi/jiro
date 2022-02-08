@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:ee4j.jakartaee-tck"
-        - "Credentials/View:ee4j.jakartaee-tck"
-        - "Gerrit/ManualTrigger:ee4j.jakartaee-tck"
-        - "Gerrit/Retrigger:ee4j.jakartaee-tck"
-        - "Job/Build:ee4j.jakartaee-tck"
-        - "Job/Cancel:ee4j.jakartaee-tck"
-        - "Job/Configure:ee4j.jakartaee-tck"
-        - "Job/Create:ee4j.jakartaee-tck"
-        - "Job/Delete:ee4j.jakartaee-tck"
-        - "Job/Move:ee4j.jakartaee-tck"
-        - "Job/Read:ee4j.jakartaee-tck"
-        - "Job/Workspace:ee4j.jakartaee-tck"
-        - "Overall/Read:ee4j.jakartaee-tck"
-        - "Run/Delete:ee4j.jakartaee-tck"
-        - "Run/Replay:ee4j.jakartaee-tck"
-        - "Run/Update:ee4j.jakartaee-tck"
-        - "SCM/Tag:ee4j.jakartaee-tck"
-        - "View/Configure:ee4j.jakartaee-tck"
-        - "View/Create:ee4j.jakartaee-tck"
-        - "View/Delete:ee4j.jakartaee-tck"
-        - "View/Read:ee4j.jakartaee-tck"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:ee4j.jakartaee-tck"
+        - "GROUP:Credentials/View:ee4j.jakartaee-tck"
+        - "GROUP:Gerrit/ManualTrigger:ee4j.jakartaee-tck"
+        - "GROUP:Gerrit/Retrigger:ee4j.jakartaee-tck"
+        - "GROUP:Job/Build:ee4j.jakartaee-tck"
+        - "GROUP:Job/Cancel:ee4j.jakartaee-tck"
+        - "GROUP:Job/Configure:ee4j.jakartaee-tck"
+        - "GROUP:Job/Create:ee4j.jakartaee-tck"
+        - "GROUP:Job/Delete:ee4j.jakartaee-tck"
+        - "GROUP:Job/Move:ee4j.jakartaee-tck"
+        - "GROUP:Job/Read:ee4j.jakartaee-tck"
+        - "GROUP:Job/Workspace:ee4j.jakartaee-tck"
+        - "GROUP:Overall/Read:ee4j.jakartaee-tck"
+        - "GROUP:Run/Delete:ee4j.jakartaee-tck"
+        - "GROUP:Run/Replay:ee4j.jakartaee-tck"
+        - "GROUP:Run/Update:ee4j.jakartaee-tck"
+        - "GROUP:SCM/Tag:ee4j.jakartaee-tck"
+        - "GROUP:View/Configure:ee4j.jakartaee-tck"
+        - "GROUP:View/Create:ee4j.jakartaee-tck"
+        - "GROUP:View/Delete:ee4j.jakartaee-tck"
+        - "GROUP:View/Read:ee4j.jakartaee-tck"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:ee4j.jersey"
-        - "Credentials/View:ee4j.jersey"
-        - "Gerrit/ManualTrigger:ee4j.jersey"
-        - "Gerrit/Retrigger:ee4j.jersey"
-        - "Job/Build:ee4j.jersey"
-        - "Job/Cancel:ee4j.jersey"
-        - "Job/Configure:ee4j.jersey"
-        - "Job/Create:ee4j.jersey"
-        - "Job/Delete:ee4j.jersey"
-        - "Job/Move:ee4j.jersey"
-        - "Job/Read:ee4j.jersey"
-        - "Job/Workspace:ee4j.jersey"
-        - "Overall/Read:ee4j.jersey"
-        - "Run/Delete:ee4j.jersey"
-        - "Run/Replay:ee4j.jersey"
-        - "Run/Update:ee4j.jersey"
-        - "SCM/Tag:ee4j.jersey"
-        - "View/Configure:ee4j.jersey"
-        - "View/Create:ee4j.jersey"
-        - "View/Delete:ee4j.jersey"
-        - "View/Read:ee4j.jersey"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:ee4j.jersey"
+        - "GROUP:Credentials/View:ee4j.jersey"
+        - "GROUP:Gerrit/ManualTrigger:ee4j.jersey"
+        - "GROUP:Gerrit/Retrigger:ee4j.jersey"
+        - "GROUP:Job/Build:ee4j.jersey"
+        - "GROUP:Job/Cancel:ee4j.jersey"
+        - "GROUP:Job/Configure:ee4j.jersey"
+        - "GROUP:Job/Create:ee4j.jersey"
+        - "GROUP:Job/Delete:ee4j.jersey"
+        - "GROUP:Job/Move:ee4j.jersey"
+        - "GROUP:Job/Read:ee4j.jersey"
+        - "GROUP:Job/Workspace:ee4j.jersey"
+        - "GROUP:Overall/Read:ee4j.jersey"
+        - "GROUP:Run/Delete:ee4j.jersey"
+        - "GROUP:Run/Replay:ee4j.jersey"
+        - "GROUP:Run/Update:ee4j.jersey"
+        - "GROUP:SCM/Tag:ee4j.jersey"
+        - "GROUP:View/Configure:ee4j.jersey"
+        - "GROUP:View/Create:ee4j.jersey"
+        - "GROUP:View/Delete:ee4j.jersey"
+        - "GROUP:View/Read:ee4j.jersey"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

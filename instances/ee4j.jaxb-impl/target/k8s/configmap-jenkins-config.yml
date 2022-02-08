@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jaxb-impl"
   namespace: "jaxb-impl"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:ee4j.jaxb-impl"
-            - "Credentials/View:ee4j.jaxb-impl"
-            - "Gerrit/ManualTrigger:ee4j.jaxb-impl"
-            - "Gerrit/Retrigger:ee4j.jaxb-impl"
-            - "Job/Build:ee4j.jaxb-impl"
-            - "Job/Cancel:ee4j.jaxb-impl"
-            - "Job/Configure:ee4j.jaxb-impl"
-            - "Job/Create:ee4j.jaxb-impl"
-            - "Job/Delete:ee4j.jaxb-impl"
-            - "Job/Move:ee4j.jaxb-impl"
-            - "Job/Read:ee4j.jaxb-impl"
-            - "Job/Workspace:ee4j.jaxb-impl"
-            - "Overall/Read:ee4j.jaxb-impl"
-            - "Run/Delete:ee4j.jaxb-impl"
-            - "Run/Replay:ee4j.jaxb-impl"
-            - "Run/Update:ee4j.jaxb-impl"
-            - "SCM/Tag:ee4j.jaxb-impl"
-            - "View/Configure:ee4j.jaxb-impl"
-            - "View/Create:ee4j.jaxb-impl"
-            - "View/Delete:ee4j.jaxb-impl"
-            - "View/Read:ee4j.jaxb-impl"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:ee4j.jaxb-impl"
+            - "GROUP:Credentials/View:ee4j.jaxb-impl"
+            - "GROUP:Gerrit/ManualTrigger:ee4j.jaxb-impl"
+            - "GROUP:Gerrit/Retrigger:ee4j.jaxb-impl"
+            - "GROUP:Job/Build:ee4j.jaxb-impl"
+            - "GROUP:Job/Cancel:ee4j.jaxb-impl"
+            - "GROUP:Job/Configure:ee4j.jaxb-impl"
+            - "GROUP:Job/Create:ee4j.jaxb-impl"
+            - "GROUP:Job/Delete:ee4j.jaxb-impl"
+            - "GROUP:Job/Move:ee4j.jaxb-impl"
+            - "GROUP:Job/Read:ee4j.jaxb-impl"
+            - "GROUP:Job/Workspace:ee4j.jaxb-impl"
+            - "GROUP:Overall/Read:ee4j.jaxb-impl"
+            - "GROUP:Run/Delete:ee4j.jaxb-impl"
+            - "GROUP:Run/Replay:ee4j.jaxb-impl"
+            - "GROUP:Run/Update:ee4j.jaxb-impl"
+            - "GROUP:SCM/Tag:ee4j.jaxb-impl"
+            - "GROUP:View/Configure:ee4j.jaxb-impl"
+            - "GROUP:View/Create:ee4j.jaxb-impl"
+            - "GROUP:View/Delete:ee4j.jaxb-impl"
+            - "GROUP:View/Read:ee4j.jaxb-impl"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

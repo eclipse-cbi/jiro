@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "soteria"
   namespace: "soteria"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:ee4j.soteria"
-            - "Credentials/View:ee4j.soteria"
-            - "Gerrit/ManualTrigger:ee4j.soteria"
-            - "Gerrit/Retrigger:ee4j.soteria"
-            - "Job/Build:ee4j.soteria"
-            - "Job/Cancel:ee4j.soteria"
-            - "Job/Configure:ee4j.soteria"
-            - "Job/Create:ee4j.soteria"
-            - "Job/Delete:ee4j.soteria"
-            - "Job/Move:ee4j.soteria"
-            - "Job/Read:ee4j.soteria"
-            - "Job/Workspace:ee4j.soteria"
-            - "Overall/Read:ee4j.soteria"
-            - "Run/Delete:ee4j.soteria"
-            - "Run/Replay:ee4j.soteria"
-            - "Run/Update:ee4j.soteria"
-            - "SCM/Tag:ee4j.soteria"
-            - "View/Configure:ee4j.soteria"
-            - "View/Create:ee4j.soteria"
-            - "View/Delete:ee4j.soteria"
-            - "View/Read:ee4j.soteria"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:ee4j.soteria"
+            - "GROUP:Credentials/View:ee4j.soteria"
+            - "GROUP:Gerrit/ManualTrigger:ee4j.soteria"
+            - "GROUP:Gerrit/Retrigger:ee4j.soteria"
+            - "GROUP:Job/Build:ee4j.soteria"
+            - "GROUP:Job/Cancel:ee4j.soteria"
+            - "GROUP:Job/Configure:ee4j.soteria"
+            - "GROUP:Job/Create:ee4j.soteria"
+            - "GROUP:Job/Delete:ee4j.soteria"
+            - "GROUP:Job/Move:ee4j.soteria"
+            - "GROUP:Job/Read:ee4j.soteria"
+            - "GROUP:Job/Workspace:ee4j.soteria"
+            - "GROUP:Overall/Read:ee4j.soteria"
+            - "GROUP:Run/Delete:ee4j.soteria"
+            - "GROUP:Run/Replay:ee4j.soteria"
+            - "GROUP:Run/Update:ee4j.soteria"
+            - "GROUP:SCM/Tag:ee4j.soteria"
+            - "GROUP:View/Configure:ee4j.soteria"
+            - "GROUP:View/Create:ee4j.soteria"
+            - "GROUP:View/Delete:ee4j.soteria"
+            - "GROUP:View/Read:ee4j.soteria"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

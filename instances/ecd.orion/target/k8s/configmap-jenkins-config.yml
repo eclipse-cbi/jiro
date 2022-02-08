@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "orion"
   namespace: "orion"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:ecd.orion"
-            - "Credentials/View:ecd.orion"
-            - "Gerrit/ManualTrigger:ecd.orion"
-            - "Gerrit/Retrigger:ecd.orion"
-            - "Job/Build:ecd.orion"
-            - "Job/Cancel:ecd.orion"
-            - "Job/Configure:ecd.orion"
-            - "Job/Create:ecd.orion"
-            - "Job/Delete:ecd.orion"
-            - "Job/Move:ecd.orion"
-            - "Job/Read:ecd.orion"
-            - "Job/Workspace:ecd.orion"
-            - "Overall/Read:ecd.orion"
-            - "Run/Delete:ecd.orion"
-            - "Run/Replay:ecd.orion"
-            - "Run/Update:ecd.orion"
-            - "SCM/Tag:ecd.orion"
-            - "View/Configure:ecd.orion"
-            - "View/Create:ecd.orion"
-            - "View/Delete:ecd.orion"
-            - "View/Read:ecd.orion"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:ecd.orion"
+            - "GROUP:Credentials/View:ecd.orion"
+            - "GROUP:Gerrit/ManualTrigger:ecd.orion"
+            - "GROUP:Gerrit/Retrigger:ecd.orion"
+            - "GROUP:Job/Build:ecd.orion"
+            - "GROUP:Job/Cancel:ecd.orion"
+            - "GROUP:Job/Configure:ecd.orion"
+            - "GROUP:Job/Create:ecd.orion"
+            - "GROUP:Job/Delete:ecd.orion"
+            - "GROUP:Job/Move:ecd.orion"
+            - "GROUP:Job/Read:ecd.orion"
+            - "GROUP:Job/Workspace:ecd.orion"
+            - "GROUP:Overall/Read:ecd.orion"
+            - "GROUP:Run/Delete:ecd.orion"
+            - "GROUP:Run/Replay:ecd.orion"
+            - "GROUP:Run/Update:ecd.orion"
+            - "GROUP:SCM/Tag:ecd.orion"
+            - "GROUP:View/Configure:ecd.orion"
+            - "GROUP:View/Create:ecd.orion"
+            - "GROUP:View/Delete:ecd.orion"
+            - "GROUP:View/Read:ecd.orion"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:ee4j.krazo"
-        - "Credentials/View:ee4j.krazo"
-        - "Gerrit/ManualTrigger:ee4j.krazo"
-        - "Gerrit/Retrigger:ee4j.krazo"
-        - "Job/Build:ee4j.krazo"
-        - "Job/Cancel:ee4j.krazo"
-        - "Job/Configure:ee4j.krazo"
-        - "Job/Create:ee4j.krazo"
-        - "Job/Delete:ee4j.krazo"
-        - "Job/Move:ee4j.krazo"
-        - "Job/Read:ee4j.krazo"
-        - "Job/Workspace:ee4j.krazo"
-        - "Overall/Read:ee4j.krazo"
-        - "Run/Delete:ee4j.krazo"
-        - "Run/Replay:ee4j.krazo"
-        - "Run/Update:ee4j.krazo"
-        - "SCM/Tag:ee4j.krazo"
-        - "View/Configure:ee4j.krazo"
-        - "View/Create:ee4j.krazo"
-        - "View/Delete:ee4j.krazo"
-        - "View/Read:ee4j.krazo"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:ee4j.krazo"
+        - "GROUP:Credentials/View:ee4j.krazo"
+        - "GROUP:Gerrit/ManualTrigger:ee4j.krazo"
+        - "GROUP:Gerrit/Retrigger:ee4j.krazo"
+        - "GROUP:Job/Build:ee4j.krazo"
+        - "GROUP:Job/Cancel:ee4j.krazo"
+        - "GROUP:Job/Configure:ee4j.krazo"
+        - "GROUP:Job/Create:ee4j.krazo"
+        - "GROUP:Job/Delete:ee4j.krazo"
+        - "GROUP:Job/Move:ee4j.krazo"
+        - "GROUP:Job/Read:ee4j.krazo"
+        - "GROUP:Job/Workspace:ee4j.krazo"
+        - "GROUP:Overall/Read:ee4j.krazo"
+        - "GROUP:Run/Delete:ee4j.krazo"
+        - "GROUP:Run/Replay:ee4j.krazo"
+        - "GROUP:Run/Update:ee4j.krazo"
+        - "GROUP:SCM/Tag:ee4j.krazo"
+        - "GROUP:View/Configure:ee4j.krazo"
+        - "GROUP:View/Create:ee4j.krazo"
+        - "GROUP:View/Delete:ee4j.krazo"
+        - "GROUP:View/Read:ee4j.krazo"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

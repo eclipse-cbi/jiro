@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jdt"
   namespace: "jdt"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:eclipse.jdt"
-            - "Credentials/View:eclipse.jdt"
-            - "Gerrit/ManualTrigger:eclipse.jdt"
-            - "Gerrit/Retrigger:eclipse.jdt"
-            - "Job/Build:eclipse.jdt"
-            - "Job/Cancel:eclipse.jdt"
-            - "Job/Configure:eclipse.jdt"
-            - "Job/Create:eclipse.jdt"
-            - "Job/Delete:eclipse.jdt"
-            - "Job/Move:eclipse.jdt"
-            - "Job/Read:eclipse.jdt"
-            - "Job/Workspace:eclipse.jdt"
-            - "Overall/Read:eclipse.jdt"
-            - "Run/Delete:eclipse.jdt"
-            - "Run/Replay:eclipse.jdt"
-            - "Run/Update:eclipse.jdt"
-            - "SCM/Tag:eclipse.jdt"
-            - "View/Configure:eclipse.jdt"
-            - "View/Create:eclipse.jdt"
-            - "View/Delete:eclipse.jdt"
-            - "View/Read:eclipse.jdt"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:eclipse.jdt"
+            - "GROUP:Credentials/View:eclipse.jdt"
+            - "GROUP:Gerrit/ManualTrigger:eclipse.jdt"
+            - "GROUP:Gerrit/Retrigger:eclipse.jdt"
+            - "GROUP:Job/Build:eclipse.jdt"
+            - "GROUP:Job/Cancel:eclipse.jdt"
+            - "GROUP:Job/Configure:eclipse.jdt"
+            - "GROUP:Job/Create:eclipse.jdt"
+            - "GROUP:Job/Delete:eclipse.jdt"
+            - "GROUP:Job/Move:eclipse.jdt"
+            - "GROUP:Job/Read:eclipse.jdt"
+            - "GROUP:Job/Workspace:eclipse.jdt"
+            - "GROUP:Overall/Read:eclipse.jdt"
+            - "GROUP:Run/Delete:eclipse.jdt"
+            - "GROUP:Run/Replay:eclipse.jdt"
+            - "GROUP:Run/Update:eclipse.jdt"
+            - "GROUP:SCM/Tag:eclipse.jdt"
+            - "GROUP:View/Configure:eclipse.jdt"
+            - "GROUP:View/Create:eclipse.jdt"
+            - "GROUP:View/Delete:eclipse.jdt"
+            - "GROUP:View/Read:eclipse.jdt"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "tyrus"
   namespace: "tyrus"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:ee4j.tyrus"
-            - "Credentials/View:ee4j.tyrus"
-            - "Gerrit/ManualTrigger:ee4j.tyrus"
-            - "Gerrit/Retrigger:ee4j.tyrus"
-            - "Job/Build:ee4j.tyrus"
-            - "Job/Cancel:ee4j.tyrus"
-            - "Job/Configure:ee4j.tyrus"
-            - "Job/Create:ee4j.tyrus"
-            - "Job/Delete:ee4j.tyrus"
-            - "Job/Move:ee4j.tyrus"
-            - "Job/Read:ee4j.tyrus"
-            - "Job/Workspace:ee4j.tyrus"
-            - "Overall/Read:ee4j.tyrus"
-            - "Run/Delete:ee4j.tyrus"
-            - "Run/Replay:ee4j.tyrus"
-            - "Run/Update:ee4j.tyrus"
-            - "SCM/Tag:ee4j.tyrus"
-            - "View/Configure:ee4j.tyrus"
-            - "View/Create:ee4j.tyrus"
-            - "View/Delete:ee4j.tyrus"
-            - "View/Read:ee4j.tyrus"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:ee4j.tyrus"
+            - "GROUP:Credentials/View:ee4j.tyrus"
+            - "GROUP:Gerrit/ManualTrigger:ee4j.tyrus"
+            - "GROUP:Gerrit/Retrigger:ee4j.tyrus"
+            - "GROUP:Job/Build:ee4j.tyrus"
+            - "GROUP:Job/Cancel:ee4j.tyrus"
+            - "GROUP:Job/Configure:ee4j.tyrus"
+            - "GROUP:Job/Create:ee4j.tyrus"
+            - "GROUP:Job/Delete:ee4j.tyrus"
+            - "GROUP:Job/Move:ee4j.tyrus"
+            - "GROUP:Job/Read:ee4j.tyrus"
+            - "GROUP:Job/Workspace:ee4j.tyrus"
+            - "GROUP:Overall/Read:ee4j.tyrus"
+            - "GROUP:Run/Delete:ee4j.tyrus"
+            - "GROUP:Run/Replay:ee4j.tyrus"
+            - "GROUP:Run/Update:ee4j.tyrus"
+            - "GROUP:SCM/Tag:ee4j.tyrus"
+            - "GROUP:View/Configure:ee4j.tyrus"
+            - "GROUP:View/Create:ee4j.tyrus"
+            - "GROUP:View/Delete:ee4j.tyrus"
+            - "GROUP:View/Read:ee4j.tyrus"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

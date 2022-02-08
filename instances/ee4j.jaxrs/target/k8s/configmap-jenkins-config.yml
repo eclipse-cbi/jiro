@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jaxrs"
   namespace: "jaxrs"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:ee4j.jaxrs"
-            - "Credentials/View:ee4j.jaxrs"
-            - "Gerrit/ManualTrigger:ee4j.jaxrs"
-            - "Gerrit/Retrigger:ee4j.jaxrs"
-            - "Job/Build:ee4j.jaxrs"
-            - "Job/Cancel:ee4j.jaxrs"
-            - "Job/Configure:ee4j.jaxrs"
-            - "Job/Create:ee4j.jaxrs"
-            - "Job/Delete:ee4j.jaxrs"
-            - "Job/Move:ee4j.jaxrs"
-            - "Job/Read:ee4j.jaxrs"
-            - "Job/Workspace:ee4j.jaxrs"
-            - "Overall/Read:ee4j.jaxrs"
-            - "Run/Delete:ee4j.jaxrs"
-            - "Run/Replay:ee4j.jaxrs"
-            - "Run/Update:ee4j.jaxrs"
-            - "SCM/Tag:ee4j.jaxrs"
-            - "View/Configure:ee4j.jaxrs"
-            - "View/Create:ee4j.jaxrs"
-            - "View/Delete:ee4j.jaxrs"
-            - "View/Read:ee4j.jaxrs"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:ee4j.jaxrs"
+            - "GROUP:Credentials/View:ee4j.jaxrs"
+            - "GROUP:Gerrit/ManualTrigger:ee4j.jaxrs"
+            - "GROUP:Gerrit/Retrigger:ee4j.jaxrs"
+            - "GROUP:Job/Build:ee4j.jaxrs"
+            - "GROUP:Job/Cancel:ee4j.jaxrs"
+            - "GROUP:Job/Configure:ee4j.jaxrs"
+            - "GROUP:Job/Create:ee4j.jaxrs"
+            - "GROUP:Job/Delete:ee4j.jaxrs"
+            - "GROUP:Job/Move:ee4j.jaxrs"
+            - "GROUP:Job/Read:ee4j.jaxrs"
+            - "GROUP:Job/Workspace:ee4j.jaxrs"
+            - "GROUP:Overall/Read:ee4j.jaxrs"
+            - "GROUP:Run/Delete:ee4j.jaxrs"
+            - "GROUP:Run/Replay:ee4j.jaxrs"
+            - "GROUP:Run/Update:ee4j.jaxrs"
+            - "GROUP:SCM/Tag:ee4j.jaxrs"
+            - "GROUP:View/Configure:ee4j.jaxrs"
+            - "GROUP:View/Create:ee4j.jaxrs"
+            - "GROUP:View/Delete:ee4j.jaxrs"
+            - "GROUP:View/Read:ee4j.jaxrs"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

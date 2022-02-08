@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:ee4j.bean-validation"
-        - "Credentials/View:ee4j.bean-validation"
-        - "Gerrit/ManualTrigger:ee4j.bean-validation"
-        - "Gerrit/Retrigger:ee4j.bean-validation"
-        - "Job/Build:ee4j.bean-validation"
-        - "Job/Cancel:ee4j.bean-validation"
-        - "Job/Configure:ee4j.bean-validation"
-        - "Job/Create:ee4j.bean-validation"
-        - "Job/Delete:ee4j.bean-validation"
-        - "Job/Move:ee4j.bean-validation"
-        - "Job/Read:ee4j.bean-validation"
-        - "Job/Workspace:ee4j.bean-validation"
-        - "Overall/Read:ee4j.bean-validation"
-        - "Run/Delete:ee4j.bean-validation"
-        - "Run/Replay:ee4j.bean-validation"
-        - "Run/Update:ee4j.bean-validation"
-        - "SCM/Tag:ee4j.bean-validation"
-        - "View/Configure:ee4j.bean-validation"
-        - "View/Create:ee4j.bean-validation"
-        - "View/Delete:ee4j.bean-validation"
-        - "View/Read:ee4j.bean-validation"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:ee4j.bean-validation"
+        - "GROUP:Credentials/View:ee4j.bean-validation"
+        - "GROUP:Gerrit/ManualTrigger:ee4j.bean-validation"
+        - "GROUP:Gerrit/Retrigger:ee4j.bean-validation"
+        - "GROUP:Job/Build:ee4j.bean-validation"
+        - "GROUP:Job/Cancel:ee4j.bean-validation"
+        - "GROUP:Job/Configure:ee4j.bean-validation"
+        - "GROUP:Job/Create:ee4j.bean-validation"
+        - "GROUP:Job/Delete:ee4j.bean-validation"
+        - "GROUP:Job/Move:ee4j.bean-validation"
+        - "GROUP:Job/Read:ee4j.bean-validation"
+        - "GROUP:Job/Workspace:ee4j.bean-validation"
+        - "GROUP:Overall/Read:ee4j.bean-validation"
+        - "GROUP:Run/Delete:ee4j.bean-validation"
+        - "GROUP:Run/Replay:ee4j.bean-validation"
+        - "GROUP:Run/Update:ee4j.bean-validation"
+        - "GROUP:SCM/Tag:ee4j.bean-validation"
+        - "GROUP:View/Configure:ee4j.bean-validation"
+        - "GROUP:View/Create:ee4j.bean-validation"
+        - "GROUP:View/Delete:ee4j.bean-validation"
+        - "GROUP:View/Read:ee4j.bean-validation"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

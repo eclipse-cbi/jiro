@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "mail"
   namespace: "mail"
   name: jenkins-config
@@ -44,29 +44,29 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:ee4j.mail"
-            - "Credentials/View:ee4j.mail"
-            - "Job/Build:ee4j.mail"
-            - "Job/Cancel:ee4j.mail"
-            - "Job/Configure:ee4j.mail"
-            - "Job/Create:ee4j.mail"
-            - "Job/Delete:ee4j.mail"
-            - "Job/Move:ee4j.mail"
-            - "Job/Read:ee4j.mail"
-            - "Job/Workspace:ee4j.mail"
-            - "Overall/Read:ee4j.mail"
-            - "Run/Delete:ee4j.mail"
-            - "Run/Replay:ee4j.mail"
-            - "Run/Update:ee4j.mail"
-            - "SCM/Tag:ee4j.mail"
-            - "View/Configure:ee4j.mail"
-            - "View/Create:ee4j.mail"
-            - "View/Delete:ee4j.mail"
-            - "View/Read:ee4j.mail"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:ee4j.mail"
+            - "GROUP:Credentials/View:ee4j.mail"
+            - "GROUP:Job/Build:ee4j.mail"
+            - "GROUP:Job/Cancel:ee4j.mail"
+            - "GROUP:Job/Configure:ee4j.mail"
+            - "GROUP:Job/Create:ee4j.mail"
+            - "GROUP:Job/Delete:ee4j.mail"
+            - "GROUP:Job/Move:ee4j.mail"
+            - "GROUP:Job/Read:ee4j.mail"
+            - "GROUP:Job/Workspace:ee4j.mail"
+            - "GROUP:Overall/Read:ee4j.mail"
+            - "GROUP:Run/Delete:ee4j.mail"
+            - "GROUP:Run/Replay:ee4j.mail"
+            - "GROUP:Run/Update:ee4j.mail"
+            - "GROUP:SCM/Tag:ee4j.mail"
+            - "GROUP:View/Configure:ee4j.mail"
+            - "GROUP:View/Create:ee4j.mail"
+            - "GROUP:View/Delete:ee4j.mail"
+            - "GROUP:View/Read:ee4j.mail"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -96,7 +96,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -182,7 +182,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -268,7 +268,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

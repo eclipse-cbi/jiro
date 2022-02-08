@@ -35,31 +35,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Agent/Build:automotive.simopenpass"
-        - "Credentials/View:automotive.simopenpass"
-        - "Gerrit/ManualTrigger:automotive.simopenpass"
-        - "Gerrit/Retrigger:automotive.simopenpass"
-        - "Job/Build:automotive.simopenpass"
-        - "Job/Cancel:automotive.simopenpass"
-        - "Job/Configure:automotive.simopenpass"
-        - "Job/Create:automotive.simopenpass"
-        - "Job/Delete:automotive.simopenpass"
-        - "Job/Move:automotive.simopenpass"
-        - "Job/Read:automotive.simopenpass"
-        - "Job/Workspace:automotive.simopenpass"
-        - "Overall/Read:automotive.simopenpass"
-        - "Run/Delete:automotive.simopenpass"
-        - "Run/Replay:automotive.simopenpass"
-        - "Run/Update:automotive.simopenpass"
-        - "SCM/Tag:automotive.simopenpass"
-        - "View/Configure:automotive.simopenpass"
-        - "View/Create:automotive.simopenpass"
-        - "View/Delete:automotive.simopenpass"
-        - "View/Read:automotive.simopenpass"
-        - "Job/ExtendedRead:common"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Agent/Build:automotive.simopenpass"
+        - "GROUP:Credentials/View:automotive.simopenpass"
+        - "GROUP:Gerrit/ManualTrigger:automotive.simopenpass"
+        - "GROUP:Gerrit/Retrigger:automotive.simopenpass"
+        - "GROUP:Job/Build:automotive.simopenpass"
+        - "GROUP:Job/Cancel:automotive.simopenpass"
+        - "GROUP:Job/Configure:automotive.simopenpass"
+        - "GROUP:Job/Create:automotive.simopenpass"
+        - "GROUP:Job/Delete:automotive.simopenpass"
+        - "GROUP:Job/Move:automotive.simopenpass"
+        - "GROUP:Job/Read:automotive.simopenpass"
+        - "GROUP:Job/Workspace:automotive.simopenpass"
+        - "GROUP:Overall/Read:automotive.simopenpass"
+        - "GROUP:Run/Delete:automotive.simopenpass"
+        - "GROUP:Run/Replay:automotive.simopenpass"
+        - "GROUP:Run/Update:automotive.simopenpass"
+        - "GROUP:SCM/Tag:automotive.simopenpass"
+        - "GROUP:View/Configure:automotive.simopenpass"
+        - "GROUP:View/Create:automotive.simopenpass"
+        - "GROUP:View/Delete:automotive.simopenpass"
+        - "GROUP:View/Read:automotive.simopenpass"
+        - "GROUP:Job/ExtendedRead:common"
   markupFormatter: rawHtml
   crumbIssuer:
     standard:
@@ -86,7 +86,7 @@ jenkins:
         podRetention: "never"
         templates:
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -172,7 +172,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -258,7 +258,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0

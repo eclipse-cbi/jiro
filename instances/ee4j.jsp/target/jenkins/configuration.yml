@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:ee4j.jsp"
-        - "Credentials/View:ee4j.jsp"
-        - "Gerrit/ManualTrigger:ee4j.jsp"
-        - "Gerrit/Retrigger:ee4j.jsp"
-        - "Job/Build:ee4j.jsp"
-        - "Job/Cancel:ee4j.jsp"
-        - "Job/Configure:ee4j.jsp"
-        - "Job/Create:ee4j.jsp"
-        - "Job/Delete:ee4j.jsp"
-        - "Job/Move:ee4j.jsp"
-        - "Job/Read:ee4j.jsp"
-        - "Job/Workspace:ee4j.jsp"
-        - "Overall/Read:ee4j.jsp"
-        - "Run/Delete:ee4j.jsp"
-        - "Run/Replay:ee4j.jsp"
-        - "Run/Update:ee4j.jsp"
-        - "SCM/Tag:ee4j.jsp"
-        - "View/Configure:ee4j.jsp"
-        - "View/Create:ee4j.jsp"
-        - "View/Delete:ee4j.jsp"
-        - "View/Read:ee4j.jsp"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:ee4j.jsp"
+        - "GROUP:Credentials/View:ee4j.jsp"
+        - "GROUP:Gerrit/ManualTrigger:ee4j.jsp"
+        - "GROUP:Gerrit/Retrigger:ee4j.jsp"
+        - "GROUP:Job/Build:ee4j.jsp"
+        - "GROUP:Job/Cancel:ee4j.jsp"
+        - "GROUP:Job/Configure:ee4j.jsp"
+        - "GROUP:Job/Create:ee4j.jsp"
+        - "GROUP:Job/Delete:ee4j.jsp"
+        - "GROUP:Job/Move:ee4j.jsp"
+        - "GROUP:Job/Read:ee4j.jsp"
+        - "GROUP:Job/Workspace:ee4j.jsp"
+        - "GROUP:Overall/Read:ee4j.jsp"
+        - "GROUP:Run/Delete:ee4j.jsp"
+        - "GROUP:Run/Replay:ee4j.jsp"
+        - "GROUP:Run/Update:ee4j.jsp"
+        - "GROUP:SCM/Tag:ee4j.jsp"
+        - "GROUP:View/Configure:ee4j.jsp"
+        - "GROUP:View/Create:ee4j.jsp"
+        - "GROUP:View/Delete:ee4j.jsp"
+        - "GROUP:View/Read:ee4j.jsp"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

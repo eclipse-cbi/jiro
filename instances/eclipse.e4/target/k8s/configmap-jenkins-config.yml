@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "e4"
   namespace: "e4"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:eclipse.e4"
-            - "Credentials/View:eclipse.e4"
-            - "Gerrit/ManualTrigger:eclipse.e4"
-            - "Gerrit/Retrigger:eclipse.e4"
-            - "Job/Build:eclipse.e4"
-            - "Job/Cancel:eclipse.e4"
-            - "Job/Configure:eclipse.e4"
-            - "Job/Create:eclipse.e4"
-            - "Job/Delete:eclipse.e4"
-            - "Job/Move:eclipse.e4"
-            - "Job/Read:eclipse.e4"
-            - "Job/Workspace:eclipse.e4"
-            - "Overall/Read:eclipse.e4"
-            - "Run/Delete:eclipse.e4"
-            - "Run/Replay:eclipse.e4"
-            - "Run/Update:eclipse.e4"
-            - "SCM/Tag:eclipse.e4"
-            - "View/Configure:eclipse.e4"
-            - "View/Create:eclipse.e4"
-            - "View/Delete:eclipse.e4"
-            - "View/Read:eclipse.e4"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:eclipse.e4"
+            - "GROUP:Credentials/View:eclipse.e4"
+            - "GROUP:Gerrit/ManualTrigger:eclipse.e4"
+            - "GROUP:Gerrit/Retrigger:eclipse.e4"
+            - "GROUP:Job/Build:eclipse.e4"
+            - "GROUP:Job/Cancel:eclipse.e4"
+            - "GROUP:Job/Configure:eclipse.e4"
+            - "GROUP:Job/Create:eclipse.e4"
+            - "GROUP:Job/Delete:eclipse.e4"
+            - "GROUP:Job/Move:eclipse.e4"
+            - "GROUP:Job/Read:eclipse.e4"
+            - "GROUP:Job/Workspace:eclipse.e4"
+            - "GROUP:Overall/Read:eclipse.e4"
+            - "GROUP:Run/Delete:eclipse.e4"
+            - "GROUP:Run/Replay:eclipse.e4"
+            - "GROUP:Run/Update:eclipse.e4"
+            - "GROUP:SCM/Tag:eclipse.e4"
+            - "GROUP:View/Configure:eclipse.e4"
+            - "GROUP:View/Create:eclipse.e4"
+            - "GROUP:View/Delete:eclipse.e4"
+            - "GROUP:View/Read:eclipse.e4"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

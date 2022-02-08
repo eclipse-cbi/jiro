@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jta"
   namespace: "jta"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:ee4j.jta"
-            - "Credentials/View:ee4j.jta"
-            - "Gerrit/ManualTrigger:ee4j.jta"
-            - "Gerrit/Retrigger:ee4j.jta"
-            - "Job/Build:ee4j.jta"
-            - "Job/Cancel:ee4j.jta"
-            - "Job/Configure:ee4j.jta"
-            - "Job/Create:ee4j.jta"
-            - "Job/Delete:ee4j.jta"
-            - "Job/Move:ee4j.jta"
-            - "Job/Read:ee4j.jta"
-            - "Job/Workspace:ee4j.jta"
-            - "Overall/Read:ee4j.jta"
-            - "Run/Delete:ee4j.jta"
-            - "Run/Replay:ee4j.jta"
-            - "Run/Update:ee4j.jta"
-            - "SCM/Tag:ee4j.jta"
-            - "View/Configure:ee4j.jta"
-            - "View/Create:ee4j.jta"
-            - "View/Delete:ee4j.jta"
-            - "View/Read:ee4j.jta"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:ee4j.jta"
+            - "GROUP:Credentials/View:ee4j.jta"
+            - "GROUP:Gerrit/ManualTrigger:ee4j.jta"
+            - "GROUP:Gerrit/Retrigger:ee4j.jta"
+            - "GROUP:Job/Build:ee4j.jta"
+            - "GROUP:Job/Cancel:ee4j.jta"
+            - "GROUP:Job/Configure:ee4j.jta"
+            - "GROUP:Job/Create:ee4j.jta"
+            - "GROUP:Job/Delete:ee4j.jta"
+            - "GROUP:Job/Move:ee4j.jta"
+            - "GROUP:Job/Read:ee4j.jta"
+            - "GROUP:Job/Workspace:ee4j.jta"
+            - "GROUP:Overall/Read:ee4j.jta"
+            - "GROUP:Run/Delete:ee4j.jta"
+            - "GROUP:Run/Replay:ee4j.jta"
+            - "GROUP:Run/Update:ee4j.jta"
+            - "GROUP:SCM/Tag:ee4j.jta"
+            - "GROUP:View/Configure:ee4j.jta"
+            - "GROUP:View/Create:ee4j.jta"
+            - "GROUP:View/Delete:ee4j.jta"
+            - "GROUP:View/Read:ee4j.jta"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "glsp"
   namespace: "glsp"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:ecd.glsp"
-            - "Credentials/View:ecd.glsp"
-            - "Gerrit/ManualTrigger:ecd.glsp"
-            - "Gerrit/Retrigger:ecd.glsp"
-            - "Job/Build:ecd.glsp"
-            - "Job/Cancel:ecd.glsp"
-            - "Job/Configure:ecd.glsp"
-            - "Job/Create:ecd.glsp"
-            - "Job/Delete:ecd.glsp"
-            - "Job/Move:ecd.glsp"
-            - "Job/Read:ecd.glsp"
-            - "Job/Workspace:ecd.glsp"
-            - "Overall/Read:ecd.glsp"
-            - "Run/Delete:ecd.glsp"
-            - "Run/Replay:ecd.glsp"
-            - "Run/Update:ecd.glsp"
-            - "SCM/Tag:ecd.glsp"
-            - "View/Configure:ecd.glsp"
-            - "View/Create:ecd.glsp"
-            - "View/Delete:ecd.glsp"
-            - "View/Read:ecd.glsp"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:ecd.glsp"
+            - "GROUP:Credentials/View:ecd.glsp"
+            - "GROUP:Gerrit/ManualTrigger:ecd.glsp"
+            - "GROUP:Gerrit/Retrigger:ecd.glsp"
+            - "GROUP:Job/Build:ecd.glsp"
+            - "GROUP:Job/Cancel:ecd.glsp"
+            - "GROUP:Job/Configure:ecd.glsp"
+            - "GROUP:Job/Create:ecd.glsp"
+            - "GROUP:Job/Delete:ecd.glsp"
+            - "GROUP:Job/Move:ecd.glsp"
+            - "GROUP:Job/Read:ecd.glsp"
+            - "GROUP:Job/Workspace:ecd.glsp"
+            - "GROUP:Overall/Read:ecd.glsp"
+            - "GROUP:Run/Delete:ecd.glsp"
+            - "GROUP:Run/Replay:ecd.glsp"
+            - "GROUP:Run/Update:ecd.glsp"
+            - "GROUP:SCM/Tag:ecd.glsp"
+            - "GROUP:View/Configure:ecd.glsp"
+            - "GROUP:View/Create:ecd.glsp"
+            - "GROUP:View/Delete:ecd.glsp"
+            - "GROUP:View/Read:ecd.glsp"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

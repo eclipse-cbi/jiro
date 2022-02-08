@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:ecd.emfcloud"
-        - "Credentials/View:ecd.emfcloud"
-        - "Gerrit/ManualTrigger:ecd.emfcloud"
-        - "Gerrit/Retrigger:ecd.emfcloud"
-        - "Job/Build:ecd.emfcloud"
-        - "Job/Cancel:ecd.emfcloud"
-        - "Job/Configure:ecd.emfcloud"
-        - "Job/Create:ecd.emfcloud"
-        - "Job/Delete:ecd.emfcloud"
-        - "Job/Move:ecd.emfcloud"
-        - "Job/Read:ecd.emfcloud"
-        - "Job/Workspace:ecd.emfcloud"
-        - "Overall/Read:ecd.emfcloud"
-        - "Run/Delete:ecd.emfcloud"
-        - "Run/Replay:ecd.emfcloud"
-        - "Run/Update:ecd.emfcloud"
-        - "SCM/Tag:ecd.emfcloud"
-        - "View/Configure:ecd.emfcloud"
-        - "View/Create:ecd.emfcloud"
-        - "View/Delete:ecd.emfcloud"
-        - "View/Read:ecd.emfcloud"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:ecd.emfcloud"
+        - "GROUP:Credentials/View:ecd.emfcloud"
+        - "GROUP:Gerrit/ManualTrigger:ecd.emfcloud"
+        - "GROUP:Gerrit/Retrigger:ecd.emfcloud"
+        - "GROUP:Job/Build:ecd.emfcloud"
+        - "GROUP:Job/Cancel:ecd.emfcloud"
+        - "GROUP:Job/Configure:ecd.emfcloud"
+        - "GROUP:Job/Create:ecd.emfcloud"
+        - "GROUP:Job/Delete:ecd.emfcloud"
+        - "GROUP:Job/Move:ecd.emfcloud"
+        - "GROUP:Job/Read:ecd.emfcloud"
+        - "GROUP:Job/Workspace:ecd.emfcloud"
+        - "GROUP:Overall/Read:ecd.emfcloud"
+        - "GROUP:Run/Delete:ecd.emfcloud"
+        - "GROUP:Run/Replay:ecd.emfcloud"
+        - "GROUP:Run/Update:ecd.emfcloud"
+        - "GROUP:SCM/Tag:ecd.emfcloud"
+        - "GROUP:View/Configure:ecd.emfcloud"
+        - "GROUP:View/Create:ecd.emfcloud"
+        - "GROUP:View/Delete:ecd.emfcloud"
+        - "GROUP:View/Read:ecd.emfcloud"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

@@ -17,9 +17,9 @@ checks-api 1.7.2
 cloudbees-folder 6.17
 command-launcher 1.6
 conditional-buildstep 1.4.1
-config-file-provider 3.8.2
+config-file-provider 3.9.0
 configuration-as-code 1346.ve8cfa_3473c94
-credentials 2.6.1
+credentials 1074.v60e6c29b_b_44b_
 credentials-binding 1.27.1
 data-tables-api 1.11.3-6
 display-url-api 2.3.5
@@ -35,7 +35,7 @@ gerrit-trigger 2.35.2
 ghprb 1.42.2
 git 4.10.3
 git-client 3.11.0
-git-parameter 0.9.14
+git-parameter 0.9.15
 git-server 1.10
 github 1.34.1
 github-api 1.301-378.v9807bd746da5
@@ -54,16 +54,16 @@ javax-mail-api 1.6.2-5
 jdk-tool 1.5
 jjwt-api 0.11.2-9.c8b45b8bb173
 jnr-posix-api 3.1.7-1
-jobConfigHistory 2.31-rc1098.b666422863b2
+jobConfigHistory 2.31-rc1107.2354f08725a_8
 jquery 1.12.4-1
 jquery3-api 3.6.0-2
 jsch 0.1.55.2
-junit 1.53
+junit 1.54
 kubernetes 1.31.3
 kubernetes-client-api 5.11.2-182.v0f1cf4c5904e
 kubernetes-credentials 0.9.0
 ldap 2.7
-lockable-resources 2.13
+lockable-resources 2.14
 mailer 408.vd726a_1130320
 matrix-auth 3.0.1
 matrix-project 1.20
@@ -130,7 +130,7 @@ ace-editor 1.1
 ant 1.13
 antisamy-markup-formatter 2.7
 apache-httpcomponents-client-4-api 4.5.13-1.0
-artifactory 3.15.3
+artifactory 3.15.4
 badge 1.9.1
 bootstrap4-api 4.6.0-3
 bootstrap5-api 5.1.3-4
@@ -140,9 +140,9 @@ build-with-parameters 1.6
 caffeine-api 2.9.2-29.v717aac953ff3
 checks-api 1.7.2
 cloudbees-folder 6.17
-config-file-provider 3.8.2
+config-file-provider 3.9.0
 copyartifact 1.46.2
-credentials 2.6.1
+credentials 1074.v60e6c29b_b_44b_
 display-url-api 2.3.5
 dtkit-api 3.0.0
 durable-task 493.v195aefbb0ff2
@@ -195,7 +195,7 @@ xunit 3.0.5
 xvfb 1.2
 
 Plugins that will be downloaded:
-artifactory 3.15.3
+artifactory 3.15.4
 badge 1.9.1
 build-user-vars-plugin 1.8
 build-with-parameters 1.6
@@ -210,7 +210,6 @@ ivy 2.1
 jaxb 2.3.0.1
 jira 3.6
 job-dsl 1.78.3
-junit 1.54
 monitoring 1.90.0
 parameter-separator 1.3
 pipeline-utility-steps 2.12.0
@@ -225,7 +224,7 @@ analysis-model-api 10.9.1
 ant 1.13
 antisamy-markup-formatter 2.7
 apache-httpcomponents-client-4-api 4.5.13-1.0
-artifactory 3.15.3
+artifactory 3.15.4
 authentication-tokens 1.4
 authorize-project 1.4.0
 badge 1.9.1
@@ -241,10 +240,10 @@ checks-api 1.7.2
 cloudbees-folder 6.17
 command-launcher 1.6
 conditional-buildstep 1.4.1
-config-file-provider 3.8.2
+config-file-provider 3.9.0
 configuration-as-code 1346.ve8cfa_3473c94
 copyartifact 1.46.2
-credentials 2.6.1
+credentials 1074.v60e6c29b_b_44b_
 credentials-binding 1.27.1
 data-tables-api 1.11.3-6
 display-url-api 2.3.5
@@ -263,7 +262,7 @@ gerrit-trigger 2.35.2
 ghprb 1.42.2
 git 4.10.3
 git-client 3.11.0
-git-parameter 0.9.14
+git-parameter 0.9.15
 git-server 1.10
 github 1.34.1
 github-api 1.301-378.v9807bd746da5
@@ -289,7 +288,7 @@ jira 3.6
 jjwt-api 0.11.2-9.c8b45b8bb173
 jnr-posix-api 3.1.7-1
 job-dsl 1.78.3
-jobConfigHistory 2.31-rc1098.b666422863b2
+jobConfigHistory 2.31-rc1107.2354f08725a_8
 jquery 1.12.4-1
 jquery3-api 3.6.0-2
 jsch 0.1.55.2
@@ -298,7 +297,7 @@ kubernetes 1.31.3
 kubernetes-client-api 5.11.2-182.v0f1cf4c5904e
 kubernetes-credentials 0.9.0
 ldap 2.7
-lockable-resources 2.13
+lockable-resources 2.14
 mailer 408.vd726a_1130320
 matrix-auth 3.0.1
 matrix-project 1.20
