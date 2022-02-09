@@ -36,31 +36,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:modeling.xsemantics"
-        - "Credentials/View:modeling.xsemantics"
-        - "Gerrit/ManualTrigger:modeling.xsemantics"
-        - "Gerrit/Retrigger:modeling.xsemantics"
-        - "Job/Build:modeling.xsemantics"
-        - "Job/Cancel:modeling.xsemantics"
-        - "Job/Configure:modeling.xsemantics"
-        - "Job/Create:modeling.xsemantics"
-        - "Job/Delete:modeling.xsemantics"
-        - "Job/Move:modeling.xsemantics"
-        - "Job/Read:modeling.xsemantics"
-        - "Job/Workspace:modeling.xsemantics"
-        - "Overall/Read:modeling.xsemantics"
-        - "Run/Delete:modeling.xsemantics"
-        - "Run/Replay:modeling.xsemantics"
-        - "Run/Update:modeling.xsemantics"
-        - "SCM/Tag:modeling.xsemantics"
-        - "View/Configure:modeling.xsemantics"
-        - "View/Create:modeling.xsemantics"
-        - "View/Delete:modeling.xsemantics"
-        - "View/Read:modeling.xsemantics"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:modeling.xsemantics"
+        - "GROUP:Credentials/View:modeling.xsemantics"
+        - "GROUP:Gerrit/ManualTrigger:modeling.xsemantics"
+        - "GROUP:Gerrit/Retrigger:modeling.xsemantics"
+        - "GROUP:Job/Build:modeling.xsemantics"
+        - "GROUP:Job/Cancel:modeling.xsemantics"
+        - "GROUP:Job/Configure:modeling.xsemantics"
+        - "GROUP:Job/Create:modeling.xsemantics"
+        - "GROUP:Job/Delete:modeling.xsemantics"
+        - "GROUP:Job/Move:modeling.xsemantics"
+        - "GROUP:Job/Read:modeling.xsemantics"
+        - "GROUP:Job/Workspace:modeling.xsemantics"
+        - "GROUP:Overall/Read:modeling.xsemantics"
+        - "GROUP:Run/Delete:modeling.xsemantics"
+        - "GROUP:Run/Replay:modeling.xsemantics"
+        - "GROUP:Run/Update:modeling.xsemantics"
+        - "GROUP:SCM/Tag:modeling.xsemantics"
+        - "GROUP:View/Configure:modeling.xsemantics"
+        - "GROUP:View/Create:modeling.xsemantics"
+        - "GROUP:View/Delete:modeling.xsemantics"
+        - "GROUP:View/Read:modeling.xsemantics"
   markupFormatter: rawHtml
   crumbIssuer:
     standard:
@@ -87,7 +87,7 @@ jenkins:
         podRetention: "never"
         templates:
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -173,7 +173,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -259,7 +259,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0

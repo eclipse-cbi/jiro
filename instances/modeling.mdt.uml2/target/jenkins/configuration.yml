@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:modeling.mdt.uml2"
-        - "Credentials/View:modeling.mdt.uml2"
-        - "Gerrit/ManualTrigger:modeling.mdt.uml2"
-        - "Gerrit/Retrigger:modeling.mdt.uml2"
-        - "Job/Build:modeling.mdt.uml2"
-        - "Job/Cancel:modeling.mdt.uml2"
-        - "Job/Configure:modeling.mdt.uml2"
-        - "Job/Create:modeling.mdt.uml2"
-        - "Job/Delete:modeling.mdt.uml2"
-        - "Job/Move:modeling.mdt.uml2"
-        - "Job/Read:modeling.mdt.uml2"
-        - "Job/Workspace:modeling.mdt.uml2"
-        - "Overall/Read:modeling.mdt.uml2"
-        - "Run/Delete:modeling.mdt.uml2"
-        - "Run/Replay:modeling.mdt.uml2"
-        - "Run/Update:modeling.mdt.uml2"
-        - "SCM/Tag:modeling.mdt.uml2"
-        - "View/Configure:modeling.mdt.uml2"
-        - "View/Create:modeling.mdt.uml2"
-        - "View/Delete:modeling.mdt.uml2"
-        - "View/Read:modeling.mdt.uml2"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:modeling.mdt.uml2"
+        - "GROUP:Credentials/View:modeling.mdt.uml2"
+        - "GROUP:Gerrit/ManualTrigger:modeling.mdt.uml2"
+        - "GROUP:Gerrit/Retrigger:modeling.mdt.uml2"
+        - "GROUP:Job/Build:modeling.mdt.uml2"
+        - "GROUP:Job/Cancel:modeling.mdt.uml2"
+        - "GROUP:Job/Configure:modeling.mdt.uml2"
+        - "GROUP:Job/Create:modeling.mdt.uml2"
+        - "GROUP:Job/Delete:modeling.mdt.uml2"
+        - "GROUP:Job/Move:modeling.mdt.uml2"
+        - "GROUP:Job/Read:modeling.mdt.uml2"
+        - "GROUP:Job/Workspace:modeling.mdt.uml2"
+        - "GROUP:Overall/Read:modeling.mdt.uml2"
+        - "GROUP:Run/Delete:modeling.mdt.uml2"
+        - "GROUP:Run/Replay:modeling.mdt.uml2"
+        - "GROUP:Run/Update:modeling.mdt.uml2"
+        - "GROUP:SCM/Tag:modeling.mdt.uml2"
+        - "GROUP:View/Configure:modeling.mdt.uml2"
+        - "GROUP:View/Create:modeling.mdt.uml2"
+        - "GROUP:View/Delete:modeling.mdt.uml2"
+        - "GROUP:View/Read:modeling.mdt.uml2"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

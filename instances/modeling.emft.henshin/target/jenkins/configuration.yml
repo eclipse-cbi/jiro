@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:modeling.emft.henshin"
-        - "Credentials/View:modeling.emft.henshin"
-        - "Gerrit/ManualTrigger:modeling.emft.henshin"
-        - "Gerrit/Retrigger:modeling.emft.henshin"
-        - "Job/Build:modeling.emft.henshin"
-        - "Job/Cancel:modeling.emft.henshin"
-        - "Job/Configure:modeling.emft.henshin"
-        - "Job/Create:modeling.emft.henshin"
-        - "Job/Delete:modeling.emft.henshin"
-        - "Job/Move:modeling.emft.henshin"
-        - "Job/Read:modeling.emft.henshin"
-        - "Job/Workspace:modeling.emft.henshin"
-        - "Overall/Read:modeling.emft.henshin"
-        - "Run/Delete:modeling.emft.henshin"
-        - "Run/Replay:modeling.emft.henshin"
-        - "Run/Update:modeling.emft.henshin"
-        - "SCM/Tag:modeling.emft.henshin"
-        - "View/Configure:modeling.emft.henshin"
-        - "View/Create:modeling.emft.henshin"
-        - "View/Delete:modeling.emft.henshin"
-        - "View/Read:modeling.emft.henshin"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:modeling.emft.henshin"
+        - "GROUP:Credentials/View:modeling.emft.henshin"
+        - "GROUP:Gerrit/ManualTrigger:modeling.emft.henshin"
+        - "GROUP:Gerrit/Retrigger:modeling.emft.henshin"
+        - "GROUP:Job/Build:modeling.emft.henshin"
+        - "GROUP:Job/Cancel:modeling.emft.henshin"
+        - "GROUP:Job/Configure:modeling.emft.henshin"
+        - "GROUP:Job/Create:modeling.emft.henshin"
+        - "GROUP:Job/Delete:modeling.emft.henshin"
+        - "GROUP:Job/Move:modeling.emft.henshin"
+        - "GROUP:Job/Read:modeling.emft.henshin"
+        - "GROUP:Job/Workspace:modeling.emft.henshin"
+        - "GROUP:Overall/Read:modeling.emft.henshin"
+        - "GROUP:Run/Delete:modeling.emft.henshin"
+        - "GROUP:Run/Replay:modeling.emft.henshin"
+        - "GROUP:Run/Update:modeling.emft.henshin"
+        - "GROUP:SCM/Tag:modeling.emft.henshin"
+        - "GROUP:View/Configure:modeling.emft.henshin"
+        - "GROUP:View/Create:modeling.emft.henshin"
+        - "GROUP:View/Delete:modeling.emft.henshin"
+        - "GROUP:View/Read:modeling.emft.henshin"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

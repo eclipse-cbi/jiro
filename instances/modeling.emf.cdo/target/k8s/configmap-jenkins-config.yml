@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cdo"
   namespace: "cdo"
   name: jenkins-config
@@ -61,31 +61,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:modeling.emf.cdo"
-            - "Credentials/View:modeling.emf.cdo"
-            - "Gerrit/ManualTrigger:modeling.emf.cdo"
-            - "Gerrit/Retrigger:modeling.emf.cdo"
-            - "Job/Build:modeling.emf.cdo"
-            - "Job/Cancel:modeling.emf.cdo"
-            - "Job/Configure:modeling.emf.cdo"
-            - "Job/Create:modeling.emf.cdo"
-            - "Job/Delete:modeling.emf.cdo"
-            - "Job/Move:modeling.emf.cdo"
-            - "Job/Read:modeling.emf.cdo"
-            - "Job/Workspace:modeling.emf.cdo"
-            - "Overall/Read:modeling.emf.cdo"
-            - "Run/Delete:modeling.emf.cdo"
-            - "Run/Replay:modeling.emf.cdo"
-            - "Run/Update:modeling.emf.cdo"
-            - "SCM/Tag:modeling.emf.cdo"
-            - "View/Configure:modeling.emf.cdo"
-            - "View/Create:modeling.emf.cdo"
-            - "View/Delete:modeling.emf.cdo"
-            - "View/Read:modeling.emf.cdo"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:modeling.emf.cdo"
+            - "GROUP:Credentials/View:modeling.emf.cdo"
+            - "GROUP:Gerrit/ManualTrigger:modeling.emf.cdo"
+            - "GROUP:Gerrit/Retrigger:modeling.emf.cdo"
+            - "GROUP:Job/Build:modeling.emf.cdo"
+            - "GROUP:Job/Cancel:modeling.emf.cdo"
+            - "GROUP:Job/Configure:modeling.emf.cdo"
+            - "GROUP:Job/Create:modeling.emf.cdo"
+            - "GROUP:Job/Delete:modeling.emf.cdo"
+            - "GROUP:Job/Move:modeling.emf.cdo"
+            - "GROUP:Job/Read:modeling.emf.cdo"
+            - "GROUP:Job/Workspace:modeling.emf.cdo"
+            - "GROUP:Overall/Read:modeling.emf.cdo"
+            - "GROUP:Run/Delete:modeling.emf.cdo"
+            - "GROUP:Run/Replay:modeling.emf.cdo"
+            - "GROUP:Run/Update:modeling.emf.cdo"
+            - "GROUP:SCM/Tag:modeling.emf.cdo"
+            - "GROUP:View/Configure:modeling.emf.cdo"
+            - "GROUP:View/Create:modeling.emf.cdo"
+            - "GROUP:View/Delete:modeling.emf.cdo"
+            - "GROUP:View/Read:modeling.emf.cdo"
       markupFormatter: rawHtml
       crumbIssuer:
         standard:
@@ -112,7 +112,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -198,7 +198,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -284,7 +284,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0

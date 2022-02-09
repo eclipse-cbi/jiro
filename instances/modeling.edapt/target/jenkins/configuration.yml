@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:modeling.edapt"
-        - "Credentials/View:modeling.edapt"
-        - "Gerrit/ManualTrigger:modeling.edapt"
-        - "Gerrit/Retrigger:modeling.edapt"
-        - "Job/Build:modeling.edapt"
-        - "Job/Cancel:modeling.edapt"
-        - "Job/Configure:modeling.edapt"
-        - "Job/Create:modeling.edapt"
-        - "Job/Delete:modeling.edapt"
-        - "Job/Move:modeling.edapt"
-        - "Job/Read:modeling.edapt"
-        - "Job/Workspace:modeling.edapt"
-        - "Overall/Read:modeling.edapt"
-        - "Run/Delete:modeling.edapt"
-        - "Run/Replay:modeling.edapt"
-        - "Run/Update:modeling.edapt"
-        - "SCM/Tag:modeling.edapt"
-        - "View/Configure:modeling.edapt"
-        - "View/Create:modeling.edapt"
-        - "View/Delete:modeling.edapt"
-        - "View/Read:modeling.edapt"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:modeling.edapt"
+        - "GROUP:Credentials/View:modeling.edapt"
+        - "GROUP:Gerrit/ManualTrigger:modeling.edapt"
+        - "GROUP:Gerrit/Retrigger:modeling.edapt"
+        - "GROUP:Job/Build:modeling.edapt"
+        - "GROUP:Job/Cancel:modeling.edapt"
+        - "GROUP:Job/Configure:modeling.edapt"
+        - "GROUP:Job/Create:modeling.edapt"
+        - "GROUP:Job/Delete:modeling.edapt"
+        - "GROUP:Job/Move:modeling.edapt"
+        - "GROUP:Job/Read:modeling.edapt"
+        - "GROUP:Job/Workspace:modeling.edapt"
+        - "GROUP:Overall/Read:modeling.edapt"
+        - "GROUP:Run/Delete:modeling.edapt"
+        - "GROUP:Run/Replay:modeling.edapt"
+        - "GROUP:Run/Update:modeling.edapt"
+        - "GROUP:SCM/Tag:modeling.edapt"
+        - "GROUP:View/Configure:modeling.edapt"
+        - "GROUP:View/Create:modeling.edapt"
+        - "GROUP:View/Delete:modeling.edapt"
+        - "GROUP:View/Read:modeling.edapt"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

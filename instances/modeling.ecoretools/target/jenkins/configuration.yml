@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:modeling.ecoretools"
-        - "Credentials/View:modeling.ecoretools"
-        - "Gerrit/ManualTrigger:modeling.ecoretools"
-        - "Gerrit/Retrigger:modeling.ecoretools"
-        - "Job/Build:modeling.ecoretools"
-        - "Job/Cancel:modeling.ecoretools"
-        - "Job/Configure:modeling.ecoretools"
-        - "Job/Create:modeling.ecoretools"
-        - "Job/Delete:modeling.ecoretools"
-        - "Job/Move:modeling.ecoretools"
-        - "Job/Read:modeling.ecoretools"
-        - "Job/Workspace:modeling.ecoretools"
-        - "Overall/Read:modeling.ecoretools"
-        - "Run/Delete:modeling.ecoretools"
-        - "Run/Replay:modeling.ecoretools"
-        - "Run/Update:modeling.ecoretools"
-        - "SCM/Tag:modeling.ecoretools"
-        - "View/Configure:modeling.ecoretools"
-        - "View/Create:modeling.ecoretools"
-        - "View/Delete:modeling.ecoretools"
-        - "View/Read:modeling.ecoretools"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:modeling.ecoretools"
+        - "GROUP:Credentials/View:modeling.ecoretools"
+        - "GROUP:Gerrit/ManualTrigger:modeling.ecoretools"
+        - "GROUP:Gerrit/Retrigger:modeling.ecoretools"
+        - "GROUP:Job/Build:modeling.ecoretools"
+        - "GROUP:Job/Cancel:modeling.ecoretools"
+        - "GROUP:Job/Configure:modeling.ecoretools"
+        - "GROUP:Job/Create:modeling.ecoretools"
+        - "GROUP:Job/Delete:modeling.ecoretools"
+        - "GROUP:Job/Move:modeling.ecoretools"
+        - "GROUP:Job/Read:modeling.ecoretools"
+        - "GROUP:Job/Workspace:modeling.ecoretools"
+        - "GROUP:Overall/Read:modeling.ecoretools"
+        - "GROUP:Run/Delete:modeling.ecoretools"
+        - "GROUP:Run/Replay:modeling.ecoretools"
+        - "GROUP:Run/Update:modeling.ecoretools"
+        - "GROUP:SCM/Tag:modeling.ecoretools"
+        - "GROUP:View/Configure:modeling.ecoretools"
+        - "GROUP:View/Create:modeling.ecoretools"
+        - "GROUP:View/Delete:modeling.ecoretools"
+        - "GROUP:View/Read:modeling.ecoretools"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

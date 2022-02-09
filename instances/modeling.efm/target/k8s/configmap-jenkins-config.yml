@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "efm"
   namespace: "efm"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:modeling.efm"
-            - "Credentials/View:modeling.efm"
-            - "Gerrit/ManualTrigger:modeling.efm"
-            - "Gerrit/Retrigger:modeling.efm"
-            - "Job/Build:modeling.efm"
-            - "Job/Cancel:modeling.efm"
-            - "Job/Configure:modeling.efm"
-            - "Job/Create:modeling.efm"
-            - "Job/Delete:modeling.efm"
-            - "Job/Move:modeling.efm"
-            - "Job/Read:modeling.efm"
-            - "Job/Workspace:modeling.efm"
-            - "Overall/Read:modeling.efm"
-            - "Run/Delete:modeling.efm"
-            - "Run/Replay:modeling.efm"
-            - "Run/Update:modeling.efm"
-            - "SCM/Tag:modeling.efm"
-            - "View/Configure:modeling.efm"
-            - "View/Create:modeling.efm"
-            - "View/Delete:modeling.efm"
-            - "View/Read:modeling.efm"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:modeling.efm"
+            - "GROUP:Credentials/View:modeling.efm"
+            - "GROUP:Gerrit/ManualTrigger:modeling.efm"
+            - "GROUP:Gerrit/Retrigger:modeling.efm"
+            - "GROUP:Job/Build:modeling.efm"
+            - "GROUP:Job/Cancel:modeling.efm"
+            - "GROUP:Job/Configure:modeling.efm"
+            - "GROUP:Job/Create:modeling.efm"
+            - "GROUP:Job/Delete:modeling.efm"
+            - "GROUP:Job/Move:modeling.efm"
+            - "GROUP:Job/Read:modeling.efm"
+            - "GROUP:Job/Workspace:modeling.efm"
+            - "GROUP:Overall/Read:modeling.efm"
+            - "GROUP:Run/Delete:modeling.efm"
+            - "GROUP:Run/Replay:modeling.efm"
+            - "GROUP:Run/Update:modeling.efm"
+            - "GROUP:SCM/Tag:modeling.efm"
+            - "GROUP:View/Configure:modeling.efm"
+            - "GROUP:View/Create:modeling.efm"
+            - "GROUP:View/Delete:modeling.efm"
+            - "GROUP:View/Read:modeling.efm"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

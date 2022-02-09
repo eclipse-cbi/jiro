@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "gmf-runtime"
   namespace: "gmf-runtime"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:modeling.gmf-runtime"
-            - "Credentials/View:modeling.gmf-runtime"
-            - "Gerrit/ManualTrigger:modeling.gmf-runtime"
-            - "Gerrit/Retrigger:modeling.gmf-runtime"
-            - "Job/Build:modeling.gmf-runtime"
-            - "Job/Cancel:modeling.gmf-runtime"
-            - "Job/Configure:modeling.gmf-runtime"
-            - "Job/Create:modeling.gmf-runtime"
-            - "Job/Delete:modeling.gmf-runtime"
-            - "Job/Move:modeling.gmf-runtime"
-            - "Job/Read:modeling.gmf-runtime"
-            - "Job/Workspace:modeling.gmf-runtime"
-            - "Overall/Read:modeling.gmf-runtime"
-            - "Run/Delete:modeling.gmf-runtime"
-            - "Run/Replay:modeling.gmf-runtime"
-            - "Run/Update:modeling.gmf-runtime"
-            - "SCM/Tag:modeling.gmf-runtime"
-            - "View/Configure:modeling.gmf-runtime"
-            - "View/Create:modeling.gmf-runtime"
-            - "View/Delete:modeling.gmf-runtime"
-            - "View/Read:modeling.gmf-runtime"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:modeling.gmf-runtime"
+            - "GROUP:Credentials/View:modeling.gmf-runtime"
+            - "GROUP:Gerrit/ManualTrigger:modeling.gmf-runtime"
+            - "GROUP:Gerrit/Retrigger:modeling.gmf-runtime"
+            - "GROUP:Job/Build:modeling.gmf-runtime"
+            - "GROUP:Job/Cancel:modeling.gmf-runtime"
+            - "GROUP:Job/Configure:modeling.gmf-runtime"
+            - "GROUP:Job/Create:modeling.gmf-runtime"
+            - "GROUP:Job/Delete:modeling.gmf-runtime"
+            - "GROUP:Job/Move:modeling.gmf-runtime"
+            - "GROUP:Job/Read:modeling.gmf-runtime"
+            - "GROUP:Job/Workspace:modeling.gmf-runtime"
+            - "GROUP:Overall/Read:modeling.gmf-runtime"
+            - "GROUP:Run/Delete:modeling.gmf-runtime"
+            - "GROUP:Run/Replay:modeling.gmf-runtime"
+            - "GROUP:Run/Update:modeling.gmf-runtime"
+            - "GROUP:SCM/Tag:modeling.gmf-runtime"
+            - "GROUP:View/Configure:modeling.gmf-runtime"
+            - "GROUP:View/Create:modeling.gmf-runtime"
+            - "GROUP:View/Delete:modeling.gmf-runtime"
+            - "GROUP:View/Read:modeling.gmf-runtime"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:modeling.smartmdsd"
-        - "Credentials/View:modeling.smartmdsd"
-        - "Gerrit/ManualTrigger:modeling.smartmdsd"
-        - "Gerrit/Retrigger:modeling.smartmdsd"
-        - "Job/Build:modeling.smartmdsd"
-        - "Job/Cancel:modeling.smartmdsd"
-        - "Job/Configure:modeling.smartmdsd"
-        - "Job/Create:modeling.smartmdsd"
-        - "Job/Delete:modeling.smartmdsd"
-        - "Job/Move:modeling.smartmdsd"
-        - "Job/Read:modeling.smartmdsd"
-        - "Job/Workspace:modeling.smartmdsd"
-        - "Overall/Read:modeling.smartmdsd"
-        - "Run/Delete:modeling.smartmdsd"
-        - "Run/Replay:modeling.smartmdsd"
-        - "Run/Update:modeling.smartmdsd"
-        - "SCM/Tag:modeling.smartmdsd"
-        - "View/Configure:modeling.smartmdsd"
-        - "View/Create:modeling.smartmdsd"
-        - "View/Delete:modeling.smartmdsd"
-        - "View/Read:modeling.smartmdsd"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:modeling.smartmdsd"
+        - "GROUP:Credentials/View:modeling.smartmdsd"
+        - "GROUP:Gerrit/ManualTrigger:modeling.smartmdsd"
+        - "GROUP:Gerrit/Retrigger:modeling.smartmdsd"
+        - "GROUP:Job/Build:modeling.smartmdsd"
+        - "GROUP:Job/Cancel:modeling.smartmdsd"
+        - "GROUP:Job/Configure:modeling.smartmdsd"
+        - "GROUP:Job/Create:modeling.smartmdsd"
+        - "GROUP:Job/Delete:modeling.smartmdsd"
+        - "GROUP:Job/Move:modeling.smartmdsd"
+        - "GROUP:Job/Read:modeling.smartmdsd"
+        - "GROUP:Job/Workspace:modeling.smartmdsd"
+        - "GROUP:Overall/Read:modeling.smartmdsd"
+        - "GROUP:Run/Delete:modeling.smartmdsd"
+        - "GROUP:Run/Replay:modeling.smartmdsd"
+        - "GROUP:Run/Update:modeling.smartmdsd"
+        - "GROUP:SCM/Tag:modeling.smartmdsd"
+        - "GROUP:View/Configure:modeling.smartmdsd"
+        - "GROUP:View/Create:modeling.smartmdsd"
+        - "GROUP:View/Delete:modeling.smartmdsd"
+        - "GROUP:View/Read:modeling.smartmdsd"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

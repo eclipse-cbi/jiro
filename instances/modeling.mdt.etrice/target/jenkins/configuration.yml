@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:modeling.mdt.etrice"
-        - "Credentials/View:modeling.mdt.etrice"
-        - "Gerrit/ManualTrigger:modeling.mdt.etrice"
-        - "Gerrit/Retrigger:modeling.mdt.etrice"
-        - "Job/Build:modeling.mdt.etrice"
-        - "Job/Cancel:modeling.mdt.etrice"
-        - "Job/Configure:modeling.mdt.etrice"
-        - "Job/Create:modeling.mdt.etrice"
-        - "Job/Delete:modeling.mdt.etrice"
-        - "Job/Move:modeling.mdt.etrice"
-        - "Job/Read:modeling.mdt.etrice"
-        - "Job/Workspace:modeling.mdt.etrice"
-        - "Overall/Read:modeling.mdt.etrice"
-        - "Run/Delete:modeling.mdt.etrice"
-        - "Run/Replay:modeling.mdt.etrice"
-        - "Run/Update:modeling.mdt.etrice"
-        - "SCM/Tag:modeling.mdt.etrice"
-        - "View/Configure:modeling.mdt.etrice"
-        - "View/Create:modeling.mdt.etrice"
-        - "View/Delete:modeling.mdt.etrice"
-        - "View/Read:modeling.mdt.etrice"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:modeling.mdt.etrice"
+        - "GROUP:Credentials/View:modeling.mdt.etrice"
+        - "GROUP:Gerrit/ManualTrigger:modeling.mdt.etrice"
+        - "GROUP:Gerrit/Retrigger:modeling.mdt.etrice"
+        - "GROUP:Job/Build:modeling.mdt.etrice"
+        - "GROUP:Job/Cancel:modeling.mdt.etrice"
+        - "GROUP:Job/Configure:modeling.mdt.etrice"
+        - "GROUP:Job/Create:modeling.mdt.etrice"
+        - "GROUP:Job/Delete:modeling.mdt.etrice"
+        - "GROUP:Job/Move:modeling.mdt.etrice"
+        - "GROUP:Job/Read:modeling.mdt.etrice"
+        - "GROUP:Job/Workspace:modeling.mdt.etrice"
+        - "GROUP:Overall/Read:modeling.mdt.etrice"
+        - "GROUP:Run/Delete:modeling.mdt.etrice"
+        - "GROUP:Run/Replay:modeling.mdt.etrice"
+        - "GROUP:Run/Update:modeling.mdt.etrice"
+        - "GROUP:SCM/Tag:modeling.mdt.etrice"
+        - "GROUP:View/Configure:modeling.mdt.etrice"
+        - "GROUP:View/Create:modeling.mdt.etrice"
+        - "GROUP:View/Delete:modeling.mdt.etrice"
+        - "GROUP:View/Read:modeling.mdt.etrice"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -183,7 +183,7 @@ jenkins:
               secret:
                 secretName: gradle-secret-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -291,7 +291,7 @@ jenkins:
               secret:
                 secretName: gradle-secret-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:modeling.mmt.qvt-oml"
-        - "Credentials/View:modeling.mmt.qvt-oml"
-        - "Gerrit/ManualTrigger:modeling.mmt.qvt-oml"
-        - "Gerrit/Retrigger:modeling.mmt.qvt-oml"
-        - "Job/Build:modeling.mmt.qvt-oml"
-        - "Job/Cancel:modeling.mmt.qvt-oml"
-        - "Job/Configure:modeling.mmt.qvt-oml"
-        - "Job/Create:modeling.mmt.qvt-oml"
-        - "Job/Delete:modeling.mmt.qvt-oml"
-        - "Job/Move:modeling.mmt.qvt-oml"
-        - "Job/Read:modeling.mmt.qvt-oml"
-        - "Job/Workspace:modeling.mmt.qvt-oml"
-        - "Overall/Read:modeling.mmt.qvt-oml"
-        - "Run/Delete:modeling.mmt.qvt-oml"
-        - "Run/Replay:modeling.mmt.qvt-oml"
-        - "Run/Update:modeling.mmt.qvt-oml"
-        - "SCM/Tag:modeling.mmt.qvt-oml"
-        - "View/Configure:modeling.mmt.qvt-oml"
-        - "View/Create:modeling.mmt.qvt-oml"
-        - "View/Delete:modeling.mmt.qvt-oml"
-        - "View/Read:modeling.mmt.qvt-oml"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:modeling.mmt.qvt-oml"
+        - "GROUP:Credentials/View:modeling.mmt.qvt-oml"
+        - "GROUP:Gerrit/ManualTrigger:modeling.mmt.qvt-oml"
+        - "GROUP:Gerrit/Retrigger:modeling.mmt.qvt-oml"
+        - "GROUP:Job/Build:modeling.mmt.qvt-oml"
+        - "GROUP:Job/Cancel:modeling.mmt.qvt-oml"
+        - "GROUP:Job/Configure:modeling.mmt.qvt-oml"
+        - "GROUP:Job/Create:modeling.mmt.qvt-oml"
+        - "GROUP:Job/Delete:modeling.mmt.qvt-oml"
+        - "GROUP:Job/Move:modeling.mmt.qvt-oml"
+        - "GROUP:Job/Read:modeling.mmt.qvt-oml"
+        - "GROUP:Job/Workspace:modeling.mmt.qvt-oml"
+        - "GROUP:Overall/Read:modeling.mmt.qvt-oml"
+        - "GROUP:Run/Delete:modeling.mmt.qvt-oml"
+        - "GROUP:Run/Replay:modeling.mmt.qvt-oml"
+        - "GROUP:Run/Update:modeling.mmt.qvt-oml"
+        - "GROUP:SCM/Tag:modeling.mmt.qvt-oml"
+        - "GROUP:View/Configure:modeling.mmt.qvt-oml"
+        - "GROUP:View/Create:modeling.mmt.qvt-oml"
+        - "GROUP:View/Delete:modeling.mmt.qvt-oml"
+        - "GROUP:View/Read:modeling.mmt.qvt-oml"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

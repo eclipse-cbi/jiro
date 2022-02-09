@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:modeling.acceleo"
-        - "Credentials/View:modeling.acceleo"
-        - "Gerrit/ManualTrigger:modeling.acceleo"
-        - "Gerrit/Retrigger:modeling.acceleo"
-        - "Job/Build:modeling.acceleo"
-        - "Job/Cancel:modeling.acceleo"
-        - "Job/Configure:modeling.acceleo"
-        - "Job/Create:modeling.acceleo"
-        - "Job/Delete:modeling.acceleo"
-        - "Job/Move:modeling.acceleo"
-        - "Job/Read:modeling.acceleo"
-        - "Job/Workspace:modeling.acceleo"
-        - "Overall/Read:modeling.acceleo"
-        - "Run/Delete:modeling.acceleo"
-        - "Run/Replay:modeling.acceleo"
-        - "Run/Update:modeling.acceleo"
-        - "SCM/Tag:modeling.acceleo"
-        - "View/Configure:modeling.acceleo"
-        - "View/Create:modeling.acceleo"
-        - "View/Delete:modeling.acceleo"
-        - "View/Read:modeling.acceleo"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:modeling.acceleo"
+        - "GROUP:Credentials/View:modeling.acceleo"
+        - "GROUP:Gerrit/ManualTrigger:modeling.acceleo"
+        - "GROUP:Gerrit/Retrigger:modeling.acceleo"
+        - "GROUP:Job/Build:modeling.acceleo"
+        - "GROUP:Job/Cancel:modeling.acceleo"
+        - "GROUP:Job/Configure:modeling.acceleo"
+        - "GROUP:Job/Create:modeling.acceleo"
+        - "GROUP:Job/Delete:modeling.acceleo"
+        - "GROUP:Job/Move:modeling.acceleo"
+        - "GROUP:Job/Read:modeling.acceleo"
+        - "GROUP:Job/Workspace:modeling.acceleo"
+        - "GROUP:Overall/Read:modeling.acceleo"
+        - "GROUP:Run/Delete:modeling.acceleo"
+        - "GROUP:Run/Replay:modeling.acceleo"
+        - "GROUP:Run/Update:modeling.acceleo"
+        - "GROUP:SCM/Tag:modeling.acceleo"
+        - "GROUP:View/Configure:modeling.acceleo"
+        - "GROUP:View/Create:modeling.acceleo"
+        - "GROUP:View/Delete:modeling.acceleo"
+        - "GROUP:View/Read:modeling.acceleo"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

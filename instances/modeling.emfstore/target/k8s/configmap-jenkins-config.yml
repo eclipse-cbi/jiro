@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "emfstore"
   namespace: "emfstore"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:modeling.emfstore"
-            - "Credentials/View:modeling.emfstore"
-            - "Gerrit/ManualTrigger:modeling.emfstore"
-            - "Gerrit/Retrigger:modeling.emfstore"
-            - "Job/Build:modeling.emfstore"
-            - "Job/Cancel:modeling.emfstore"
-            - "Job/Configure:modeling.emfstore"
-            - "Job/Create:modeling.emfstore"
-            - "Job/Delete:modeling.emfstore"
-            - "Job/Move:modeling.emfstore"
-            - "Job/Read:modeling.emfstore"
-            - "Job/Workspace:modeling.emfstore"
-            - "Overall/Read:modeling.emfstore"
-            - "Run/Delete:modeling.emfstore"
-            - "Run/Replay:modeling.emfstore"
-            - "Run/Update:modeling.emfstore"
-            - "SCM/Tag:modeling.emfstore"
-            - "View/Configure:modeling.emfstore"
-            - "View/Create:modeling.emfstore"
-            - "View/Delete:modeling.emfstore"
-            - "View/Read:modeling.emfstore"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:modeling.emfstore"
+            - "GROUP:Credentials/View:modeling.emfstore"
+            - "GROUP:Gerrit/ManualTrigger:modeling.emfstore"
+            - "GROUP:Gerrit/Retrigger:modeling.emfstore"
+            - "GROUP:Job/Build:modeling.emfstore"
+            - "GROUP:Job/Cancel:modeling.emfstore"
+            - "GROUP:Job/Configure:modeling.emfstore"
+            - "GROUP:Job/Create:modeling.emfstore"
+            - "GROUP:Job/Delete:modeling.emfstore"
+            - "GROUP:Job/Move:modeling.emfstore"
+            - "GROUP:Job/Read:modeling.emfstore"
+            - "GROUP:Job/Workspace:modeling.emfstore"
+            - "GROUP:Overall/Read:modeling.emfstore"
+            - "GROUP:Run/Delete:modeling.emfstore"
+            - "GROUP:Run/Replay:modeling.emfstore"
+            - "GROUP:Run/Update:modeling.emfstore"
+            - "GROUP:SCM/Tag:modeling.emfstore"
+            - "GROUP:View/Configure:modeling.emfstore"
+            - "GROUP:View/Create:modeling.emfstore"
+            - "GROUP:View/Delete:modeling.emfstore"
+            - "GROUP:View/Read:modeling.emfstore"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

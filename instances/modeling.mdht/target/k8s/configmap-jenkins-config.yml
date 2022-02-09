@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "mdht"
   namespace: "mdht"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:modeling.mdht"
-            - "Credentials/View:modeling.mdht"
-            - "Gerrit/ManualTrigger:modeling.mdht"
-            - "Gerrit/Retrigger:modeling.mdht"
-            - "Job/Build:modeling.mdht"
-            - "Job/Cancel:modeling.mdht"
-            - "Job/Configure:modeling.mdht"
-            - "Job/Create:modeling.mdht"
-            - "Job/Delete:modeling.mdht"
-            - "Job/Move:modeling.mdht"
-            - "Job/Read:modeling.mdht"
-            - "Job/Workspace:modeling.mdht"
-            - "Overall/Read:modeling.mdht"
-            - "Run/Delete:modeling.mdht"
-            - "Run/Replay:modeling.mdht"
-            - "Run/Update:modeling.mdht"
-            - "SCM/Tag:modeling.mdht"
-            - "View/Configure:modeling.mdht"
-            - "View/Create:modeling.mdht"
-            - "View/Delete:modeling.mdht"
-            - "View/Read:modeling.mdht"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:modeling.mdht"
+            - "GROUP:Credentials/View:modeling.mdht"
+            - "GROUP:Gerrit/ManualTrigger:modeling.mdht"
+            - "GROUP:Gerrit/Retrigger:modeling.mdht"
+            - "GROUP:Job/Build:modeling.mdht"
+            - "GROUP:Job/Cancel:modeling.mdht"
+            - "GROUP:Job/Configure:modeling.mdht"
+            - "GROUP:Job/Create:modeling.mdht"
+            - "GROUP:Job/Delete:modeling.mdht"
+            - "GROUP:Job/Move:modeling.mdht"
+            - "GROUP:Job/Read:modeling.mdht"
+            - "GROUP:Job/Workspace:modeling.mdht"
+            - "GROUP:Overall/Read:modeling.mdht"
+            - "GROUP:Run/Delete:modeling.mdht"
+            - "GROUP:Run/Replay:modeling.mdht"
+            - "GROUP:Run/Update:modeling.mdht"
+            - "GROUP:SCM/Tag:modeling.mdht"
+            - "GROUP:View/Configure:modeling.mdht"
+            - "GROUP:View/Create:modeling.mdht"
+            - "GROUP:View/Delete:modeling.mdht"
+            - "GROUP:View/Read:modeling.mdht"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

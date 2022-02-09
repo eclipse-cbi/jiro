@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "elk"
   namespace: "elk"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:modeling.elk"
-            - "Credentials/View:modeling.elk"
-            - "Gerrit/ManualTrigger:modeling.elk"
-            - "Gerrit/Retrigger:modeling.elk"
-            - "Job/Build:modeling.elk"
-            - "Job/Cancel:modeling.elk"
-            - "Job/Configure:modeling.elk"
-            - "Job/Create:modeling.elk"
-            - "Job/Delete:modeling.elk"
-            - "Job/Move:modeling.elk"
-            - "Job/Read:modeling.elk"
-            - "Job/Workspace:modeling.elk"
-            - "Overall/Read:modeling.elk"
-            - "Run/Delete:modeling.elk"
-            - "Run/Replay:modeling.elk"
-            - "Run/Update:modeling.elk"
-            - "SCM/Tag:modeling.elk"
-            - "View/Configure:modeling.elk"
-            - "View/Create:modeling.elk"
-            - "View/Delete:modeling.elk"
-            - "View/Read:modeling.elk"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:modeling.elk"
+            - "GROUP:Credentials/View:modeling.elk"
+            - "GROUP:Gerrit/ManualTrigger:modeling.elk"
+            - "GROUP:Gerrit/Retrigger:modeling.elk"
+            - "GROUP:Job/Build:modeling.elk"
+            - "GROUP:Job/Cancel:modeling.elk"
+            - "GROUP:Job/Configure:modeling.elk"
+            - "GROUP:Job/Create:modeling.elk"
+            - "GROUP:Job/Delete:modeling.elk"
+            - "GROUP:Job/Move:modeling.elk"
+            - "GROUP:Job/Read:modeling.elk"
+            - "GROUP:Job/Workspace:modeling.elk"
+            - "GROUP:Overall/Read:modeling.elk"
+            - "GROUP:Run/Delete:modeling.elk"
+            - "GROUP:Run/Replay:modeling.elk"
+            - "GROUP:Run/Update:modeling.elk"
+            - "GROUP:SCM/Tag:modeling.elk"
+            - "GROUP:View/Configure:modeling.elk"
+            - "GROUP:View/Create:modeling.elk"
+            - "GROUP:View/Delete:modeling.elk"
+            - "GROUP:View/Read:modeling.elk"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

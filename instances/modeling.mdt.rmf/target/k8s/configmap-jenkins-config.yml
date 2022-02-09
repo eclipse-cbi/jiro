@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "rmf"
   namespace: "rmf"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:modeling.mdt.rmf"
-            - "Credentials/View:modeling.mdt.rmf"
-            - "Gerrit/ManualTrigger:modeling.mdt.rmf"
-            - "Gerrit/Retrigger:modeling.mdt.rmf"
-            - "Job/Build:modeling.mdt.rmf"
-            - "Job/Cancel:modeling.mdt.rmf"
-            - "Job/Configure:modeling.mdt.rmf"
-            - "Job/Create:modeling.mdt.rmf"
-            - "Job/Delete:modeling.mdt.rmf"
-            - "Job/Move:modeling.mdt.rmf"
-            - "Job/Read:modeling.mdt.rmf"
-            - "Job/Workspace:modeling.mdt.rmf"
-            - "Overall/Read:modeling.mdt.rmf"
-            - "Run/Delete:modeling.mdt.rmf"
-            - "Run/Replay:modeling.mdt.rmf"
-            - "Run/Update:modeling.mdt.rmf"
-            - "SCM/Tag:modeling.mdt.rmf"
-            - "View/Configure:modeling.mdt.rmf"
-            - "View/Create:modeling.mdt.rmf"
-            - "View/Delete:modeling.mdt.rmf"
-            - "View/Read:modeling.mdt.rmf"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:modeling.mdt.rmf"
+            - "GROUP:Credentials/View:modeling.mdt.rmf"
+            - "GROUP:Gerrit/ManualTrigger:modeling.mdt.rmf"
+            - "GROUP:Gerrit/Retrigger:modeling.mdt.rmf"
+            - "GROUP:Job/Build:modeling.mdt.rmf"
+            - "GROUP:Job/Cancel:modeling.mdt.rmf"
+            - "GROUP:Job/Configure:modeling.mdt.rmf"
+            - "GROUP:Job/Create:modeling.mdt.rmf"
+            - "GROUP:Job/Delete:modeling.mdt.rmf"
+            - "GROUP:Job/Move:modeling.mdt.rmf"
+            - "GROUP:Job/Read:modeling.mdt.rmf"
+            - "GROUP:Job/Workspace:modeling.mdt.rmf"
+            - "GROUP:Overall/Read:modeling.mdt.rmf"
+            - "GROUP:Run/Delete:modeling.mdt.rmf"
+            - "GROUP:Run/Replay:modeling.mdt.rmf"
+            - "GROUP:Run/Update:modeling.mdt.rmf"
+            - "GROUP:SCM/Tag:modeling.mdt.rmf"
+            - "GROUP:View/Configure:modeling.mdt.rmf"
+            - "GROUP:View/Create:modeling.mdt.rmf"
+            - "GROUP:View/Delete:modeling.mdt.rmf"
+            - "GROUP:View/Read:modeling.mdt.rmf"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

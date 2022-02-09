@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:modeling.modisco"
-        - "Credentials/View:modeling.modisco"
-        - "Gerrit/ManualTrigger:modeling.modisco"
-        - "Gerrit/Retrigger:modeling.modisco"
-        - "Job/Build:modeling.modisco"
-        - "Job/Cancel:modeling.modisco"
-        - "Job/Configure:modeling.modisco"
-        - "Job/Create:modeling.modisco"
-        - "Job/Delete:modeling.modisco"
-        - "Job/Move:modeling.modisco"
-        - "Job/Read:modeling.modisco"
-        - "Job/Workspace:modeling.modisco"
-        - "Overall/Read:modeling.modisco"
-        - "Run/Delete:modeling.modisco"
-        - "Run/Replay:modeling.modisco"
-        - "Run/Update:modeling.modisco"
-        - "SCM/Tag:modeling.modisco"
-        - "View/Configure:modeling.modisco"
-        - "View/Create:modeling.modisco"
-        - "View/Delete:modeling.modisco"
-        - "View/Read:modeling.modisco"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:modeling.modisco"
+        - "GROUP:Credentials/View:modeling.modisco"
+        - "GROUP:Gerrit/ManualTrigger:modeling.modisco"
+        - "GROUP:Gerrit/Retrigger:modeling.modisco"
+        - "GROUP:Job/Build:modeling.modisco"
+        - "GROUP:Job/Cancel:modeling.modisco"
+        - "GROUP:Job/Configure:modeling.modisco"
+        - "GROUP:Job/Create:modeling.modisco"
+        - "GROUP:Job/Delete:modeling.modisco"
+        - "GROUP:Job/Move:modeling.modisco"
+        - "GROUP:Job/Read:modeling.modisco"
+        - "GROUP:Job/Workspace:modeling.modisco"
+        - "GROUP:Overall/Read:modeling.modisco"
+        - "GROUP:Run/Delete:modeling.modisco"
+        - "GROUP:Run/Replay:modeling.modisco"
+        - "GROUP:Run/Update:modeling.modisco"
+        - "GROUP:SCM/Tag:modeling.modisco"
+        - "GROUP:View/Configure:modeling.modisco"
+        - "GROUP:View/Create:modeling.modisco"
+        - "GROUP:View/Delete:modeling.modisco"
+        - "GROUP:View/Read:modeling.modisco"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

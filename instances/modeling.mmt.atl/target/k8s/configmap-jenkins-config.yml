@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "atl"
   namespace: "atl"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:modeling.mmt.atl"
-            - "Credentials/View:modeling.mmt.atl"
-            - "Gerrit/ManualTrigger:modeling.mmt.atl"
-            - "Gerrit/Retrigger:modeling.mmt.atl"
-            - "Job/Build:modeling.mmt.atl"
-            - "Job/Cancel:modeling.mmt.atl"
-            - "Job/Configure:modeling.mmt.atl"
-            - "Job/Create:modeling.mmt.atl"
-            - "Job/Delete:modeling.mmt.atl"
-            - "Job/Move:modeling.mmt.atl"
-            - "Job/Read:modeling.mmt.atl"
-            - "Job/Workspace:modeling.mmt.atl"
-            - "Overall/Read:modeling.mmt.atl"
-            - "Run/Delete:modeling.mmt.atl"
-            - "Run/Replay:modeling.mmt.atl"
-            - "Run/Update:modeling.mmt.atl"
-            - "SCM/Tag:modeling.mmt.atl"
-            - "View/Configure:modeling.mmt.atl"
-            - "View/Create:modeling.mmt.atl"
-            - "View/Delete:modeling.mmt.atl"
-            - "View/Read:modeling.mmt.atl"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:modeling.mmt.atl"
+            - "GROUP:Credentials/View:modeling.mmt.atl"
+            - "GROUP:Gerrit/ManualTrigger:modeling.mmt.atl"
+            - "GROUP:Gerrit/Retrigger:modeling.mmt.atl"
+            - "GROUP:Job/Build:modeling.mmt.atl"
+            - "GROUP:Job/Cancel:modeling.mmt.atl"
+            - "GROUP:Job/Configure:modeling.mmt.atl"
+            - "GROUP:Job/Create:modeling.mmt.atl"
+            - "GROUP:Job/Delete:modeling.mmt.atl"
+            - "GROUP:Job/Move:modeling.mmt.atl"
+            - "GROUP:Job/Read:modeling.mmt.atl"
+            - "GROUP:Job/Workspace:modeling.mmt.atl"
+            - "GROUP:Overall/Read:modeling.mmt.atl"
+            - "GROUP:Run/Delete:modeling.mmt.atl"
+            - "GROUP:Run/Replay:modeling.mmt.atl"
+            - "GROUP:Run/Update:modeling.mmt.atl"
+            - "GROUP:SCM/Tag:modeling.mmt.atl"
+            - "GROUP:View/Configure:modeling.mmt.atl"
+            - "GROUP:View/Create:modeling.mmt.atl"
+            - "GROUP:View/Delete:modeling.mmt.atl"
+            - "GROUP:View/Read:modeling.mmt.atl"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

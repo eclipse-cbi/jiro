@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:modeling.emfservices"
-        - "Credentials/View:modeling.emfservices"
-        - "Gerrit/ManualTrigger:modeling.emfservices"
-        - "Gerrit/Retrigger:modeling.emfservices"
-        - "Job/Build:modeling.emfservices"
-        - "Job/Cancel:modeling.emfservices"
-        - "Job/Configure:modeling.emfservices"
-        - "Job/Create:modeling.emfservices"
-        - "Job/Delete:modeling.emfservices"
-        - "Job/Move:modeling.emfservices"
-        - "Job/Read:modeling.emfservices"
-        - "Job/Workspace:modeling.emfservices"
-        - "Overall/Read:modeling.emfservices"
-        - "Run/Delete:modeling.emfservices"
-        - "Run/Replay:modeling.emfservices"
-        - "Run/Update:modeling.emfservices"
-        - "SCM/Tag:modeling.emfservices"
-        - "View/Configure:modeling.emfservices"
-        - "View/Create:modeling.emfservices"
-        - "View/Delete:modeling.emfservices"
-        - "View/Read:modeling.emfservices"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:modeling.emfservices"
+        - "GROUP:Credentials/View:modeling.emfservices"
+        - "GROUP:Gerrit/ManualTrigger:modeling.emfservices"
+        - "GROUP:Gerrit/Retrigger:modeling.emfservices"
+        - "GROUP:Job/Build:modeling.emfservices"
+        - "GROUP:Job/Cancel:modeling.emfservices"
+        - "GROUP:Job/Configure:modeling.emfservices"
+        - "GROUP:Job/Create:modeling.emfservices"
+        - "GROUP:Job/Delete:modeling.emfservices"
+        - "GROUP:Job/Move:modeling.emfservices"
+        - "GROUP:Job/Read:modeling.emfservices"
+        - "GROUP:Job/Workspace:modeling.emfservices"
+        - "GROUP:Overall/Read:modeling.emfservices"
+        - "GROUP:Run/Delete:modeling.emfservices"
+        - "GROUP:Run/Replay:modeling.emfservices"
+        - "GROUP:Run/Update:modeling.emfservices"
+        - "GROUP:SCM/Tag:modeling.emfservices"
+        - "GROUP:View/Configure:modeling.emfservices"
+        - "GROUP:View/Create:modeling.emfservices"
+        - "GROUP:View/Delete:modeling.emfservices"
+        - "GROUP:View/Read:modeling.emfservices"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "ocl"
   namespace: "ocl"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:modeling.mdt.ocl"
-            - "Credentials/View:modeling.mdt.ocl"
-            - "Gerrit/ManualTrigger:modeling.mdt.ocl"
-            - "Gerrit/Retrigger:modeling.mdt.ocl"
-            - "Job/Build:modeling.mdt.ocl"
-            - "Job/Cancel:modeling.mdt.ocl"
-            - "Job/Configure:modeling.mdt.ocl"
-            - "Job/Create:modeling.mdt.ocl"
-            - "Job/Delete:modeling.mdt.ocl"
-            - "Job/Move:modeling.mdt.ocl"
-            - "Job/Read:modeling.mdt.ocl"
-            - "Job/Workspace:modeling.mdt.ocl"
-            - "Overall/Read:modeling.mdt.ocl"
-            - "Run/Delete:modeling.mdt.ocl"
-            - "Run/Replay:modeling.mdt.ocl"
-            - "Run/Update:modeling.mdt.ocl"
-            - "SCM/Tag:modeling.mdt.ocl"
-            - "View/Configure:modeling.mdt.ocl"
-            - "View/Create:modeling.mdt.ocl"
-            - "View/Delete:modeling.mdt.ocl"
-            - "View/Read:modeling.mdt.ocl"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:modeling.mdt.ocl"
+            - "GROUP:Credentials/View:modeling.mdt.ocl"
+            - "GROUP:Gerrit/ManualTrigger:modeling.mdt.ocl"
+            - "GROUP:Gerrit/Retrigger:modeling.mdt.ocl"
+            - "GROUP:Job/Build:modeling.mdt.ocl"
+            - "GROUP:Job/Cancel:modeling.mdt.ocl"
+            - "GROUP:Job/Configure:modeling.mdt.ocl"
+            - "GROUP:Job/Create:modeling.mdt.ocl"
+            - "GROUP:Job/Delete:modeling.mdt.ocl"
+            - "GROUP:Job/Move:modeling.mdt.ocl"
+            - "GROUP:Job/Read:modeling.mdt.ocl"
+            - "GROUP:Job/Workspace:modeling.mdt.ocl"
+            - "GROUP:Overall/Read:modeling.mdt.ocl"
+            - "GROUP:Run/Delete:modeling.mdt.ocl"
+            - "GROUP:Run/Replay:modeling.mdt.ocl"
+            - "GROUP:Run/Update:modeling.mdt.ocl"
+            - "GROUP:SCM/Tag:modeling.mdt.ocl"
+            - "GROUP:View/Configure:modeling.mdt.ocl"
+            - "GROUP:View/Create:modeling.mdt.ocl"
+            - "GROUP:View/Delete:modeling.mdt.ocl"
+            - "GROUP:View/Read:modeling.mdt.ocl"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
