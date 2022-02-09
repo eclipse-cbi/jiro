@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:technology.lsp4e"
-        - "Credentials/View:technology.lsp4e"
-        - "Gerrit/ManualTrigger:technology.lsp4e"
-        - "Gerrit/Retrigger:technology.lsp4e"
-        - "Job/Build:technology.lsp4e"
-        - "Job/Cancel:technology.lsp4e"
-        - "Job/Configure:technology.lsp4e"
-        - "Job/Create:technology.lsp4e"
-        - "Job/Delete:technology.lsp4e"
-        - "Job/Move:technology.lsp4e"
-        - "Job/Read:technology.lsp4e"
-        - "Job/Workspace:technology.lsp4e"
-        - "Overall/Read:technology.lsp4e"
-        - "Run/Delete:technology.lsp4e"
-        - "Run/Replay:technology.lsp4e"
-        - "Run/Update:technology.lsp4e"
-        - "SCM/Tag:technology.lsp4e"
-        - "View/Configure:technology.lsp4e"
-        - "View/Create:technology.lsp4e"
-        - "View/Delete:technology.lsp4e"
-        - "View/Read:technology.lsp4e"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:technology.lsp4e"
+        - "GROUP:Credentials/View:technology.lsp4e"
+        - "GROUP:Gerrit/ManualTrigger:technology.lsp4e"
+        - "GROUP:Gerrit/Retrigger:technology.lsp4e"
+        - "GROUP:Job/Build:technology.lsp4e"
+        - "GROUP:Job/Cancel:technology.lsp4e"
+        - "GROUP:Job/Configure:technology.lsp4e"
+        - "GROUP:Job/Create:technology.lsp4e"
+        - "GROUP:Job/Delete:technology.lsp4e"
+        - "GROUP:Job/Move:technology.lsp4e"
+        - "GROUP:Job/Read:technology.lsp4e"
+        - "GROUP:Job/Workspace:technology.lsp4e"
+        - "GROUP:Overall/Read:technology.lsp4e"
+        - "GROUP:Run/Delete:technology.lsp4e"
+        - "GROUP:Run/Replay:technology.lsp4e"
+        - "GROUP:Run/Update:technology.lsp4e"
+        - "GROUP:SCM/Tag:technology.lsp4e"
+        - "GROUP:View/Configure:technology.lsp4e"
+        - "GROUP:View/Create:technology.lsp4e"
+        - "GROUP:View/Delete:technology.lsp4e"
+        - "GROUP:View/Read:technology.lsp4e"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
