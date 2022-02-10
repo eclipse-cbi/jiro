@@ -75,7 +75,7 @@ data:
             - "GROUP:View/Delete:foundation-internal.it"
             - "GROUP:View/Read:foundation-internal.it"
             - "GROUP:Overall/Read:foundation-internal.webdev"
-            - "GROUP:Overall/Read:wayne.beaton@eclipse-foundation.org"
+            - "USER:Overall/Read:wayne.beaton@eclipse-foundation.org"
       markupFormatter: rawHtml
       crumbIssuer:
         standard:

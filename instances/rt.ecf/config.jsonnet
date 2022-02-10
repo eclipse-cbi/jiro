@@ -9,7 +9,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     permissions+: [
       {
         // https://bugs.eclipse.org/bugs/show_bug.cgi?id=546758
-        principal: "mat.booth@redhat.com", 
+        principal: "mat.booth@gmail.com", 
         grantedPermissions: permissionsTemplates.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger"],
       }
     ],

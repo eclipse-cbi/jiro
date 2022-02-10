@@ -38,6 +38,10 @@ EOM
 for permObject in $(jq -c "${JQ_PROG} | .[]" "${json}"); do
   principal=$(jq -r .principal <<< "${permObject}")
   for perm in $(jq -r '.permissions[]' <<< "${permObject}"); do
-    echo "- \"GROUP:${perm}:${principal}\""
+    if [[ "${principal}" == *@* ]] || [[ "${principal}" == "anonymous" ]]; then
+        echo "- \"USER:${perm}:${principal}\""
+    else
+        echo "- \"GROUP:${perm}:${principal}\""
+    fi
   done
 done
