@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:technology.nebula"
-        - "Credentials/View:technology.nebula"
-        - "Gerrit/ManualTrigger:technology.nebula"
-        - "Gerrit/Retrigger:technology.nebula"
-        - "Job/Build:technology.nebula"
-        - "Job/Cancel:technology.nebula"
-        - "Job/Configure:technology.nebula"
-        - "Job/Create:technology.nebula"
-        - "Job/Delete:technology.nebula"
-        - "Job/Move:technology.nebula"
-        - "Job/Read:technology.nebula"
-        - "Job/Workspace:technology.nebula"
-        - "Overall/Read:technology.nebula"
-        - "Run/Delete:technology.nebula"
-        - "Run/Replay:technology.nebula"
-        - "Run/Update:technology.nebula"
-        - "SCM/Tag:technology.nebula"
-        - "View/Configure:technology.nebula"
-        - "View/Create:technology.nebula"
-        - "View/Delete:technology.nebula"
-        - "View/Read:technology.nebula"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:technology.nebula"
+        - "GROUP:Credentials/View:technology.nebula"
+        - "GROUP:Gerrit/ManualTrigger:technology.nebula"
+        - "GROUP:Gerrit/Retrigger:technology.nebula"
+        - "GROUP:Job/Build:technology.nebula"
+        - "GROUP:Job/Cancel:technology.nebula"
+        - "GROUP:Job/Configure:technology.nebula"
+        - "GROUP:Job/Create:technology.nebula"
+        - "GROUP:Job/Delete:technology.nebula"
+        - "GROUP:Job/Move:technology.nebula"
+        - "GROUP:Job/Read:technology.nebula"
+        - "GROUP:Job/Workspace:technology.nebula"
+        - "GROUP:Overall/Read:technology.nebula"
+        - "GROUP:Run/Delete:technology.nebula"
+        - "GROUP:Run/Replay:technology.nebula"
+        - "GROUP:Run/Update:technology.nebula"
+        - "GROUP:SCM/Tag:technology.nebula"
+        - "GROUP:View/Configure:technology.nebula"
+        - "GROUP:View/Create:technology.nebula"
+        - "GROUP:View/Delete:technology.nebula"
+        - "GROUP:View/Read:technology.nebula"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:technology.dataeggs"
-        - "Credentials/View:technology.dataeggs"
-        - "Gerrit/ManualTrigger:technology.dataeggs"
-        - "Gerrit/Retrigger:technology.dataeggs"
-        - "Job/Build:technology.dataeggs"
-        - "Job/Cancel:technology.dataeggs"
-        - "Job/Configure:technology.dataeggs"
-        - "Job/Create:technology.dataeggs"
-        - "Job/Delete:technology.dataeggs"
-        - "Job/Move:technology.dataeggs"
-        - "Job/Read:technology.dataeggs"
-        - "Job/Workspace:technology.dataeggs"
-        - "Overall/Read:technology.dataeggs"
-        - "Run/Delete:technology.dataeggs"
-        - "Run/Replay:technology.dataeggs"
-        - "Run/Update:technology.dataeggs"
-        - "SCM/Tag:technology.dataeggs"
-        - "View/Configure:technology.dataeggs"
-        - "View/Create:technology.dataeggs"
-        - "View/Delete:technology.dataeggs"
-        - "View/Read:technology.dataeggs"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:technology.dataeggs"
+        - "GROUP:Credentials/View:technology.dataeggs"
+        - "GROUP:Gerrit/ManualTrigger:technology.dataeggs"
+        - "GROUP:Gerrit/Retrigger:technology.dataeggs"
+        - "GROUP:Job/Build:technology.dataeggs"
+        - "GROUP:Job/Cancel:technology.dataeggs"
+        - "GROUP:Job/Configure:technology.dataeggs"
+        - "GROUP:Job/Create:technology.dataeggs"
+        - "GROUP:Job/Delete:technology.dataeggs"
+        - "GROUP:Job/Move:technology.dataeggs"
+        - "GROUP:Job/Read:technology.dataeggs"
+        - "GROUP:Job/Workspace:technology.dataeggs"
+        - "GROUP:Overall/Read:technology.dataeggs"
+        - "GROUP:Run/Delete:technology.dataeggs"
+        - "GROUP:Run/Replay:technology.dataeggs"
+        - "GROUP:Run/Update:technology.dataeggs"
+        - "GROUP:SCM/Tag:technology.dataeggs"
+        - "GROUP:View/Configure:technology.dataeggs"
+        - "GROUP:View/Create:technology.dataeggs"
+        - "GROUP:View/Delete:technology.dataeggs"
+        - "GROUP:View/Read:technology.dataeggs"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

@@ -21,52 +21,52 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:patrick.tessier@cea.fr"
-        - "Credentials/View:patrick.tessier@cea.fr"
-        - "Gerrit/ManualTrigger:patrick.tessier@cea.fr"
-        - "Gerrit/Retrigger:patrick.tessier@cea.fr"
-        - "Job/Build:patrick.tessier@cea.fr"
-        - "Job/Cancel:patrick.tessier@cea.fr"
-        - "Job/Configure:patrick.tessier@cea.fr"
-        - "Job/Create:patrick.tessier@cea.fr"
-        - "Job/Delete:patrick.tessier@cea.fr"
-        - "Job/Move:patrick.tessier@cea.fr"
-        - "Job/Read:patrick.tessier@cea.fr"
-        - "Job/Workspace:patrick.tessier@cea.fr"
-        - "Overall/Read:patrick.tessier@cea.fr"
-        - "Run/Delete:patrick.tessier@cea.fr"
-        - "Run/Replay:patrick.tessier@cea.fr"
-        - "Run/Update:patrick.tessier@cea.fr"
-        - "SCM/Tag:patrick.tessier@cea.fr"
-        - "View/Configure:patrick.tessier@cea.fr"
-        - "View/Create:patrick.tessier@cea.fr"
-        - "View/Delete:patrick.tessier@cea.fr"
-        - "View/Read:patrick.tessier@cea.fr"
-        - "Agent/Build:technology.xwt"
-        - "Credentials/View:technology.xwt"
-        - "Gerrit/ManualTrigger:technology.xwt"
-        - "Gerrit/Retrigger:technology.xwt"
-        - "Job/Build:technology.xwt"
-        - "Job/Cancel:technology.xwt"
-        - "Job/Configure:technology.xwt"
-        - "Job/Create:technology.xwt"
-        - "Job/Delete:technology.xwt"
-        - "Job/Move:technology.xwt"
-        - "Job/Read:technology.xwt"
-        - "Job/Workspace:technology.xwt"
-        - "Overall/Read:technology.xwt"
-        - "Run/Delete:technology.xwt"
-        - "Run/Replay:technology.xwt"
-        - "Run/Update:technology.xwt"
-        - "SCM/Tag:technology.xwt"
-        - "View/Configure:technology.xwt"
-        - "View/Create:technology.xwt"
-        - "View/Delete:technology.xwt"
-        - "View/Read:technology.xwt"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:patrick.tessier@cea.fr"
+        - "GROUP:Credentials/View:patrick.tessier@cea.fr"
+        - "GROUP:Gerrit/ManualTrigger:patrick.tessier@cea.fr"
+        - "GROUP:Gerrit/Retrigger:patrick.tessier@cea.fr"
+        - "GROUP:Job/Build:patrick.tessier@cea.fr"
+        - "GROUP:Job/Cancel:patrick.tessier@cea.fr"
+        - "GROUP:Job/Configure:patrick.tessier@cea.fr"
+        - "GROUP:Job/Create:patrick.tessier@cea.fr"
+        - "GROUP:Job/Delete:patrick.tessier@cea.fr"
+        - "GROUP:Job/Move:patrick.tessier@cea.fr"
+        - "GROUP:Job/Read:patrick.tessier@cea.fr"
+        - "GROUP:Job/Workspace:patrick.tessier@cea.fr"
+        - "GROUP:Overall/Read:patrick.tessier@cea.fr"
+        - "GROUP:Run/Delete:patrick.tessier@cea.fr"
+        - "GROUP:Run/Replay:patrick.tessier@cea.fr"
+        - "GROUP:Run/Update:patrick.tessier@cea.fr"
+        - "GROUP:SCM/Tag:patrick.tessier@cea.fr"
+        - "GROUP:View/Configure:patrick.tessier@cea.fr"
+        - "GROUP:View/Create:patrick.tessier@cea.fr"
+        - "GROUP:View/Delete:patrick.tessier@cea.fr"
+        - "GROUP:View/Read:patrick.tessier@cea.fr"
+        - "GROUP:Agent/Build:technology.xwt"
+        - "GROUP:Credentials/View:technology.xwt"
+        - "GROUP:Gerrit/ManualTrigger:technology.xwt"
+        - "GROUP:Gerrit/Retrigger:technology.xwt"
+        - "GROUP:Job/Build:technology.xwt"
+        - "GROUP:Job/Cancel:technology.xwt"
+        - "GROUP:Job/Configure:technology.xwt"
+        - "GROUP:Job/Create:technology.xwt"
+        - "GROUP:Job/Delete:technology.xwt"
+        - "GROUP:Job/Move:technology.xwt"
+        - "GROUP:Job/Read:technology.xwt"
+        - "GROUP:Job/Workspace:technology.xwt"
+        - "GROUP:Overall/Read:technology.xwt"
+        - "GROUP:Run/Delete:technology.xwt"
+        - "GROUP:Run/Replay:technology.xwt"
+        - "GROUP:Run/Update:technology.xwt"
+        - "GROUP:SCM/Tag:technology.xwt"
+        - "GROUP:View/Configure:technology.xwt"
+        - "GROUP:View/Create:technology.xwt"
+        - "GROUP:View/Delete:technology.xwt"
+        - "GROUP:View/Read:technology.xwt"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -96,7 +96,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -182,7 +182,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -268,7 +268,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

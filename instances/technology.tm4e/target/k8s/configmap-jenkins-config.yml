@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "tm4e"
   namespace: "tm4e"
   name: jenkins-config
@@ -44,29 +44,29 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:technology.tm4e"
-            - "Credentials/View:technology.tm4e"
-            - "Job/Build:technology.tm4e"
-            - "Job/Cancel:technology.tm4e"
-            - "Job/Configure:technology.tm4e"
-            - "Job/Create:technology.tm4e"
-            - "Job/Delete:technology.tm4e"
-            - "Job/Move:technology.tm4e"
-            - "Job/Read:technology.tm4e"
-            - "Job/Workspace:technology.tm4e"
-            - "Overall/Read:technology.tm4e"
-            - "Run/Delete:technology.tm4e"
-            - "Run/Replay:technology.tm4e"
-            - "Run/Update:technology.tm4e"
-            - "SCM/Tag:technology.tm4e"
-            - "View/Configure:technology.tm4e"
-            - "View/Create:technology.tm4e"
-            - "View/Delete:technology.tm4e"
-            - "View/Read:technology.tm4e"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:technology.tm4e"
+            - "GROUP:Credentials/View:technology.tm4e"
+            - "GROUP:Job/Build:technology.tm4e"
+            - "GROUP:Job/Cancel:technology.tm4e"
+            - "GROUP:Job/Configure:technology.tm4e"
+            - "GROUP:Job/Create:technology.tm4e"
+            - "GROUP:Job/Delete:technology.tm4e"
+            - "GROUP:Job/Move:technology.tm4e"
+            - "GROUP:Job/Read:technology.tm4e"
+            - "GROUP:Job/Workspace:technology.tm4e"
+            - "GROUP:Overall/Read:technology.tm4e"
+            - "GROUP:Run/Delete:technology.tm4e"
+            - "GROUP:Run/Replay:technology.tm4e"
+            - "GROUP:Run/Update:technology.tm4e"
+            - "GROUP:SCM/Tag:technology.tm4e"
+            - "GROUP:View/Configure:technology.tm4e"
+            - "GROUP:View/Create:technology.tm4e"
+            - "GROUP:View/Delete:technology.tm4e"
+            - "GROUP:View/Read:technology.tm4e"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -96,7 +96,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -182,7 +182,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -268,7 +268,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

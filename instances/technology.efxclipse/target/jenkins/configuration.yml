@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:technology.efxclipse"
-        - "Credentials/View:technology.efxclipse"
-        - "Gerrit/ManualTrigger:technology.efxclipse"
-        - "Gerrit/Retrigger:technology.efxclipse"
-        - "Job/Build:technology.efxclipse"
-        - "Job/Cancel:technology.efxclipse"
-        - "Job/Configure:technology.efxclipse"
-        - "Job/Create:technology.efxclipse"
-        - "Job/Delete:technology.efxclipse"
-        - "Job/Move:technology.efxclipse"
-        - "Job/Read:technology.efxclipse"
-        - "Job/Workspace:technology.efxclipse"
-        - "Overall/Read:technology.efxclipse"
-        - "Run/Delete:technology.efxclipse"
-        - "Run/Replay:technology.efxclipse"
-        - "Run/Update:technology.efxclipse"
-        - "SCM/Tag:technology.efxclipse"
-        - "View/Configure:technology.efxclipse"
-        - "View/Create:technology.efxclipse"
-        - "View/Delete:technology.efxclipse"
-        - "View/Read:technology.efxclipse"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:technology.efxclipse"
+        - "GROUP:Credentials/View:technology.efxclipse"
+        - "GROUP:Gerrit/ManualTrigger:technology.efxclipse"
+        - "GROUP:Gerrit/Retrigger:technology.efxclipse"
+        - "GROUP:Job/Build:technology.efxclipse"
+        - "GROUP:Job/Cancel:technology.efxclipse"
+        - "GROUP:Job/Configure:technology.efxclipse"
+        - "GROUP:Job/Create:technology.efxclipse"
+        - "GROUP:Job/Delete:technology.efxclipse"
+        - "GROUP:Job/Move:technology.efxclipse"
+        - "GROUP:Job/Read:technology.efxclipse"
+        - "GROUP:Job/Workspace:technology.efxclipse"
+        - "GROUP:Overall/Read:technology.efxclipse"
+        - "GROUP:Run/Delete:technology.efxclipse"
+        - "GROUP:Run/Replay:technology.efxclipse"
+        - "GROUP:Run/Update:technology.efxclipse"
+        - "GROUP:SCM/Tag:technology.efxclipse"
+        - "GROUP:View/Configure:technology.efxclipse"
+        - "GROUP:View/Create:technology.efxclipse"
+        - "GROUP:View/Delete:technology.efxclipse"
+        - "GROUP:View/Read:technology.efxclipse"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -183,7 +183,7 @@ jenkins:
               secret:
                 secretName: gradle-secret-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -291,7 +291,7 @@ jenkins:
               secret:
                 secretName: gradle-secret-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

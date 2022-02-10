@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "repairnator"
   namespace: "repairnator"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:technology.repairnator"
-            - "Credentials/View:technology.repairnator"
-            - "Gerrit/ManualTrigger:technology.repairnator"
-            - "Gerrit/Retrigger:technology.repairnator"
-            - "Job/Build:technology.repairnator"
-            - "Job/Cancel:technology.repairnator"
-            - "Job/Configure:technology.repairnator"
-            - "Job/Create:technology.repairnator"
-            - "Job/Delete:technology.repairnator"
-            - "Job/Move:technology.repairnator"
-            - "Job/Read:technology.repairnator"
-            - "Job/Workspace:technology.repairnator"
-            - "Overall/Read:technology.repairnator"
-            - "Run/Delete:technology.repairnator"
-            - "Run/Replay:technology.repairnator"
-            - "Run/Update:technology.repairnator"
-            - "SCM/Tag:technology.repairnator"
-            - "View/Configure:technology.repairnator"
-            - "View/Create:technology.repairnator"
-            - "View/Delete:technology.repairnator"
-            - "View/Read:technology.repairnator"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:technology.repairnator"
+            - "GROUP:Credentials/View:technology.repairnator"
+            - "GROUP:Gerrit/ManualTrigger:technology.repairnator"
+            - "GROUP:Gerrit/Retrigger:technology.repairnator"
+            - "GROUP:Job/Build:technology.repairnator"
+            - "GROUP:Job/Cancel:technology.repairnator"
+            - "GROUP:Job/Configure:technology.repairnator"
+            - "GROUP:Job/Create:technology.repairnator"
+            - "GROUP:Job/Delete:technology.repairnator"
+            - "GROUP:Job/Move:technology.repairnator"
+            - "GROUP:Job/Read:technology.repairnator"
+            - "GROUP:Job/Workspace:technology.repairnator"
+            - "GROUP:Overall/Read:technology.repairnator"
+            - "GROUP:Run/Delete:technology.repairnator"
+            - "GROUP:Run/Replay:technology.repairnator"
+            - "GROUP:Run/Update:technology.repairnator"
+            - "GROUP:SCM/Tag:technology.repairnator"
+            - "GROUP:View/Configure:technology.repairnator"
+            - "GROUP:View/Create:technology.repairnator"
+            - "GROUP:View/Delete:technology.repairnator"
+            - "GROUP:View/Read:technology.repairnator"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "orbit"
   namespace: "orbit"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:tools.orbit"
-            - "Credentials/View:tools.orbit"
-            - "Gerrit/ManualTrigger:tools.orbit"
-            - "Gerrit/Retrigger:tools.orbit"
-            - "Job/Build:tools.orbit"
-            - "Job/Cancel:tools.orbit"
-            - "Job/Configure:tools.orbit"
-            - "Job/Create:tools.orbit"
-            - "Job/Delete:tools.orbit"
-            - "Job/Move:tools.orbit"
-            - "Job/Read:tools.orbit"
-            - "Job/Workspace:tools.orbit"
-            - "Overall/Read:tools.orbit"
-            - "Run/Delete:tools.orbit"
-            - "Run/Replay:tools.orbit"
-            - "Run/Update:tools.orbit"
-            - "SCM/Tag:tools.orbit"
-            - "View/Configure:tools.orbit"
-            - "View/Create:tools.orbit"
-            - "View/Delete:tools.orbit"
-            - "View/Read:tools.orbit"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:tools.orbit"
+            - "GROUP:Credentials/View:tools.orbit"
+            - "GROUP:Gerrit/ManualTrigger:tools.orbit"
+            - "GROUP:Gerrit/Retrigger:tools.orbit"
+            - "GROUP:Job/Build:tools.orbit"
+            - "GROUP:Job/Cancel:tools.orbit"
+            - "GROUP:Job/Configure:tools.orbit"
+            - "GROUP:Job/Create:tools.orbit"
+            - "GROUP:Job/Delete:tools.orbit"
+            - "GROUP:Job/Move:tools.orbit"
+            - "GROUP:Job/Read:tools.orbit"
+            - "GROUP:Job/Workspace:tools.orbit"
+            - "GROUP:Overall/Read:tools.orbit"
+            - "GROUP:Run/Delete:tools.orbit"
+            - "GROUP:Run/Replay:tools.orbit"
+            - "GROUP:Run/Update:tools.orbit"
+            - "GROUP:SCM/Tag:tools.orbit"
+            - "GROUP:View/Configure:tools.orbit"
+            - "GROUP:View/Create:tools.orbit"
+            - "GROUP:View/Delete:tools.orbit"
+            - "GROUP:View/Read:tools.orbit"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

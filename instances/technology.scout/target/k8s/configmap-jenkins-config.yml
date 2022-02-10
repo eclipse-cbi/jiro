@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "scout"
   namespace: "scout"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:technology.scout"
-            - "Credentials/View:technology.scout"
-            - "Gerrit/ManualTrigger:technology.scout"
-            - "Gerrit/Retrigger:technology.scout"
-            - "Job/Build:technology.scout"
-            - "Job/Cancel:technology.scout"
-            - "Job/Configure:technology.scout"
-            - "Job/Create:technology.scout"
-            - "Job/Delete:technology.scout"
-            - "Job/Move:technology.scout"
-            - "Job/Read:technology.scout"
-            - "Job/Workspace:technology.scout"
-            - "Overall/Read:technology.scout"
-            - "Run/Delete:technology.scout"
-            - "Run/Replay:technology.scout"
-            - "Run/Update:technology.scout"
-            - "SCM/Tag:technology.scout"
-            - "View/Configure:technology.scout"
-            - "View/Create:technology.scout"
-            - "View/Delete:technology.scout"
-            - "View/Read:technology.scout"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:technology.scout"
+            - "GROUP:Credentials/View:technology.scout"
+            - "GROUP:Gerrit/ManualTrigger:technology.scout"
+            - "GROUP:Gerrit/Retrigger:technology.scout"
+            - "GROUP:Job/Build:technology.scout"
+            - "GROUP:Job/Cancel:technology.scout"
+            - "GROUP:Job/Configure:technology.scout"
+            - "GROUP:Job/Create:technology.scout"
+            - "GROUP:Job/Delete:technology.scout"
+            - "GROUP:Job/Move:technology.scout"
+            - "GROUP:Job/Read:technology.scout"
+            - "GROUP:Job/Workspace:technology.scout"
+            - "GROUP:Overall/Read:technology.scout"
+            - "GROUP:Run/Delete:technology.scout"
+            - "GROUP:Run/Replay:technology.scout"
+            - "GROUP:Run/Update:technology.scout"
+            - "GROUP:SCM/Tag:technology.scout"
+            - "GROUP:View/Configure:technology.scout"
+            - "GROUP:View/Create:technology.scout"
+            - "GROUP:View/Delete:technology.scout"
+            - "GROUP:View/Read:technology.scout"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

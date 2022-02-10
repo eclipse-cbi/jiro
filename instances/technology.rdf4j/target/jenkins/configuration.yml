@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:technology.rdf4j"
-        - "Credentials/View:technology.rdf4j"
-        - "Gerrit/ManualTrigger:technology.rdf4j"
-        - "Gerrit/Retrigger:technology.rdf4j"
-        - "Job/Build:technology.rdf4j"
-        - "Job/Cancel:technology.rdf4j"
-        - "Job/Configure:technology.rdf4j"
-        - "Job/Create:technology.rdf4j"
-        - "Job/Delete:technology.rdf4j"
-        - "Job/Move:technology.rdf4j"
-        - "Job/Read:technology.rdf4j"
-        - "Job/Workspace:technology.rdf4j"
-        - "Overall/Read:technology.rdf4j"
-        - "Run/Delete:technology.rdf4j"
-        - "Run/Replay:technology.rdf4j"
-        - "Run/Update:technology.rdf4j"
-        - "SCM/Tag:technology.rdf4j"
-        - "View/Configure:technology.rdf4j"
-        - "View/Create:technology.rdf4j"
-        - "View/Delete:technology.rdf4j"
-        - "View/Read:technology.rdf4j"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:technology.rdf4j"
+        - "GROUP:Credentials/View:technology.rdf4j"
+        - "GROUP:Gerrit/ManualTrigger:technology.rdf4j"
+        - "GROUP:Gerrit/Retrigger:technology.rdf4j"
+        - "GROUP:Job/Build:technology.rdf4j"
+        - "GROUP:Job/Cancel:technology.rdf4j"
+        - "GROUP:Job/Configure:technology.rdf4j"
+        - "GROUP:Job/Create:technology.rdf4j"
+        - "GROUP:Job/Delete:technology.rdf4j"
+        - "GROUP:Job/Move:technology.rdf4j"
+        - "GROUP:Job/Read:technology.rdf4j"
+        - "GROUP:Job/Workspace:technology.rdf4j"
+        - "GROUP:Overall/Read:technology.rdf4j"
+        - "GROUP:Run/Delete:technology.rdf4j"
+        - "GROUP:Run/Replay:technology.rdf4j"
+        - "GROUP:Run/Update:technology.rdf4j"
+        - "GROUP:SCM/Tag:technology.rdf4j"
+        - "GROUP:View/Configure:technology.rdf4j"
+        - "GROUP:View/Create:technology.rdf4j"
+        - "GROUP:View/Delete:technology.rdf4j"
+        - "GROUP:View/Read:technology.rdf4j"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

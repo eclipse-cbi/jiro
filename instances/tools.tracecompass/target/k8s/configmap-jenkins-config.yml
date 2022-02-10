@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "tracecompass"
   namespace: "tracecompass"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:tools.tracecompass"
-            - "Credentials/View:tools.tracecompass"
-            - "Gerrit/ManualTrigger:tools.tracecompass"
-            - "Gerrit/Retrigger:tools.tracecompass"
-            - "Job/Build:tools.tracecompass"
-            - "Job/Cancel:tools.tracecompass"
-            - "Job/Configure:tools.tracecompass"
-            - "Job/Create:tools.tracecompass"
-            - "Job/Delete:tools.tracecompass"
-            - "Job/Move:tools.tracecompass"
-            - "Job/Read:tools.tracecompass"
-            - "Job/Workspace:tools.tracecompass"
-            - "Overall/Read:tools.tracecompass"
-            - "Run/Delete:tools.tracecompass"
-            - "Run/Replay:tools.tracecompass"
-            - "Run/Update:tools.tracecompass"
-            - "SCM/Tag:tools.tracecompass"
-            - "View/Configure:tools.tracecompass"
-            - "View/Create:tools.tracecompass"
-            - "View/Delete:tools.tracecompass"
-            - "View/Read:tools.tracecompass"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:tools.tracecompass"
+            - "GROUP:Credentials/View:tools.tracecompass"
+            - "GROUP:Gerrit/ManualTrigger:tools.tracecompass"
+            - "GROUP:Gerrit/Retrigger:tools.tracecompass"
+            - "GROUP:Job/Build:tools.tracecompass"
+            - "GROUP:Job/Cancel:tools.tracecompass"
+            - "GROUP:Job/Configure:tools.tracecompass"
+            - "GROUP:Job/Create:tools.tracecompass"
+            - "GROUP:Job/Delete:tools.tracecompass"
+            - "GROUP:Job/Move:tools.tracecompass"
+            - "GROUP:Job/Read:tools.tracecompass"
+            - "GROUP:Job/Workspace:tools.tracecompass"
+            - "GROUP:Overall/Read:tools.tracecompass"
+            - "GROUP:Run/Delete:tools.tracecompass"
+            - "GROUP:Run/Replay:tools.tracecompass"
+            - "GROUP:Run/Update:tools.tracecompass"
+            - "GROUP:SCM/Tag:tools.tracecompass"
+            - "GROUP:View/Configure:tools.tracecompass"
+            - "GROUP:View/Create:tools.tracecompass"
+            - "GROUP:View/Delete:tools.tracecompass"
+            - "GROUP:View/Read:tools.tracecompass"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

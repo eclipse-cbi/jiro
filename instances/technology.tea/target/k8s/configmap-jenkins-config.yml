@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "tea"
   namespace: "tea"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:technology.tea"
-            - "Credentials/View:technology.tea"
-            - "Gerrit/ManualTrigger:technology.tea"
-            - "Gerrit/Retrigger:technology.tea"
-            - "Job/Build:technology.tea"
-            - "Job/Cancel:technology.tea"
-            - "Job/Configure:technology.tea"
-            - "Job/Create:technology.tea"
-            - "Job/Delete:technology.tea"
-            - "Job/Move:technology.tea"
-            - "Job/Read:technology.tea"
-            - "Job/Workspace:technology.tea"
-            - "Overall/Read:technology.tea"
-            - "Run/Delete:technology.tea"
-            - "Run/Replay:technology.tea"
-            - "Run/Update:technology.tea"
-            - "SCM/Tag:technology.tea"
-            - "View/Configure:technology.tea"
-            - "View/Create:technology.tea"
-            - "View/Delete:technology.tea"
-            - "View/Read:technology.tea"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:technology.tea"
+            - "GROUP:Credentials/View:technology.tea"
+            - "GROUP:Gerrit/ManualTrigger:technology.tea"
+            - "GROUP:Gerrit/Retrigger:technology.tea"
+            - "GROUP:Job/Build:technology.tea"
+            - "GROUP:Job/Cancel:technology.tea"
+            - "GROUP:Job/Configure:technology.tea"
+            - "GROUP:Job/Create:technology.tea"
+            - "GROUP:Job/Delete:technology.tea"
+            - "GROUP:Job/Move:technology.tea"
+            - "GROUP:Job/Read:technology.tea"
+            - "GROUP:Job/Workspace:technology.tea"
+            - "GROUP:Overall/Read:technology.tea"
+            - "GROUP:Run/Delete:technology.tea"
+            - "GROUP:Run/Replay:technology.tea"
+            - "GROUP:Run/Update:technology.tea"
+            - "GROUP:SCM/Tag:technology.tea"
+            - "GROUP:View/Configure:technology.tea"
+            - "GROUP:View/Create:technology.tea"
+            - "GROUP:View/Delete:technology.tea"
+            - "GROUP:View/Read:technology.tea"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

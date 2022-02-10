@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:technology.tigerstripe"
-        - "Credentials/View:technology.tigerstripe"
-        - "Gerrit/ManualTrigger:technology.tigerstripe"
-        - "Gerrit/Retrigger:technology.tigerstripe"
-        - "Job/Build:technology.tigerstripe"
-        - "Job/Cancel:technology.tigerstripe"
-        - "Job/Configure:technology.tigerstripe"
-        - "Job/Create:technology.tigerstripe"
-        - "Job/Delete:technology.tigerstripe"
-        - "Job/Move:technology.tigerstripe"
-        - "Job/Read:technology.tigerstripe"
-        - "Job/Workspace:technology.tigerstripe"
-        - "Overall/Read:technology.tigerstripe"
-        - "Run/Delete:technology.tigerstripe"
-        - "Run/Replay:technology.tigerstripe"
-        - "Run/Update:technology.tigerstripe"
-        - "SCM/Tag:technology.tigerstripe"
-        - "View/Configure:technology.tigerstripe"
-        - "View/Create:technology.tigerstripe"
-        - "View/Delete:technology.tigerstripe"
-        - "View/Read:technology.tigerstripe"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:technology.tigerstripe"
+        - "GROUP:Credentials/View:technology.tigerstripe"
+        - "GROUP:Gerrit/ManualTrigger:technology.tigerstripe"
+        - "GROUP:Gerrit/Retrigger:technology.tigerstripe"
+        - "GROUP:Job/Build:technology.tigerstripe"
+        - "GROUP:Job/Cancel:technology.tigerstripe"
+        - "GROUP:Job/Configure:technology.tigerstripe"
+        - "GROUP:Job/Create:technology.tigerstripe"
+        - "GROUP:Job/Delete:technology.tigerstripe"
+        - "GROUP:Job/Move:technology.tigerstripe"
+        - "GROUP:Job/Read:technology.tigerstripe"
+        - "GROUP:Job/Workspace:technology.tigerstripe"
+        - "GROUP:Overall/Read:technology.tigerstripe"
+        - "GROUP:Run/Delete:technology.tigerstripe"
+        - "GROUP:Run/Replay:technology.tigerstripe"
+        - "GROUP:Run/Update:technology.tigerstripe"
+        - "GROUP:SCM/Tag:technology.tigerstripe"
+        - "GROUP:View/Configure:technology.tigerstripe"
+        - "GROUP:View/Create:technology.tigerstripe"
+        - "GROUP:View/Delete:technology.tigerstripe"
+        - "GROUP:View/Read:technology.tigerstripe"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

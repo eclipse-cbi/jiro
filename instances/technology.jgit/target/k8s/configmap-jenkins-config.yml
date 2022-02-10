@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jgit"
   namespace: "jgit"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:technology.jgit"
-            - "Credentials/View:technology.jgit"
-            - "Gerrit/ManualTrigger:technology.jgit"
-            - "Gerrit/Retrigger:technology.jgit"
-            - "Job/Build:technology.jgit"
-            - "Job/Cancel:technology.jgit"
-            - "Job/Configure:technology.jgit"
-            - "Job/Create:technology.jgit"
-            - "Job/Delete:technology.jgit"
-            - "Job/Move:technology.jgit"
-            - "Job/Read:technology.jgit"
-            - "Job/Workspace:technology.jgit"
-            - "Overall/Read:technology.jgit"
-            - "Run/Delete:technology.jgit"
-            - "Run/Replay:technology.jgit"
-            - "Run/Update:technology.jgit"
-            - "SCM/Tag:technology.jgit"
-            - "View/Configure:technology.jgit"
-            - "View/Create:technology.jgit"
-            - "View/Delete:technology.jgit"
-            - "View/Read:technology.jgit"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:technology.jgit"
+            - "GROUP:Credentials/View:technology.jgit"
+            - "GROUP:Gerrit/ManualTrigger:technology.jgit"
+            - "GROUP:Gerrit/Retrigger:technology.jgit"
+            - "GROUP:Job/Build:technology.jgit"
+            - "GROUP:Job/Cancel:technology.jgit"
+            - "GROUP:Job/Configure:technology.jgit"
+            - "GROUP:Job/Create:technology.jgit"
+            - "GROUP:Job/Delete:technology.jgit"
+            - "GROUP:Job/Move:technology.jgit"
+            - "GROUP:Job/Read:technology.jgit"
+            - "GROUP:Job/Workspace:technology.jgit"
+            - "GROUP:Overall/Read:technology.jgit"
+            - "GROUP:Run/Delete:technology.jgit"
+            - "GROUP:Run/Replay:technology.jgit"
+            - "GROUP:Run/Update:technology.jgit"
+            - "GROUP:SCM/Tag:technology.jgit"
+            - "GROUP:View/Configure:technology.jgit"
+            - "GROUP:View/Create:technology.jgit"
+            - "GROUP:View/Delete:technology.jgit"
+            - "GROUP:View/Read:technology.jgit"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -206,7 +206,7 @@ data:
                   secret:
                     secretName: gradle-secret-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -314,7 +314,7 @@ data:
                   secret:
                     secretName: gradle-secret-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

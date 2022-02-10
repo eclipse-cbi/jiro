@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:technology.tycho"
-        - "Credentials/View:technology.tycho"
-        - "Gerrit/ManualTrigger:technology.tycho"
-        - "Gerrit/Retrigger:technology.tycho"
-        - "Job/Build:technology.tycho"
-        - "Job/Cancel:technology.tycho"
-        - "Job/Configure:technology.tycho"
-        - "Job/Create:technology.tycho"
-        - "Job/Delete:technology.tycho"
-        - "Job/Move:technology.tycho"
-        - "Job/Read:technology.tycho"
-        - "Job/Workspace:technology.tycho"
-        - "Overall/Read:technology.tycho"
-        - "Run/Delete:technology.tycho"
-        - "Run/Replay:technology.tycho"
-        - "Run/Update:technology.tycho"
-        - "SCM/Tag:technology.tycho"
-        - "View/Configure:technology.tycho"
-        - "View/Create:technology.tycho"
-        - "View/Delete:technology.tycho"
-        - "View/Read:technology.tycho"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:technology.tycho"
+        - "GROUP:Credentials/View:technology.tycho"
+        - "GROUP:Gerrit/ManualTrigger:technology.tycho"
+        - "GROUP:Gerrit/Retrigger:technology.tycho"
+        - "GROUP:Job/Build:technology.tycho"
+        - "GROUP:Job/Cancel:technology.tycho"
+        - "GROUP:Job/Configure:technology.tycho"
+        - "GROUP:Job/Create:technology.tycho"
+        - "GROUP:Job/Delete:technology.tycho"
+        - "GROUP:Job/Move:technology.tycho"
+        - "GROUP:Job/Read:technology.tycho"
+        - "GROUP:Job/Workspace:technology.tycho"
+        - "GROUP:Overall/Read:technology.tycho"
+        - "GROUP:Run/Delete:technology.tycho"
+        - "GROUP:Run/Replay:technology.tycho"
+        - "GROUP:Run/Update:technology.tycho"
+        - "GROUP:SCM/Tag:technology.tycho"
+        - "GROUP:View/Configure:technology.tycho"
+        - "GROUP:View/Create:technology.tycho"
+        - "GROUP:View/Delete:technology.tycho"
+        - "GROUP:View/Read:technology.tycho"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

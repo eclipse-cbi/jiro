@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "tcf"
   namespace: "tcf"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:tools.cdt.tcf"
-            - "Credentials/View:tools.cdt.tcf"
-            - "Gerrit/ManualTrigger:tools.cdt.tcf"
-            - "Gerrit/Retrigger:tools.cdt.tcf"
-            - "Job/Build:tools.cdt.tcf"
-            - "Job/Cancel:tools.cdt.tcf"
-            - "Job/Configure:tools.cdt.tcf"
-            - "Job/Create:tools.cdt.tcf"
-            - "Job/Delete:tools.cdt.tcf"
-            - "Job/Move:tools.cdt.tcf"
-            - "Job/Read:tools.cdt.tcf"
-            - "Job/Workspace:tools.cdt.tcf"
-            - "Overall/Read:tools.cdt.tcf"
-            - "Run/Delete:tools.cdt.tcf"
-            - "Run/Replay:tools.cdt.tcf"
-            - "Run/Update:tools.cdt.tcf"
-            - "SCM/Tag:tools.cdt.tcf"
-            - "View/Configure:tools.cdt.tcf"
-            - "View/Create:tools.cdt.tcf"
-            - "View/Delete:tools.cdt.tcf"
-            - "View/Read:tools.cdt.tcf"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:tools.cdt.tcf"
+            - "GROUP:Credentials/View:tools.cdt.tcf"
+            - "GROUP:Gerrit/ManualTrigger:tools.cdt.tcf"
+            - "GROUP:Gerrit/Retrigger:tools.cdt.tcf"
+            - "GROUP:Job/Build:tools.cdt.tcf"
+            - "GROUP:Job/Cancel:tools.cdt.tcf"
+            - "GROUP:Job/Configure:tools.cdt.tcf"
+            - "GROUP:Job/Create:tools.cdt.tcf"
+            - "GROUP:Job/Delete:tools.cdt.tcf"
+            - "GROUP:Job/Move:tools.cdt.tcf"
+            - "GROUP:Job/Read:tools.cdt.tcf"
+            - "GROUP:Job/Workspace:tools.cdt.tcf"
+            - "GROUP:Overall/Read:tools.cdt.tcf"
+            - "GROUP:Run/Delete:tools.cdt.tcf"
+            - "GROUP:Run/Replay:tools.cdt.tcf"
+            - "GROUP:Run/Update:tools.cdt.tcf"
+            - "GROUP:SCM/Tag:tools.cdt.tcf"
+            - "GROUP:View/Configure:tools.cdt.tcf"
+            - "GROUP:View/Create:tools.cdt.tcf"
+            - "GROUP:View/Delete:tools.cdt.tcf"
+            - "GROUP:View/Read:tools.cdt.tcf"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

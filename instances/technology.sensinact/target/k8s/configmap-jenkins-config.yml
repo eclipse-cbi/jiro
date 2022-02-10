@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "sensinact"
   namespace: "sensinact"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:technology.sensinact"
-            - "Credentials/View:technology.sensinact"
-            - "Gerrit/ManualTrigger:technology.sensinact"
-            - "Gerrit/Retrigger:technology.sensinact"
-            - "Job/Build:technology.sensinact"
-            - "Job/Cancel:technology.sensinact"
-            - "Job/Configure:technology.sensinact"
-            - "Job/Create:technology.sensinact"
-            - "Job/Delete:technology.sensinact"
-            - "Job/Move:technology.sensinact"
-            - "Job/Read:technology.sensinact"
-            - "Job/Workspace:technology.sensinact"
-            - "Overall/Read:technology.sensinact"
-            - "Run/Delete:technology.sensinact"
-            - "Run/Replay:technology.sensinact"
-            - "Run/Update:technology.sensinact"
-            - "SCM/Tag:technology.sensinact"
-            - "View/Configure:technology.sensinact"
-            - "View/Create:technology.sensinact"
-            - "View/Delete:technology.sensinact"
-            - "View/Read:technology.sensinact"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:technology.sensinact"
+            - "GROUP:Credentials/View:technology.sensinact"
+            - "GROUP:Gerrit/ManualTrigger:technology.sensinact"
+            - "GROUP:Gerrit/Retrigger:technology.sensinact"
+            - "GROUP:Job/Build:technology.sensinact"
+            - "GROUP:Job/Cancel:technology.sensinact"
+            - "GROUP:Job/Configure:technology.sensinact"
+            - "GROUP:Job/Create:technology.sensinact"
+            - "GROUP:Job/Delete:technology.sensinact"
+            - "GROUP:Job/Move:technology.sensinact"
+            - "GROUP:Job/Read:technology.sensinact"
+            - "GROUP:Job/Workspace:technology.sensinact"
+            - "GROUP:Overall/Read:technology.sensinact"
+            - "GROUP:Run/Delete:technology.sensinact"
+            - "GROUP:Run/Replay:technology.sensinact"
+            - "GROUP:Run/Update:technology.sensinact"
+            - "GROUP:SCM/Tag:technology.sensinact"
+            - "GROUP:View/Configure:technology.sensinact"
+            - "GROUP:View/Create:technology.sensinact"
+            - "GROUP:View/Delete:technology.sensinact"
+            - "GROUP:View/Read:technology.sensinact"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

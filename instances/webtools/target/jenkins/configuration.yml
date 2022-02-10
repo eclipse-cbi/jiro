@@ -21,52 +21,52 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:nboldt@redhat.com"
-        - "Credentials/View:nboldt@redhat.com"
-        - "Gerrit/ManualTrigger:nboldt@redhat.com"
-        - "Gerrit/Retrigger:nboldt@redhat.com"
-        - "Job/Build:nboldt@redhat.com"
-        - "Job/Cancel:nboldt@redhat.com"
-        - "Job/Configure:nboldt@redhat.com"
-        - "Job/Create:nboldt@redhat.com"
-        - "Job/Delete:nboldt@redhat.com"
-        - "Job/Move:nboldt@redhat.com"
-        - "Job/Read:nboldt@redhat.com"
-        - "Job/Workspace:nboldt@redhat.com"
-        - "Overall/Read:nboldt@redhat.com"
-        - "Run/Delete:nboldt@redhat.com"
-        - "Run/Replay:nboldt@redhat.com"
-        - "Run/Update:nboldt@redhat.com"
-        - "SCM/Tag:nboldt@redhat.com"
-        - "View/Configure:nboldt@redhat.com"
-        - "View/Create:nboldt@redhat.com"
-        - "View/Delete:nboldt@redhat.com"
-        - "View/Read:nboldt@redhat.com"
-        - "Agent/Build:webtools"
-        - "Credentials/View:webtools"
-        - "Gerrit/ManualTrigger:webtools"
-        - "Gerrit/Retrigger:webtools"
-        - "Job/Build:webtools"
-        - "Job/Cancel:webtools"
-        - "Job/Configure:webtools"
-        - "Job/Create:webtools"
-        - "Job/Delete:webtools"
-        - "Job/Move:webtools"
-        - "Job/Read:webtools"
-        - "Job/Workspace:webtools"
-        - "Overall/Read:webtools"
-        - "Run/Delete:webtools"
-        - "Run/Replay:webtools"
-        - "Run/Update:webtools"
-        - "SCM/Tag:webtools"
-        - "View/Configure:webtools"
-        - "View/Create:webtools"
-        - "View/Delete:webtools"
-        - "View/Read:webtools"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:nboldt@redhat.com"
+        - "GROUP:Credentials/View:nboldt@redhat.com"
+        - "GROUP:Gerrit/ManualTrigger:nboldt@redhat.com"
+        - "GROUP:Gerrit/Retrigger:nboldt@redhat.com"
+        - "GROUP:Job/Build:nboldt@redhat.com"
+        - "GROUP:Job/Cancel:nboldt@redhat.com"
+        - "GROUP:Job/Configure:nboldt@redhat.com"
+        - "GROUP:Job/Create:nboldt@redhat.com"
+        - "GROUP:Job/Delete:nboldt@redhat.com"
+        - "GROUP:Job/Move:nboldt@redhat.com"
+        - "GROUP:Job/Read:nboldt@redhat.com"
+        - "GROUP:Job/Workspace:nboldt@redhat.com"
+        - "GROUP:Overall/Read:nboldt@redhat.com"
+        - "GROUP:Run/Delete:nboldt@redhat.com"
+        - "GROUP:Run/Replay:nboldt@redhat.com"
+        - "GROUP:Run/Update:nboldt@redhat.com"
+        - "GROUP:SCM/Tag:nboldt@redhat.com"
+        - "GROUP:View/Configure:nboldt@redhat.com"
+        - "GROUP:View/Create:nboldt@redhat.com"
+        - "GROUP:View/Delete:nboldt@redhat.com"
+        - "GROUP:View/Read:nboldt@redhat.com"
+        - "GROUP:Agent/Build:webtools"
+        - "GROUP:Credentials/View:webtools"
+        - "GROUP:Gerrit/ManualTrigger:webtools"
+        - "GROUP:Gerrit/Retrigger:webtools"
+        - "GROUP:Job/Build:webtools"
+        - "GROUP:Job/Cancel:webtools"
+        - "GROUP:Job/Configure:webtools"
+        - "GROUP:Job/Create:webtools"
+        - "GROUP:Job/Delete:webtools"
+        - "GROUP:Job/Move:webtools"
+        - "GROUP:Job/Read:webtools"
+        - "GROUP:Job/Workspace:webtools"
+        - "GROUP:Overall/Read:webtools"
+        - "GROUP:Run/Delete:webtools"
+        - "GROUP:Run/Replay:webtools"
+        - "GROUP:Run/Update:webtools"
+        - "GROUP:SCM/Tag:webtools"
+        - "GROUP:View/Configure:webtools"
+        - "GROUP:View/Create:webtools"
+        - "GROUP:View/Delete:webtools"
+        - "GROUP:View/Read:webtools"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -96,7 +96,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -182,7 +182,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -268,7 +268,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

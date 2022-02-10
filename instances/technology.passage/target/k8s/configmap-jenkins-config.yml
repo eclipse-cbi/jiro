@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "passage"
   namespace: "passage"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:technology.passage"
-            - "Credentials/View:technology.passage"
-            - "Gerrit/ManualTrigger:technology.passage"
-            - "Gerrit/Retrigger:technology.passage"
-            - "Job/Build:technology.passage"
-            - "Job/Cancel:technology.passage"
-            - "Job/Configure:technology.passage"
-            - "Job/Create:technology.passage"
-            - "Job/Delete:technology.passage"
-            - "Job/Move:technology.passage"
-            - "Job/Read:technology.passage"
-            - "Job/Workspace:technology.passage"
-            - "Overall/Read:technology.passage"
-            - "Run/Delete:technology.passage"
-            - "Run/Replay:technology.passage"
-            - "Run/Update:technology.passage"
-            - "SCM/Tag:technology.passage"
-            - "View/Configure:technology.passage"
-            - "View/Create:technology.passage"
-            - "View/Delete:technology.passage"
-            - "View/Read:technology.passage"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:technology.passage"
+            - "GROUP:Credentials/View:technology.passage"
+            - "GROUP:Gerrit/ManualTrigger:technology.passage"
+            - "GROUP:Gerrit/Retrigger:technology.passage"
+            - "GROUP:Job/Build:technology.passage"
+            - "GROUP:Job/Cancel:technology.passage"
+            - "GROUP:Job/Configure:technology.passage"
+            - "GROUP:Job/Create:technology.passage"
+            - "GROUP:Job/Delete:technology.passage"
+            - "GROUP:Job/Move:technology.passage"
+            - "GROUP:Job/Read:technology.passage"
+            - "GROUP:Job/Workspace:technology.passage"
+            - "GROUP:Overall/Read:technology.passage"
+            - "GROUP:Run/Delete:technology.passage"
+            - "GROUP:Run/Replay:technology.passage"
+            - "GROUP:Run/Update:technology.passage"
+            - "GROUP:SCM/Tag:technology.passage"
+            - "GROUP:View/Configure:technology.passage"
+            - "GROUP:View/Create:technology.passage"
+            - "GROUP:View/Delete:technology.passage"
+            - "GROUP:View/Read:technology.passage"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:technology.packaging.mpc"
-        - "Credentials/View:technology.packaging.mpc"
-        - "Gerrit/ManualTrigger:technology.packaging.mpc"
-        - "Gerrit/Retrigger:technology.packaging.mpc"
-        - "Job/Build:technology.packaging.mpc"
-        - "Job/Cancel:technology.packaging.mpc"
-        - "Job/Configure:technology.packaging.mpc"
-        - "Job/Create:technology.packaging.mpc"
-        - "Job/Delete:technology.packaging.mpc"
-        - "Job/Move:technology.packaging.mpc"
-        - "Job/Read:technology.packaging.mpc"
-        - "Job/Workspace:technology.packaging.mpc"
-        - "Overall/Read:technology.packaging.mpc"
-        - "Run/Delete:technology.packaging.mpc"
-        - "Run/Replay:technology.packaging.mpc"
-        - "Run/Update:technology.packaging.mpc"
-        - "SCM/Tag:technology.packaging.mpc"
-        - "View/Configure:technology.packaging.mpc"
-        - "View/Create:technology.packaging.mpc"
-        - "View/Delete:technology.packaging.mpc"
-        - "View/Read:technology.packaging.mpc"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:technology.packaging.mpc"
+        - "GROUP:Credentials/View:technology.packaging.mpc"
+        - "GROUP:Gerrit/ManualTrigger:technology.packaging.mpc"
+        - "GROUP:Gerrit/Retrigger:technology.packaging.mpc"
+        - "GROUP:Job/Build:technology.packaging.mpc"
+        - "GROUP:Job/Cancel:technology.packaging.mpc"
+        - "GROUP:Job/Configure:technology.packaging.mpc"
+        - "GROUP:Job/Create:technology.packaging.mpc"
+        - "GROUP:Job/Delete:technology.packaging.mpc"
+        - "GROUP:Job/Move:technology.packaging.mpc"
+        - "GROUP:Job/Read:technology.packaging.mpc"
+        - "GROUP:Job/Workspace:technology.packaging.mpc"
+        - "GROUP:Overall/Read:technology.packaging.mpc"
+        - "GROUP:Run/Delete:technology.packaging.mpc"
+        - "GROUP:Run/Replay:technology.packaging.mpc"
+        - "GROUP:Run/Update:technology.packaging.mpc"
+        - "GROUP:SCM/Tag:technology.packaging.mpc"
+        - "GROUP:View/Configure:technology.packaging.mpc"
+        - "GROUP:View/Create:technology.packaging.mpc"
+        - "GROUP:View/Delete:technology.packaging.mpc"
+        - "GROUP:View/Read:technology.packaging.mpc"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

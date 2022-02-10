@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:technology.jubula"
-        - "Credentials/View:technology.jubula"
-        - "Gerrit/ManualTrigger:technology.jubula"
-        - "Gerrit/Retrigger:technology.jubula"
-        - "Job/Build:technology.jubula"
-        - "Job/Cancel:technology.jubula"
-        - "Job/Configure:technology.jubula"
-        - "Job/Create:technology.jubula"
-        - "Job/Delete:technology.jubula"
-        - "Job/Move:technology.jubula"
-        - "Job/Read:technology.jubula"
-        - "Job/Workspace:technology.jubula"
-        - "Overall/Read:technology.jubula"
-        - "Run/Delete:technology.jubula"
-        - "Run/Replay:technology.jubula"
-        - "Run/Update:technology.jubula"
-        - "SCM/Tag:technology.jubula"
-        - "View/Configure:technology.jubula"
-        - "View/Create:technology.jubula"
-        - "View/Delete:technology.jubula"
-        - "View/Read:technology.jubula"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:technology.jubula"
+        - "GROUP:Credentials/View:technology.jubula"
+        - "GROUP:Gerrit/ManualTrigger:technology.jubula"
+        - "GROUP:Gerrit/Retrigger:technology.jubula"
+        - "GROUP:Job/Build:technology.jubula"
+        - "GROUP:Job/Cancel:technology.jubula"
+        - "GROUP:Job/Configure:technology.jubula"
+        - "GROUP:Job/Create:technology.jubula"
+        - "GROUP:Job/Delete:technology.jubula"
+        - "GROUP:Job/Move:technology.jubula"
+        - "GROUP:Job/Read:technology.jubula"
+        - "GROUP:Job/Workspace:technology.jubula"
+        - "GROUP:Overall/Read:technology.jubula"
+        - "GROUP:Run/Delete:technology.jubula"
+        - "GROUP:Run/Replay:technology.jubula"
+        - "GROUP:Run/Update:technology.jubula"
+        - "GROUP:SCM/Tag:technology.jubula"
+        - "GROUP:View/Configure:technology.jubula"
+        - "GROUP:View/Create:technology.jubula"
+        - "GROUP:View/Delete:technology.jubula"
+        - "GROUP:View/Read:technology.jubula"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

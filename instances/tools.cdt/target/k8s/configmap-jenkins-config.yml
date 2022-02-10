@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cdt"
   namespace: "cdt"
   name: jenkins-config
@@ -49,31 +49,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:tools.cdt"
-            - "Credentials/View:tools.cdt"
-            - "Gerrit/ManualTrigger:tools.cdt"
-            - "Gerrit/Retrigger:tools.cdt"
-            - "Job/Build:tools.cdt"
-            - "Job/Cancel:tools.cdt"
-            - "Job/Configure:tools.cdt"
-            - "Job/Create:tools.cdt"
-            - "Job/Delete:tools.cdt"
-            - "Job/Move:tools.cdt"
-            - "Job/Read:tools.cdt"
-            - "Job/Workspace:tools.cdt"
-            - "Overall/Read:tools.cdt"
-            - "Run/Delete:tools.cdt"
-            - "Run/Replay:tools.cdt"
-            - "Run/Update:tools.cdt"
-            - "SCM/Tag:tools.cdt"
-            - "View/Configure:tools.cdt"
-            - "View/Create:tools.cdt"
-            - "View/Delete:tools.cdt"
-            - "View/Read:tools.cdt"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:tools.cdt"
+            - "GROUP:Credentials/View:tools.cdt"
+            - "GROUP:Gerrit/ManualTrigger:tools.cdt"
+            - "GROUP:Gerrit/Retrigger:tools.cdt"
+            - "GROUP:Job/Build:tools.cdt"
+            - "GROUP:Job/Cancel:tools.cdt"
+            - "GROUP:Job/Configure:tools.cdt"
+            - "GROUP:Job/Create:tools.cdt"
+            - "GROUP:Job/Delete:tools.cdt"
+            - "GROUP:Job/Move:tools.cdt"
+            - "GROUP:Job/Read:tools.cdt"
+            - "GROUP:Job/Workspace:tools.cdt"
+            - "GROUP:Overall/Read:tools.cdt"
+            - "GROUP:Run/Delete:tools.cdt"
+            - "GROUP:Run/Replay:tools.cdt"
+            - "GROUP:Run/Update:tools.cdt"
+            - "GROUP:SCM/Tag:tools.cdt"
+            - "GROUP:View/Configure:tools.cdt"
+            - "GROUP:View/Create:tools.cdt"
+            - "GROUP:View/Delete:tools.cdt"
+            - "GROUP:View/Read:tools.cdt"
       markupFormatter: rawHtml
       crumbIssuer:
         standard:
@@ -100,7 +100,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -186,7 +186,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -272,7 +272,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -363,7 +363,7 @@ data:
           - categoryName: "low-priority-jobs"
             maxConcurrentPerNode: 0
             maxConcurrentTotal: 0
-      timestamperConfig:
+      timestamper:
         allPipelines: true
       location:
         adminAddress: ci-admin@eclipse.org

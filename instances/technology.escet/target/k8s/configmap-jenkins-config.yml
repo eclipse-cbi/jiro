@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "escet"
   namespace: "escet"
   name: jenkins-config
@@ -99,31 +99,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:technology.escet"
-            - "Credentials/View:technology.escet"
-            - "Gerrit/ManualTrigger:technology.escet"
-            - "Gerrit/Retrigger:technology.escet"
-            - "Job/Build:technology.escet"
-            - "Job/Cancel:technology.escet"
-            - "Job/Configure:technology.escet"
-            - "Job/Create:technology.escet"
-            - "Job/Delete:technology.escet"
-            - "Job/Move:technology.escet"
-            - "Job/Read:technology.escet"
-            - "Job/Workspace:technology.escet"
-            - "Overall/Read:technology.escet"
-            - "Run/Delete:technology.escet"
-            - "Run/Replay:technology.escet"
-            - "Run/Update:technology.escet"
-            - "SCM/Tag:technology.escet"
-            - "View/Configure:technology.escet"
-            - "View/Create:technology.escet"
-            - "View/Delete:technology.escet"
-            - "View/Read:technology.escet"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:technology.escet"
+            - "GROUP:Credentials/View:technology.escet"
+            - "GROUP:Gerrit/ManualTrigger:technology.escet"
+            - "GROUP:Gerrit/Retrigger:technology.escet"
+            - "GROUP:Job/Build:technology.escet"
+            - "GROUP:Job/Cancel:technology.escet"
+            - "GROUP:Job/Configure:technology.escet"
+            - "GROUP:Job/Create:technology.escet"
+            - "GROUP:Job/Delete:technology.escet"
+            - "GROUP:Job/Move:technology.escet"
+            - "GROUP:Job/Read:technology.escet"
+            - "GROUP:Job/Workspace:technology.escet"
+            - "GROUP:Overall/Read:technology.escet"
+            - "GROUP:Run/Delete:technology.escet"
+            - "GROUP:Run/Replay:technology.escet"
+            - "GROUP:Run/Update:technology.escet"
+            - "GROUP:SCM/Tag:technology.escet"
+            - "GROUP:View/Configure:technology.escet"
+            - "GROUP:View/Create:technology.escet"
+            - "GROUP:View/Delete:technology.escet"
+            - "GROUP:View/Read:technology.escet"
       markupFormatter: rawHtml
       crumbIssuer:
         standard:
@@ -150,7 +150,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -236,7 +236,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -322,7 +322,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0

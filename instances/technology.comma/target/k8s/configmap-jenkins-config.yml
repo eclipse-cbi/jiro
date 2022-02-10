@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "comma"
   namespace: "comma"
   name: jenkins-config
@@ -100,29 +100,29 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:technology.comma"
-            - "Credentials/View:technology.comma"
-            - "Job/Build:technology.comma"
-            - "Job/Cancel:technology.comma"
-            - "Job/Configure:technology.comma"
-            - "Job/Create:technology.comma"
-            - "Job/Delete:technology.comma"
-            - "Job/Move:technology.comma"
-            - "Job/Read:technology.comma"
-            - "Job/Workspace:technology.comma"
-            - "Overall/Read:technology.comma"
-            - "Run/Delete:technology.comma"
-            - "Run/Replay:technology.comma"
-            - "Run/Update:technology.comma"
-            - "SCM/Tag:technology.comma"
-            - "View/Configure:technology.comma"
-            - "View/Create:technology.comma"
-            - "View/Delete:technology.comma"
-            - "View/Read:technology.comma"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:technology.comma"
+            - "GROUP:Credentials/View:technology.comma"
+            - "GROUP:Job/Build:technology.comma"
+            - "GROUP:Job/Cancel:technology.comma"
+            - "GROUP:Job/Configure:technology.comma"
+            - "GROUP:Job/Create:technology.comma"
+            - "GROUP:Job/Delete:technology.comma"
+            - "GROUP:Job/Move:technology.comma"
+            - "GROUP:Job/Read:technology.comma"
+            - "GROUP:Job/Workspace:technology.comma"
+            - "GROUP:Overall/Read:technology.comma"
+            - "GROUP:Run/Delete:technology.comma"
+            - "GROUP:Run/Replay:technology.comma"
+            - "GROUP:Run/Update:technology.comma"
+            - "GROUP:SCM/Tag:technology.comma"
+            - "GROUP:View/Configure:technology.comma"
+            - "GROUP:View/Create:technology.comma"
+            - "GROUP:View/Delete:technology.comma"
+            - "GROUP:View/Read:technology.comma"
       markupFormatter: rawHtml
       crumbIssuer:
         standard:
@@ -149,7 +149,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -235,7 +235,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -321,7 +321,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0

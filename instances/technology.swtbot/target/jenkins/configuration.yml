@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:technology.swtbot"
-        - "Credentials/View:technology.swtbot"
-        - "Gerrit/ManualTrigger:technology.swtbot"
-        - "Gerrit/Retrigger:technology.swtbot"
-        - "Job/Build:technology.swtbot"
-        - "Job/Cancel:technology.swtbot"
-        - "Job/Configure:technology.swtbot"
-        - "Job/Create:technology.swtbot"
-        - "Job/Delete:technology.swtbot"
-        - "Job/Move:technology.swtbot"
-        - "Job/Read:technology.swtbot"
-        - "Job/Workspace:technology.swtbot"
-        - "Overall/Read:technology.swtbot"
-        - "Run/Delete:technology.swtbot"
-        - "Run/Replay:technology.swtbot"
-        - "Run/Update:technology.swtbot"
-        - "SCM/Tag:technology.swtbot"
-        - "View/Configure:technology.swtbot"
-        - "View/Create:technology.swtbot"
-        - "View/Delete:technology.swtbot"
-        - "View/Read:technology.swtbot"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:technology.swtbot"
+        - "GROUP:Credentials/View:technology.swtbot"
+        - "GROUP:Gerrit/ManualTrigger:technology.swtbot"
+        - "GROUP:Gerrit/Retrigger:technology.swtbot"
+        - "GROUP:Job/Build:technology.swtbot"
+        - "GROUP:Job/Cancel:technology.swtbot"
+        - "GROUP:Job/Configure:technology.swtbot"
+        - "GROUP:Job/Create:technology.swtbot"
+        - "GROUP:Job/Delete:technology.swtbot"
+        - "GROUP:Job/Move:technology.swtbot"
+        - "GROUP:Job/Read:technology.swtbot"
+        - "GROUP:Job/Workspace:technology.swtbot"
+        - "GROUP:Overall/Read:technology.swtbot"
+        - "GROUP:Run/Delete:technology.swtbot"
+        - "GROUP:Run/Replay:technology.swtbot"
+        - "GROUP:Run/Update:technology.swtbot"
+        - "GROUP:SCM/Tag:technology.swtbot"
+        - "GROUP:View/Configure:technology.swtbot"
+        - "GROUP:View/Create:technology.swtbot"
+        - "GROUP:View/Delete:technology.swtbot"
+        - "GROUP:View/Read:technology.swtbot"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

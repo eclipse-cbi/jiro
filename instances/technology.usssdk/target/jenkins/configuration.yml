@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:technology.usssdk"
-        - "Credentials/View:technology.usssdk"
-        - "Gerrit/ManualTrigger:technology.usssdk"
-        - "Gerrit/Retrigger:technology.usssdk"
-        - "Job/Build:technology.usssdk"
-        - "Job/Cancel:technology.usssdk"
-        - "Job/Configure:technology.usssdk"
-        - "Job/Create:technology.usssdk"
-        - "Job/Delete:technology.usssdk"
-        - "Job/Move:technology.usssdk"
-        - "Job/Read:technology.usssdk"
-        - "Job/Workspace:technology.usssdk"
-        - "Overall/Read:technology.usssdk"
-        - "Run/Delete:technology.usssdk"
-        - "Run/Replay:technology.usssdk"
-        - "Run/Update:technology.usssdk"
-        - "SCM/Tag:technology.usssdk"
-        - "View/Configure:technology.usssdk"
-        - "View/Create:technology.usssdk"
-        - "View/Delete:technology.usssdk"
-        - "View/Read:technology.usssdk"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:technology.usssdk"
+        - "GROUP:Credentials/View:technology.usssdk"
+        - "GROUP:Gerrit/ManualTrigger:technology.usssdk"
+        - "GROUP:Gerrit/Retrigger:technology.usssdk"
+        - "GROUP:Job/Build:technology.usssdk"
+        - "GROUP:Job/Cancel:technology.usssdk"
+        - "GROUP:Job/Configure:technology.usssdk"
+        - "GROUP:Job/Create:technology.usssdk"
+        - "GROUP:Job/Delete:technology.usssdk"
+        - "GROUP:Job/Move:technology.usssdk"
+        - "GROUP:Job/Read:technology.usssdk"
+        - "GROUP:Job/Workspace:technology.usssdk"
+        - "GROUP:Overall/Read:technology.usssdk"
+        - "GROUP:Run/Delete:technology.usssdk"
+        - "GROUP:Run/Replay:technology.usssdk"
+        - "GROUP:Run/Update:technology.usssdk"
+        - "GROUP:SCM/Tag:technology.usssdk"
+        - "GROUP:View/Configure:technology.usssdk"
+        - "GROUP:View/Create:technology.usssdk"
+        - "GROUP:View/Delete:technology.usssdk"
+        - "GROUP:View/Read:technology.usssdk"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

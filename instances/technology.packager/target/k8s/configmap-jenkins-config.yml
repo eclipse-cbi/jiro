@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "packager"
   namespace: "packager"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:technology.packager"
-            - "Credentials/View:technology.packager"
-            - "Gerrit/ManualTrigger:technology.packager"
-            - "Gerrit/Retrigger:technology.packager"
-            - "Job/Build:technology.packager"
-            - "Job/Cancel:technology.packager"
-            - "Job/Configure:technology.packager"
-            - "Job/Create:technology.packager"
-            - "Job/Delete:technology.packager"
-            - "Job/Move:technology.packager"
-            - "Job/Read:technology.packager"
-            - "Job/Workspace:technology.packager"
-            - "Overall/Read:technology.packager"
-            - "Run/Delete:technology.packager"
-            - "Run/Replay:technology.packager"
-            - "Run/Update:technology.packager"
-            - "SCM/Tag:technology.packager"
-            - "View/Configure:technology.packager"
-            - "View/Create:technology.packager"
-            - "View/Delete:technology.packager"
-            - "View/Read:technology.packager"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:technology.packager"
+            - "GROUP:Credentials/View:technology.packager"
+            - "GROUP:Gerrit/ManualTrigger:technology.packager"
+            - "GROUP:Gerrit/Retrigger:technology.packager"
+            - "GROUP:Job/Build:technology.packager"
+            - "GROUP:Job/Cancel:technology.packager"
+            - "GROUP:Job/Configure:technology.packager"
+            - "GROUP:Job/Create:technology.packager"
+            - "GROUP:Job/Delete:technology.packager"
+            - "GROUP:Job/Move:technology.packager"
+            - "GROUP:Job/Read:technology.packager"
+            - "GROUP:Job/Workspace:technology.packager"
+            - "GROUP:Overall/Read:technology.packager"
+            - "GROUP:Run/Delete:technology.packager"
+            - "GROUP:Run/Replay:technology.packager"
+            - "GROUP:Run/Update:technology.packager"
+            - "GROUP:SCM/Tag:technology.packager"
+            - "GROUP:View/Configure:technology.packager"
+            - "GROUP:View/Create:technology.packager"
+            - "GROUP:View/Delete:technology.packager"
+            - "GROUP:View/Read:technology.packager"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

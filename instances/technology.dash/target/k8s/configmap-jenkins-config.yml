@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "dash"
   namespace: "dash"
   name: jenkins-config
@@ -99,31 +99,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:technology.dash"
-            - "Credentials/View:technology.dash"
-            - "Gerrit/ManualTrigger:technology.dash"
-            - "Gerrit/Retrigger:technology.dash"
-            - "Job/Build:technology.dash"
-            - "Job/Cancel:technology.dash"
-            - "Job/Configure:technology.dash"
-            - "Job/Create:technology.dash"
-            - "Job/Delete:technology.dash"
-            - "Job/Move:technology.dash"
-            - "Job/Read:technology.dash"
-            - "Job/Workspace:technology.dash"
-            - "Overall/Read:technology.dash"
-            - "Run/Delete:technology.dash"
-            - "Run/Replay:technology.dash"
-            - "Run/Update:technology.dash"
-            - "SCM/Tag:technology.dash"
-            - "View/Configure:technology.dash"
-            - "View/Create:technology.dash"
-            - "View/Delete:technology.dash"
-            - "View/Read:technology.dash"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:technology.dash"
+            - "GROUP:Credentials/View:technology.dash"
+            - "GROUP:Gerrit/ManualTrigger:technology.dash"
+            - "GROUP:Gerrit/Retrigger:technology.dash"
+            - "GROUP:Job/Build:technology.dash"
+            - "GROUP:Job/Cancel:technology.dash"
+            - "GROUP:Job/Configure:technology.dash"
+            - "GROUP:Job/Create:technology.dash"
+            - "GROUP:Job/Delete:technology.dash"
+            - "GROUP:Job/Move:technology.dash"
+            - "GROUP:Job/Read:technology.dash"
+            - "GROUP:Job/Workspace:technology.dash"
+            - "GROUP:Overall/Read:technology.dash"
+            - "GROUP:Run/Delete:technology.dash"
+            - "GROUP:Run/Replay:technology.dash"
+            - "GROUP:Run/Update:technology.dash"
+            - "GROUP:SCM/Tag:technology.dash"
+            - "GROUP:View/Configure:technology.dash"
+            - "GROUP:View/Create:technology.dash"
+            - "GROUP:View/Delete:technology.dash"
+            - "GROUP:View/Read:technology.dash"
       markupFormatter: rawHtml
       crumbIssuer:
         standard:
@@ -150,7 +150,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -236,7 +236,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -322,7 +322,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0

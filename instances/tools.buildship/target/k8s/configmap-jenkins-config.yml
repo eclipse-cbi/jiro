@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "buildship"
   namespace: "buildship"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:tools.buildship"
-            - "Credentials/View:tools.buildship"
-            - "Gerrit/ManualTrigger:tools.buildship"
-            - "Gerrit/Retrigger:tools.buildship"
-            - "Job/Build:tools.buildship"
-            - "Job/Cancel:tools.buildship"
-            - "Job/Configure:tools.buildship"
-            - "Job/Create:tools.buildship"
-            - "Job/Delete:tools.buildship"
-            - "Job/Move:tools.buildship"
-            - "Job/Read:tools.buildship"
-            - "Job/Workspace:tools.buildship"
-            - "Overall/Read:tools.buildship"
-            - "Run/Delete:tools.buildship"
-            - "Run/Replay:tools.buildship"
-            - "Run/Update:tools.buildship"
-            - "SCM/Tag:tools.buildship"
-            - "View/Configure:tools.buildship"
-            - "View/Create:tools.buildship"
-            - "View/Delete:tools.buildship"
-            - "View/Read:tools.buildship"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:tools.buildship"
+            - "GROUP:Credentials/View:tools.buildship"
+            - "GROUP:Gerrit/ManualTrigger:tools.buildship"
+            - "GROUP:Gerrit/Retrigger:tools.buildship"
+            - "GROUP:Job/Build:tools.buildship"
+            - "GROUP:Job/Cancel:tools.buildship"
+            - "GROUP:Job/Configure:tools.buildship"
+            - "GROUP:Job/Create:tools.buildship"
+            - "GROUP:Job/Delete:tools.buildship"
+            - "GROUP:Job/Move:tools.buildship"
+            - "GROUP:Job/Read:tools.buildship"
+            - "GROUP:Job/Workspace:tools.buildship"
+            - "GROUP:Overall/Read:tools.buildship"
+            - "GROUP:Run/Delete:tools.buildship"
+            - "GROUP:Run/Replay:tools.buildship"
+            - "GROUP:Run/Update:tools.buildship"
+            - "GROUP:SCM/Tag:tools.buildship"
+            - "GROUP:View/Configure:tools.buildship"
+            - "GROUP:View/Create:tools.buildship"
+            - "GROUP:View/Delete:tools.buildship"
+            - "GROUP:View/Read:tools.buildship"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

@@ -17,9 +17,9 @@ checks-api 1.7.2
 cloudbees-folder 6.17
 command-launcher 1.6
 conditional-buildstep 1.4.1
-config-file-provider 3.8.2
+config-file-provider 3.9.0
 configuration-as-code 1346.ve8cfa_3473c94
-credentials 2.6.1
+credentials 1074.v60e6c29b_b_44b_
 credentials-binding 1.27.1
 data-tables-api 1.11.3-6
 display-url-api 2.3.5
@@ -35,7 +35,7 @@ gerrit-trigger 2.35.2
 ghprb 1.42.2
 git 4.10.3
 git-client 3.11.0
-git-parameter 0.9.14
+git-parameter 0.9.15
 git-server 1.10
 github 1.34.1
 github-api 1.301-378.v9807bd746da5
@@ -54,16 +54,16 @@ javax-mail-api 1.6.2-5
 jdk-tool 1.5
 jjwt-api 0.11.2-9.c8b45b8bb173
 jnr-posix-api 3.1.7-1
-jobConfigHistory 2.31-rc1098.b666422863b2
+jobConfigHistory 2.31-rc1107.2354f08725a_8
 jquery 1.12.4-1
 jquery3-api 3.6.0-2
 jsch 0.1.55.2
-junit 1.53
+junit 1.54
 kubernetes 1.31.3
 kubernetes-client-api 5.11.2-182.v0f1cf4c5904e
 kubernetes-credentials 0.9.0
 ldap 2.7
-lockable-resources 2.13
+lockable-resources 2.14
 mailer 408.vd726a_1130320
 matrix-auth 3.0.1
 matrix-project 1.20
@@ -132,17 +132,17 @@ bootstrap5-api 5.1.3-4
 build-with-parameters 1.6
 caffeine-api 2.9.2-29.v717aac953ff3
 checks-api 1.7.2
-credentials 2.6.1
+credentials 1074.v60e6c29b_b_44b_
 display-url-api 2.3.5
 echarts-api 5.2.2-2
 font-awesome-api 5.15.4-5
 jackson2-api 2.13.1-246.va8a9f3eaf46a
-javadoc 1.6
+javadoc 217.v905b_86277a_2a_
 javax-activation-api 1.2.0-2
 javax-mail-api 1.6.2-5
 jquery3-api 3.6.0-2
 jsch 0.1.55.2
-junit 1.53
+junit 1.54
 mail-watcher-plugin 1.16
 mailer 408.vd726a_1130320
 maven-plugin 3.16
@@ -161,6 +161,7 @@ workflow-support 813.vb_d7c3d2984a_0
 
 Plugins that will be downloaded:
 build-with-parameters 1.6
+javadoc 217.v905b_86277a_2a_
 mail-watcher-plugin 1.16
 
 Resulting plugin list:
@@ -182,9 +183,9 @@ checks-api 1.7.2
 cloudbees-folder 6.17
 command-launcher 1.6
 conditional-buildstep 1.4.1
-config-file-provider 3.8.2
+config-file-provider 3.9.0
 configuration-as-code 1346.ve8cfa_3473c94
-credentials 2.6.1
+credentials 1074.v60e6c29b_b_44b_
 credentials-binding 1.27.1
 data-tables-api 1.11.3-6
 display-url-api 2.3.5
@@ -200,7 +201,7 @@ gerrit-trigger 2.35.2
 ghprb 1.42.2
 git 4.10.3
 git-client 3.11.0
-git-parameter 0.9.14
+git-parameter 0.9.15
 git-server 1.10
 github 1.34.1
 github-api 1.301-378.v9807bd746da5
@@ -213,22 +214,22 @@ h2-api 1.4.199
 handlebars 3.0.8
 handy-uri-templates-2-api 2.1.8-1.0
 jackson2-api 2.13.1-246.va8a9f3eaf46a
-javadoc 1.6
+javadoc 217.v905b_86277a_2a_
 javax-activation-api 1.2.0-2
 javax-mail-api 1.6.2-5
 jdk-tool 1.5
 jjwt-api 0.11.2-9.c8b45b8bb173
 jnr-posix-api 3.1.7-1
-jobConfigHistory 2.31-rc1098.b666422863b2
+jobConfigHistory 2.31-rc1107.2354f08725a_8
 jquery 1.12.4-1
 jquery3-api 3.6.0-2
 jsch 0.1.55.2
-junit 1.53
+junit 1.54
 kubernetes 1.31.3
 kubernetes-client-api 5.11.2-182.v0f1cf4c5904e
 kubernetes-credentials 0.9.0
 ldap 2.7
-lockable-resources 2.13
+lockable-resources 2.14
 mail-watcher-plugin 1.16
 mailer 408.vd726a_1130320
 matrix-auth 3.0.1

@@ -15,21 +15,13 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "justj"
   namespace: "justj"
   name: jenkins-config
 data:
   jenkins.yaml: |
     # GENERATED FILE - DO NOT EDIT
-    #*******************************************************************************
-    # Copyright (c) 2018 Eclipse Foundation and others.
-    # This program and the accompanying materials are made available
-    # under the terms of the Eclipse Public License 2.0
-    # which is available at http://www.eclipse.org/legal/epl-v20.html,
-    # or the MIT License which is available at https://opensource.org/licenses/MIT.
-    # SPDX-License-Identifier: EPL-2.0 OR MIT
-    #*******************************************************************************
     jenkins:
       nodes:
         - permanent:
@@ -112,33 +104,33 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Connect:ed.merks@gmail.com"
-            - "Agent/Disconnect:ed.merks@gmail.com"
-            - "Agent/Build:technology.justj"
-            - "Credentials/View:technology.justj"
-            - "Gerrit/ManualTrigger:technology.justj"
-            - "Gerrit/Retrigger:technology.justj"
-            - "Job/Build:technology.justj"
-            - "Job/Cancel:technology.justj"
-            - "Job/Configure:technology.justj"
-            - "Job/Create:technology.justj"
-            - "Job/Delete:technology.justj"
-            - "Job/Move:technology.justj"
-            - "Job/Read:technology.justj"
-            - "Job/Workspace:technology.justj"
-            - "Overall/Read:technology.justj"
-            - "Run/Delete:technology.justj"
-            - "Run/Replay:technology.justj"
-            - "Run/Update:technology.justj"
-            - "SCM/Tag:technology.justj"
-            - "View/Configure:technology.justj"
-            - "View/Create:technology.justj"
-            - "View/Delete:technology.justj"
-            - "View/Read:technology.justj"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Connect:ed.merks@gmail.com"
+            - "GROUP:Agent/Disconnect:ed.merks@gmail.com"
+            - "GROUP:Agent/Build:technology.justj"
+            - "GROUP:Credentials/View:technology.justj"
+            - "GROUP:Gerrit/ManualTrigger:technology.justj"
+            - "GROUP:Gerrit/Retrigger:technology.justj"
+            - "GROUP:Job/Build:technology.justj"
+            - "GROUP:Job/Cancel:technology.justj"
+            - "GROUP:Job/Configure:technology.justj"
+            - "GROUP:Job/Create:technology.justj"
+            - "GROUP:Job/Delete:technology.justj"
+            - "GROUP:Job/Move:technology.justj"
+            - "GROUP:Job/Read:technology.justj"
+            - "GROUP:Job/Workspace:technology.justj"
+            - "GROUP:Overall/Read:technology.justj"
+            - "GROUP:Run/Delete:technology.justj"
+            - "GROUP:Run/Replay:technology.justj"
+            - "GROUP:Run/Update:technology.justj"
+            - "GROUP:SCM/Tag:technology.justj"
+            - "GROUP:View/Configure:technology.justj"
+            - "GROUP:View/Create:technology.justj"
+            - "GROUP:View/Delete:technology.justj"
+            - "GROUP:View/Read:technology.justj"
       markupFormatter: rawHtml
       crumbIssuer:
         standard:
@@ -165,7 +157,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -251,7 +243,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -337,7 +329,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0

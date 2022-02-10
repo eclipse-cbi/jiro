@@ -63,7 +63,7 @@ kubernetes 1.31.3
 kubernetes-client-api 5.11.2-182.v0f1cf4c5904e
 kubernetes-credentials 0.9.0
 ldap 2.7
-lockable-resources 2.13
+lockable-resources 2.14
 mailer 408.vd726a_1130320
 matrix-auth 3.0.1
 matrix-project 1.20
@@ -149,7 +149,7 @@ gradle 1.38
 handy-uri-templates-2-api 2.1.8-1.0
 htmlpublisher 1.29
 jackson2-api 2.13.1-246.va8a9f3eaf46a
-javadoc 1.6
+javadoc 217.v905b_86277a_2a_
 javax-activation-api 1.2.0-2
 javax-mail-api 1.6.2-5
 jenkins-design-language 1.25.2
@@ -180,7 +180,7 @@ sse-gateway 1.25
 ssh-credentials 1.19
 structs 308.v852b473a2b8c
 support-core 2.79
-token-macro 267.vcdaea6462991
+token-macro 270.v8c2ce50dc4fc
 trilead-api 1.0.13
 variant 1.4
 workflow-api 1136.v7f5f1759dc16
@@ -200,6 +200,7 @@ embeddable-build-status 2.0.3
 favorite 2.3.3
 gradle 1.38
 htmlpublisher 1.29
+javadoc 217.v905b_86277a_2a_
 jenkins-design-language 1.25.2
 mail-watcher-plugin 1.16
 mask-passwords 3.0
@@ -208,6 +209,7 @@ pubsub-light 1.16
 slack 602.v0da_f7458945d
 sse-gateway 1.25
 support-core 2.79
+token-macro 270.v8c2ce50dc4fc
 
 Resulting plugin list:
 ace-editor 1.1
@@ -265,7 +267,7 @@ handlebars 3.0.8
 handy-uri-templates-2-api 2.1.8-1.0
 htmlpublisher 1.29
 jackson2-api 2.13.1-246.va8a9f3eaf46a
-javadoc 1.6
+javadoc 217.v905b_86277a_2a_
 javax-activation-api 1.2.0-2
 javax-mail-api 1.6.2-5
 jdk-tool 1.5
@@ -281,7 +283,7 @@ kubernetes 1.31.3
 kubernetes-client-api 5.11.2-182.v0f1cf4c5904e
 kubernetes-credentials 0.9.0
 ldap 2.7
-lockable-resources 2.13
+lockable-resources 2.14
 mail-watcher-plugin 1.16
 mailer 408.vd726a_1130320
 mask-passwords 3.0
@@ -330,7 +332,7 @@ sshd 3.1.0
 structs 308.v852b473a2b8c
 support-core 2.79
 timestamper 1.17
-token-macro 267.vcdaea6462991
+token-macro 270.v8c2ce50dc4fc
 trilead-api 1.0.13
 variant 1.4
 warnings-ng 9.11.0

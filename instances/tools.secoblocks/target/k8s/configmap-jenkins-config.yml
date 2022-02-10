@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "secoblocks"
   namespace: "secoblocks"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:tools.secoblocks"
-            - "Credentials/View:tools.secoblocks"
-            - "Gerrit/ManualTrigger:tools.secoblocks"
-            - "Gerrit/Retrigger:tools.secoblocks"
-            - "Job/Build:tools.secoblocks"
-            - "Job/Cancel:tools.secoblocks"
-            - "Job/Configure:tools.secoblocks"
-            - "Job/Create:tools.secoblocks"
-            - "Job/Delete:tools.secoblocks"
-            - "Job/Move:tools.secoblocks"
-            - "Job/Read:tools.secoblocks"
-            - "Job/Workspace:tools.secoblocks"
-            - "Overall/Read:tools.secoblocks"
-            - "Run/Delete:tools.secoblocks"
-            - "Run/Replay:tools.secoblocks"
-            - "Run/Update:tools.secoblocks"
-            - "SCM/Tag:tools.secoblocks"
-            - "View/Configure:tools.secoblocks"
-            - "View/Create:tools.secoblocks"
-            - "View/Delete:tools.secoblocks"
-            - "View/Read:tools.secoblocks"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:tools.secoblocks"
+            - "GROUP:Credentials/View:tools.secoblocks"
+            - "GROUP:Gerrit/ManualTrigger:tools.secoblocks"
+            - "GROUP:Gerrit/Retrigger:tools.secoblocks"
+            - "GROUP:Job/Build:tools.secoblocks"
+            - "GROUP:Job/Cancel:tools.secoblocks"
+            - "GROUP:Job/Configure:tools.secoblocks"
+            - "GROUP:Job/Create:tools.secoblocks"
+            - "GROUP:Job/Delete:tools.secoblocks"
+            - "GROUP:Job/Move:tools.secoblocks"
+            - "GROUP:Job/Read:tools.secoblocks"
+            - "GROUP:Job/Workspace:tools.secoblocks"
+            - "GROUP:Overall/Read:tools.secoblocks"
+            - "GROUP:Run/Delete:tools.secoblocks"
+            - "GROUP:Run/Replay:tools.secoblocks"
+            - "GROUP:Run/Update:tools.secoblocks"
+            - "GROUP:SCM/Tag:tools.secoblocks"
+            - "GROUP:View/Configure:tools.secoblocks"
+            - "GROUP:View/Create:tools.secoblocks"
+            - "GROUP:View/Delete:tools.secoblocks"
+            - "GROUP:View/Read:tools.secoblocks"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

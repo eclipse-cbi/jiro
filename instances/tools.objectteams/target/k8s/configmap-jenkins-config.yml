@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "objectteams"
   namespace: "objectteams"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:tools.objectteams"
-            - "Credentials/View:tools.objectteams"
-            - "Gerrit/ManualTrigger:tools.objectteams"
-            - "Gerrit/Retrigger:tools.objectteams"
-            - "Job/Build:tools.objectteams"
-            - "Job/Cancel:tools.objectteams"
-            - "Job/Configure:tools.objectteams"
-            - "Job/Create:tools.objectteams"
-            - "Job/Delete:tools.objectteams"
-            - "Job/Move:tools.objectteams"
-            - "Job/Read:tools.objectteams"
-            - "Job/Workspace:tools.objectteams"
-            - "Overall/Read:tools.objectteams"
-            - "Run/Delete:tools.objectteams"
-            - "Run/Replay:tools.objectteams"
-            - "Run/Update:tools.objectteams"
-            - "SCM/Tag:tools.objectteams"
-            - "View/Configure:tools.objectteams"
-            - "View/Create:tools.objectteams"
-            - "View/Delete:tools.objectteams"
-            - "View/Read:tools.objectteams"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:tools.objectteams"
+            - "GROUP:Credentials/View:tools.objectteams"
+            - "GROUP:Gerrit/ManualTrigger:tools.objectteams"
+            - "GROUP:Gerrit/Retrigger:tools.objectteams"
+            - "GROUP:Job/Build:tools.objectteams"
+            - "GROUP:Job/Cancel:tools.objectteams"
+            - "GROUP:Job/Configure:tools.objectteams"
+            - "GROUP:Job/Create:tools.objectteams"
+            - "GROUP:Job/Delete:tools.objectteams"
+            - "GROUP:Job/Move:tools.objectteams"
+            - "GROUP:Job/Read:tools.objectteams"
+            - "GROUP:Job/Workspace:tools.objectteams"
+            - "GROUP:Overall/Read:tools.objectteams"
+            - "GROUP:Run/Delete:tools.objectteams"
+            - "GROUP:Run/Replay:tools.objectteams"
+            - "GROUP:Run/Update:tools.objectteams"
+            - "GROUP:SCM/Tag:tools.objectteams"
+            - "GROUP:View/Configure:tools.objectteams"
+            - "GROUP:View/Create:tools.objectteams"
+            - "GROUP:View/Delete:tools.objectteams"
+            - "GROUP:View/Read:tools.objectteams"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

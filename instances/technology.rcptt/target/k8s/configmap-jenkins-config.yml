@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "rcptt"
   namespace: "rcptt"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:technology.rcptt"
-            - "Credentials/View:technology.rcptt"
-            - "Gerrit/ManualTrigger:technology.rcptt"
-            - "Gerrit/Retrigger:technology.rcptt"
-            - "Job/Build:technology.rcptt"
-            - "Job/Cancel:technology.rcptt"
-            - "Job/Configure:technology.rcptt"
-            - "Job/Create:technology.rcptt"
-            - "Job/Delete:technology.rcptt"
-            - "Job/Move:technology.rcptt"
-            - "Job/Read:technology.rcptt"
-            - "Job/Workspace:technology.rcptt"
-            - "Overall/Read:technology.rcptt"
-            - "Run/Delete:technology.rcptt"
-            - "Run/Replay:technology.rcptt"
-            - "Run/Update:technology.rcptt"
-            - "SCM/Tag:technology.rcptt"
-            - "View/Configure:technology.rcptt"
-            - "View/Create:technology.rcptt"
-            - "View/Delete:technology.rcptt"
-            - "View/Read:technology.rcptt"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:technology.rcptt"
+            - "GROUP:Credentials/View:technology.rcptt"
+            - "GROUP:Gerrit/ManualTrigger:technology.rcptt"
+            - "GROUP:Gerrit/Retrigger:technology.rcptt"
+            - "GROUP:Job/Build:technology.rcptt"
+            - "GROUP:Job/Cancel:technology.rcptt"
+            - "GROUP:Job/Configure:technology.rcptt"
+            - "GROUP:Job/Create:technology.rcptt"
+            - "GROUP:Job/Delete:technology.rcptt"
+            - "GROUP:Job/Move:technology.rcptt"
+            - "GROUP:Job/Read:technology.rcptt"
+            - "GROUP:Job/Workspace:technology.rcptt"
+            - "GROUP:Overall/Read:technology.rcptt"
+            - "GROUP:Run/Delete:technology.rcptt"
+            - "GROUP:Run/Replay:technology.rcptt"
+            - "GROUP:Run/Update:technology.rcptt"
+            - "GROUP:SCM/Tag:technology.rcptt"
+            - "GROUP:View/Configure:technology.rcptt"
+            - "GROUP:View/Create:technology.rcptt"
+            - "GROUP:View/Delete:technology.rcptt"
+            - "GROUP:View/Read:technology.rcptt"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

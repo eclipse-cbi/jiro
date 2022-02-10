@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:technology.skills"
-        - "Credentials/View:technology.skills"
-        - "Gerrit/ManualTrigger:technology.skills"
-        - "Gerrit/Retrigger:technology.skills"
-        - "Job/Build:technology.skills"
-        - "Job/Cancel:technology.skills"
-        - "Job/Configure:technology.skills"
-        - "Job/Create:technology.skills"
-        - "Job/Delete:technology.skills"
-        - "Job/Move:technology.skills"
-        - "Job/Read:technology.skills"
-        - "Job/Workspace:technology.skills"
-        - "Overall/Read:technology.skills"
-        - "Run/Delete:technology.skills"
-        - "Run/Replay:technology.skills"
-        - "Run/Update:technology.skills"
-        - "SCM/Tag:technology.skills"
-        - "View/Configure:technology.skills"
-        - "View/Create:technology.skills"
-        - "View/Delete:technology.skills"
-        - "View/Read:technology.skills"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:technology.skills"
+        - "GROUP:Credentials/View:technology.skills"
+        - "GROUP:Gerrit/ManualTrigger:technology.skills"
+        - "GROUP:Gerrit/Retrigger:technology.skills"
+        - "GROUP:Job/Build:technology.skills"
+        - "GROUP:Job/Cancel:technology.skills"
+        - "GROUP:Job/Configure:technology.skills"
+        - "GROUP:Job/Create:technology.skills"
+        - "GROUP:Job/Delete:technology.skills"
+        - "GROUP:Job/Move:technology.skills"
+        - "GROUP:Job/Read:technology.skills"
+        - "GROUP:Job/Workspace:technology.skills"
+        - "GROUP:Overall/Read:technology.skills"
+        - "GROUP:Run/Delete:technology.skills"
+        - "GROUP:Run/Replay:technology.skills"
+        - "GROUP:Run/Update:technology.skills"
+        - "GROUP:SCM/Tag:technology.skills"
+        - "GROUP:View/Configure:technology.skills"
+        - "GROUP:View/Create:technology.skills"
+        - "GROUP:View/Delete:technology.skills"
+        - "GROUP:View/Read:technology.skills"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

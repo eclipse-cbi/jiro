@@ -36,31 +36,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:tools.oomph"
-        - "Credentials/View:tools.oomph"
-        - "Gerrit/ManualTrigger:tools.oomph"
-        - "Gerrit/Retrigger:tools.oomph"
-        - "Job/Build:tools.oomph"
-        - "Job/Cancel:tools.oomph"
-        - "Job/Configure:tools.oomph"
-        - "Job/Create:tools.oomph"
-        - "Job/Delete:tools.oomph"
-        - "Job/Move:tools.oomph"
-        - "Job/Read:tools.oomph"
-        - "Job/Workspace:tools.oomph"
-        - "Overall/Read:tools.oomph"
-        - "Run/Delete:tools.oomph"
-        - "Run/Replay:tools.oomph"
-        - "Run/Update:tools.oomph"
-        - "SCM/Tag:tools.oomph"
-        - "View/Configure:tools.oomph"
-        - "View/Create:tools.oomph"
-        - "View/Delete:tools.oomph"
-        - "View/Read:tools.oomph"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:tools.oomph"
+        - "GROUP:Credentials/View:tools.oomph"
+        - "GROUP:Gerrit/ManualTrigger:tools.oomph"
+        - "GROUP:Gerrit/Retrigger:tools.oomph"
+        - "GROUP:Job/Build:tools.oomph"
+        - "GROUP:Job/Cancel:tools.oomph"
+        - "GROUP:Job/Configure:tools.oomph"
+        - "GROUP:Job/Create:tools.oomph"
+        - "GROUP:Job/Delete:tools.oomph"
+        - "GROUP:Job/Move:tools.oomph"
+        - "GROUP:Job/Read:tools.oomph"
+        - "GROUP:Job/Workspace:tools.oomph"
+        - "GROUP:Overall/Read:tools.oomph"
+        - "GROUP:Run/Delete:tools.oomph"
+        - "GROUP:Run/Replay:tools.oomph"
+        - "GROUP:Run/Update:tools.oomph"
+        - "GROUP:SCM/Tag:tools.oomph"
+        - "GROUP:View/Configure:tools.oomph"
+        - "GROUP:View/Create:tools.oomph"
+        - "GROUP:View/Delete:tools.oomph"
+        - "GROUP:View/Read:tools.oomph"
   markupFormatter: rawHtml
   crumbIssuer:
     standard:
@@ -87,7 +87,7 @@ jenkins:
         podRetention: "never"
         templates:
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -173,7 +173,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -259,7 +259,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -345,7 +345,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0

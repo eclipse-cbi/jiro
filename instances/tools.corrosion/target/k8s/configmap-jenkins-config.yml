@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "corrosion"
   namespace: "corrosion"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:tools.corrosion"
-            - "Credentials/View:tools.corrosion"
-            - "Gerrit/ManualTrigger:tools.corrosion"
-            - "Gerrit/Retrigger:tools.corrosion"
-            - "Job/Build:tools.corrosion"
-            - "Job/Cancel:tools.corrosion"
-            - "Job/Configure:tools.corrosion"
-            - "Job/Create:tools.corrosion"
-            - "Job/Delete:tools.corrosion"
-            - "Job/Move:tools.corrosion"
-            - "Job/Read:tools.corrosion"
-            - "Job/Workspace:tools.corrosion"
-            - "Overall/Read:tools.corrosion"
-            - "Run/Delete:tools.corrosion"
-            - "Run/Replay:tools.corrosion"
-            - "Run/Update:tools.corrosion"
-            - "SCM/Tag:tools.corrosion"
-            - "View/Configure:tools.corrosion"
-            - "View/Create:tools.corrosion"
-            - "View/Delete:tools.corrosion"
-            - "View/Read:tools.corrosion"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:tools.corrosion"
+            - "GROUP:Credentials/View:tools.corrosion"
+            - "GROUP:Gerrit/ManualTrigger:tools.corrosion"
+            - "GROUP:Gerrit/Retrigger:tools.corrosion"
+            - "GROUP:Job/Build:tools.corrosion"
+            - "GROUP:Job/Cancel:tools.corrosion"
+            - "GROUP:Job/Configure:tools.corrosion"
+            - "GROUP:Job/Create:tools.corrosion"
+            - "GROUP:Job/Delete:tools.corrosion"
+            - "GROUP:Job/Move:tools.corrosion"
+            - "GROUP:Job/Read:tools.corrosion"
+            - "GROUP:Job/Workspace:tools.corrosion"
+            - "GROUP:Overall/Read:tools.corrosion"
+            - "GROUP:Run/Delete:tools.corrosion"
+            - "GROUP:Run/Replay:tools.corrosion"
+            - "GROUP:Run/Update:tools.corrosion"
+            - "GROUP:SCM/Tag:tools.corrosion"
+            - "GROUP:View/Configure:tools.corrosion"
+            - "GROUP:View/Create:tools.corrosion"
+            - "GROUP:View/Delete:tools.corrosion"
+            - "GROUP:View/Read:tools.corrosion"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

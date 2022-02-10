@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:technology.stem"
-        - "Credentials/View:technology.stem"
-        - "Gerrit/ManualTrigger:technology.stem"
-        - "Gerrit/Retrigger:technology.stem"
-        - "Job/Build:technology.stem"
-        - "Job/Cancel:technology.stem"
-        - "Job/Configure:technology.stem"
-        - "Job/Create:technology.stem"
-        - "Job/Delete:technology.stem"
-        - "Job/Move:technology.stem"
-        - "Job/Read:technology.stem"
-        - "Job/Workspace:technology.stem"
-        - "Overall/Read:technology.stem"
-        - "Run/Delete:technology.stem"
-        - "Run/Replay:technology.stem"
-        - "Run/Update:technology.stem"
-        - "SCM/Tag:technology.stem"
-        - "View/Configure:technology.stem"
-        - "View/Create:technology.stem"
-        - "View/Delete:technology.stem"
-        - "View/Read:technology.stem"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:technology.stem"
+        - "GROUP:Credentials/View:technology.stem"
+        - "GROUP:Gerrit/ManualTrigger:technology.stem"
+        - "GROUP:Gerrit/Retrigger:technology.stem"
+        - "GROUP:Job/Build:technology.stem"
+        - "GROUP:Job/Cancel:technology.stem"
+        - "GROUP:Job/Configure:technology.stem"
+        - "GROUP:Job/Create:technology.stem"
+        - "GROUP:Job/Delete:technology.stem"
+        - "GROUP:Job/Move:technology.stem"
+        - "GROUP:Job/Read:technology.stem"
+        - "GROUP:Job/Workspace:technology.stem"
+        - "GROUP:Overall/Read:technology.stem"
+        - "GROUP:Run/Delete:technology.stem"
+        - "GROUP:Run/Replay:technology.stem"
+        - "GROUP:Run/Update:technology.stem"
+        - "GROUP:SCM/Tag:technology.stem"
+        - "GROUP:View/Configure:technology.stem"
+        - "GROUP:View/Create:technology.stem"
+        - "GROUP:View/Delete:technology.stem"
+        - "GROUP:View/Read:technology.stem"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

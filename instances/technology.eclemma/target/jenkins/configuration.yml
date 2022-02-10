@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:technology.eclemma"
-        - "Credentials/View:technology.eclemma"
-        - "Gerrit/ManualTrigger:technology.eclemma"
-        - "Gerrit/Retrigger:technology.eclemma"
-        - "Job/Build:technology.eclemma"
-        - "Job/Cancel:technology.eclemma"
-        - "Job/Configure:technology.eclemma"
-        - "Job/Create:technology.eclemma"
-        - "Job/Delete:technology.eclemma"
-        - "Job/Move:technology.eclemma"
-        - "Job/Read:technology.eclemma"
-        - "Job/Workspace:technology.eclemma"
-        - "Overall/Read:technology.eclemma"
-        - "Run/Delete:technology.eclemma"
-        - "Run/Replay:technology.eclemma"
-        - "Run/Update:technology.eclemma"
-        - "SCM/Tag:technology.eclemma"
-        - "View/Configure:technology.eclemma"
-        - "View/Create:technology.eclemma"
-        - "View/Delete:technology.eclemma"
-        - "View/Read:technology.eclemma"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:technology.eclemma"
+        - "GROUP:Credentials/View:technology.eclemma"
+        - "GROUP:Gerrit/ManualTrigger:technology.eclemma"
+        - "GROUP:Gerrit/Retrigger:technology.eclemma"
+        - "GROUP:Job/Build:technology.eclemma"
+        - "GROUP:Job/Cancel:technology.eclemma"
+        - "GROUP:Job/Configure:technology.eclemma"
+        - "GROUP:Job/Create:technology.eclemma"
+        - "GROUP:Job/Delete:technology.eclemma"
+        - "GROUP:Job/Move:technology.eclemma"
+        - "GROUP:Job/Read:technology.eclemma"
+        - "GROUP:Job/Workspace:technology.eclemma"
+        - "GROUP:Overall/Read:technology.eclemma"
+        - "GROUP:Run/Delete:technology.eclemma"
+        - "GROUP:Run/Replay:technology.eclemma"
+        - "GROUP:Run/Update:technology.eclemma"
+        - "GROUP:SCM/Tag:technology.eclemma"
+        - "GROUP:View/Configure:technology.eclemma"
+        - "GROUP:View/Create:technology.eclemma"
+        - "GROUP:View/Delete:technology.eclemma"
+        - "GROUP:View/Read:technology.eclemma"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

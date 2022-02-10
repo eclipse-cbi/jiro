@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.303.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jnosql"
   namespace: "jnosql"
   name: jenkins-config
@@ -44,31 +44,31 @@ data:
       authorizationStrategy:
         projectMatrix:
           permissions:
-            - "Overall/Administer:admins"
-            - "Job/Read:anonymous"
-            - "Overall/Read:anonymous"
-            - "Job/ExtendedRead:common"
-            - "Agent/Build:technology.jnosql"
-            - "Credentials/View:technology.jnosql"
-            - "Gerrit/ManualTrigger:technology.jnosql"
-            - "Gerrit/Retrigger:technology.jnosql"
-            - "Job/Build:technology.jnosql"
-            - "Job/Cancel:technology.jnosql"
-            - "Job/Configure:technology.jnosql"
-            - "Job/Create:technology.jnosql"
-            - "Job/Delete:technology.jnosql"
-            - "Job/Move:technology.jnosql"
-            - "Job/Read:technology.jnosql"
-            - "Job/Workspace:technology.jnosql"
-            - "Overall/Read:technology.jnosql"
-            - "Run/Delete:technology.jnosql"
-            - "Run/Replay:technology.jnosql"
-            - "Run/Update:technology.jnosql"
-            - "SCM/Tag:technology.jnosql"
-            - "View/Configure:technology.jnosql"
-            - "View/Create:technology.jnosql"
-            - "View/Delete:technology.jnosql"
-            - "View/Read:technology.jnosql"
+            - "GROUP:Overall/Administer:admins"
+            - "GROUP:Job/Read:anonymous"
+            - "GROUP:Overall/Read:anonymous"
+            - "GROUP:Job/ExtendedRead:common"
+            - "GROUP:Agent/Build:technology.jnosql"
+            - "GROUP:Credentials/View:technology.jnosql"
+            - "GROUP:Gerrit/ManualTrigger:technology.jnosql"
+            - "GROUP:Gerrit/Retrigger:technology.jnosql"
+            - "GROUP:Job/Build:technology.jnosql"
+            - "GROUP:Job/Cancel:technology.jnosql"
+            - "GROUP:Job/Configure:technology.jnosql"
+            - "GROUP:Job/Create:technology.jnosql"
+            - "GROUP:Job/Delete:technology.jnosql"
+            - "GROUP:Job/Move:technology.jnosql"
+            - "GROUP:Job/Read:technology.jnosql"
+            - "GROUP:Job/Workspace:technology.jnosql"
+            - "GROUP:Overall/Read:technology.jnosql"
+            - "GROUP:Run/Delete:technology.jnosql"
+            - "GROUP:Run/Replay:technology.jnosql"
+            - "GROUP:Run/Update:technology.jnosql"
+            - "GROUP:SCM/Tag:technology.jnosql"
+            - "GROUP:View/Configure:technology.jnosql"
+            - "GROUP:View/Create:technology.jnosql"
+            - "GROUP:View/Delete:technology.jnosql"
+            - "GROUP:View/Read:technology.jnosql"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0

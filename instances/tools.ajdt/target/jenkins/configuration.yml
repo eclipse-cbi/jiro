@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:tools.ajdt"
-        - "Credentials/View:tools.ajdt"
-        - "Gerrit/ManualTrigger:tools.ajdt"
-        - "Gerrit/Retrigger:tools.ajdt"
-        - "Job/Build:tools.ajdt"
-        - "Job/Cancel:tools.ajdt"
-        - "Job/Configure:tools.ajdt"
-        - "Job/Create:tools.ajdt"
-        - "Job/Delete:tools.ajdt"
-        - "Job/Move:tools.ajdt"
-        - "Job/Read:tools.ajdt"
-        - "Job/Workspace:tools.ajdt"
-        - "Overall/Read:tools.ajdt"
-        - "Run/Delete:tools.ajdt"
-        - "Run/Replay:tools.ajdt"
-        - "Run/Update:tools.ajdt"
-        - "SCM/Tag:tools.ajdt"
-        - "View/Configure:tools.ajdt"
-        - "View/Create:tools.ajdt"
-        - "View/Delete:tools.ajdt"
-        - "View/Read:tools.ajdt"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:tools.ajdt"
+        - "GROUP:Credentials/View:tools.ajdt"
+        - "GROUP:Gerrit/ManualTrigger:tools.ajdt"
+        - "GROUP:Gerrit/Retrigger:tools.ajdt"
+        - "GROUP:Job/Build:tools.ajdt"
+        - "GROUP:Job/Cancel:tools.ajdt"
+        - "GROUP:Job/Configure:tools.ajdt"
+        - "GROUP:Job/Create:tools.ajdt"
+        - "GROUP:Job/Delete:tools.ajdt"
+        - "GROUP:Job/Move:tools.ajdt"
+        - "GROUP:Job/Read:tools.ajdt"
+        - "GROUP:Job/Workspace:tools.ajdt"
+        - "GROUP:Overall/Read:tools.ajdt"
+        - "GROUP:Run/Delete:tools.ajdt"
+        - "GROUP:Run/Replay:tools.ajdt"
+        - "GROUP:Run/Update:tools.ajdt"
+        - "GROUP:SCM/Tag:tools.ajdt"
+        - "GROUP:View/Configure:tools.ajdt"
+        - "GROUP:View/Create:tools.ajdt"
+        - "GROUP:View/Delete:tools.ajdt"
+        - "GROUP:View/Read:tools.ajdt"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:technology.scava"
-        - "Credentials/View:technology.scava"
-        - "Gerrit/ManualTrigger:technology.scava"
-        - "Gerrit/Retrigger:technology.scava"
-        - "Job/Build:technology.scava"
-        - "Job/Cancel:technology.scava"
-        - "Job/Configure:technology.scava"
-        - "Job/Create:technology.scava"
-        - "Job/Delete:technology.scava"
-        - "Job/Move:technology.scava"
-        - "Job/Read:technology.scava"
-        - "Job/Workspace:technology.scava"
-        - "Overall/Read:technology.scava"
-        - "Run/Delete:technology.scava"
-        - "Run/Replay:technology.scava"
-        - "Run/Update:technology.scava"
-        - "SCM/Tag:technology.scava"
-        - "View/Configure:technology.scava"
-        - "View/Create:technology.scava"
-        - "View/Delete:technology.scava"
-        - "View/Read:technology.scava"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:technology.scava"
+        - "GROUP:Credentials/View:technology.scava"
+        - "GROUP:Gerrit/ManualTrigger:technology.scava"
+        - "GROUP:Gerrit/Retrigger:technology.scava"
+        - "GROUP:Job/Build:technology.scava"
+        - "GROUP:Job/Cancel:technology.scava"
+        - "GROUP:Job/Configure:technology.scava"
+        - "GROUP:Job/Create:technology.scava"
+        - "GROUP:Job/Delete:technology.scava"
+        - "GROUP:Job/Move:technology.scava"
+        - "GROUP:Job/Read:technology.scava"
+        - "GROUP:Job/Workspace:technology.scava"
+        - "GROUP:Overall/Read:technology.scava"
+        - "GROUP:Run/Delete:technology.scava"
+        - "GROUP:Run/Replay:technology.scava"
+        - "GROUP:Run/Update:technology.scava"
+        - "GROUP:SCM/Tag:technology.scava"
+        - "GROUP:View/Configure:technology.scava"
+        - "GROUP:View/Create:technology.scava"
+        - "GROUP:View/Delete:technology.scava"
+        - "GROUP:View/Read:technology.scava"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0

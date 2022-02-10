@@ -152,31 +152,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:technology.osee"
-        - "Credentials/View:technology.osee"
-        - "Gerrit/ManualTrigger:technology.osee"
-        - "Gerrit/Retrigger:technology.osee"
-        - "Job/Build:technology.osee"
-        - "Job/Cancel:technology.osee"
-        - "Job/Configure:technology.osee"
-        - "Job/Create:technology.osee"
-        - "Job/Delete:technology.osee"
-        - "Job/Move:technology.osee"
-        - "Job/Read:technology.osee"
-        - "Job/Workspace:technology.osee"
-        - "Overall/Read:technology.osee"
-        - "Run/Delete:technology.osee"
-        - "Run/Replay:technology.osee"
-        - "Run/Update:technology.osee"
-        - "SCM/Tag:technology.osee"
-        - "View/Configure:technology.osee"
-        - "View/Create:technology.osee"
-        - "View/Delete:technology.osee"
-        - "View/Read:technology.osee"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:technology.osee"
+        - "GROUP:Credentials/View:technology.osee"
+        - "GROUP:Gerrit/ManualTrigger:technology.osee"
+        - "GROUP:Gerrit/Retrigger:technology.osee"
+        - "GROUP:Job/Build:technology.osee"
+        - "GROUP:Job/Cancel:technology.osee"
+        - "GROUP:Job/Configure:technology.osee"
+        - "GROUP:Job/Create:technology.osee"
+        - "GROUP:Job/Delete:technology.osee"
+        - "GROUP:Job/Move:technology.osee"
+        - "GROUP:Job/Read:technology.osee"
+        - "GROUP:Job/Workspace:technology.osee"
+        - "GROUP:Overall/Read:technology.osee"
+        - "GROUP:Run/Delete:technology.osee"
+        - "GROUP:Run/Replay:technology.osee"
+        - "GROUP:Run/Update:technology.osee"
+        - "GROUP:SCM/Tag:technology.osee"
+        - "GROUP:View/Configure:technology.osee"
+        - "GROUP:View/Create:technology.osee"
+        - "GROUP:View/Delete:technology.osee"
+        - "GROUP:View/Read:technology.osee"
   markupFormatter: rawHtml
   crumbIssuer:
     standard:
@@ -203,7 +203,7 @@ jenkins:
         podRetention: "never"
         templates:
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -289,7 +289,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -375,7 +375,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0

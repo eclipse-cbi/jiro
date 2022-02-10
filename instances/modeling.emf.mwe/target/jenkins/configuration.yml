@@ -1,6 +1,6 @@
 # GENERATED FILE - DO NOT EDIT
 unclassified:
-  timestamperConfig:
+  timestamper:
     allPipelines: true
   location:
     adminAddress: ci-admin@eclipse.org

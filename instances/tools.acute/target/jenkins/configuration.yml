@@ -21,31 +21,31 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:admins"
-        - "Job/Read:anonymous"
-        - "Overall/Read:anonymous"
-        - "Job/ExtendedRead:common"
-        - "Agent/Build:tools.acute"
-        - "Credentials/View:tools.acute"
-        - "Gerrit/ManualTrigger:tools.acute"
-        - "Gerrit/Retrigger:tools.acute"
-        - "Job/Build:tools.acute"
-        - "Job/Cancel:tools.acute"
-        - "Job/Configure:tools.acute"
-        - "Job/Create:tools.acute"
-        - "Job/Delete:tools.acute"
-        - "Job/Move:tools.acute"
-        - "Job/Read:tools.acute"
-        - "Job/Workspace:tools.acute"
-        - "Overall/Read:tools.acute"
-        - "Run/Delete:tools.acute"
-        - "Run/Replay:tools.acute"
-        - "Run/Update:tools.acute"
-        - "SCM/Tag:tools.acute"
-        - "View/Configure:tools.acute"
-        - "View/Create:tools.acute"
-        - "View/Delete:tools.acute"
-        - "View/Read:tools.acute"
+        - "GROUP:Overall/Administer:admins"
+        - "GROUP:Job/Read:anonymous"
+        - "GROUP:Overall/Read:anonymous"
+        - "GROUP:Job/ExtendedRead:common"
+        - "GROUP:Agent/Build:tools.acute"
+        - "GROUP:Credentials/View:tools.acute"
+        - "GROUP:Gerrit/ManualTrigger:tools.acute"
+        - "GROUP:Gerrit/Retrigger:tools.acute"
+        - "GROUP:Job/Build:tools.acute"
+        - "GROUP:Job/Cancel:tools.acute"
+        - "GROUP:Job/Configure:tools.acute"
+        - "GROUP:Job/Create:tools.acute"
+        - "GROUP:Job/Delete:tools.acute"
+        - "GROUP:Job/Move:tools.acute"
+        - "GROUP:Job/Read:tools.acute"
+        - "GROUP:Job/Workspace:tools.acute"
+        - "GROUP:Overall/Read:tools.acute"
+        - "GROUP:Run/Delete:tools.acute"
+        - "GROUP:Run/Replay:tools.acute"
+        - "GROUP:Run/Update:tools.acute"
+        - "GROUP:SCM/Tag:tools.acute"
+        - "GROUP:View/Configure:tools.acute"
+        - "GROUP:View/Create:tools.acute"
+        - "GROUP:View/Delete:tools.acute"
+        - "GROUP:View/Read:tools.acute"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.10.1
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
