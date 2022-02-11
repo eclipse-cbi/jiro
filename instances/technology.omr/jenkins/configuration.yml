@@ -528,7 +528,7 @@ jenkins:
           locations:
           - home: '/usr/lpp/java/J8.0_64/bin/java'
             key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
-          - home: '/u/users/jenkins-zos/git'
+          - home: '/u/user1/jenkins-zos/git'
             key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
   - permanent:
       name: "ZISVJD10"
@@ -568,5 +568,5 @@ jenkins:
           locations:
           - home: '/usr/lpp/java/J8.0_64/bin/java'
             key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
-          - home: '/u/users/jenkins-zos/git'
+          - home: '/u/user1/jenkins-zos/git'
             key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
