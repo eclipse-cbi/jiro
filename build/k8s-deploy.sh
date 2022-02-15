@@ -30,22 +30,6 @@ if [ ! -d "${instance}" ]; then
   exit 1
 fi
 
-# Workaround https://github.com/kubernetes/kubernetes/issues/68573
-# Replace with 
-# $ oc rollout status sts/dash -n dash -w
-# as soon as we run K8S 1.12 or above.
-waitReadyReplicas() {
-  local ns=${1}
-  local stsName=${2}
-  local target=${3}
-
-  while [[ $target -ne $(oc get sts "${stsName}" -n "${ns}" -o jsonpath="{.status.readyReplicas}") ]]; do
-    sleep 2
-    echo -n "."
-  done
-  echo -e "\b."
-}
-
 . "${SCRIPT_FOLDER}/k8s-set-context.sh" "$(jq -r '.deployment.cluster' "${instance}/target/config.json")"
 
 oc apply -f "${instance}/target/k8s/namespace.json"
@@ -93,9 +77,9 @@ elif [[ $(sts_as_json | jq -r '.metadata.generation') -gt ${old_gen} ]]; then
   echo "INFO: Cluster is rolling out StatefulSet changes"
   "${SCRIPT_FOLDER}/../jenkins-switch-maintenance.sh" "${instance}" "on"
   echo -n "Waiting for Jenkins to be back online"
-  waitReadyReplicas "$(jq -r '.metadata.name' "${instance}/target/k8s/namespace.json")" "$(jq -r '.metadata.name' "${instance}/target/k8s/statefulset.json")" 1
+  kubectl rollout status -n "$(jq -r '.metadata.name' "${instance}/target/k8s/namespace.json")" "sts/$(jq -r '.metadata.name' "${instance}/target/k8s/statefulset.json")"
   "${SCRIPT_FOLDER}/../jenkins-switch-maintenance.sh" "${instance}" "off"
-else 
+else
   echo "INFO: StatefulSet has no change that Kubernetes consider as requiring a restart"
   ## TODO: compare pod .status.containerStatuses[].imageID vs latest pull from docker registry and check if restart is required.
   "${SCRIPT_FOLDER}/../jenkins-safe-restart.sh" "${instance}" || :
