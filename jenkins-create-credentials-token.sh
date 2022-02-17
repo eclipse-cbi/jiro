@@ -171,7 +171,7 @@ gitlab() {
   fi
 
   local token
-  token="$(pass "/cbi-pass/bots/${project_name}/gitlab.eclipse.org/token")"
+  token="$(pass "/cbi-pass/bots/${project_name}/gitlab.eclipse.org/api-token")"
 
   _create_string_credentials "${project_name}" "gitlab-api-token" "GitLab token for ${project_name}" "${token}" "gitlab.eclipse.org"
 }
