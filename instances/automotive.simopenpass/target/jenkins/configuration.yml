@@ -36,8 +36,8 @@ jenkins:
     projectMatrix:
       permissions:
         - "GROUP:Overall/Administer:admins"
-        - "GROUP:Job/Read:anonymous"
-        - "GROUP:Overall/Read:anonymous"
+        - "USER:Job/Read:anonymous"
+        - "USER:Overall/Read:anonymous"
         - "GROUP:Agent/Build:automotive.simopenpass"
         - "GROUP:Credentials/View:automotive.simopenpass"
         - "GROUP:Gerrit/ManualTrigger:automotive.simopenpass"

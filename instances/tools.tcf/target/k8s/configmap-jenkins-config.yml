@@ -45,8 +45,8 @@ data:
         projectMatrix:
           permissions:
             - "GROUP:Overall/Administer:admins"
-            - "GROUP:Job/Read:anonymous"
-            - "GROUP:Overall/Read:anonymous"
+            - "USER:Job/Read:anonymous"
+            - "USER:Overall/Read:anonymous"
             - "GROUP:Job/ExtendedRead:common"
             - "GROUP:Agent/Build:tools.cdt.tcf"
             - "GROUP:Credentials/View:tools.cdt.tcf"

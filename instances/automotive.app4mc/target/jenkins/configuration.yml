@@ -22,8 +22,8 @@ jenkins:
     projectMatrix:
       permissions:
         - "GROUP:Overall/Administer:admins"
-        - "GROUP:Job/Read:anonymous"
-        - "GROUP:Overall/Read:anonymous"
+        - "USER:Job/Read:anonymous"
+        - "USER:Overall/Read:anonymous"
         - "GROUP:Agent/Build:automotive.app4mc"
         - "GROUP:Credentials/View:automotive.app4mc"
         - "GROUP:Gerrit/ManualTrigger:automotive.app4mc"

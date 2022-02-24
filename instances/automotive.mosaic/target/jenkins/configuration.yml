@@ -22,8 +22,8 @@ jenkins:
     projectMatrix:
       permissions:
         - "GROUP:Overall/Administer:admins"
-        - "GROUP:Job/Read:anonymous"
-        - "GROUP:Overall/Read:anonymous"
+        - "USER:Job/Read:anonymous"
+        - "USER:Overall/Read:anonymous"
         - "GROUP:Agent/Build:automotive.mosaic"
         - "GROUP:Credentials/View:automotive.mosaic"
         - "GROUP:Gerrit/ManualTrigger:automotive.mosaic"

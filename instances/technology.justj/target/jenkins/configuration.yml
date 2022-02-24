@@ -82,11 +82,11 @@ jenkins:
     projectMatrix:
       permissions:
         - "GROUP:Overall/Administer:admins"
-        - "GROUP:Job/Read:anonymous"
-        - "GROUP:Overall/Read:anonymous"
+        - "USER:Job/Read:anonymous"
+        - "USER:Overall/Read:anonymous"
         - "GROUP:Job/ExtendedRead:common"
-        - "GROUP:Agent/Connect:ed.merks@gmail.com"
-        - "GROUP:Agent/Disconnect:ed.merks@gmail.com"
+        - "USER:Agent/Connect:ed.merks@gmail.com"
+        - "USER:Agent/Disconnect:ed.merks@gmail.com"
         - "GROUP:Agent/Build:technology.justj"
         - "GROUP:Credentials/View:technology.justj"
         - "GROUP:Gerrit/ManualTrigger:technology.justj"

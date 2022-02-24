@@ -22,8 +22,8 @@ jenkins:
     projectMatrix:
       permissions:
         - "GROUP:Overall/Administer:admins"
-        - "GROUP:Job/Read:anonymous"
-        - "GROUP:Overall/Read:anonymous"
+        - "USER:Job/Read:anonymous"
+        - "USER:Overall/Read:anonymous"
         - "GROUP:Job/ExtendedRead:common"
         - "GROUP:Agent/Build:rt.ebr"
         - "GROUP:Credentials/View:rt.ebr"
