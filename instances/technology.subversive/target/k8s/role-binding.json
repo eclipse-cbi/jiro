@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.subversive",
+         "org.eclipse.cbi.jiro/project.shortname": "subversive"
+      },
+      "name": "subversive",
+      "namespace": "subversive"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "subversive"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "subversive",
+         "namespace": "subversive"
+      }
+   ]
+}
