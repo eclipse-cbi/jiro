@@ -59,7 +59,7 @@ _update_string_credentials_xml() {
     local id="${3:-}"
     local secret="${4:-}"
     local description="${5:-}"
-    echo "  Updating string credential '${id}'..."
+    echo "  Updating string credential '${id}' in domain ${domain_name}..."
     "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "update-credentials-by-xml" "system::system::jenkins" "${domain_name}" "${id}" <<EOF
 <org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl>
   <scope>GLOBAL</scope>
@@ -102,13 +102,83 @@ _create_string_credentials() {
     fi
 }
 
+_create_username_password_credentials_xml() {
+    local project_name="${1:-}"
+    local domain_name="${2:-}"
+    local id="${3:-}"
+    local username="${4:-}"
+    local password="${5:-}"
+    local description="${6:-}"
+    echo "  Creating username/password credential '${id}' in domain ${domain_name}..."
+    "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "create-credentials-by-xml" "system::system::jenkins" "${domain_name}" <<EOF
+<com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
+  <scope>GLOBAL</scope>
+  <id>${id}</id>
+  <username>${username}</username>
+  <password>${password}</password>
+  <description>${description}</description>
+</com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
+EOF
+}
+
+_update_username_password_credentials_xml() {
+    local project_name="${1:-}"
+    local domain_name="${2:-}"
+    local id="${3:-}"
+    local username="${4:-}"
+    local password="${5:-}"
+    local description="${6:-}"
+    echo "  Updating username/password credential '${id}' in domain ${domain_name}..."
+    "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "update-credentials-by-xml" "system::system::jenkins" "${domain_name}" "${id}" <<EOF
+<com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
+  <scope>GLOBAL</scope>
+  <id>${id}</id>
+  <username>${username}</username>
+  <password>${password}</password>
+  <description>${description}</description>
+</com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
+EOF
+}
+
+_create_username_token_credentials() {
+    local project_name="${1:-}"
+    local id="${2:-}"
+    local description="${3:-}"
+    local username="${4:-}"
+    local token="${5:-}"
+    local domain_name="${6:-_}" #if no domain is given, use "_" for system domain
+
+    if [[ -z "${username}" ]]; then
+      printf "ERROR: username must be given.\n"
+      exit 1
+    fi
+    if [[ -z "${token}" ]]; then
+      printf "ERROR: token must be given.\n"
+      exit 1
+    fi
+
+    # check if credentials already exist
+    reply="$("${JENKINS_CLI}" "${INSTANCES}/${project_name}" "get-credentials-as-xml" "system::system::jenkins" "${domain_name}" "${id}" 2>&1 || true)"
+    if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then
+      _create_domain_xml "${project_name}" "${domain_name}"
+      _create_username_password_credentials_xml "${project_name}" "${domain_name}" "${id}" "${username}" "${token}" "${description}"
+    elif [[ "${reply}" == "No such credential" ]]; then
+      _create_username_password_credentials_xml "${project_name}" "${domain_name}" "${id}" "${username}" "${token}" "${description}"
+    elif [[ "${reply}" == "<com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl"* ]]; then
+      _update_username_password_credentials_xml "${project_name}" "${domain_name}" "${id}" "${username}" "${token}" "${description}"
+    else
+      echo "Unexpected reply: ${reply}"
+      exit 1
+    fi
+}
+
 
 help() {
   printf "Available commands:\n"
   printf "Command\t\t\tDescription\n\n"
   printf "auto\t\t\tTest which token credentials exist and create them (except for sonarcloud).\n"
   printf "default\t\t\tCreate any kind of credentials (secret text/token).\n"
-  printf "github\t\t\tCreate github.com token credentials (secret text/token).\n"
+  printf "github\t\t\tCreate github.com token credentials (secret text/token) and username/token credentials (username/token).\n"
   printf "gitlab\t\t\tCreate gitlab.eclipse.org token credentials (secret text/token).\n"
   printf "sonarcloud\t\tCreate sonarcloud.io credentials (secret text/token).\n"
   printf "npmjs\t\t\tCreate npmjs credentials (secret text/token).\n"
@@ -156,9 +226,12 @@ github() {
   fi
 
   local token
+  username="$(pass "/cbi-pass/bots/${project_name}/github.com/username")"
   token="$(pass "/cbi-pass/bots/${project_name}/github.com/api-token")"
 
   _create_string_credentials "${project_name}" "github-bot-token" "GitHub Bot token" "${token}" "api.github.com"
+
+  _create_username_token_credentials "${project_name}" "github-bot" "GitHub bot (username/token)" "${username}" "${token}" "api.github.com"
 }
 
 gitlab() {
