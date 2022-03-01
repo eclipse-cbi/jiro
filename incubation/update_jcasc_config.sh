@@ -6,27 +6,29 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-script_name="$(basename ${BASH_SOURCE[0]})"
+#script_name="$(basename "${BASH_SOURCE[0]}")"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
-project_name="${1:-}"
-
-usage() {
-  printf "Usage: %s project_name\n" "$script_name"
-  printf "\t%-16s full name (e.g. technology.cbi for CBI project).\n" "project_name"
-}
-
-# check that project name is not empty
-if [[ -z "${project_name}" ]]; then
- printf "ERROR: a project name must be given.\n"
- usage
- exit 1
+if [[ "${#}" -eq 0 ]]; then
+  echo "ERROR: you must provide at least one 'instance' path"
+  exit 1
 fi
 
-pushd ../
-make k8s_${project_name}
-oc apply -f instances/${project_name}/target/k8s/configmap-jenkins-config.yml
-echo "Sleeping for 120 seconds..."
-sleep 120s
-./jenkins-cli.sh instances/${project_name} reload-jcasc-configuration
-popd
-echo "Done."
+log_file="jcasc_update.log"
+>${log_file}
+
+regen() {
+  local instance="${1:-}"
+  "${SCRIPT_FOLDER}/../build/gen-config.sh" "${instance}"
+  "${SCRIPT_FOLDER}/../build/gen-jenkins.sh" "${instance}"
+  "${SCRIPT_FOLDER}/../build/gen-k8s.sh" "${instance}"
+}
+
+for instance in "${@}"; do
+  project_name="$(basename "${instance}")"
+  echo "${project_name}:"
+  regen "${instance}"
+  oc apply -f "${instance}/target/k8s/configmap-jenkins-config.yml"
+  printf "Sleeping for 120 seconds...\n\n"
+  (sleep 120s && "${SCRIPT_FOLDER}/../jenkins-cli.sh" "${instance}" reload-jcasc-configuration && echo "Done ${project_name}" >> ${log_file}) &
+done
