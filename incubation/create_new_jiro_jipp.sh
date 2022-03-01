@@ -9,8 +9,6 @@ IFS=$'\n\t'
 script_name="$(basename "${BASH_SOURCE[0]}")"
 script_folder="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
-ci_admin_dir="${script_folder}/../../ci-admin"
-
 project_name="${1:-}"
 display_name="${2:-}"
 short_name="${project_name##*.}"
@@ -43,10 +41,6 @@ if [[ "$project_name" != *.* ]]; then
 fi
 
 provisioning() {
-  pushd "${ci_admin_dir}"
-  ./add_creds_gerrit.sh "${project_name}" || : # if creds already exist, ignore exit code 1
-  ./add_creds_projects-storage.sh "${project_name}" || : # if creds already exist, ignore exit code 1
-  popd
   if [[ $(oc get projects | grep -e "^${short_name} ") ]]; then
     printf "Namespace %s already exists. Skipping creation...\n" "${project_name}"
   else
@@ -72,7 +66,7 @@ wait_for_jipp_post_setup() {
   
   if [[ $(curl -sL -w "%{http_code}\n" "https://${host}/${short_name}" -o /dev/null | grep 200) ]]; then
     printf "JIPP is online!\n"
-    ./post_setup.sh "${project_name}"
+    ${script_folder}/post_setup.sh "${project_name}"
   else
     printf "ERROR: JIPP is not online after three minutes, please investigate and run post_setup.sh manually!\n"
   fi
