@@ -3,7 +3,9 @@
     fullName: "technology.subversive",
     displayName: "Eclipse Subversive",
   },
-  deployment+: {
-    cluster: "okd-c1"
+  jenkins+: {
+    plugins+: [
+      "subversion",
+    ],
   },
 }
