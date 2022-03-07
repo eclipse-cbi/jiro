@@ -54,10 +54,7 @@ cat <<EOF > "${SCRIPT_FOLDER}/instances/${project_name}/config.jsonnet"
   project+: {
     fullName: "${project_name}",
     displayName: "${display_name}",
-  },
-  deployment+: {
-    cluster: "okd-c1"
-  },
+  }
 }
 EOF
 
