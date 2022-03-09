@@ -1,0 +1,25 @@
+{
+   "apiVersion": "v1",
+   "kind": "Service",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.dataspaceconnector",
+         "org.eclipse.cbi.jiro/project.shortname": "dataspaceconnector"
+      },
+      "name": "jenkins-ui",
+      "namespace": "dataspaceconnector"
+   },
+   "spec": {
+      "ports": [
+         {
+            "name": "http",
+            "port": 80,
+            "protocol": "TCP",
+            "targetPort": 8080
+         }
+      ],
+      "selector": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.dataspaceconnector"
+      }
+   }
+}
