@@ -533,7 +533,7 @@ unclassified:
   globalLibraries:
     libraries:
     - defaultVersion: "master"
-      name: "openjdk-jenkins-helper"
+      name: "jenkins-helper"
       retriever:
         modernSCM:
           scm:
