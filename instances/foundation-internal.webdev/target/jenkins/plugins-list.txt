@@ -4,4 +4,5 @@ docker-workflow
 kubernetes-cli
 mail-watcher-plugin
 openshift-client
+pipeline-github
 slack

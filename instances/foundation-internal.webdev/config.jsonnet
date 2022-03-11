@@ -4,7 +4,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   project+: {
     fullName: "foundation-internal.webdev",
     displayName: "Eclipse Foundation WebDev",
-    resourcePacks: 5,
+    resourcePacks: 10,
   },
   deployment+: {
     host: "foundation.eclipse.org",
@@ -12,7 +12,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   },
   jenkins+: {
     version: "2.319.2",
-    staticAgentCount: 1,
+    staticAgentCount: 8, // fake higher number of staticAgent to increase controller's resources
     permissions: [
       {
         principal: "anonymous",
@@ -35,6 +35,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "kubernetes-cli",
       "mail-watcher-plugin",
       "openshift-client",
+      "pipeline-github",
       "slack",
     ],
   },

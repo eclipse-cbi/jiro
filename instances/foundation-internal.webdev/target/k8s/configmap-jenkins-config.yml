@@ -22,6 +22,14 @@ metadata:
 data:
   jenkins.yaml: |
     # GENERATED FILE - DO NOT EDIT
+    #*******************************************************************************
+    # Copyright (c) 2018 Eclipse Foundation and others.
+    # This program and the accompanying materials are made available
+    # under the terms of the Eclipse Public License 2.0
+    # which is available at http://www.eclipse.org/legal/epl-v20.html,
+    # or the MIT License which is available at https://opensource.org/licenses/MIT.
+    # SPDX-License-Identifier: EPL-2.0 OR MIT
+    #*******************************************************************************
     jenkins:
       nodes:
         - permanent:
@@ -95,7 +103,7 @@ data:
       clouds:
         - kubernetes:
             name: "kubernetes"
-            containerCapStr: "10"
+            containerCapStr: "20"
             jenkinsUrl: "http://jenkins-ui.foundation-internal-webdev.svc.cluster.local/ci/webdev"
             jenkinsTunnel: "jenkins-discovery.foundation-internal-webdev.svc.cluster.local:50000"
             maxRequestsPerHostStr: "32"
@@ -368,8 +376,8 @@ data:
             serverUrl: "https://console-int.c1-ci.eclipse.org"
       globalLibraries:
         libraries:
-          - defaultVersion: "master"
-            name: "common-shared"
+          - name: "common-shared"
+            defaultVersion: "master"
             retriever:
               modernSCM:
                 scm:
@@ -386,6 +394,27 @@ data:
                       - gitHubForkDiscovery:
                           strategyId: 2
                           trust: "gitHubTrustPermissions"
+          - name: "releng-pipeline"
+            cachingConfiguration:
+              refreshTimeMinutes: 1440
+            defaultVersion: "main"
+            retriever:
+              modernSCM:
+                scm:
+                  gitlab:
+                    credentialsId: "gitlab-credentials"
+                    id: "c5c54f66-beeb-4d2f-905f-c225e7586b8b"
+                    projectOwner: "eclipsefdn/it/releng"
+                    projectPath: "eclipsefdn/it/releng/jenkins-pipeline-library"
+                    serverName: "gitlab.eclipse.org"
+                    traits:
+                      - gitLabBranchDiscovery:
+                          strategyId: 1
+                      - gitLabOriginDiscovery:
+                          strategyId: 2
+                      - gitLabForkDiscovery:
+                          strategyId: 2
+                          trust: "gitLabTrustPermissions"
       slackNotifier:
         teamDomain: "eclipsefoundation"
         tokenCredentialId: "f13af7e7-6910-4f59-b3f5-73a16ff4d98f"
