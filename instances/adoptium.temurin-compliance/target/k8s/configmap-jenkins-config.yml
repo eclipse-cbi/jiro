@@ -149,6 +149,8 @@ data:
         installations:
           - name: "apache-maven-latest"
             home: "/opt/tools/apache-maven/latest"
+          - name: "apache-maven-3.8.5"
+            home: "/opt/tools/apache-maven/3.8.5"
           - name: "apache-maven-3.8.4"
             home: "/opt/tools/apache-maven/3.8.4"
           - name: "apache-maven-3.8.3"
@@ -1013,7 +1015,7 @@ data:
       globalLibraries:
         libraries:
           - defaultVersion: "master"
-            name: "openjdk-jenkins-helper"
+            name: "jenkins-helper"
             retriever:
               modernSCM:
                 scm:
