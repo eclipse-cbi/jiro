@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.lsat",
+         "org.eclipse.cbi.jiro/project.shortname": "lsat"
+      },
+      "name": "lsat",
+      "namespace": "lsat"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "lsat"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "lsat",
+         "namespace": "lsat"
+      }
+   ]
+}
