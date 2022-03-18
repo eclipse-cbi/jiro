@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.trace4cps",
+         "org.eclipse.cbi.jiro/project.shortname": "trace4cps"
+      },
+      "name": "trace4cps",
+      "namespace": "trace4cps"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "trace4cps"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "trace4cps",
+         "namespace": "trace4cps"
+      }
+   ]
+}
