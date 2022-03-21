@@ -56,11 +56,11 @@ if [[ -f "${yml_source}" ]]; then
   expand_templated_yaml "${yml_source}" "$(dirname "${template}")" "${config}" "${partials}" > "${expanded_src}"
   expanded_tpl=$(mktemp)
   expand_templated_yaml "${template}" "$(dirname "${template}")" "${config}" "${partials}" > "${expanded_tpl}"
-  yq eval-all 'select(fileIndex == 0) * select(fileIndex == 1)' "${expanded_src}" "${expanded_tpl}" > "${tmp}"
+  yq eval-all '. as $item ireduce ({}; . * $item )' "${expanded_tpl}" "${expanded_src}" > "${tmp}"
   rm "${expanded_src}" "${expanded_tpl}"
 elif [[ -f "${yml_source}.override" ]]; then
   cp "${yml_source}.override" "${tmp}"
-else 
+else
   cp "${template}" "${tmp}"
 fi
 
