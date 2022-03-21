@@ -2,7 +2,7 @@
   project+: {
     fullName: "eclipse.platform",
     displayName: "Eclipse Platform",
-    resourcePacks: 3,
+    resourcePacks: 4,
   },
   jenkins+: {
     plugins+: [
@@ -10,7 +10,7 @@
     ],
   },
   clouds+: {
-    kubernetes+: { 
+    kubernetes+: {
       local currentCloud = self,
       templates+: {
         "jipp-centos-7-agent-6gb": currentCloud.templates["centos-7"] {

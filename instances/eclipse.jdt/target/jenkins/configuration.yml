@@ -67,7 +67,7 @@ jenkins:
   clouds:
   - kubernetes:
       name: "kubernetes"
-      containerCapStr: "4"
+      containerCapStr: "6"
       jenkinsUrl: "http://jenkins-ui.jdt.svc.cluster.local/jdt"
       jenkinsTunnel: "jenkins-discovery.jdt.svc.cluster.local:50000"
       maxRequestsPerHostStr: "32"
@@ -509,7 +509,7 @@ tool:
       - installSource:
           installers:
           - antFromApache:
-              id: "1.10.9"
+              id: "1.10.12"
   maven:
     installations:
     - name: "apache-maven-latest"

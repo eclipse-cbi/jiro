@@ -390,7 +390,7 @@
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
-      "maxConcurrency": 8,
+      "maxConcurrency": 10,
       "permissions": [
          {
             "grantedPermissions": [
@@ -513,8 +513,8 @@
       "id": "2.319.2",
       "key_fingerprint": "FCEF32E745F2C3D5",
       "plugin_manager": {
-         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.9.2/jenkins-plugin-manager-2.9.2.jar",
-         "version": "2.9.2"
+         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.12.3/jenkins-plugin-manager-2.12.3.jar",
+         "version": "2.12.3"
       },
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
@@ -611,12 +611,12 @@
          },
          "resources": {
             "cpu": {
-               "limit": "5300m",
-               "request": "2650m"
+               "limit": "5900m",
+               "request": "2950m"
             },
             "memory": {
-               "limit": "5632Mi",
-               "request": "5632Mi"
+               "limit": "6144Mi",
+               "request": "6144Mi"
             }
          },
          "stsName": "releng"
@@ -772,7 +772,7 @@
    "project": {
       "displayName": "Eclipse Platform Releng",
       "fullName": "eclipse.platform.releng",
-      "resourcePacks": 4,
+      "resourcePacks": 5,
       "shortName": "releng",
       "unixGroupName": "eclipse.platform"
    },

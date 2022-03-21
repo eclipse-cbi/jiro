@@ -4,7 +4,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   project+: {
     fullName: "eclipse.platform.releng",
     displayName: "Eclipse Platform Releng",
-    resourcePacks: 4,
+    resourcePacks: 5,
     unixGroupName: "eclipse.platform",
   },
   jenkins+: {
@@ -13,7 +13,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "gerrit-code-review",
     ],
     staticAgentCount: 10,
-    permissions+: 
+    permissions+:
       permissionsTemplates.projectPermissions("sravankumarl@in.ibm.com", ["Agent/Connect", "Agent/Disconnect"]) +
       // https://bugs.eclipse.org/bugs/show_bug.cgi?id=562806#c15
       permissionsTemplates.projectPermissions("akurtakov@gmail.com", ["Agent/Connect", "Agent/Disconnect"])

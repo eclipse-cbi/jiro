@@ -354,7 +354,7 @@
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
-      "maxConcurrency": 4,
+      "maxConcurrency": 6,
       "permissions": [
          {
             "grantedPermissions": [
@@ -424,8 +424,8 @@
       "id": "2.319.2",
       "key_fingerprint": "FCEF32E745F2C3D5",
       "plugin_manager": {
-         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.9.2/jenkins-plugin-manager-2.9.2.jar",
-         "version": "2.9.2"
+         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.12.3/jenkins-plugin-manager-2.12.3.jar",
+         "version": "2.12.3"
       },
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
@@ -523,11 +523,11 @@
          "resources": {
             "cpu": {
                "limit": "2000m",
-               "request": "550m"
+               "request": "850m"
             },
             "memory": {
-               "limit": "2048Mi",
-               "request": "2048Mi"
+               "limit": "2560Mi",
+               "request": "2560Mi"
             }
          },
          "stsName": "jdt"
@@ -584,7 +584,7 @@
    "project": {
       "displayName": "Eclipse Java Development Tools (JDT)",
       "fullName": "eclipse.jdt",
-      "resourcePacks": 2,
+      "resourcePacks": 3,
       "shortName": "jdt",
       "unixGroupName": "eclipse.jdt"
    },
