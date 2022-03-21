@@ -551,3 +551,11 @@ unclassified:
               - gitHubForkDiscovery:
                   strategyId: 1
                   trust: "gitHubTrustPermissions"
+  buildDiscarders:
+    configuredBuildDiscarders:
+      - "jobBuildDiscarder"
+      - simpleBuildDiscarder:
+          discarder:
+            logRotator:
+              artifactNumToKeepStr: "50"
+              numToKeepStr: "128"
