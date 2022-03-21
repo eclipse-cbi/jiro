@@ -34,6 +34,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "docker-workflow",
       "kubernetes-cli",
       "mail-watcher-plugin",
+      "pipeline-github",
       "slack",
     ],
   },
