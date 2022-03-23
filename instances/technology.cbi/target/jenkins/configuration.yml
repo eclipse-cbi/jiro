@@ -1,25 +1,13 @@
 # GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
 jenkins:
-  nodes:
-    - permanent:
-        labelString: "docker-build"
-        launcher:
-          ssh:
-            credentialsId: "cfaf31c8-22ea-487d-9d6d-b7dd77b624f5"
-            host: "13.77.107.72"
-            jvmOptions: "-Xmx256m -Xms256m"
-            sshHostKeyVerificationStrategy:
-              manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeTB1LA7FnUI8kNrY8zVx/Ywy1RN4tJj11W9QWFWTr6gAJgSNEneKIa8hnjZEPddYOIsBOQ9VSvgXYGFRKEFXW23zskuWEyCqSZ/e7RTw2VTCh5nfUZlX1eG7iujn1mpineX/+hRR7HtxDM9MPhpbrq6HVjXuSx8mex9vu4p20ZVZkewedmtG2+qYDDTsv8uw0kX+kkyRuE6An14omsCQ+8mJ17zQnGXN2CnrXXMOWbgH9BC8RZUvNZOzNY1JkWf9EqY2Tz3YJPgUM+9qVj3/BEjGopEIUT/jDuk2NnOo+V1GT8aWzwmBjv91F7wgjuQ72cV8GeSbxz0utQ9isuMkp"
-        mode: EXCLUSIVE
-        name: "fmlw3-ubuntu1804"
-        nodeDescription: "4vCPU, 16GB RAM, Hosted @ Azure"
-        remoteFS: "/home/genie.cbi/jenkins-agent"
-        numExecutors: 2
-        nodeProperties:
-          - watcher:
-              offlineAddresses: "releng@eclipse.org"
-              onlineAddresses: "releng@eclipse.org"
   numExecutors: 0
   scmCheckoutRetryCount: 2
   mode: EXCLUSIVE
@@ -405,10 +393,38 @@ jenkins:
                 - name: gradle-secret-dir
                   secret:
                     secretName: gradle-secret-dir
+  nodes:
+    - permanent:
+        labelString: "docker-build"
+        launcher:
+          ssh:
+            credentialsId: "cfaf31c8-22ea-487d-9d6d-b7dd77b624f5"
+            host: "13.77.107.72"
+            jvmOptions: "-Xmx256m -Xms256m"
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeTB1LA7FnUI8kNrY8zVx/Ywy1RN4tJj11W9QWFWTr6gAJgSNEneKIa8hnjZEPddYOIsBOQ9VSvgXYGFRKEFXW23zskuWEyCqSZ/e7RTw2VTCh5nfUZlX1eG7iujn1mpineX/+hRR7HtxDM9MPhpbrq6HVjXuSx8mex9vu4p20ZVZkewedmtG2+qYDDTsv8uw0kX+kkyRuE6An14omsCQ+8mJ17zQnGXN2CnrXXMOWbgH9BC8RZUvNZOzNY1JkWf9EqY2Tz3YJPgUM+9qVj3/BEjGopEIUT/jDuk2NnOo+V1GT8aWzwmBjv91F7wgjuQ72cV8GeSbxz0utQ9isuMkp"
+        mode: EXCLUSIVE
+        name: "fmlw3-ubuntu1804"
+        nodeDescription: "4vCPU, 16GB RAM, Hosted @ Azure"
+        remoteFS: "/home/genie.cbi/jenkins-agent"
+        numExecutors: 2
+        nodeProperties:
+          - watcher:
+              offlineAddresses: "releng@eclipse.org"
+              onlineAddresses: "releng@eclipse.org"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  queueItemAuthenticator:
+    authenticators:
+      - global:
+          strategy: "triggeringUsersAuthorizationStrategy"
+  sSHD:
+    port: -1
 unclassified:
-  slackNotifier:
-    teamDomain: "eclipsefoundation"
-    tokenCredentialId: "03a52394-e33f-46fc-be2a-222bf8e9a58f"
   location:
     adminAddress: ci-admin@eclipse.org
     url: https://ci.eclipse.org/cbi
@@ -459,17 +475,9 @@ unclassified:
   gitSCM:
     createAccountBasedOnEmail: true
     useExistingAccountWithSameEmail: true
-security:
-  apiToken:
-    creationOfLegacyTokenEnabled: false
-    tokenGenerationOnCreationEnabled: false
-    usageStatisticsEnabled: true
-  queueItemAuthenticator:
-    authenticators:
-      - global:
-          strategy: "triggeringUsersAuthorizationStrategy"
-  sSHD:
-    port: -1
+  slackNotifier:
+    teamDomain: "eclipsefoundation"
+    tokenCredentialId: "03a52394-e33f-46fc-be2a-222bf8e9a58f"
 tool:
   jdk:
     installations:
@@ -575,7 +583,7 @@ tool:
           - installSource:
               installers:
                 - antFromApache:
-                    id: "1.10.9"
+                    id: "1.10.12"
   maven:
     installations:
       - name: "apache-maven-latest"
