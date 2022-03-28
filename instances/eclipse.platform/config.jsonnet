@@ -7,6 +7,7 @@
   jenkins+: {
     plugins+: [
       "gerrit-code-review",
+      "pipeline-github-plugin",
     ],
   },
   clouds+: {
