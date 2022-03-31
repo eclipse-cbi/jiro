@@ -10,19 +10,19 @@ authorize-project 1.4.0
 bootstrap4-api 4.6.0-3
 bootstrap5-api 5.1.3-6
 bouncycastle-api 2.25
-branch-api 2.7.0
+branch-api 2.1044.v2c007e51b_87f
 build-timeout 1.20
 caffeine-api 2.9.2-29.v717aac953ff3
 checks-api 1.7.2
-cloudbees-folder 6.708.ve61636eb_65a_5
+cloudbees-folder 6.714.v79e858ef76a_2
 command-launcher 1.6
 config-file-provider 3.9.0
 configuration-as-code 1414.v878271fc496f
-credentials 1074.v60e6c29b_b_44b_
+credentials 1087.v16065d268466
 credentials-binding 1.27.1
 data-tables-api 1.11.4-4
 display-url-api 2.3.5
-durable-task 493.v195aefbb0ff2
+durable-task 495.v29cd95ec10f2
 echarts-api 5.3.0-2
 email-ext 2.87
 extended-read-permission 3.2
@@ -32,7 +32,7 @@ font-awesome-api 6.0.0-1
 forensics-api 1.12.0
 gerrit-trigger 2.35.2
 ghprb 1.42.2
-git 4.10.3
+git 4.11.0
 git-client 3.11.0
 git-parameter 0.9.15
 git-server 1.10
@@ -89,7 +89,7 @@ popper2-api 2.11.4-1
 prism-api 1.26.0-2
 promoted-builds 873.v6149db_d64130
 rebuild 1.33
-resource-disposer 0.17
+resource-disposer 0.18
 scm-api 595.vd5a_df5eb_0e39
 script-security 1138.v8e727069a_025
 simple-theme-plugin 103.va_161d09c38c7
@@ -101,7 +101,7 @@ ssh-slaves 1.806.v2253cedd3295
 sshd 3.1.0
 structs 308.v852b473a2b8c
 timestamper 1.17
-token-macro 280.v97a_82642793c
+token-macro 285.vff7645a_56ff0
 trilead-api 1.0.13
 variant 1.4
 warnings-ng 9.11.1
@@ -110,13 +110,13 @@ workflow-api 1143.v2d42f1e9dea_5
 workflow-basic-steps 2.24
 workflow-cps 2660.vb_c0412dc4e6d
 workflow-cps-global-lib 564.ve62a_4eb_b_e039
-workflow-durable-task-step 1121.va_65b_d2701486
+workflow-durable-task-step 1128.v8c259d125340
 workflow-job 1145.v7f2433caa07f
 workflow-multibranch 711.vdfef37cda_816
 workflow-scm-step 2.13
 workflow-step-api 622.vb_8e7c15b_c95a_
 workflow-support 813.vb_d7c3d2984a_0
-ws-cleanup 0.40
+ws-cleanup 0.41
 xvnc 1.28
 
 Bundled plugins:
@@ -127,26 +127,32 @@ apache-httpcomponents-client-4-api 4.5.13-1.0
 authentication-tokens 1.4
 bootstrap4-api 4.6.0-3
 bootstrap5-api 5.1.3-6
-branch-api 2.7.0
+branch-api 2.1044.v2c007e51b_87f
 caffeine-api 2.9.2-29.v717aac953ff3
 checks-api 1.7.2
-cloudbees-folder 6.708.ve61636eb_65a_5
-credentials 1074.v60e6c29b_b_44b_
+cloudbees-folder 6.714.v79e858ef76a_2
+credentials 1087.v16065d268466
 credentials-binding 1.27.1
 display-url-api 2.3.5
 echarts-api 5.3.0-2
 font-awesome-api 6.0.0-1
 gerrit-code-review 0.4.7
-git 4.10.3
+git 4.11.0
 git-client 3.11.0
+github 1.34.3
+github-api 1.301-378.v9807bd746da5
+github-branch-source 2.11.4
 jackson2-api 2.13.2-260.v43d711474c77
 javax-activation-api 1.2.0-2
 javax-mail-api 1.6.2-5
+jjwt-api 0.11.2-9.c8b45b8bb173
 jquery3-api 3.6.0-2
 jsch 0.1.55.2
 junit 1.54
 mailer 408.vd726a_1130320
 matrix-project 758.v7a_ea_491852f3
+okhttp-api 4.9.3-105.vb96869f8ac3a
+pipeline-github 2.8-138.d766e30bb08b
 plain-credentials 1.8
 plugin-util-api 2.15.0
 popper-api 1.16.1-2
@@ -156,6 +162,7 @@ script-security 1138.v8e727069a_025
 snakeyaml-api 1.29.1
 ssh-credentials 1.19
 structs 308.v852b473a2b8c
+token-macro 285.vff7645a_56ff0
 trilead-api 1.0.13
 workflow-api 1143.v2d42f1e9dea_5
 workflow-cps 2660.vb_c0412dc4e6d
@@ -167,6 +174,7 @@ workflow-support 813.vb_d7c3d2984a_0
 
 Plugins that will be downloaded:
 gerrit-code-review 0.4.7
+pipeline-github 2.8-138.d766e30bb08b
 
 Resulting plugin list:
 ace-editor 1.1
@@ -179,19 +187,19 @@ authorize-project 1.4.0
 bootstrap4-api 4.6.0-3
 bootstrap5-api 5.1.3-6
 bouncycastle-api 2.25
-branch-api 2.7.0
+branch-api 2.1044.v2c007e51b_87f
 build-timeout 1.20
 caffeine-api 2.9.2-29.v717aac953ff3
 checks-api 1.7.2
-cloudbees-folder 6.708.ve61636eb_65a_5
+cloudbees-folder 6.714.v79e858ef76a_2
 command-launcher 1.6
 config-file-provider 3.9.0
 configuration-as-code 1414.v878271fc496f
-credentials 1074.v60e6c29b_b_44b_
+credentials 1087.v16065d268466
 credentials-binding 1.27.1
 data-tables-api 1.11.4-4
 display-url-api 2.3.5
-durable-task 493.v195aefbb0ff2
+durable-task 495.v29cd95ec10f2
 echarts-api 5.3.0-2
 email-ext 2.87
 extended-read-permission 3.2
@@ -202,7 +210,7 @@ forensics-api 1.12.0
 gerrit-code-review 0.4.7
 gerrit-trigger 2.35.2
 ghprb 1.42.2
-git 4.10.3
+git 4.11.0
 git-client 3.11.0
 git-parameter 0.9.15
 git-server 1.10
@@ -241,6 +249,7 @@ okhttp-api 4.9.3-105.vb96869f8ac3a
 pam-auth 1.7
 parameterized-trigger 2.44
 pipeline-build-step 2.16
+pipeline-github 2.8-138.d766e30bb08b
 pipeline-graph-analysis 188.v3a01e7973f2c
 pipeline-input-step 446.vf27b_0b_83500e
 pipeline-maven 3.10.0
@@ -259,7 +268,7 @@ popper2-api 2.11.4-1
 prism-api 1.26.0-2
 promoted-builds 873.v6149db_d64130
 rebuild 1.33
-resource-disposer 0.17
+resource-disposer 0.18
 scm-api 595.vd5a_df5eb_0e39
 script-security 1138.v8e727069a_025
 simple-theme-plugin 103.va_161d09c38c7
@@ -271,7 +280,7 @@ ssh-slaves 1.806.v2253cedd3295
 sshd 3.1.0
 structs 308.v852b473a2b8c
 timestamper 1.17
-token-macro 280.v97a_82642793c
+token-macro 285.vff7645a_56ff0
 trilead-api 1.0.13
 variant 1.4
 warnings-ng 9.11.1
@@ -280,13 +289,13 @@ workflow-api 1143.v2d42f1e9dea_5
 workflow-basic-steps 2.24
 workflow-cps 2660.vb_c0412dc4e6d
 workflow-cps-global-lib 564.ve62a_4eb_b_e039
-workflow-durable-task-step 1121.va_65b_d2701486
+workflow-durable-task-step 1128.v8c259d125340
 workflow-job 1145.v7f2433caa07f
 workflow-multibranch 711.vdfef37cda_816
 workflow-scm-step 2.13
 workflow-step-api 622.vb_8e7c15b_c95a_
 workflow-support 813.vb_d7c3d2984a_0
-ws-cleanup 0.40
+ws-cleanup 0.41
 xvnc 1.28
 
 Security warnings:

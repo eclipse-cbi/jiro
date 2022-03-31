@@ -506,7 +506,8 @@
          }
       ],
       "plugins": [
-         "gerrit-code-review"
+         "gerrit-code-review",
+         "pipeline-github"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
