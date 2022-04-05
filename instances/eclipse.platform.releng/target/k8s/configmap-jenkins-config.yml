@@ -477,7 +477,7 @@ data:
                     - home: 'C:\tools\cygwin\bin\git'
                       key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
         - permanent:
-            name: "zyt5z-centos7"
+            name: "zyt5z-centos83"
             nodeDescription: "Dedicated agent for performance tests, hosted on Azure"
             labelString: "performance docker-build"
             remoteFS: '/home/genie.releng/jenkins'
@@ -486,13 +486,13 @@ data:
             retentionStrategy: "always"
             launcher:
               ssh:
-                host: "13.72.66.232"
+                host: "20.231.104.175"
                 port: "22"
-                credentialsId: "7b792838-4358-45dd-8309-e47b8a10e3c2"
+                credentialsId: "zyt5z-centos83-ssh"
                 javaPath: ""
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
-                    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCg6mNlOLk+bA8MY+gyttjCmVujsq0I/Bjvur/eon8Rrg4AHt+ug37NiFX1hknY3WyOrWSMS/2iyxJlgAByYAQth0FKh+d441PSafVan5H3jI0+nCLGCkYEtNpSrvKH1jjHKybtYX6zGQscEcNA74KxHPPDPnvp14kpWIFnt4mhC1uqbfbQf0eY5lJeMwPrpR+RwAEYJu/zk+LITuh5na9h1c77ENc9OUjTsmFMW7S1bLkx7v0PRpZeSmY0AXnHZ0aWH0KqU4AMe/gRkB+JTDJzJeks9vFko3yGVpuC4ePzbr5df9junbN6WiUf1bs33t0hGKvzVzPQSJ9YpDECFhI7"
+                    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6tfKfT8YiNcb3WQOO2t4AmMEGsq+IhxAo2ROEXYrcYDJNWiR7jI4drW1jlOICQKqN5EcvBmTAUegHWuUVE+EVAQm9HrqFtAkJ7bhCcAUTtoMqdYzIR6vQ0LKCMsw6KuGVqsZ2Ub2pkA7CCbJE0CEX5uQFRFd57ngn5+kOJ4TcM9x8N7dEXyIv0lgos9J9JEm/XAlLfsdPomi79KcAE4DTWPkMCgs91aTzTRylIb0iEeReTSljw0UyWdsZgwPEX3ISUM+dWA0nl4W/lyeiEjD8r8EWx8h7POZXlMyYuwysbatrU8hfUlGoLKEKLuzozMfJCgW/v7gITU8J5pXCs4hV1lynM1G0avGnNWBrdeX+PW8abKK015/OZ+28Lt9+ig+BQtIF0S3AcUzzDPTjz1CpO0pq1dh2A2ed5RwHSg18CGzU17s4rnbBsNqZyB34NoUMEb0Lfs2ozucfXsasIhbtTqoo08LopcHagYx0VOHrYv3PPjOEemROmMPiU2xc1i8="
             nodeProperties:
               - toolLocation:
                   locations:

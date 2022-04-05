@@ -513,8 +513,8 @@
       "id": "2.319.2",
       "key_fingerprint": "FCEF32E745F2C3D5",
       "plugin_manager": {
-         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.12.3/jenkins-plugin-manager-2.12.3.jar",
-         "version": "2.12.3"
+         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.9.2/jenkins-plugin-manager-2.9.2.jar",
+         "version": "2.9.2"
       },
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
