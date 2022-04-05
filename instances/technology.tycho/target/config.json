@@ -400,6 +400,33 @@
                "Gerrit/Retrigger"
             ],
             "principal": "technology.tycho"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Job/Read"
+            ],
+            "principal": "anonymous"
+         },
+         {
+            "grantedPermissions": [
+               "Job/ExtendedRead"
+            ],
+            "principal": "common"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Administer"
+            ],
+            "principal": "admins"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Connect",
+               "Agent/Disconnect",
+               "Agent/ExtendedRead"
+            ],
+            "principal": "laeubi@laeubi-soft.de"
          }
       ],
       "plugins": [ ],

@@ -3,7 +3,7 @@ jenkins:
   - permanent:
       name: "laeubisoft-build-node"
       nodeDescription: "Debian Bullseye 11 (64 bit) dynamic build node hosted by https://läubisoft.gmbh/en/"
-      labelString: "linux, centos-8"
+      labelString: "linux external"
       remoteFS: '/home/buildnode'
       numExecutors: 4
       mode: EXCLUSIVE

@@ -46,6 +46,9 @@ data:
             - "USER:Job/Read:anonymous"
             - "USER:Overall/Read:anonymous"
             - "GROUP:Job/ExtendedRead:common"
+            - "USER:Agent/Connect:laeubi@laeubi-soft.de"
+            - "USER:Agent/Disconnect:laeubi@laeubi-soft.de"
+            - "USER:Agent/ExtendedRead:laeubi@laeubi-soft.de"
             - "GROUP:Agent/Build:technology.tycho"
             - "GROUP:Credentials/View:technology.tycho"
             - "GROUP:Gerrit/ManualTrigger:technology.tycho"
@@ -354,7 +357,7 @@ data:
         - permanent:
             name: "laeubisoft-build-node"
             nodeDescription: "Debian Bullseye 11 (64 bit) dynamic build node hosted by https://läubisoft.gmbh/en/"
-            labelString: "linux, centos-8"
+            labelString: "linux external"
             remoteFS: '/home/buildnode'
             numExecutors: 4
             mode: EXCLUSIVE
