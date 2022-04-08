@@ -19,11 +19,11 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       },
       {
         principal: "foundation-internal.webdev",
-        grantedPermissions: [ "Overall/Read" ],
+        grantedPermissions: ["Overall/Read"],
       },
       {
         principal: "wayne.beaton@eclipse-foundation.org",
-        grantedPermissions: [ "Overall/Read" ],
+        grantedPermissions: ["Overall/Read", "Agent/Build"],
       },
       {
         principal: "foundation-internal.it",

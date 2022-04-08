@@ -370,7 +370,8 @@
          },
          {
             "grantedPermissions": [
-               "Overall/Read"
+               "Overall/Read",
+               "Agent/Build"
             ],
             "principal": "wayne.beaton@eclipse-foundation.org"
          },
@@ -403,6 +404,7 @@
          "docker-workflow",
          "kubernetes-cli",
          "mail-watcher-plugin",
+         "pipeline-github",
          "slack"
       ],
       "pluginsForceUpgrade": true,
