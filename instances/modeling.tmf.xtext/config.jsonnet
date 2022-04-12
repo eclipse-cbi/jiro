@@ -40,6 +40,17 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
             },
           },
         },
+        "centos-8-6gb": currentCloud.templates["centos-8"] {
+          labels: ["centos-8-6gb"],
+          kubernetes+: {
+            resources+: {
+              memory: {
+                limit: "6144Mi",
+                request: "6144Mi",
+              },
+            },
+          },
+        },
       },
     },
   },

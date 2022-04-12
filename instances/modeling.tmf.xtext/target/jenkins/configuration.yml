@@ -1,36 +1,13 @@
 # GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
 jenkins:
-  nodes:
-    - permanent:
-        labelString: "external"
-        launcher:
-          ssh:
-            credentialsId: "f83258dd-f206-441c-991d-d9f754c4f6fa"
-            host: "116.203.100.226"
-            port: 22
-            sshHostKeyVerificationStrategy:
-              manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAoSSFhyrxA22Bsphc4ktfjwwHzJ+w3sX9ixNFIVks7swLdYnkoe6pUoeo4KNqvcEYLwcur/NSS83nKO3uk/aCXb222zeegxMWbJluuP5+Ora8RY5Vd5JhLridorPHx+xuSNhnowx5VCkBA7MAzapHx/6KIHVKspVKFW0Ddd2difyDBt3w8hghiNub6LV8Oj0nWmTLyWgcP0TgK2X2P4EcgBLLn9TJXqIqutzwlFjr0vRs3NxkbUm4vmILv/v3/LmsfeY+TQsXbjKOAKPmQ/b/DSfUzjqf7TIxQDuTYlSxWEYTEceKDJiPCPntyiRtuqyvacbiHtr6/g/w/DOiYRJb"
-        mode: EXCLUSIVE
-        name: "external-agent-01"
-        nodeDescription: "External build agent, provided by the Xtext project"
-        numExecutors: 1
-        remoteFS: "/home/xtextbot"
-    - permanent:
-        labelString: "external"
-        launcher:
-          ssh:
-            credentialsId: "f83258dd-f206-441c-991d-d9f754c4f6fa"
-            host: "116.203.94.5"
-            port: 22
-            sshHostKeyVerificationStrategy:
-              manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDTgsftTryYb2zdbL3cgYyV6XEqfLX4UIHSe44lNf5nLDiVCb/w32eEz8aR5krb4M5M5IsDtPFRW/I4mpeiLBkvP/baNdqyZJxKrOCRPOmH7PGu6hhfPOVjjgN3mtoF4Cl01i/7kwqA+2palztf1LMfipTkps8gIWnR1qbZeOtdyE+5nCW2tn0lKHW7FCwRZZAzomAtFx5izgATY6LgFOhNJbWrQ3MdK3n26PR9DjLWqm7isEQg1F/+cbFmmWAsITwL+mB0wtXV2fPwXeEsQbuaL6f04mYzUuekbB/3ppraL9nqCSKrYsq6RQp2Pa5fZ5jR6EWLTNHpEEIXLGcbtvpN"
-        mode: EXCLUSIVE
-        name: "external-agent-02"
-        nodeDescription: "External build agent, provided by the Xtext project"
-        numExecutors: 1
-        remoteFS: "/home/xtextbot"
   numExecutors: 0
   scmCheckoutRetryCount: 2
   mode: EXCLUSIVE
@@ -522,9 +499,157 @@ jenkins:
                 - name: gradle-secret-dir
                   secret:
                     secretName: gradle-secret-dir
+          - containers:
+              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
+                alwaysPullImage: true
+                livenessProbe:
+                  failureThreshold: 0
+                  initialDelaySeconds: 0
+                  periodSeconds: 0
+                  successThreshold: 0
+                  timeoutSeconds: 0
+                name: "jnlp"
+                resourceLimitCpu: "2000m"
+                resourceRequestCpu: "1000m"
+                resourceLimitMemory: "6144Mi"
+                resourceRequestMemory: "6144Mi"
+                ttyEnabled: true
+                command: ""
+                args: ""
+            instanceCap: -1
+            name: "centos-8-6gb"
+            namespace: "xtext"
+            nodeUsageMode: EXCLUSIVE
+            label: "centos-8-6gb"
+            envVars:
+              - envVar:
+                  key: "JAVA_TOOL_OPTIONS"
+                  value: ""
+              - envVar:
+                  key: "JENKINS_REMOTING_JAVA_OPTS"
+                  value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+              - envVar:
+                  key: "OPENJ9_JAVA_OPTIONS"
+                  value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+              - envVar:
+                  key: "_JAVA_OPTIONS"
+                  value: ""
+            volumes:
+              - persistentVolumeClaim:
+                  claimName: "tools-claim-jiro-xtext"
+                  mountPath: "/opt/tools"
+                  readOnly: true
+              - configMapVolume:
+                  configMapName: "known-hosts"
+                  mountPath: "/home/jenkins/.ssh/"
+                  subPath: "."
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.m2/repository"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.m2/wrapper"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.gradle/caches"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.gradle/daemon"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.gradle/native"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.gradle/workers"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.gradle/wrapper"
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: m2-dir
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                  - name: m2-dir
+                    mountPath: /home/jenkins/.mavenrc
+                    subPath: .mavenrc
+                    readOnly: true
+                  - name: gradle-secret-dir
+                    mountPath: /home/jenkins/.gradle/gradle.properties
+                    subPath: gradle.properties
+                    readOnly: true
+                volumes:
+                - name: m2-secret-dir
+                  secret:
+                    secretName: m2-secret-dir
+                - name: m2-dir
+                  configMap:
+                    name: m2-dir
+                - name: gradle-secret-dir
+                  secret:
+                    secretName: gradle-secret-dir
+  nodes:
+    - permanent:
+        labelString: "external"
+        launcher:
+          ssh:
+            credentialsId: "f83258dd-f206-441c-991d-d9f754c4f6fa"
+            host: "116.203.100.226"
+            port: 22
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAoSSFhyrxA22Bsphc4ktfjwwHzJ+w3sX9ixNFIVks7swLdYnkoe6pUoeo4KNqvcEYLwcur/NSS83nKO3uk/aCXb222zeegxMWbJluuP5+Ora8RY5Vd5JhLridorPHx+xuSNhnowx5VCkBA7MAzapHx/6KIHVKspVKFW0Ddd2difyDBt3w8hghiNub6LV8Oj0nWmTLyWgcP0TgK2X2P4EcgBLLn9TJXqIqutzwlFjr0vRs3NxkbUm4vmILv/v3/LmsfeY+TQsXbjKOAKPmQ/b/DSfUzjqf7TIxQDuTYlSxWEYTEceKDJiPCPntyiRtuqyvacbiHtr6/g/w/DOiYRJb"
+        mode: EXCLUSIVE
+        name: "external-agent-01"
+        nodeDescription: "External build agent, provided by the Xtext project"
+        numExecutors: 1
+        remoteFS: "/home/xtextbot"
+    - permanent:
+        labelString: "external"
+        launcher:
+          ssh:
+            credentialsId: "f83258dd-f206-441c-991d-d9f754c4f6fa"
+            host: "116.203.94.5"
+            port: 22
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDTgsftTryYb2zdbL3cgYyV6XEqfLX4UIHSe44lNf5nLDiVCb/w32eEz8aR5krb4M5M5IsDtPFRW/I4mpeiLBkvP/baNdqyZJxKrOCRPOmH7PGu6hhfPOVjjgN3mtoF4Cl01i/7kwqA+2palztf1LMfipTkps8gIWnR1qbZeOtdyE+5nCW2tn0lKHW7FCwRZZAzomAtFx5izgATY6LgFOhNJbWrQ3MdK3n26PR9DjLWqm7isEQg1F/+cbFmmWAsITwL+mB0wtXV2fPwXeEsQbuaL6f04mYzUuekbB/3ppraL9nqCSKrYsq6RQp2Pa5fZ5jR6EWLTNHpEEIXLGcbtvpN"
+        mode: EXCLUSIVE
+        name: "external-agent-02"
+        nodeDescription: "External build agent, provided by the Xtext project"
+        numExecutors: 1
+        remoteFS: "/home/xtextbot"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  queueItemAuthenticator:
+    authenticators:
+      - global:
+          strategy: "triggeringUsersAuthorizationStrategy"
+  sSHD:
+    port: -1
 unclassified:
-  timestamper:
-    allPipelines: true
   location:
     adminAddress: ci-admin@eclipse.org
     url: https://ci.eclipse.org/xtext
@@ -575,17 +700,8 @@ unclassified:
   gitSCM:
     createAccountBasedOnEmail: true
     useExistingAccountWithSameEmail: true
-security:
-  apiToken:
-    creationOfLegacyTokenEnabled: false
-    tokenGenerationOnCreationEnabled: false
-    usageStatisticsEnabled: true
-  queueItemAuthenticator:
-    authenticators:
-      - global:
-          strategy: "triggeringUsersAuthorizationStrategy"
-  sSHD:
-    port: -1
+  timestamper:
+    allPipelines: true
 tool:
   jdk:
     installations:
@@ -691,7 +807,7 @@ tool:
           - installSource:
               installers:
                 - antFromApache:
-                    id: "1.10.9"
+                    id: "1.10.12"
   maven:
     installations:
       - name: "apache-maven-latest"
