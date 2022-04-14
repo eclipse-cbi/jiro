@@ -402,7 +402,9 @@
             "principal": "iot.zenoh"
          }
       ],
-      "plugins": [ ],
+      "plugins": [
+         "embeddable-build-status"
+      ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",
