@@ -1,6 +1,6 @@
 {
   project+: {
-    fullName: "technology.basyx",
+    fullName: "dt.basyx",
     displayName: "Eclipse BaSyx",
   },
   jenkins+: {

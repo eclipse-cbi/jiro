@@ -3,23 +3,23 @@
    "kind": "Service",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "technology.basyx",
+         "org.eclipse.cbi.jiro/project.fullName": "dt.basyx",
          "org.eclipse.cbi.jiro/project.shortname": "basyx"
       },
-      "name": "jenkins-ui",
+      "name": "jenkins-discovery",
       "namespace": "basyx"
    },
    "spec": {
       "ports": [
          {
-            "name": "http",
-            "port": 80,
+            "name": "jnlp",
+            "port": 50000,
             "protocol": "TCP",
-            "targetPort": 8080
+            "targetPort": 50000
          }
       ],
       "selector": {
-         "org.eclipse.cbi.jiro/project.fullName": "technology.basyx"
+         "org.eclipse.cbi.jiro/project.fullName": "dt.basyx"
       }
    }
 }

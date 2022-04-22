@@ -2,7 +2,7 @@
    "accessControl": {
       "primaryGroup": {
          "id": -1,
-         "name": "technology.basyx"
+         "name": "dt.basyx"
       },
       "supplementalGroups": [ ],
       "user": {
@@ -333,7 +333,7 @@
    "docker": {
       "master": {
          "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.319.2\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
-         "image": "technology.basyx",
+         "image": "dt.basyx",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
          "tag": "2.319.2"
@@ -399,7 +399,7 @@
                "Gerrit/ManualTrigger",
                "Gerrit/Retrigger"
             ],
-            "principal": "technology.basyx"
+            "principal": "dt.basyx"
          }
       ],
       "plugins": [
@@ -539,7 +539,7 @@
       "files": {
          "settings-security.xml": {
             "master": {
-               "pass": "bots/technology.basyx/apache-maven-security-settings"
+               "pass": "bots/dt.basyx/apache-maven-security-settings"
             }
          },
          "settings.xml": {
@@ -554,16 +554,16 @@
             "servers": {
                "gpg.passphrase": {
                   "passphrase": {
-                     "pass": "bots/technology.basyx/gpg/passphrase"
+                     "pass": "bots/dt.basyx/gpg/passphrase"
                   }
                },
                "ossrh": {
                   "nexusProUrl": "https://oss.sonatype.org",
                   "password": {
-                     "pass": "bots/technology.basyx/oss.sonatype.org/password"
+                     "pass": "bots/dt.basyx/oss.sonatype.org/password"
                   },
                   "username": {
-                     "pass": "bots/technology.basyx/oss.sonatype.org/username"
+                     "pass": "bots/dt.basyx/oss.sonatype.org/username"
                   }
                },
                "repo.eclipse.org": {
@@ -585,10 +585,10 @@
    },
    "project": {
       "displayName": "Eclipse BaSyx",
-      "fullName": "technology.basyx",
+      "fullName": "dt.basyx",
       "resourcePacks": 1,
       "shortName": "basyx",
-      "unixGroupName": "technology.basyx"
+      "unixGroupName": "dt.basyx"
    },
    "sbt": {
       "files": {

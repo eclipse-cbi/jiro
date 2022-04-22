@@ -6,7 +6,7 @@
          "kind": "PersistentVolume",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "technology.basyx",
+               "org.eclipse.cbi.jiro/project.fullName": "dt.basyx",
                "org.eclipse.cbi.jiro/project.shortname": "basyx"
             },
             "name": "tools-jiro-basyx"
@@ -50,7 +50,7 @@
          "kind": "PersistentVolumeClaim",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "technology.basyx",
+               "org.eclipse.cbi.jiro/project.fullName": "dt.basyx",
                "org.eclipse.cbi.jiro/project.shortname": "basyx"
             },
             "name": "tools-claim-jiro-basyx",

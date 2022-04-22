@@ -6,7 +6,7 @@
          "haproxy.router.openshift.io/timeout": "60s"
       },
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "technology.basyx",
+         "org.eclipse.cbi.jiro/project.fullName": "dt.basyx",
          "org.eclipse.cbi.jiro/project.shortname": "basyx"
       },
       "name": "basyx",

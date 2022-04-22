@@ -3,7 +3,7 @@
    "kind": "Role",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "technology.basyx",
+         "org.eclipse.cbi.jiro/project.fullName": "dt.basyx",
          "org.eclipse.cbi.jiro/project.shortname": "basyx"
       },
       "name": "jenkins-master-owner",
