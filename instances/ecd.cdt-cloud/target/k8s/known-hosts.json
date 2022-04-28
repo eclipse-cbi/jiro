@@ -6,10 +6,10 @@
    "kind": "ConfigMap",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ecd.cdt.cloud",
-         "org.eclipse.cbi.jiro/project.shortname": "cloud"
+         "org.eclipse.cbi.jiro/project.fullName": "ecd.cdt-cloud",
+         "org.eclipse.cbi.jiro/project.shortname": "cdt-cloud"
       },
       "name": "known-hosts",
-      "namespace": "cloud"
+      "namespace": "cdt-cloud"
    }
 }

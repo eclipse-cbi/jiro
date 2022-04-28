@@ -3,11 +3,11 @@
    "kind": "Role",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ecd.cdt.cloud",
-         "org.eclipse.cbi.jiro/project.shortname": "cloud"
+         "org.eclipse.cbi.jiro/project.fullName": "ecd.cdt-cloud",
+         "org.eclipse.cbi.jiro/project.shortname": "cdt-cloud"
       },
       "name": "jenkins-master-owner",
-      "namespace": "cloud"
+      "namespace": "cdt-cloud"
    },
    "rules": [
       {

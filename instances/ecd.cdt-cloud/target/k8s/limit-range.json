@@ -3,11 +3,11 @@
    "kind": "LimitRange",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ecd.cdt.cloud",
-         "org.eclipse.cbi.jiro/project.shortname": "cloud"
+         "org.eclipse.cbi.jiro/project.fullName": "ecd.cdt-cloud",
+         "org.eclipse.cbi.jiro/project.shortname": "cdt-cloud"
       },
       "name": "jenkins-instance-limit-range",
-      "namespace": "cloud"
+      "namespace": "cdt-cloud"
    },
    "spec": {
       "limits": [

@@ -2,18 +2,18 @@
    "accessControl": {
       "primaryGroup": {
          "id": -1,
-         "name": "ecd.cdt.cloud"
+         "name": "ecd.cdt-cloud"
       },
       "supplementalGroups": [ ],
       "user": {
          "id": -1,
-         "name": "genie.cloud"
+         "name": "genie.cdt-cloud"
       }
    },
    "clouds": {
       "kubernetes": {
          "kind": "kubernetes",
-         "namespace": "cloud",
+         "namespace": "cdt-cloud",
          "podRetention": "never",
          "templates": {
             "basic": {
@@ -326,14 +326,14 @@
       "controlPort": 8081,
       "host": "ci.eclipse.org",
       "jnlpPort": 50000,
-      "prefix": "/cloud",
+      "prefix": "/cdt-cloud",
       "uiPort": 8080,
-      "url": "https://ci.eclipse.org/cloud"
+      "url": "https://ci.eclipse.org/cdt-cloud"
    },
    "docker": {
       "master": {
          "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.319.2\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
-         "image": "ecd.cdt.cloud",
+         "image": "ecd.cdt-cloud",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
          "tag": "2.319.2"
@@ -399,7 +399,7 @@
                "Gerrit/ManualTrigger",
                "Gerrit/Retrigger"
             ],
-            "principal": "ecd.cdt.cloud"
+            "principal": "ecd.cdt-cloud"
          }
       ],
       "plugins": [ ],
@@ -500,10 +500,10 @@
                "request": "4096Mi"
             }
          },
-         "namespace": "cloud"
+         "namespace": "cdt-cloud"
       },
       "master": {
-         "namespace": "cloud",
+         "namespace": "cdt-cloud",
          "probe": {
             "liveness": {
                "delaySeconds": 480,
@@ -528,14 +528,14 @@
                "request": "1536Mi"
             }
          },
-         "stsName": "cloud"
+         "stsName": "cdt-cloud"
       }
    },
    "maven": {
       "files": {
          "settings-security.xml": {
             "master": {
-               "pass": "bots/ecd.cdt.cloud/apache-maven-security-settings"
+               "pass": "bots/ecd.cdt-cloud/apache-maven-security-settings"
             }
          },
          "settings.xml": {
@@ -550,16 +550,16 @@
             "servers": {
                "gpg.passphrase": {
                   "passphrase": {
-                     "pass": "bots/ecd.cdt.cloud/gpg/passphrase"
+                     "pass": "bots/ecd.cdt-cloud/gpg/passphrase"
                   }
                },
                "ossrh": {
                   "nexusProUrl": "https://oss.sonatype.org",
                   "password": {
-                     "pass": "bots/ecd.cdt.cloud/oss.sonatype.org/password"
+                     "pass": "bots/ecd.cdt-cloud/oss.sonatype.org/password"
                   },
                   "username": {
-                     "pass": "bots/ecd.cdt.cloud/oss.sonatype.org/username"
+                     "pass": "bots/ecd.cdt-cloud/oss.sonatype.org/username"
                   }
                },
                "repo.eclipse.org": {
@@ -581,10 +581,10 @@
    },
    "project": {
       "displayName": "Eclipse CDT.cloud",
-      "fullName": "ecd.cdt.cloud",
+      "fullName": "ecd.cdt-cloud",
       "resourcePacks": 1,
-      "shortName": "cloud",
-      "unixGroupName": "ecd.cdt.cloud"
+      "shortName": "cdt-cloud",
+      "unixGroupName": "ecd.cdt-cloud"
    },
    "sbt": {
       "files": {
@@ -603,8 +603,8 @@
    },
    "secrets": {
       "dockerconfigjson": {
-         "dockerconfigjson-for-pull-as-cloud": {
-            "namespace": "cloud",
+         "dockerconfigjson-for-pull-as-cdt-cloud": {
+            "namespace": "cdt-cloud",
             "servers": {
                "https://index.docker.io/v1/": {
                   "password": {
@@ -615,13 +615,13 @@
                   }
                }
             },
-            "serviceAccount": "cloud",
+            "serviceAccount": "cdt-cloud",
             "type": [
                "pull"
             ]
          },
          "dockerconfigjson-for-pull-as-default": {
-            "namespace": "cloud",
+            "namespace": "cdt-cloud",
             "servers": {
                "https://index.docker.io/v1/": {
                   "password": {
@@ -640,7 +640,7 @@
       },
       "gerrit-trigger-plugin": {
          "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-         "username": "genie.cloud"
+         "username": "genie.cdt-cloud"
       }
    }
 }

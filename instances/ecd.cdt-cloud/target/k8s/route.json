@@ -6,15 +6,15 @@
          "haproxy.router.openshift.io/timeout": "60s"
       },
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ecd.cdt.cloud",
-         "org.eclipse.cbi.jiro/project.shortname": "cloud"
+         "org.eclipse.cbi.jiro/project.fullName": "ecd.cdt-cloud",
+         "org.eclipse.cbi.jiro/project.shortname": "cdt-cloud"
       },
-      "name": "cloud",
-      "namespace": "cloud"
+      "name": "cdt-cloud",
+      "namespace": "cdt-cloud"
    },
    "spec": {
       "host": "ci.eclipse.org",
-      "path": "/cloud",
+      "path": "/cdt-cloud",
       "port": {
          "targetPort": "http"
       },
