@@ -250,3 +250,25 @@ jenkins:
             key: "hudson.model.JDK$DescriptorImpl@adoptopenjdk-hotspot-jdk11-latest"
       remoteFS: "/Users/genie.releng"
       retentionStrategy: "always"
+  - permanent:
+      name: "qa6xd-win11"
+      labelString: "windows"
+      launcher:
+        jnlp:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+      mode: EXCLUSIVE
+      nodeDescription: "Windows 11 Pro, hosted on Azure"
+      nodeProperties:
+      - watcher:
+          offlineAddresses: "releng@eclipse.org"
+          onlineAddresses: "releng@eclipse.org"
+      - toolLocation:
+          locations:
+          - home: "C:\\ProgramData\\chocolatey\\lib\\ant\\tools\\apache-ant-1.10.12"
+            key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest"
+      remoteFS: "C:\\Users\\genie.releng\\"
+      retentionStrategy: "always"
