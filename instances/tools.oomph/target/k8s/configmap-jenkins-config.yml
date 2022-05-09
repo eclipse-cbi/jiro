@@ -15,39 +15,22 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.332.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "oomph"
   namespace: "oomph"
   name: jenkins-config
 data:
   jenkins.yaml: |
     # GENERATED FILE - DO NOT EDIT
+    #*******************************************************************************
+    # Copyright (c) 2018 Eclipse Foundation and others.
+    # This program and the accompanying materials are made available
+    # under the terms of the Eclipse Public License 2.0
+    # which is available at http://www.eclipse.org/legal/epl-v20.html,
+    # or the MIT License which is available at https://opensource.org/licenses/MIT.
+    # SPDX-License-Identifier: EPL-2.0 OR MIT
+    #*******************************************************************************
     jenkins:
-      nodes:
-        - permanent:
-            name: "promotion-vm"
-            numExecutors: 2
-            remoteFS: "/opt/public/hipp/homes/genie.oomph"
-            launcher:
-              ssh:
-                credentialsId: "projects-storage.eclipse.org-bot-ssh"
-                host: "promotion-vm"
-                port: 22
-                sshHostKeyVerificationStrategy:
-                  manuallyProvidedKeyVerificationStrategy:
-                    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCukLXXVZMDbnRtcMwcXXUfgBzsxzEDt3LgPAzT3ucMG1XGayg0HFFVA1SXMviZe1fzMSHESSMUFf7xxJCqxfVl9sBGcsycjGV55R68AOrA3sL8699VX++VJLcM2TRw05gbDcNnihmWGe10agbA3UoX7dohqbyBTkuhdgHzNwPzdsPW0Q2d0DG6RkluCBFN6LU7+SOq6Uj+NJiw/xnyaOkrIIY3pLRd4l5mpmqLzRb4YTjkMCnyIoxq+/G9NQAGyCO9rN+sl+r7p0Vlbv42RWLits/429nb/LPCrSy7RUHfdFVNDJvSEjX00Gyjwh5QlcgrTzKzh9gheeTREdfj/mQ7kmkao1IM6XvXEjZZ7pQCj2UANRwh5nPpDdrP/Ajfu5V/fo4Z4k443+r1JCElPirqi67qyEdFUsYsWl4uo0+QIH91xPKtphzOl+VACaisgdyanNndFnvRTPGZP/tkSLutTw+clfzCABlSV3704v1TMs/CNK4xmHonXEu4QY6bMvs="
-            mode: EXCLUSIVE
-            nodeProperties:
-              - toolLocation:
-                  locations:
-                    - home: "/opt/public/common/java/openjdk/jdk-11_x64-latest"
-                      key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk11-latest"
-                    - home: "/opt/public/common/apache-maven-latest"
-                      key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
-              - watcher:
-                  offlineAddresses: "releng@eclipse.org"
-                  onlineAddresses: "releng@eclipse.org"
-            retentionStrategy: "always"
       numExecutors: 0
       scmCheckoutRetryCount: 2
       mode: EXCLUSIVE
@@ -110,7 +93,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -196,7 +179,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -282,7 +265,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -368,7 +351,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -453,6 +436,31 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
+      nodes:
+        - permanent:
+            name: "promotion-vm"
+            numExecutors: 2
+            remoteFS: "/opt/public/hipp/homes/genie.oomph"
+            launcher:
+              ssh:
+                credentialsId: "projects-storage.eclipse.org-bot-ssh"
+                host: "promotion-vm"
+                port: 22
+                sshHostKeyVerificationStrategy:
+                  manuallyProvidedKeyVerificationStrategy:
+                    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCukLXXVZMDbnRtcMwcXXUfgBzsxzEDt3LgPAzT3ucMG1XGayg0HFFVA1SXMviZe1fzMSHESSMUFf7xxJCqxfVl9sBGcsycjGV55R68AOrA3sL8699VX++VJLcM2TRw05gbDcNnihmWGe10agbA3UoX7dohqbyBTkuhdgHzNwPzdsPW0Q2d0DG6RkluCBFN6LU7+SOq6Uj+NJiw/xnyaOkrIIY3pLRd4l5mpmqLzRb4YTjkMCnyIoxq+/G9NQAGyCO9rN+sl+r7p0Vlbv42RWLits/429nb/LPCrSy7RUHfdFVNDJvSEjX00Gyjwh5QlcgrTzKzh9gheeTREdfj/mQ7kmkao1IM6XvXEjZZ7pQCj2UANRwh5nPpDdrP/Ajfu5V/fo4Z4k443+r1JCElPirqi67qyEdFUsYsWl4uo0+QIH91xPKtphzOl+VACaisgdyanNndFnvRTPGZP/tkSLutTw+clfzCABlSV3704v1TMs/CNK4xmHonXEu4QY6bMvs="
+            mode: EXCLUSIVE
+            nodeProperties:
+              - toolLocation:
+                  locations:
+                    - home: "/opt/public/common/java/openjdk/jdk-11_x64-latest"
+                      key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk11-latest"
+                    - home: "/opt/public/common/apache-maven-latest"
+                      key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
+              - watcher:
+                  offlineAddresses: "releng@eclipse.org"
+                  onlineAddresses: "releng@eclipse.org"
+            retentionStrategy: "always"
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
@@ -620,7 +628,7 @@ data:
               - installSource:
                   installers:
                     - antFromApache:
-                        id: "1.10.9"
+                        id: "1.10.12"
       maven:
         installations:
           - name: "apache-maven-latest"

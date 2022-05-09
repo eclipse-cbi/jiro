@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.332.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "tracecompass"
   namespace: "tracecompass"
   name: jenkins-config
@@ -98,7 +98,7 @@ data:
           podRetention: "never"
           templates:
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
+            - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -184,7 +184,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
+            - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -270,7 +270,7 @@ data:
                   configMap:
                     name: m2-dir
           - containers:
-            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
+            - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -532,7 +532,7 @@ data:
           - installSource:
               installers:
               - antFromApache:
-                  id: "1.10.9"
+                  id: "1.10.12"
       maven:
         installations:
         - name: "apache-maven-latest"

@@ -1,75 +1,13 @@
 # GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
 jenkins:
-  nodes:
-    - permanent:
-        labelString: "windows windows10"
-        launcher:
-          jnlp:
-            vmargs: "-Xmx256m"
-            webSocket: true
-            workDirSettings:
-              disabled: false
-              failIfWorkDirIsMissing: false
-              internalDir: "remoting"
-        name: "mp23n-windows-10"
-        mode: EXCLUSIVE
-        nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure"
-        nodeProperties:
-          - envVars:
-              env:
-                - key: "Path"
-                  value: "C:\\tools\\cygwin\\bin;$Path;"
-          - watcher:
-              offlineAddresses: "releng@eclipse.org"
-              onlineAddresses: "releng@eclipse.org"
-        numExecutors: 1
-        remoteFS: "C:\\Users\\genie.justj\\jenkins_agent"
-        retentionStrategy: "always"
-    - permanent:
-        labelString: "linux aarch64"
-        name: "f5cjn-project-provided-aarch64"
-        nodeDescription: "Agent provided by the project"
-        remoteFS: "/home/justj/build"
-        numExecutors: 1
-        mode: EXCLUSIVE
-        retentionStrategy: "always"
-        launcher:
-          jnlp:
-            webSocket: true
-            workDirSettings:
-              disabled: false
-              failIfWorkDirIsMissing: false
-              internalDir: "remoting"
-    - permanent:
-        labelString: "linux aarch64"
-        name: "kf0gm-project-provided-aarch64"
-        nodeDescription: "Agent provided by the project"
-        remoteFS: "/home/justj/build"
-        numExecutors: 1
-        mode: EXCLUSIVE
-        retentionStrategy: "always"
-        launcher:
-          jnlp:
-            webSocket: true
-            workDirSettings:
-              disabled: false
-              failIfWorkDirIsMissing: false
-              internalDir: "remoting"
-    - permanent:
-        labelString: "macos macos-11 arm64"
-        launcher:
-          ssh:
-            credentialsId: "w8qlf-macos11-arm64-bot-ssh"
-            host: "208.52.170.174"
-            jvmOptions: "-Xmx256m"
-            port: 22
-            sshHostKeyVerificationStrategy:
-              manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6+qT5aiFFqU70gw+d9+ZJN3oF/9yWStUtJfFIqboLDMWv/+L+1a8nOaobwT8U867Vwwwo0IvErq4eL+5IUXiNBdEu501WL82pfVMU3C509dRpkNqAT9Ymu3cLiPWhJ6BM9r5cCyaGIWYwsNTmvkLO2WRSt20b3TaQxhzyEewuI97OpoZPQCo2EIJqaOjnlynmbyhJjkJ98B10BCcaUbtKjyEhKXv2OmqpGf61or+mfmBEfOrW2HrE3mbE/ZRgPqb5nT/q6C7ObhVA/L0oGG+Gy1DSJnqSN2vy+kWsPAfGcI/1hh9xOS3wiJorEc3hvZYWH3PgyU5KwyRNAoB1LXVE/JyLtmcL36uwkLLcVROJtcVw6j3vSZgFFp7LiUEiYSVtwqwm74dlD/W7qO9pKEWQDltywk8NwqTTvhvSN9WXDMtSrRFfuRYJEVQquu5SHxTJLzQ2v/T+CRAD3WMKbTEILY+d7wOJrPNoxLbVQ+/joE96opoCI1BlgGchF3Q66hM="
-        mode: EXCLUSIVE
-        name: "w8qlf-macos11-arm64"
-        remoteFS: "/Users/genie.justj/jenkins"
-        retentionStrategy: "always"
   numExecutors: 0
   scmCheckoutRetryCount: 2
   mode: EXCLUSIVE
@@ -134,7 +72,7 @@ jenkins:
         podRetention: "never"
         templates:
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
+              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -220,7 +158,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
+              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -306,7 +244,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
+              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -391,6 +329,76 @@ jenkins:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+  nodes:
+    - permanent:
+        labelString: "windows windows10"
+        launcher:
+          jnlp:
+            vmargs: "-Xmx256m"
+            webSocket: true
+            workDirSettings:
+              disabled: false
+              failIfWorkDirIsMissing: false
+              internalDir: "remoting"
+        name: "mp23n-windows-10"
+        mode: EXCLUSIVE
+        nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure"
+        nodeProperties:
+          - envVars:
+              env:
+                - key: "Path"
+                  value: "C:\\tools\\cygwin\\bin;$Path;"
+          - watcher:
+              offlineAddresses: "releng@eclipse.org"
+              onlineAddresses: "releng@eclipse.org"
+        numExecutors: 1
+        remoteFS: "C:\\Users\\genie.justj\\jenkins_agent"
+        retentionStrategy: "always"
+    - permanent:
+        labelString: "linux aarch64"
+        name: "f5cjn-project-provided-aarch64"
+        nodeDescription: "Agent provided by the project"
+        remoteFS: "/home/justj/build"
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          jnlp:
+            webSocket: true
+            workDirSettings:
+              disabled: false
+              failIfWorkDirIsMissing: false
+              internalDir: "remoting"
+    - permanent:
+        labelString: "linux aarch64"
+        name: "kf0gm-project-provided-aarch64"
+        nodeDescription: "Agent provided by the project"
+        remoteFS: "/home/justj/build"
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          jnlp:
+            webSocket: true
+            workDirSettings:
+              disabled: false
+              failIfWorkDirIsMissing: false
+              internalDir: "remoting"
+    - permanent:
+        labelString: "macos macos-11 arm64"
+        launcher:
+          ssh:
+            credentialsId: "w8qlf-macos11-arm64-bot-ssh"
+            host: "208.52.170.174"
+            jvmOptions: "-Xmx256m"
+            port: 22
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6+qT5aiFFqU70gw+d9+ZJN3oF/9yWStUtJfFIqboLDMWv/+L+1a8nOaobwT8U867Vwwwo0IvErq4eL+5IUXiNBdEu501WL82pfVMU3C509dRpkNqAT9Ymu3cLiPWhJ6BM9r5cCyaGIWYwsNTmvkLO2WRSt20b3TaQxhzyEewuI97OpoZPQCo2EIJqaOjnlynmbyhJjkJ98B10BCcaUbtKjyEhKXv2OmqpGf61or+mfmBEfOrW2HrE3mbE/ZRgPqb5nT/q6C7ObhVA/L0oGG+Gy1DSJnqSN2vy+kWsPAfGcI/1hh9xOS3wiJorEc3hvZYWH3PgyU5KwyRNAoB1LXVE/JyLtmcL36uwkLLcVROJtcVw6j3vSZgFFp7LiUEiYSVtwqwm74dlD/W7qO9pKEWQDltywk8NwqTTvhvSN9WXDMtSrRFfuRYJEVQquu5SHxTJLzQ2v/T+CRAD3WMKbTEILY+d7wOJrPNoxLbVQ+/joE96opoCI1BlgGchF3Q66hM="
+        mode: EXCLUSIVE
+        name: "w8qlf-macos11-arm64"
+        remoteFS: "/Users/genie.justj/jenkins"
+        retentionStrategy: "always"
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
@@ -558,7 +566,7 @@ tool:
           - installSource:
               installers:
                 - antFromApache:
-                    id: "1.10.9"
+                    id: "1.10.12"
   maven:
     installations:
       - name: "apache-maven-latest"
