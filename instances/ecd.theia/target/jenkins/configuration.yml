@@ -1,57 +1,13 @@
 # GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
 jenkins:
-  nodes:
-    - permanent:
-        labelString: "macos macos-10.12"
-        launcher:
-          ssh:
-            credentialsId: "b9h15-macos10.12-bot-ssh"
-            host: "208.52.161.179"
-            jvmOptions: "-Xmx256m"
-            port: 22
-            sshHostKeyVerificationStrategy:
-              manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3Mo4/c9Hn6sA594UEGHVxCKbu/QtophcofQIfrX1cJwkxfx/MGjMhllrWw49SfpNPh/VOlR4T7r3xeFq9TM+sDXAii54deTENpqg5q1uBOx9hi+7W8MhKpuJEhwL37kTQHSjcnIcexpm76Tbyd3QtHU3xQzMCjfREfqIAWkWaKbdzNVu1JJRcwqRXDDzPNkoLfYUZtdQi/XiROlX5zYh3/GpQctGkL3y8mdkeUY7RGUDKTjd7osAK59IR30H2KFRfewey9YnMnIKM0cokA8t3KDvAwmXFLQ+iAxG1RFLZQ88iz7agO1clNYFR3+2ersXcMu/AZUoA6sBsBXIJ9419"
-            workDir: "/Users/genie.theia/jenkins_agent/cache"
-        name: "b9h15-macos10.12"
-        nodeProperties:
-          - envVars:
-              env:
-                - key: "NVM_DIR"
-                  value: "$HOME/.nvm"
-                - key: "PATH"
-                  value: "$HOME/.nvm/versions/node/v12.20.0/bin:$PATH"
-          - watcher:
-              offlineAddresses: "releng@eclipse.org"
-              onlineAddresses: "releng@eclipse.org"
-        mode: EXCLUSIVE
-        numExecutors: 1
-        remoteFS: "/Users/genie.theia/jenkins_agent/"
-        retentionStrategy: "always"
-    - permanent:
-        labelString: "windows windows10"
-        launcher:
-          jnlp:
-            vmargs: "-Xmx256m"
-            webSocket: true
-            workDirSettings:
-              disabled: false
-              failIfWorkDirIsMissing: false
-              internalDir: "remoting"
-        name: "mp23n-windows-10"
-        mode: EXCLUSIVE
-        nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure"
-        nodeProperties:
-          - envVars:
-              env:
-                - key: "Path"
-                  value: "C:\\tools\\cygwin\\bin;C:\\Users\\genie.theia\\AppData\\Roaming\\npm;C:\\Program Files\\nodejs;$Path"
-          - watcher:
-              offlineAddresses: "releng@eclipse.org"
-              onlineAddresses: "releng@eclipse.org"
-        numExecutors: 1
-        remoteFS: "C:\\Users\\genie.theia\\jenkins_agent"
-        retentionStrategy: "always"
   numExecutors: 0
   scmCheckoutRetryCount: 2
   mode: EXCLUSIVE
@@ -114,7 +70,7 @@ jenkins:
         podRetention: "never"
         templates:
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
+              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -200,7 +156,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
+              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -286,7 +242,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
+              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -371,6 +327,58 @@ jenkins:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+  nodes:
+    - permanent:
+        labelString: "macos macos-10.12"
+        launcher:
+          ssh:
+            credentialsId: "b9h15-macos10.12-bot-ssh"
+            host: "208.52.161.179"
+            jvmOptions: "-Xmx256m"
+            port: 22
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3Mo4/c9Hn6sA594UEGHVxCKbu/QtophcofQIfrX1cJwkxfx/MGjMhllrWw49SfpNPh/VOlR4T7r3xeFq9TM+sDXAii54deTENpqg5q1uBOx9hi+7W8MhKpuJEhwL37kTQHSjcnIcexpm76Tbyd3QtHU3xQzMCjfREfqIAWkWaKbdzNVu1JJRcwqRXDDzPNkoLfYUZtdQi/XiROlX5zYh3/GpQctGkL3y8mdkeUY7RGUDKTjd7osAK59IR30H2KFRfewey9YnMnIKM0cokA8t3KDvAwmXFLQ+iAxG1RFLZQ88iz7agO1clNYFR3+2ersXcMu/AZUoA6sBsBXIJ9419"
+            workDir: "/Users/genie.theia/jenkins_agent/cache"
+        name: "b9h15-macos10.12"
+        nodeProperties:
+          - envVars:
+              env:
+                - key: "NVM_DIR"
+                  value: "$HOME/.nvm"
+                - key: "PATH"
+                  value: "$HOME/.nvm/versions/node/v12.20.0/bin:$PATH"
+          - watcher:
+              offlineAddresses: "releng@eclipse.org"
+              onlineAddresses: "releng@eclipse.org"
+        mode: EXCLUSIVE
+        numExecutors: 1
+        remoteFS: "/Users/genie.theia/jenkins_agent/"
+        retentionStrategy: "always"
+    - permanent:
+        labelString: "windows windows10"
+        launcher:
+          jnlp:
+            vmargs: "-Xmx256m"
+            webSocket: true
+            workDirSettings:
+              disabled: false
+              failIfWorkDirIsMissing: false
+              internalDir: "remoting"
+        name: "mp23n-windows-10"
+        mode: EXCLUSIVE
+        nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure"
+        nodeProperties:
+          - envVars:
+              env:
+                - key: "Path"
+                  value: "C:\\tools\\cygwin\\bin;C:\\Users\\genie.theia\\AppData\\Roaming\\npm;C:\\Program Files\\nodejs;$Path"
+          - watcher:
+              offlineAddresses: "releng@eclipse.org"
+              onlineAddresses: "releng@eclipse.org"
+        numExecutors: 1
+        remoteFS: "C:\\Users\\genie.theia\\jenkins_agent"
+        retentionStrategy: "always"
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
@@ -538,7 +546,7 @@ tool:
           - installSource:
               installers:
                 - antFromApache:
-                    id: "1.10.9"
+                    id: "1.10.12"
   maven:
     installations:
       - name: "apache-maven-latest"

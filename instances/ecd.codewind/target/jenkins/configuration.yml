@@ -1,85 +1,13 @@
 # GENERATED FILE - DO NOT EDIT
+#*******************************************************************************
+# Copyright (c) 2018 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
 jenkins:
-  nodes:
-    - permanent:
-        labelString: "docker-build"
-        launcher:
-          ssh:
-            credentialsId: "63edf8ae-0827-46de-bbca-8c83d944311b"
-            host: "40.70.206.213"
-            jvmOptions: "-Xmx256m -Xms256m"
-            sshHostKeyVerificationStrategy:
-              manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDWM0A8QzZMRbB3PCKxienp/BgcD60Ma33YkhmQG5J7lzfjQWWoCfYTT5I78PEEYFA1OlIqkYmO4c+Avdot8iGgkYzwLgKQAx45hRtBN3zOGe/w7r+uVjAynNhhbjS151G3/K2O/iIfDy3L0ukZu6RL2tvcisswY8xaVK4ibp90KwbzWxH8IgOFws77aYpGZEez10YO3YTR8s58D4w7Xd7c+m6ey69LEszdmA0ak7rc+QC2LvFXzIImN7ODRRTMqqvn6w0gMk09vrNdDdxu38fSR0TiLd9vZeXmo8fL8fWduhAMBBzxuxO66PJksDYJKcKUTVD8OAbMqXk2pcJANjDb"
-        mode: EXCLUSIVE
-        name: "s8p2d-ubuntu1804"
-        numExecutors: 1
-        nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
-        remoteFS: "/home/genie.codewind/jenkins-agent"
-        nodeProperties:
-          - watcher:
-              offlineAddresses: "releng@eclipse.org"
-              onlineAddresses: "releng@eclipse.org"
-    - permanent:
-        labelString: "docker-build"
-        launcher:
-          ssh:
-            credentialsId: "codewind-bot-nonroot-ub18-01"
-            host: "169.45.82.155"
-            port: 22
-            sshHostKeyVerificationStrategy:
-              manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSVcUeOjEpuxigg7eiPYBnJZnrBxxgcE+d9OaCiGIpMUp1xFQo/U3Gqg+tNaPiH0vqwjESllZ9WuuGrHbEajYA63a2rujPr3uny5kLd+UJzjLIHwytjkxG38ByzgSV28yr5OlLpjFUuR9CMdF9NdD2joZKBc/LwHkUjZ5n/GoLexah3wQ9esi9NQn2hw1vwub7MU6yHf6IwWArxEC9ybyXga753EvBfLAKBQQpoUN0+Dt1vxf5im5zETqe9uoxSCbvtTxUpxtTacPN3jwqZUSPfNCE8bvEM3NZK4hjocYuQ3NVC/zyMhBurhmZfnEDVqLGVtRzju9nc3V4dImYl3RF"
-        mode: EXCLUSIVE
-        name: "ub18-01"
-        numExecutors: 1
-        remoteFS: "/home/genie.codewind"
-        retentionStrategy: "always"
-    - permanent:
-        labelString: "docker-build"
-        launcher:
-          ssh:
-            credentialsId: "codewind-bot-ub18-02"
-            host: "158.85.221.122"
-            port: 22
-            sshHostKeyVerificationStrategy:
-              manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5Z92lN9kU+OTVJTswBsaC+kF6reRe9oUFGjd97bhWGKaKIVtZO5DzhC4cxmE/dEyKT9XmFHtmNwU+PKOTalAN5eAhueBI9BkM8V3ywp2JIRGvVznyFSd2mtqOjmTgKNsc1IDhZVXEEe3PyupZKwwJrAQ5J2SrYSnvF5ZAC6bc+KTiLAPmRujQKNtmr+ta+tB4dcj1jJPG9zrNkEnM0mdSLm9bS9c9kUtgQkGb+CHA6Dl+Z8TeO5V6lJdJcPNHGKz9pp+HOWXd3avnUDrVpnxKEelNiinAtowmnb/KLwXBqK/qO7CQw+hXjPuieijxye0O50xTZAZAhFea+uAS84+P"
-        mode: EXCLUSIVE
-        name: "ub18-02"
-        numExecutors: 1
-        remoteFS: "/home/genie.codewind"
-        retentionStrategy: "always"
-    - permanent:
-        labelString: "docker-build"
-        launcher:
-          ssh:
-            credentialsId: "codewind-bot-ub18-03"
-            host: "169.55.164.6"
-            port: 22
-            sshHostKeyVerificationStrategy:
-              manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDS7Tp3fE0MddwITcymGbbVK7n3tb76Z3jOKgIpTm9+hEnoBOQl3BlvMLQmscJ8m5Eq22tODVR8Bwdr+g1b+QgEPJ/Mp0rQLRF6+9n6zrBJb+K3vxnPhmmG9dTyaMuSylNETxcIy/OMcQgsh+xwShETP1bz4p7ghkdMiP7yuHP/EUtFwIwUpGOwpyiB06sW3lbmDniQqL/9STPmh8rA7hdBl/ADCiYYuQiXVQ4p+fuh06+qti2AE8/zyP2cYDjKPfxLLsFoiBIeYwhzbiF3vgrqs+oaziHlqQB6g4xVwb629yPZeG70W/0C3tIeV2A7driKJ3fyzDQ+NtGSgMTH/7/b"
-        mode: EXCLUSIVE
-        name: "ub18-03"
-        numExecutors: 1
-        remoteFS: "/home/genie.codewind"
-        retentionStrategy: "always"
-    - permanent:
-        labelString: "docker-build"
-        launcher:
-          ssh:
-            credentialsId: "codewind-bot-ub18-04"
-            host: "169.62.106.168"
-            port: 22
-            sshHostKeyVerificationStrategy:
-              manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMNonqE3bOGXDrIRAwBpO9ULkN3A0SscgrLYUCH2aJDmXz+9dc1E5b2oSYRN8DiBl7Sp754sVSBkavY2kJqFiFk0ooO9QL70WhQRgGvarYsR95uYeQRd0K/v4/PPPV0NBzsLpWEGPV1HzByFGQZetOugAjgvRFdLndViwiTRoSC1QCiAxKqaOqCnyyS0MrFGFkZtCB4jclH/JeOtcbGMP59tyEQCD6xPEQi7p+ZAQaxw2hAnzUZ2en78nK82qKe7DrXeuPFe4o+qE2kBiNDnE2IcnS6+hWmL7bmkVY8gS+kNxhHu2PRgrX5G5srQQFzQiBB0zJpEp3+CmXTtl5PDwB"
-        mode: EXCLUSIVE
-        name: "ub18-04"
-        numExecutors: 1
-        remoteFS: "/home/genie.codewind"
-        retentionStrategy: "always"
   numExecutors: 0
   scmCheckoutRetryCount: 2
   mode: EXCLUSIVE
@@ -142,7 +70,7 @@ jenkins:
         podRetention: "never"
         templates:
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
+              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -228,7 +156,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
+              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -314,7 +242,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
+              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -399,29 +327,111 @@ jenkins:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+  nodes:
+    - permanent:
+        labelString: "docker-build"
+        launcher:
+          ssh:
+            credentialsId: "63edf8ae-0827-46de-bbca-8c83d944311b"
+            host: "40.70.206.213"
+            jvmOptions: "-Xmx256m -Xms256m"
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDWM0A8QzZMRbB3PCKxienp/BgcD60Ma33YkhmQG5J7lzfjQWWoCfYTT5I78PEEYFA1OlIqkYmO4c+Avdot8iGgkYzwLgKQAx45hRtBN3zOGe/w7r+uVjAynNhhbjS151G3/K2O/iIfDy3L0ukZu6RL2tvcisswY8xaVK4ibp90KwbzWxH8IgOFws77aYpGZEez10YO3YTR8s58D4w7Xd7c+m6ey69LEszdmA0ak7rc+QC2LvFXzIImN7ODRRTMqqvn6w0gMk09vrNdDdxu38fSR0TiLd9vZeXmo8fL8fWduhAMBBzxuxO66PJksDYJKcKUTVD8OAbMqXk2pcJANjDb"
+        mode: EXCLUSIVE
+        name: "s8p2d-ubuntu1804"
+        numExecutors: 1
+        nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
+        remoteFS: "/home/genie.codewind/jenkins-agent"
+        nodeProperties:
+          - watcher:
+              offlineAddresses: "releng@eclipse.org"
+              onlineAddresses: "releng@eclipse.org"
+    - permanent:
+        labelString: "docker-build"
+        launcher:
+          ssh:
+            credentialsId: "codewind-bot-nonroot-ub18-01"
+            host: "169.45.82.155"
+            port: 22
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSVcUeOjEpuxigg7eiPYBnJZnrBxxgcE+d9OaCiGIpMUp1xFQo/U3Gqg+tNaPiH0vqwjESllZ9WuuGrHbEajYA63a2rujPr3uny5kLd+UJzjLIHwytjkxG38ByzgSV28yr5OlLpjFUuR9CMdF9NdD2joZKBc/LwHkUjZ5n/GoLexah3wQ9esi9NQn2hw1vwub7MU6yHf6IwWArxEC9ybyXga753EvBfLAKBQQpoUN0+Dt1vxf5im5zETqe9uoxSCbvtTxUpxtTacPN3jwqZUSPfNCE8bvEM3NZK4hjocYuQ3NVC/zyMhBurhmZfnEDVqLGVtRzju9nc3V4dImYl3RF"
+        mode: EXCLUSIVE
+        name: "ub18-01"
+        numExecutors: 1
+        remoteFS: "/home/genie.codewind"
+        retentionStrategy: "always"
+    - permanent:
+        labelString: "docker-build"
+        launcher:
+          ssh:
+            credentialsId: "codewind-bot-ub18-02"
+            host: "158.85.221.122"
+            port: 22
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5Z92lN9kU+OTVJTswBsaC+kF6reRe9oUFGjd97bhWGKaKIVtZO5DzhC4cxmE/dEyKT9XmFHtmNwU+PKOTalAN5eAhueBI9BkM8V3ywp2JIRGvVznyFSd2mtqOjmTgKNsc1IDhZVXEEe3PyupZKwwJrAQ5J2SrYSnvF5ZAC6bc+KTiLAPmRujQKNtmr+ta+tB4dcj1jJPG9zrNkEnM0mdSLm9bS9c9kUtgQkGb+CHA6Dl+Z8TeO5V6lJdJcPNHGKz9pp+HOWXd3avnUDrVpnxKEelNiinAtowmnb/KLwXBqK/qO7CQw+hXjPuieijxye0O50xTZAZAhFea+uAS84+P"
+        mode: EXCLUSIVE
+        name: "ub18-02"
+        numExecutors: 1
+        remoteFS: "/home/genie.codewind"
+        retentionStrategy: "always"
+    - permanent:
+        labelString: "docker-build"
+        launcher:
+          ssh:
+            credentialsId: "codewind-bot-ub18-03"
+            host: "169.55.164.6"
+            port: 22
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDS7Tp3fE0MddwITcymGbbVK7n3tb76Z3jOKgIpTm9+hEnoBOQl3BlvMLQmscJ8m5Eq22tODVR8Bwdr+g1b+QgEPJ/Mp0rQLRF6+9n6zrBJb+K3vxnPhmmG9dTyaMuSylNETxcIy/OMcQgsh+xwShETP1bz4p7ghkdMiP7yuHP/EUtFwIwUpGOwpyiB06sW3lbmDniQqL/9STPmh8rA7hdBl/ADCiYYuQiXVQ4p+fuh06+qti2AE8/zyP2cYDjKPfxLLsFoiBIeYwhzbiF3vgrqs+oaziHlqQB6g4xVwb629yPZeG70W/0C3tIeV2A7driKJ3fyzDQ+NtGSgMTH/7/b"
+        mode: EXCLUSIVE
+        name: "ub18-03"
+        numExecutors: 1
+        remoteFS: "/home/genie.codewind"
+        retentionStrategy: "always"
+    - permanent:
+        labelString: "docker-build"
+        launcher:
+          ssh:
+            credentialsId: "codewind-bot-ub18-04"
+            host: "169.62.106.168"
+            port: 22
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMNonqE3bOGXDrIRAwBpO9ULkN3A0SscgrLYUCH2aJDmXz+9dc1E5b2oSYRN8DiBl7Sp754sVSBkavY2kJqFiFk0ooO9QL70WhQRgGvarYsR95uYeQRd0K/v4/PPPV0NBzsLpWEGPV1HzByFGQZetOugAjgvRFdLndViwiTRoSC1QCiAxKqaOqCnyyS0MrFGFkZtCB4jclH/JeOtcbGMP59tyEQCD6xPEQi7p+ZAQaxw2hAnzUZ2en78nK82qKe7DrXeuPFe4o+qE2kBiNDnE2IcnS6+hWmL7bmkVY8gS+kNxhHu2PRgrX5G5srQQFzQiBB0zJpEp3+CmXTtl5PDwB"
+        mode: EXCLUSIVE
+        name: "ub18-04"
+        numExecutors: 1
+        remoteFS: "/home/genie.codewind"
+        retentionStrategy: "always"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  queueItemAuthenticator:
+    authenticators:
+      - global:
+          strategy: "triggeringUsersAuthorizationStrategy"
+  sSHD:
+    port: -1
 unclassified:
-  gitHubPluginConfig:
-    configs:
-      - credentialsId: "github-bot-token"
-        manageHooks: false
-        name: "GitHub"
-        apiUrl: "https://api.github.com"
-    hookSecretConfigs:
-      - credentialsId: "github-webhook-secret"
-    hookUrl: "https://ci.eclipse.org/codewind/github-webhook/"
-  email-ext:
-    allowUnregisteredEnabled: true
-    defaultContentType: "text/html"
-    defaultReplyTo: "ci-admin@eclipse.org"
-    mailAccount:
-      address: "ci-admin@eclipse.org"
-      smtpHost: "mail.eclipse.org"
   location:
     adminAddress: ci-admin@eclipse.org
     url: https://ci.eclipse.org/codewind
   mailer:
     replyToAddress: ci-admin@eclipse.org
     smtpHost: mail.eclipse.org
+  email-ext:
+    defaultContentType: "text/html"
+    defaultReplyTo: "ci-admin@eclipse.org"
+    mailAccount:
+      address: "ci-admin@eclipse.org"
+      smtpHost: "mail.eclipse.org"
+    allowUnregisteredEnabled: true
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED
   simple-theme-plugin:
@@ -448,20 +458,16 @@ unclassified:
         triggers:
           skipScmCause: false
           skipUpstreamCause: false
+  gitHubPluginConfig:
+    configs:
+      - credentialsId: "6ae8f30a-c222-4d8b-99bc-772a0e7a1215"
+        manageHooks: false
+    hookSecretConfigs:
+      - credentialsId: "d832f509-90ee-4193-99fa-a5d2e51a1696"
+    hookUrl: "https://ci.eclipse.org/codewind/github-webhook/"
   gitSCM:
     createAccountBasedOnEmail: true
     useExistingAccountWithSameEmail: true
-security:
-  apiToken:
-    creationOfLegacyTokenEnabled: false
-    tokenGenerationOnCreationEnabled: false
-    usageStatisticsEnabled: true
-  queueItemAuthenticator:
-    authenticators:
-      - global:
-          strategy: "triggeringUsersAuthorizationStrategy"
-  sSHD:
-    port: -1
 tool:
   jdk:
     installations:
@@ -567,7 +573,7 @@ tool:
           - installSource:
               installers:
                 - antFromApache:
-                    id: "1.10.9"
+                    id: "1.10.12"
   maven:
     installations:
       - name: "apache-maven-latest"

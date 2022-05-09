@@ -15,155 +15,21 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.332.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "paho"
   namespace: "paho"
   name: jenkins-config
 data:
   jenkins.yaml: |
     # GENERATED FILE - DO NOT EDIT
-    tool:
-      gradle:
-        installations:
-          - name: "gradle-latest"
-            properties:
-              - installSource:
-                  installers:
-                    - gradleInstaller:
-                        id: "6.8.2"
-      jdk:
-        installations:
-          - name: "openjdk-latest"
-            home: "/opt/tools/java/openjdk/latest"
-          - name: "openjdk-ea-latest"
-            home: "/opt/tools/java/openjdk/ea-latest"
-          - name: "openjdk-jdk18-latest"
-            home: "/opt/tools/java/openjdk/jdk-18/latest"
-          - name: "openjdk-jdk17-latest"
-            home: "/opt/tools/java/openjdk/jdk-17/latest"
-          - name: "openjdk-jdk16-latest"
-            home: "/opt/tools/java/openjdk/jdk-16/latest"
-          - name: "openjdk-jdk15-latest"
-            home: "/opt/tools/java/openjdk/jdk-15/latest"
-          - name: "openjdk-jdk14-latest"
-            home: "/opt/tools/java/openjdk/jdk-14/latest"
-          - name: "openjdk-jdk13-latest"
-            home: "/opt/tools/java/openjdk/jdk-13/latest"
-          - name: "openjdk-jdk12-latest"
-            home: "/opt/tools/java/openjdk/jdk-12/latest"
-          - name: "openjdk-jdk11-latest"
-            home: "/opt/tools/java/openjdk/jdk-11/latest"
-          - name: "openjdk-jdk10-latest"
-            home: "/opt/tools/java/openjdk/jdk-10/latest"
-          - name: "openjdk-jdk9-latest"
-            home: "/opt/tools/java/openjdk/jdk-9/latest"
-          - name: "adoptopenjdk-hotspot-latest"
-            home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
-          - name: "adoptopenjdk-hotspot-latest-lts"
-            home: "/opt/tools/java/adoptopenjdk/hotspot-latest-lts"
-          - name: "adoptopenjdk-hotspot-jdk16-latest"
-            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-16/latest"
-          - name: "adoptopenjdk-hotspot-jdk15-latest"
-            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-15/latest"
-          - name: "adoptopenjdk-hotspot-jdk14-latest"
-            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-14/latest"
-          - name: "adoptopenjdk-hotspot-jdk13-latest"
-            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-13/latest"
-          - name: "adoptopenjdk-hotspot-jdk12-latest"
-            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest"
-          - name: "adoptopenjdk-hotspot-jdk11-latest"
-            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
-          - name: "adoptopenjdk-hotspot-jdk10-latest"
-            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest"
-          - name: "adoptopenjdk-hotspot-jdk9-latest"
-            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest"
-          - name: "adoptopenjdk-hotspot-jdk8-latest"
-            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
-          - name: "adoptopenjdk-openj9-latest"
-            home: "/opt/tools/java/adoptopenjdk/openj9-latest"
-          - name: "adoptopenjdk-openj9-latest-lts"
-            home: "/opt/tools/java/adoptopenjdk/openj9-latest-lts"
-          - name: "adoptopenjdk-openj9-jdk16-latest"
-            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-16/latest"
-          - name: "adoptopenjdk-openj9-jdk15-latest"
-            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-15/latest"
-          - name: "adoptopenjdk-openj9-jdk14-latest"
-            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-14/latest"
-          - name: "adoptopenjdk-openj9-jdk13-latest"
-            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-13/latest"
-          - name: "adoptopenjdk-openj9-jdk12-latest"
-            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-12/latest"
-          - name: "adoptopenjdk-openj9-jdk11-latest"
-            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
-          - name: "adoptopenjdk-openj9-jdk10-latest"
-            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-10/latest"
-          - name: "adoptopenjdk-openj9-jdk9-latest"
-            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-9/latest"
-          - name: "adoptopenjdk-openj9-jdk8-latest"
-            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
-          - name: "temurin-latest"
-            home: "/opt/tools/java/temurin/latest"
-          - name: "temurin-jdk17-latest"
-            home: "/opt/tools/java/temurin/jdk-17/latest"
-          - name: "temurin-jdk11-latest"
-            home: "/opt/tools/java/temurin/jdk-11/latest"
-          - name: "temurin-jdk8-latest"
-            home: "/opt/tools/java/temurin/jdk-8/latest"
-          - name: "oracle-latest"
-            home: "/opt/tools/java/oracle/latest"
-          - name: "oracle-jdk10-latest"
-            home: "/opt/tools/java/oracle/jdk-10/latest"
-          - name: "oracle-jdk9-latest"
-            home: "/opt/tools/java/oracle/jdk-9/latest"
-          - name: "oracle-jdk8-latest"
-            home: "/opt/tools/java/oracle/jdk-8/latest"
-          - name: "oracle-jdk7-latest"
-            home: "/opt/tools/java/oracle/jdk-7/latest"
-          - name: "oracle-jdk6-latest"
-            home: "/opt/tools/java/oracle/jdk-6/latest"
-          - name: "oracle-jdk5-latest"
-            home: "/opt/tools/java/oracle/jdk-5/latest"
-          - name: "ibm-jdk8-latest"
-            home: "/opt/tools/java/ibm/jdk-8/latest"
-          - name: "ibm-latest"
-            home: "/opt/tools/java/ibm/latest"
-      ant:
-        installations:
-          - name: "apache-ant-latest"
-            home: ""
-            properties:
-              - installSource:
-                  installers:
-                    - antFromApache:
-                        id: "1.10.9"
-      maven:
-        installations:
-          - name: "apache-maven-latest"
-            home: "/opt/tools/apache-maven/latest"
-          - name: "apache-maven-3.8.5"
-            home: "/opt/tools/apache-maven/3.8.5"
-          - name: "apache-maven-3.8.4"
-            home: "/opt/tools/apache-maven/3.8.4"
-          - name: "apache-maven-3.8.3"
-            home: "/opt/tools/apache-maven/3.8.3"
-          - name: "apache-maven-3.8.2"
-            home: "/opt/tools/apache-maven/3.8.2"
-          - name: "apache-maven-3.8.1"
-            home: "/opt/tools/apache-maven/3.8.1"
-          - name: "apache-maven-3.6.3"
-            home: "/opt/tools/apache-maven/3.6.3"
-          - name: "apache-maven-3.6.0"
-            home: "/opt/tools/apache-maven/3.6.0"
-          - name: "apache-maven-3.5.4"
-            home: "/opt/tools/apache-maven/3.5.4"
-          - name: "apache-maven-3.3.9"
-            home: "/opt/tools/apache-maven/3.3.9"
-          - name: "apache-maven-3.2.5"
-            home: "/opt/tools/apache-maven/3.2.5"
-      git:
-        installations:
-          - name: "Default"
-            home: "git"
+    #*******************************************************************************
+    # Copyright (c) 2018 Eclipse Foundation and others.
+    # This program and the accompanying materials are made available
+    # under the terms of the Eclipse Public License 2.0
+    # which is available at http://www.eclipse.org/legal/epl-v20.html,
+    # or the MIT License which is available at https://opensource.org/licenses/MIT.
+    # SPDX-License-Identifier: EPL-2.0 OR MIT
+    #*******************************************************************************
     jenkins:
       numExecutors: 0
       scmCheckoutRetryCount: 2
@@ -227,7 +93,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -313,7 +179,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -399,7 +265,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -546,3 +412,145 @@ data:
       gitSCM:
         createAccountBasedOnEmail: true
         useExistingAccountWithSameEmail: true
+    tool:
+      jdk:
+        installations:
+          - name: "openjdk-latest"
+            home: "/opt/tools/java/openjdk/latest"
+          - name: "openjdk-ea-latest"
+            home: "/opt/tools/java/openjdk/ea-latest"
+          - name: "openjdk-jdk18-latest"
+            home: "/opt/tools/java/openjdk/jdk-18/latest"
+          - name: "openjdk-jdk17-latest"
+            home: "/opt/tools/java/openjdk/jdk-17/latest"
+          - name: "openjdk-jdk16-latest"
+            home: "/opt/tools/java/openjdk/jdk-16/latest"
+          - name: "openjdk-jdk15-latest"
+            home: "/opt/tools/java/openjdk/jdk-15/latest"
+          - name: "openjdk-jdk14-latest"
+            home: "/opt/tools/java/openjdk/jdk-14/latest"
+          - name: "openjdk-jdk13-latest"
+            home: "/opt/tools/java/openjdk/jdk-13/latest"
+          - name: "openjdk-jdk12-latest"
+            home: "/opt/tools/java/openjdk/jdk-12/latest"
+          - name: "openjdk-jdk11-latest"
+            home: "/opt/tools/java/openjdk/jdk-11/latest"
+          - name: "openjdk-jdk10-latest"
+            home: "/opt/tools/java/openjdk/jdk-10/latest"
+          - name: "openjdk-jdk9-latest"
+            home: "/opt/tools/java/openjdk/jdk-9/latest"
+          - name: "adoptopenjdk-hotspot-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
+          - name: "adoptopenjdk-hotspot-latest-lts"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-latest-lts"
+          - name: "adoptopenjdk-hotspot-jdk16-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-16/latest"
+          - name: "adoptopenjdk-hotspot-jdk15-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-15/latest"
+          - name: "adoptopenjdk-hotspot-jdk14-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-14/latest"
+          - name: "adoptopenjdk-hotspot-jdk13-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-13/latest"
+          - name: "adoptopenjdk-hotspot-jdk12-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest"
+          - name: "adoptopenjdk-hotspot-jdk11-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
+          - name: "adoptopenjdk-hotspot-jdk10-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest"
+          - name: "adoptopenjdk-hotspot-jdk9-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest"
+          - name: "adoptopenjdk-hotspot-jdk8-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
+          - name: "adoptopenjdk-openj9-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-latest"
+          - name: "adoptopenjdk-openj9-latest-lts"
+            home: "/opt/tools/java/adoptopenjdk/openj9-latest-lts"
+          - name: "adoptopenjdk-openj9-jdk16-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-16/latest"
+          - name: "adoptopenjdk-openj9-jdk15-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-15/latest"
+          - name: "adoptopenjdk-openj9-jdk14-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-14/latest"
+          - name: "adoptopenjdk-openj9-jdk13-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-13/latest"
+          - name: "adoptopenjdk-openj9-jdk12-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-12/latest"
+          - name: "adoptopenjdk-openj9-jdk11-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
+          - name: "adoptopenjdk-openj9-jdk10-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-10/latest"
+          - name: "adoptopenjdk-openj9-jdk9-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-9/latest"
+          - name: "adoptopenjdk-openj9-jdk8-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
+          - name: "temurin-latest"
+            home: "/opt/tools/java/temurin/latest"
+          - name: "temurin-jdk17-latest"
+            home: "/opt/tools/java/temurin/jdk-17/latest"
+          - name: "temurin-jdk11-latest"
+            home: "/opt/tools/java/temurin/jdk-11/latest"
+          - name: "temurin-jdk8-latest"
+            home: "/opt/tools/java/temurin/jdk-8/latest"
+          - name: "oracle-latest"
+            home: "/opt/tools/java/oracle/latest"
+          - name: "oracle-jdk10-latest"
+            home: "/opt/tools/java/oracle/jdk-10/latest"
+          - name: "oracle-jdk9-latest"
+            home: "/opt/tools/java/oracle/jdk-9/latest"
+          - name: "oracle-jdk8-latest"
+            home: "/opt/tools/java/oracle/jdk-8/latest"
+          - name: "oracle-jdk7-latest"
+            home: "/opt/tools/java/oracle/jdk-7/latest"
+          - name: "oracle-jdk6-latest"
+            home: "/opt/tools/java/oracle/jdk-6/latest"
+          - name: "oracle-jdk5-latest"
+            home: "/opt/tools/java/oracle/jdk-5/latest"
+          - name: "ibm-jdk8-latest"
+            home: "/opt/tools/java/ibm/jdk-8/latest"
+          - name: "ibm-latest"
+            home: "/opt/tools/java/ibm/latest"
+      ant:
+        installations:
+          - name: "apache-ant-latest"
+            home: ""
+            properties:
+              - installSource:
+                  installers:
+                    - antFromApache:
+                        id: "1.10.12"
+      maven:
+        installations:
+          - name: "apache-maven-latest"
+            home: "/opt/tools/apache-maven/latest"
+          - name: "apache-maven-3.8.5"
+            home: "/opt/tools/apache-maven/3.8.5"
+          - name: "apache-maven-3.8.4"
+            home: "/opt/tools/apache-maven/3.8.4"
+          - name: "apache-maven-3.8.3"
+            home: "/opt/tools/apache-maven/3.8.3"
+          - name: "apache-maven-3.8.2"
+            home: "/opt/tools/apache-maven/3.8.2"
+          - name: "apache-maven-3.8.1"
+            home: "/opt/tools/apache-maven/3.8.1"
+          - name: "apache-maven-3.6.3"
+            home: "/opt/tools/apache-maven/3.6.3"
+          - name: "apache-maven-3.6.0"
+            home: "/opt/tools/apache-maven/3.6.0"
+          - name: "apache-maven-3.5.4"
+            home: "/opt/tools/apache-maven/3.5.4"
+          - name: "apache-maven-3.3.9"
+            home: "/opt/tools/apache-maven/3.3.9"
+          - name: "apache-maven-3.2.5"
+            home: "/opt/tools/apache-maven/3.2.5"
+      git:
+        installations:
+          - name: "Default"
+            home: "git"
+      gradle:
+        installations:
+          - name: "gradle-latest"
+            properties:
+              - installSource:
+                  installers:
+                    - gradleInstaller:
+                        id: "6.8.2"

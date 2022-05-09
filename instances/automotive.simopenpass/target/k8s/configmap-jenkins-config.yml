@@ -15,38 +15,22 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.332.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "simopenpass"
   namespace: "simopenpass"
   name: jenkins-config
 data:
   jenkins.yaml: |
     # GENERATED FILE - DO NOT EDIT
+    #*******************************************************************************
+    # Copyright (c) 2018 Eclipse Foundation and others.
+    # This program and the accompanying materials are made available
+    # under the terms of the Eclipse Public License 2.0
+    # which is available at http://www.eclipse.org/legal/epl-v20.html,
+    # or the MIT License which is available at https://opensource.org/licenses/MIT.
+    # SPDX-License-Identifier: EPL-2.0 OR MIT
+    #*******************************************************************************
     jenkins:
-      nodes:
-        - permanent:
-            labelString: "windows windows10"
-            launcher:
-              jnlp:
-                vmargs: "-Xmx512m"
-                webSocket: true
-                workDirSettings:
-                  disabled: false
-                  failIfWorkDirIsMissing: false
-                  internalDir: "remoting"
-            mode: EXCLUSIVE
-            name: "b9qls-windows-10"
-            nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure"
-            remoteFS: "C:\\Users\\genie.simopenpass\\jenkins_agent"
-            retentionStrategy: "always"
-            nodeProperties:
-              - watcher:
-                  offlineAddresses: "releng@eclipse.org"
-                  onlineAddresses: "releng@eclipse.org"
-              - toolLocation:
-                  locations:
-                    - home: "C:\\Program Files\\Git\\bin\\git"
-                      key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
       numExecutors: 0
       scmCheckoutRetryCount: 2
       mode: EXCLUSIVE
@@ -109,7 +93,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -195,7 +179,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -281,7 +265,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -366,21 +350,42 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
+      nodes:
+        - permanent:
+            labelString: "windows windows10"
+            launcher:
+              jnlp:
+                vmargs: "-Xmx512m"
+                webSocket: true
+                workDirSettings:
+                  disabled: false
+                  failIfWorkDirIsMissing: false
+                  internalDir: "remoting"
+            mode: EXCLUSIVE
+            name: "b9qls-windows-10"
+            nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure"
+            remoteFS: "C:\\Users\\genie.simopenpass\\jenkins_agent"
+            retentionStrategy: "always"
+            nodeProperties:
+              - watcher:
+                  offlineAddresses: "releng@eclipse.org"
+                  onlineAddresses: "releng@eclipse.org"
+              - toolLocation:
+                  locations:
+                    - home: "C:\\Program Files\\Git\\bin\\git"
+                      key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+    security:
+      apiToken:
+        creationOfLegacyTokenEnabled: false
+        tokenGenerationOnCreationEnabled: false
+        usageStatisticsEnabled: true
+      queueItemAuthenticator:
+        authenticators:
+          - global:
+              strategy: "triggeringUsersAuthorizationStrategy"
+      sSHD:
+        port: -1
     unclassified:
-      gitLabConnectionConfig:
-        connections:
-          - apiTokenId: "gitlab-api-token"
-            clientBuilderId: "autodetect"
-            connectionTimeout: 10
-            ignoreCertificateErrors: false
-            name: "gitlab.eclipse.org"
-            readTimeout: 10
-            url: "https://gitlab.eclipse.org"
-      gitLabServers:
-        Servers:
-          - credentialsId: "gitlab-personal-access-token"
-            name: "gitlab.eclipse.org"
-            serverUrl: "https://gitlab.eclipse.org"
       location:
         adminAddress: ci-admin@eclipse.org
         url: https://ci.eclipse.org/simopenpass
@@ -431,17 +436,20 @@ data:
       gitSCM:
         createAccountBasedOnEmail: true
         useExistingAccountWithSameEmail: true
-    security:
-      apiToken:
-        creationOfLegacyTokenEnabled: false
-        tokenGenerationOnCreationEnabled: false
-        usageStatisticsEnabled: true
-      queueItemAuthenticator:
-        authenticators:
-          - global:
-              strategy: "triggeringUsersAuthorizationStrategy"
-      sSHD:
-        port: -1
+      gitLabConnectionConfig:
+        connections:
+          - apiTokenId: "gitlab-api-token"
+            clientBuilderId: "autodetect"
+            connectionTimeout: 10
+            ignoreCertificateErrors: false
+            name: "gitlab.eclipse.org"
+            readTimeout: 10
+            url: "https://gitlab.eclipse.org"
+      gitLabServers:
+        Servers:
+          - credentialsId: "gitlab-personal-access-token"
+            name: "gitlab.eclipse.org"
+            serverUrl: "https://gitlab.eclipse.org"
     tool:
       jdk:
         installations:
@@ -547,7 +555,7 @@ data:
               - installSource:
                   installers:
                     - antFromApache:
-                        id: "1.10.9"
+                        id: "1.10.12"
       maven:
         installations:
           - name: "apache-maven-latest"

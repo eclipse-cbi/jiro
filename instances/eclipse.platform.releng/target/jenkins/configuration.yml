@@ -74,7 +74,7 @@ jenkins:
         podRetention: "never"
         templates:
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
+              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -172,7 +172,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
+              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -270,7 +270,7 @@ jenkins:
                   configMap:
                     name: m2-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
+              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -617,6 +617,28 @@ jenkins:
                 - home: "/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home/bin"
                   key: "hudson.model.JDK$DescriptorImpl@adoptopenjdk-hotspot-jdk11-latest"
         remoteFS: "/Users/genie.releng"
+        retentionStrategy: "always"
+    - permanent:
+        name: "qa6xd-win11"
+        labelString: "windows"
+        launcher:
+          jnlp:
+            webSocket: true
+            workDirSettings:
+              disabled: false
+              failIfWorkDirIsMissing: false
+              internalDir: "remoting"
+        mode: EXCLUSIVE
+        nodeDescription: "Windows 11 Pro, hosted on Azure"
+        nodeProperties:
+          - watcher:
+              offlineAddresses: "releng@eclipse.org"
+              onlineAddresses: "releng@eclipse.org"
+          - toolLocation:
+              locations:
+                - home: "C:\\ProgramData\\chocolatey\\lib\\ant\\tools\\apache-ant-1.10.12"
+                  key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest"
+        remoteFS: "C:\\Users\\genie.releng\\"
         retentionStrategy: "always"
 security:
   apiToken:

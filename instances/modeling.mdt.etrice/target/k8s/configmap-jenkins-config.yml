@@ -15,78 +15,21 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.319.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.332.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "etrice"
   namespace: "etrice"
   name: jenkins-config
 data:
   jenkins.yaml: |
     # GENERATED FILE - DO NOT EDIT
-    unclassified:
-      gitLabConnectionConfig:
-        connections:
-          - apiTokenId: "gitlab-api-token"
-            clientBuilderId: "autodetect"
-            connectionTimeout: 10
-            ignoreCertificateErrors: false
-            name: "gitlab.eclipse.org"
-            readTimeout: 10
-            url: "https://gitlab.eclipse.org"
-      gitLabServers:
-        Servers:
-          - credentialsId: "gitlab-personal-access-token"
-            name: "gitlab.eclipse.org"
-            serverUrl: "https://gitlab.eclipse.org"
-      location:
-        adminAddress: ci-admin@eclipse.org
-        url: https://ci.eclipse.org/etrice
-      mailer:
-        replyToAddress: ci-admin@eclipse.org
-        smtpHost: mail.eclipse.org
-      email-ext:
-        defaultContentType: "text/html"
-        defaultReplyTo: "ci-admin@eclipse.org"
-        mailAccount:
-          address: "ci-admin@eclipse.org"
-          smtpHost: "mail.eclipse.org"
-      globalDefaultFlowDurabilityLevel:
-        durabilityHint: PERFORMANCE_OPTIMIZED
-      simple-theme-plugin:
-        elements:
-          - cssUrl:
-              url: "/etrice/userContent/theme/quicksilver.css"
-          - cssUrl:
-              url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
-          - jsUrl:
-              url: "/etrice/userContent/theme/title.js"
-      buildDiscarders:
-        configuredBuildDiscarders:
-          - "jobBuildDiscarder"
-          - simpleBuildDiscarder:
-              discarder:
-                logRotator:
-                  artifactNumToKeepStr: "5"
-                  numToKeepStr: "128"
-      sonarGlobalConfiguration:
-        buildWrapperEnabled: true
-        installations:
-          - name: "SonarCloud.io"
-            serverUrl: "https://sonarcloud.io"
-            triggers:
-              skipScmCause: false
-              skipUpstreamCause: false
-      gitHubPluginConfig:
-        configs:
-          - name: "GitHub"
-            apiUrl: "https://api.github.com"
-            credentialsId: "github-bot-token"
-            manageHooks: false
-        hookSecretConfigs:
-          - credentialsId: "github-webhook-secret"
-        hookUrl: "https://ci.eclipse.org/etrice/github-webhook/"
-      gitSCM:
-        createAccountBasedOnEmail: true
-        useExistingAccountWithSameEmail: true
+    #*******************************************************************************
+    # Copyright (c) 2018 Eclipse Foundation and others.
+    # This program and the accompanying materials are made available
+    # under the terms of the Eclipse Public License 2.0
+    # which is available at http://www.eclipse.org/legal/epl-v20.html,
+    # or the MIT License which is available at https://opensource.org/licenses/MIT.
+    # SPDX-License-Identifier: EPL-2.0 OR MIT
+    #*******************************************************************************
     jenkins:
       numExecutors: 0
       scmCheckoutRetryCount: 2
@@ -150,7 +93,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.11.2
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -258,7 +201,7 @@ data:
                       secret:
                         secretName: gradle-secret-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.11.2
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -366,7 +309,7 @@ data:
                       secret:
                         secretName: gradle-secret-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.11.2
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -484,6 +427,71 @@ data:
               strategy: "triggeringUsersAuthorizationStrategy"
       sSHD:
         port: -1
+    unclassified:
+      location:
+        adminAddress: ci-admin@eclipse.org
+        url: https://ci.eclipse.org/etrice
+      mailer:
+        replyToAddress: ci-admin@eclipse.org
+        smtpHost: mail.eclipse.org
+      email-ext:
+        defaultContentType: "text/html"
+        defaultReplyTo: "ci-admin@eclipse.org"
+        mailAccount:
+          address: "ci-admin@eclipse.org"
+          smtpHost: "mail.eclipse.org"
+      globalDefaultFlowDurabilityLevel:
+        durabilityHint: PERFORMANCE_OPTIMIZED
+      simple-theme-plugin:
+        elements:
+          - cssUrl:
+              url: "/etrice/userContent/theme/quicksilver.css"
+          - cssUrl:
+              url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+          - jsUrl:
+              url: "/etrice/userContent/theme/title.js"
+      buildDiscarders:
+        configuredBuildDiscarders:
+          - "jobBuildDiscarder"
+          - simpleBuildDiscarder:
+              discarder:
+                logRotator:
+                  artifactNumToKeepStr: "5"
+                  numToKeepStr: "128"
+      sonarGlobalConfiguration:
+        buildWrapperEnabled: true
+        installations:
+          - name: "SonarCloud.io"
+            serverUrl: "https://sonarcloud.io"
+            triggers:
+              skipScmCause: false
+              skipUpstreamCause: false
+      gitHubPluginConfig:
+        configs:
+          - name: "GitHub"
+            apiUrl: "https://api.github.com"
+            credentialsId: "github-bot-token"
+            manageHooks: false
+        hookSecretConfigs:
+          - credentialsId: "github-webhook-secret"
+        hookUrl: "https://ci.eclipse.org/etrice/github-webhook/"
+      gitSCM:
+        createAccountBasedOnEmail: true
+        useExistingAccountWithSameEmail: true
+      gitLabConnectionConfig:
+        connections:
+          - apiTokenId: "gitlab-api-token"
+            clientBuilderId: "autodetect"
+            connectionTimeout: 10
+            ignoreCertificateErrors: false
+            name: "gitlab.eclipse.org"
+            readTimeout: 10
+            url: "https://gitlab.eclipse.org"
+      gitLabServers:
+        Servers:
+          - credentialsId: "gitlab-personal-access-token"
+            name: "gitlab.eclipse.org"
+            serverUrl: "https://gitlab.eclipse.org"
     tool:
       jdk:
         installations:
@@ -589,7 +597,7 @@ data:
               - installSource:
                   installers:
                     - antFromApache:
-                        id: "1.10.9"
+                        id: "1.10.12"
       maven:
         installations:
           - name: "apache-maven-latest"
