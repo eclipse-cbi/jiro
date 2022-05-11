@@ -28,18 +28,19 @@ if [[ -z "${PROJECT_NAME}" ]]; then
 fi
 
 
-# read .localconfig
-local_config_path="${SCRIPT_FOLDER}/../.localconfig"
-if [[ ! -f "${local_config_path}" ]]; then
-  echo "ERROR: File '$(readlink -f "${local_config_path}")' does not exists"
+# read local config
+
+LOCAL_CONFIG="${HOME}/.cbi/config"
+if [[ ! -f "${LOCAL_CONFIG}" ]]; then
+  echo "ERROR: File '$(readlink -f "${LOCAL_CONFIG}")' does not exists"
   echo "Create one to configure db and file server credentials. Example:"
   echo '{"file_server": {"server": "myserver2", "user": "user2", "pw": "<path in pass>", "pw_root": "<path in pass>"}}' | jq -M
 fi
 
-FILE_SERVER="$(jq -r '.["file_server"]["server"]' "${local_config_path}")"
-FILE_SERVER_USER="$(jq -r '.["file_server"]["user"]' "${local_config_path}")"
-FILE_SERVER_PW="$(jq -r '.["file_server"]["pw"]' "${local_config_path}")"
-FILE_SERVER_PW_ROOT="$(jq -r '.["file_server"]["pw_root"]' "${local_config_path}")"
+FILE_SERVER="$(jq -r '.["file_server"]["server"]' "${LOCAL_CONFIG}")"
+FILE_SERVER_USER="$(jq -r '.["file_server"]["user"]' "${LOCAL_CONFIG}")"
+FILE_SERVER_PW="$(jq -r '.["file_server"]["pw"]' "${LOCAL_CONFIG}")"
+FILE_SERVER_PW_ROOT="$(jq -r '.["file_server"]["pw_root"]' "${LOCAL_CONFIG}")"
 
 create_retire_script() {
   local short_name="${1:-}"
