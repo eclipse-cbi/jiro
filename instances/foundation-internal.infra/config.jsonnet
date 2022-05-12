@@ -4,6 +4,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   project+: {
     fullName: "foundation-internal.infra",
     displayName: "Eclipse Foundation Infra",
+    resourcePacks: 2,
   },
   deployment+: {
     host: "foundation.eclipse.org",

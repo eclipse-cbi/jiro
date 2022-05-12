@@ -83,7 +83,7 @@ data:
       clouds:
         - kubernetes:
             name: "kubernetes"
-            containerCapStr: "2"
+            containerCapStr: "4"
             jenkinsUrl: "http://jenkins-ui.foundation-internal-infra.svc.cluster.local/ci/infra"
             jenkinsTunnel: "jenkins-discovery.foundation-internal-infra.svc.cluster.local:50000"
             maxRequestsPerHostStr: "32"
