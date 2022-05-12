@@ -391,7 +391,11 @@
             "principal": "ecd.cdt-cloud"
          }
       ],
-      "plugins": [ ],
+      "plugins": [
+         "embeddable-build-status",
+         "mail-watcher-plugin",
+         "pipeline-utility-steps"
+      ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",
