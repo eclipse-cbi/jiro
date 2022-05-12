@@ -689,27 +689,27 @@ jenkins:
           command:
             command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub16x64omrvm11 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
     - permanent:
-        name: "ub1604-x86-unb-12"
+        name: "ub20-x64-omr2"
         nodeDescription: "Linux x86"
-        labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
+        labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux cgroup.v2"
         remoteFS: '/home/jenkins'
         numExecutors: 1
         mode: EXCLUSIVE
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub16x64omrvm12 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr2 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
     - permanent:
-        name: "ub1604-x86-unb-13"
+        name: "ub20-x64-omr1"
         nodeDescription: "Linux x86"
-        labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
+        labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux cgroup.v1"
         remoteFS: '/home/jenkins'
         numExecutors: 1
         mode: EXCLUSIVE
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub16x64omrvm13 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr1 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
     - permanent:
         name: "ub16-s390x-01"
         nodeDescription: "zLinux node"
