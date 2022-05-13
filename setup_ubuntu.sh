@@ -61,7 +61,8 @@ if ! hash hbs &> /dev/null; then
   
   if ! hash npm &> /dev/null; then
     echo "npm could not be found. Installing..."
-    sudo apt-get install -y npm
+    curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+    sudo apt-get install -y nodejs
     echo -n "npm version : "; print_version "$(npm --version)"
   else
     echo -n "npm was found, version : "; print_version "$(npm --version)"
