@@ -15,6 +15,13 @@ set -o pipefail
 
 IFS=$'\n\t'
 
+print_version() {
+  if [ $# -ge 1 ] && [ -n "$1" ]
+  then
+    echo "${1##* }" 
+  fi
+}
+
 ## Install dependencies on Ubuntu based distros
 
 #TODO: support other distros and OS
@@ -23,28 +30,29 @@ IFS=$'\n\t'
 if ! hash jsonnet &> /dev/null; then
   echo "jsonnet could not be found. Installing..."
   sudo apt install -y jsonnet
+  echo -n "jsonnet version : "; print_version "$(jsonnet --version)"
 else
-  echo "jsonnet was found."
+  echo -n "jsonnet was found, version : "; print_version "$(jsonnet --version)"
 fi
 
-# yq - https://mikefarah.github.io/yq/
+# yq - https://github.com/mikefarah/yq
 if ! hash yq &> /dev/null; then
   echo "yq could not be found. Installing..."
-  #TODO: apt-key is deprecated
-  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64
-  sudo add-apt-repository ppa:rmescandon/yq
-  sudo apt update
-  sudo apt install -y yq
+  sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+  sudo chmod a+x /usr/local/bin/yq
+  echo -n "yq version : "; print_version "$(yq --version)"
 else
-  echo "yq was found."
+  echo -n "yq was found, version : "; print_version "$(yq --version)"
 fi
 
 # jq - https://stedolan.github.io/jq/ 
 if ! hash jq &> /dev/null; then
   echo "jq could not be found. Installing..."
-  sudo apt-get install -y jq
+  sudo wget -qO /usr/local/bin/jq https://github.com/stedolan/jq/releases/latest/download/jq-linux64
+  sudo chmod a+x /usr/local/bin/jq
+  echo -n "jq version : "; print_version "$(jq --version)"
 else
-  echo "jq was found."
+  echo -n "jq was found, version : "; print_version "$(jq --version)"
 fi
 
 # hbs - https://www.npmjs.com/package/hbs-cli
@@ -54,11 +62,14 @@ if ! hash hbs &> /dev/null; then
   if ! hash npm &> /dev/null; then
     echo "npm could not be found. Installing..."
     sudo apt-get install -y npm
+    echo -n "npm version : "; print_version "$(npm --version)"
   else
-    echo "npm was found."
+    echo -n "npm was found, version : "; print_version "$(npm --version)"
   fi
   
   sudo npm i -g hbs-cli
+  echo -n "hbs version : "; print_version "$(hbs --version)"
 else
-  echo "hbs was found."
+  echo -n "hbs was found, version : "; print_version "$(hbs --version)"
 fi
+
