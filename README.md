@@ -9,7 +9,7 @@ The goal of Jiro is to make the administration of hundreds of Jenkins master ins
 After evaluating CloudBees Core (formerly known as CloudBees Jenkins Enterprise), we found it to miss important features like resource quotas and support for separate name spaces. We also expected a lower administration overhead for recurring task like setting up a new Jenkins instance, upgrading plugins, etc. Therefore we decided to evaluate a custom approach (Jiro), which turned out to be ready for prime time.
 
 ### Why is it called Jiro?
-You can interpret Jiro as acronym for "**J**enkins **I**nstances **R**unning \[on\] **O**penShift", even though the name originates from [Sukiyabashi Jiro](https://en.wikipedia.org/wiki/Sukiyabashi_Jiro). It should be pronounced "Geero" and not be confused with a famous bug-tracking tool.
+You can interpret Jiro as acronym for "**J**enkins **I**nstances **R**unning \[on\] **O**penShift/OKD", even though the name originates from [Sukiyabashi Jiro](https://en.wikipedia.org/wiki/Sukiyabashi_Jiro). It should be pronounced "Geero" and not be confused with a famous bug-tracking tool.
 
 ## Tasks
 
@@ -95,12 +95,12 @@ Scale down to 0 the StatefulSet running Jenkins then scale it up to 1. It makes 
 * [jq](https://stedolan.github.io/jq/)
 * [yq](https://github.com/mikefarah/yq/)
 * [hbs-cli](https://www.npmjs.com/package/hbs-cli)
-
       $ npm i -g hbs-cli
+* oc CLI tool
 
 ## Installation
 
-### OpenShift
+### OpenShift/OKD
 
 * [Namespace ownership check must be disabled](https://docs.openshift.com/container-platform/3.9/architecture/networking/routes.html#disable-namespace-ownership-check)
 
