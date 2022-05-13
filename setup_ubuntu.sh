@@ -29,7 +29,8 @@ print_version() {
 # jsonnet - https://github.com/google/jsonnet/
 if ! hash jsonnet &> /dev/null; then
   echo "jsonnet could not be found. Installing..."
-  sudo apt install -y jsonnet
+  sudo wget -qO- https://github.com/google/go-jsonnet/releases/latest/download/go-jsonnet_0.18.0_Linux_x86_64.tar.gz | sudo tar xz -C /usr/local/bin
+  sudo chmod a+x /usr/local/bin/jsonnet
   echo -n "jsonnet version : "; print_version "$(jsonnet --version)"
 else
   echo -n "jsonnet was found, version : "; print_version "$(jsonnet --version)"
