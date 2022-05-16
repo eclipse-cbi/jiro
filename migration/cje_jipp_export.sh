@@ -6,7 +6,7 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-script_name="$(basename ${BASH_SOURCE[0]})"
+#script_name="$(basename "${BASH_SOURCE[0]}")"
 
 # run in tmp dir on cje pod
 
@@ -17,35 +17,35 @@ if [[ -z "${project_name}" ]]; then
   exit 1
 fi
 
-printf "Project name: ${project_name}\n"
+printf "Project name: %s\n" "${project_name}"
 
 cje_tmp_dir=/tmp/cje_tmp
 jenkins_home=/var/jenkins
-jobs_dir=${jenkins_home}/jobs
+jobs_dir="${jenkins_home}/jobs"
 job_config_tar="jenkins-${project_name}-jobs.tar.gz"
 cje_migration_tar="cje-migration-${project_name}.tar.gz"
 
 #clean cje_tmp_dir
-if [ -d ${cje_tmp_dir} ]; then
+if [ -d "${cje_tmp_dir}" ]; then
   printf "\nDeleting temp dir...\n\n"
-  rm -rf ${cje_tmp_dir}
+  rm -rf "${cje_tmp_dir}"
 fi
 
 get_job_configs() {
   printf "Collecting job configs..."
-  mkdir -p ${cje_tmp_dir}/jobs/
+  mkdir -p "${cje_tmp_dir}/jobs/"
   # collect and filter job configs
-  tar czf ${cje_tmp_dir}/${job_config_tar} -C ${jobs_dir}/ . --exclude='*/workspace*' --exclude='*/javadoc' --exclude='*/builds/*/jacoco' --exclude='*/builds/*/archive' --exclude='*/branches/*/builds/*/archive'
+  tar czf "${cje_tmp_dir}/${job_config_tar}" -C "${jobs_dir}/" . --exclude='*/workspace*' --exclude='*/javadoc' --exclude='*/builds/*/jacoco' --exclude='*/builds/*/archive' --exclude='*/branches/*/builds/*/archive'
   # extract again
-  tar xzf ${cje_tmp_dir}/${job_config_tar} -C ${cje_tmp_dir}/jobs/
-  rm ${cje_tmp_dir}/${job_config_tar}
+  tar xzf "${cje_tmp_dir}/${job_config_tar}" -C "${cje_tmp_dir}/jobs/"
+  rm "${cje_tmp_dir}/${job_config_tar}"
   printf "Done.\n"
 }
 
 extract_views() {
   printf "Extracting views..."
   # TODO: Don't extract views, if there are none (other than the all view)
-  cp ${jenkins_home}/config.xml ${cje_tmp_dir}/
+  cp "${jenkins_home}/config.xml" "${cje_tmp_dir}/"
   printf "Done.\n"
 }
 
@@ -151,14 +151,14 @@ ws-cleanup
 xvnc
 "
   # add defaultPlugins twice to filter out false positives
-  newPluginsHpi=$(find ${jenkins_home}/plugins -name *.hpi -exec basename {} .hpi \;)
-  newPluginsJpi=$(find ${jenkins_home}/plugins -name *.jpi -exec basename {} .jpi \;)
+  newPluginsHpi=$(find "${jenkins_home}/plugins" -name *.hpi -exec basename {} .hpi \;)
+  newPluginsJpi=$(find "${jenkins_home}/plugins" -name *.jpi -exec basename {} .jpi \;)
   extraPlugins=$(echo -e "${defaultPlugins}\n${defaultPlugins}\n${newPluginsHpi}\n${newPluginsJpi}" | sort | uniq -u)
   if [ "$extraPlugins" != "" ]; then
     printf "\n"
     echo "Additional plugins that should be installed:"
     echo -e "$extraPlugins\n"
-    echo -e "$extraPlugins\n" > ${cje_tmp_dir}/additional_plugins.txt
+    echo -e "$extraPlugins\n" > "${cje_tmp_dir}/additional_plugins.txt"
   else
     printf "Done.\n"
   fi
@@ -166,7 +166,7 @@ xvnc
 
 tar_files() {
   printf "Taring files..."
-  tar czf /tmp/${cje_migration_tar} -C ${cje_tmp_dir} .
+  tar czf "/tmp/${cje_migration_tar}" -C "${cje_tmp_dir}" .
   printf "Done.\n"
 }
 

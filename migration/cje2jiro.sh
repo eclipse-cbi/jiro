@@ -6,10 +6,10 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-script_name="$(basename ${BASH_SOURCE[0]})"
+script_name="$(basename "${BASH_SOURCE[0]}")"
 
 project_name="${1:-}"
-short_name=${project_name##*.}
+short_name="${project_name##*.}"
 
 usage() {
   printf "Usage: %s project_name hipp_name\n" "$script_name"
@@ -32,59 +32,60 @@ if [[ "$project_name" != *.* ]]; then
 fi
 
 copy_export_script_to_pod() {
-  local short_name=$1
+  local short_name="${1:-}"
   echo "Copying export script to pod ${short_name}-0..."
   mkdir -p tmp
   cp cje_jipp_export.sh tmp/
-  oc rsync tmp/ ${short_name}-0:/tmp/ -n=cje
+  oc rsync tmp/ "${short_name}-0:/tmp/" -n=cje
 }
 
 run_export_script_on_pod() {
-  local local_short_name=$1
-  local local_project_name=$2
+  local local_short_name="${1:-}"
+  local local_project_name="${2:-}"
   echo "Executing export script on pod ${short_name}-0..."
-  oc exec -n=cje ${local_short_name}-0 chmod +x /tmp/cje_jipp_export.sh
-  oc exec -n=cje ${local_short_name}-0 /tmp/cje_jipp_export.sh ${local_project_name}
+  oc exec -n=cje "${local_short_name}-0" chmod +x /tmp/cje_jipp_export.sh
+  oc exec -n=cje "${local_short_name}-0" /tmp/cje_jipp_export.sh "${local_project_name}"
 }
 
 copy_jobs_from_pod() {
-  local work_dir=${short_name}
+  local work_dir="${short_name}"
   echo "Generate migration work directory for ${short_name}..."
-  mkdir -p ${work_dir}
+  mkdir -p "${work_dir}"
   echo "Copy exported tar.gz from pod ${short_name}-0 in cje namespace..."
-  oc rsync ${short_name}-0:/tmp/cje-migration-${project_name}.tar.gz ${work_dir}/ -n=cje
+  oc rsync "${short_name}-0:/tmp/cje-migration-${project_name}.tar.gz" "${work_dir}/" -n=cje
   echo "Extract tar.gz..."
-  tar xzf ${work_dir}/cje-migration-${project_name}.tar.gz -C ${work_dir}
+  tar xzf "${work_dir}/cje-migration-${project_name}.tar.gz" -C "${work_dir}"
   echo "Copy job directory to target Jiro pod ${short_name}-0..."
-  pushd ${work_dir}
-  oc rsync jobs ${short_name}-0:/var/jenkins/ -n=${short_name}
+  pushd "${work_dir}"
+  oc rsync jobs "${short_name}-0:/var/jenkins/" -n="${short_name}"
   popd
 }
 
 import_views() {
-  local work_dir=${short_name}
-  printf "\nCopy config.xml from Jiro pod ${short_name}-0...\n"
-  oc rsync ${short_name}-0:/var/jenkins/config.xml ${work_dir}/ -n=${short_name}
+  local work_dir="${short_name}"
+  printf "\nCopy config.xml from Jiro pod %s-0...\n" "${short_name}"
+  oc rsync "${short_name}-0:/var/jenkins/config.xml" "${work_dir}/" -n="${short_name}"
   echo "Create backup of config.xml..."
-  cp ${work_dir}/config.xml ${work_dir}/config.xml.bak
+  cp "${work_dir}/config.xml" "${work_dir}/config.xml.bak"
   printf "Merge views..."
-  export views=$(<${work_dir}/views.xml)
-  perl -i -0pe 's/<views>.*<\/views>/<views>$ENV{views}<\/views>/gms' ${work_dir}/config.xml
+  views="$(<"${work_dir}/views.xml")"
+  export views
+  perl -i -0pe 's/<views>.*<\/views>/<views>$ENV{views}<\/views>/gms' "${work_dir}/config.xml"
   printf "Done.\n"
   echo "Copy modified config.xml back to Jiro pod ${short_name}-0..."
-  oc exec ${short_name}-0 rm /var/jenkins/config.xml -n=${short_name}
-  mkdir -p ${work_dir}/tmp
-  cp ${work_dir}/config.xml ${work_dir}/tmp/
-  oc rsync ${work_dir}/tmp/ ${short_name}-0:/var/jenkins/ -n=${short_name}
-  rm -rf ${work_dir}/tmp
+  oc exec "${short_name}-0" rm /var/jenkins/config.xml -n="${short_name}"
+  mkdir -p "${work_dir}/tmp"
+  cp "${work_dir}/config.xml" "${work_dir}/tmp/"
+  oc rsync "${work_dir}/tmp/" "${short_name}-0:/var/jenkins/" -n="${short_name}"
+  rm -rf "${work_dir}/tmp"
 }
 
-copy_export_script_to_pod ${short_name}
-run_export_script_on_pod ${short_name} ${project_name}
+copy_export_script_to_pod "${short_name}"
+run_export_script_on_pod "${short_name}" "${project_name}"
 copy_jobs_from_pod
 
 echo "Force restart of Jenkins..."
-oc delete pod ${short_name}-0 -n=${short_name}
+oc delete pod "${short_name}-0" -n="${short_name}"
 
 #TODO:
 #import_views

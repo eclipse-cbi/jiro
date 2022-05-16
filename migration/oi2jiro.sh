@@ -6,11 +6,11 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-script_name="$(basename ${BASH_SOURCE[0]})"
+script_name="$(basename "${BASH_SOURCE[0]}")"
 
 project_name="${1:-}"
 hipp_name="${2:-}"
-short_name=${project_name##*.}
+short_name="${project_name##*.}"
 
 usage() {
   printf "Usage: %s project_name hipp_name\n" "$script_name"
@@ -33,36 +33,37 @@ if [[ -z "${hipp_name}" ]]; then
 fi
 
 copy_jobs() {
-  local work_dir=${short_name}
+  local work_dir"=${short_name}"
   echo "Generate migration work directory for ${short_name}..."
-  mkdir -p ${work_dir}
+  mkdir -p "${work_dir}"
   echo "Copy exported tar.gz from ${hipp_name}..."
-  scp ${hipp_name}:/tmp/cje-migration-${short_name}.tar.gz ${work_dir}/
+  scp "${hipp_name}:/tmp/cje-migration-${short_name}.tar.gz" "${work_dir}/"
   echo "Extract tar.gz..."
-  tar xzf ${work_dir}/cje-migration-${short_name}.tar.gz -C ${work_dir}
+  tar xzf "${work_dir}/cje-migration-${short_name}.tar.gz" -C "${work_dir}"
   echo "Copy job directory to target Jiro pod ${short_name}-0..."
-  pushd ${work_dir}
-  oc rsync jobs ${short_name}-0:/var/jenkins/ -n=${short_name}
+  pushd "${work_dir}"
+  oc rsync jobs "${short_name}-0:/var/jenkins/" -n="${short_name}"
   popd
 }
 
 import_views() {
-  local work_dir=${short_name}
-  printf "\nCopy config.xml from Jiro pod ${short_name}-0...\n"
-  oc rsync ${short_name}-0:/var/jenkins/config.xml ${work_dir}/ -n=${short_name}
+  local work_dir="${short_name}"
+  printf "\nCopy config.xml from Jiro pod %s-0...\n" "${short_name}"
+  oc rsync "${short_name}-0:/var/jenkins/config.xml" "${work_dir}/" -n="${short_name}"
   echo "Create backup of config.xml..."
-  cp ${work_dir}/config.xml ${work_dir}/config.xml.bak
+  cp "${work_dir}/config.xml" "${work_dir}/config.xml.bak"
   printf "Merge views..."
-  export views=$(<${work_dir}/views.xml)
-  perl -i -0pe 's/<views>.*<\/views>/<views>$ENV{views}<\/views>/gms' ${work_dir}/config.xml
+  views=$(<"${work_dir}"/views.xml)
+  export views
+  perl -i -0pe 's/<views>.*<\/views>/<views>$ENV{views}<\/views>/gms' "${work_dir}/config.xml"
   printf "Done.\n"
   echo "Copy modified config.xml back to Jiro pod ${short_name}-0..."
-  oc exec ${short_name}-0 rm /var/jenkins/config.xml -n=${short_name}
+  oc exec "${short_name}-0" rm /var/jenkins/config.xml -n="${short_name}"
   sleep 5
-  mkdir -p ${work_dir}/tmp
-  cp ${work_dir}/config.xml ${work_dir}/tmp/
-  oc rsync ${work_dir}/tmp/ ${short_name}-0:/var/jenkins/ -n=${short_name} --no-perms
-  rm -rf ${work_dir}/tmp
+  mkdir -p "${work_dir}/tmp"
+  cp "${work_dir}/config.xml" "${work_dir}/tmp/"
+  oc rsync "${work_dir}/tmp/" "${short_name}-0:/var/jenkins/" -n="${short_name}" --no-perms
+  rm -rf "${work_dir}/tmp"
 }
 
 #TODO: scp oi_jipp_export.sh hipp1:/tmp/
