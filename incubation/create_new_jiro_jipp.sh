@@ -66,7 +66,7 @@ wait_for_jipp_post_setup() {
   
   if [[ $(curl -sL -w "%{http_code}\n" "https://${host}/${short_name}" -o /dev/null | grep 200) ]]; then
     printf "JIPP is online!\n"
-    ${script_folder}/post_setup.sh "${project_name}"
+    "${script_folder}/post_setup.sh" "${project_name}"
   else
     printf "ERROR: JIPP is not online after three minutes, please investigate and run post_setup.sh manually!\n"
   fi

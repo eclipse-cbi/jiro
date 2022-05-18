@@ -6,11 +6,11 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-SCRIPT_NAME="$(basename ${BASH_SOURCE[0]})"
-SCRIPT_FOLDER="$(dirname $(readlink -f "${BASH_SOURCE[0]}"))"
+SCRIPT_NAME="$(basename "${BASH_SOURCE[0]}")"
+SCRIPT_FOLDER="$(dirname"$(readlink -f "${BASH_SOURCE[0]}")")"
 
 PROJECT_NAME="${1:-}"
-SHORT_NAME=${PROJECT_NAME##*.}
+SHORT_NAME="${PROJECT_NAME##*.}"
 
 usage() {
   printf "Usage: %s project_name\n" "${SCRIPT_NAME}"
@@ -122,13 +122,13 @@ EOG
 EOH
 
   echo "Creating credentials..."
-  ${SCRIPT_FOLDER}/../jenkins-create-credentials.sh "${PROJECT_NAME}"
+  "${SCRIPT_FOLDER}/../jenkins-create-credentials.sh" "${PROJECT_NAME}"
 
   echo "Copy files to Jiro pod ${SHORT_NAME}-0..."
-  oc rsync tmp/ ${SHORT_NAME}-0:/var/jenkins/ -n=${SHORT_NAME} --no-perms
+  oc rsync tmp/ "${SHORT_NAME}-0:/var/jenkins/" -n="${SHORT_NAME}" --no-perms
   rm -rf tmp
   echo "Force restart of Jenkins..."
-  oc delete pod ${SHORT_NAME}-0 -n=${SHORT_NAME} --force
+  oc delete pod "${SHORT_NAME}-0" -n="${SHORT_NAME}" --force
 }
 
 create_and_copy_templates
