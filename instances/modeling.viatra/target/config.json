@@ -534,7 +534,7 @@
          "git-parameter",
          "github",
          "github-branch-source",
-         "gitlab-plugin:1.5.13",
+         "gitlab-plugin",
          "gitlab-branch-source",
          "greenballs",
          "jdk-tool",
