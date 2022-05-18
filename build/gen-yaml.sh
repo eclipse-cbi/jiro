@@ -56,6 +56,7 @@ if [[ -f "${yml_source}" ]]; then
   expand_templated_yaml "${yml_source}" "$(dirname "${template}")" "${config}" "${partials}" > "${expanded_src}"
   expanded_tpl=$(mktemp)
   expand_templated_yaml "${template}" "$(dirname "${template}")" "${config}" "${partials}" > "${expanded_tpl}"
+  # shellcheck disable=SC2016
   yq eval-all '. as $item ireduce ({}; . * $item )' "${expanded_tpl}" "${expanded_src}" > "${tmp}"
   rm "${expanded_src}" "${expanded_tpl}"
 elif [[ -f "${yml_source}.override" ]]; then

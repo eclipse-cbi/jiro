@@ -16,16 +16,16 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-script_name="$(basename ${BASH_SOURCE[0]})"
+script_name="$(basename "${BASH_SOURCE[0]}")"
 
 project_name="${1:-}"
 
-pw_store_root_dir=~/.password-store
-pw_store_path=cbi-pass/bots/${project_name}
-nexus_creds_path=cbi-pass/nexus
-mvn_master_pw_path=${pw_store_path}/apache-maven-security-settings/master-password
-ossrh_pw_path=${pw_store_path}/oss.sonatype.org/password
-gpg_pw_path=${pw_store_path}/gpg/passphrase
+pw_store_root_dir="${HOME}/.password-store"
+pw_store_path="cbi-pass/bots/${project_name}"
+nexus_creds_path="cbi-pass/nexus"
+mvn_master_pw_path="${pw_store_path}/apache-maven-security-settings/master-password"
+ossrh_pw_path="${pw_store_path}/oss.sonatype.org/password"
+gpg_pw_path="${pw_store_path}/gpg/passphrase"
 secret_name="m2-secret-dir"
 
 usage() {
@@ -40,12 +40,12 @@ if [[ -z "${project_name}" ]]; then
   exit 1
 fi
 
-short_name=${project_name##*.}
-temp_path=/tmp/${short_name}
-mvn_settings_file=${temp_path}/settings.xml
-mvn_security_file=${temp_path}/settings-security.xml
+short_name="${project_name##*.}"
+temp_path="/tmp/${short_name}"
+mvn_settings_file="${temp_path}/settings.xml"
+mvn_security_file="${temp_path}/settings-security.xml"
 
-mkdir -p ${temp_path}
+mkdir -p "${temp_path}"
 
 pw_gen() {
   # If pwgen is not installed, use /dev/urandom instead
@@ -57,18 +57,19 @@ pw_gen() {
 }
 
 generate_master_pw() {
-  local master_pw=$(pw_gen 24)
-  pass insert --echo ${mvn_master_pw_path} <<< "${master_pw}"
+  local master_pw
+  master_pw="$(pw_gen 24)"
+  pass insert --echo "${mvn_master_pw_path}" <<< "${master_pw}"
 }
 
 yes_no_exit() {
-  local do_what=$1
-  local exec_if_yes=$2
-  local exec_if_no=$3
+  local do_what="${1:-}"
+  local exec_if_yes="${2:-}"
+  local exec_if_no="${3:-}"
   read -p "Do you want to ${do_what}? (Y)es, (N)o, E(x)it: " yn
   case $yn in
-    [Yy]* ) ${exec_if_yes};;
-    [Ss]* ) ${exec_if_no};;
+    [Yy]* ) "${exec_if_yes}";;
+    [Ss]* ) "${exec_if_no}";;
     [Xx]* ) exit;;
         * ) echo "Please answer (Y)es, (N)o, E(x)it";;
   esac
@@ -76,35 +77,35 @@ yes_no_exit() {
 
 create_mvn_security_file() {
   # check if master pw exists in pass
-  if [ ! -f ${pw_store_root_dir}/${mvn_master_pw_path}.gpg ]; then
+  if [ ! -f "${pw_store_root_dir}/${mvn_master_pw_path}.gpg" ]; then
     printf "ERROR: Maven master password is missing in pass.\n"
     yes_no_exit "generate a new Maven master password" generate_master_pw exit
   fi
 
   # encrypt master pw
-  master_pw=$(pass ${mvn_master_pw_path})
-  master_pw_enc=$(mvn --encrypt-master-password "$(printf "%s" ${master_pw})" -Dsettings.security=${mvn_security_file})
-  #master_pw_enc=$(mvn --encrypt-master-password <<< "${master_pw}")
+  master_pw="$(pass "${mvn_master_pw_path}")"
+  master_pw_enc="$(mvn --encrypt-master-password "$(printf "%s" "${master_pw}")" -Dsettings.security="${mvn_security_file}")"
+  #master_pw_enc="$(mvn --encrypt-master-password <<< "${master_pw}")"
 
   # generate security-settings.xml file
-  cat <<EOG > ${mvn_security_file}
+  cat <<EOG > "${mvn_security_file}"
 <settingsSecurity>
   <master>${master_pw_enc}</master>
 </settingsSecurity>
 EOG
 
   printf "settings-security.xml:\n"
-  cat ${mvn_security_file}
+  cat "${mvn_security_file}"
 }
 
 generate_ossrh_settings() {
   # encrypt ossrh pw
-  ossrh_user=$(pass ${pw_store_path}/oss.sonatype.org/username)
-  ossrh_pw=$(pass ${ossrh_pw_path})
-  ossrh_pw_enc=$(mvn --encrypt-password $(printf "%s" ${ossrh_pw}) -Dsettings.security=${mvn_security_file})
-  #ossrh_pw_enc=$(mvn --encrypt-password <<< "${ossrh_pw}")
+  ossrh_user="$(pass "${pw_store_path}/oss.sonatype.org/username")"
+  ossrh_pw="$(pass "${ossrh_pw_path}")"
+  ossrh_pw_enc="$(mvn --encrypt-password "$(printf "%s" "${ossrh_pw}")" -Dsettings.security="${mvn_security_file}")"
+  #ossrh_pw_enc="$(mvn --encrypt-password <<< "${ossrh_pw}")"
 
-cat <<EOF2 >> ${mvn_settings_file}
+cat <<EOF2 >> "${mvn_settings_file}"
     <server>
       <id>ossrh</id>
       <username>${ossrh_user}</username>
@@ -115,11 +116,11 @@ EOF2
 
 generate_gpg_settings() {
   # encrypt gpg passphrase
-  gpg_pw=$(pass ${gpg_pw_path})
-  gpg_pw_enc=$(mvn --encrypt-password "$(printf "%s" ${gpg_pw})" -Dsettings.security=${mvn_security_file})
-  #gpg_pw_enc=$(mvn --encrypt-password <<< "${gpg_pw}")
+  gpg_pw="$(pass "${gpg_pw_path}")"
+  gpg_pw_enc="$(mvn --encrypt-password "$(printf "%s" "${gpg_pw}")" -Dsettings.security="${mvn_security_file}")"
+  #gpg_pw_enc="$(mvn --encrypt-password <<< "${gpg_pw}")"
 
-cat <<EOF3 >> ${mvn_settings_file}
+cat <<EOF3 >> "${mvn_settings_file}"
     <server>
       <id>gpg.passphrase</id>
       <passphrase>${gpg_pw_enc}</passphrase>
@@ -128,12 +129,12 @@ EOF3
 }
 
 generate_mvn_settings() {
-  nexus_username=$(pass ${nexus_creds_path}/username)
-  nexus_password=$(pass ${nexus_creds_path}/password)
+  nexus_username="$(pass ${nexus_creds_path}/username)"
+  nexus_password="$(pass ${nexus_creds_path}/password)"
 
-  nexus_pw_enc=$(mvn --encrypt-password $(printf "%s" ${nexus_password}) -Dsettings.security=${mvn_security_file})
+  nexus_pw_enc="$(mvn --encrypt-password "$(printf "%s" "${nexus_password}")" -Dsettings.security="${mvn_security_file}")"
 
-  cat <<EOF1 > ${mvn_settings_file}
+  cat <<EOF1 > "${mvn_settings_file}"
 <settings>
   <servers>
     <server>
@@ -144,19 +145,19 @@ generate_mvn_settings() {
 EOF1
 
 # check if pw exists in pass
-if [ -f ${pw_store_root_dir}/${ossrh_pw_path}.gpg ]; then
+if [ -f "${pw_store_root_dir}/${ossrh_pw_path}.gpg" ]; then
   yes_no_exit "add OSSRH credentials" generate_ossrh_settings :
 else
   printf "OSSRH password is missing in pass. Skipping...\n"
 fi
 
-if [ -f ${pw_store_root_dir}/${gpg_pw_path}.gpg ]; then
+if [ -f "${pw_store_root_dir}/${gpg_pw_path}.gpg" ]; then
   yes_no_exit "add GPG credentials" generate_gpg_settings :
 else
   printf "GPG passphrase is missing in pass. Skipping...\n"
 fi
 
-  cat <<EOF4 >> ${mvn_settings_file}
+  cat <<EOF4 >> "${mvn_settings_file}"
   </servers>
   <mirrors>
     <mirror>
@@ -169,21 +170,21 @@ fi
 </settings>
 EOF4
 
-  printf "\n${mvn_settings_file}:\n"
-  cat ${mvn_settings_file}
+  printf "\n%s:\n" "${mvn_settings_file}"
+  cat "${mvn_settings_file}"
 }
 
 delete_m2secret() {
-  oc delete secret ${secret_name} -n=${short_name}
+  oc delete secret "${secret_name}" -n="${short_name}"
 }
 
 add_secret_to_k8s() {
-  if [ -f ${mvn_settings_file} ] && [ -f ${mvn_security_file} ]; then
-    if [[ $(oc get secrets -n=${short_name} | grep -e ${secret_name}) ]]; then
+  if [ -f "${mvn_settings_file}" ] && [ -f "${mvn_security_file}" ]; then
+    if [[ "$(oc get secrets -n="${short_name}" | grep -e "${secret_name}")" ]]; then
       echo "Secret ${secret_name} already exists."
       yes_no_exit "delete the existing secret" delete_m2secret :
     fi
-    oc create secret generic ${secret_name} --namespace=${short_name} --from-file=${mvn_settings_file} --from-file=${mvn_security_file}
+    oc create secret generic "${secret_name}" --namespace="${short_name}" --from-file="${mvn_settings_file}" --from-file="${mvn_security_file}"
   else
     echo "ERROR: ${mvn_settings_file} and/or ${mvn_security_file} do not exist."
   fi
@@ -193,6 +194,6 @@ create_mvn_security_file
 generate_mvn_settings
 add_secret_to_k8s
 
-rm -rf ${temp_path}
+rm -rf "${temp_path}"
 
 echo "Done."

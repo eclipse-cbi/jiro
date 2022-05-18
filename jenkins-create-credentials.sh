@@ -66,7 +66,8 @@ create_username_password_credentials() {
   echo "  Creating username/password credential '${id}'..."
 
   # check if credentials already exist, update password if yes
-  local reply=$(${script_folder}/jenkins-cli.sh ${script_folder}/instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)
+  local reply
+  reply=$("${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}" 2>&1 || true)
   local cli_command
   local update_id
   if [[ "${reply}" == "No such domain" ]]; then
@@ -86,7 +87,7 @@ create_username_password_credentials() {
   fi
 
   # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
-  "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
+  "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" "${update_id}" <<EOF
 <com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
   <scope>GLOBAL</scope>
   <id>${id}</id>
@@ -107,7 +108,8 @@ create_ssh_credentials_xml() {
   echo "  Creating SSH credential '${id}'..."
 
   # check if credentials already exist
-  local reply=$(${script_folder}/jenkins-cli.sh ${script_folder}/instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)
+  local reply
+  reply=$("${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}" 2>&1 || true)
   local cli_command
   local update_id
   if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then #skip for global domain ("_")
@@ -127,7 +129,7 @@ create_ssh_credentials_xml() {
   fi
 
   # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
-  "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
+  "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" "${update_id}" <<EOF
 <com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey>
   <scope>GLOBAL</scope>
   <id>${id}</id>
@@ -150,7 +152,8 @@ create_file_credentials() {
   echo "  Creating file credential '${id}'..."
 
   # check if credentials already exist
-  reply="$(${script_folder}/jenkins-cli.sh ${script_folder}/instances/${PROJECT_NAME} get-credentials-as-xml system::system::jenkins ${domain_name} ${id} 2>&1 || true)"
+  local reply
+  reply="$("${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}" 2>&1 || true)"
   local cli_command
   if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then
     create_domain "${domain_name}"

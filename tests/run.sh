@@ -7,7 +7,7 @@ set -o pipefail
 
 IFS=$'\n\t'
 
-SCRIPT_FOLDER="$(dirname $(readlink -f "${BASH_SOURCE[0]}"))"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 JAVA_OPTS="-XshowSettings:vm \
   -Djdk.nativeCrypto=false \
@@ -24,8 +24,8 @@ JENKINS_OPTS="--prefix=/jenkins \
 
 TEST_IMAGE="testjenkins:latest"
 
-docker build --rm -t ${TEST_IMAGE} \
-  -f ${SCRIPT_FOLDER}/Dockerfile ${SCRIPT_FOLDER}
+docker build --rm -t "${TEST_IMAGE}" \
+  -f "${SCRIPT_FOLDER}/Dockerfile" "${SCRIPT_FOLDER}"
 
 docker run -it --rm -e JAVA_OPTS="${JAVA_OPTS}" -e JENKINS_OPTS="${JENKINS_OPTS}" \
-  -p 8080:8080 -p 50000:50000 ${TEST_IMAGE}
+  -p 8080:8080 -p 50000:50000 "${TEST_IMAGE}"

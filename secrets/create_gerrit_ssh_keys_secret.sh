@@ -19,7 +19,7 @@ set -o pipefail
 IFS=$'\n\t'
 script_name="$(basename "${BASH_SOURCE[0]}")"
 
-SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+#SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 LOCAL_CONFIG="${HOME}/.cbi/config"
 if [[ ! -f "${LOCAL_CONFIG}" ]]; then

@@ -16,17 +16,17 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-script_name="$(basename ${BASH_SOURCE[0]})"
+script_name="$(basename "${BASH_SOURCE[0]}")"
 
 project_name="${1:-}"
-short_name=${project_name##*.}
+short_name="${project_name##*.}"
 
-temp_path=/tmp/${short_name}
-pw_store_root_dir=~/.password-store
-pw_store_path=cbi-pass/bots/${project_name}
-mvn_master_pw_path=${pw_store_path}/apache-maven-security-settings/master-password
-mvn_settings_file=${temp_path}/settings.xml
-mvn_security_file=${temp_path}/settings-security.xml
+temp_path="/tmp/${short_name}"
+pw_store_root_dir="${HOME}/.password-store"
+pw_store_path="cbi-pass/bots/${project_name}"
+mvn_master_pw_path="${pw_store_path}/apache-maven-security-settings/master-password"
+mvn_settings_file="${temp_path}/settings.xml"
+mvn_security_file="${temp_path}/settings-security.xml"
 
 usage() {
   printf "Usage: %s project_name\n" "$script_name"
@@ -40,7 +40,7 @@ if [[ -z "${project_name}" ]]; then
  exit 1
 fi
 
-mkdir -p ${temp_path}
+mkdir -p "${temp_path}"
 
 pw_gen() {
   # If pwgen is not installed, use /dev/urandom instead
@@ -52,18 +52,19 @@ pw_gen() {
 }
 
 generate_master_pw() {
-  local master_pw=$(pw_gen 24)
-  pass insert --echo ${mvn_master_pw_path} <<< "${master_pw}"
+  local master_pw
+  master_pw="$(pw_gen 24)"
+  pass insert --echo "${mvn_master_pw_path}" <<< "${master_pw}"
 }
 
 yes_no_exit() {
-  local do_what=$1
-  local exec_if_yes=$2
-  local exec_if_no=$3
+  local do_what="${1:-}"
+  local exec_if_yes="${2:-}"
+  local exec_if_no="${3:-}"
   read -p "Do you want to ${do_what}? (Y)es, (N)o, E(x)it: " yn
   case $yn in
-    [Yy]* ) ${exec_if_yes};;
-    [Ss]* ) ${exec_if_no};;
+    [Yy]* ) "${exec_if_yes}";;
+    [Ss]* ) "${exec_if_no}";;
     [Xx]* ) exit;;
         * ) echo "Please answer (Y)es, (N)o, E(x)it";;
   esac
@@ -72,25 +73,25 @@ yes_no_exit() {
 create_mvn_security_file() {
   # check if master pw exists in pass
   echo "Path: ${mvn_master_pw_path}.gpg"
-  if [ ! -f ${pw_store_root_dir}/${mvn_master_pw_path}.gpg ]; then
+  if [ ! -f "${pw_store_root_dir}/${mvn_master_pw_path}.gpg" ]; then
     printf "ERROR: Maven master password is missing in pass.\n"
     yes_no_exit "generate a new Maven master password" generate_master_pw exit
   fi
 
   # encrypt master pw
-  master_pw=$(pass ${mvn_master_pw_path})
-  master_pw_enc=$(mvn --encrypt-master-password "$(printf "%s" ${master_pw})")
-  #master_pw_enc=$(mvn --encrypt-master-password <<< "${master_pw}")
+  master_pw="$(pass "${mvn_master_pw_path}")"
+  master_pw_enc="$(mvn --encrypt-master-password "$(printf "%s" "${master_pw}")")"
+  #master_pw_enc="$(mvn --encrypt-master-password <<< "${master_pw}")"
 
   # generate security-settings.xml file
-  cat <<EOG > ${mvn_security_file}
+  cat <<EOG > "${mvn_security_file}"
 <settingsSecurity>
   <master>${master_pw_enc}</master>
 </settingsSecurity>
 EOG
 
   printf "settings-security.xml:\n"
-  cat ${mvn_security_file}
+  cat "${mvn_security_file}"
 }
 
 generate_mvn_settings() {
@@ -99,10 +100,10 @@ generate_mvn_settings() {
   read -p "Username: " username
   echo
   read -sp "Password: " pw
-  pw_enc=$(mvn --encrypt-password $(printf "%s" ${pw}) -Dsettings.security=${mvn_security_file})
+  pw_enc="$(mvn --encrypt-password "$(printf "%s" "${pw}")" -Dsettings.security="${mvn_security_file}")"
 
   # generate settings-xxx.xml file
-  printf "\n${mvn_settings_file}:\n"
+  printf "\n%s:\n" "${mvn_settings_file}"
   cat <<EOF
 <settings>
   <servers>
@@ -127,6 +128,6 @@ EOF
 create_mvn_security_file
 generate_mvn_settings
 
-rm -rf ${temp_path}
+rm -rf "${temp_path}"
 
 echo "Done."

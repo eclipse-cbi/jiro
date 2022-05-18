@@ -25,7 +25,7 @@ fi
 reload() {
   local instance="${1}"
   local projectShortName
-  local configjson="${instance}/target/config.json"
+  #local configjson="${instance}/target/config.json"
   projectShortName="$(jq -r '.project.shortName' "${instance}/target/config.json")"
   projectFullName="$(jq -r '.project.fullName' "${instance}/target/config.json")"
 
