@@ -247,6 +247,16 @@ Create Gradle specific folders/configurations (e.g. ~/.gradle)
 }
 ```
 
+This will create a volume mount for `/home/jenkins/.gradle/gradle.properties` with the following content:
+```
+eclipseRepoPassword=<password>
+eclipseRepoUsername=<username>
+```
+
+This is required for deploying artifacts to repo.eclipse.org.
+
+See also: https://wiki.eclipse.org/Services/Nexus#Deploying_to_repo.eclipse.org_with_Gradle
+
 #### sbt
 
 Create sbt specific folders/configurations (e.g. ~/.sbt)
