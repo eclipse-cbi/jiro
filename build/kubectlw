@@ -23,7 +23,7 @@ CBI_HOME="$(readlink -f "${CBI_HOME/#~\//${HOME}/}")"
 
 CBI_CONFIG="${CBI_HOME}/config"
 
-if [[ ! -f ${CBI_CONFIG} ]]; then
+if [[ ! -f "${CBI_CONFIG}" ]]; then
   echo "ERROR: File '${CBI_CONFIG}' does not exists"
   echo "Create one to configure the location of the kubeconfig file and the associated context. Example:"
   echo '{"kubeconfig": { "path": "~/.kube/config", "contextMapping": { "okd-c1": "okd", "ci-c1": "openshift" }}}' | jq -M
@@ -33,7 +33,7 @@ fi
 _kubeconfig() {
   local kubeconfig
   kubeconfig="$(jq -r '.kubeconfig.path' <"${CBI_CONFIG}")"
-  kubeconfig=${kubeconfig:-"~/.kube/config"}
+  kubeconfig="${kubeconfig:-"~/.kube/config"}"
   # resolve ~ for latter tests
   kubeconfig="$(readlink -f "${kubeconfig/#~\//${HOME}/}")"
 
