@@ -31,7 +31,7 @@ font-awesome-api 6.0.0-1
 forensics-api 1.13.0
 gerrit-trigger 2.36.0
 ghprb 1.42.2
-git 4.11.2
+git 4.11.3
 git-client 3.11.0
 git-parameter 0.9.16
 git-server 1.11
@@ -58,7 +58,7 @@ jquery3-api 3.6.0-3
 jsch 0.1.55.2
 junit 1.63
 kubernetes 3580.v78271e5631dc
-kubernetes-client-api 5.12.1-187.v577c3e368fb_6
+kubernetes-client-api 5.12.2-193.v26a_6078f65a_9
 kubernetes-credentials 0.9.0
 ldap 2.9
 mailer 414.vcc4c33714601
@@ -195,7 +195,7 @@ font-awesome-api 6.0.0-1
 forensics-api 1.13.0
 gerrit-trigger 2.36.0
 ghprb 1.42.2
-git 4.11.2
+git 4.11.3
 git-client 3.11.0
 git-parameter 0.9.16
 git-server 1.11
@@ -223,7 +223,7 @@ jquery3-api 3.6.0-3
 jsch 0.1.55.2
 junit 1.63
 kubernetes 3580.v78271e5631dc
-kubernetes-client-api 5.12.1-187.v577c3e368fb_6
+kubernetes-client-api 5.12.2-193.v26a_6078f65a_9
 kubernetes-credentials 0.9.0
 ldap 2.9
 mail-watcher-plugin 1.16
@@ -286,8 +286,4 @@ xvnc 1.28
 zentimestamp 4.2
 
 Security warnings:
-Tried downloading mail-watcher-plugin from https://get.jenkins.io/plugins/mail-watcher-plugin/1.16/mail-watcher-plugin.hpi
-Tried downloading build-name-setter from https://get.jenkins.io/plugins/build-name-setter/2.2.0/build-name-setter.hpi
-Tried downloading mail-watcher-plugin from https://get.jenkins.io/plugins/mail-watcher-plugin/1.16/mail-watcher-plugin.hpi
-Tried downloading mail-watcher-plugin from https://get.jenkins.io/plugins/mail-watcher-plugin/1.16/mail-watcher-plugin.hpi
-Downloaded file is not a valid ZIP
+Done
