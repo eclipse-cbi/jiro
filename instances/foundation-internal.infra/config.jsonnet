@@ -26,6 +26,11 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         principal: "wayne.beaton@eclipse-foundation.org",
         grantedPermissions: ["Overall/Read", "Agent/Build"],
       },
+      // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/617
+      {
+        principal: "boris.baldassari@eclipse-foundation.org",
+        grantedPermissions: ["Overall/Read", "Agent/Build"],
+      },
       {
         principal: "foundation-internal.it",
         grantedPermissions: permissionsTemplates.committerPermissionsList,

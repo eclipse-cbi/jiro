@@ -366,6 +366,13 @@
          },
          {
             "grantedPermissions": [
+               "Overall/Read",
+               "Agent/Build"
+            ],
+            "principal": "boris.baldassari@eclipse-foundation.org"
+         },
+         {
+            "grantedPermissions": [
                "Agent/Build",
                "Credentials/View",
                "Job/Build",

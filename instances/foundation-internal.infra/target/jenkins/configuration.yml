@@ -20,6 +20,8 @@ jenkins:
     projectMatrix:
       permissions:
         - "GROUP:Overall/Administer:admins"
+        - "USER:Agent/Build:boris.baldassari@eclipse-foundation.org"
+        - "USER:Overall/Read:boris.baldassari@eclipse-foundation.org"
         - "GROUP:Agent/Build:foundation-internal.it"
         - "GROUP:Credentials/View:foundation-internal.it"
         - "GROUP:Job/Build:foundation-internal.it"
@@ -345,6 +347,20 @@ jenkins:
           - watcher:
               offlineAddresses: "releng@eclipse.org"
               onlineAddresses: "releng@eclipse.org"
+    - permanent:
+        name: "ort-vm1"
+        remoteFS: "/home/genie.infra"
+        launcher:
+          ssh:
+            credentialsId: "ort-ssh-bot"
+            host: "20.104.233.12"
+            port: 22
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDkH1ET4ScUfV5JHHr7f7dOg4jHg09SL2Q03ST6oAmC5yxmU52uu8vhUZRM5H5zjrW4ml7/U4s+J3LyUHNtcQq5xqBrQCDc2uSXUTFeShp3FeehHRvvOzlJqSANvQj+0Qdxb/aU0lxAYXaLsRy+HEH75aSceTXYDFvVjygteBApVFAaTCNYlDNPsxMUQ1ZKi7cy7DPT1w6PVpGO+9i7WXHkMCJlhOLf6ivJWgH5NtcHJMAxs7fGHYPjn8rUJlSAY/Hg1bT5JcGAdNWxsaCmKMucaGBeHz2E+hXtx6k4ye5fJqlFuWkxfWyJSewmoNrilACl9XKp5mPbVZyCZCDJCtVYkT6gf3nm5bTiSfIBb5fLM1eVKssa2PNcEW7sajRKEpw6GKcD0a1gj1ERbZapVWk42AD9TCIeaT8SniZrq60n5E/SVRBQvoCArdLIQgfm4zflUsH/gFeMFMV/PvQ6vrbRCd+fhbnaRWFVOpUUwwMaM+8OXCbS9XOPge8B2wqOVqk="
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        numExecutors: 1
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
