@@ -10,14 +10,14 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   labels:
-    org.eclipse.cbi.jiro/project.shortname: "jaxrs"
-    org.eclipse.cbi.jiro/project.fullName: "ee4j.jaxrs"
+    org.eclipse.cbi.jiro/project.shortname: "rest"
+    org.eclipse.cbi.jiro/project.fullName: "ee4j.rest"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.332.3"
-    org.eclipse.cbi.jiro/kubernetes.master.namespace: "jaxrs"
-  namespace: "jaxrs"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "rest"
+  namespace: "rest"
   name: jenkins-config
 data:
   jenkins.yaml: |
@@ -48,27 +48,27 @@ data:
             - "USER:Job/Read:anonymous"
             - "USER:Overall/Read:anonymous"
             - "GROUP:Job/ExtendedRead:common"
-            - "GROUP:Agent/Build:ee4j.jaxrs"
-            - "GROUP:Credentials/View:ee4j.jaxrs"
-            - "GROUP:Gerrit/ManualTrigger:ee4j.jaxrs"
-            - "GROUP:Gerrit/Retrigger:ee4j.jaxrs"
-            - "GROUP:Job/Build:ee4j.jaxrs"
-            - "GROUP:Job/Cancel:ee4j.jaxrs"
-            - "GROUP:Job/Configure:ee4j.jaxrs"
-            - "GROUP:Job/Create:ee4j.jaxrs"
-            - "GROUP:Job/Delete:ee4j.jaxrs"
-            - "GROUP:Job/Move:ee4j.jaxrs"
-            - "GROUP:Job/Read:ee4j.jaxrs"
-            - "GROUP:Job/Workspace:ee4j.jaxrs"
-            - "GROUP:Overall/Read:ee4j.jaxrs"
-            - "GROUP:Run/Delete:ee4j.jaxrs"
-            - "GROUP:Run/Replay:ee4j.jaxrs"
-            - "GROUP:Run/Update:ee4j.jaxrs"
-            - "GROUP:SCM/Tag:ee4j.jaxrs"
-            - "GROUP:View/Configure:ee4j.jaxrs"
-            - "GROUP:View/Create:ee4j.jaxrs"
-            - "GROUP:View/Delete:ee4j.jaxrs"
-            - "GROUP:View/Read:ee4j.jaxrs"
+            - "GROUP:Agent/Build:ee4j.rest"
+            - "GROUP:Credentials/View:ee4j.rest"
+            - "GROUP:Gerrit/ManualTrigger:ee4j.rest"
+            - "GROUP:Gerrit/Retrigger:ee4j.rest"
+            - "GROUP:Job/Build:ee4j.rest"
+            - "GROUP:Job/Cancel:ee4j.rest"
+            - "GROUP:Job/Configure:ee4j.rest"
+            - "GROUP:Job/Create:ee4j.rest"
+            - "GROUP:Job/Delete:ee4j.rest"
+            - "GROUP:Job/Move:ee4j.rest"
+            - "GROUP:Job/Read:ee4j.rest"
+            - "GROUP:Job/Workspace:ee4j.rest"
+            - "GROUP:Overall/Read:ee4j.rest"
+            - "GROUP:Run/Delete:ee4j.rest"
+            - "GROUP:Run/Replay:ee4j.rest"
+            - "GROUP:Run/Update:ee4j.rest"
+            - "GROUP:SCM/Tag:ee4j.rest"
+            - "GROUP:View/Configure:ee4j.rest"
+            - "GROUP:View/Create:ee4j.rest"
+            - "GROUP:View/Delete:ee4j.rest"
+            - "GROUP:View/Read:ee4j.rest"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -91,10 +91,10 @@ data:
       - kubernetes:
           name: "kubernetes"
           containerCapStr: "2"
-          jenkinsUrl: "http://jenkins-ui.jaxrs.svc.cluster.local/jaxrs"
-          jenkinsTunnel: "jenkins-discovery.jaxrs.svc.cluster.local:50000"
+          jenkinsUrl: "http://jenkins-ui.rest.svc.cluster.local/rest"
+          jenkinsTunnel: "jenkins-discovery.rest.svc.cluster.local:50000"
           maxRequestsPerHostStr: "32"
-          namespace: "jaxrs"
+          namespace: "rest"
           podRetention: "never"
           templates:
           - containers:
@@ -116,7 +116,7 @@ data:
               args: ""
             instanceCap: -1
             name: "basic"
-            namespace: "jaxrs"
+            namespace: "rest"
             nodeUsageMode: NORMAL
             label: "basic"
             envVars:
@@ -134,7 +134,7 @@ data:
                 value: ""
             volumes:
             - persistentVolumeClaim:
-                claimName: "tools-claim-jiro-jaxrs"
+                claimName: "tools-claim-jiro-rest"
                 mountPath: "/opt/tools"
                 readOnly: true
             - configMapVolume:
@@ -202,7 +202,7 @@ data:
               args: ""
             instanceCap: -1
             name: "centos-7"
-            namespace: "jaxrs"
+            namespace: "rest"
             nodeUsageMode: EXCLUSIVE
             label: "migration jipp-migration centos-7"
             envVars:
@@ -220,7 +220,7 @@ data:
                 value: ""
             volumes:
             - persistentVolumeClaim:
-                claimName: "tools-claim-jiro-jaxrs"
+                claimName: "tools-claim-jiro-rest"
                 mountPath: "/opt/tools"
                 readOnly: true
             - configMapVolume:
@@ -288,7 +288,7 @@ data:
               args: ""
             instanceCap: -1
             name: "centos-8"
-            namespace: "jaxrs"
+            namespace: "rest"
             nodeUsageMode: EXCLUSIVE
             label: "centos-latest centos-8"
             envVars:
@@ -306,7 +306,7 @@ data:
                 value: ""
             volumes:
             - persistentVolumeClaim:
-                claimName: "tools-claim-jiro-jaxrs"
+                claimName: "tools-claim-jiro-rest"
                 mountPath: "/opt/tools"
                 readOnly: true
             - configMapVolume:
@@ -370,7 +370,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci.eclipse.org/jaxrs
+        url: https://ci.eclipse.org/rest
     
       mailer:
         replyToAddress: ci-admin@eclipse.org
@@ -389,11 +389,11 @@ data:
       simple-theme-plugin:
         elements:
         - cssUrl:
-            url: "/jaxrs/userContent/theme/quicksilver.css"
+            url: "/rest/userContent/theme/quicksilver.css"
         - cssUrl:
             url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
         - jsUrl:
-            url: "/jaxrs/userContent/theme/title.js"
+            url: "/rest/userContent/theme/title.js"
     
       buildDiscarders:
         configuredBuildDiscarders:
@@ -421,7 +421,7 @@ data:
             manageHooks: false
         hookSecretConfigs:
           - credentialsId: "github-webhook-secret"
-        hookUrl: "https://ci.eclipse.org/jaxrs/github-webhook/"
+        hookUrl: "https://ci.eclipse.org/rest/github-webhook/"
     
       gitSCM:
         createAccountBasedOnEmail: true

@@ -3,22 +3,22 @@
    "kind": "RoleBinding",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jaxrs",
-         "org.eclipse.cbi.jiro/project.shortname": "jaxrs"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.rest",
+         "org.eclipse.cbi.jiro/project.shortname": "rest"
       },
-      "name": "jaxrs",
-      "namespace": "jaxrs"
+      "name": "rest",
+      "namespace": "rest"
    },
    "roleRef": {
       "kind": "Role",
       "name": "jenkins-master-owner",
-      "namespace": "jaxrs"
+      "namespace": "rest"
    },
    "subjects": [
       {
          "kind": "ServiceAccount",
-         "name": "jaxrs",
-         "namespace": "jaxrs"
+         "name": "rest",
+         "namespace": "rest"
       }
    ]
 }

@@ -2,18 +2,18 @@
    "accessControl": {
       "primaryGroup": {
          "id": -1,
-         "name": "ee4j.jaxrs"
+         "name": "ee4j.rest"
       },
       "supplementalGroups": [ ],
       "user": {
          "id": -1,
-         "name": "genie.jaxrs"
+         "name": "genie.rest"
       }
    },
    "clouds": {
       "kubernetes": {
          "kind": "kubernetes",
-         "namespace": "jaxrs",
+         "namespace": "rest",
          "podRetention": "never",
          "templates": {
             "basic": {
@@ -315,14 +315,14 @@
       "controlPort": 8081,
       "host": "ci.eclipse.org",
       "jnlpPort": 50000,
-      "prefix": "/jaxrs",
+      "prefix": "/rest",
       "uiPort": 8080,
-      "url": "https://ci.eclipse.org/jaxrs"
+      "url": "https://ci.eclipse.org/rest"
    },
    "docker": {
       "master": {
          "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.332.3\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
-         "image": "ee4j.jaxrs",
+         "image": "ee4j.rest",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
          "tag": "2.332.3"
@@ -388,7 +388,7 @@
                "Gerrit/ManualTrigger",
                "Gerrit/Retrigger"
             ],
-            "principal": "ee4j.jaxrs"
+            "principal": "ee4j.rest"
          }
       ],
       "plugins": [
@@ -439,7 +439,7 @@
          "git-parameter",
          "github",
          "github-branch-source",
-         "gitlab-plugin:1.5.13",
+         "gitlab-plugin",
          "gitlab-branch-source",
          "greenballs",
          "jdk-tool",
@@ -492,10 +492,10 @@
                "request": "4096Mi"
             }
          },
-         "namespace": "jaxrs"
+         "namespace": "rest"
       },
       "master": {
-         "namespace": "jaxrs",
+         "namespace": "rest",
          "probe": {
             "liveness": {
                "delaySeconds": 480,
@@ -520,14 +520,14 @@
                "request": "1536Mi"
             }
          },
-         "stsName": "jaxrs"
+         "stsName": "rest"
       }
    },
    "maven": {
       "files": {
          "settings-security.xml": {
             "master": {
-               "pass": "bots/ee4j.jaxrs/apache-maven-security-settings"
+               "pass": "bots/ee4j.rest/apache-maven-security-settings"
             }
          },
          "settings.xml": {
@@ -542,16 +542,16 @@
             "servers": {
                "gpg.passphrase": {
                   "passphrase": {
-                     "pass": "bots/ee4j.jaxrs/gpg/passphrase"
+                     "pass": "bots/ee4j.rest/gpg/passphrase"
                   }
                },
                "ossrh": {
                   "nexusProUrl": "https://jakarta.oss.sonatype.org",
                   "password": {
-                     "pass": "bots/ee4j.jaxrs/oss.sonatype.org/password"
+                     "pass": "bots/ee4j.rest/oss.sonatype.org/password"
                   },
                   "username": {
-                     "pass": "bots/ee4j.jaxrs/oss.sonatype.org/username"
+                     "pass": "bots/ee4j.rest/oss.sonatype.org/username"
                   }
                },
                "repo.eclipse.org": {
@@ -573,10 +573,10 @@
    },
    "project": {
       "displayName": "Jakarta RESTful Web Services",
-      "fullName": "ee4j.jaxrs",
+      "fullName": "ee4j.rest",
       "resourcePacks": 1,
-      "shortName": "jaxrs",
-      "unixGroupName": "ee4j.jaxrs"
+      "shortName": "rest",
+      "unixGroupName": "ee4j.rest"
    },
    "sbt": {
       "files": {
@@ -596,7 +596,7 @@
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-default": {
-            "namespace": "jaxrs",
+            "namespace": "rest",
             "servers": {
                "https://index.docker.io/v1/": {
                   "password": {
@@ -612,8 +612,8 @@
                "pull"
             ]
          },
-         "dockerconfigjson-for-pull-as-jaxrs": {
-            "namespace": "jaxrs",
+         "dockerconfigjson-for-pull-as-rest": {
+            "namespace": "rest",
             "servers": {
                "https://index.docker.io/v1/": {
                   "password": {
@@ -624,7 +624,7 @@
                   }
                }
             },
-            "serviceAccount": "jaxrs",
+            "serviceAccount": "rest",
             "type": [
                "pull"
             ]
@@ -632,7 +632,7 @@
       },
       "gerrit-trigger-plugin": {
          "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-         "username": "genie.jaxrs"
+         "username": "genie.rest"
       }
    }
 }

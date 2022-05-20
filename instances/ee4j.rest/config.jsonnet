@@ -1,6 +1,6 @@
 {
   project+: {
-    fullName: "ee4j.jaxrs",
+    fullName: "ee4j.rest",
     displayName: "Jakarta RESTful Web Services",
   },
   jenkins+: {

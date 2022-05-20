@@ -6,10 +6,10 @@
          "kind": "PersistentVolume",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "ee4j.jaxrs",
-               "org.eclipse.cbi.jiro/project.shortname": "jaxrs"
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j.rest",
+               "org.eclipse.cbi.jiro/project.shortname": "rest"
             },
-            "name": "tools-jiro-jaxrs"
+            "name": "tools-jiro-rest"
          },
          "spec": {
             "accessModes": [
@@ -19,8 +19,8 @@
                "storage": "20Gi"
             },
             "claimRef": {
-               "name": "tools-claim-jiro-jaxrs",
-               "namespace": "jaxrs"
+               "name": "tools-claim-jiro-rest",
+               "namespace": "rest"
             },
             "mountOptions": [
                "vers=4.2",
@@ -50,11 +50,11 @@
          "kind": "PersistentVolumeClaim",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "ee4j.jaxrs",
-               "org.eclipse.cbi.jiro/project.shortname": "jaxrs"
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j.rest",
+               "org.eclipse.cbi.jiro/project.shortname": "rest"
             },
-            "name": "tools-claim-jiro-jaxrs",
-            "namespace": "jaxrs"
+            "name": "tools-claim-jiro-rest",
+            "namespace": "rest"
          },
          "spec": {
             "accessModes": [

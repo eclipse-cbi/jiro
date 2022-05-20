@@ -6,15 +6,15 @@
          "haproxy.router.openshift.io/timeout": "60s"
       },
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jaxrs",
-         "org.eclipse.cbi.jiro/project.shortname": "jaxrs"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.rest",
+         "org.eclipse.cbi.jiro/project.shortname": "rest"
       },
-      "name": "jaxrs",
-      "namespace": "jaxrs"
+      "name": "rest",
+      "namespace": "rest"
    },
    "spec": {
       "host": "ci.eclipse.org",
-      "path": "/jaxrs",
+      "path": "/rest",
       "port": {
          "targetPort": "http"
       },

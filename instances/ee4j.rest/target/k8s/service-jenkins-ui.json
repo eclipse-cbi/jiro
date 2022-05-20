@@ -3,11 +3,11 @@
    "kind": "Service",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jaxrs",
-         "org.eclipse.cbi.jiro/project.shortname": "jaxrs"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.rest",
+         "org.eclipse.cbi.jiro/project.shortname": "rest"
       },
       "name": "jenkins-ui",
-      "namespace": "jaxrs"
+      "namespace": "rest"
    },
    "spec": {
       "ports": [
@@ -19,7 +19,7 @@
          }
       ],
       "selector": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jaxrs"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.rest"
       }
    }
 }
