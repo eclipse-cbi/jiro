@@ -10,8 +10,6 @@
 
 # This script creates credentials in the Jenkins credentials store
 
-# TODO: update credentials
-
 # Bash strict-mode
 set -o errexit
 set -o nounset
@@ -172,8 +170,8 @@ create_file_credentials() {
   elif [[ "${reply}" == "No such credential" ]]; then
     cli_command="create-credentials-by-xml"
   elif [[ "${reply}" == "<org.jenkinsci.plugins.plaincredentials.impl.FileCredentialsImpl"* ]]; then
-    echo "  Credential ${id} already exists."
-    # Do not overwrite, since we can't set the a secret file automatically (yet)
+    echo "  Credential ${id} already exists. Skipping..."
+    # Do not overwrite, since we can't set the secret file automatically (yet)
     return
   else
     echo "Unexpected reply: ${reply}"
