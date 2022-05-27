@@ -233,115 +233,16 @@ jenkins:
         command:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-10 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
   - permanent:
-      name: "ub1604-x86-unb-01"
+      name: "ub20-x64-omr1"
       nodeDescription: "Linux x86"
-      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
+      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux cgroup.v1"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub16x64omrvm1 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
-  - permanent:
-      name: "ub1604-x86-unb-02"
-      nodeDescription: "Linux x86"
-      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub16x64omrvm2 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
-  - permanent:
-      name: "ub1604-x86-unb-03"
-      nodeDescription: "Linux x86"
-      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@192.168.10.209 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
-  - permanent:
-      name: "ub1604-x86-unb-04"
-      nodeDescription: "Linux x86"
-      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@192.168.10.249 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
-  - permanent:
-      name: "ub1604-x86-unb-05"
-      nodeDescription: "Linux x86"
-      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub16x64omrvm5 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
-  - permanent:
-      name: "ub1604-x86-unb-06"
-      nodeDescription: "Linux x86"
-      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub16x64omrvm6 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
-  - permanent:
-      name: "ub1604-x86-unb-07"
-      nodeDescription: "Linux x86"
-      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub16x64omrvm7 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
-  - permanent:
-      name: "ub1604-x86-unb-08"
-      nodeDescription: "Linux x86"
-      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub16x64omrvm8 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
-  - permanent:
-      name: "ub1604-x86-unb-10"
-      nodeDescription: "Linux x86"
-      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub16x64omrvm10 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
-  - permanent:
-      name: "ub1604-x86-unb-11"
-      nodeDescription: "Linux x86"
-      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub16x64omrvm11 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr1 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
   - permanent:
       name: "ub20-x64-omr2"
       nodeDescription: "Linux x86"
@@ -354,7 +255,7 @@ jenkins:
         command:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr2 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
   - permanent:
-      name: "ub20-x64-omr1"
+      name: "ub20-x64-omr3"
       nodeDescription: "Linux x86"
       labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux cgroup.v1"
       remoteFS: '/home/jenkins'
@@ -363,7 +264,106 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr1 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr3 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+  - permanent:
+      name: "ub20-x64-omr4"
+      nodeDescription: "Linux x86"
+      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux cgroup.v2"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr4 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+  - permanent:
+      name: "ub20-x64-omr5"
+      nodeDescription: "Linux x86"
+      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux cgroup.v1"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr5 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+  - permanent:
+      name: "ub20-x64-omr6"
+      nodeDescription: "Linux x86"
+      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux cgroup.v2"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr6 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+  - permanent:
+      name: "ub20-x64-omr7"
+      nodeDescription: "Linux x86"
+      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux cgroup.v2"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr7 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+  - permanent:
+      name: "ub20-x64-omr8"
+      nodeDescription: "Linux x86"
+      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux cgroup.v1"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr8 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+  - permanent:
+      name: "ub20-x64-omr9"
+      nodeDescription: "Linux x86"
+      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux cgroup.v2"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr9 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+  - permanent:
+      name: "ub20-x64-omr10"
+      nodeDescription: "Linux x86"
+      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinuxi cgroup.v1"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr10 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+  - permanent:
+      name: "ub20-x64-omr11"
+      nodeDescription: "Linux x86"
+      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux cgroup.v2"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr11 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+  - permanent:
+      name: "ub20-x64-omr12"
+      nodeDescription: "Linux x86"
+      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux cgroup.v1"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr12 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
   - permanent:
       name: "ub16-s390x-01"
       nodeDescription: "zLinux node"
