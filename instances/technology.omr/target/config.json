@@ -396,6 +396,7 @@
                "Agent/Disconnect",
                "Agent/Configure",
                "Agent/Build",
+               "Job/Create",
                "Job/Configure",
                "Job/Build",
                "Job/Cancel",
@@ -409,6 +410,7 @@
                "Agent/Disconnect",
                "Agent/Configure",
                "Agent/Build",
+               "Job/Create",
                "Job/Configure",
                "Job/Build",
                "Job/Cancel"
@@ -419,9 +421,14 @@
             "grantedPermissions": [
                "Agent/Connect",
                "Agent/Disconnect",
-               "Agent/Configure"
+               "Agent/Configure",
+               "Agent/Build",
+               "Job/Create",
+               "Job/Configure",
+               "Job/Build",
+               "Job/Cancel"
             ],
-            "principal": "rajdeep.singh@ibm.com"
+            "principal": "vsebe@ca.ibm.com"
          }
       ],
       "plugins": [

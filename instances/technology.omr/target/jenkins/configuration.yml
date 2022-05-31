@@ -26,6 +26,7 @@ jenkins:
         - "USER:Job/Build:adam.brousseau88@gmail.com"
         - "USER:Job/Cancel:adam.brousseau88@gmail.com"
         - "USER:Job/Configure:adam.brousseau88@gmail.com"
+        - "USER:Job/Create:adam.brousseau88@gmail.com"
         - "USER:Overall/SystemRead:adam.brousseau88@gmail.com"
         - "GROUP:Overall/Administer:admins"
         - "USER:Job/Read:anonymous"
@@ -38,9 +39,7 @@ jenkins:
         - "USER:Job/Build:joe_dekoning@ca.ibm.com"
         - "USER:Job/Cancel:joe_dekoning@ca.ibm.com"
         - "USER:Job/Configure:joe_dekoning@ca.ibm.com"
-        - "USER:Agent/Configure:rajdeep.singh@ibm.com"
-        - "USER:Agent/Connect:rajdeep.singh@ibm.com"
-        - "USER:Agent/Disconnect:rajdeep.singh@ibm.com"
+        - "USER:Job/Create:joe_dekoning@ca.ibm.com"
         - "GROUP:Agent/Build:technology.omr"
         - "GROUP:Agent/Connect:technology.omr"
         - "GROUP:Agent/Disconnect:technology.omr"
@@ -62,6 +61,14 @@ jenkins:
         - "GROUP:View/Create:technology.omr"
         - "GROUP:View/Delete:technology.omr"
         - "GROUP:View/Read:technology.omr"
+        - "USER:Agent/Build:vsebe@ca.ibm.com"
+        - "USER:Agent/Configure:vsebe@ca.ibm.com"
+        - "USER:Agent/Connect:vsebe@ca.ibm.com"
+        - "USER:Agent/Disconnect:vsebe@ca.ibm.com"
+        - "USER:Job/Build:vsebe@ca.ibm.com"
+        - "USER:Job/Cancel:vsebe@ca.ibm.com"
+        - "USER:Job/Configure:vsebe@ca.ibm.com"
+        - "USER:Job/Create:vsebe@ca.ibm.com"
   markupFormatter: rawHtml
   crumbIssuer:
     standard:

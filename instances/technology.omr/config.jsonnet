@@ -11,17 +11,17 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       {
         // https://bugs.eclipse.org/bugs/show_bug.cgi?id=570552
         principal: "adam.brousseau88@gmail.com",
-        grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Configure", "Job/Build", "Job/Cancel", "Overall/SystemRead"],
+        grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel", "Overall/SystemRead"],
       },
       {
         // https://bugs.eclipse.org/bugs/show_bug.cgi?id=570552
         principal: "joe_dekoning@ca.ibm.com",
-        grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Configure", "Job/Build", "Job/Cancel"],
+        grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel"],
       },
       {
-        // https://bugs.eclipse.org/bugs/show_bug.cgi?id=570552
-        principal: "rajdeep.singh@ibm.com",
-        grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure"],
+        // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/1364
+        principal: "vsebe@ca.ibm.com",
+        grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel"],
       },
     ],
     plugins+: [
