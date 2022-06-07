@@ -26,6 +26,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     ],
     plugins+: [
       "docker-plugin",
+      "docker-workflow",
       "embeddable-build-status",
       "envinject",
       "generic-webhook-trigger",
