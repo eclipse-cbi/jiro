@@ -434,8 +434,9 @@ unclassified:
                       trust: "gitHubTrustPermissions"
       - name: "releng-pipeline"
         cachingConfiguration:
+          excludedVersionsStr: "main"
           refreshTimeMinutes: 1440
-        defaultVersion: "main"
+        defaultVersion: "refs/tags/v0.8.0"
         retriever:
           modernSCM:
             scm:
