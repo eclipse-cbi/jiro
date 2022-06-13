@@ -21,8 +21,19 @@ IFS=$'\n\t'
 script_name="$(basename "${BASH_SOURCE[0]}")"
 script_folder="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
-PASSWORD_STORE_DIR="${HOME}/.password-store/cbi-pass"
+LOCAL_CONFIG="${HOME}/.cbi/config"
+
+if [[ ! -f "${LOCAL_CONFIG}" ]]; then
+  echo "ERROR: File '$(readlink -f "${LOCAL_CONFIG}")' does not exists"
+  echo "Create one to configure the location of the password store. Example:"
+  echo '{"password-store": {"cbi-dir": "~/.password-store/cbi",'
+  echo '                    "it-dir": "~/.password-store/it"}}'
+fi
+
+PASSWORD_STORE_DIR="$(jq -r '.["password-store"]["cbi-dir"]' "${LOCAL_CONFIG}")"
 export PASSWORD_STORE_DIR
+
+source "${SCRIPT_FOLDER}/../pass/pass_wrapper.sh"
 
 PROJECT_NAME="${1:-}"
 SHORT_NAME="${PROJECT_NAME##*.}"
@@ -190,15 +201,15 @@ create_ssh_credentials() {
 
   # read credentials from pass
 
-  user="$(pass "/bots/${PROJECT_NAME}/${pass_domain}/username")"
+  user="$(passw cbi "/bots/${PROJECT_NAME}/${pass_domain}/username")"
 
   LF_XENTITY="&#xA;"
 
   # TODO: does not seem to work
   # translate line feeds to LF_XENTITY 
-  #id_rsa=$(pass "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${pass_domain}/id_rsa" | tr '\n' ',' | sed 's/,/\'${LF_XENTITY}'/g')
+  #id_rsa=$(passw cbi "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${pass_domain}/id_rsa" | tr '\n' ',' | sed 's/,/\'${LF_XENTITY}'/g')
 
-  id_rsa="$(pass "/bots/${PROJECT_NAME}/${pass_domain}/id_rsa")"
+  id_rsa="$(passw cbi "/bots/${PROJECT_NAME}/${pass_domain}/id_rsa")"
 
   # remove trailing line feed (already translated to LF_XENTITY)
   if [ "$(echo "${id_rsa}" | wc -c)" -ne 0 ] && [ "$(echo "${id_rsa}" | tail -c -6)" == "${LF_XENTITY}" ]; then
@@ -206,7 +217,7 @@ create_ssh_credentials() {
   fi
 
   # escape XML special chars (<, >, &, ", and ' to their matching entities)
-  passphrase="$(pass "/bots/${PROJECT_NAME}/${pass_domain}/id_rsa.passphrase" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g')"
+  passphrase="$(passw cbi "/bots/${PROJECT_NAME}/${pass_domain}/id_rsa.passphrase" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g')"
   create_ssh_credentials_xml "${domain_name}" "${id}" "${user}" "${id_rsa}" "${passphrase}" "${description}"
 }
 
@@ -234,8 +245,8 @@ fi
 if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${GITHUB_PASS_DOMAIN}/api-token.gpg" ]]; then
   echo "Found ${GITHUB_PASS_DOMAIN} username/token credentials in password store..."
   # read credentials from pass
-  user="$(pass "/bots/${PROJECT_NAME}/${GITHUB_PASS_DOMAIN}/username")"
-  token="$(pass "/bots/${PROJECT_NAME}/${GITHUB_PASS_DOMAIN}/api-token")"
+  user="$(passw cbi "/bots/${PROJECT_NAME}/${GITHUB_PASS_DOMAIN}/username")"
+  token="$(passw cbi "/bots/${PROJECT_NAME}/${GITHUB_PASS_DOMAIN}/api-token")"
   create_username_password_credentials "api.github.com" "github-bot" "${user}" "${token}" "GitHub bot (username/token)"
 fi
 
@@ -256,7 +267,7 @@ fi
 if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${GPG_PASS_DOMAIN}/secret-subkeys.asc.gpg" ]]; then
   echo "Found ${GPG_PASS_DOMAIN} credentials in password store..."
   # read credentials from pass
-  subkeys="$(pass "/bots/${PROJECT_NAME}/${GPG_PASS_DOMAIN}/secret-subkeys.asc")"
+  subkeys="$(passw cbi "/bots/${PROJECT_NAME}/${GPG_PASS_DOMAIN}/secret-subkeys.asc")"
   create_file_credentials "_" "secret-subkeys.asc" "secret-subkeys.asc" "${subkeys}" # id == filename
 fi
 
