@@ -23,6 +23,7 @@ script_folder="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 JENKINS_CLI="${script_folder}/jenkins-cli.sh"
 INSTANCES="${script_folder}/instances"
 
+source "${SCRIPT_FOLDER}/../pass/pass_wrapper.sh"
 
 _create_domain_xml() {
     local project_name="${1:-}"
@@ -195,19 +196,19 @@ auto() {
   fi
 
   echo "Checking for github.com API token..."
-  if pass "/cbi-pass/bots/${project_name}/github.com/api-token" 2&> /dev/null; then
+  if passw cbi "bots/${project_name}/github.com/api-token" 2&> /dev/null; then
     github "${project_name}"
   else
     echo "  No API token found."
   fi
   echo "Checking for gitlab.eclipse.org API token..."
-  if pass "/cbi-pass/bots/${project_name}/gitlab.eclipse.org/token" 2&> /dev/null; then
+  if passw cbi "bots/${project_name}/gitlab.eclipse.org/token" 2&> /dev/null; then
     gitlab "${project_name}"
   else
     echo "  No API token found."
   fi
   echo "Checking for npmjs.com API token..."
-  if pass "/cbi-pass/bots/${project_name}/npmjs.com/token" 2&> /dev/null; then
+  if passw cbi "bots/${project_name}/npmjs.com/token" 2&> /dev/null; then
     npmjs "${project_name}"
   else
     echo "  No API token found."
@@ -226,8 +227,8 @@ github() {
   fi
 
   local token
-  username="$(pass "/cbi-pass/bots/${project_name}/github.com/username")"
-  token="$(pass "/cbi-pass/bots/${project_name}/github.com/api-token")"
+  username="$(passw cbi "bots/${project_name}/github.com/username")"
+  token="$(passw cbi "bots/${project_name}/github.com/api-token")"
 
   _create_string_credentials "${project_name}" "github-bot-token" "GitHub Bot token" "${token}" "api.github.com"
 
@@ -244,7 +245,7 @@ gitlab() {
   fi
 
   local token
-  token="$(pass "/cbi-pass/bots/${project_name}/gitlab.eclipse.org/api-token")"
+  token="$(passw cbi "bots/${project_name}/gitlab.eclipse.org/api-token")"
 
   _create_string_credentials "${project_name}" "gitlab-api-token" "GitLab token for ${project_name}" "${token}" "gitlab.eclipse.org"
 }
@@ -261,7 +262,7 @@ sonarcloud() {
 
   local short_name="${project_name##*.}"
   local token
-  token="$(pass "/cbi-pass/bots/${project_name}/sonarcloud.io/token")"
+  token="$(passw cbi "bots/${project_name}/sonarcloud.io/token")"
 
   if [[ -n "${suffix}" ]]; then
     suffix="-${suffix}"
@@ -280,7 +281,7 @@ npmjs() {
   fi
 
   local token
-  token="$(pass "/cbi-pass/bots/${project_name}/npmjs.com/token")"
+  token="$(passw cbi "bots/${project_name}/npmjs.com/token")"
 
   _create_string_credentials "${project_name}" "npmjs-token" "npmjs.com token" "${token}"
 }
