@@ -392,29 +392,6 @@ data:
                         name: m2-dir
       nodes:
         - permanent:
-            name: "6mnjf-windows-10-vnc"
-            nodeDescription: "Windows 10 Pro N, with permanent VNC, hosted on Azure"
-            labelString: "windows permanent-vnc windows10"
-            remoteFS: 'C:\jenkins_agent'
-            numExecutors: 1
-            mode: EXCLUSIVE
-            retentionStrategy: "always"
-            launcher:
-              jnlp:
-                webSocket: true
-                workDirSettings:
-                  disabled: false
-                  internalDir: "remoting"
-                  failIfWorkDirIsMissing: false
-            nodeProperties:
-              - toolLocation:
-                  locations:
-                    - home: 'C:\ProgramData\chocolatey\lib\ant\apache-ant-1.10.5'
-                      key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-1.9.6"
-              - watcher:
-                  offlineAddresses: "releng@eclipse.org"
-                  onlineAddresses: "releng@eclipse.org"
-        - permanent:
             name: "b9h15-macos10.15"
             nodeDescription: "macOS 10.15 (Catalina), no login session, hosted on MacStadium"
             labelString: "macos macos-10.15"
@@ -536,20 +513,6 @@ data:
         - permanent:
             name: "ppcle-test"
             labelString: "ppctest"
-            remoteFS: "/home/swtbuild/build"
-            numExecutors: 1
-            mode: EXCLUSIVE
-            retentionStrategy: "always"
-            launcher:
-              jnlp:
-                webSocket: true
-                workDirSettings:
-                  disabled: false
-                  failIfWorkDirIsMissing: false
-                  internalDir: "remoting"
-        - permanent:
-            name: "aarch64-swt"
-            nodeDescription: "Agent provided by the project"
             remoteFS: "/home/swtbuild/build"
             numExecutors: 1
             mode: EXCLUSIVE
