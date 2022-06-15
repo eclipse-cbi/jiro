@@ -18,8 +18,8 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-script_name="$(basename "${BASH_SOURCE[0]}")"
-script_folder="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+SCRIPT_NAME="$(basename "${BASH_SOURCE[0]}")"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 LOCAL_CONFIG="${HOME}/.cbi/config"
 
@@ -39,7 +39,7 @@ PROJECT_NAME="${1:-}"
 SHORT_NAME="${PROJECT_NAME##*.}"
 
 usage() {
-  printf "%s <project_name>\n" "${script_name}"
+  printf "%s <project_name>\n" "${SCRIPT_NAME}"
   printf "\t%-16s the name of the project to add credentials to Jenkins\n" "project_name"
 }
 
@@ -60,7 +60,7 @@ GPG_PASS_DOMAIN="gpg"
 create_domain() {
     local domain_name="${1:-}"
     echo "  Creating domain '${domain_name}'..."
-    "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" create-credentials-domain-by-xml system::system::jenkins <<EOF
+    "${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" create-credentials-domain-by-xml system::system::jenkins <<EOF
 <com.cloudbees.plugins.credentials.domains.Domain>
   <name>${domain_name}</name>
   <specifications/>
@@ -78,7 +78,7 @@ create_username_password_credentials() {
 
   # check if credentials already exist, update password if yes
   local reply
-  reply=$("${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}" 2>&1 || true)
+  reply=$("${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}" 2>&1 || true)
   local cli_command
   local update_id
   if [[ "${reply}" == "No such domain" ]]; then
@@ -98,7 +98,7 @@ create_username_password_credentials() {
   fi
 
   # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
-  "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" "${update_id}" <<EOF
+  "${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" "${update_id}" <<EOF
 <com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
   <scope>GLOBAL</scope>
   <id>${id}</id>
@@ -120,7 +120,7 @@ create_ssh_credentials_xml() {
 
   # check if credentials already exist
   local reply
-  reply=$("${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}" 2>&1 || true)
+  reply=$("${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}" 2>&1 || true)
   local cli_command
   local update_id
   if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then #skip for global domain ("_")
@@ -140,7 +140,7 @@ create_ssh_credentials_xml() {
   fi
 
   # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
-  "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" "${update_id}" <<EOF
+  "${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" "${update_id}" <<EOF
 <com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey>
   <scope>GLOBAL</scope>
   <id>${id}</id>
@@ -164,7 +164,7 @@ create_file_credentials() {
 
   # check if credentials already exist
   local reply
-  reply="$("${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}" 2>&1 || true)"
+  reply="$("${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}" 2>&1 || true)"
   local cli_command
   if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then
     create_domain "${domain_name}"
@@ -180,7 +180,7 @@ create_file_credentials() {
     exit 1
   fi
 
-  "${script_folder}/jenkins-cli.sh" "${script_folder}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" <<EOF
+  "${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" <<EOF
 <org.jenkinsci.plugins.plaincredentials.impl.FileCredentialsImpl>
   <scope>GLOBAL</scope>
   <id>${id}</id>

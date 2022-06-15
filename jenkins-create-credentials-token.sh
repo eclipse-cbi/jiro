@@ -18,10 +18,10 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-script_name="$(basename "${BASH_SOURCE[0]}")"
-script_folder="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
-JENKINS_CLI="${script_folder}/jenkins-cli.sh"
-INSTANCES="${script_folder}/instances"
+SCRIPT_NAME="$(basename "${BASH_SOURCE[0]}")"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+JENKINS_CLI="${SCRIPT_FOLDER}/jenkins-cli.sh"
+INSTANCES="${SCRIPT_FOLDER}/instances"
 
 source "${SCRIPT_FOLDER}/../pass/pass_wrapper.sh"
 
@@ -287,7 +287,7 @@ npmjs() {
 }
 
 _default_usage() {
-  printf "%s <project_name> <secret_id> <secret_description> <secret> [domain]\n" "${script_name}"
+  printf "%s <project_name> <secret_id> <secret_description> <secret> [domain]\n" "${SCRIPT_NAME}"
   printf "\t%-20s the name of the project to add credentials to Jenkins (e.g. technology.cbi) \n" "project_name"
   printf "\t%-20s the id of the secret\n" "secret_id"
   printf "\t%-20s the description of the secret\n" "secret_description"
