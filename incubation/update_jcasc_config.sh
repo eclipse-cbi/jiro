@@ -15,6 +15,7 @@ if [[ "${#}" -eq 0 ]]; then
 fi
 
 log_file="jcasc_update.log"
+# shellcheck disable=SC2188
 >${log_file}
 
 regen() {
