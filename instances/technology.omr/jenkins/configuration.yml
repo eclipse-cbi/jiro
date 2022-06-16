@@ -18,8 +18,8 @@ jenkins:
             value: '/home/jenkins/riscv-debian/rootfs'
   - permanent:
       name: "eclipseomr-1"
-      nodeDescription: "eclipseomr-1 Linux PPCLE Ubuntu 16.04"
-      labelString: "Linux PPCLE compile:plinux"
+      nodeDescription: "eclipseomr-1 Linux PPCLE Ubuntu 20.04"
+      labelString: "Linux PPCLE compile:plinux cgroup.v1"
       remoteFS: '/home/jenkins/jenkins-agent'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -29,8 +29,8 @@ jenkins:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.38 \"wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar\""
   - permanent:
       name: "eclipseomr-2"
-      nodeDescription: "eclipseomr-2 OSU Linux PPCLE Ubuntu 16.04"
-      labelString: "Linux PPCLE compile:plinux"
+      nodeDescription: "eclipseomr-2 OSU Linux PPCLE Ubuntu 20.04"
+      labelString: "Linux PPCLE compile:plinux cgroup.v2"
       remoteFS: '/home/jenkins/jenkins-agent'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -79,8 +79,8 @@ jenkins:
           - home: '/opt/freeware/bin/git'
             key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
   - permanent:
-      name: "osx1013-unb-01"
-      nodeDescription: "OSX x86"
+      name: "mac10-x64-omr1"
+      nodeDescription: "Mac mini"
       labelString: "OSX x86 UNB compile:xosx"
       remoteFS: '/Users/jenkins'
       numExecutors: 1
@@ -90,8 +90,8 @@ jenkins:
         command:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.117 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
   - permanent:
-      name: "osx1013-unb-02"
-      nodeDescription: "OSX x86"
+      name: "mac10-x64-omr2"
+      nodeDescription: "Mac mini"
       labelString: "OSX x86 UNB compile:xosx"
       remoteFS: '/Users/jenkins'
       numExecutors: 1
@@ -123,27 +123,27 @@ jenkins:
         command:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar\""
   - permanent:
-      name: "ub1604-p8-unb-01"
+      name: "ub20-ppcle-omr1"
       nodeDescription: "Linux PPCLE UNB"
-      labelString: "Linux PPCLE UNB compile:plinux"
+      labelString: "Linux PPCLE UNB compile:plinux cgroup.v1"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-01 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-ppcle-omr1 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
   - permanent:
-      name: "ub1604-p8-unb-02"
+      name: "ub20-ppcle-omr2"
       nodeDescription: "Linux PPCLE UNB"
-      labelString: "Linux PPCLE UNB compile:plinux"
+      labelString: "Linux PPCLE UNB compile:plinux cgroup.v2"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
       retentionStrategy: "always"
       launcher:
         command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-02 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-ppcle-omr2 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
   - permanent:
       name: "ub1604-p8-unb-03"
       nodeDescription: "Linux PPCLE UNB"
