@@ -96,7 +96,6 @@ eval set -- "$PARSED"
 
 # parameter default values
 printHelp="n"
-context=""
 
 # now enjoy the options in order and nicely split until we see --
 while true; do
