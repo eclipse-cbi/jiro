@@ -2,6 +2,7 @@
   project+: {
     fullName: "tools.oomph",
     displayName: "Eclipse Oomph",
+    resourcePacks: 2,
   },
   jenkins+: {
     plugins+: [
@@ -12,7 +13,7 @@
     ],
   },
   clouds+: {
-    kubernetes+: { 
+    kubernetes+: {
       local currentCloud = self,
       templates+: {
         "jipp-basic-agent-8gb": currentCloud.templates["basic"] {

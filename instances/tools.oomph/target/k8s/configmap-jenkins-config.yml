@@ -85,7 +85,7 @@ data:
       clouds:
         - kubernetes:
             name: "kubernetes"
-            containerCapStr: "2"
+            containerCapStr: "4"
             jenkinsUrl: "http://jenkins-ui.oomph.svc.cluster.local/oomph"
             jenkinsTunnel: "jenkins-discovery.oomph.svc.cluster.local:50000"
             maxRequestsPerHostStr: "32"
