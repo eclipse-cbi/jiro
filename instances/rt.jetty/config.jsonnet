@@ -18,11 +18,11 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         grantedPermissions: permissionsTemplates.committerPermissionsList,
       },
       {
-        principal: "kitlo@us.ibm.com",
+        principal: "matthias.sohn@sap.com",
         grantedPermissions: permissionsTemplates.committerPermissionsList,
       },
       {
-        principal: "matthias.sohn@sap.com",
+        principal: "sravankumarl@in.ibm.com",
         grantedPermissions: permissionsTemplates.committerPermissionsList,
       },
     ],
