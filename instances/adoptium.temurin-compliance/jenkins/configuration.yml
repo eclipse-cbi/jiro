@@ -505,6 +505,7 @@ unclassified:
           scm:
             github:
               configuredByUrl: true
+              credentialsId: "github-bot"
               id: ""
               repoOwner: "adoptium"
               repository: "jenkins-helper"
