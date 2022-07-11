@@ -660,6 +660,66 @@ data:
                   failIfWorkDirIsMissing: false
                   internalDir: "remoting"
         - permanent:
+            name: "d7khy2-win2019-x64"
+            nodeDescription: "Windows Server 2019, hosted on Azure"
+            labelString: "sw.os.windows hw.arch.x86 ci.role.test"
+            remoteFS: "c:/Users/jenkins"
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              jnlp:
+                webSocket: true
+                workDirSettings:
+                  disabled: false
+                  failIfWorkDirIsMissing: false
+                  internalDir: "remoting"
+        - permanent:
+            name: "h4hy4d-win2019-x64"
+            nodeDescription: "Windows Server 2019, hosted on Azure"
+            labelString: "sw.os.windows hw.arch.x86 ci.role.test"
+            remoteFS: "c:/Users/jenkins"
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              jnlp:
+                webSocket: true
+                workDirSettings:
+                  disabled: false
+                  failIfWorkDirIsMissing: false
+                  internalDir: "remoting"
+        - permanent:
+            name: "ukuxu1-win2019-x64"
+            nodeDescription: "Windows Server 2019, hosted on Azure"
+            labelString: "sw.os.windows hw.arch.x86 ci.role.test"
+            remoteFS: "c:/Users/jenkins"
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              jnlp:
+                webSocket: true
+                workDirSettings:
+                  disabled: false
+                  failIfWorkDirIsMissing: false
+                  internalDir: "remoting"
+        - permanent:
+            name: "mwgi2g-win2019-x64"
+            nodeDescription: "Windows Server 2019, hosted on Azure"
+            labelString: "sw.os.windows hw.arch.x86 ci.role.test"
+            remoteFS: "c:/Users/jenkins"
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              jnlp:
+                webSocket: true
+                workDirSettings:
+                  disabled: false
+                  failIfWorkDirIsMissing: false
+                  internalDir: "remoting"
+        - permanent:
             name: "gn324-macos11-x64"
             labelString: "ci.role.test hw.arch.x86 sw.os.osx"
             remoteFS: "/Users/jenkins"
@@ -907,6 +967,7 @@ data:
                 scm:
                   github:
                     configuredByUrl: true
+                    credentialsId: "github-bot"
                     id: ""
                     repoOwner: "adoptium"
                     repository: "jenkins-helper"
