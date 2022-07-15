@@ -1,7 +1,7 @@
 
 Installed plugins:
 ace-editor 1.1
-analysis-model-api 10.12.0
+analysis-model-api 10.13.0
 ant 475.vf34069fef73c
 antisamy-markup-formatter 2.7
 apache-httpcomponents-client-4-api 4.5.13-1.0
@@ -18,7 +18,7 @@ command-launcher 84.v4a_97f2027398
 commons-lang3-api 3.12.0.0
 commons-text-api 1.9-9.v39a_53e2e0343
 config-file-provider 3.10.0
-configuration-as-code 1464.vd8507b_82e41a_
+configuration-as-code 1466.v2d4119502006
 credentials 1087.1089.v2f1b_9a_b_040e4
 credentials-binding 523.vd859a_4b_122e6
 data-tables-api 1.12.1-2
@@ -58,7 +58,7 @@ jquery 1.12.4-1
 jquery3-api 3.6.0-4
 jsch 0.1.55.2
 junit 1119.1121.vc43d0fc45561
-kubernetes 3651.v908e7db_10d06
+kubernetes 3663.v1c1e0ec5b_650
 kubernetes-client-api 5.12.2-193.v26a_6078f65a_9
 kubernetes-credentials 0.9.0
 ldap 2.10
@@ -69,7 +69,7 @@ metrics 4.1.6.2
 momentjs 1.1.1
 okhttp-api 4.9.3-105.vb96869f8ac3a
 pam-auth 1.8
-parameterized-trigger 2.44
+parameterized-trigger 2.45
 pipeline-build-step 2.18
 pipeline-graph-analysis 195.v5812d95a_a_2f9
 pipeline-groovy-lib 593.va_a_fc25d520e9
@@ -103,7 +103,7 @@ timestamper 1.18
 token-macro 293.v283932a_0a_b_49
 trilead-api 1.57.v6e90e07157e1
 variant 1.4
-warnings-ng 9.13.0
+warnings-ng 9.14.0
 workflow-aggregator 590.v6a_d052e5a_a_b_5
 workflow-api 1188.v0016b_4f29881
 workflow-basic-steps 969.vc4ec3e4854b_f
@@ -113,7 +113,7 @@ workflow-job 1189.va_d37a_e9e4eda_
 workflow-multibranch 716.vc692a_e52371b_
 workflow-scm-step 400.v6b_89a_1317c9a_
 workflow-step-api 625.vd896b_f445a_f8
-workflow-support 827.v7ef666c4d65c
+workflow-support 833.va_1c71061486b_
 ws-cleanup 0.42
 xvnc 1.28
 
@@ -178,7 +178,7 @@ snakeyaml-api 1.30.2-76.vc104f7ce9870
 ssh-credentials 277.v95c2fec1c047
 structs 318.va_f3ccb_729b_71
 token-macro 293.v283932a_0a_b_49
-trilead-api 1.57.v6e90e07157e1
+trilead-api 1.67.vc3938a_35172f
 variant 1.4
 workflow-api 1188.v0016b_4f29881
 workflow-basic-steps 969.vc4ec3e4854b_f
@@ -201,11 +201,11 @@ maven-plugin 3.19
 openshift-client 1.0.37
 pipeline-github 2.8-138.d766e30bb08b
 slack 616.v03b_1e98d13dd
-workflow-support 833.va_1c71061486b_
+trilead-api 1.67.vc3938a_35172f
 
 Resulting plugin list:
 ace-editor 1.1
-analysis-model-api 10.12.0
+analysis-model-api 10.13.0
 ant 475.vf34069fef73c
 antisamy-markup-formatter 2.7
 apache-httpcomponents-client-4-api 4.5.13-1.0
@@ -222,7 +222,7 @@ command-launcher 84.v4a_97f2027398
 commons-lang3-api 3.12.0.0
 commons-text-api 1.9-9.v39a_53e2e0343
 config-file-provider 3.10.0
-configuration-as-code 1464.vd8507b_82e41a_
+configuration-as-code 1466.v2d4119502006
 credentials 1087.1089.v2f1b_9a_b_040e4
 credentials-binding 523.vd859a_4b_122e6
 data-tables-api 1.12.1-2
@@ -266,7 +266,7 @@ jquery 1.12.4-1
 jquery3-api 3.6.0-4
 jsch 0.1.55.2
 junit 1119.1121.vc43d0fc45561
-kubernetes 3651.v908e7db_10d06
+kubernetes 3663.v1c1e0ec5b_650
 kubernetes-cli 1.10.3
 kubernetes-client-api 5.12.2-193.v26a_6078f65a_9
 kubernetes-credentials 0.9.0
@@ -281,7 +281,7 @@ momentjs 1.1.1
 okhttp-api 4.9.3-105.vb96869f8ac3a
 openshift-client 1.0.37
 pam-auth 1.8
-parameterized-trigger 2.44
+parameterized-trigger 2.45
 pipeline-build-step 2.18
 pipeline-github 2.8-138.d766e30bb08b
 pipeline-graph-analysis 195.v5812d95a_a_2f9
@@ -315,9 +315,9 @@ ssh-slaves 1.821.vd834f8a_c390e
 structs 318.va_f3ccb_729b_71
 timestamper 1.18
 token-macro 293.v283932a_0a_b_49
-trilead-api 1.57.v6e90e07157e1
+trilead-api 1.67.vc3938a_35172f
 variant 1.4
-warnings-ng 9.13.0
+warnings-ng 9.14.0
 workflow-aggregator 590.v6a_d052e5a_a_b_5
 workflow-api 1188.v0016b_4f29881
 workflow-basic-steps 969.vc4ec3e4854b_f
