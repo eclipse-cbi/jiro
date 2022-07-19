@@ -342,8 +342,8 @@ jenkins:
             host: "reparts.org"
             port: 2222
             sshHostKeyVerificationStrategy:
-              manuallyTrustedKeyVerificationStrategy:
-                requireInitialManualTrust: true
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCf3yZwVvTAyM4206BB0tXt8qTNhKpBwpKzEWsF8YiyDZ1eR7r340c3amqiY1QoN/2dHqF7EKWeo8qU3Tm7Xuz1GLvluXgJyaGh7Ir5iF2SSN84owTXwJsjehs8EBP35mihyOXzE9Y1jXn1kvFlwM8Z+1+Q83v2zLbCOcSisFAi15bv7oS8BqKA+Hhn+Qo1keDR04S/EXQB+DGaE0hfWieDYhTQMaPeTVDxGTlVhhyqICFjHYzwq9yWCeS0rWAS6Tu7QZPmBPr/4E/1GtPWcvDRDAsySfWKHW7pfgB9kRP+wz1L35UkD/HZwbwY8WxBdhsQFDdaxJ2rA6I7/2B9d6Ex"
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
@@ -516,6 +516,8 @@ tool:
     installations:
       - name: "apache-maven-latest"
         home: "/opt/tools/apache-maven/latest"
+      - name: "apache-maven-3.8.6"
+        home: "/opt/tools/apache-maven/3.8.6"
       - name: "apache-maven-3.8.5"
         home: "/opt/tools/apache-maven/3.8.5"
       - name: "apache-maven-3.8.4"
