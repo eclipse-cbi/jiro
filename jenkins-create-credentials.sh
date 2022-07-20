@@ -31,7 +31,7 @@ fi
 PASSWORD_STORE_DIR="$(jq -r '.["password-store"]["cbi-dir"]' "${LOCAL_CONFIG}")"
 export PASSWORD_STORE_DIR
 
-source "${SCRIPT_FOLDER}/../pass/pass_wrapper.sh"
+source "${SCRIPT_FOLDER}/pass/pass_wrapper.sh"
 
 PROJECT_NAME="${1:-}"
 SHORT_NAME="${PROJECT_NAME##*.}"
@@ -96,7 +96,7 @@ create_username_password_credentials() {
   fi
 
   # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
-  "${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" "${update_id}" <<EOF
+  "${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
 <com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
   <scope>GLOBAL</scope>
   <id>${id}</id>
@@ -138,7 +138,7 @@ create_ssh_credentials_xml() {
   fi
 
   # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
-  "${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" "${update_id}" <<EOF
+  "${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
 <com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey>
   <scope>GLOBAL</scope>
   <id>${id}</id>
@@ -223,7 +223,6 @@ create_ssh_credentials() {
 
 
 ## projects-storage.eclipse.org ##
-
 if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${PROJECTS_STORAGE_PASS_DOMAIN}/id_rsa.gpg" ]]; then
   echo "Found ${PROJECTS_STORAGE_PASS_DOMAIN} SSH credentials in password store..."
   create_ssh_credentials "_" "projects-storage.eclipse.org-bot-ssh" "ssh://genie.${SHORT_NAME}@projects-storage.eclipse.org" "${PROJECTS_STORAGE_PASS_DOMAIN}"
