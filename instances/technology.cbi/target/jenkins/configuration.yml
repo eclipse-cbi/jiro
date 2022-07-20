@@ -70,7 +70,7 @@ jenkins:
         podRetention: "never"
         templates:
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13
+              - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -178,7 +178,7 @@ jenkins:
                   secret:
                     secretName: gradle-secret-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13
+              - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -286,7 +286,7 @@ jenkins:
                   secret:
                     secretName: gradle-secret-dir
           - containers:
-              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13
+              - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13.2
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
