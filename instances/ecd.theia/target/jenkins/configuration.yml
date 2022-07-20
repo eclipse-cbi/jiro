@@ -347,7 +347,7 @@ jenkins:
                 - key: "NVM_DIR"
                   value: "$HOME/.nvm"
                 - key: "PATH"
-                  value: "$HOME/.nvm/versions/node/v12.20.0/bin:$PATH"
+                  value: "$HOME/.nvm/versions/node/v14.20.0/bin:$PATH"
           - watcher:
               offlineAddresses: "releng@eclipse.org"
               onlineAddresses: "releng@eclipse.org"
