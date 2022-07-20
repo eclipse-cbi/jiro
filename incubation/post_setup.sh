@@ -7,7 +7,7 @@ set -o pipefail
 
 IFS=$'\n\t'
 SCRIPT_NAME="$(basename "${BASH_SOURCE[0]}")"
-SCRIPT_FOLDER="$(dirname"$(readlink -f "${BASH_SOURCE[0]}")")"
+SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 PROJECT_NAME="${1:-}"
 SHORT_NAME="${PROJECT_NAME##*.}"
@@ -127,6 +127,7 @@ EOH
   echo "Copy files to Jiro pod ${SHORT_NAME}-0..."
   oc rsync tmp/ "${SHORT_NAME}-0:/var/jenkins/" -n="${SHORT_NAME}" --no-perms
   rm -rf tmp
+  #TODO: restart Jenkins via Jenkins CLI? 
   echo "Force restart of Jenkins..."
   oc delete pod "${SHORT_NAME}-0" -n="${SHORT_NAME}" --force
 }
