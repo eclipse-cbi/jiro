@@ -23,7 +23,7 @@ SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 JENKINS_CLI="${SCRIPT_FOLDER}/jenkins-cli.sh"
 INSTANCES="${SCRIPT_FOLDER}/instances"
 
-source "${SCRIPT_FOLDER}/../pass/pass_wrapper.sh"
+source "${SCRIPT_FOLDER}/pass/pass_wrapper.sh"
 
 _create_domain_xml() {
     local project_name="${1:-}"
