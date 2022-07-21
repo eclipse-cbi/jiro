@@ -174,6 +174,53 @@ _create_username_token_credentials() {
 }
 
 
+_create_gitlab_pat_token_credentials() {
+  local project_name="${1:-}"
+  local id="${2:-}"
+  local description="${3:-}"
+  local token="${4:-}"
+  local domain_name="${5:-_}" #if no domain is given, use "_" for system domain
+
+  if [[ -z "${token}" ]]; then
+    printf "ERROR: token must be given.\n"
+    exit 1
+  fi
+
+  echo "  Creating GitLab Personal Access Token credential '${id}' in domain ${domain_name}..."
+
+  # check if credentials already exist, update password if yes
+  local reply
+  reply="$("${JENKINS_CLI}" "${INSTANCES}/${project_name}" "get-credentials-as-xml" "system::system::jenkins" "${domain_name}" "${id}" 2>&1 || true)"
+  local cli_command
+  local update_id
+  if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then
+    _create_domain_xml "${project_name}" "${domain_name}"
+    cli_command="create-credentials-by-xml"
+    update_id=
+  elif [[ "${reply}" == "No such credential" ]]; then
+    cli_command="create-credentials-by-xml"
+    update_id=
+  elif [[ "${reply}" == "<io.jenkins.plugins.gitlabserverconfig.credentials.PersonalAccessTokenImpl"* ]]; then
+    echo "  Credential '${id}' already exists. Overwriting..."
+    cli_command="update-credentials-by-xml"
+    action_display_text="Updating"
+    update_id="${id}"
+  else
+    echo "Unexpected reply: ${reply}"
+    exit 1
+  fi
+
+  # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
+  "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
+<io.jenkins.plugins.gitlabserverconfig.credentials.PersonalAccessTokenImpl>
+  <scope>GLOBAL</scope>
+  <id>${id}</id>
+  <description>${description}</description>
+  <token>${token}</token>
+</io.jenkins.plugins.gitlabserverconfig.credentials.PersonalAccessTokenImpl>
+EOF
+}
+
 help() {
   printf "Available commands:\n"
   printf "Command\t\t\tDescription\n\n"
@@ -181,6 +228,7 @@ help() {
   printf "default\t\t\tCreate any kind of credentials (secret text/token).\n"
   printf "github\t\t\tCreate github.com token credentials (secret text/token) and username/token credentials (username/token).\n"
   printf "gitlab\t\t\tCreate gitlab.eclipse.org token credentials (secret text/token).\n"
+  printf "gitlab_pat\t\t\tCreate gitlab.eclipse.org PAT credentials (GitLab PAT token).\n"
   printf "sonarcloud\t\tCreate sonarcloud.io credentials (secret text/token).\n"
   printf "npmjs\t\t\tCreate npmjs credentials (secret text/token).\n"
   exit 0
@@ -204,6 +252,7 @@ auto() {
   echo "Checking for gitlab.eclipse.org API token..."
   if passw cbi "bots/${project_name}/gitlab.eclipse.org/token" 2&> /dev/null; then
     gitlab "${project_name}"
+    gitlab_pat "${project_name}"
   else
     echo "  No API token found."
   fi
@@ -248,6 +297,21 @@ gitlab() {
   token="$(passw cbi "bots/${project_name}/gitlab.eclipse.org/api-token")"
 
   _create_string_credentials "${project_name}" "gitlab-api-token" "GitLab token for ${project_name}" "${token}" "gitlab.eclipse.org"
+}
+
+gitlab_pat() {
+  local project_name="${1:-}"
+
+  # check that project name is not empty
+  if [[ -z "${project_name}" ]]; then
+    printf "ERROR: a project name must be given.\n"
+    exit 1
+  fi
+
+  local token
+  token="$(passw cbi "bots/${project_name}/gitlab.eclipse.org/api-token")"
+
+  _create_gitlab_pat_token_credentials "${project_name}" "gitlab-personal-access-token" "GitLab personal access token for ${project_name}" "${token}" "gitlab.eclipse.org"
 }
 
 sonarcloud() {
