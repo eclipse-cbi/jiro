@@ -114,44 +114,6 @@ _create_string_credentials() {
     fi
 }
 
-_create_username_password_credentials_xml() {
-    local project_name="${1:-}"
-    local domain_name="${2:-}"
-    local id="${3:-}"
-    local username="${4:-}"
-    local password="${5:-}"
-    local description="${6:-}"
-    echo "  Creating username/password credential '${id}' in domain ${domain_name}..."
-    "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "create-credentials-by-xml" "system::system::jenkins" "${domain_name}" <<EOF
-<com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
-  <scope>GLOBAL</scope>
-  <id>${id}</id>
-  <username>${username}</username>
-  <password>${password}</password>
-  <description>${description}</description>
-</com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
-EOF
-}
-
-_update_username_password_credentials_xml() {
-    local project_name="${1:-}"
-    local domain_name="${2:-}"
-    local id="${3:-}"
-    local username="${4:-}"
-    local password="${5:-}"
-    local description="${6:-}"
-    echo "  Updating username/password credential '${id}' in domain ${domain_name}..."
-    "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "update-credentials-by-xml" "system::system::jenkins" "${domain_name}" "${id}" <<EOF
-<com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
-  <scope>GLOBAL</scope>
-  <id>${id}</id>
-  <username>${username}</username>
-  <password>${password}</password>
-  <description>${description}</description>
-</com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
-EOF
-}
-
 _create_username_token_credentials() {
     local project_name="${1:-}"
     local id="${2:-}"
@@ -169,19 +131,39 @@ _create_username_token_credentials() {
       exit 1
     fi
 
+    echo "  Creating username/password credential '${id}' in domain '${domain_name}'..."
+
     # check if credentials already exist
+    local reply
     reply="$("${JENKINS_CLI}" "${INSTANCES}/${project_name}" "get-credentials-as-xml" "system::system::jenkins" "${domain_name}" "${id}" 2>&1 || true)"
+    local cli_command
+    local update_id
     if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then
       _create_domain_xml "${project_name}" "${domain_name}"
-      _create_username_password_credentials_xml "${project_name}" "${domain_name}" "${id}" "${username}" "${token}" "${description}"
+      cli_command="create-credentials-by-xml"
+      update_id=
     elif [[ "${reply}" == "No such credential" ]]; then
-      _create_username_password_credentials_xml "${project_name}" "${domain_name}" "${id}" "${username}" "${token}" "${description}"
+      cli_command="create-credentials-by-xml"
+      update_id=
     elif [[ "${reply}" == "<com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl"* ]]; then
-      _update_username_password_credentials_xml "${project_name}" "${domain_name}" "${id}" "${username}" "${token}" "${description}"
+      echo "    Credential '${id}' already exists. Overwriting..."
+      cli_command="update-credentials-by-xml"
+      update_id="${id}"
     else
       echo "Unexpected reply: ${reply}"
       exit 1
     fi
+
+    # shellcheck disable=SC2086 # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
+    "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
+<com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
+  <scope>GLOBAL</scope>
+  <id>${id}</id>
+  <username>${username}</username>
+  <password>${token}</password>
+  <description>${description}</description>
+</com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
+EOF
 }
 
 
@@ -197,7 +179,7 @@ _create_gitlab_pat_token_credentials() {
     exit 1
   fi
 
-  echo "  Creating GitLab Personal Access Token credential '${id}' in domain ${domain_name}..."
+  echo "  Creating GitLab Personal Access Token credential '${id}' in domain '${domain_name}'..."
 
   # check if credentials already exist, update password if yes
   local reply
@@ -212,16 +194,15 @@ _create_gitlab_pat_token_credentials() {
     cli_command="create-credentials-by-xml"
     update_id=
   elif [[ "${reply}" == "<io.jenkins.plugins.gitlabserverconfig.credentials.PersonalAccessTokenImpl"* ]]; then
-    echo "  Credential '${id}' already exists. Overwriting..."
+    echo "    Credential '${id}' already exists. Overwriting..."
     cli_command="update-credentials-by-xml"
-    action_display_text="Updating"
     update_id="${id}"
   else
     echo "Unexpected reply: ${reply}"
     exit 1
   fi
 
-  # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
+  # shellcheck disable=SC2086 # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
   "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
 <io.jenkins.plugins.gitlabserverconfig.credentials.PersonalAccessTokenImpl>
   <scope>GLOBAL</scope>
@@ -278,8 +259,9 @@ github() {
 
   _verify_inputs "${project_name}"
 
-  local token
+  local username
   username="$(passw cbi "bots/${project_name}/github.com/username")"
+  local token
   token="$(passw cbi "bots/${project_name}/github.com/api-token")"
 
   _create_string_credentials "${project_name}" "github-bot-token" "GitHub Bot token" "${token}" "api.github.com"
