@@ -25,6 +25,17 @@ INSTANCES="${SCRIPT_FOLDER}/instances"
 
 source "${SCRIPT_FOLDER}/pass/pass_wrapper.sh"
 
+_verify_inputs() {
+  local project_name="${1:-}"
+
+  # check that project name is not empty
+  #if [ "${project_name}" == "" ]; then
+  if [[ -z "${project_name}" ]]; then
+    printf "ERROR: a project name must be given.\n"
+    exit 1
+  fi
+}
+
 _create_domain_xml() {
     local project_name="${1:-}"
     local domain_name="${2:-}"
@@ -237,11 +248,7 @@ help() {
 auto() {
   local project_name="${1:-}"
 
-  # check that project name is not empty
-  if [[ -z "${project_name}" ]]; then
-    printf "ERROR: a project name must be given.\n"
-    exit 1
-  fi
+  _verify_inputs "${project_name}"
 
   echo "Checking for github.com API token..."
   if passw cbi "bots/${project_name}/github.com/api-token" 2&> /dev/null; then
@@ -269,11 +276,7 @@ auto() {
 github() {
   local project_name="${1:-}"
 
-  # check that project name is not empty
-  if [[ -z "${project_name}" ]]; then
-    printf "ERROR: a project name must be given.\n"
-    exit 1
-  fi
+  _verify_inputs "${project_name}"
 
   local token
   username="$(passw cbi "bots/${project_name}/github.com/username")"
@@ -287,11 +290,7 @@ github() {
 gitlab() {
   local project_name="${1:-}"
 
-  # check that project name is not empty
-  if [[ -z "${project_name}" ]]; then
-    printf "ERROR: a project name must be given.\n"
-    exit 1
-  fi
+  _verify_inputs "${project_name}"
 
   local token
   token="$(passw cbi "bots/${project_name}/gitlab.eclipse.org/api-token")"
@@ -302,11 +301,7 @@ gitlab() {
 gitlab_pat() {
   local project_name="${1:-}"
 
-  # check that project name is not empty
-  if [[ -z "${project_name}" ]]; then
-    printf "ERROR: a project name must be given.\n"
-    exit 1
-  fi
+ _verify_inputs "${project_name}"
 
   local token
   token="$(passw cbi "bots/${project_name}/gitlab.eclipse.org/api-token")"
@@ -318,11 +313,7 @@ sonarcloud() {
   local project_name="${1:-}"
   local suffix="${2:-}" # optional
 
-  # check that project name is not empty
-  if [[ -z "${project_name}" ]]; then
-    printf "ERROR: a project name must be given.\n"
-    exit 1
-  fi
+  _verify_inputs "${project_name}"
 
   local short_name="${project_name##*.}"
   local token
@@ -338,11 +329,7 @@ sonarcloud() {
 npmjs() {
   local project_name="${1:-}"
 
-  # check that project name is not empty
-  if [[ -z "${project_name}" ]]; then
-    printf "ERROR: a project name must be given.\n"
-    exit 1
-  fi
+  _verify_inputs "${project_name}"
 
   local token
   token="$(passw cbi "bots/${project_name}/npmjs.com/token")"
