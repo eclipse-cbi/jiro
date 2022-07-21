@@ -48,40 +48,6 @@ _create_domain_xml() {
 EOF
 }
 
-_create_string_credentials_xml() {
-    local project_name="${1:-}"
-    local domain_name="${2:-}"
-    local id="${3:-}"
-    local secret="${4:-}"
-    local description="${5:-}"
-    echo "  Creating string credential '${id}' in domain ${domain_name}..."
-    "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "create-credentials-by-xml" "system::system::jenkins" "${domain_name}" <<EOF
-<org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl>
-  <scope>GLOBAL</scope>
-  <id>${id}</id>
-  <description>${description}</description>
-  <secret>${secret}</secret>
-</org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl>
-EOF
-}
-
-_update_string_credentials_xml() {
-    local project_name="${1:-}"
-    local domain_name="${2:-}"
-    local id="${3:-}"
-    local secret="${4:-}"
-    local description="${5:-}"
-    echo "  Updating string credential '${id}' in domain ${domain_name}..."
-    "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "update-credentials-by-xml" "system::system::jenkins" "${domain_name}" "${id}" <<EOF
-<org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl>
-  <scope>GLOBAL</scope>
-  <id>${id}</id>
-  <description>${description}</description>
-  <secret>${secret}</secret>
-</org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl>
-EOF
-}
-
 _create_string_credentials() {
     local project_name="${1:-}"
     local id="${2:-}"
@@ -98,20 +64,39 @@ _create_string_credentials() {
       exit 1
     fi
 
-    # check if credentials already exist
+    echo "  Creating string credential '${id}' in domain '${domain_name}'..."
+
+    # check if credentials already exist, update secret if yes
+    local reply
     reply="$("${JENKINS_CLI}" "${INSTANCES}/${project_name}" "get-credentials-as-xml" "system::system::jenkins" "${domain_name}" "${id}" 2>&1 || true)"
     #echo "reply: ${reply}"
+    local cli_command
+    local update_id
     if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then
         _create_domain_xml "${project_name}" "${domain_name}"
-        _create_string_credentials_xml "${project_name}" "${domain_name}" "${id}" "${secret}" "${description}"
+        cli_command="create-credentials-by-xml"
+        update_id=
     elif [[ "${reply}" == "No such credential" ]]; then
-        _create_string_credentials_xml "${project_name}" "${domain_name}" "${id}" "${secret}" "${description}"
+        cli_command="create-credentials-by-xml"
+        update_id=
     elif [[ "${reply}" == "<org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl"* ]]; then
-        _update_string_credentials_xml "${project_name}" "${domain_name}" "${id}" "${secret}" "${description}"
+        echo "    Credential '${id}' already exists. Overwriting..."
+        cli_command="update-credentials-by-xml"
+        update_id="${id}"
     else
         echo "Unexpected reply: ${reply}"
         exit 1
     fi
+
+  # shellcheck disable=SC2086 # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
+  "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
+<org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl>
+  <scope>GLOBAL</scope>
+  <id>${id}</id>
+  <description>${description}</description>
+  <secret>${secret}</secret>
+</org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl>
+EOF
 }
 
 _create_username_token_credentials() {
@@ -131,9 +116,9 @@ _create_username_token_credentials() {
       exit 1
     fi
 
-    echo "  Creating username/password credential '${id}' in domain '${domain_name}'..."
+    echo "  Creating username/token credential '${id}' in domain '${domain_name}'..."
 
-    # check if credentials already exist
+    # check if credentials already exist, update token if yes
     local reply
     reply="$("${JENKINS_CLI}" "${INSTANCES}/${project_name}" "get-credentials-as-xml" "system::system::jenkins" "${domain_name}" "${id}" 2>&1 || true)"
     local cli_command
