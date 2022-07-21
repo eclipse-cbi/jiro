@@ -37,10 +37,10 @@ _verify_inputs() {
 }
 
 _create_domain_xml() {
-    local project_name="${1:-}"
-    local domain_name="${2:-}"
-    echo "  Creating domain '${domain_name}'..."
-    "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "create-credentials-domain-by-xml" "system::system::jenkins" <<EOF
+  local project_name="${1:-}"
+  local domain_name="${2:-}"
+  echo "  Creating domain '${domain_name}'..."
+  "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "create-credentials-domain-by-xml" "system::system::jenkins" <<EOF
 <com.cloudbees.plugins.credentials.domains.Domain>
   <name>${domain_name}</name>
   <specifications/>
@@ -49,44 +49,44 @@ EOF
 }
 
 _create_string_credentials() {
-    local project_name="${1:-}"
-    local id="${2:-}"
-    local description="${3:-}"
-    local secret="${4:-}"
-    local domain_name="${5:-_}" #if no domain is given, use "_" for system domain
+  local project_name="${1:-}"
+  local id="${2:-}"
+  local description="${3:-}"
+  local secret="${4:-}"
+  local domain_name="${5:-_}" #if no domain is given, use "_" for system domain
 
-    # read secret from stdin
-    if [[ -z "${secret}" ]]; then
-      read -p "Secret: " secret
-    fi
-    if [[ -z "${secret}" ]]; then
-      printf "ERROR: secret must be given.\n"
-      exit 1
-    fi
+  # read secret from stdin
+  if [[ -z "${secret}" ]]; then
+    read -p "Secret: " secret
+  fi
+  if [[ -z "${secret}" ]]; then
+    printf "ERROR: secret must be given.\n"
+    exit 1
+  fi
 
-    echo "  Creating string credential '${id}' in domain '${domain_name}'..."
+  echo "  Creating string credential '${id}' in domain '${domain_name}'..."
 
-    # check if credentials already exist, update secret if yes
-    local reply
-    reply="$("${JENKINS_CLI}" "${INSTANCES}/${project_name}" "get-credentials-as-xml" "system::system::jenkins" "${domain_name}" "${id}" 2>&1 || true)"
-    #echo "reply: ${reply}"
-    local cli_command
-    local update_id
-    if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then
-        _create_domain_xml "${project_name}" "${domain_name}"
-        cli_command="create-credentials-by-xml"
-        update_id=
-    elif [[ "${reply}" == "No such credential" ]]; then
-        cli_command="create-credentials-by-xml"
-        update_id=
-    elif [[ "${reply}" == "<org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl"* ]]; then
-        echo "    Credential '${id}' already exists. Overwriting..."
-        cli_command="update-credentials-by-xml"
-        update_id="${id}"
-    else
-        echo "Unexpected reply: ${reply}"
-        exit 1
-    fi
+  # check if credentials already exist, update secret if yes
+  local reply
+  reply="$("${JENKINS_CLI}" "${INSTANCES}/${project_name}" "get-credentials-as-xml" "system::system::jenkins" "${domain_name}" "${id}" 2>&1 || true)"
+  #echo "reply: ${reply}"
+  local cli_command
+  local update_id
+  if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then
+    _create_domain_xml "${project_name}" "${domain_name}"
+    cli_command="create-credentials-by-xml"
+    update_id=
+  elif [[ "${reply}" == "No such credential" ]]; then
+    cli_command="create-credentials-by-xml"
+    update_id=
+  elif [[ "${reply}" == "<org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl"* ]]; then
+    echo "    Credential '${id}' already exists. Overwriting..."
+    cli_command="update-credentials-by-xml"
+    update_id="${id}"
+  else
+    echo "Unexpected reply: ${reply}"
+    exit 1
+  fi
 
   # shellcheck disable=SC2086 # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
   "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
@@ -100,47 +100,47 @@ EOF
 }
 
 _create_username_token_credentials() {
-    local project_name="${1:-}"
-    local id="${2:-}"
-    local description="${3:-}"
-    local username="${4:-}"
-    local token="${5:-}"
-    local domain_name="${6:-_}" #if no domain is given, use "_" for system domain
+  local project_name="${1:-}"
+  local id="${2:-}"
+  local description="${3:-}"
+  local username="${4:-}"
+  local token="${5:-}"
+  local domain_name="${6:-_}" #if no domain is given, use "_" for system domain
 
-    if [[ -z "${username}" ]]; then
-      printf "ERROR: username must be given.\n"
-      exit 1
-    fi
-    if [[ -z "${token}" ]]; then
-      printf "ERROR: token must be given.\n"
-      exit 1
-    fi
+  if [[ -z "${username}" ]]; then
+    printf "ERROR: username must be given.\n"
+    exit 1
+  fi
+  if [[ -z "${token}" ]]; then
+    printf "ERROR: token must be given.\n"
+    exit 1
+  fi
 
-    echo "  Creating username/token credential '${id}' in domain '${domain_name}'..."
+  echo "  Creating username/token credential '${id}' in domain '${domain_name}'..."
 
-    # check if credentials already exist, update token if yes
-    local reply
-    reply="$("${JENKINS_CLI}" "${INSTANCES}/${project_name}" "get-credentials-as-xml" "system::system::jenkins" "${domain_name}" "${id}" 2>&1 || true)"
-    local cli_command
-    local update_id
-    if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then
-      _create_domain_xml "${project_name}" "${domain_name}"
-      cli_command="create-credentials-by-xml"
-      update_id=
-    elif [[ "${reply}" == "No such credential" ]]; then
-      cli_command="create-credentials-by-xml"
-      update_id=
-    elif [[ "${reply}" == "<com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl"* ]]; then
-      echo "    Credential '${id}' already exists. Overwriting..."
-      cli_command="update-credentials-by-xml"
-      update_id="${id}"
-    else
-      echo "Unexpected reply: ${reply}"
-      exit 1
-    fi
+  # check if credentials already exist, update token if yes
+  local reply
+  reply="$("${JENKINS_CLI}" "${INSTANCES}/${project_name}" "get-credentials-as-xml" "system::system::jenkins" "${domain_name}" "${id}" 2>&1 || true)"
+  local cli_command
+  local update_id
+  if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then
+    _create_domain_xml "${project_name}" "${domain_name}"
+    cli_command="create-credentials-by-xml"
+    update_id=
+  elif [[ "${reply}" == "No such credential" ]]; then
+    cli_command="create-credentials-by-xml"
+    update_id=
+  elif [[ "${reply}" == "<com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl"* ]]; then
+    echo "    Credential '${id}' already exists. Overwriting..."
+    cli_command="update-credentials-by-xml"
+    update_id="${id}"
+  else
+    echo "Unexpected reply: ${reply}"
+    exit 1
+  fi
 
-    # shellcheck disable=SC2086 # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
-    "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
+  # shellcheck disable=SC2086 # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
+  "${JENKINS_CLI}" "${INSTANCES}/${project_name}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
 <com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
   <scope>GLOBAL</scope>
   <id>${id}</id>
@@ -331,9 +331,9 @@ default() {
 
   # check that secret id is not empty
   if [[ -z "${secret_id}" ]]; then
-   printf "ERROR: a secret id must be given.\n"
-   _default_usage
-   exit 1
+    printf "ERROR: a secret id must be given.\n"
+    _default_usage
+    exit 1
   fi
 
   _create_string_credentials "${secret_id}" "${secret_description}" "${secret}" "${domain}"
