@@ -448,6 +448,8 @@ tool:
         home: "/opt/tools/java/openjdk/latest"
       - name: "openjdk-ea-latest"
         home: "/opt/tools/java/openjdk/ea-latest"
+      - name: "openjdk-jdk19-latest"
+        home: "/opt/tools/java/openjdk/jdk-19/latest"
       - name: "openjdk-jdk18-latest"
         home: "/opt/tools/java/openjdk/jdk-18/latest"
       - name: "openjdk-jdk17-latest"
