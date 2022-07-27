@@ -112,6 +112,17 @@ jenkins:
         command:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.116 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
   - permanent:
+      name: "mac11-aarch64-08"
+      nodeDescription: "OSX aarch64"
+      labelString: "OSX aarch64 UNB compile:amac"
+      remoteFS: '/Users/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix omr@192.168.10.177 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+  - permanent:
       name: "proxy"
       nodeDescription: "Used to connect to the UNB machines"
       labelString: "worker"
