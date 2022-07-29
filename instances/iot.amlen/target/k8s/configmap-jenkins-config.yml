@@ -90,7 +90,7 @@ data:
       clouds:
       - kubernetes:
           name: "kubernetes"
-          containerCapStr: "2"
+          containerCapStr: "4"
           jenkinsUrl: "http://jenkins-ui.amlen.svc.cluster.local/amlen"
           jenkinsTunnel: "jenkins-discovery.amlen.svc.cluster.local:50000"
           maxRequestsPerHostStr: "32"
