@@ -343,7 +343,7 @@
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
-      "maxConcurrency": 4,
+      "maxConcurrency": 2,
       "permissions": [
          {
             "grantedPermissions": [
@@ -537,11 +537,11 @@
          "resources": {
             "cpu": {
                "limit": "2000m",
-               "request": "550m"
+               "request": "250m"
             },
             "memory": {
-               "limit": "2048Mi",
-               "request": "2048Mi"
+               "limit": "1536Mi",
+               "request": "1536Mi"
             }
          },
          "stsName": "che4z"
@@ -598,7 +598,7 @@
    "project": {
       "displayName": "Eclipse Che4z",
       "fullName": "ecd.che.che4z",
-      "resourcePacks": 2,
+      "resourcePacks": 1,
       "shortName": "che4z",
       "unixGroupName": "ecd.che.che4z"
    },

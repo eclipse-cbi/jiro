@@ -113,10 +113,10 @@
                   "resources": {
                      "limits": {
                         "cpu": "2000m",
-                        "memory": "2048Mi"
+                        "memory": "1536Mi"
                      },
                      "requests": {
-                        "cpu": "550m"
+                        "cpu": "250m"
                      }
                   },
                   "volumeMounts": [

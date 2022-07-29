@@ -4,7 +4,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   project+: {
     fullName: "ecd.che.che4z",
     displayName: "Eclipse Che4z",
-    resourcePacks: 2,
   },
   jenkins+: {
     permissions:
