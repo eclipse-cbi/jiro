@@ -1,0 +1,31 @@
+{
+   "apiVersion": "route.openshift.io/v1",
+   "kind": "Route",
+   "metadata": {
+      "annotations": {
+         "haproxy.router.openshift.io/timeout": "60s"
+      },
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "automotive.tractusx",
+         "org.eclipse.cbi.jiro/project.shortname": "tractusx"
+      },
+      "name": "tractusx",
+      "namespace": "tractusx"
+   },
+   "spec": {
+      "host": "ci.eclipse.org",
+      "path": "/tractusx",
+      "port": {
+         "targetPort": "http"
+      },
+      "tls": {
+         "insecureEdgeTerminationPolicy": "Redirect",
+         "termination": "edge"
+      },
+      "to": {
+         "kind": "Service",
+         "name": "jenkins-ui",
+         "weight": 100
+      }
+   }
+}
