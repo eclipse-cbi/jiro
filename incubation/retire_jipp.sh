@@ -197,4 +197,4 @@ mv_jipp_backup_to_archive "${SHORT_NAME}" "${BACKUP_FILE_NAME}"
 echo
 echo "TODO:"
 echo "- commit and push changes to jiro repo"
-echo "- comment on Bugzilla ticket"
+echo "- comment on issue"
