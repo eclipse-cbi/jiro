@@ -15,6 +15,12 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     staticAgentCount: 1,
     permissions: [
       {
+        principal: "anonymous",
+        grantedPermissions: [
+          "Overall/Read",
+        ]
+      },
+      {
         principal: "admins",
         grantedPermissions: ["Overall/Administer"],
       },
