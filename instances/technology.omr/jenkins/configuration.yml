@@ -115,7 +115,7 @@ jenkins:
       name: "mac11-aarch64-08"
       nodeDescription: "OSX aarch64"
       labelString: "OSX aarch64 UNB compile:amac"
-      remoteFS: '/Users/jenkins'
+      remoteFS: '/Users/omr'
       numExecutors: 1
       mode: EXCLUSIVE
       retentionStrategy: "always"
