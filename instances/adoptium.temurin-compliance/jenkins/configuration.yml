@@ -435,6 +435,24 @@ jenkins:
           - key: "PATH+USR_LOCAL_BIN"
             value: "/usr/local/bin:/opt/homebrew/bin:/opt/X11/bin"
   - permanent:
+      name: "noh7B-macos12-arm64"
+      labelString: "ci.role.test hw.arch.aarch64 sw.os.osx"
+      remoteFS: "/Users/jenkins"
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          credentialsId: "jenkins-jck-ssh"
+          host: "207.254.28.99"
+          port: 22
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDrutAaGjkE6/i3f4GDf/Z5lALulqRXyM6vTf0nWJo2T2TQph18Ep8xY7ESsxbKTt5isDX2qjy4PPhv4lP5/AMRFhjfsbl/0CYDHAkNhFjPRnTl/0cDC3s8WtbjaNPJUp14q0T5U/UQ6c5/ZGBrpoFQRENsuKBsEQqa1gdnelcw8pXspYbbkyIeuBYPGeJvBeSX/dPL18/fQyNGtRsbDSWMCVi6RGhElE4N2IX4YHifHi6hUVvBiF9s9A7Nqwfj2fgT6MDE1+yR67n7e5J2HJOitmSnieKSkTVaSI5otDoyzyiBgFSH1nFbD2/Wm3R5oVgNDmPnbLigi/8Vn79Z5tHp1njUOcNAlcwfmbtMc9POPu8yEnjgGuVScaFnoSK07TQAmq4X/g7lAaHJ6mDOkDuyaiFSkp7CNqVQxxNUWSadXQzzbNNTDb0gbsgUcVVftFWOOdZ+st1XB4Rp0Lw1mDTT5su1K62OB8tiCM8Dgra52UnvI7X/U7R/vY49fM4Sy/U="
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "PATH+USR_LOCAL_BIN"
+            value: "/usr/local/bin:/opt/homebrew/bin:/opt/X11/bin"
+  - permanent:
       name: "jck-skytap-aix71-ppc64-1"
       nodeDescription: "AIX 7.1 machine hosted by Skytap"
       labelString: "ci.role.test hw.arch.ppc64 sw.os.aix"

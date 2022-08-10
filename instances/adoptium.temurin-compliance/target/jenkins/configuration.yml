@@ -325,6 +325,92 @@ jenkins:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+          - containers:
+              - image: docker.io/eclipsecbi/jiro-agent-centos-8-jdk11:remoting-4.13
+                alwaysPullImage: true
+                livenessProbe:
+                  failureThreshold: 0
+                  initialDelaySeconds: 0
+                  periodSeconds: 0
+                  successThreshold: 0
+                  timeoutSeconds: 0
+                name: "jnlp"
+                resourceLimitCpu: "2000m"
+                resourceRequestCpu: "1000m"
+                resourceLimitMemory: "4096Mi"
+                resourceRequestMemory: "4096Mi"
+                ttyEnabled: true
+                command: ""
+                args: ""
+            instanceCap: -1
+            name: "centos-8-jdk11"
+            namespace: "temurin-compliance"
+            nodeUsageMode: EXCLUSIVE
+            label: "centos-8-jdk11"
+            envVars:
+              - envVar:
+                  key: "JAVA_TOOL_OPTIONS"
+                  value: ""
+              - envVar:
+                  key: "JENKINS_REMOTING_JAVA_OPTS"
+                  value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+              - envVar:
+                  key: "OPENJ9_JAVA_OPTIONS"
+                  value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+              - envVar:
+                  key: "_JAVA_OPTIONS"
+                  value: ""
+            volumes:
+              - persistentVolumeClaim:
+                  claimName: "tools-claim-jiro-temurin-compliance"
+                  mountPath: "/opt/tools"
+                  readOnly: true
+              - configMapVolume:
+                  configMapName: "known-hosts"
+                  mountPath: "/home/jenkins/.ssh/"
+                  subPath: "."
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.m2/repository"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.m2/wrapper"
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: m2-dir
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                  - name: m2-dir
+                    mountPath: /home/jenkins/.mavenrc
+                    subPath: .mavenrc
+                    readOnly: true
+                volumes:
+                - name: m2-secret-dir
+                  secret:
+                    secretName: m2-secret-dir
+                - name: m2-dir
+                  configMap:
+                    name: m2-dir
   nodes:
     - permanent:
         name: "jck-packet-ubuntu2004-x64-1"
@@ -745,6 +831,24 @@ jenkins:
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCZ2Z2bQGzynx48oPrOs6yLqHx4m3b6YlGwTEBvJ7oVbPlOZIqIKnmJUKVXgzw6wwMFTNpgBnWzDC8gGg/HhlLnafmu9wHQPtpXIo+fxc9cxBNDZVey6tibrUx889jli5FVZPnWFgKAX6jt34huTzOH56g4LFjOO0Wrc/bbzpccrKsr+3IFsXqRuwJ2HQGCYUg9jfdt6Gh+zEhqqnOIbjycXxrOIZsN/sR607gZ2bpLBkLic4oo5/zUjqNXK7ZOB+VmK28D8iI3j3qVw0Omnw4Do/rC/qj9BYJ2JEgAHMUGB1ZCDajOziMKQEk2xQYG7In+NyEuugBWfuYglPJi/qQXJGdsTHNqamC+CSGy/fp6PjEKgIbL1M1hLadrkBn/6RLhEptJPTY/ax4SN+I7kgP+6PLKE7sThgMMMbxcTP5EYnK3H2glqD5OPRLMETYryJrmlDBa+qrIn69CRV9JeiuK+JNCt3nWpR2sIvaYf+JylEogy17jb9BCqEQ5/qiGZc8="
+        nodeProperties:
+          - envVars:
+              env:
+                - key: "PATH+USR_LOCAL_BIN"
+                  value: "/usr/local/bin:/opt/homebrew/bin:/opt/X11/bin"
+    - permanent:
+        name: "noh7B-macos12-arm64"
+        labelString: "ci.role.test hw.arch.aarch64 sw.os.osx"
+        remoteFS: "/Users/jenkins"
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            credentialsId: "jenkins-jck-ssh"
+            host: "207.254.28.99"
+            port: 22
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDrutAaGjkE6/i3f4GDf/Z5lALulqRXyM6vTf0nWJo2T2TQph18Ep8xY7ESsxbKTt5isDX2qjy4PPhv4lP5/AMRFhjfsbl/0CYDHAkNhFjPRnTl/0cDC3s8WtbjaNPJUp14q0T5U/UQ6c5/ZGBrpoFQRENsuKBsEQqa1gdnelcw8pXspYbbkyIeuBYPGeJvBeSX/dPL18/fQyNGtRsbDSWMCVi6RGhElE4N2IX4YHifHi6hUVvBiF9s9A7Nqwfj2fgT6MDE1+yR67n7e5J2HJOitmSnieKSkTVaSI5otDoyzyiBgFSH1nFbD2/Wm3R5oVgNDmPnbLigi/8Vn79Z5tHp1njUOcNAlcwfmbtMc9POPu8yEnjgGuVScaFnoSK07TQAmq4X/g7lAaHJ6mDOkDuyaiFSkp7CNqVQxxNUWSadXQzzbNNTDb0gbsgUcVVftFWOOdZ+st1XB4Rp0Lw1mDTT5su1K62OB8tiCM8Dgra52UnvI7X/U7R/vY49fM4Sy/U="
         nodeProperties:
           - envVars:
               env:
