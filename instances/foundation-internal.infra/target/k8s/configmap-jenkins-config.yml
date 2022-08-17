@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "foundation-internal.infra"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.332.3"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.332.3"
+    org.eclipse.cbi.jiro/jenkins.version: "2.346.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.346.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "foundation-internal-infra"
   namespace: "foundation-internal-infra"
   name: jenkins-config
@@ -94,7 +94,7 @@ data:
             podRetention: "never"
             templates:
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13
+                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13.3
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -180,7 +180,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13.3
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -266,7 +266,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13.3
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -352,7 +352,7 @@ data:
                       configMap:
                         name: m2-dir
               - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8-jdk11:remoting-4.13
+                  - image: docker.io/eclipsecbi/jiro-agent-centos-8-jdk11:remoting-4.13.3
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0

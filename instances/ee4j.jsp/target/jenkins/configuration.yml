@@ -75,7 +75,7 @@ jenkins:
       podRetention: "never"
       templates:
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13
+        - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13.3
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13
+        - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13.3
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - containers:
-        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13.3
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -268,6 +268,92 @@ jenkins:
         namespace: "jsp"
         nodeUsageMode: EXCLUSIVE
         label: "centos-latest centos-8"
+        envVars:
+        - envVar:
+            key: "JAVA_TOOL_OPTIONS"
+            value: ""
+        - envVar:
+            key: "JENKINS_REMOTING_JAVA_OPTS"
+            value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+        - envVar:
+            key: "OPENJ9_JAVA_OPTIONS"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+        - envVar:
+            key: "_JAVA_OPTIONS"
+            value: ""
+        volumes:
+        - persistentVolumeClaim:
+            claimName: "tools-claim-jiro-jsp"
+            mountPath: "/opt/tools"
+            readOnly: true
+        - configMapVolume:
+            configMapName: "known-hosts"
+            mountPath: "/home/jenkins/.ssh/"
+            subPath: "."
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/repository"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/wrapper"
+        workspaceVolume:
+          emptyDirWorkspaceVolume:
+            memory: false
+        yaml: |
+          apiVersion: v1
+          kind: Pod
+          spec:
+            containers:
+            - name: jnlp
+              volumeMounts:
+              - name: m2-secret-dir
+                mountPath: /home/jenkins/.m2/settings-security.xml
+                subPath: settings-security.xml
+                readOnly: true
+              - name: m2-secret-dir
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
+                readOnly: true
+              - name: m2-dir
+                mountPath: /home/jenkins/.m2/toolchains.xml
+                subPath: toolchains.xml
+                readOnly: true
+              - name: m2-dir
+                mountPath: /home/jenkins/.mavenrc
+                subPath: .mavenrc
+                readOnly: true
+            volumes:
+            - name: m2-secret-dir
+              secret:
+                secretName: m2-secret-dir
+            - name: m2-dir
+              configMap:
+                name: m2-dir
+      - containers:
+        - image: docker.io/eclipsecbi/jiro-agent-centos-8-jdk11:remoting-4.13.3
+          alwaysPullImage: true
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
+          ttyEnabled: true
+          command: ""
+          args: ""
+        instanceCap: -1
+        name: "centos-8-jdk11"
+        namespace: "jsp"
+        nodeUsageMode: EXCLUSIVE
+        label: "centos-8-jdk11"
         envVars:
         - envVar:
             key: "JAVA_TOOL_OPTIONS"
