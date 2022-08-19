@@ -1,0 +1,9 @@
+tool:
+  gradle:
+    installations:
+    - name: "gradle-latest"
+      properties:
+      - installSource:
+          installers:
+          - gradleInstaller:
+              id: "6.8.2"
