@@ -30,7 +30,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "jira",
       "job-dsl",
       "parameter-separator",
-      "parameterized-remote-trigger-plugin",
+      "Parameterized-Remote-Trigger",
       "pipeline-utility-steps",
       "slack",
       "tap",
