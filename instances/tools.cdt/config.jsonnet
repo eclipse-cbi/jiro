@@ -9,6 +9,7 @@
       "nodejs",
       "throttle-concurrents",
       "javadoc",
+      "pipeline-github",
     ],
   },
 }
