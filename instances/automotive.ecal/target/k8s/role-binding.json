@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "automotive.ecal",
+         "org.eclipse.cbi.jiro/project.shortname": "ecal"
+      },
+      "name": "ecal",
+      "namespace": "ecal"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "ecal"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "ecal",
+         "namespace": "ecal"
+      }
+   ]
+}
