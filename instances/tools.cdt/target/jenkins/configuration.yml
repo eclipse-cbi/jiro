@@ -596,6 +596,16 @@ tool:
         home: "/opt/tools/java/ibm/jdk-8/latest"
       - name: "ibm-latest"
         home: "/opt/tools/java/ibm/latest"
+      - name: "semeru-latest"
+        home: "/opt/tools/java/semeru/latest"
+      - name: "semeru-jdk8-latest"
+        home: "/opt/tools/java/semeru/jdk-8/latest"
+      - name: "semeru-jdk11-latest"
+        home: "/opt/tools/java/semeru/jdk-11/latest"
+      - name: "semeru-jdk17-latest"
+        home: "/opt/tools/java/semeru/jdk-17/latest"
+      - name: "semeru-jdk18-latest"
+        home: "/opt/tools/java/semeru/jdk-18/latest"
   ant:
     installations:
       - name: "apache-ant-latest"
