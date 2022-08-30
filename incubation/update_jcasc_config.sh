@@ -27,6 +27,7 @@ regen() {
 
 for instance in "${@}"; do
   project_name="$(basename "${instance}")"
+  echo
   echo "${project_name}:"
   regen "${instance}"
   oc apply -f "${instance}/target/k8s/configmap-jenkins-config.yml"

@@ -39,7 +39,7 @@ for instance in "${@}"; do
 
   #TODO: wrap with &
 
-  if curl -SsL "${CI_HOST}/${short_name}" | grep "queueItemAuthenticator"; then
+  if curl -SsL "${CI_HOST}/${short_name}" | grep "queueItemAuthenticator" > /dev/null; then
     echo "ERROR"
   else
     echo "OK"
