@@ -51,8 +51,12 @@ jenkins:
       podRetention: "never"
       templates:
       {{#each templates}}
-      - containers:
-        - image: {{this.docker.registry}}/{{this.docker.repository}}/{{this.docker.image}}:{{this.docker.tag}}
+      - name: "{{@key}}"
+        namespace: "{{../namespace}}"
+        label: "{{#each this.labels}}{{this}}{{#unless @last}} {{/unless}}{{/each}}"
+        containers:
+        - name: "jnlp"
+          image: {{this.docker.registry}}/{{this.docker.repository}}/{{this.docker.image}}:{{this.docker.tag}}
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -60,7 +64,6 @@ jenkins:
             periodSeconds: 0
             successThreshold: 0
             timeoutSeconds: 0
-          name: "jnlp"
           resourceLimitCpu: "{{this.kubernetes.resources.cpu.limit}}"
           resourceRequestCpu: "{{this.kubernetes.resources.cpu.request}}"
           resourceLimitMemory: "{{this.kubernetes.resources.memory.limit}}"
@@ -69,10 +72,7 @@ jenkins:
           command: ""
           args: ""
         instanceCap: -1
-        name: "{{@key}}"
-        namespace: "{{../namespace}}"
         nodeUsageMode: {{this.mode}}
-        label: "{{#each this.labels}}{{this}}{{#unless @last}} {{/unless}}{{/each}}"
         envVars:
         {{#each env}}
         - envVar:
