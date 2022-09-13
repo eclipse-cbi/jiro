@@ -96,28 +96,28 @@ data:
             namespace: "releng"
             podRetention: "never"
             templates:
-              - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13.3
-                    alwaysPullImage: true
-                    livenessProbe:
-                      failureThreshold: 0
-                      initialDelaySeconds: 0
-                      periodSeconds: 0
-                      successThreshold: 0
-                      timeoutSeconds: 0
-                    name: "jnlp"
-                    resourceLimitCpu: "2000m"
-                    resourceRequestCpu: "1000m"
-                    resourceLimitMemory: "4096Mi"
-                    resourceRequestMemory: "4096Mi"
-                    ttyEnabled: true
-                    command: ""
-                    args: ""
-                instanceCap: -1
-                name: "basic"
+              - name: "basic"
                 namespace: "releng"
-                nodeUsageMode: NORMAL
                 label: "basic"
+                containers:
+                  - name: "jnlp"
+                    image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13.3
+                    alwaysPullImage: true
+                    livenessProbe:
+                      failureThreshold: 0
+                      initialDelaySeconds: 0
+                      periodSeconds: 0
+                      successThreshold: 0
+                      timeoutSeconds: 0
+                    resourceLimitCpu: "2000m"
+                    resourceRequestCpu: "1000m"
+                    resourceLimitMemory: "4096Mi"
+                    resourceRequestMemory: "4096Mi"
+                    ttyEnabled: true
+                    command: ""
+                    args: ""
+                instanceCap: -1
+                nodeUsageMode: NORMAL
                 envVars:
                   - envVar:
                       key: "JAVA_TOOL_OPTIONS"
@@ -194,28 +194,28 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
-              - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13.3
-                    alwaysPullImage: true
-                    livenessProbe:
-                      failureThreshold: 0
-                      initialDelaySeconds: 0
-                      periodSeconds: 0
-                      successThreshold: 0
-                      timeoutSeconds: 0
-                    name: "jnlp"
-                    resourceLimitCpu: "2000m"
-                    resourceRequestCpu: "1000m"
-                    resourceLimitMemory: "4096Mi"
-                    resourceRequestMemory: "4096Mi"
-                    ttyEnabled: true
-                    command: ""
-                    args: ""
-                instanceCap: -1
-                name: "centos-7"
+              - name: "centos-7"
                 namespace: "releng"
-                nodeUsageMode: EXCLUSIVE
                 label: "migration jipp-migration centos-7"
+                containers:
+                  - name: "jnlp"
+                    image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13.3
+                    alwaysPullImage: true
+                    livenessProbe:
+                      failureThreshold: 0
+                      initialDelaySeconds: 0
+                      periodSeconds: 0
+                      successThreshold: 0
+                      timeoutSeconds: 0
+                    resourceLimitCpu: "2000m"
+                    resourceRequestCpu: "1000m"
+                    resourceLimitMemory: "4096Mi"
+                    resourceRequestMemory: "4096Mi"
+                    ttyEnabled: true
+                    command: ""
+                    args: ""
+                instanceCap: -1
+                nodeUsageMode: EXCLUSIVE
                 envVars:
                   - envVar:
                       key: "JAVA_TOOL_OPTIONS"
@@ -292,106 +292,12 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
-              - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13.3
-                    alwaysPullImage: true
-                    livenessProbe:
-                      failureThreshold: 0
-                      initialDelaySeconds: 0
-                      periodSeconds: 0
-                      successThreshold: 0
-                      timeoutSeconds: 0
-                    name: "jnlp"
-                    resourceLimitCpu: "2000m"
-                    resourceRequestCpu: "1000m"
-                    resourceLimitMemory: "4096Mi"
-                    resourceRequestMemory: "4096Mi"
-                    ttyEnabled: true
-                    command: ""
-                    args: ""
-                instanceCap: -1
-                name: "centos-8"
+              - name: "centos-8"
                 namespace: "releng"
-                nodeUsageMode: EXCLUSIVE
                 label: "centos-latest centos-8"
-                envVars:
-                  - envVar:
-                      key: "JAVA_TOOL_OPTIONS"
-                      value: ""
-                  - envVar:
-                      key: "JENKINS_REMOTING_JAVA_OPTS"
-                      value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
-                  - envVar:
-                      key: "OPENJ9_JAVA_OPTIONS"
-                      value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
-                  - envVar:
-                      key: "_JAVA_OPTIONS"
-                      value: ""
-                volumes:
-                  - persistentVolumeClaim:
-                      claimName: "tools-claim-jiro-releng"
-                      mountPath: "/opt/tools"
-                      readOnly: true
-                  - configMapVolume:
-                      configMapName: "known-hosts"
-                      mountPath: "/home/jenkins/.ssh/"
-                      subPath: "."
-                  - emptyDirVolume:
-                      memory: false
-                      mountPath: "/home/jenkins/"
-                  - emptyDirVolume:
-                      memory: false
-                      mountPath: "/home/jenkins/.m2/repository"
-                  - emptyDirVolume:
-                      memory: false
-                      mountPath: "/home/jenkins/.m2/wrapper"
-                workspaceVolume:
-                  emptyDirWorkspaceVolume:
-                    memory: false
-                yaml: |
-                  apiVersion: v1
-                  kind: Pod
-                  spec:
-                    containers:
-                    - name: jnlp
-                      volumeMounts:
-                      - name: m2-secret-dir
-                        mountPath: /home/jenkins/.m2/settings-deploy-ossrh-jdt.xml
-                        subPath: settings-deploy-ossrh-jdt.xml
-                        readOnly: true
-                      - name: m2-secret-dir
-                        mountPath: /home/jenkins/.m2/settings-deploy-ossrh-pde.xml
-                        subPath: settings-deploy-ossrh-pde.xml
-                        readOnly: true
-                      - name: m2-secret-dir
-                        mountPath: /home/jenkins/.m2/settings-deploy-ossrh-releng.xml
-                        subPath: settings-deploy-ossrh-releng.xml
-                        readOnly: true
-                      - name: m2-secret-dir
-                        mountPath: /home/jenkins/.m2/settings-security.xml
-                        subPath: settings-security.xml
-                        readOnly: true
-                      - name: m2-secret-dir
-                        mountPath: /home/jenkins/.m2/settings.xml
-                        subPath: settings.xml
-                        readOnly: true
-                      - name: m2-dir
-                        mountPath: /home/jenkins/.m2/toolchains.xml
-                        subPath: toolchains.xml
-                        readOnly: true
-                      - name: m2-dir
-                        mountPath: /home/jenkins/.mavenrc
-                        subPath: .mavenrc
-                        readOnly: true
-                    volumes:
-                    - name: m2-secret-dir
-                      secret:
-                        secretName: m2-secret-dir
-                    - name: m2-dir
-                      configMap:
-                        name: m2-dir
-              - containers:
-                  - image: docker.io/eclipsecbi/jiro-agent-centos-8-jdk11:remoting-4.13.3
+                containers:
+                  - name: "jnlp"
+                    image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13.3
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -399,7 +305,6 @@ data:
                       periodSeconds: 0
                       successThreshold: 0
                       timeoutSeconds: 0
-                    name: "jnlp"
                     resourceLimitCpu: "2000m"
                     resourceRequestCpu: "1000m"
                     resourceLimitMemory: "4096Mi"
@@ -408,10 +313,7 @@ data:
                     command: ""
                     args: ""
                 instanceCap: -1
-                name: "centos-8-jdk11"
-                namespace: "releng"
                 nodeUsageMode: EXCLUSIVE
-                label: "centos-8-jdk11"
                 envVars:
                   - envVar:
                       key: "JAVA_TOOL_OPTIONS"
@@ -526,7 +428,7 @@ data:
                 host: "13.68.249.87"
                 port: "22"
                 credentialsId: "rs68g-win10-ssh"
-                javaPath: "\"C:\\Program Files\\AdoptOpenJDK\\jdk-8.0.292.10-hotspot\\bin\\java.exe\""
+                javaPath: "\"C:\\Program Files\\AdoptOpenJDK\\jdk-11.0.11.9-hotspot\\bin\\java.exe\""
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDAkHWAKiWv/T3uaCBj8RdbPR4BW3GBdb5Digq4lpwnFc5xCLCZ/Wke6GBEBlai+zJndjm5sNYgKAAGUOFvW1t0ZCFxgS+uZ+tu2eyDoGyCAvS+XzbzN4pEGf3x/2GJE2aWoesrdx/Uhc/8J3cZG04Fy1SsllW36j4e/20PnZaCtPRBuU/9ZlX4pUDKIUDV+7ejOTTViAzxV0IqUQagiKLv1rxgkRQRgy49+oszYbTFmO7Sqy8L20sSRpSjO0eym6CTpbdjJSm70ZjlJNFocwREmlISNtdPPzY56NWQKf6qpzTlw94zZGVV/0WNdapn3pWS3OLIttVB1C1f1nHBdwvmooFgFiTJzfWaqY9wZFy+jNDi8BHHauLYySIh2PT65XWltnnJcwPM/87nk0hESuBglq3580mGbqoqYmoYhVOsJgn0r0HOHoCsfrUkk9EbUzuUh4TmbR9d6c+zrXe/p6XW8MNNoD1FC+IpruUiEIK9sJ25LAdeXP0hupL9SbddlCc="
@@ -534,7 +436,7 @@ data:
               - envVars:
                   env:
                     - key: "JAVA_HOME"
-                      value: 'C:\Program Files\AdoptOpenJDK\jdk-8.0.292.10-hotspot'
+                      value: 'C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot'
                     - key: "PATH"
                       value: 'C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\ProgramData\GooGet;C:\Users\SSHD\AppData\Local\Microsoft\WindowsApps;C:\ProgramData\chocolatey\bin'
                     - key: "VS90_HOME"
@@ -547,8 +449,8 @@ data:
                       key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
                     - home: 'C:\ProgramData\chocolatey\bin\ant.bat'
                       key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-1.9.6"
-                    - home: 'C:\Program Files\AdoptOpenJDK\jdk-8.0.292.10-hotspot\bin\java'
-                      key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
+                    - home: 'C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot'
+                      key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk11-latest"
                     - home: 'C:\tools\cygwin\bin\git'
                       key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
         - permanent:
@@ -886,6 +788,16 @@ data:
             home: "/opt/tools/java/ibm/jdk-8/latest"
           - name: "ibm-latest"
             home: "/opt/tools/java/ibm/latest"
+          - name: "semeru-latest"
+            home: "/opt/tools/java/semeru/latest"
+          - name: "semeru-jdk8-latest"
+            home: "/opt/tools/java/semeru/jdk-8/latest"
+          - name: "semeru-jdk11-latest"
+            home: "/opt/tools/java/semeru/jdk-11/latest"
+          - name: "semeru-jdk17-latest"
+            home: "/opt/tools/java/semeru/jdk-17/latest"
+          - name: "semeru-jdk18-latest"
+            home: "/opt/tools/java/semeru/jdk-18/latest"
       ant:
         installations:
           - name: "apache-ant-latest"

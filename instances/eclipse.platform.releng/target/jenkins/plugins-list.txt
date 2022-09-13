@@ -1,3 +1,4 @@
 # GENERATED FILE - DO NOT EDIT
 gerrit-code-review
+job-dsl
 mail-watcher-plugin
