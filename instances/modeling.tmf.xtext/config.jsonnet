@@ -50,6 +50,15 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
               },
             },
           },
+          env+: {
+            JENKINS_REMOTING_JAVA_OPTS: [
+              "-showversion",
+              "-XshowSettings:vm", 
+              "-Xmx512m", 
+              "-Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true", 
+              "-Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+            ],
+          },
         },
       },
     },
