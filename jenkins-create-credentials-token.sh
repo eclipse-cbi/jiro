@@ -223,7 +223,7 @@ auto() {
     echo "  No API token found."
   fi
   echo "Checking for gitlab.eclipse.org API token..."
-  if passw cbi "bots/${project_name}/gitlab.eclipse.org/token" 2&> /dev/null; then
+  if passw cbi "bots/${project_name}/gitlab.eclipse.org/api-token" 2&> /dev/null; then
     gitlab "${project_name}"
     gitlab_pat "${project_name}"
   else
