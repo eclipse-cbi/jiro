@@ -3,6 +3,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   project+: {
     fullName: "technology.tycho",
     displayName: "Eclipse Tycho",
+    resourcePacks: 2,
   },
   jenkins+: {
     permissions+: 
