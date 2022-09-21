@@ -393,7 +393,8 @@
       ],
       "plugins": [
          "gerrit-code-review",
-         "github-checks"
+         "github-checks",
+         "git-forensics"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
