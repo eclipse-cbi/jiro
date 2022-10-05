@@ -440,6 +440,40 @@ jenkins:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9QZkbgItMNqXosXxRBGuMJv3DGr7FxIKsLTnecLZ8x4gctJoWvft42qdfNEw0ZbVZqgvm6jrlgwDDOsm+J80hAK4jIPZCcpoJ8F/90a7sbgDZuvB69MdFOiXoidWvDSYJnTqUQQZ7EAwdRc49vi9tYK8K3Rs9HnoN5b91XKcTelr/cAMRSFbpojP8d90Z2U94O31kO3HKjcZBZv3kdAnoT6oSFt4CkKwBmlAIjMR2pTqecfJ+n2AwFyl236TBZiZtgitfMJhWok9LAgRNcUWZvSOGTFF+BHhQXOD0Amzw9W0Y8sBfdAPehD295G1jOfInXq2QVQYFtLttdxOdurQd"
   - permanent:
+      name: "rh7-s390x-03"
+      nodeDescription: "zLinux node"
+      labelString: "Linux 390 compile:zlinux"
+      remoteFS: '/home/omr'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "148.100.85.95"
+          port: "22"
+          credentialsId: "omr-agents-ssh"
+          javaPath: ""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0JbMUOdZgrM2xEm0KetpiLIHCh+S0gSCraEumHhZuacurSiRlXyqx2SkmbNk+JbieFhWxWtO24ecXN28qFGhLBcNLxtAKN82DKsLk0KX4rjulkwnSbt2NaOH/zDmWLVrV43wbAzIBZdnkVq/Oqof/FAva3R89Sondul3DfStviAmx5G1eSaqcOGFIvzlOV6zDzbxDnyEj4RoglBrXtoRhT3NkKfW+rZRw769d4oLHgYduJ6f+plPOlxRPv8hmiwn4jNFcaB0EPZx9iE1kPqlfvBGUgGElct6raD9unmrXAJjYcYfZbNWqAfEoltmME++3a8T8JG3x0z5ilbpsvB8v"
+  - permanent:
+      name: "rh7-s390x-04"
+      nodeDescription: "zLinux node"
+      labelString: "Linux 390 compile:zlinux"
+      remoteFS: '/home/omr'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "148.100.85.18"
+          port: "22"
+          credentialsId: "omr-agents-ssh"
+          javaPath: ""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8+WfvVQhbdtM/Ix6YWx8ddaactrb+QkjfuMI0aBn8Zxj0AJ65jiqGHrzwjc88fRpSVMtXhErQdr3tllUq0oD6CORslSvVE0ojvDxfNsMfzSCHsmZncVQBfyccwSsB6fgltUzMgcWaVIc7s5xH+bpNvImIMIW+lI6wpA12b/K+C/2XLn6PibaAKklMJkOLKhgdpSQGOiLWt2zMIq2a7FezWZsgZTAmZaof69M64C9RS2n+UGjq8zr3uOk0dVozDWzSxjG36RaGsOUVLS3MWBsYiiPdAzciQljHaJ3YZqtIttWqmYrYFiY/1ut1lBDAJGXmh1buAaYzTvS2B29PKrGX"
+  - permanent:
       name: "win2012-x86-2"
       nodeDescription: "Windows x86 "
       labelString: "Windows x86 compile:xwindows"
