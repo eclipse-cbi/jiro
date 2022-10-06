@@ -429,6 +429,19 @@
                "Job/Cancel"
             ],
             "principal": "vsebe@ca.ibm.com"
+         },
+         {
+            "grantedPermissions": [
+               "Agent/Connect",
+               "Agent/Disconnect",
+               "Agent/Configure",
+               "Agent/Build",
+               "Job/Create",
+               "Job/Configure",
+               "Job/Build",
+               "Job/Cancel"
+            ],
+            "principal": "sarah_jackson@uk.ibm.com"
          }
       ],
       "plugins": [
