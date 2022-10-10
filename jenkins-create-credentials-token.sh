@@ -336,7 +336,7 @@ default() {
     exit 1
   fi
 
-  _create_string_credentials "${secret_id}" "${secret_description}" "${secret}" "${domain}"
+  _create_string_credentials "${project_name}" "${secret_id}" "${secret_description}" "${secret}" "${domain}"
 }
 
 "$@"
