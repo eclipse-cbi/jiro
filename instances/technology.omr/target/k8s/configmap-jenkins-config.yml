@@ -835,7 +835,7 @@ data:
               ssh:
                 host: "148.100.85.95"
                 port: "22"
-                credentialsId: "omr-agents-ssh"
+                credentialsId: "omr-agents-ssh-rh7"
                 javaPath: ""
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
@@ -852,7 +852,7 @@ data:
               ssh:
                 host: "148.100.85.18"
                 port: "22"
-                credentialsId: "omr-agents-ssh"
+                credentialsId: "omr-agents-ssh-rh7"
                 javaPath: ""
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
