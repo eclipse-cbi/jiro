@@ -406,40 +406,6 @@ jenkins:
         command:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr12 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
   - permanent:
-      name: "ub16-s390x-01"
-      nodeDescription: "zLinux node"
-      labelString: "Linux 390 compile:zlinux"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        ssh:
-          host: "148.100.113.45"
-          port: "22"
-          credentialsId: "omr-agents-ssh"
-          javaPath: ""
-          sshHostKeyVerificationStrategy:
-            manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqIaEVCi+5e2Mi1PenY5VMwmso//qLzO6J1Uya0FmYnG31hZLU5fbRhMYAI9J/gGMdINCBfSZn+mmCs+J5HQJRh3PR3urv00+iw+4g7OX+ICYGuSSnzxLHwFEmQqTGNa96tIIcSrBzTFKdWNIHupxN+xbKK6Zy2Q9G5qqGNHFZBwwII1O7RL4vbi4RG/aNXHTrhYbDEg3ZhwKro76WgWAoyR2EEP/lzEAtVtycDtnu24mRKRj+UhlsXik+nsiSLneZvdddtVdFf8W6IMp6AcDRNWjFmJa3YpPEz07TO0cTcEI9+taHL800RmD5YK3jyTYxwvi1ZkBo1nN9bpHoa3kF"
-  - permanent:
-      name: "ub16-s390x-02"
-      nodeDescription: "zLinux node"
-      labelString: "Linux 390 compile:zlinux"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        ssh:
-          host: "148.100.113.49"
-          port: "22"
-          credentialsId: "omr-agents-ssh"
-          javaPath: ""
-          sshHostKeyVerificationStrategy:
-            manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9QZkbgItMNqXosXxRBGuMJv3DGr7FxIKsLTnecLZ8x4gctJoWvft42qdfNEw0ZbVZqgvm6jrlgwDDOsm+J80hAK4jIPZCcpoJ8F/90a7sbgDZuvB69MdFOiXoidWvDSYJnTqUQQZ7EAwdRc49vi9tYK8K3Rs9HnoN5b91XKcTelr/cAMRSFbpojP8d90Z2U94O31kO3HKjcZBZv3kdAnoT6oSFt4CkKwBmlAIjMR2pTqecfJ+n2AwFyl236TBZiZtgitfMJhWok9LAgRNcUWZvSOGTFF+BHhQXOD0Amzw9W0Y8sBfdAPehD295G1jOfInXq2QVQYFtLttdxOdurQd"
-  - permanent:
       name: "rh7-s390x-03"
       nodeDescription: "zLinux node"
       labelString: "Linux 390 compile:zlinux"
