@@ -1,0 +1,11 @@
+{
+   "apiVersion": "v1",
+   "kind": "Namespace",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.lsp4jakarta",
+         "org.eclipse.cbi.jiro/project.shortname": "lsp4jakarta"
+      },
+      "name": "lsp4jakarta"
+   }
+}
