@@ -562,7 +562,9 @@ jenkins:
               failIfWorkDirIsMissing: false
               internalDir: "remoting"
     - permanent:
+        name: "nc1ht-macos11-arm64"
         labelString: "macos macos11"
+        nodeDescription: "macOS Ventura 13.0.1"
         launcher:
           ssh:
             credentialsId: "nc1ht-macos11-arm64-bot-ssh"
@@ -570,9 +572,8 @@ jenkins:
             port: 22
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDlJ+kqOy9HUXkD3mqw1QCVc7srM8ZMIdtrVeHBSXw9nHWyRymVJYJz6g8685PZpWJ90PPnSqozaE4/RKauzVQZN0UG95r+R7D+4aVNePfe4IRICSqgFohQHJrWEX+EomERJDEshwGaYcUqa9RzqImdChmyjJekP3Nl5CcSLwUhm6DwfEhEAyvcFe1DxO4QERgWIX9tLKvn9f97G52jKGypHvtQAj0KMmpGftJviokhKLLunZnuv6Hn/5kYMFpLg8q0eelHqTjZhAGnowKXOjv1NdubrJilureoMnpTnf0sua9IRyDSgvIbXT1kII+uyRvO6R33twbhjjVeFAuZcoLcDhqMHzQkxHRNPdQDfO/6HOhnvRKfn3QAQ6dkW+SHkjwFu3TWAr+tnYbSLD312jQeIxSQQ+XktzFiqV98gFIKt0IhHrfgZOY8KwvOI0+uEVq12EueLkGcp0XpPyItFj5UBvDJjslV/QoE3EtBseWjJslvmUgzXYcdxpzdk7lLDO8="
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2EUBUJSBAIzhw5Vc1B/nIwWNWix+4Co8xtYGOJjEPP"
         mode: EXCLUSIVE
-        name: "nc1ht-macos11-arm64"
         nodeProperties:
           - toolLocation:
               locations:
