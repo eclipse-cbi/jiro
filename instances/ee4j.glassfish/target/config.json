@@ -343,7 +343,7 @@
    },
    "jenkins": {
       "agentConnectionTimeout": 300,
-      "maxConcurrency": 32,
+      "maxConcurrency": 34,
       "permissions": [
          {
             "grantedPermissions": [
@@ -573,7 +573,7 @@
    "project": {
       "displayName": "Eclipse Glassfish",
       "fullName": "ee4j.glassfish",
-      "resourcePacks": 16,
+      "resourcePacks": 17,
       "shortName": "glassfish",
       "unixGroupName": "ee4j.glassfish"
    },
