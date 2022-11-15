@@ -62,7 +62,7 @@ jenkins:
   clouds:
     - kubernetes:
         name: "kubernetes"
-        containerCapStr: "2"
+        containerCapStr: "4"
         jenkinsUrl: "http://jenkins-ui.set.svc.cluster.local/set"
         jenkinsTunnel: "jenkins-discovery.set.svc.cluster.local:50000"
         maxRequestsPerHostStr: "32"
