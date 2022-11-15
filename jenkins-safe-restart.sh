@@ -39,16 +39,10 @@ url="$(jq -r '.deployment.url' "${instance}/target/config.json")"
 
 runningBuilds() {
   local url="${1}"
-  curl --retry 10 -gSs --user "$(cat "${SCRIPT_FOLDER}"/.jenkinscreds)" "${url}"'/computer/api/json?depth=2&tree=computer[displayName,executors[currentExecutable[*]],oneOffExecutors[currentExecutable[*]]]' | jq -c '.computer | map({name: .displayName?, executors: (.executors? + .oneOffExecutors?) | map(select(.currentExecutable != null)) | map(.currentExecutable | {name: .fullDisplayName, url: .url}) })'
+  local jenkins_user="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "get_var" "user" "jenkins_login")"
+  local jenkins_pw="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "get_var" "pw" "jenkins_login")"
+  curl --retry 10 -gSs --user "${jenkins_user}:${jenkins_pw}" "${url}"'/computer/api/json?depth=2&tree=computer[displayName,executors[currentExecutable[*]],oneOffExecutors[currentExecutable[*]]]' | jq -c '.computer | map({name: .displayName?, executors: (.executors? + .oneOffExecutors?) | map(select(.currentExecutable != null)) | map(.currentExecutable | {name: .fullDisplayName, url: .url}) })'
 }
-
-if [[ ! -f ${SCRIPT_FOLDER}/.jenkinscreds ]]; then
-  echo ".jenkinscreds file is missing. Please enter your credentials, so it can be generated:"
-  read -rp "Username: " username
-  read -rsp "Password: " pw
-  echo "${username}:${pw}" > "${SCRIPT_FOLDER}/.jenkinscreds"
-  echo ""
-fi
 
 echo "INFO: Safe restarting Jenkins @ ${url}"
 echo "INFO: Putting Jenkins instance in quiet mode"

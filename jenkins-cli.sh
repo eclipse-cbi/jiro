@@ -44,12 +44,8 @@ if [[ ! -f ${CLI_JAR} ]]; then
   curl -sfSL "${jenkinsUrl}/jnlpJars/jenkins-cli.jar" -o "${CLI_JAR}"
 fi
 
-if [[ ! -f ${SCRIPT_FOLDER}/.jenkinscreds ]]; then
-  echo ".jenkinscreds file is missing. Please enter your credentials, so it can be generated:"
-  read -rp "Username: " username
-  read -rsp "Password: " pw
-  echo "${username}:${pw}" > "${SCRIPT_FOLDER}/.jenkinscreds"
-  echo ""
-fi
-java -jar "${CLI_JAR}" -auth @"${SCRIPT_FOLDER}/.jenkinscreds" -s "${jenkinsUrl}" "${@:2}"
+jenkins_user="$("${SCRIPT_FOLDER}/utils/local_config.sh" "get_var" "user" "jenkins_login")"
+jenkins_pw="$("${SCRIPT_FOLDER}/utils/local_config.sh" "get_var" "pw" "jenkins_login")"
+
+java -jar "${CLI_JAR}" -auth "${jenkins_user}:${jenkins_pw}" -s "${jenkinsUrl}" "${@:2}"
 
