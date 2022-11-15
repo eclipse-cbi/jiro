@@ -65,7 +65,7 @@ jenkins:
   clouds:
   - kubernetes:
       name: "kubernetes"
-      containerCapStr: "32"
+      containerCapStr: "34"
       jenkinsUrl: "http://jenkins-ui.glassfish.svc.cluster.local/glassfish"
       jenkinsTunnel: "jenkins-discovery.glassfish.svc.cluster.local:50000"
       maxRequestsPerHostStr: "32"
