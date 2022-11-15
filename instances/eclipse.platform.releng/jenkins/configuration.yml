@@ -92,20 +92,6 @@ jenkins:
           offlineAddresses: "releng@eclipse.org"
           onlineAddresses: "releng@eclipse.org"
   - permanent:
-      name: "ppc64le-build"
-      labelString: "ppcbuild"
-      remoteFS: "/home/swtbuild/build"
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        jnlp:
-          webSocket: true
-          workDirSettings:
-            disabled: false
-            failIfWorkDirIsMissing: false
-            internalDir: "remoting"
-  - permanent:
       name: "ppcle-buildTest"
       labelString: "ppctest ppcbuild"
       remoteFS: "/home/swtbuild/build"
