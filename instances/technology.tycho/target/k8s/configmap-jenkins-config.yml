@@ -88,7 +88,7 @@ data:
       clouds:
         - kubernetes:
             name: "kubernetes"
-            containerCapStr: "6"
+            containerCapStr: "10"
             jenkinsUrl: "http://jenkins-ui.tycho.svc.cluster.local/tycho"
             jenkinsTunnel: "jenkins-discovery.tycho.svc.cluster.local:50000"
             maxRequestsPerHostStr: "32"
