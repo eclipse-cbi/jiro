@@ -1,6 +1,6 @@
 {
   project+: {
-    fullName: "mylyn",
+    fullName: "tools.mylyn",
     displayName: "Eclipse Mylyn",
   },
   jenkins+: {

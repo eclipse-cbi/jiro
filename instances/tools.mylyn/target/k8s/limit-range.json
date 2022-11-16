@@ -3,7 +3,7 @@
    "kind": "LimitRange",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "mylyn",
+         "org.eclipse.cbi.jiro/project.fullName": "tools.mylyn",
          "org.eclipse.cbi.jiro/project.shortname": "mylyn"
       },
       "name": "jenkins-instance-limit-range",

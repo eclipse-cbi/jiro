@@ -2,7 +2,7 @@
    "accessControl": {
       "primaryGroup": {
          "id": -1,
-         "name": "mylyn"
+         "name": "tools.mylyn"
       },
       "supplementalGroups": [ ],
       "user": {
@@ -322,7 +322,7 @@
    "docker": {
       "master": {
          "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.346.3\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
-         "image": "mylyn",
+         "image": "tools.mylyn",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
          "tag": "2.346.3"
@@ -388,7 +388,7 @@
                "Gerrit/ManualTrigger",
                "Gerrit/Retrigger"
             ],
-            "principal": "mylyn"
+            "principal": "tools.mylyn"
          }
       ],
       "plugins": [
@@ -527,7 +527,7 @@
       "files": {
          "settings-security.xml": {
             "master": {
-               "pass": "bots/mylyn/apache-maven-security-settings"
+               "pass": "bots/tools.mylyn/apache-maven-security-settings"
             }
          },
          "settings.xml": {
@@ -542,16 +542,16 @@
             "servers": {
                "gpg.passphrase": {
                   "passphrase": {
-                     "pass": "bots/mylyn/gpg/passphrase"
+                     "pass": "bots/tools.mylyn/gpg/passphrase"
                   }
                },
                "ossrh": {
                   "nexusProUrl": "https://oss.sonatype.org",
                   "password": {
-                     "pass": "bots/mylyn/oss.sonatype.org/password"
+                     "pass": "bots/tools.mylyn/oss.sonatype.org/password"
                   },
                   "username": {
-                     "pass": "bots/mylyn/oss.sonatype.org/username"
+                     "pass": "bots/tools.mylyn/oss.sonatype.org/username"
                   }
                },
                "repo.eclipse.org": {
@@ -573,10 +573,10 @@
    },
    "project": {
       "displayName": "Eclipse Mylyn",
-      "fullName": "mylyn",
+      "fullName": "tools.mylyn",
       "resourcePacks": 1,
       "shortName": "mylyn",
-      "unixGroupName": "mylyn"
+      "unixGroupName": "tools.mylyn"
    },
    "sbt": {
       "files": {

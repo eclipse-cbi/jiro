@@ -6,7 +6,7 @@
          "kind": "PersistentVolume",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "mylyn",
+               "org.eclipse.cbi.jiro/project.fullName": "tools.mylyn",
                "org.eclipse.cbi.jiro/project.shortname": "mylyn"
             },
             "name": "tools-jiro-mylyn"
@@ -50,7 +50,7 @@
          "kind": "PersistentVolumeClaim",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "mylyn",
+               "org.eclipse.cbi.jiro/project.fullName": "tools.mylyn",
                "org.eclipse.cbi.jiro/project.shortname": "mylyn"
             },
             "name": "tools-claim-jiro-mylyn",
