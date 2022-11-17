@@ -47,6 +47,11 @@ if [[ "$project_name" != *.* ]]; then
   exit 1
 fi
 
+if [[ -f "${SCRIPT_FOLDER}/instances/${project_name}/config.jsonnet" ]]; then
+  echo "WARNING: ${SCRIPT_FOLDER}/instances/${project_name}/config.jsonnet already exists. Skipping..."
+  exit 0
+fi
+
 mkdir -p "${SCRIPT_FOLDER}/instances/${project_name}"
 
 cat <<EOF > "${SCRIPT_FOLDER}/instances/${project_name}/config.jsonnet"
@@ -65,3 +70,6 @@ jiro+ {
   "config.json"+: import "config.jsonnet",
 }
 EOG
+
+echo "Basic JIRO config created for ${project_name}."
+ 
