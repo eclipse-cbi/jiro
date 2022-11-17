@@ -71,7 +71,7 @@ if [[ "${buildsCount}" -gt 0 ]]; then
   echo -e "\b."
 fi
 
-"${SCRIPT_FOLDER}/jenkins-switch-maintenance.sh" "${instance}" "on"
+#"${SCRIPT_FOLDER}/jenkins-switch-maintenance.sh" "${instance}" "on"
 
 . "${SCRIPT_FOLDER}/build/k8s-set-context.sh" "$(jq -r '.deployment.cluster' "${instance}/target/config.json")"
 
@@ -80,6 +80,6 @@ echo -n "INFO: Restarting Jenkins"
 kubectl rollout restart -n "${ns}" "sts/${stsName}"
 kubectl rollout status -n "${ns}" "sts/${stsName}"
 
-"${SCRIPT_FOLDER}/jenkins-switch-maintenance.sh" "${instance}" "off"
+#"${SCRIPT_FOLDER}/jenkins-switch-maintenance.sh" "${instance}" "off"
 
 echo "INFO: Jenkins is ready"

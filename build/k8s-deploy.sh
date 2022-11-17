@@ -75,10 +75,10 @@ if [[ -z "${old_gen}" ]]; then
   echo "INFO: Deploying a brand new instance..."
 elif [[ $(sts_as_json | jq -r '.metadata.generation') -gt ${old_gen} ]]; then
   echo "INFO: Cluster is rolling out StatefulSet changes"
-  "${SCRIPT_FOLDER}/../jenkins-switch-maintenance.sh" "${instance}" "on"
+#  "${SCRIPT_FOLDER}/../jenkins-switch-maintenance.sh" "${instance}" "on"
   echo -n "Waiting for Jenkins to be back online"
   kubectl rollout status -n "$(jq -r '.metadata.name' "${instance}/target/k8s/namespace.json")" "sts/$(jq -r '.metadata.name' "${instance}/target/k8s/statefulset.json")"
-  "${SCRIPT_FOLDER}/../jenkins-switch-maintenance.sh" "${instance}" "off"
+#  "${SCRIPT_FOLDER}/../jenkins-switch-maintenance.sh" "${instance}" "off"
 else
   echo "INFO: StatefulSet has no change that Kubernetes consider as requiring a restart"
   ## TODO: compare pod .status.containerStatuses[].imageID vs latest pull from docker registry and check if restart is required.
