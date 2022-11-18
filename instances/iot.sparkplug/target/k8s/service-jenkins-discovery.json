@@ -1,0 +1,25 @@
+{
+   "apiVersion": "v1",
+   "kind": "Service",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.sparkplug",
+         "org.eclipse.cbi.jiro/project.shortname": "sparkplug"
+      },
+      "name": "jenkins-discovery",
+      "namespace": "sparkplug"
+   },
+   "spec": {
+      "ports": [
+         {
+            "name": "jnlp",
+            "port": 50000,
+            "protocol": "TCP",
+            "targetPort": 50000
+         }
+      ],
+      "selector": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.sparkplug"
+      }
+   }
+}
