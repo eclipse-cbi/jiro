@@ -89,14 +89,15 @@ Scale down to 0 the StatefulSet running Jenkins then scale it up to 1. It makes 
 
 ## Dependencies
 
-* [docker](https://www.docker.com)
 * [bash 4](https://www.gnu.org/software/bash/)
-* [jsonnet](https://github.com/google/jsonnet/)
-* [jq](https://stedolan.github.io/jq/)
-* [yq](https://github.com/mikefarah/yq/)
+* [docker](https://www.docker.com)
 * [hbs-cli](https://www.npmjs.com/package/hbs-cli)
       $ npm i -g hbs-cli
+* [jsonnet](https://github.com/google/jsonnet/)
+* [jq](https://stedolan.github.io/jq/)
 * oc CLI tool
+* [pass](https://www.passwordstore.org)
+* [yq](https://github.com/mikefarah/yq/)
 
 ## Installation
 
