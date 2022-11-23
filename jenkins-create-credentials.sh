@@ -92,6 +92,7 @@ create_username_password_credentials() {
     update_id="${id}"
   else
     echo "Unexpected reply: ${reply}"
+    "${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}"
     exit 1
   fi
 
