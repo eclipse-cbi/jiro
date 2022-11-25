@@ -6,15 +6,15 @@
          "haproxy.router.openshift.io/timeout": "60s"
       },
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "technology.dataspaceconnector",
-         "org.eclipse.cbi.jiro/project.shortname": "dataspaceconnector"
+         "org.eclipse.cbi.jiro/project.fullName": "technology.edc",
+         "org.eclipse.cbi.jiro/project.shortname": "edc"
       },
-      "name": "dataspaceconnector",
-      "namespace": "dataspaceconnector"
+      "name": "edc",
+      "namespace": "edc"
    },
    "spec": {
       "host": "ci.eclipse.org",
-      "path": "/dataspaceconnector",
+      "path": "/edc",
       "port": {
          "targetPort": "http"
       },

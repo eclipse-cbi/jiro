@@ -21,7 +21,7 @@
 }
 
 .ui-refresh .page-header__brand-name:after {
-  content: 'Eclipse Dataspace Connector';
+  content: 'Eclipse Dataspace Components';
   visibility: visible;
   font-size: 18px;
   line-height: 24px;

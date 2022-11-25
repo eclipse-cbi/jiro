@@ -3,11 +3,11 @@
    "kind": "Service",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "technology.dataspaceconnector",
-         "org.eclipse.cbi.jiro/project.shortname": "dataspaceconnector"
+         "org.eclipse.cbi.jiro/project.fullName": "technology.edc",
+         "org.eclipse.cbi.jiro/project.shortname": "edc"
       },
       "name": "jenkins-discovery",
-      "namespace": "dataspaceconnector"
+      "namespace": "edc"
    },
    "spec": {
       "ports": [
@@ -19,7 +19,7 @@
          }
       ],
       "selector": {
-         "org.eclipse.cbi.jiro/project.fullName": "technology.dataspaceconnector"
+         "org.eclipse.cbi.jiro/project.fullName": "technology.edc"
       }
    }
 }

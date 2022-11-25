@@ -25,27 +25,27 @@ jenkins:
         - "USER:Job/Read:anonymous"
         - "USER:Overall/Read:anonymous"
         - "GROUP:Job/ExtendedRead:common"
-        - "GROUP:Agent/Build:technology.dataspaceconnector"
-        - "GROUP:Credentials/View:technology.dataspaceconnector"
-        - "GROUP:Gerrit/ManualTrigger:technology.dataspaceconnector"
-        - "GROUP:Gerrit/Retrigger:technology.dataspaceconnector"
-        - "GROUP:Job/Build:technology.dataspaceconnector"
-        - "GROUP:Job/Cancel:technology.dataspaceconnector"
-        - "GROUP:Job/Configure:technology.dataspaceconnector"
-        - "GROUP:Job/Create:technology.dataspaceconnector"
-        - "GROUP:Job/Delete:technology.dataspaceconnector"
-        - "GROUP:Job/Move:technology.dataspaceconnector"
-        - "GROUP:Job/Read:technology.dataspaceconnector"
-        - "GROUP:Job/Workspace:technology.dataspaceconnector"
-        - "GROUP:Overall/Read:technology.dataspaceconnector"
-        - "GROUP:Run/Delete:technology.dataspaceconnector"
-        - "GROUP:Run/Replay:technology.dataspaceconnector"
-        - "GROUP:Run/Update:technology.dataspaceconnector"
-        - "GROUP:SCM/Tag:technology.dataspaceconnector"
-        - "GROUP:View/Configure:technology.dataspaceconnector"
-        - "GROUP:View/Create:technology.dataspaceconnector"
-        - "GROUP:View/Delete:technology.dataspaceconnector"
-        - "GROUP:View/Read:technology.dataspaceconnector"
+        - "GROUP:Agent/Build:technology.edc"
+        - "GROUP:Credentials/View:technology.edc"
+        - "GROUP:Gerrit/ManualTrigger:technology.edc"
+        - "GROUP:Gerrit/Retrigger:technology.edc"
+        - "GROUP:Job/Build:technology.edc"
+        - "GROUP:Job/Cancel:technology.edc"
+        - "GROUP:Job/Configure:technology.edc"
+        - "GROUP:Job/Create:technology.edc"
+        - "GROUP:Job/Delete:technology.edc"
+        - "GROUP:Job/Move:technology.edc"
+        - "GROUP:Job/Read:technology.edc"
+        - "GROUP:Job/Workspace:technology.edc"
+        - "GROUP:Overall/Read:technology.edc"
+        - "GROUP:Run/Delete:technology.edc"
+        - "GROUP:Run/Replay:technology.edc"
+        - "GROUP:Run/Update:technology.edc"
+        - "GROUP:SCM/Tag:technology.edc"
+        - "GROUP:View/Configure:technology.edc"
+        - "GROUP:View/Create:technology.edc"
+        - "GROUP:View/Delete:technology.edc"
+        - "GROUP:View/Read:technology.edc"
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -68,14 +68,14 @@ jenkins:
   - kubernetes:
       name: "kubernetes"
       containerCapStr: "2"
-      jenkinsUrl: "http://jenkins-ui.dataspaceconnector.svc.cluster.local/dataspaceconnector"
-      jenkinsTunnel: "jenkins-discovery.dataspaceconnector.svc.cluster.local:50000"
+      jenkinsUrl: "http://jenkins-ui.edc.svc.cluster.local/edc"
+      jenkinsTunnel: "jenkins-discovery.edc.svc.cluster.local:50000"
       maxRequestsPerHostStr: "32"
-      namespace: "dataspaceconnector"
+      namespace: "edc"
       podRetention: "never"
       templates:
       - name: "basic"
-        namespace: "dataspaceconnector"
+        namespace: "edc"
         label: "basic"
         containers:
         - name: "jnlp"
@@ -111,7 +111,7 @@ jenkins:
             value: ""
         volumes:
         - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-dataspaceconnector"
+            claimName: "tools-claim-jiro-edc"
             mountPath: "/opt/tools"
             readOnly: true
         - configMapVolume:
@@ -161,7 +161,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - name: "centos-7"
-        namespace: "dataspaceconnector"
+        namespace: "edc"
         label: "migration jipp-migration centos-7"
         containers:
         - name: "jnlp"
@@ -197,7 +197,7 @@ jenkins:
             value: ""
         volumes:
         - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-dataspaceconnector"
+            claimName: "tools-claim-jiro-edc"
             mountPath: "/opt/tools"
             readOnly: true
         - configMapVolume:
@@ -247,7 +247,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - name: "centos-8"
-        namespace: "dataspaceconnector"
+        namespace: "edc"
         label: "centos-latest centos-8"
         containers:
         - name: "jnlp"
@@ -283,7 +283,7 @@ jenkins:
             value: ""
         volumes:
         - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-dataspaceconnector"
+            claimName: "tools-claim-jiro-edc"
             mountPath: "/opt/tools"
             readOnly: true
         - configMapVolume:
@@ -347,7 +347,7 @@ security:
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci.eclipse.org/dataspaceconnector
+    url: https://ci.eclipse.org/edc
 
   mailer:
     replyToAddress: ci-admin@eclipse.org
@@ -366,11 +366,11 @@ unclassified:
   simple-theme-plugin:
     elements:
     - cssUrl:
-        url: "/dataspaceconnector/userContent/theme/quicksilver.css"
+        url: "/edc/userContent/theme/quicksilver.css"
     - cssUrl:
         url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
     - jsUrl:
-        url: "/dataspaceconnector/userContent/theme/title.js"
+        url: "/edc/userContent/theme/title.js"
 
   buildDiscarders:
     configuredBuildDiscarders:
@@ -398,7 +398,7 @@ unclassified:
         manageHooks: false
     hookSecretConfigs:
       - credentialsId: "github-webhook-secret"
-    hookUrl: "https://ci.eclipse.org/dataspaceconnector/github-webhook/"
+    hookUrl: "https://ci.eclipse.org/edc/github-webhook/"
 
   gitSCM:
     createAccountBasedOnEmail: true

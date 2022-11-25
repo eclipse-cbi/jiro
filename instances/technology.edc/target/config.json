@@ -2,18 +2,18 @@
    "accessControl": {
       "primaryGroup": {
          "id": -1,
-         "name": "technology.dataspaceconnector"
+         "name": "technology.edc"
       },
       "supplementalGroups": [ ],
       "user": {
          "id": -1,
-         "name": "genie.dataspaceconnector"
+         "name": "genie.edc"
       }
    },
    "clouds": {
       "kubernetes": {
          "kind": "kubernetes",
-         "namespace": "dataspaceconnector",
+         "namespace": "edc",
          "podRetention": "never",
          "templates": {
             "basic": {
@@ -315,14 +315,14 @@
       "controlPort": 8081,
       "host": "ci.eclipse.org",
       "jnlpPort": 50000,
-      "prefix": "/dataspaceconnector",
+      "prefix": "/edc",
       "uiPort": 8080,
-      "url": "https://ci.eclipse.org/dataspaceconnector"
+      "url": "https://ci.eclipse.org/edc"
    },
    "docker": {
       "master": {
          "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.346.3\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
-         "image": "technology.dataspaceconnector",
+         "image": "technology.edc",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
          "tag": "2.346.3"
@@ -388,7 +388,7 @@
                "Gerrit/ManualTrigger",
                "Gerrit/Retrigger"
             ],
-            "principal": "technology.dataspaceconnector"
+            "principal": "technology.edc"
          }
       ],
       "plugins": [ ],
@@ -489,10 +489,10 @@
                "request": "4096Mi"
             }
          },
-         "namespace": "dataspaceconnector"
+         "namespace": "edc"
       },
       "master": {
-         "namespace": "dataspaceconnector",
+         "namespace": "edc",
          "probe": {
             "liveness": {
                "delaySeconds": 480,
@@ -517,14 +517,14 @@
                "request": "1536Mi"
             }
          },
-         "stsName": "dataspaceconnector"
+         "stsName": "edc"
       }
    },
    "maven": {
       "files": {
          "settings-security.xml": {
             "master": {
-               "pass": "bots/technology.dataspaceconnector/apache-maven-security-settings"
+               "pass": "bots/technology.edc/apache-maven-security-settings"
             }
          },
          "settings.xml": {
@@ -539,16 +539,16 @@
             "servers": {
                "gpg.passphrase": {
                   "passphrase": {
-                     "pass": "bots/technology.dataspaceconnector/gpg/passphrase"
+                     "pass": "bots/technology.edc/gpg/passphrase"
                   }
                },
                "ossrh": {
                   "nexusProUrl": "https://oss.sonatype.org",
                   "password": {
-                     "pass": "bots/technology.dataspaceconnector/oss.sonatype.org/password"
+                     "pass": "bots/technology.edc/oss.sonatype.org/password"
                   },
                   "username": {
-                     "pass": "bots/technology.dataspaceconnector/oss.sonatype.org/username"
+                     "pass": "bots/technology.edc/oss.sonatype.org/username"
                   }
                },
                "repo.eclipse.org": {
@@ -569,11 +569,11 @@
       "transferListenerLogLevel": "warn"
    },
    "project": {
-      "displayName": "Eclipse Dataspace Connector",
-      "fullName": "technology.dataspaceconnector",
+      "displayName": "Eclipse Dataspace Components",
+      "fullName": "technology.edc",
       "resourcePacks": 1,
-      "shortName": "dataspaceconnector",
-      "unixGroupName": "technology.dataspaceconnector"
+      "shortName": "edc",
+      "unixGroupName": "technology.edc"
    },
    "sbt": {
       "files": {
@@ -592,25 +592,8 @@
    },
    "secrets": {
       "dockerconfigjson": {
-         "dockerconfigjson-for-pull-as-dataspaceconnector": {
-            "namespace": "dataspaceconnector",
-            "servers": {
-               "https://index.docker.io/v1/": {
-                  "password": {
-                     "pass": "docker.com/default-image-puller/okd-c1/password"
-                  },
-                  "username": {
-                     "pass": "docker.com/default-image-puller/okd-c1/username"
-                  }
-               }
-            },
-            "serviceAccount": "dataspaceconnector",
-            "type": [
-               "pull"
-            ]
-         },
          "dockerconfigjson-for-pull-as-default": {
-            "namespace": "dataspaceconnector",
+            "namespace": "edc",
             "servers": {
                "https://index.docker.io/v1/": {
                   "password": {
@@ -625,11 +608,28 @@
             "type": [
                "pull"
             ]
+         },
+         "dockerconfigjson-for-pull-as-edc": {
+            "namespace": "edc",
+            "servers": {
+               "https://index.docker.io/v1/": {
+                  "password": {
+                     "pass": "docker.com/default-image-puller/okd-c1/password"
+                  },
+                  "username": {
+                     "pass": "docker.com/default-image-puller/okd-c1/username"
+                  }
+               }
+            },
+            "serviceAccount": "edc",
+            "type": [
+               "pull"
+            ]
          }
       },
       "gerrit-trigger-plugin": {
          "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-         "username": "genie.dataspaceconnector"
+         "username": "genie.edc"
       }
    }
 }
