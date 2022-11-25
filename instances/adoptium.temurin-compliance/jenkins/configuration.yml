@@ -74,7 +74,8 @@ jenkins:
           host: "148.100.74.163"
           port: "22"
           credentialsId: "jenkins-jck-ssh"
-          javaPath: "/usr/lib/jvm/jdk8/bin/java"
+          javaPath: "/usr/lib/jvm/jdk-11/bin/java"
+          jvmOptions: "-Xmx512m"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDXa49sG2Jyl/bq2D9z/GfzC1W7eLRIC/iOa/o4nxl0/"
@@ -125,7 +126,8 @@ jenkins:
           host: "148.100.74.223"
           port: "22"
           credentialsId: "jenkins-jck-ssh"
-          javaPath: "/usr/lib/jvm/jdk8/bin/java"
+          javaPath: "/usr/lib/jvm/jdk-11/bin/java"
+          jvmOptions: "-Xmx512m"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDJ8vY1vg2dBnt3GqzLEPq7Ozm4VBIDUgJQ62aZjiePprh9L91k231XSDj94CWV4WAzUAQ7BC4jjsOd7ZUTjC8punF6Eecaj80Qhs88ZzuZZTHR9KatAbJKa5BtxsJcENMTGouQGHydxhJp5KgoguuZuD7h8Q4JHWQSGdMrEV/tfAX9q5nPwKjINAVXxpnfTB6A0D8/uPUmXzGFiM+uv3A3xRBdrCzbrBL/sDqPD6NNLOgiVbV1J5dbGE3poeBiHnoEpgmrMcPRgjZyPwbLgn5D+xQ/T/fwzhSXuOWXAovRDv4mLipqHLQiCikjaxdGQ2Fsg0lLvDNQbiNag9KrDrWf"
@@ -511,7 +513,8 @@ jenkins:
           host: "ssh.temurin.hostedpi.com"
           port: "5378"
           credentialsId: "jenkins-jck-ssh"
-          javaPath: "/usr/lib/jvm/jdk8/bin/java"
+          javaPath: "/usr/lib/jvm/jdk-11/bin/java"
+          jvmOptions: "-Xmx512m"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDKhRM5aejXDVO4p5SH49g7oz+za5TBVO6ZujHWx/IvY1XorayXUIO7Ke66Kb/Ju7XOaYXZtujiHTgwmQAK2AL4Rp/uyUQ4La/cnHysgN1FI3l53IYPwkrViJYp8VbvqFSZbD1QtaILWCzsuDXYcGD5vBIGrxHUnVOQybgEmW/4BulXe0qNfJEuDS+fYH8U1qO76Ss7zBzH+fCiMeyJ2i+uddYzj6I1297y6kD7dGM61FZF/JdCvIfIqPcZ4iQZPg4d2l33WpO5oegDwrFRKxSN71mgS8g7P4SgXd1/mQGX6Zm37MhK+mVKJpHQ+8I5RPQYK8TbKkXYiq5Gw7BmH2Cx"
