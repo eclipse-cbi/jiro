@@ -43,74 +43,116 @@ if [[ -z "${NEW_PROJECT_NAME}" ]]; then
  exit 1
 fi
 
-old_short_name="${OLD_PROJECT_NAME##*.}"
-new_short_name="${NEW_PROJECT_NAME##*.}"
+OLD_SHORT_NAME="${OLD_PROJECT_NAME##*.}"
+NEW_SHORT_NAME="${NEW_PROJECT_NAME##*.}"
 
-if [[ "${old_short_name}" != "${new_short_name}" ]]; then
-  echo "Backup PV on bambam (manually for now)..."
-  echo "#########################################"
+NEW_INSTANCE_FOLDER="${SCRIPT_FOLDER}/../instances/${NEW_PROJECT_NAME}"
+
+backup_pv() {
+  if [[ "${OLD_SHORT_NAME}" != "${NEW_SHORT_NAME}" ]]; then
+    echo
+    echo "Backup PV on backend server (manually for now)..."
+    echo "#################################################"
+    echo
+    echo "* login"
+    echo "* navigate to PV folder"
+    echo "* cp -R ${OLD_SHORT_NAME}-jenkins-home-* ${NEW_SHORT_NAME}-jenkins-home-*_BACKUP"
+    echo
+    read -rsp $'Once you are done, press any key to continue...\n' -n1
+  fi
+}
+
+rename_instance_folder() {
   echo
-  echo "* login*"
-  echo "* cp -R ${old_short_name}-jenkins-home-* ${new_short_name}-jenkins-home-*-backup"
-  read -rsp $'Press any key to continue, or CTRL+C to abort...\n' -n1
-fi
+  echo "Renaming instances folder..."
+  if [[ -d "${NEW_INSTANCE_FOLDER}" ]]; then
+    echo "  ${NEW_INSTANCE_FOLDER} already exists, skipping..."
+  else
+    mv "${SCRIPT_FOLDER}/../instances/${OLD_PROJECT_NAME}" "${NEW_INSTANCE_FOLDER}"
+  fi
+}
 
+adapt_config() {
+  echo
+  echo "Changing fullName in config.jsonnet..."
+  if grep "fullName: \"${NEW_PROJECT_NAME}\"" "${NEW_INSTANCE_FOLDER}/config.jsonnet" > /dev/null ; then
+    echo "  WARNING: fullName has been changed already. Skipping..."
+  else
+    sed -i "s/fullName: \"${OLD_PROJECT_NAME}\"/fullName: \"${NEW_PROJECT_NAME}\"/" "${NEW_INSTANCE_FOLDER}/config.jsonnet"
+  fi
+#TODO: fix display name (semi-)automatically
+  echo
+  echo "TODO: fix display name in config.jsonnet file (manually for now)..."
+  read -rsp $'Once you are done, press any key to continue...\n' -n1
+}
+
+deploy_jipp() {
+  echo
+  echo "Deploy JIPP?"
+  read -rsp $'Press any key to continue, or CTRL+C to abort...\n' -n1
+#TODO: allow to skip
+
+  echo
+  echo "Connected to cluster?"
+  read -rsp "Press enter to continue or CTRL-C to abort..."
+
+  # delete old statefulset since not all fields can be updated
+  if [[ "${OLD_SHORT_NAME}" == "${NEW_SHORT_NAME}" ]]; then
+    oc delete sts "${OLD_SHORT_NAME}" -n "${OLD_SHORT_NAME}"
+  fi
+
+  pushd "${SCRIPT_FOLDER}/.."
+  #TODO: get rid of it
+  make "deploy_${NEW_PROJECT_NAME}"
+  secrets/create_gerrit_ssh_keys_secret.sh "${NEW_PROJECT_NAME}"
+  popd
+}
+
+fix_pv() {
+  if [[ "${OLD_SHORT_NAME}" != "${NEW_SHORT_NAME}" ]]; then
+    echo
+    echo "Fix PV on backend server (manually for now)..."
+    echo "##############################################"
+    echo
+    echo "* Stop Jenkins controller pod"
+    echo "  oc scale sts ${NEW_SHORT_NAME} -n ${NEW_SHORT_NAME} --replicas=0"
+    echo "* Find out UID of files in new PV"
+    echo "* Copy jobs from old PV to new PV"
+    echo "  cp -R ${OLD_SHORT_NAME}-jenkins-home-*/jobs/* ${NEW_SHORT_NAME}-jenkins-home-*/jobs/"
+    echo "* fix ownership"
+    echo "  chown -R <new UID>:root ${NEW_SHORT_NAME}-jenkins-home-*/jobs/* "
+    echo "* Start Jenkins controller pod"
+    echo "  oc scale sts ${NEW_SHORT_NAME} -n ${NEW_SHORT_NAME} --replicas=1"
+    echo
+    read -rsp $'Once you are done, press any key to continue...\n' -n1
+  fi
+}
+
+## MAIN
 echo
 echo "JIPP for ${OLD_PROJECT_NAME} will be renamed to ${NEW_PROJECT_NAME}..."
 read -rsp $'Press any key to continue, or CTRL+C to abort...\n' -n1
 
+backup_pv
+rename_instance_folder
+adapt_config
+deploy_jipp
+fix_pv
 
-echo "Rename instances folder..."
-if [[ -d "${SCRIPT_FOLDER}/../instances/${NEW_PROJECT_NAME}" ]]; then
-  echo "${SCRIPT_FOLDER}/../instances/${NEW_PROJECT_NAME} already exists, skipping..."
-else
-  mv "${SCRIPT_FOLDER}/../instances/${OLD_PROJECT_NAME}" "${SCRIPT_FOLDER}/../instances/${NEW_PROJECT_NAME}"
-fi
-
-echo "Change fullName in config.jsonnet..."
-if grep "fullName: \"${NEW_PROJECT_NAME}\"" "${SCRIPT_FOLDER}/../instances/${NEW_PROJECT_NAME}/config.jsonnet" > /dev/null ; then
-  echo "WARNING: fullName has been changed already. Skipping..."
-else
-  sed -i "s/fullName: \"${OLD_PROJECT_NAME}\"/fullName: \"${NEW_PROJECT_NAME}\"/" "${SCRIPT_FOLDER}/../instances/${NEW_PROJECT_NAME}/config.jsonnet"
+if [[ "${OLD_SHORT_NAME}" != "${NEW_SHORT_NAME}" ]]; then
+  echo "Updating Jenkins credentials..."
+  pushd "${SCRIPT_FOLDER}/.."
+  ./jenkins-create-credentials.sh "${NEW_PROJECT_NAME}"
+  ./jenkins-create-credentials-token.sh auto "${NEW_PROJECT_NAME}"
+  popd
 fi
 
 echo
-echo "Deploy JIPP?"
-read -rsp $'Press any key to continue, or CTRL+C to abort...\n' -n1
-
-# delete old statefulset since not all fields can be updated
-if [[ "${old_short_name}" == "${new_short_name}" ]]; then
-  oc delete sts "${old_short_name}" -n "${old_short_name}"
+echo "TODO:"
+if [[ "${OLD_SHORT_NAME}" != "${NEW_SHORT_NAME}" ]]; then
+  echo "* clean up old namespace"
+  echo "* remove backup?"
+  echo "* double-check permissions in Jenkins"
 fi
-
-pushd "${SCRIPT_FOLDER}/.."
-#TODO: get rid of it
-secrets/create_gerrit_ssh_keys_secret.sh "${NEW_PROJECT_NAME}"
-make "deploy_${NEW_PROJECT_NAME}"
-popd
-
-
-if [[ "${old_short_name}" != "${new_short_name}" ]]; then
-  echo "Fix PV on bambam (manually for now)..."
-  echo "#########################################"
-  echo
-  echo "* Stop Jenkins controller pod"
-  echo "  oc scale sts ${new_short_name} -n ${new_short_name} --replicas=0"
-  echo "* Find out UID of files in old PV"
-  echo "* Copy jobs from old PV to new PV"
-  echo "  cp ${old_short_name}-jenkins-home-*/jobs/* ${new_short_name}-jenkins-home-*/jobs/"
-  echo "* fix ownership"
-  echo "  chown -R <old UID>:root ${new_short_name}-jenkins-home-*/jobs/* "
-  echo "* Start Jenkins controller pod"
-  echo "  oc scale sts ${new_short_name} -n ${new_short_name} --replicas=1"
-  read -rsp $'Press any key to continue, or CTRL+C to abort...\n' -n1
-fi
-
-#TODO:
-# * Add credentials?
-#   * /jiro/jenkins-create-credentials.sh "${NEW_PROJECT_NAME}"
-#   * /jiro/jenkins-create-credentials-token.sh auto "${NEW_PROJECT_NAME}"
-# * deal with old and new namespace
-# * remove backup?
-# * commit changes (don't push)
+echo "* commit changes (don't push)"
 
