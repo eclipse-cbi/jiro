@@ -58,7 +58,8 @@ jenkins:
           host: "148.100.74.16"
           port: "22"
           credentialsId: "jenkins-jck-ssh"
-          javaPath: "/usr/lib/jvm/jdk8/bin/java"
+          javaPath: "/usr/lib/jvm/jdk-11/bin/java"
+          jvmOptions: "-Xmx512m"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPgLhlW7LdMg6VRkyl4trVUWvUvHD92264xtC7rgFe8s"
