@@ -48,6 +48,12 @@ NEW_SHORT_NAME="${NEW_PROJECT_NAME##*.}"
 
 NEW_INSTANCE_FOLDER="${SCRIPT_FOLDER}/../instances/${NEW_PROJECT_NAME}"
 
+shutdown_old_instance() {
+  echo "Shutting down the old Jenkins instance..."
+  kubectl scale -n "${SHORT_NAME}" sts "${SHORT_NAME}" --replicas=0
+  kubectl wait -n "${SHORT_NAME}" "pod/${SHORT_NAME}-0" --for=delete
+}
+
 backup_pv() {
   if [[ "${OLD_SHORT_NAME}" != "${NEW_SHORT_NAME}" ]]; then
     echo
@@ -133,6 +139,7 @@ echo
 echo "JIPP for ${OLD_PROJECT_NAME} will be renamed to ${NEW_PROJECT_NAME}..."
 read -rsp $'Press any key to continue, or CTRL+C to abort...\n' -n1
 
+shutdown_old_instance
 backup_pv
 rename_instance_folder
 adapt_config
