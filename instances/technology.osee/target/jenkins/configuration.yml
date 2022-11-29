@@ -544,5 +544,5 @@ tool:
           - installSource:
               installers:
                 - nodeJSInstaller:
-                    id: "16.10.0"
+                    id: "19.1.0"
                     npmPackagesRefreshHours: 72
