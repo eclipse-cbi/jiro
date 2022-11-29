@@ -395,6 +395,8 @@ data:
                       key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk11-latest"
                     - home: "/opt/public/common/apache-maven-latest"
                       key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
+                    - home: "/usr/lib/jvm/java-17"
+                      key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk17-latest"
               - watcher:
                   offlineAddresses: "releng@eclipse.org"
                   onlineAddresses: "releng@eclipse.org"
