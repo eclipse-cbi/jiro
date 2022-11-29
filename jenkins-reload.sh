@@ -34,6 +34,7 @@ reload() {
   local namespace projectShortName
   namespace="$(jq -r '.kubernetes.master.namespace' "${instance}/target/config.json")"
   projectShortName="$(jq -r '.project.shortName' "${instance}/target/config.json")"
+  #shellcheck disable=SC1091
   . "${SCRIPT_FOLDER}/build/k8s-set-context.sh" "$(jq -r '.deployment.cluster' "${instance}/target/config.json")"
 
   local previousConfigMapVersion

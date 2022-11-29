@@ -31,6 +31,7 @@ fi
 PASSWORD_STORE_DIR="$(jq -r '.["password-store"]["cbi-dir"]' "${LOCAL_CONFIG}")"
 export PASSWORD_STORE_DIR
 
+#shellcheck disable=SC1091
 source "${SCRIPT_FOLDER}/pass/pass_wrapper.sh"
 
 PROJECT_NAME="${1:-}"
@@ -97,6 +98,7 @@ create_username_password_credentials() {
   fi
 
   # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
+  #shellcheck disable=SC2086
   "${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
 <com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
   <scope>GLOBAL</scope>
@@ -139,6 +141,7 @@ create_ssh_credentials_xml() {
   fi
 
   # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
+  #shellcheck disable=SC2086
   "${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
 <com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey>
   <scope>GLOBAL</scope>

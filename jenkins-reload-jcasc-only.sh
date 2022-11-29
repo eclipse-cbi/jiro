@@ -29,6 +29,7 @@ reload() {
   projectShortName="$(jq -r '.project.shortName' "${instance}/target/config.json")"
   projectFullName="$(jq -r '.project.fullName' "${instance}/target/config.json")"
 
+  #shellcheck disable=SC1091
   . "${SCRIPT_FOLDER}/build/k8s-set-context.sh" "$(jq -r '.deployment.cluster' "${instance}/target/config.json")"
 
   local previousConfigMapVersion

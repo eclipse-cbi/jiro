@@ -105,7 +105,7 @@ collect_backup() {
 
 delete_question(){
   local project_name="${1:-}"
-  read -p "Do you want to delete the project? (Y)es, (N)o, E(x)it: " yn
+  read -rp "Do you want to delete the project? (Y)es, (N)o, E(x)it: " yn
   case "${yn}" in
     [Yy]* ) delete_project "${project_name}";;
     [Nn]* ) echo "Skipping delete... ";return;;

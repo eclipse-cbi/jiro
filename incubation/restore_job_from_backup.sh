@@ -69,7 +69,7 @@ reload_jobs() {
 
 reload_question(){
   local project_name="${1:-}"
-  read -p "Do you want to reload the jobs for the ${SHORT_NAME} JIPP? (Y)es, (N)o, E(x)it: " yn
+  read -rp "Do you want to reload the jobs for the ${SHORT_NAME} JIPP? (Y)es, (N)o, E(x)it: " yn
   case "${yn}" in
     [Yy]* ) reload_jobs "${project_name}";;
     [Nn]* ) echo "Skipping reloading jobs... ";return;;

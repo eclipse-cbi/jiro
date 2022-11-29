@@ -32,6 +32,7 @@ fi
 stsName="$(jq -r '.kubernetes.master.stsName' "${instance}/target/config.json")"
 ns="$(jq -r '.kubernetes.master.namespace' "${instance}/target/config.json")"
 
+#shellcheck disable=SC1091
 . "${SCRIPT_FOLDER}/build/k8s-set-context.sh" "$(jq -r '.deployment.cluster' "${instance}/target/config.json")"
 kubectl rollout restart -n "${ns}" "sts/${stsName}"
 kubectl rollout status -n "${ns}" "sts/${stsName}"

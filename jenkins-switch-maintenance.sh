@@ -81,6 +81,7 @@ maintenance_off() {
   curl --retry 3 -sSLH "X-Cache-Bypass: true" "https://${route_spec_host}${route_spec_path}" -o /dev/null
 }
 
+#shellcheck disable=SC1091
 . "${SCRIPT_FOLDER}/build/k8s-set-context.sh" "$(jq -r '.deployment.cluster' "${instance}/target/config.json")"
 if [[ "${mode}" == "on" ]]; then
   echo "Turning ON maintenance mode for route ${route_name}"

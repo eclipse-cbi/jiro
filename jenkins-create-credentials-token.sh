@@ -23,6 +23,7 @@ SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 JENKINS_CLI="${SCRIPT_FOLDER}/jenkins-cli.sh"
 INSTANCES="${SCRIPT_FOLDER}/instances"
 
+#shellcheck disable=SC1091
 source "${SCRIPT_FOLDER}/pass/pass_wrapper.sh"
 
 _verify_inputs() {
@@ -57,7 +58,7 @@ _create_string_credentials() {
 
   # read secret from stdin
   if [[ -z "${secret}" ]]; then
-    read -p "Secret: " secret
+    read -rp "Secret: " secret
   fi
   if [[ -z "${secret}" ]]; then
     printf "ERROR: secret must be given.\n"
