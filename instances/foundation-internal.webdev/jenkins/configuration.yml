@@ -50,8 +50,8 @@ unclassified:
     - name: "releng-pipeline"
       cachingConfiguration:
         excludedVersionsStr: "main"
-        refreshTimeMinutes: 1440
-      defaultVersion: "refs/tags/v0.9.8"
+        refreshTimeMinutes: 10080
+      defaultVersion: "refs/tags/v0.10.0"
       retriever:
         modernSCM:
           scm:
