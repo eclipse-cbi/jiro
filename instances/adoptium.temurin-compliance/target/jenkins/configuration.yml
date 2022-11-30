@@ -718,7 +718,7 @@ jenkins:
     - permanent:
         name: "jck-skytap-aix72-ppc64-3"
         nodeDescription: "AIX 7.2 machine hosted by Skytap"
-        labelString: "ci.role.test hw.arch.ppc64 sw.os.aix"
+        labelString: "ci.role.test hw.arch.ppc64 sw.os.aix sw.os.aix.7_2"
         remoteFS: '/home/jenkins'
         numExecutors: 1
         mode: EXCLUSIVE
@@ -832,6 +832,21 @@ jenkins:
             host: "139.178.86.125"
             port: 2224
             sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+    - permanent:
+        name: "win2019-x64-4cpu-ohGh0x"
+        nodeDescription: "Windows Server 2019, hosted on Azure, 4vCPU, 16GB RAM"
+        labelString: "sw.os.windows hw.arch.x86 ci.role.test"
+        remoteFS: "c:/Users/jenkins"
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          jnlp:
+            webSocket: true
+            workDirSettings:
+              disabled: false
+              failIfWorkDirIsMissing: false
+              internalDir: "remoting"
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
