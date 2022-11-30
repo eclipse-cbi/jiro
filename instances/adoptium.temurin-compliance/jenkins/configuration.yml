@@ -402,7 +402,7 @@ jenkins:
   - permanent:
       name: "jck-skytap-aix72-ppc64-3"
       nodeDescription: "AIX 7.2 machine hosted by Skytap"
-      labelString: "ci.role.test hw.arch.ppc64 sw.os.aix"
+      labelString: "ci.role.test hw.arch.ppc64 sw.os.aix sw.os.aix.7_2"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
