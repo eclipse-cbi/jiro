@@ -25,6 +25,17 @@
             },
           },
         },
+        "jipp-centos-8-agent-4cpu": currentCloud.templates["centos-8"] {
+          labels: ["centos-8-4cpu"],
+          kubernetes+: {
+            resources+: {
+              cpu: {
+                limit: "4000m",
+                request: "4000m",
+              },
+            },
+          },
+        },
       },
     },
   },
