@@ -827,9 +827,9 @@ data:
             retentionStrategy: "always"
             launcher:
               ssh:
-                credentialsId: "jenkins-jck-ssh"
                 javaPath: "/usr/lib/jvm/jdk-11/bin/java"
                 jvmOptions: "-Xmx512m"
+                credentialsId: "jenkins-jck-ssh"
                 host: "139.178.86.125"
                 port: 2222
                 sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
@@ -887,6 +887,41 @@ data:
                   disabled: false
                   failIfWorkDirIsMissing: false
                   internalDir: "remoting"
+        - permanent:
+            name: "jck-equinix_esxi-ubuntu2204-x64-1"
+            nodeDescription: ""
+            labelString: "ci.role.test hw.arch.x64 sw.os.linux"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              ssh:
+                host: "147.28.133.219"
+                port: "22"
+                credentialsId: "jenkins-jck-ssh"
+                javaPath: "/usr/lib/jvm/jdk-11/bin/java"
+                jvmOptions: "-Xmx512m"
+                sshHostKeyVerificationStrategy:
+                  manuallyProvidedKeyVerificationStrategy:
+                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGnVm//6K2A6I8ZHia8x7TXsd12+jcf0b8036fEtJHtV"
+        - permanent:
+            name: "jck-equinix_esxi-solaris10-x64-1"
+            nodeDescription: ""
+            labelString: "ci.role.test hw.arch.x64 sw.os.sunos"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              ssh:
+                host: "147.28.133.220"
+                port: "22"
+                credentialsId: "jenkins-jck-ssh"
+                javaPath: "/usr/lib/jvm/jdk8/bin/java"
+                sshHostKeyVerificationStrategy:
+                  manuallyProvidedKeyVerificationStrategy:
+                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIERcyiPxJ7F24AFOQBw6R0EdY7dIbVSxVkqIXD1zWSJf"
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
