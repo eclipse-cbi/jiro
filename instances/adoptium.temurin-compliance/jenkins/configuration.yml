@@ -488,6 +488,8 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         ssh:
+          javaPath: "/usr/lib/jvm/jdk-11/bin/java"
+          jvmOptions: "-Xmx512m"
           credentialsId: "jenkins-jck-ssh"
           host: "139.178.86.125"
           port: 2222
