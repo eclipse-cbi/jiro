@@ -807,6 +807,8 @@ jenkins:
             credentialsId: "jenkins-jck-ssh"
             host: "139.178.86.125"
             port: 2222
+            javaPath: "/usr/lib/jvm/jdk-11/bin/java"
+            jvmOptions: "-Xmx512m"
             sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
     - permanent:
         name: "jck-digitalocean-containerized-alpine313-x64-1"
