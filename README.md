@@ -92,10 +92,10 @@ Scale down to 0 the StatefulSet running Jenkins then scale it up to 1. It makes 
 * [bash 4](https://www.gnu.org/software/bash/)
 * [docker](https://www.docker.com)
 * [hbs-cli](https://www.npmjs.com/package/hbs-cli)
-      $ npm i -g hbs-cli
+  * `$ npm i -g hbs-cli`
 * [jsonnet](https://github.com/google/jsonnet/)
 * [jq](https://stedolan.github.io/jq/)
-* oc CLI tool
+* [oc (OpenShift CLI tool)](https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest/)
 * [pass](https://www.passwordstore.org)
 * [yq](https://github.com/mikefarah/yq/)
 
