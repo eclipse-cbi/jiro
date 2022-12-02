@@ -847,6 +847,21 @@ jenkins:
               disabled: false
               failIfWorkDirIsMissing: false
               internalDir: "remoting"
+    - permanent:
+        name: "win11-x64-4cpu-Of4shu"
+        nodeDescription: "Windows 11, hosted on Azure, 4vCPU, 16GB RAM"
+        labelString: "sw.os.windows hw.arch.x86 ci.role.test"
+        remoteFS: "c:/Users/jenkins"
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          jnlp:
+            webSocket: true
+            workDirSettings:
+              disabled: false
+              failIfWorkDirIsMissing: false
+              internalDir: "remoting"
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
