@@ -570,7 +570,7 @@ jenkins:
       name: "jck-equinix_esxi-solaris10-x64-1"
       nodeDescription: ""
       labelString: "ci.role.test hw.arch.x64 sw.os.sunos"
-      remoteFS: '/home/jenkins'
+      remoteFS: '/export/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
       retentionStrategy: "always"

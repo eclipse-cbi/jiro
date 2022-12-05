@@ -886,7 +886,7 @@ jenkins:
         name: "jck-equinix_esxi-solaris10-x64-1"
         nodeDescription: ""
         labelString: "ci.role.test hw.arch.x64 sw.os.sunos"
-        remoteFS: '/home/jenkins'
+        remoteFS: '/export/home/jenkins'
         numExecutors: 1
         mode: EXCLUSIVE
         retentionStrategy: "always"
@@ -898,7 +898,7 @@ jenkins:
             javaPath: "/usr/lib/jvm/jdk8/bin/java"
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIERcyiPxJ7F24AFOQBw6R0EdY7dIbVSxVkqIXD1zWSJf"
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGhVR1QeERK3rvLSG08NZY5iT4XqyBZwhrJFjY7dpu6urlCsXgK4epH/rOBeNXriRdWtFpHG88aRR75d0VZ0ouyyWsSgfQhCZmfhwL4/xFMsGfXq/WqMiSAwFNouGgQwBJNIR9bV/sYnix26K2K26EUQ6HbiTsJnbtvWVHnVldpvjLXT+h/IcN+0+d9QOGAboopxqaDTAglA6tjHT9A/VTwXTFkdWgupZCLXCrQgYhDPJm9JzN0kAGz8TrLjWMbD2XdbLnCEZjntDEHtj2Vti7rYIMPyVOfx9xEZt6IPLed8DnzGnVJa9Uh3zdjKtoIywC518K3iVV4OcLcKxJFwTD"
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
