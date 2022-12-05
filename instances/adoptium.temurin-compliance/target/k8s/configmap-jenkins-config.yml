@@ -922,6 +922,20 @@ data:
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGhVR1QeERK3rvLSG08NZY5iT4XqyBZwhrJFjY7dpu6urlCsXgK4epH/rOBeNXriRdWtFpHG88aRR75d0VZ0ouyyWsSgfQhCZmfhwL4/xFMsGfXq/WqMiSAwFNouGgQwBJNIR9bV/sYnix26K2K26EUQ6HbiTsJnbtvWVHnVldpvjLXT+h/IcN+0+d9QOGAboopxqaDTAglA6tjHT9A/VTwXTFkdWgupZCLXCrQgYhDPJm9JzN0kAGz8TrLjWMbD2XdbLnCEZjntDEHtj2Vti7rYIMPyVOfx9xEZt6IPLed8DnzGnVJa9Uh3zdjKtoIywC518K3iVV4OcLcKxJFwTD"
+        - permanent:
+            name: "jck-equinix_esxi-containerized-alpine317-x64-1"
+            nodeDescription: "Container host is equinix_esxi-ubuntu2204-x64-1"
+            labelString: "ci.role.test hw.arch.x64 sw.os.alpine-linux"
+            remoteFS: "/home/jenkins"
+            retentionStrategy: "always"
+            launcher:
+              ssh:
+                credentialsId: "jenkins-jck-ssh"
+                host: "147.28.133.219"
+                port: 2222
+                sshHostKeyVerificationStrategy:
+                  manuallyTrustedKeyVerificationStrategy:
+                    requireInitialManualTrust: true
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
