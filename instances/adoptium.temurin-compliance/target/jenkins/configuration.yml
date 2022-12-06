@@ -899,6 +899,17 @@ jenkins:
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGhVR1QeERK3rvLSG08NZY5iT4XqyBZwhrJFjY7dpu6urlCsXgK4epH/rOBeNXriRdWtFpHG88aRR75d0VZ0ouyyWsSgfQhCZmfhwL4/xFMsGfXq/WqMiSAwFNouGgQwBJNIR9bV/sYnix26K2K26EUQ6HbiTsJnbtvWVHnVldpvjLXT+h/IcN+0+d9QOGAboopxqaDTAglA6tjHT9A/VTwXTFkdWgupZCLXCrQgYhDPJm9JzN0kAGz8TrLjWMbD2XdbLnCEZjntDEHtj2Vti7rYIMPyVOfx9xEZt6IPLed8DnzGnVJa9Uh3zdjKtoIywC518K3iVV4OcLcKxJFwTD"
+        nodeProperties:
+          - toolLocation:
+              locations:
+                - home: "/opt/csw/bin/git"
+                  key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+          - envVars:
+              env:
+                - key: "PATH"
+                  value: "/opt/csw/bin:/usr/bin:/bin:/usr/local/bin:/usr/sbin"
+                - key: "GIT_SSH"
+                  value: "/opt/csw/bin/ssh"
     - permanent:
         name: "jck-equinix_esxi-containerized-alpine317-x64-1"
         nodeDescription: "Container host is equinix_esxi-ubuntu2204-x64-1"
