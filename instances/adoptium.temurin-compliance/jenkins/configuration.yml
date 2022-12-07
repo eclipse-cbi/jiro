@@ -169,7 +169,7 @@ jenkins:
       nodeProperties:
       - toolLocation:
           locations:
-          - home: "/opt/csw/bin/git"
+          - home: "/usr/local/bin/git"
             key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
       - envVars:
           env:
@@ -197,7 +197,7 @@ jenkins:
       nodeProperties:
       - toolLocation:
           locations:
-          - home: "/opt/csw/bin/git"
+          - home: "/usr/local/bin/git"
             key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
       - envVars:
           env:
@@ -225,7 +225,7 @@ jenkins:
       nodeProperties:
       - toolLocation:
           locations:
-          - home: "/opt/csw/bin/git"
+          - home: "/usr/local/bin/git"
             key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
       - envVars:
           env:
@@ -586,7 +586,7 @@ jenkins:
       nodeProperties:
       - toolLocation:
           locations:
-          - home: "/opt/csw/bin/git"
+          - home: "/usr/local/bin/git"
             key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
       - envVars:
           env:

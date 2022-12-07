@@ -508,7 +508,7 @@ data:
             nodeProperties:
               - toolLocation:
                   locations:
-                    - home: "/opt/csw/bin/git"
+                    - home: "/usr/local/bin/git"
                       key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
               - envVars:
                   env:
@@ -536,7 +536,7 @@ data:
             nodeProperties:
               - toolLocation:
                   locations:
-                    - home: "/opt/csw/bin/git"
+                    - home: "/usr/local/bin/git"
                       key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
               - envVars:
                   env:
@@ -564,7 +564,7 @@ data:
             nodeProperties:
               - toolLocation:
                   locations:
-                    - home: "/opt/csw/bin/git"
+                    - home: "/usr/local/bin/git"
                       key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
               - envVars:
                   env:
@@ -925,7 +925,7 @@ data:
             nodeProperties:
               - toolLocation:
                   locations:
-                    - home: "/opt/csw/bin/git"
+                    - home: "/usr/local/bin/git"
                       key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
               - envVars:
                   env:
