@@ -385,6 +385,20 @@ data:
             mode: EXCLUSIVE
             retentionStrategy: "always"
             numExecutors: 2
+        - permanent:
+            name: "ortstaging-vm1"
+            remoteFS: "/home/genie.infra"
+            launcher:
+              ssh:
+                credentialsId: "ort-ssh-bot"
+                host: "20.104.242.131"
+                port: 22
+                sshHostKeyVerificationStrategy:
+                  manuallyProvidedKeyVerificationStrategy:
+                    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDQ+Cfc6h1C+bYoLIN9uvYCN3ghfzLP4at0LeuWPvIyEFovlLU9aubbqNokOt+Hsp9ise8UM8iKsfGoyRqOOWU9XgTfwjnRAQSa8osmQIXuC2rEqfuLLp8X22tq4bJIXP6QC2tz6asALIKlJT3iylnXjBglJPBDy3XyvTLSnmYKI1povVRxZOaeVRZTIoSIz3WqWhSIb4DxHGrlG9ZpyZC4g8iYkKXdGgbsw3LXaJA/1hz1aaQnry3CA6FoeCC5SdbaN0qcZX8X8HeqRsiD4q0bR6nSaBHQwWCCTVknk4LYskJbMdwj/wKntzYJTgOYUn/O/CXjXJZSWH4FPlJtOYcNylL/7YXlpmUOIE/JaKvrQJ0rirHqCB5Cb4wcD603qDw1mMW4iQNmpdqadbJ6LFVdVxYlpL22E70V+JP86Ve9m67ubKWlc3D8pxDFNZ9JecVIBDxVLNUkUIp94T1t5dKUlLLWhNoYwJVXzrXZNT6HpOIFZ7/HL9QVIpD3ml+/8Fk="
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            numExecutors: 2
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
