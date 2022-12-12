@@ -515,7 +515,7 @@ data:
               - envVars:
                   env:
                     - key: "PATH"
-                      value: "/opt/csw/bin:/usr/bin:/bin:/usr/local/bin:/usr/sbin"
+                      value: "/usr/local/bin:/opt/csw/bin:/usr/bin:/bin:/usr/sbin"
                     - key: "GIT_SSH"
                       value: "/opt/csw/bin/ssh"
         - permanent:
@@ -543,7 +543,7 @@ data:
               - envVars:
                   env:
                     - key: "PATH"
-                      value: "/opt/csw/bin:/usr/bin:/bin:/usr/local/bin:/usr/sbin"
+                      value: "/usr/local/bin:/opt/csw/bin:/usr/bin:/bin:/usr/sbin"
                     - key: "GIT_SSH"
                       value: "/opt/csw/bin/ssh"
         - permanent:
@@ -571,7 +571,7 @@ data:
               - envVars:
                   env:
                     - key: "PATH"
-                      value: "/opt/csw/bin:/usr/bin:/bin:/usr/local/bin:/usr/sbin"
+                      value: "/usr/local/bin:/opt/csw/bin:/usr/bin:/bin:/usr/sbin"
                     - key: "GIT_SSH"
                       value: "/opt/csw/bin/ssh"
         - permanent:
@@ -933,7 +933,7 @@ data:
               - envVars:
                   env:
                     - key: "PATH"
-                      value: "/opt/csw/bin:/usr/bin:/bin:/usr/local/bin:/usr/sbin"
+                      value: "/usr/local/bin:/opt/csw/bin:/usr/bin:/bin:/usr/sbin"
                     - key: "GIT_SSH"
                       value: "/opt/csw/bin/ssh"
         - permanent:
