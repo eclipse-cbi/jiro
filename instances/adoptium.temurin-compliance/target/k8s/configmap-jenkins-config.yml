@@ -893,7 +893,7 @@ data:
         - permanent:
             name: "jck-equinix_esxi-ubuntu2204-x64-1"
             nodeDescription: ""
-            labelString: "ci.role.test hw.arch.x64 sw.os.linux"
+            labelString: "ci.role.test hw.arch.x86 sw.os.linux"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -911,7 +911,7 @@ data:
         - permanent:
             name: "jck-equinix_esxi-solaris10-x64-1"
             nodeDescription: ""
-            labelString: "ci.role.test hw.arch.x64 sw.os.sunos"
+            labelString: "ci.role.test hw.arch.x86 sw.os.sunos"
             remoteFS: '/export/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -939,7 +939,7 @@ data:
         - permanent:
             name: "jck-equinix_esxi-containerized-alpine317-x64-1"
             nodeDescription: "Container host is equinix_esxi-ubuntu2204-x64-1"
-            labelString: "ci.role.test hw.arch.x64 sw.os.alpine-linux"
+            labelString: "ci.role.test hw.arch.x86 sw.os.alpine-linux"
             remoteFS: "/home/jenkins"
             retentionStrategy: "always"
             launcher:
