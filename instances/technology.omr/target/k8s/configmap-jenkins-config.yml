@@ -826,7 +826,7 @@ data:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8+WfvVQhbdtM/Ix6YWx8ddaactrb+QkjfuMI0aBn8Zxj0AJ65jiqGHrzwjc88fRpSVMtXhErQdr3tllUq0oD6CORslSvVE0ojvDxfNsMfzSCHsmZncVQBfyccwSsB6fgltUzMgcWaVIc7s5xH+bpNvImIMIW+lI6wpA12b/K+C/2XLn6PibaAKklMJkOLKhgdpSQGOiLWt2zMIq2a7FezWZsgZTAmZaof69M64C9RS2n+UGjq8zr3uOk0dVozDWzSxjG36RaGsOUVLS3MWBsYiiPdAzciQljHaJ3YZqtIttWqmYrYFiY/1ut1lBDAJGXmh1buAaYzTvS2B29PKrGX"
         - permanent:
-            name: "win2012-x86-2"
+            name: "win2019x64-openj9-1"
             nodeDescription: "Windows x86 "
             labelString: "Windows x86 compile:xwindows"
             remoteFS: 'c:\jenkins'
@@ -835,13 +835,32 @@ data:
             retentionStrategy: "always"
             launcher:
               ssh:
-                host: "169.48.4.133"
+                host: "52.118.205.193"
                 port: "22"
                 credentialsId: "omr-agents-ssh"
                 javaPath: ""
+                jvmOptions: "-Xshareclasses:name=jenkins,nonfatal -Xmx1g"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
-                    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD2nDg60iEKhFY8K+cGSK6HgGdLuBaoVh7x2K+Ieo4WAE/K56ZBS9VLgJgXLJWo+1IMG8zGCwJYPOzFb7J9M+gZ+qF8XUqfvjRTBrDgeZ89GWc8Zsz0YS8WzB7zBG/mMiKG3b2/SnO0J5XnjwmAWWKPG42EsdQzOokYwnu40+idayq14IsAgIcajOQ80q5tj+2T7FFnKccG2AkUiEKuBuWof8QmfECvOi+bTiVGgFrM2pzEwTbyGZPq4cNmr1QDKwe7tdT04Gz+MFexoCKVW84KSZ4omNo/j0o1xGFhXu9BrZAym+K0+6y4dZ6n9XBfXugiGTLAJALod8UTxHDpDdOB"
+                    key: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCjuS8svOW/vyaBI4KTd91JOYxfPzb6ZgfYIGOQym6aVYNu6fAVRL3yMKmIPp45vq9fTBXQWvDhViJDWyrc9l3k="
+        - permanent:
+            name: "win2019x64-openj9-2"
+            nodeDescription: "Windows x86 "
+            labelString: "Windows x86 compile:xwindows"
+            remoteFS: 'c:\jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              ssh:
+                host: "150.239.168.64"
+                port: "22"
+                credentialsId: "omr-agents-ssh"
+                javaPath: ""
+                jvmOptions: "-Xshareclasses:name=jenkins,nonfatal -Xmx1g"
+                sshHostKeyVerificationStrategy:
+                  manuallyProvidedKeyVerificationStrategy:
+                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINN+OGI0aFMuNiao83jKabxH2/qgblLZsxFkKo4PZKZ/"
         - permanent:
             name: "ZISVJD09"
             nodeDescription: "zOS node"
