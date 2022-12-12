@@ -371,7 +371,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@deb10-x64-1 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -Xmx256m -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@deb10-x64-1 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -Xmx256m -jar remoting.jar'\""
         nodeProperties:
           - envVars:
               env:
@@ -473,7 +473,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.117 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.117 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "mac10-x64-omr2"
         nodeDescription: "Mac mini"
@@ -484,7 +484,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.118 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.118 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "osx1014-unb-01"
         nodeDescription: "OSX x86"
@@ -495,7 +495,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.116 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.116 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "mac11-aarch64-08"
         nodeDescription: "OSX aarch64"
@@ -506,7 +506,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix omr@192.168.10.177 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -Xmx1g -Xdump:system:none -Xdump:heap:none -Xdump:java:none -Xdump:snap:none -Xdump:system:events=gpf+abort+traceassert+corruptcache -Xdump:java:events=gpf+user+abort+traceassert+corruptcache -Xdump:snap:events=gpf+abort+traceassert+corruptcache -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix omr@192.168.10.177 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -Xmx1g -Xdump:system:none -Xdump:heap:none -Xdump:java:none -Xdump:snap:none -Xdump:system:events=gpf+abort+traceassert+corruptcache -Xdump:java:events=gpf+user+abort+traceassert+corruptcache -Xdump:snap:events=gpf+abort+traceassert+corruptcache -jar remoting.jar'\""
     - permanent:
         name: "proxy"
         nodeDescription: "Used to connect to the UNB machines"
@@ -534,7 +534,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-ppcle-omr1 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-ppcle-omr1 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub20-ppcle-omr2"
         nodeDescription: "Linux PPCLE UNB"
@@ -545,7 +545,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-ppcle-omr2 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-ppcle-omr2 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub1604-p8-unb-03"
         nodeDescription: "Linux PPCLE UNB"
@@ -556,7 +556,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-03 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-03 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub1604-p8-unb-04"
         nodeDescription: "Linux PPCLE UNB"
@@ -567,7 +567,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-04 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-04 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub1604-p8-unb-05"
         nodeDescription: "Linux PPCLE UNB"
@@ -578,7 +578,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-05 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-05 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub1604-p8-unb-06"
         nodeDescription: "Linux PPCLE UNB"
@@ -589,7 +589,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-06 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-06 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub1604-p8-unb-07"
         nodeDescription: "Linux PPCLE UNB"
@@ -600,7 +600,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-07 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-07 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub1604-p8-unb-08"
         nodeDescription: "Linux PPCLE UNB"
@@ -611,7 +611,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-08 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-08 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub1604-p8-unb-09"
         nodeDescription: "Linux PPCLE UNB"
@@ -622,7 +622,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-09 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-09 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub1604-p8-unb-10"
         nodeDescription: "Linux PPCLE UNB"
@@ -633,7 +633,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-10 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-10 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub20-x64-omr1"
         nodeDescription: "Linux x86"
@@ -644,7 +644,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr1 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr1 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub20-x64-omr2"
         nodeDescription: "Linux x86"
@@ -655,7 +655,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr2 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr2 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub20-x64-omr3"
         nodeDescription: "Linux x86"
@@ -666,7 +666,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr3 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr3 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub20-x64-omr4"
         nodeDescription: "Linux x86"
@@ -677,7 +677,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr4 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr4 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub20-x64-omr5"
         nodeDescription: "Linux x86"
@@ -688,7 +688,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr5 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr5 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub20-x64-omr6"
         nodeDescription: "Linux x86"
@@ -699,7 +699,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr6 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr6 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub20-x64-omr7"
         nodeDescription: "Linux x86"
@@ -710,7 +710,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr7 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr7 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub20-x64-omr8"
         nodeDescription: "Linux x86"
@@ -721,7 +721,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr8 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr8 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub20-x64-omr9"
         nodeDescription: "Linux x86"
@@ -732,7 +732,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr9 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr9 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub20-x64-omr10"
         nodeDescription: "Linux x86"
@@ -743,7 +743,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr10 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr10 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub20-x64-omr11"
         nodeDescription: "Linux x86"
@@ -754,7 +754,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr11 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr11 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "ub20-x64-omr12"
         nodeDescription: "Linux x86"
@@ -765,7 +765,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr12 'wget -qO slave.jar https://ci.eclipse.org/omr/jnlpJars/slave.jar ; java -jar slave.jar'\""
+            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-x64-omr12 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
     - permanent:
         name: "rh7-s390x-03"
         nodeDescription: "zLinux node"
