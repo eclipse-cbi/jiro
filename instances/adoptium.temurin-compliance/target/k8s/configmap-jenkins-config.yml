@@ -795,7 +795,7 @@ data:
         - permanent:
             name: "mythicbeasts-mvyo8-debian10-aarch32"
             nodeDescription: "RaspberryPi 4 with Debian 10 hosted at Mythic Beast"
-            labelString: "ci.role.test hw.arch.aarch32 sw.os.linux"
+            labelString: "hw.arch.aarch32 sw.os.linux worker"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
