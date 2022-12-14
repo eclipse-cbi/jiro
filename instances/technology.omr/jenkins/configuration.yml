@@ -446,7 +446,7 @@ jenkins:
       name: "win2019x64-openj9-1"
       nodeDescription: "Windows x86 "
       labelString: "Windows x86 compile:xwindows"
-      remoteFS: 'c:\jenkins'
+      remoteFS: 'c:\omr'
       numExecutors: 1
       mode: EXCLUSIVE
       retentionStrategy: "always"
@@ -454,7 +454,7 @@ jenkins:
         ssh:
           host: "52.118.205.193"
           port: "22"
-          credentialsId: "omr-agents-ssh"
+          credentialsId: "omr-agents-ssh-rh7"
           javaPath: ""
           jvmOptions: "-Xshareclasses:name=jenkins,nonfatal -Xmx1g"
           sshHostKeyVerificationStrategy:
@@ -464,7 +464,7 @@ jenkins:
       name: "win2019x64-openj9-2"
       nodeDescription: "Windows x86 "
       labelString: "Windows x86 compile:xwindows"
-      remoteFS: 'c:\jenkins'
+      remoteFS: 'c:\omr'
       numExecutors: 1
       mode: EXCLUSIVE
       retentionStrategy: "always"
@@ -472,7 +472,7 @@ jenkins:
         ssh:
           host: "150.239.168.64"
           port: "22"
-          credentialsId: "omr-agents-ssh"
+          credentialsId: "omr-agents-ssh-rh7"
           javaPath: ""
           jvmOptions: "-Xshareclasses:name=jenkins,nonfatal -Xmx1g"
           sshHostKeyVerificationStrategy:
