@@ -898,7 +898,8 @@ jenkins:
             host: "147.28.133.220"
             port: "22"
             credentialsId: "jenkins-jck-ssh"
-            javaPath: "/usr/lib/jvm/jdk8/bin/java"
+            javaPath: "/usr/lib/jvm/zulu11.60.19-ca-jdk11.0.17-solaris/bin/java"
+            prefixStartSlaveCmd: "export LD_PRELOAD_64=/usr/lib/jvm/fallocate.so &&"
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGhVR1QeERK3rvLSG08NZY5iT4XqyBZwhrJFjY7dpu6urlCsXgK4epH/rOBeNXriRdWtFpHG88aRR75d0VZ0ouyyWsSgfQhCZmfhwL4/xFMsGfXq/WqMiSAwFNouGgQwBJNIR9bV/sYnix26K2K26EUQ6HbiTsJnbtvWVHnVldpvjLXT+h/IcN+0+d9QOGAboopxqaDTAglA6tjHT9A/VTwXTFkdWgupZCLXCrQgYhDPJm9JzN0kAGz8TrLjWMbD2XdbLnCEZjntDEHtj2Vti7rYIMPyVOfx9xEZt6IPLed8DnzGnVJa9Uh3zdjKtoIywC518K3iVV4OcLcKxJFwTD"
