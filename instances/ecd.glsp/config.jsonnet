@@ -6,6 +6,8 @@
   jenkins+: {
     plugins+: [
       "github-checks",
+      "embeddable-build-status",
+      "htmlpublisher,
     ],
   },
 }
