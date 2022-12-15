@@ -47,5 +47,5 @@ fi
 jenkins_user="$("${SCRIPT_FOLDER}/utils/local_config.sh" "get_var" "user" "jenkins_login")"
 jenkins_pw="$("${SCRIPT_FOLDER}/utils/local_config.sh" "get_var" "pw" "jenkins_login")"
 
-java -jar "${CLI_JAR}" -auth "${jenkins_user}:${jenkins_pw}" -s "${jenkinsUrl}" "${@:2}"
+java -jar "${CLI_JAR}" -webSocket -auth "${jenkins_user}:${jenkins_pw}" -s "${jenkinsUrl}" "${@:2}"
 
