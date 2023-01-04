@@ -394,7 +394,7 @@ data:
         - permanent:
             name: "b9h15-macos10.15"
             nodeDescription: "macOS 10.15 (Catalina), no login session, hosted on MacStadium"
-            labelString: "macos macos-10.15"
+            labelString: "macos macos-10.15 swt.natives-cocoa.macosx.aarch64 swt.natives-cocoa.macosx.x86_64"
             remoteFS: '/Users/genie.releng/jenkins_agent/'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -418,7 +418,7 @@ data:
         - permanent:
             name: "rs68g-win10"
             nodeDescription: "Windows 10 Pro, hosted on Azure"
-            labelString: "windows"
+            labelString: "windows swt.natives-win32.win32.x86_64"
             remoteFS: 'C:\Users\genie.releng\ci'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -484,7 +484,7 @@ data:
                   onlineAddresses: "releng@eclipse.org"
         - permanent:
             name: "ppcle-buildTest"
-            labelString: "ppctest ppcbuild"
+            labelString: "ppctest ppcbuild swt.natives-gtk.linux.ppc64le"
             remoteFS: "/home/swtbuild/build"
             numExecutors: 1
             mode: EXCLUSIVE
@@ -512,7 +512,7 @@ data:
                   internalDir: "remoting"
         - permanent:
             name: "centos-aarch64-1"
-            labelString: "aarch64 arm64"
+            labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64"
             nodeDescription: "Agent provided by the project"
             remoteFS: "/home/swtbuild/build"
             numExecutors: 1
@@ -527,7 +527,7 @@ data:
                   internalDir: "remoting"
         - permanent:
             name: "centos-aarch64-2"
-            labelString: "aarch64 arm64"
+            labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64"
             nodeDescription: "Agent provided by the project"
             remoteFS: "/home/swtbuild/build"
             numExecutors: 1
@@ -542,7 +542,7 @@ data:
                   internalDir: "remoting"
         - permanent:
             name: "centos-aarch64-3"
-            labelString: "aarch64 arm64"
+            labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64"
             nodeDescription: "Agent provided by the project"
             remoteFS: "/home/swtbuild/build"
             numExecutors: 1
@@ -557,7 +557,7 @@ data:
                   internalDir: "remoting"
         - permanent:
             name: "centos-aarch64-4"
-            labelString: "aarch64 arm64"
+            labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64"
             nodeDescription: "Agent provided by the project"
             remoteFS: "/home/swtbuild/build"
             numExecutors: 1
