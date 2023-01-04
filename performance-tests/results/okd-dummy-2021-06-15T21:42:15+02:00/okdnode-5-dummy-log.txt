@@ -1,7 +1,0 @@
-Jun 15 21:42:59 INFO: Scheduling perf job on okdnode-5...
-00:00:07 If you don't see a command prompt, try pressing enter.
-00:00:07 another step
-00:00:00 yet another step
-00:00:00 INFO: Done!
-00:00:00 {"node_name": "okdnode-5", "time": {"elapsed": "0:08.01", "real": 8.01, "kernel": 0.23, "user": 0.53, "percent": "9%"}, "memory": {"max_rss": 10868, "avg_rss": 0, "avg_tot": 0, "avg_unsh_data": 0, "avg_unsh_stack": 0, "avg_sh_txt": 0, "page_size": 4096, "major_page_fault": 0, "recoverable_page_fault": 1811, "swap_number": 0, "involuntary_context_switch": 4, "wait_number": 2868}, "io": {"fs_input": 0, "fs_output": 22288, "socket_msg_rcv": 0, "socket_msg_sent": 0, "exit_status": 0}}
-00:00:01 pod "perfpod-okdnode-5" deleted
