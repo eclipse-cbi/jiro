@@ -1,9 +1,0 @@
-Jun 15 21:42:57 INFO: Scheduling perf job on okdnode-4...
-00:00:09 If you don't see a command prompt, try pressing enter.
-00:00:01 Error attaching, falling back to logs: unable to upgrade connection: container perfpod-okdnode-4 not found in pod perfpod-okdnode-4_jiro-perfs
-00:00:00 INFO: Downloading maven-3.6.3...
-00:00:00 another step
-00:00:00 yet another step
-00:00:00 INFO: Done!
-00:00:00 {"node_name": "okdnode-4", "time": {"elapsed": "0:05.12", "real": 5.12, "kernel": 0.07, "user": 0.17, "percent": "4%"}, "memory": {"max_rss": 10844, "avg_rss": 0, "avg_tot": 0, "avg_unsh_data": 0, "avg_unsh_stack": 0, "avg_sh_txt": 0, "page_size": 4096, "major_page_fault": 0, "recoverable_page_fault": 1811, "swap_number": 0, "involuntary_context_switch": 0, "wait_number": 1653}, "io": {"fs_input": 0, "fs_output": 22288, "socket_msg_rcv": 0, "socket_msg_sent": 0, "exit_status": 0}}
-00:00:06 pod "perfpod-okdnode-4" deleted

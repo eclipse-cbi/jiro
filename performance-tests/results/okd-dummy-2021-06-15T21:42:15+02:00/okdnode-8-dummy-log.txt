@@ -1,6 +1,0 @@
-Jun 15 21:43:06 INFO: Scheduling perf job on okdnode-8...
-00:00:07 If you don't see a command prompt, try pressing enter.
-00:00:02 yet another step
-00:00:01 INFO: Done!
-00:00:00 {"node_name": "okdnode-8", "time": {"elapsed": "0:04.76", "real": 4.76, "kernel": 0.05, "user": 0.12, "percent": "3%"}, "memory": {"max_rss": 11060, "avg_rss": 0, "avg_tot": 0, "avg_unsh_data": 0, "avg_unsh_stack": 0, "avg_sh_txt": 0, "page_size": 4096, "major_page_fault": 0, "recoverable_page_fault": 1820, "swap_number": 0, "involuntary_context_switch": 1, "wait_number": 1963}, "io": {"fs_input": 0, "fs_output": 22288, "socket_msg_rcv": 0, "socket_msg_sent": 0, "exit_status": 0}}
-00:00:00 pod "perfpod-okdnode-8" deleted
