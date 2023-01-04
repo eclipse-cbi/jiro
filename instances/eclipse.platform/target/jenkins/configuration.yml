@@ -79,7 +79,7 @@ jenkins:
         label: "basic"
         containers:
         - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13.3
+          image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3044.vb_940a_a_e4f72e
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -165,7 +165,7 @@ jenkins:
         label: "migration jipp-migration centos-7"
         containers:
         - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13.3
+          image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3044.vb_940a_a_e4f72e
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -251,7 +251,7 @@ jenkins:
         label: "centos-latest centos-8"
         containers:
         - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13.3
+          image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3044.vb_940a_a_e4f72e
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -337,7 +337,7 @@ jenkins:
         label: "centos-7-6gb"
         containers:
         - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13.3
+          image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3044.vb_940a_a_e4f72e
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -423,7 +423,7 @@ jenkins:
         label: "centos-8-4cpu"
         containers:
         - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13.3
+          image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3044.vb_940a_a_e4f72e
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
