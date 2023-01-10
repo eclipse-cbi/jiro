@@ -379,6 +379,34 @@
          },
          {
             "grantedPermissions": [
+               "Overall/Read",
+               "Agent/Build"
+            ],
+            "principal": "shawn.kilpatrick@eclipse-foundation.org"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Agent/Build"
+            ],
+            "principal": "marco.jahn@eclipse-foundation.org"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Agent/Build"
+            ],
+            "principal": "mariateresa.delgado@eclipse-foundation.org"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Agent/Build"
+            ],
+            "principal": "rahul.mohangeetha@eclipse-foundation.org"
+         },
+         {
+            "grantedPermissions": [
                "Agent/Build",
                "Credentials/View",
                "Job/Build",
