@@ -900,7 +900,7 @@ data:
         - permanent:
             name: "win11-x64-4cpu-5w0uue"
             nodeDescription: "Windows 11, hosted on Azure, 4vCPU, 16GB RAM, non-burstable"
-            labelString: "sw.os.windows"
+            labelString: "sw.os.windows ci.role.test hw.arch.x86"
             remoteFS: "c:/Users/jenkins"
             numExecutors: 1
             mode: EXCLUSIVE
@@ -915,7 +915,7 @@ data:
         - permanent:
             name: "win11-x64-4cpu-f5z0vu"
             nodeDescription: "Windows 11, hosted on Azure, 4vCPU, 16GB RAM, non-burstable"
-            labelString: "sw.os.windows"
+            labelString: "sw.os.windows ci.role.test hw.arch.x86"
             remoteFS: "c:/Users/jenkins"
             numExecutors: 1
             mode: EXCLUSIVE
@@ -930,7 +930,7 @@ data:
         - permanent:
             name: "win11-x64-4cpu-orhw2m"
             nodeDescription: "Windows 11, hosted on Azure, 4vCPU, 16GB RAM, non-burstable"
-            labelString: "sw.os.windows <labels>"
+            labelString: "sw.os.windows ci.role.test hw.arch.x86"
             remoteFS: "c:/Users/jenkins"
             numExecutors: 1
             mode: EXCLUSIVE
