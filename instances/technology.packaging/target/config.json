@@ -396,7 +396,8 @@
                "Job/Build",
                "Job/Read",
                "Job/ExtendedRead",
-               "Job/Cancel"
+               "Job/Cancel",
+               "Agent/Build"
             ],
             "principal": "ed.merks@gmail.com"
          }
