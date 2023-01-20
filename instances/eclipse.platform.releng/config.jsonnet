@@ -19,6 +19,35 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       // https://bugs.eclipse.org/bugs/show_bug.cgi?id=562806#c15
       permissionsTemplates.projectPermissions("akurtakov@gmail.com", ["Agent/Connect", "Agent/Disconnect"])
   },
+  clouds+: {
+    kubernetes+: {
+      local currentCloud = self,
+      templates+: {
+        "jipp-centos-7-agent-6gb": currentCloud.templates["centos-7"] {
+          labels: ["centos-7-6gb"],
+          kubernetes+: {
+            resources+: {
+              memory: {
+                limit: "6144Mi",
+                request: "6144Mi",
+              },
+            },
+          },
+        },
+        "jipp-centos-8-agent-4cpu": currentCloud.templates["centos-8"] {
+          labels: ["centos-8-4cpu"],
+          kubernetes+: {
+            resources+: {
+              cpu: {
+                limit: "4000m",
+                request: "4000m",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
   maven+: {
     local superSettings = super.files["settings.xml"],
     files+: {
