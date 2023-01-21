@@ -19,6 +19,39 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       // https://bugs.eclipse.org/bugs/show_bug.cgi?id=562806#c15
       permissionsTemplates.projectPermissions("akurtakov@gmail.com", ["Agent/Connect", "Agent/Disconnect"])
   },
+  clouds+: {
+    kubernetes+: {
+      local currentCloud = self,
+      templates+: {
+        "jipp-swt-natives-linux.x84_64": currentCloud.templates["centos-8"] {
+          labels: ["swt.natives-gtk.linux.x86_64"],
+          docker+: {
+            repository: "eclipse"
+            image: "platformreleng-centos-swt-build"
+            tag: "8"
+          }
+          kubernetes+: {
+            resources+: {
+              cpu: {
+                limit: "2000m",
+                request: "1000m",
+              },
+              memory: {
+                limit: "4096Mi",
+                request: "512Mi",
+              },
+            },
+            volumes+: {
+              name: "tools"
+              mounts+: {
+                mountPath: "/opt/tools"
+              },
+            },
+          },
+        },
+      },
+    },
+  },
   maven+: {
     local superSettings = super.files["settings.xml"],
     files+: {
