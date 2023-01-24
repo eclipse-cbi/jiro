@@ -72,8 +72,6 @@ data:
       crumbIssuer:
         standard:
            excludeClientIPFromCrumb: false
-      remotingSecurity:
-        enabled: true
     
       securityRealm:
         ldap:
@@ -432,6 +430,8 @@ data:
           home: "/opt/tools/java/openjdk/latest"
         - name: "openjdk-ea-latest"
           home: "/opt/tools/java/openjdk/ea-latest"
+        - name: "openjdk-jdk20-latest"
+          home: "/opt/tools/java/openjdk/jdk-20/latest"
         - name: "openjdk-jdk19-latest"
           home: "/opt/tools/java/openjdk/jdk-19/latest"
         - name: "openjdk-jdk18-latest"
