@@ -327,23 +327,6 @@ jenkins:
                     name: m2-dir
   nodes:
     - permanent:
-        name: "jck-packet-ubuntu2004-x64-1"
-        nodeDescription: "Intel Atom system hosted at packet"
-        labelString: "ci.role.test hw.arch.x86 sw.os.linux sw.tool.docker"
-        remoteFS: '/home/jenkins'
-        numExecutors: 1
-        mode: EXCLUSIVE
-        retentionStrategy: "always"
-        launcher:
-          ssh:
-            host: "147.75.83.133"
-            port: "22"
-            credentialsId: "jenkins-jck-ssh"
-            javaPath: ""
-            sshHostKeyVerificationStrategy:
-              manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6AZ52BYtn9IHiTNleFhxPuzfVZ62i8OaRJVvCzheTU2mRePox9ipTv3V/okLuMRtD01gpXQpqax3CqaiSpc+bw/8Utcoe3zQaIEX61bvC6lA5eLN60662z3LH1Mf/QxYb2BNSRjvMtzK5+QnbHQJIX1091kOCu/0KLPrgd78ItYnZj3ZMUUWCycjQwsxcJPLNDL7oKBAkNwIjVfD5cPJMIkatTD7Li82E3rNfg/mfshTvdzHzkxryaIx9G9KwmdXtgWiWH4ZVpz3TvadZITyTy67PFbQrClVN+EOPw8jg0n4aMOckc6+Dk8bsDzwWIm2KuTP3BCU3U/VHSK3u7BKhY0tBw88x4jXmZuT+UASLSFFfyUMwHJYjiUuev8FYwVdxy1z5ZMnjaEq/ovemliRBRpOUdgKpegiLxsUZ8hJRwRX5rAD/74nJdMRdtDYYq74lrdcddakyyfxR0lq8/i9AV+kXTEgBCmZeGDXfgFFKb/3GXnnevST0szUnm/ZSkRk="
-    - permanent:
         name: "jck-marist-ubuntu2004-s390x-3"
         nodeDescription: "2-core 4Gb zLinux machine hosted at Marist"
         labelString: "ci.role.test hw.arch.s390x sw.os.linux"
@@ -791,18 +774,6 @@ jenkins:
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDKhRM5aejXDVO4p5SH49g7oz+za5TBVO6ZujHWx/IvY1XorayXUIO7Ke66Kb/Ju7XOaYXZtujiHTgwmQAK2AL4Rp/uyUQ4La/cnHysgN1FI3l53IYPwkrViJYp8VbvqFSZbD1QtaILWCzsuDXYcGD5vBIGrxHUnVOQybgEmW/4BulXe0qNfJEuDS+fYH8U1qO76Ss7zBzH+fCiMeyJ2i+uddYzj6I1297y6kD7dGM61FZF/JdCvIfIqPcZ4iQZPg4d2l33WpO5oegDwrFRKxSN71mgS8g7P4SgXd1/mQGX6Zm37MhK+mVKJpHQ+8I5RPQYK8TbKkXYiq5Gw7BmH2Cx"
-    - permanent:
-        name: "jck-equinix-containerized-alpine313-x64-1"
-        nodeDescription: "Container host is equinix-ubuntu2004-x64-1"
-        labelString: "ci.role.test hw.arch.x86 sw.os.alpine-linux"
-        remoteFS: "/home/jenkins"
-        retentionStrategy: "always"
-        launcher:
-          ssh:
-            credentialsId: "jenkins-jck-ssh"
-            host: "147.75.83.133"
-            port: 2222
-            sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
     - permanent:
         name: "jck-equinix-containerized-ubuntu2004-aarch32-1"
         nodeDescription: "Container host is equinix-ubuntu2004-aarch64-1"
