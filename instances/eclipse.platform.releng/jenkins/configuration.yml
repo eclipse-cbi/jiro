@@ -219,7 +219,7 @@ jenkins:
           onlineAddresses: "releng@eclipse.org"
       - toolLocation:
           locations:
-          - home: "C:\\ProgramData\\chocolatey\\lib\\ant\\tools\\apache-ant-1.10.12"
+          - home: "C:\\ProgramData\\chocolatey\\lib\\ant\\tools\\apache-ant-1.10.13"
             key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest"
       remoteFS: "C:\\Users\\genie.releng\\"
       retentionStrategy: "always"

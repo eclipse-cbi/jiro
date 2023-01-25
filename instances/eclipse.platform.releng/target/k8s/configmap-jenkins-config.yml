@@ -75,8 +75,6 @@ data:
       crumbIssuer:
         standard:
           excludeClientIPFromCrumb: false
-      remotingSecurity:
-        enabled: true
       securityRealm:
         ldap:
           configurations:
@@ -610,7 +608,7 @@ data:
                   onlineAddresses: "releng@eclipse.org"
               - toolLocation:
                   locations:
-                    - home: "C:\\ProgramData\\chocolatey\\lib\\ant\\tools\\apache-ant-1.10.12"
+                    - home: "C:\\ProgramData\\chocolatey\\lib\\ant\\tools\\apache-ant-1.10.13"
                       key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest"
             remoteFS: "C:\\Users\\genie.releng\\"
             retentionStrategy: "always"
@@ -683,6 +681,8 @@ data:
             home: "/opt/tools/java/openjdk/latest"
           - name: "openjdk-ea-latest"
             home: "/opt/tools/java/openjdk/ea-latest"
+          - name: "openjdk-jdk20-latest"
+            home: "/opt/tools/java/openjdk/jdk-20/latest"
           - name: "openjdk-jdk19-latest"
             home: "/opt/tools/java/openjdk/jdk-19/latest"
           - name: "openjdk-jdk18-latest"
