@@ -57,8 +57,6 @@ jenkins:
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: false
-  remotingSecurity:
-    enabled: true
   securityRealm:
     ldap:
       configurations:
@@ -363,7 +361,7 @@ jenkins:
           ssh:
             credentialsId: "ort-ssh-bot"
             host: "20.104.233.12"
-            port: 22
+            port: 2022
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDkH1ET4ScUfV5JHHr7f7dOg4jHg09SL2Q03ST6oAmC5yxmU52uu8vhUZRM5H5zjrW4ml7/U4s+J3LyUHNtcQq5xqBrQCDc2uSXUTFeShp3FeehHRvvOzlJqSANvQj+0Qdxb/aU0lxAYXaLsRy+HEH75aSceTXYDFvVjygteBApVFAaTCNYlDNPsxMUQ1ZKi7cy7DPT1w6PVpGO+9i7WXHkMCJlhOLf6ivJWgH5NtcHJMAxs7fGHYPjn8rUJlSAY/Hg1bT5JcGAdNWxsaCmKMucaGBeHz2E+hXtx6k4ye5fJqlFuWkxfWyJSewmoNrilACl9XKp5mPbVZyCZCDJCtVYkT6gf3nm5bTiSfIBb5fLM1eVKssa2PNcEW7sajRKEpw6GKcD0a1gj1ERbZapVWk42AD9TCIeaT8SniZrq60n5E/SVRBQvoCArdLIQgfm4zflUsH/gFeMFMV/PvQ6vrbRCd+fhbnaRWFVOpUUwwMaM+8OXCbS9XOPge8B2wqOVqk="
@@ -377,7 +375,7 @@ jenkins:
           ssh:
             credentialsId: "ort-ssh-bot"
             host: "20.104.242.131"
-            port: 22
+            port: 2022
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDQ+Cfc6h1C+bYoLIN9uvYCN3ghfzLP4at0LeuWPvIyEFovlLU9aubbqNokOt+Hsp9ise8UM8iKsfGoyRqOOWU9XgTfwjnRAQSa8osmQIXuC2rEqfuLLp8X22tq4bJIXP6QC2tz6asALIKlJT3iylnXjBglJPBDy3XyvTLSnmYKI1povVRxZOaeVRZTIoSIz3WqWhSIb4DxHGrlG9ZpyZC4g8iYkKXdGgbsw3LXaJA/1hz1aaQnry3CA6FoeCC5SdbaN0qcZX8X8HeqRsiD4q0bR6nSaBHQwWCCTVknk4LYskJbMdwj/wKntzYJTgOYUn/O/CXjXJZSWH4FPlJtOYcNylL/7YXlpmUOIE/JaKvrQJ0rirHqCB5Cb4wcD603qDw1mMW4iQNmpdqadbJ6LFVdVxYlpL22E70V+JP86Ve9m67ubKWlc3D8pxDFNZ9JecVIBDxVLNUkUIp94T1t5dKUlLLWhNoYwJVXzrXZNT6HpOIFZ7/HL9QVIpD3ml+/8Fk="
