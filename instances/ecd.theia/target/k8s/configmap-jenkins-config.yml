@@ -71,8 +71,6 @@ data:
       crumbIssuer:
         standard:
           excludeClientIPFromCrumb: false
-      remotingSecurity:
-        enabled: true
       securityRealm:
         ldap:
           configurations:
@@ -352,18 +350,19 @@ data:
                         name: m2-dir
       nodes:
         - permanent:
-            labelString: "macos macos-10.12"
+            name: "b9h15-macos10.15-x86_64"
+            nodeDescription: "MacOS 10.15, hosted at MacStadium"
+            labelString: "macos macos-10.15"
             launcher:
               ssh:
-                credentialsId: "b9h15-macos10.12-bot-ssh"
+                credentialsId: "b9h15-macos-bot-ssh"
                 host: "208.52.161.179"
                 jvmOptions: "-Xmx256m"
                 port: 22
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
-                    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3Mo4/c9Hn6sA594UEGHVxCKbu/QtophcofQIfrX1cJwkxfx/MGjMhllrWw49SfpNPh/VOlR4T7r3xeFq9TM+sDXAii54deTENpqg5q1uBOx9hi+7W8MhKpuJEhwL37kTQHSjcnIcexpm76Tbyd3QtHU3xQzMCjfREfqIAWkWaKbdzNVu1JJRcwqRXDDzPNkoLfYUZtdQi/XiROlX5zYh3/GpQctGkL3y8mdkeUY7RGUDKTjd7osAK59IR30H2KFRfewey9YnMnIKM0cokA8t3KDvAwmXFLQ+iAxG1RFLZQ88iz7agO1clNYFR3+2ersXcMu/AZUoA6sBsBXIJ9419"
+                    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDlxEHVKo8Mu6JEHdDOabGlbvZTQISBnCWWUXq2G/csOQwY2CimuzC3BX5ysdORTTnpMtq7Ck75cXMXr1h0mHszU7Pwx5ZPpTvNyWFFt9zMevlViGKy4OWSkq9W8qEL/JsZm1LGtP/lau+26XmE4gId1GAs2urTxbn923XSuFCbSEQAdPs11K8FRK4espEfXqmQ/w6BdiISwy3zB6/HKbOS462Qcar/1J9434nkTicH8bl5lGMfMFo57JsgrYcMFM5zB2GqHORHGsQ/88J/dsoTX1Bn+irZ6JMHx0HrkVJz1zXqDtfs8CH4q8PtFPFuSfEj2WZ7fGcRExqkiZ5mGfqrVsN5cV5vwXPE/EKFjxCgPvfUcmLHEYl00PhvyjScrP2XBJ1cFnHt44Ia0mM5zn69pxLWeuMdwfwk1mS+wAYvmwa0lGK61YupgOBiSyMV1KSYSnlcIyc1mRguZT6x3/qktzX7urJumuOskTnbAX5HdJnr7kWYmrBc4/Uyf8SXfes="
                 workDir: "/Users/genie.theia/jenkins_agent/cache"
-            name: "b9h15-macos10.12"
             nodeProperties:
               - envVars:
                   env:
@@ -471,6 +470,8 @@ data:
             home: "/opt/tools/java/openjdk/latest"
           - name: "openjdk-ea-latest"
             home: "/opt/tools/java/openjdk/ea-latest"
+          - name: "openjdk-jdk20-latest"
+            home: "/opt/tools/java/openjdk/jdk-20/latest"
           - name: "openjdk-jdk19-latest"
             home: "/opt/tools/java/openjdk/jdk-19/latest"
           - name: "openjdk-jdk18-latest"
