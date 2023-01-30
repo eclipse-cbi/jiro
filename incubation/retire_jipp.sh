@@ -48,6 +48,7 @@ create_retire_script() {
   local jenkins_home="/var/jenkins"
   mkdir -p tmp
 
+  echo
   echo "Creating retire script..."
   cat <<EOF > tmp/retire.sh
 #!/usr/bin/env bash
@@ -84,7 +85,7 @@ ls -al "${jenkins_home}/backup"
 EOF
 
   chmod +x tmp/retire.sh
-
+  echo
   echo "Copying retire script to Jiro pod ${short_name}-0..."
   oc rsync tmp/ "${short_name}-0:/var/jenkins/" -n="${short_name}" --no-perms
   oc exec -n="${short_name}" "${short_name}-0" -i -t -- chmod +x /var/jenkins/retire.sh
@@ -94,6 +95,7 @@ EOF
 
 collect_backup() {
   local short_name="${1:-}"
+  echo
   echo "Collecting jobs on Jiro pod ${short_name}-0..."
 
   oc exec -n="${short_name}" "${short_name}-0" -i -t -- /var/jenkins/retire.sh
@@ -117,10 +119,12 @@ delete_question(){
 delete_project() {
   local project_name="${1:-}"
   local short_name="${project_name##*.}"
+  echo
   echo "Deleting project/namespace on OpenShift..."
   oc delete project "${short_name}"
   oc delete pv "tools-jiro-${short_name}"
 
+  echo
   echo "Deleting project in Jiro..."
   rm -rf "../instances/${project_name}"
 }
@@ -141,7 +145,7 @@ mv_jipp_backup_to_archive() {
   local serverRootPrompt="$server:~ # *"
 
   local archive_folder="/opt/public/hipp/archive/${genie_user}"
-
+  echo
   echo "Moving backup from /tmp/${file_name} to ${archive_folder}/..."
 
   expect -c "
@@ -185,6 +189,7 @@ create_retire_script "${SHORT_NAME}" "${BACKUP_FILE_NAME}"
 
 collect_backup "${SHORT_NAME}"
 
+echo
 echo "Copying backup tar.gz to ${FILE_SERVER}:/tmp..."
 scp "backup/${BACKUP_FILE_NAME}" "${FILE_SERVER}:/tmp/"
 
