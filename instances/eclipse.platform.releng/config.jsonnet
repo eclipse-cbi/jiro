@@ -8,6 +8,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     unixGroupName: "eclipse.platform",
   },
   jenkins+: {
+    version: "2.361.4",
     plugins+: [
       "mail-watcher-plugin",
       "gerrit-code-review",
