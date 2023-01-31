@@ -369,7 +369,7 @@ jenkins:
     - permanent:
         name: "b9h15-macos10.15"
         nodeDescription: "macOS 10.15 (Catalina), no login session, hosted on MacStadium"
-        labelString: "macos macos-10.15 swt.natives-cocoa.macosx.aarch64 swt.natives-cocoa.macosx.x86_64"
+        labelString: "macos macos-10.15 swt.natives-cocoa.macosx.x86_64"
         remoteFS: '/Users/genie.releng/jenkins_agent/'
         numExecutors: 1
         mode: EXCLUSIVE
@@ -547,7 +547,7 @@ jenkins:
               internalDir: "remoting"
     - permanent:
         name: "nc1ht-macos11-arm64"
-        labelString: "macos macos11"
+        labelString: "macos macos11 swt.natives-cocoa.macosx.aarch64"
         nodeDescription: "macOS Ventura 13.0.1"
         launcher:
           ssh:
