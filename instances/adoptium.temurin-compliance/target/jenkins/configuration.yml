@@ -46,8 +46,6 @@ jenkins:
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: false
-  remotingSecurity:
-    enabled: true
   securityRealm:
     ldap:
       configurations:
