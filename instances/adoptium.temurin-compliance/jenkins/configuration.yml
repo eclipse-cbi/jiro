@@ -248,7 +248,8 @@ jenkins:
           host: "20.61.136.211"
           port: "22"
           credentialsId: "jenkins-jck-ssh"
-          javaPath: ""
+          javaPath: "/usr/jdk-11.0.11+9/bin/java"
+          jvmOptions: "-Xmx1g"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSnnvGjC0hFBQ7AMf+7Fv+UrXYMvG5ngN3wbPt3ABZ7wSfaHlll2+2N6NSWChTVahWQCFoDWQy1TyzvjRZq69gdaDW7voIa1lglns0hFRt6FTNEtZyVU1bJ4ugbRfvpP4OjH1SSTww3UqBEmvv215tU1sdHfIJKNWWRo0hbgQS8QGBtDF8pDK68CCquXMV62JbBUzRa3bE+OdoLL37m57mBlWLUG4t7O26F758vAdwXn9jzovc9CQdki2jfkRTK/OsrwaHHyOheqjBGFE9HFJ7J8HyRlXvRQi0EHp9f5vDwERzDhbEJy2RZ+KDZ4qnL/HCKpKaS/K107jSkbElAAHV"
@@ -264,9 +265,9 @@ jenkins:
         ssh:
           host: "20.61.136.213"
           port: "22"
+          credentialsId: "jenkins-jck-ssh"
           javaPath: "/usr/jdk-11.0.17+8/bin/java"
           jvmOptions: "-Xmx1g"
-          credentialsId: "jenkins-jck-ssh"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSnnvGjC0hFBQ7AMf+7Fv+UrXYMvG5ngN3wbPt3ABZ7wSfaHlll2+2N6NSWChTVahWQCFoDWQy1TyzvjRZq69gdaDW7voIa1lglns0hFRt6FTNEtZyVU1bJ4ugbRfvpP4OjH1SSTww3UqBEmvv215tU1sdHfIJKNWWRo0hbgQS8QGBtDF8pDK68CCquXMV62JbBUzRa3bE+OdoLL37m57mBlWLUG4t7O26F758vAdwXn9jzovc9CQdki2jfkRTK/OsrwaHHyOheqjBGFE9HFJ7J8HyRlXvRQi0EHp9f5vDwERzDhbEJy2RZ+KDZ4qnL/HCKpKaS/K107jSkbElAAHV"
