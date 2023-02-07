@@ -74,8 +74,6 @@ data:
       crumbIssuer:
         standard:
           excludeClientIPFromCrumb: false
-      remotingSecurity:
-        enabled: true
       securityRealm:
         ldap:
           configurations:
@@ -440,6 +438,8 @@ data:
             home: "/opt/tools/java/openjdk/latest"
           - name: "openjdk-ea-latest"
             home: "/opt/tools/java/openjdk/ea-latest"
+          - name: "openjdk-jdk20-latest"
+            home: "/opt/tools/java/openjdk/jdk-20/latest"
           - name: "openjdk-jdk19-latest"
             home: "/opt/tools/java/openjdk/jdk-19/latest"
           - name: "openjdk-jdk18-latest"
@@ -555,6 +555,8 @@ data:
         installations:
           - name: "apache-maven-latest"
             home: "/opt/tools/apache-maven/latest"
+          - name: "apache-maven-3.9.0"
+            home: "/opt/tools/apache-maven/3.9.0"
           - name: "apache-maven-3.8.6"
             home: "/opt/tools/apache-maven/3.8.6"
           - name: "apache-maven-3.8.5"
