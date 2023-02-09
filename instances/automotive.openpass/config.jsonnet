@@ -1,7 +1,7 @@
 {
   project+: {
-    fullName: "automotive.simopenpass",
-    displayName: "Eclipse sim@openPASS",
+    fullName: "automotive.openpass",
+    displayName: "Eclipse openPASS",
     resourcePacks: 2
   },
   jenkins+: {

@@ -2,18 +2,18 @@
    "accessControl": {
       "primaryGroup": {
          "id": -1,
-         "name": "automotive.simopenpass"
+         "name": "automotive.openpass"
       },
       "supplementalGroups": [ ],
       "user": {
          "id": -1,
-         "name": "genie.simopenpass"
+         "name": "genie.openpass"
       }
    },
    "clouds": {
       "kubernetes": {
          "kind": "kubernetes",
-         "namespace": "simopenpass",
+         "namespace": "openpass",
          "podRetention": "never",
          "templates": {
             "basic": {
@@ -315,14 +315,14 @@
       "controlPort": 8081,
       "host": "ci.eclipse.org",
       "jnlpPort": 50000,
-      "prefix": "/simopenpass",
+      "prefix": "/openpass",
       "uiPort": 8080,
-      "url": "https://ci.eclipse.org/simopenpass"
+      "url": "https://ci.eclipse.org/openpass"
    },
    "docker": {
       "master": {
          "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.346.3\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
-         "image": "automotive.simopenpass",
+         "image": "automotive.openpass",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
          "tag": "2.346.3"
@@ -388,7 +388,7 @@
                "Gerrit/ManualTrigger",
                "Gerrit/Retrigger"
             ],
-            "principal": "automotive.simopenpass"
+            "principal": "automotive.openpass"
          }
       ],
       "plugins": [
@@ -491,10 +491,10 @@
                "request": "4096Mi"
             }
          },
-         "namespace": "simopenpass"
+         "namespace": "openpass"
       },
       "master": {
-         "namespace": "simopenpass",
+         "namespace": "openpass",
          "probe": {
             "liveness": {
                "delaySeconds": 480,
@@ -519,14 +519,14 @@
                "request": "2048Mi"
             }
          },
-         "stsName": "simopenpass"
+         "stsName": "openpass"
       }
    },
    "maven": {
       "files": {
          "settings-security.xml": {
             "master": {
-               "pass": "bots/automotive.simopenpass/apache-maven-security-settings"
+               "pass": "bots/automotive.openpass/apache-maven-security-settings"
             }
          },
          "settings.xml": {
@@ -541,16 +541,16 @@
             "servers": {
                "gpg.passphrase": {
                   "passphrase": {
-                     "pass": "bots/automotive.simopenpass/gpg/passphrase"
+                     "pass": "bots/automotive.openpass/gpg/passphrase"
                   }
                },
                "ossrh": {
                   "nexusProUrl": "https://oss.sonatype.org",
                   "password": {
-                     "pass": "bots/automotive.simopenpass/oss.sonatype.org/password"
+                     "pass": "bots/automotive.openpass/oss.sonatype.org/password"
                   },
                   "username": {
-                     "pass": "bots/automotive.simopenpass/oss.sonatype.org/username"
+                     "pass": "bots/automotive.openpass/oss.sonatype.org/username"
                   }
                },
                "repo.eclipse.org": {
@@ -571,11 +571,11 @@
       "transferListenerLogLevel": "warn"
    },
    "project": {
-      "displayName": "Eclipse sim@openPASS",
-      "fullName": "automotive.simopenpass",
+      "displayName": "Eclipse openPASS",
+      "fullName": "automotive.openpass",
       "resourcePacks": 2,
-      "shortName": "simopenpass",
-      "unixGroupName": "automotive.simopenpass"
+      "shortName": "openpass",
+      "unixGroupName": "automotive.openpass"
    },
    "sbt": {
       "files": {
@@ -595,7 +595,7 @@
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-default": {
-            "namespace": "simopenpass",
+            "namespace": "openpass",
             "servers": {
                "https://index.docker.io/v1/": {
                   "password": {
@@ -611,8 +611,8 @@
                "pull"
             ]
          },
-         "dockerconfigjson-for-pull-as-simopenpass": {
-            "namespace": "simopenpass",
+         "dockerconfigjson-for-pull-as-openpass": {
+            "namespace": "openpass",
             "servers": {
                "https://index.docker.io/v1/": {
                   "password": {
@@ -623,7 +623,7 @@
                   }
                }
             },
-            "serviceAccount": "simopenpass",
+            "serviceAccount": "openpass",
             "type": [
                "pull"
             ]
@@ -631,7 +631,7 @@
       },
       "gerrit-trigger-plugin": {
          "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-         "username": "genie.simopenpass"
+         "username": "genie.openpass"
       }
    }
 }

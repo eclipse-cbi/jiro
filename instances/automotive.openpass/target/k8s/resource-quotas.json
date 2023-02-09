@@ -3,11 +3,11 @@
    "kind": "ResourceQuota",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "automotive.simopenpass",
-         "org.eclipse.cbi.jiro/project.shortname": "simopenpass"
+         "org.eclipse.cbi.jiro/project.fullName": "automotive.openpass",
+         "org.eclipse.cbi.jiro/project.shortname": "openpass"
       },
       "name": "jenkins-instance-quota",
-      "namespace": "simopenpass"
+      "namespace": "openpass"
    },
    "spec": {
       "hard": {

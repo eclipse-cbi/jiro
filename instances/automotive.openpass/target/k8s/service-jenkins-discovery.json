@@ -3,11 +3,11 @@
    "kind": "Service",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "automotive.simopenpass",
-         "org.eclipse.cbi.jiro/project.shortname": "simopenpass"
+         "org.eclipse.cbi.jiro/project.fullName": "automotive.openpass",
+         "org.eclipse.cbi.jiro/project.shortname": "openpass"
       },
       "name": "jenkins-discovery",
-      "namespace": "simopenpass"
+      "namespace": "openpass"
    },
    "spec": {
       "ports": [
@@ -19,7 +19,7 @@
          }
       ],
       "selector": {
-         "org.eclipse.cbi.jiro/project.fullName": "automotive.simopenpass"
+         "org.eclipse.cbi.jiro/project.fullName": "automotive.openpass"
       }
    }
 }

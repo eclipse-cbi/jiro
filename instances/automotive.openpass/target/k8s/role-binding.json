@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "automotive.openpass",
+         "org.eclipse.cbi.jiro/project.shortname": "openpass"
+      },
+      "name": "openpass",
+      "namespace": "openpass"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "openpass"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "openpass",
+         "namespace": "openpass"
+      }
+   ]
+}

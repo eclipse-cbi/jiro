@@ -6,15 +6,15 @@
          "haproxy.router.openshift.io/timeout": "60s"
       },
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "automotive.simopenpass",
-         "org.eclipse.cbi.jiro/project.shortname": "simopenpass"
+         "org.eclipse.cbi.jiro/project.fullName": "automotive.openpass",
+         "org.eclipse.cbi.jiro/project.shortname": "openpass"
       },
-      "name": "simopenpass",
-      "namespace": "simopenpass"
+      "name": "openpass",
+      "namespace": "openpass"
    },
    "spec": {
       "host": "ci.eclipse.org",
-      "path": "/simopenpass",
+      "path": "/openpass",
       "port": {
          "targetPort": "http"
       },

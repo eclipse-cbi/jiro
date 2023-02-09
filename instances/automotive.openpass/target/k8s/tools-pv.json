@@ -6,10 +6,10 @@
          "kind": "PersistentVolume",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "automotive.simopenpass",
-               "org.eclipse.cbi.jiro/project.shortname": "simopenpass"
+               "org.eclipse.cbi.jiro/project.fullName": "automotive.openpass",
+               "org.eclipse.cbi.jiro/project.shortname": "openpass"
             },
-            "name": "tools-jiro-simopenpass"
+            "name": "tools-jiro-openpass"
          },
          "spec": {
             "accessModes": [
@@ -19,8 +19,8 @@
                "storage": "20Gi"
             },
             "claimRef": {
-               "name": "tools-claim-jiro-simopenpass",
-               "namespace": "simopenpass"
+               "name": "tools-claim-jiro-openpass",
+               "namespace": "openpass"
             },
             "mountOptions": [
                "vers=4.2",
@@ -50,11 +50,11 @@
          "kind": "PersistentVolumeClaim",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "automotive.simopenpass",
-               "org.eclipse.cbi.jiro/project.shortname": "simopenpass"
+               "org.eclipse.cbi.jiro/project.fullName": "automotive.openpass",
+               "org.eclipse.cbi.jiro/project.shortname": "openpass"
             },
-            "name": "tools-claim-jiro-simopenpass",
-            "namespace": "simopenpass"
+            "name": "tools-claim-jiro-openpass",
+            "namespace": "openpass"
          },
          "spec": {
             "accessModes": [
