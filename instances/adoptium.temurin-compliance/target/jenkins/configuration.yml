@@ -461,8 +461,8 @@ jenkins:
             host: "cloud.siteox.com"
             port: "21222"
             credentialsId: "jenkins-jck-ssh"
-            javaPath: ""
-            prefixStartSlaveCmd: "export PATH=/usr/local/bin:$PATH &&"
+            javaPath: "/usr/lib/jvm/jdk11/bin/java"
+            prefixStartSlaveCmd: "export LD_PRELOAD_64=/usr/lib/jvm/fallocate.so && export PATH=/usr/local/bin:$PATH &&"
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCU7ijnBvaekFhtL7JvJgshdnBjelP6KacCQVcgq4qYALHY7z6lEeXONiTrByc0bgv5ZiCJA5xlyAOYAKJoQCBuSy//eeQPw9EfnufAvQja3+40JZVxXQl4XzyiV+Hm74SugUJ+S5XY8leJ+tieNqEBl7HFr+viKYa/pyfxdHO51n9XGheZZMuT3cu7YoWqVZ2g34gFVgS4nOBQM+u8/8RntWt6+ZAQXyVGCXapl/UUFjGwlwtuBtaHiOnlOg2z/HyqdThlZTkuNcaJ14owLguNTPGSnnfgKgFLuE4Ki6vVcckrJixnlc4C4olf0oHQqv7xiIwLUfBR71QXMVEctlt"
