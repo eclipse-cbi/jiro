@@ -50,8 +50,8 @@ NEW_INSTANCE_FOLDER="${SCRIPT_FOLDER}/../instances/${NEW_PROJECT_NAME}"
 
 shutdown_old_instance() {
   echo "Shutting down the old Jenkins instance..."
-  kubectl scale -n "${SHORT_NAME}" sts "${SHORT_NAME}" --replicas=0
-  kubectl wait -n "${SHORT_NAME}" "pod/${SHORT_NAME}-0" --for=delete
+  kubectl scale -n "${OLD_SHORT_NAME}" sts "${OLD_SHORT_NAME}" --replicas=0
+  kubectl wait -n "${OLD_SHORT_NAME}" "pod/${OLD_SHORT_NAME}-0" --for=delete
 }
 
 backup_pv() {
@@ -145,6 +145,8 @@ rename_instance_folder
 adapt_config
 deploy_jipp
 fix_pv
+
+#TODO: wait until JIPP is online again
 
 if [[ "${OLD_SHORT_NAME}" != "${NEW_SHORT_NAME}" ]]; then
   echo "Updating Jenkins credentials..."
