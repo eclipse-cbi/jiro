@@ -852,6 +852,27 @@ data:
                   disabled: false
                   failIfWorkDirIsMissing: false
                   internalDir: "remoting"
+        - permanent:
+            name: "jck-aema7-macos11-x64"
+            nodeDescription: "Mac machine hosted on MacStadium"
+            labelString: "sw.os.osx"
+            remoteFS: "/Users/jenkins"
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              ssh:
+                host: "208.83.1.123"
+                port: "22"
+                credentialsId: "jenkins-jck-ssh"
+                sshHostKeyVerificationStrategy:
+                  manuallyProvidedKeyVerificationStrategy:
+                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAtgQOycq6xl55gHgz2TrKbdV5Dn65XZyWxVMoS5YX7Y"
+            nodeProperties:
+              - envVars:
+                  env:
+                    - key: "PATH+USR_LOCAL_BIN"
+                      value: "/usr/local/bin:/opt/X11/bin"
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
