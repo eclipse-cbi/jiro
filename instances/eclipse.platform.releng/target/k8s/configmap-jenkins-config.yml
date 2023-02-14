@@ -390,16 +390,16 @@ data:
                         name: m2-dir
       nodes:
         - permanent:
-            name: "b9h15-macos10.15"
-            nodeDescription: "macOS 10.15 (Catalina), no login session, hosted on MacStadium"
-            labelString: "macos macos-10.15 swt.natives-cocoa.macosx.x86_64"
+            name: "b9h15-macos11-x86_64"
+            nodeDescription: "macOS 11 (Big Sur), no login session, hosted on MacStadium"
+            labelString: "macos macos-11 swt.natives-cocoa.macosx.x86_64"
             remoteFS: '/Users/genie.releng/jenkins_agent/'
             numExecutors: 1
             mode: EXCLUSIVE
             retentionStrategy: "always"
             launcher:
               ssh:
-                credentialsId: "b9h15-macos10.15-bot-ssh"
+                credentialsId: "b9h15-macos11-x86_64-bot-ssh"
                 host: "208.52.161.179"
                 port: 22
                 sshHostKeyVerificationStrategy:
@@ -798,6 +798,8 @@ data:
         installations:
           - name: "apache-maven-latest"
             home: "/opt/tools/apache-maven/latest"
+          - name: "apache-maven-3.9.0"
+            home: "/opt/tools/apache-maven/3.9.0"
           - name: "apache-maven-3.8.6"
             home: "/opt/tools/apache-maven/3.8.6"
           - name: "apache-maven-3.8.5"
