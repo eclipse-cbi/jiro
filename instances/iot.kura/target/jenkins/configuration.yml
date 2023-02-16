@@ -51,8 +51,6 @@ jenkins:
   crumbIssuer:
     standard:
        excludeClientIPFromCrumb: false
-  remotingSecurity:
-    enabled: true
 
   securityRealm:
     ldap:
@@ -79,7 +77,7 @@ jenkins:
         label: "basic"
         containers:
         - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13.3
+          image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3044.vb_940a_a_e4f72e
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -165,7 +163,7 @@ jenkins:
         label: "migration jipp-migration centos-7"
         containers:
         - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13.3
+          image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3044.vb_940a_a_e4f72e
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -251,7 +249,7 @@ jenkins:
         label: "centos-latest centos-8"
         containers:
         - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13.3
+          image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3044.vb_940a_a_e4f72e
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -411,6 +409,8 @@ tool:
       home: "/opt/tools/java/openjdk/latest"
     - name: "openjdk-ea-latest"
       home: "/opt/tools/java/openjdk/ea-latest"
+    - name: "openjdk-jdk20-latest"
+      home: "/opt/tools/java/openjdk/jdk-20/latest"
     - name: "openjdk-jdk19-latest"
       home: "/opt/tools/java/openjdk/jdk-19/latest"
     - name: "openjdk-jdk18-latest"
@@ -524,30 +524,33 @@ tool:
               id: "1.10.12"
   maven:
     installations:
-    - name: "apache-maven-latest"
-      home: "/opt/tools/apache-maven/latest"
-    - name: "apache-maven-3.8.6"
-      home: "/opt/tools/apache-maven/3.8.6"
-    - name: "apache-maven-3.8.5"
-      home: "/opt/tools/apache-maven/3.8.5"
-    - name: "apache-maven-3.8.4"
-      home: "/opt/tools/apache-maven/3.8.4"
-    - name: "apache-maven-3.8.3"
-      home: "/opt/tools/apache-maven/3.8.3"
-    - name: "apache-maven-3.8.2"
-      home: "/opt/tools/apache-maven/3.8.2"
-    - name: "apache-maven-3.8.1"
-      home: "/opt/tools/apache-maven/3.8.1"
-    - name: "apache-maven-3.6.3"
-      home: "/opt/tools/apache-maven/3.6.3"
-    - name: "apache-maven-3.6.0"
-      home: "/opt/tools/apache-maven/3.6.0"
-    - name: "apache-maven-3.5.4"
-      home: "/opt/tools/apache-maven/3.5.4"
-    - name: "apache-maven-3.3.9"
-      home: "/opt/tools/apache-maven/3.3.9"
-    - name: "apache-maven-3.2.5"
-      home: "/opt/tools/apache-maven/3.2.5"
+      - name: "apache-maven-latest"
+        home: "/opt/tools/apache-maven/latest"
+      - name: "apache-maven-3.9.0"
+        home: "/opt/tools/apache-maven/3.9.0"
+      - name: "apache-maven-3.8.6"
+        home: "/opt/tools/apache-maven/3.8.6"
+      - name: "apache-maven-3.8.5"
+        home: "/opt/tools/apache-maven/3.8.5"
+      - name: "apache-maven-3.8.4"
+        home: "/opt/tools/apache-maven/3.8.4"
+      - name: "apache-maven-3.8.3"
+        home: "/opt/tools/apache-maven/3.8.3"
+      - name: "apache-maven-3.8.2"
+        home: "/opt/tools/apache-maven/3.8.2"
+      - name: "apache-maven-3.8.1"
+        home: "/opt/tools/apache-maven/3.8.1"
+      - name: "apache-maven-3.6.3"
+        home: "/opt/tools/apache-maven/3.6.3"
+      - name: "apache-maven-3.6.0"
+        home: "/opt/tools/apache-maven/3.6.0"
+      - name: "apache-maven-3.5.4"
+        home: "/opt/tools/apache-maven/3.5.4"
+      - name: "apache-maven-3.3.9"
+        home: "/opt/tools/apache-maven/3.3.9"
+      - name: "apache-maven-3.2.5"
+        home: "/opt/tools/apache-maven/3.2.5"
+  
   git:
     installations:
     - name: "Default"
