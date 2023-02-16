@@ -23,6 +23,15 @@ jenkins:
           locations:
           - home: "C:\\Program Files\\Git\\bin\\git"
             key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+security:
+  gitHostKeyVerificationConfiguration:
+    sshHostKeyVerificationStrategy:
+      manuallyProvidedKeyVerificationStrategy:
+        approvedHostKeys: |-
+          gitlab.eclipse.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBsuD5uVWgjZX3jrcvdWu0DwbbarL32mfbNAVABi4wCc
+          gitlab.eclipse.org ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCl6Wwb+m463X7a05TsllEYEmRklkwUWgqHVcvxsW6l6n9tPNcUWrcfTWupMQoONe7PuBsr6SkiYXRcSjHJy9qDXo5Nz/F/IU+EQ+haTU5pGfMRXAsQfdAB0AR5mSPOTkurRHL1sGi6jtp2wpgkbEfykcuEnmg36BCBqsARl08K6OuI2CtrKevXN0x5S5bF6vgzmvUm4aRQnF7WIg7HSOYVZIH5QGHsxsqr045xGLyk0scEIz6ZdslsinGYyvg8J9d6WJJebtjMX+KBHtXYKrFx0xqqnIYSj3WACaP32GDVFqPpxeNmJaVIJuymxsxxQMGYCsJT9diDv3dI+efu5xb
+          gitlab.eclipse.org ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBIPik0+gkBsbyVzTLvDq4ESZJMlUSZeb/tjdOHPbTLcSSlHX8R4CdqQwjWdxi4AMQ/76FXUsNH2azvkvgSh/r+E=
+
 unclassified:
   gitLabConnectionConfig:
     connections:
