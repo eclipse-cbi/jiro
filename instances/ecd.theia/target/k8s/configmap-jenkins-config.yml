@@ -350,9 +350,9 @@ data:
                         name: m2-dir
       nodes:
         - permanent:
-            name: "b9h15-macos10.15-x86_64"
-            nodeDescription: "MacOS 10.15, hosted at MacStadium"
-            labelString: "macos macos-10.15"
+            name: "b9h15-macos11-x86_64"
+            nodeDescription: "MacOS 11, hosted at MacStadium"
+            labelString: "macos macos-11"
             launcher:
               ssh:
                 credentialsId: "b9h15-macos-bot-ssh"
@@ -587,6 +587,8 @@ data:
         installations:
           - name: "apache-maven-latest"
             home: "/opt/tools/apache-maven/latest"
+          - name: "apache-maven-3.9.0"
+            home: "/opt/tools/apache-maven/3.9.0"
           - name: "apache-maven-3.8.6"
             home: "/opt/tools/apache-maven/3.8.6"
           - name: "apache-maven-3.8.5"

@@ -1,9 +1,9 @@
 jenkins:
   nodes:
   - permanent:
-      name: "b9h15-macos10.15-x86_64"
-      nodeDescription: "MacOS 10.15, hosted at MacStadium"
-      labelString: "macos macos-10.15"
+      name: "b9h15-macos11-x86_64"
+      nodeDescription: "MacOS 11, hosted at MacStadium"
+      labelString: "macos macos-11"
       launcher:
         ssh:
           credentialsId: "b9h15-macos-bot-ssh"
