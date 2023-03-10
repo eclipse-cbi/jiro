@@ -7,6 +7,7 @@
   jenkins+: {
     plugins+: [
       "mail-watcher-plugin",
+      "conditional-buildstep",
     ],
   },
 }
