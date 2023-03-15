@@ -1,0 +1,11 @@
+unclassified:
+  sonarGlobalConfiguration:
+    buildWrapperEnabled: true
+    installations:
+    - name: "SonarCloud.io"
+      credentialsId: "sonarcloud-token"
+      serverUrl: "https://sonarcloud.io"
+      triggers:
+        skipScmCause: false
+        skipUpstreamCause: false
+      webhookSecretId: "sonarcloud-webhook-secret"
