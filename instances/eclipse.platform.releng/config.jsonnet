@@ -12,6 +12,8 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     plugins+: [
       "mail-watcher-plugin",
       "gerrit-code-review",
+      "github-checks",
+      "git-forensics",
       "job-dsl",
     ],
     staticAgentCount: 10,
