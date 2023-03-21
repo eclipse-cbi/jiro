@@ -475,6 +475,13 @@
                "Overall/Read",
                "Agent/Build"
             ],
+            "principal": "florent.zara@eclipse-foundation.org"
+         },
+         {
+            "grantedPermissions": [
+               "Overall/Read",
+               "Agent/Build"
+            ],
             "principal": "shawn.kilpatrick@eclipse-foundation.org"
          },
          {
