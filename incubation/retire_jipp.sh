@@ -107,10 +107,10 @@ collect_backup() {
 
 delete_question(){
   local project_name="${1:-}"
-  read -rp "Do you want to delete the project? (Y)es, (N)o, E(x)it: " yn
+  read -rp "Do you want to delete ${project_name} Jiro ? (Y)es, (N)o, E(x)it: " yn
   case "${yn}" in
     [Yy]* ) delete_project "${project_name}";;
-    [Nn]* ) echo "Skipping delete... ";return;;
+    [Nn]* ) echo "Skipping delete... ";return 1;;
     [Xx]* ) exit;;
         * ) echo "Please answer (Y)es, (N)o, E(x)it";delete_question "${project_name}";;
   esac
@@ -193,11 +193,9 @@ echo
 echo "Copying backup tar.gz to ${FILE_SERVER}:/tmp..."
 scp "backup/${BACKUP_FILE_NAME}" "${FILE_SERVER}:/tmp/"
 
-delete_question "${PROJECT_NAME}"
-
-"${CI_ADMIN_ROOT}/jenkins/db_access.sh" "remove_jipp" "${PROJECT_NAME}"
-
-mv_jipp_backup_to_archive "${SHORT_NAME}" "${BACKUP_FILE_NAME}"
+delete_question "${PROJECT_NAME}" &&
+    mv_jipp_backup_to_archive "${SHORT_NAME}" "${BACKUP_FILE_NAME}" &&
+    "${CI_ADMIN_ROOT}/jenkins/db_access.sh" "remove_jipp" "${PROJECT_NAME}"
 
 echo
 echo "TODO:"
