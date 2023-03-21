@@ -105,17 +105,6 @@ collect_backup() {
   oc rsync -n="${short_name}" "${short_name}-0:/var/jenkins/backup/" backup/ --no-perms
 }
 
-delete_question(){
-  local project_name="${1:-}"
-  read -rp "Do you want to delete ${project_name} Jiro ? (Y)es, (N)o, E(x)it: " yn
-  case "${yn}" in
-    [Yy]* ) delete_project "${project_name}";;
-    [Nn]* ) echo "Skipping delete... ";return 1;;
-    [Xx]* ) exit;;
-        * ) echo "Please answer (Y)es, (N)o, E(x)it";delete_question "${project_name}";;
-  esac
-}
-
 delete_project() {
   local project_name="${1:-}"
   local short_name="${project_name##*.}"
@@ -193,9 +182,19 @@ echo
 echo "Copying backup tar.gz to ${FILE_SERVER}:/tmp..."
 scp "backup/${BACKUP_FILE_NAME}" "${FILE_SERVER}:/tmp/"
 
-delete_question "${PROJECT_NAME}" &&
-    mv_jipp_backup_to_archive "${SHORT_NAME}" "${BACKUP_FILE_NAME}" &&
-    "${CI_ADMIN_ROOT}/jenkins/db_access.sh" "remove_jipp" "${PROJECT_NAME}"
+read -rp "Do you want to delete the ${PROJECT_NAME} Jiro project ? (Y)es, (N)o, E(x)it: " yn
+case "${yn}" in
+  [Yy]* ) delete_project "${PROJECT_NAME}"
+          mv_jipp_backup_to_archive "${SHORT_NAME}" "${BACKUP_FILE_NAME}"
+          "${CI_ADMIN_ROOT}/jenkins/db_access.sh" "remove_jipp" "${PROJECT_NAME}"
+          ;; 
+  [Nn]* ) echo "Skipping delete... "
+          ;;
+  [Xx]* ) exit
+          ;;
+      * ) echo "Please answer (Y)es, (N)o, E(x)it";delete_question "${PROJECT_NAME}"
+	  ;;
+esac
 
 echo
 echo "TODO:"
