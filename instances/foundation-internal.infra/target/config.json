@@ -528,7 +528,8 @@
          "kubernetes-cli",
          "mail-watcher-plugin",
          "pipeline-github",
-         "slack"
+         "slack",
+         "gradle"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 1,
