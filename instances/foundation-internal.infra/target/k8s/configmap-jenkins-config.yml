@@ -46,6 +46,8 @@ data:
             - "USER:Overall/Read:anonymous"
             - "USER:Agent/Build:boris.baldassari@eclipse-foundation.org"
             - "USER:Overall/Read:boris.baldassari@eclipse-foundation.org"
+            - "USER:Agent/Build:florent.zara@eclipse-foundation.org"
+            - "USER:Overall/Read:florent.zara@eclipse-foundation.org"
             - "GROUP:Agent/Build:foundation-internal.it"
             - "GROUP:Credentials/View:foundation-internal.it"
             - "GROUP:Job/Build:foundation-internal.it"

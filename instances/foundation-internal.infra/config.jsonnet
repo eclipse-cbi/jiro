@@ -37,6 +37,11 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         principal: "boris.baldassari@eclipse-foundation.org",
         grantedPermissions: ["Overall/Read", "Agent/Build"],
       },
+      // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/1033
+      {
+        principal: "florent.zara@eclipse-foundation.org",
+        grantedPermissions: ["Overall/Read", "Agent/Build"],
+      },
       // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/933
       {
         principal: "shawn.kilpatrick@eclipse-foundation.org",
