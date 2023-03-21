@@ -1,5 +1,6 @@
 # GENERATED FILE - DO NOT EDIT
 docker-workflow
+gradle
 kubernetes-cli
 mail-watcher-plugin
 pipeline-github

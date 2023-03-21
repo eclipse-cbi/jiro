@@ -727,3 +727,11 @@ data:
         installations:
           - name: "Default"
             home: "git"
+      gradle:
+        installations:
+          - name: "gradle-latest"
+            properties:
+              - installSource:
+                  installers:
+                    - gradleInstaller:
+                        id: "8.0.2"

@@ -70,6 +70,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "mail-watcher-plugin",
       "pipeline-github",
       "slack",
+      "gradle",
     ],
   },
   kubernetes+: {
