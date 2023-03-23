@@ -46,3 +46,4 @@ unclassified:
     - credentialsId: "gitlab-personal-access-token"
       name: "gitlab.eclipse.org"
       serverUrl: "https://gitlab.eclipse.org"
+      webhookSecretCredentialsId: "gitlab-webhook-secret"
