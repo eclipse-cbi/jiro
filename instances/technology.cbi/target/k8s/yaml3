@@ -1,0 +1,158 @@
+---
+apiVersion: "v1"
+kind: "Pod"
+metadata:
+  annotations: {}
+  labels:
+    jenkins: "slave"
+    jenkins/label-digest: "55a177a28a71a1957f582df488f25d8c2f70df30"
+    jenkins/label: "migration_jipp-migration_centos-7"
+  name: "centos-7-4zk3k"
+  namespace: "cbi"
+spec:
+  containers:
+  - env:
+    - name: "JENKINS_SECRET"
+      value: "********"
+    - name: "JENKINS_TUNNEL"
+      value: "jenkins-discovery.cbi.svc.cluster.local:50000"
+    - name: "JENKINS_AGENT_NAME"
+      value: "centos-7-4zk3k"
+    - name: "JENKINS_REMOTING_JAVA_OPTS"
+      value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true\
+        \ -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+    - name: "JAVA_TOOL_OPTIONS"
+      value: ""
+    - name: "_JAVA_OPTIONS"
+      value: ""
+    - name: "OPENJ9_JAVA_OPTIONS"
+      value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+    - name: "JENKINS_NAME"
+      value: "centos-7-4zk3k"
+    - name: "JENKINS_AGENT_WORKDIR"
+      value: "/home/jenkins/agent"
+    - name: "JENKINS_URL"
+      value: "http://jenkins-ui.cbi.svc.cluster.local/cbi/"
+    image: "docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13.3"
+    imagePullPolicy: "Always"
+    name: "jnlp"
+    resources:
+      limits:
+        cpu: "2000m"
+        memory: "4096Mi"
+      requests:
+        cpu: "1000m"
+        memory: "4096Mi"
+    tty: true
+    volumeMounts:
+    - mountPath: "/home/jenkins/.gradle/daemon"
+      name: "volume-0"
+      readOnly: false
+    - mountPath: "/home/jenkins/.gradle/workers"
+      name: "volume-1"
+      readOnly: false
+    - mountPath: "/home/jenkins"
+      name: "volume-2"
+      readOnly: false
+    - mountPath: "/home/jenkins/.gradle/caches"
+      name: "volume-3"
+      readOnly: false
+    - mountPath: "/home/jenkins/.m2/toolchains.xml"
+      name: "volume-4"
+      readOnly: false
+      subPath: "toolchains.xml"
+    - mountPath: "/opt/tools"
+      name: "volume-5"
+      readOnly: false
+    - mountPath: "/home/jenkins/.m2/repository"
+      name: "volume-6"
+      readOnly: false
+    - mountPath: "/home/jenkins/.gradle/native"
+      name: "volume-7"
+      readOnly: false
+    - mountPath: "/home/jenkins/.m2/wrapper"
+      name: "volume-8"
+      readOnly: false
+    - mountPath: "/home/jenkins/.gradle/wrapper"
+      name: "volume-9"
+      readOnly: false
+    - mountPath: "/home/jenkins/.mavenrc"
+      name: "volume-3"
+      readOnly: false
+      subPath: ".mavenrc"
+    - mountPath: "/home/jenkins/.m2/settings-security.xml"
+      name: "m2-secret-dir"
+      readOnly: true
+      subPath: "settings-security.xml"
+    - mountPath: "/home/jenkins/.gradle/gradle.properties"
+
+
+
+    - mountPath: "/home/jenkins/agent"
+      name: "workspace-volume"
+      readOnly: false
+    - mountPath: "/home/jenkins/.m2/settings.xml"
+      name: "m2-secret-dir"
+      readOnly: true
+      subPath: "settings.xml"
+    - mountPath: "/home/jenkins/.ssh"
+      name: "volume-12"
+      readOnly: false
+    workingDir: "/home/jenkins/agent"
+  hostNetwork: false
+  nodeSelector:
+    kubernetes.io/os: "linux"
+  restartPolicy: "Never"
+  volumes:
+  - name: "m2-secret-dir"
+    secret:
+      secretName: "m2-secret-dir"
+  - emptyDir:
+      medium: ""
+    name: "volume-8"
+  - emptyDir:
+      medium: ""
+    name: "volume-7"
+  - emptyDir:
+      medium: ""
+    name: "volume-9"
+  - emptyDir:
+      medium: ""
+    name: "workspace-volume"
+  - configMap:
+      name: "m2-dir"
+      optional: false
+    name: "volume-4"
+  - emptyDir:
+      medium: ""
+    name: "volume-3"
+  - emptyDir:
+      medium: ""
+    name: "volume-6"
+  - name: "volume-5"
+    persistentVolumeClaim:
+      claimName: "tools-claim-jiro-cbi"
+      readOnly: true
+  - emptyDir:
+      medium: ""
+    name: "volume-0"
+  - emptyDir:
+      medium: ""
+    name: "volume-2"
+  - configMap:
+      name: "m2-dir"
+      optional: false
+    name: "volume-11"
+  - emptyDir:
+      medium: ""
+    name: "volume-1"
+  - name: "volume-10"
+    secret:
+      secretName: "gradle-secret-dir"
+      optional: false
+  - configMap:
+      name: "known-hosts"
+      optional: false
+    name: "volume-12"
+
+

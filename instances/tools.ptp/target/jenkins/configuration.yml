@@ -51,8 +51,6 @@ jenkins:
   crumbIssuer:
     standard:
        excludeClientIPFromCrumb: false
-  remotingSecurity:
-    enabled: true
 
   securityRealm:
     ldap:
@@ -96,6 +94,92 @@ jenkins:
           args: ""
         instanceCap: -1
         nodeUsageMode: NORMAL
+        envVars:
+        - envVar:
+            key: "JAVA_TOOL_OPTIONS"
+            value: ""
+        - envVar:
+            key: "JENKINS_REMOTING_JAVA_OPTS"
+            value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+        - envVar:
+            key: "OPENJ9_JAVA_OPTIONS"
+            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+        - envVar:
+            key: "_JAVA_OPTIONS"
+            value: ""
+        volumes:
+        - persistentVolumeClaim:
+            claimName: "tools-claim-jiro-ptp"
+            mountPath: "/opt/tools"
+            readOnly: true
+        - configMapVolume:
+            configMapName: "known-hosts"
+            mountPath: "/home/jenkins/.ssh/"
+            subPath: "."
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/repository"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/wrapper"
+        workspaceVolume:
+          emptyDirWorkspaceVolume:
+            memory: false
+        yaml: |
+          apiVersion: v1
+          kind: Pod
+          spec:
+            containers:
+            - name: jnlp
+              volumeMounts:
+              - name: m2-secret-dir
+                mountPath: /home/jenkins/.m2/settings-security.xml
+                subPath: settings-security.xml
+                readOnly: true
+              - name: m2-secret-dir
+                mountPath: /home/jenkins/.m2/settings.xml
+                subPath: settings.xml
+                readOnly: true
+              - name: m2-dir
+                mountPath: /home/jenkins/.m2/toolchains.xml
+                subPath: toolchains.xml
+                readOnly: true
+              - name: m2-dir
+                mountPath: /home/jenkins/.mavenrc
+                subPath: .mavenrc
+                readOnly: true
+            volumes:
+            - name: m2-secret-dir
+              secret:
+                secretName: m2-secret-dir
+            - name: m2-dir
+              configMap:
+                name: m2-dir
+      - name: "basic-ubuntu"
+        namespace: "ptp"
+        label: "basic-ubuntu"
+        containers:
+        - name: "jnlp"
+          image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-4.13.3
+          alwaysPullImage: true
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          resourceLimitCpu: "2000m"
+          resourceRequestCpu: "1000m"
+          resourceLimitMemory: "4096Mi"
+          resourceRequestMemory: "4096Mi"
+          ttyEnabled: true
+          command: ""
+          args: ""
+        instanceCap: -1
+        nodeUsageMode: EXCLUSIVE
         envVars:
         - envVar:
             key: "JAVA_TOOL_OPTIONS"
@@ -411,6 +495,8 @@ tool:
       home: "/opt/tools/java/openjdk/latest"
     - name: "openjdk-ea-latest"
       home: "/opt/tools/java/openjdk/ea-latest"
+    - name: "openjdk-jdk20-latest"
+      home: "/opt/tools/java/openjdk/jdk-20/latest"
     - name: "openjdk-jdk19-latest"
       home: "/opt/tools/java/openjdk/jdk-19/latest"
     - name: "openjdk-jdk18-latest"
@@ -524,30 +610,33 @@ tool:
               id: "1.10.12"
   maven:
     installations:
-    - name: "apache-maven-latest"
-      home: "/opt/tools/apache-maven/latest"
-    - name: "apache-maven-3.8.6"
-      home: "/opt/tools/apache-maven/3.8.6"
-    - name: "apache-maven-3.8.5"
-      home: "/opt/tools/apache-maven/3.8.5"
-    - name: "apache-maven-3.8.4"
-      home: "/opt/tools/apache-maven/3.8.4"
-    - name: "apache-maven-3.8.3"
-      home: "/opt/tools/apache-maven/3.8.3"
-    - name: "apache-maven-3.8.2"
-      home: "/opt/tools/apache-maven/3.8.2"
-    - name: "apache-maven-3.8.1"
-      home: "/opt/tools/apache-maven/3.8.1"
-    - name: "apache-maven-3.6.3"
-      home: "/opt/tools/apache-maven/3.6.3"
-    - name: "apache-maven-3.6.0"
-      home: "/opt/tools/apache-maven/3.6.0"
-    - name: "apache-maven-3.5.4"
-      home: "/opt/tools/apache-maven/3.5.4"
-    - name: "apache-maven-3.3.9"
-      home: "/opt/tools/apache-maven/3.3.9"
-    - name: "apache-maven-3.2.5"
-      home: "/opt/tools/apache-maven/3.2.5"
+      - name: "apache-maven-latest"
+        home: "/opt/tools/apache-maven/latest"
+      - name: "apache-maven-3.9.0"
+        home: "/opt/tools/apache-maven/3.9.0"
+      - name: "apache-maven-3.8.6"
+        home: "/opt/tools/apache-maven/3.8.6"
+      - name: "apache-maven-3.8.5"
+        home: "/opt/tools/apache-maven/3.8.5"
+      - name: "apache-maven-3.8.4"
+        home: "/opt/tools/apache-maven/3.8.4"
+      - name: "apache-maven-3.8.3"
+        home: "/opt/tools/apache-maven/3.8.3"
+      - name: "apache-maven-3.8.2"
+        home: "/opt/tools/apache-maven/3.8.2"
+      - name: "apache-maven-3.8.1"
+        home: "/opt/tools/apache-maven/3.8.1"
+      - name: "apache-maven-3.6.3"
+        home: "/opt/tools/apache-maven/3.6.3"
+      - name: "apache-maven-3.6.0"
+        home: "/opt/tools/apache-maven/3.6.0"
+      - name: "apache-maven-3.5.4"
+        home: "/opt/tools/apache-maven/3.5.4"
+      - name: "apache-maven-3.3.9"
+        home: "/opt/tools/apache-maven/3.3.9"
+      - name: "apache-maven-3.2.5"
+        home: "/opt/tools/apache-maven/3.2.5"
+  
   git:
     installations:
     - name: "Default"

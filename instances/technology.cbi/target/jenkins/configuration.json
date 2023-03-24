@@ -1,0 +1,42 @@
+{
+   "jenkins": {
+      "agentProtocols": [
+         "JNLP4-connect",
+         "Ping"
+      ],
+      "authorizationStrategy": {
+         "projectMatrix": {
+            "permissions": [
+               "GROUP:Overall/Administer:admins",
+               "USER:Job/Read:anonymous"
+            ]
+         }
+      },
+      "crumbIssuer": {
+         "standard": {
+            "excludeClientIPFromCrumb": false
+         }
+      },
+      "disableRememberMe": false,
+      "markupFormatter": "rawHtml",
+      "mode": "EXCLUSIVE",
+      "numExecutors": 0,
+      "remotingSecurity": {
+         "enabled": true
+      },
+      "scmCheckoutRetryCount": 2,
+      "securityRealm": {
+         "ldap": {
+            "configurations": {
+               "displayNameAttributeName": "cn",
+               "groupSearchBase": "ou=group",
+               "mailAddressAttributeName": "mail",
+               "rootDN": "dc=eclipse,dc=org",
+               "server": "ldaps://ldapcluster.eclipse.org",
+               "userSearch": "mail={0}"
+            }
+         }
+      },
+      "systemMessage": ""
+   }
+}

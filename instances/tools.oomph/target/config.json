@@ -113,6 +113,99 @@
                "startupScript": "/usr/local/bin/jenkins-agent",
                "username": "jenkins"
             },
+            "basic-ubuntu": {
+               "agentWorkdir": "/home/jenkins/jenkins-agent",
+               "docker": {
+                  "aliases": [ ],
+                  "context": "basic-ubuntu",
+                  "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM docker.io/eclipsecbi/jiro-agent-basic-ubuntu:spec\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/home/jenkins\"\n\nVOLUME [ \"/home/jenkins\", ]\nWORKDIR \"/home/jenkins\"\nENTRYPOINT [ \"uid_entrypoint\", \"/usr/local/bin/jenkins-agent\" ]\n\nADD \"https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.13.3/remoting-4.13.3.jar\" \"/usr/share/jenkins/agent.jar\" \nADD \"https://github.com/jenkinsci/docker-inbound-agent/raw/4.13.2-1/jenkins-agent\" \"/usr/local/bin/jenkins-agent\"\n\nRUN sed -e 's/JAVA_OPTS/JAVA_OPTS \\$JENKINS_REMOTING_JAVA_OPTS/g' /usr/local/bin/jenkins-agent > /usr/local/bin/jenkins-agent.sed \\\n    && mv /usr/local/bin/jenkins-agent.sed /usr/local/bin/jenkins-agent\n\nRUN chmod 755 \"$(dirname \"/usr/share/jenkins/agent.jar\")\" \\\n  && chmod 644 \"/usr/share/jenkins/agent.jar\" \\\n  && chmod ug+rx \"/usr/local/bin/jenkins-agent\" \\\n  && chgrp 0 \"/usr/local/bin/jenkins-agent\"\n\nUSER 10001:0\n",
+                  "image": "jiro-agent-basic-ubuntu",
+                  "registry": "docker.io",
+                  "repository": "eclipsecbi",
+                  "tag": "remoting-4.13.3"
+               },
+               "env": {
+                  "JAVA_TOOL_OPTIONS": [ ],
+                  "JENKINS_REMOTING_JAVA_OPTS": [
+                     "-showversion",
+                     "-XshowSettings:vm",
+                     "-Xmx256m",
+                     "-Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true",
+                     "-Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  ],
+                  "OPENJ9_JAVA_OPTIONS": [
+                     "-XX:+IgnoreUnrecognizedVMOptions",
+                     "-XX:+IdleTuningCompactOnIdle",
+                     "-XX:+IdleTuningGcOnIdle"
+                  ],
+                  "_JAVA_OPTIONS": [ ]
+               },
+               "home": "/home/jenkins",
+               "kubernetes": {
+                  "resources": {
+                     "cpu": {
+                        "limit": "2000m",
+                        "request": "1000m"
+                     },
+                     "memory": {
+                        "limit": "4096Mi",
+                        "request": "4096Mi"
+                     }
+                  },
+                  "volumes": [
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings-security.xml",
+                              "subPath": "settings-security.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.m2/settings.xml",
+                              "subPath": "settings.xml"
+                           }
+                        ],
+                        "name": "m2-secret-dir",
+                        "secret": {
+                           "name": "m2-secret-dir"
+                        }
+                     },
+                     {
+                        "configMap": {
+                           "name": "m2-dir"
+                        },
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.m2/toolchains.xml",
+                              "subPath": "toolchains.xml"
+                           },
+                           {
+                              "mountPath": "/home/jenkins/.mavenrc",
+                              "subPath": ".mavenrc"
+                           }
+                        ],
+                        "name": "m2-dir"
+                     }
+                  ]
+               },
+               "labels": [
+                  "basic-ubuntu"
+               ],
+               "maxHeap": "256m",
+               "mode": "EXCLUSIVE",
+               "name": "basic-ubuntu",
+               "remoting": {
+                  "jar": "/usr/share/jenkins/agent.jar",
+                  "startupScript": {
+                     "name": "jenkins-agent",
+                     "url": "https://github.com/jenkinsci/docker-inbound-agent/raw/4.13.2-1/jenkins-agent",
+                     "version": "4.13.2-1"
+                  },
+                  "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/4.13.3/remoting-4.13.3.jar",
+                  "version": "4.13.3"
+               },
+               "startupScript": "/usr/local/bin/jenkins-agent",
+               "username": "jenkins"
+            },
             "centos-7": {
                "agentWorkdir": "/home/jenkins/jenkins-agent",
                "docker": {
@@ -502,13 +595,13 @@
    },
    "jiroMaster": {
       "docker": {
-         "from": "eclipsecbi/adoptopenjdk-coreutils:openjdk11-openj9-debian-slim",
+         "from": "eclipsecbi/semeru-ubuntu-coreutils:openjdk11-jammy",
          "image": "jiro-master",
          "registry": "docker.io",
          "repository": "eclipsecbi",
          "tag": "2.346.3"
       },
-      "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM eclipsecbi/adoptopenjdk-coreutils:openjdk11-openj9-debian-slim\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/var/jenkins\"\n\n# jenkins version being bundled in this docker image\nENV JENKINS_HOME=\"/var/jenkins\"\nENV JENKINS_WAR=\"/usr/share/jenkins/jenkins.war\"\nENV COPY_REFERENCE_FILE_LOG=\"/var/jenkins/copy_reference_file.log\"\nENV REF=\"/usr/share/jenkins/ref\"\n\nVOLUME [ \"/var/jenkins\", \"/var/cache/jenkins/war\", \"/var/cache/jenkins/plugins\" ]\nWORKDIR \"/var/jenkins\"\n\nENTRYPOINT [\"uid_entrypoint\", \"/usr/bin/dumb-init\", \"--\", \"/usr/local/bin/jenkins.sh\"]\n\nRUN mkdir -p $(dirname \"/usr/share/jenkins/jenkins.war\") && mkdir -p \"/usr/share/jenkins/ref\"\n\nCOPY scripts/* /usr/local/bin/\nRUN chmod ug+x /usr/local/bin/*\n\nCOPY war/jenkins.war \"/usr/share/jenkins/jenkins.war\"\nCOPY ref/ \"/usr/share/jenkins/ref/\"\n",
+      "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM eclipsecbi/semeru-ubuntu-coreutils:openjdk11-jammy\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/var/jenkins\"\n\n# jenkins version being bundled in this docker image\nENV JENKINS_HOME=\"/var/jenkins\"\nENV JENKINS_WAR=\"/usr/share/jenkins/jenkins.war\"\nENV COPY_REFERENCE_FILE_LOG=\"/var/jenkins/copy_reference_file.log\"\nENV REF=\"/usr/share/jenkins/ref\"\n\nVOLUME [ \"/var/jenkins\", \"/var/cache/jenkins/war\", \"/var/cache/jenkins/plugins\" ]\nWORKDIR \"/var/jenkins\"\n\nENTRYPOINT [\"uid_entrypoint\", \"/usr/bin/dumb-init\", \"--\", \"/usr/local/bin/jenkins.sh\"]\n\nRUN mkdir -p $(dirname \"/usr/share/jenkins/jenkins.war\") && mkdir -p \"/usr/share/jenkins/ref\"\n\nCOPY scripts/* /usr/local/bin/\nRUN chmod ug+x /usr/local/bin/*\n\nCOPY war/jenkins.war \"/usr/share/jenkins/jenkins.war\"\nCOPY ref/ \"/usr/share/jenkins/ref/\"\n",
       "home": "/var/jenkins",
       "id": "2.346.3",
       "key_fingerprint": "FCEF32E745F2C3D5",
