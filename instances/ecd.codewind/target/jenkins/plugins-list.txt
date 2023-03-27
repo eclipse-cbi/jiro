@@ -1,8 +1,0 @@
-# GENERATED FILE - DO NOT EDIT
-basic-branch-build-strategies
-embeddable-build-status
-golang
-htmlpublisher
-mail-watcher-plugin
-nodejs
-pipeline-github
