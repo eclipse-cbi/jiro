@@ -206,7 +206,8 @@ help() {
   printf "default\t\t\tCreate any kind of credentials (secret text/token).\n"
   printf "github\t\t\tCreate github.com token credentials (secret text/token) and username/token credentials (username/token).\n"
   printf "gitlab\t\t\tCreate gitlab.eclipse.org token credentials (secret text/token).\n"
-  printf "gitlab_pat\t\t\tCreate gitlab.eclipse.org PAT credentials (GitLab PAT token).\n"
+  printf "gitlab_pat\t\tCreate gitlab.eclipse.org PAT credentials (GitLab PAT token).\n"
+  printf "gitlab_webhook_secret\tCreate gitlab.eclipse.org Webhook Secret credentials.\n"
   printf "sonarcloud\t\tCreate sonarcloud.io credentials (secret text/token).\n"
   printf "npmjs\t\t\tCreate npmjs credentials (secret text/token).\n"
   exit 0
@@ -227,6 +228,7 @@ auto() {
   if passw cbi "bots/${project_name}/gitlab.eclipse.org/api-token" 2&> /dev/null; then
     gitlab "${project_name}"
     gitlab_pat "${project_name}"
+    gitlab_webhook_secret "${project_name}"
   else
     echo "  No API token found."
   fi
@@ -275,6 +277,17 @@ gitlab_pat() {
   token="$(passw cbi "bots/${project_name}/gitlab.eclipse.org/api-token")"
 
   _create_gitlab_pat_token_credentials "${project_name}" "gitlab-personal-access-token" "GitLab personal access token for ${project_name}" "${token}" "gitlab.eclipse.org"
+}
+
+gitlab_webhook_secret() {
+  local project_name="${1:-}"
+
+ _verify_inputs "${project_name}"
+
+  local token
+  token="$(passw cbi "bots/${project_name}/gitlab.eclipse.org/webhook-secret")"
+
+  _create_string_credentials "${project_name}" "gitlab-webhook-secret" "GitLab Webhook Secret" "${token}" "gitlab.eclipse.org"
 }
 
 sonarcloud() {
