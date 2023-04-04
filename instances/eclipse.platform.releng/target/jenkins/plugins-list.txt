@@ -1,4 +1,6 @@
 # GENERATED FILE - DO NOT EDIT
 gerrit-code-review
+git-forensics
+github-checks
 job-dsl
 mail-watcher-plugin

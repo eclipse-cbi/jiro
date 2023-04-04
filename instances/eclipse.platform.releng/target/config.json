@@ -587,6 +587,8 @@
       "plugins": [
          "mail-watcher-plugin",
          "gerrit-code-review",
+         "github-checks",
+         "git-forensics",
          "job-dsl"
       ],
       "pluginsForceUpgrade": true,
