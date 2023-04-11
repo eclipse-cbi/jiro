@@ -598,6 +598,8 @@ tool:
     installations:
       - name: "apache-maven-latest"
         home: "/opt/tools/apache-maven/latest"
+      - name: "apache-maven-3.9.1"
+        home: "/opt/tools/apache-maven/3.9.1"
       - name: "apache-maven-3.9.0"
         home: "/opt/tools/apache-maven/3.9.0"
       - name: "apache-maven-3.8.6"
