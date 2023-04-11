@@ -31,6 +31,8 @@ for instance in "${@}"; do
   echo "${project_name}:"
   regen "${instance}"
   oc apply -f "${instance}/target/k8s/configmap-jenkins-config.yml"
+  oc apply -f "${instance}/target/k8s/known-hosts.json"
+  oc apply -f "${instance}/target/k8s/m2-dir.json"
   printf "Sleeping for 120 seconds...\n\n"
   (sleep 120s && "${SCRIPT_FOLDER}/../jenkins-cli.sh" "${instance}" reload-jcasc-configuration && echo "Done ${project_name}" >> ${log_file}) &
 done
