@@ -3,7 +3,7 @@ analysis-model-api 11.1.0
 ant 481.v7b_09e538fcca
 antisamy-markup-formatter 159.v25b_c67cd35fb_
 apache-httpcomponents-client-4-api 4.5.14-150.v7a_b_9d17134a_5
-authentication-tokens 1.4
+authentication-tokens 1.53.v1c90fd9191a_b_
 authorize-project 1.5.1
 basic-branch-build-strategies 71.vc1421f89888e
 bootstrap5-api 5.2.2-2
@@ -19,7 +19,7 @@ command-launcher 90.v669d7ccb_7c31
 commons-lang3-api 3.12.0-36.vd97de6465d5b_
 commons-text-api 1.10.0-36.vc008c8fcda_7b_
 config-file-provider 3.11.1
-configuration-as-code 1616.v11393eccf675
+configuration-as-code 1625.v27444588cc3d
 credentials 1224.vc23ca_a_9a_2cb_0
 credentials-binding 523.vd859a_4b_122e6
 data-tables-api 1.13.3-3
@@ -42,12 +42,12 @@ git-parameter 0.9.18
 github 1.37.0
 github-api 1.303-417.ve35d9dd78549
 github-branch-source 1703.vd5a_2b_29c6cdc
-gitlab-api 5.0.1-78.v47a_45b_9f78b_7
-gitlab-branch-source 647.vdee7766b_cfa_e
-gitlab-plugin 1.7.9
+gitlab-api 5.1.0-84.v491924123a_f7
+gitlab-branch-source 650.va_d1ce6d01959
+gitlab-plugin 1.7.10
 gradle 2.3.2
 greenballs 1.15.1
-h2-api 1.4.199
+h2-api 11.1.4.199-12.v9f4244395f7a_
 handy-uri-templates-2-api 2.1.8-22.v77d5b_75e6953
 htmlpublisher 1.31
 instance-identity 142.v04572ca_5b_265
@@ -66,7 +66,7 @@ jobConfigHistory 1207.vd28a_54732f92
 jquery3-api 3.6.4-1
 jsch 0.1.55.61.va_e9ee26616e7
 junit 1189.v1b_e593637fa_e
-kubernetes 3900.va_dce992317b_4
+kubernetes 3909.v1f2c633e8590
 kubernetes-client-api 6.4.1-215.v2ed17097a_8e9
 kubernetes-credentials 0.10.0
 ldap 671.v2a_9192a_7419d
@@ -82,7 +82,7 @@ mina-sshd-api-core 2.9.2-62.v199162f0a_2f8
 okhttp-api 4.10.0-132.v7a_7b_91cef39c
 pam-auth 1.10
 parameterized-trigger 2.45
-pipeline-build-step 487.va_823138eee8b_
+pipeline-build-step 488.v8993df156e8d
 pipeline-graph-analysis 202.va_d268e64deb_3
 pipeline-groovy-lib 629.vb_5627b_ee2104
 pipeline-input-step 466.v6d0a_5df34f81
