@@ -8,7 +8,7 @@
 # SPDX-License-Identifier: EPL-2.0 OR MIT
 #*******************************************************************************
 
-# Generates Maven settings file from credentials in password store 
+# Generates Maven settings file from credentials in password store
 
 set -o errexit
 set -o nounset
@@ -92,7 +92,7 @@ gen_server() {
     local username password
     username="$(pass "${username_pass}")"
     password="$(pass "${password_pass}")"
-    
+
     local server_password server_username nexusProUrl
     nexusProUrl="$(jq -r '.nexusProUrl | select (.!=null)' <<< "${server}")"
     if [[ -n "${nexusProUrl}" ]]; then
@@ -197,11 +197,11 @@ gen_mavenrc() {
   if [[ -n "${transferListenerLogLevel}" ]]; then
     printf ' -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=%s' "${transferListenerLogLevel}"
   fi
-  
+
   if [[ "$(jq -r '.maven.interactiveMode' "${config}")" == "false" ]]; then
     printf ' --batch-mode'
   fi
-  
+
   local mavenrc
   mavenrc="$(jq -r '.maven.mavenrc' "${config}")"
   if [[ -n "${mavenrc}" ]]; then
@@ -209,7 +209,108 @@ gen_mavenrc() {
   fi
 
   # shellcheck disable=SC2016
-  printf ' "${@}"' 
+  printf ' "${@}"'
+}
+
+gen_maven_toolchains () {
+  local maxJDK="${1:-}"
+  cat <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<toolchains>
+  <toolchain>
+    <type>jdk</type>
+    <provides>
+      <id>CDC-1.0/Foundation-1.0</id>
+      <vendor>cdc</vendor>
+    </provides>
+    <configuration><jdkHome>/opt/tools/ee/CDC-1.0_Foundation-1.0</jdkHome></configuration>
+  </toolchain>
+  <toolchain>
+    <type>jdk</type>
+    <provides>
+      <id>CDC-1.1/Foundation-1.1</id>
+      <vendor>cdc</vendor>
+    </provides>
+    <configuration><jdkHome>/opt/tools/ee/CDC-1.1_Foundation-1.1</jdkHome></configuration>
+  </toolchain>
+  <toolchain>
+    <type>jdk</type>
+    <provides>
+      <id>OSGi/Minimum-1.0</id>
+      <vendor>osgi</vendor>
+    </provides>
+    <configuration><jdkHome>/opt/tools/ee/OSGi_Minimum-1.0</jdkHome></configuration>
+  </toolchain>
+  <toolchain>
+    <type>jdk</type>
+    <provides>
+      <id>OSGi/Minimum-1.1</id>
+      <vendor>osgi</vendor>
+    </provides>
+    <configuration><jdkHome>/opt/tools/ee/OSGi_Minimum-1.1</jdkHome></configuration>
+  </toolchain>
+  <toolchain>
+    <type>jdk</type>
+    <provides>
+      <id>OSGi/Minimum-1.2</id>
+      <vendor>osgi</vendor>
+    </provides>
+    <configuration><jdkHome>/opt/tools/ee/OSGi_Minimum-1.2</jdkHome></configuration>
+  </toolchain>
+  <toolchain>
+    <type>jdk</type>
+    <provides>
+      <id>J2SE-1.5</id>
+      <version>1.5</version>
+      <vendor>oracle</vendor>
+    </provides>
+    <configuration><jdkHome>/opt/tools/java/oracle/jdk-5/latest</jdkHome></configuration>
+  </toolchain>
+  <toolchain>
+    <type>jdk</type>
+    <provides>
+      <id>JavaSE-1.6</id>
+      <version>1.6</version>
+      <vendor>oracle</vendor>
+    </provides>
+    <configuration><jdkHome>/opt/tools/java/oracle/jdk-6/latest</jdkHome></configuration>
+  </toolchain>
+  <toolchain>
+    <type>jdk</type>
+    <provides>
+      <id>JavaSE-1.7</id>
+      <version>1.7</version>
+      <vendor>oracle</vendor>
+    </provides>
+    <configuration><jdkHome>/opt/tools/java/oracle/jdk-7/latest</jdkHome></configuration>
+  </toolchain>
+  <toolchain>
+    <type>jdk</type>
+    <provides>
+      <id>JavaSE-1.8</id>
+      <version>1.8</version>
+      <vendor>oracle</vendor>
+    </provides>
+    <configuration><jdkHome>/opt/tools/java/oracle/jdk-8/latest</jdkHome></configuration>
+  </toolchain>
+EOF
+  for version in $(seq 9 ${maxJDK}); do
+    cat <<EOF
+  <toolchain>
+    <type>jdk</type>
+    <provides>
+      <id>JavaSE-${version}</id>
+      <version>${version}</version>
+      <vendor>openjdk</vendor>
+    </provides>
+    <configuration><jdkHome>/opt/tools/java/openjdk/jdk-${version}/latest</jdkHome></configuration>
+  </toolchain>
+EOF
+  done
+  echo "</toolchains>"
+#  cat <<EOF
+#</toolchains>
+#EOF
 }
 
 if [[ "$(jq -r '.maven.generate' "${CONFIG}")" == "true" ]]; then
@@ -225,4 +326,8 @@ if [[ "$(jq -r '.maven.generate' "${CONFIG}")" == "true" ]]; then
 
   >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating Maven .mavenrc"
   gen_mavenrc "${CONFIG}" > "${WORKDIR}/.mavenrc"
+
+  >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating Maven toolchains.xml"
+  #TODO: update max version when new JDK has been released
+  gen_maven_toolchains "21" > "${WORKDIR}/toolchains.xml"
 fi
