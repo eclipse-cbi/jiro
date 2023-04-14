@@ -43,6 +43,7 @@ data:
         projectMatrix:
           permissions:
             - "GROUP:Overall/Administer:admins"
+            - "USER:Job/Discover:anonymous"
             - "USER:Overall/Read:anonymous"
             - "GROUP:Agent/Build:foundation-internal.webdev"
             - "GROUP:Credentials/View:foundation-internal.webdev"

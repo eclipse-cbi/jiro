@@ -16,9 +16,9 @@ command-launcher 90.v669d7ccb_7c31
 commons-lang3-api 3.12.0-36.vd97de6465d5b_
 commons-text-api 1.10.0-36.vc008c8fcda_7b_
 config-file-provider 3.11.1
-configuration-as-code 1616.v11393eccf675
+configuration-as-code 1625.v27444588cc3d
 credentials 1189.vf61b_a_5e2f62e
-credentials-binding 523.vd859a_4b_122e6
+credentials-binding 604.vb_64480b_c56ca_
 data-tables-api 1.12.1-4
 disable-failed-job 1.15
 display-url-api 2.3.7
@@ -26,7 +26,7 @@ docker-commons 419.v8e3cd84ef49c
 docker-workflow 563.vd5d2e5c4007f
 durable-task 504.vb10d1ae5ba2f
 echarts-api 5.4.0-1
-email-ext 2.95
+email-ext 2.96
 extended-read-permission 3.2
 external-monitor-job 203.v683c09d993b_9
 extra-columns 1.25
@@ -40,8 +40,8 @@ git-parameter 0.9.18
 github 1.37.0
 github-api 1.303-417.ve35d9dd78549
 github-branch-source 1703.vd5a_2b_29c6cdc
-gitlab-api 5.0.1-78.v47a_45b_9f78b_7
-gitlab-branch-source 647.vdee7766b_cfa_e
+gitlab-api 5.1.0-84.v491924123a_f7
+gitlab-branch-source 650.va_d1ce6d01959
 gitlab-plugin 1.7.8
 greenballs 1.15.1
 h2-api 1.4.199
@@ -61,7 +61,7 @@ jobConfigHistory 1176.v1b_4290db_41a_5
 jquery3-api 3.6.1-2
 jsch 0.1.55.61.va_e9ee26616e7
 junit 1189.v1b_e593637fa_e
-kubernetes 3900.va_dce992317b_4
+kubernetes 3910.ve59cec5e33ea_
 kubernetes-cli 1.12.0
 kubernetes-client-api 6.4.1-215.v2ed17097a_8e9
 kubernetes-credentials 0.10.0
@@ -78,10 +78,10 @@ okhttp-api 4.10.0-132.v7a_7b_91cef39c
 openshift-client 1.0.38
 pam-auth 1.10
 parameterized-trigger 2.45
-pipeline-build-step 487.va_823138eee8b_
+pipeline-build-step 488.v8993df156e8d
 pipeline-github 2.8-141.7e985db66f30
 pipeline-graph-analysis 202.va_d268e64deb_3
-pipeline-groovy-lib 629.vb_5627b_ee2104
+pipeline-groovy-lib 656.va_a_ceeb_6ffb_f7
 pipeline-input-step 466.v6d0a_5df34f81
 pipeline-maven 1279.v5d711113020f
 pipeline-milestone-step 111.v449306f708b_7
@@ -98,7 +98,7 @@ popper2-api 2.11.6-2
 prism-api 1.29.0-2
 promoted-builds 892.vd6219fc0a_efb
 rebuild 1.34
-resource-disposer 0.21
+resource-disposer 0.22
 scm-api 631.v9143df5b_e4a_a
 script-security 1229.v4880b_b_e905a_6
 simple-theme-plugin 146.v0e67db_a_9052e
@@ -109,7 +109,7 @@ ssh-agent 327.v230ecd01f86f
 ssh-credentials 305.v8f4381501156
 ssh-slaves 2.877.v365f5eb_a_b_eec
 structs 324.va_f5d6774f3a_d
-timestamper 1.23
+timestamper 1.24
 token-macro 321.vd7cc1f2a_52c8
 trilead-api 2.84.v72119de229b_7
 variant 59.vf075fe829ccb
@@ -118,12 +118,12 @@ workflow-aggregator 596.v8c21c963d92d
 workflow-api 1208.v0cc7c6e0da_9e
 workflow-basic-steps 1010.vf7a_b_98e847c1
 workflow-cps 3653.v07ea_433c90b_4
-workflow-durable-task-step 1241.v1a_63e465f943
+workflow-durable-task-step 1244.vee71f675dee6
 workflow-job 1289.vd1c337fd5354
 workflow-multibranch 733.v109046189126
 workflow-scm-step 408.v7d5b_135a_b_d49
 workflow-step-api 639.v6eca_cd8c04a_a_
 workflow-support 839.v35e2736cfd5c
-ws-cleanup 0.44
+ws-cleanup 0.45
 xvnc 1.28
 
