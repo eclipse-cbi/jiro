@@ -4,7 +4,6 @@
     displayName: "Eclipse Jersey",
   },
   jenkins+: {
-    version: "2.361.4",
     plugins+: [
       "copyartifact",
     ],

@@ -4,7 +4,6 @@
     displayName: "Eclipse eTrice"
   },
   jenkins+: {
-    version: "2.361.4",
     plugins+: [
       "gradle",
       "postbuild-task",

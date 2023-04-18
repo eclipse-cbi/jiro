@@ -4,7 +4,7 @@ jenkins:
       labelString: "windows windows10"
       launcher:
         jnlp:
-          vmargs: "-Xmx256m"
+          #vmargs: "-Xmx256m"
           webSocket: true
           workDirSettings:
             disabled: false

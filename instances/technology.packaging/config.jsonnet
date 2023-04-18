@@ -4,7 +4,6 @@
     displayName: "Eclipse Packaging Project",
   },
   jenkins+: {
-      version: "2.361.4",
       permissions+: [
       // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2481
       {

@@ -72,7 +72,7 @@ jenkins:
             label: "basic"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic:remoting-4.13.3
+                image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3107.v665000b_51092
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -158,7 +158,7 @@ jenkins:
             label: "basic-ubuntu"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-4.13.3
+                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3107.v665000b_51092
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -244,7 +244,7 @@ jenkins:
             label: "migration jipp-migration centos-7"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-4.13.3
+                image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3107.v665000b_51092
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -330,7 +330,7 @@ jenkins:
             label: "centos-latest centos-8"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-4.13.3
+                image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3107.v665000b_51092
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -470,7 +470,7 @@ unclassified:
     hookSecretConfigs:
       - credentialsId: "github-webhook-secret"
     hookUrl: "https://ci.eclipse.org/osee/github-webhook/"
-  gitSCM:
+  scmGit:
     createAccountBasedOnEmail: true
     useExistingAccountWithSameEmail: true
 tool:

@@ -9,6 +9,6 @@ tool:
               id: "14.17.3"
               npmPackagesRefreshHours: 72
 unclassified:
-  gitSCM:
+  scmGit:
     globalConfigName: Eclipse Kapua committers
     globalConfigEmail: kapua-dev@eclipse.org

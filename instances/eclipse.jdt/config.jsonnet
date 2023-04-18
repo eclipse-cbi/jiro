@@ -5,7 +5,6 @@
     resourcePacks: 3,
   },
   jenkins+: {
-    version: "2.361.4",
     plugins+: [
       "gerrit-code-review",
       "github-checks",

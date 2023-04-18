@@ -4,7 +4,6 @@
     displayName: "Eclipse Mylyn",
   },
   jenkins+: {
-    version: "2.361.4",
     plugins+: [
       "xunit",
       "warnings-ng",

@@ -578,7 +578,7 @@ unclassified:
     hookSecretConfigs:
       - credentialsId: "github-webhook-secret"
     hookUrl: "https://ci.eclipse.org/cbi/github-webhook/"
-  gitSCM:
+  scmGit:
     createAccountBasedOnEmail: true
     useExistingAccountWithSameEmail: true
   slackNotifier:
