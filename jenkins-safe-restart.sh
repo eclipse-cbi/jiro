@@ -38,7 +38,7 @@ ns="$(jq -r '.kubernetes.master.namespace' "${instance}/target/config.json")"
 url="$(jq -r '.deployment.url' "${instance}/target/config.json")"
 
 runningBuilds() {
-  local url="${1}"
+  local url="${1:-}"
   local jenkins_user
   jenkins_user="$("${SCRIPT_FOLDER}/utils/local_config.sh" "get_var" "user" "jenkins_login")"
   local jenkins_pw
@@ -46,31 +46,42 @@ runningBuilds() {
   curl --retry 10 -gSs --user "${jenkins_user}:${jenkins_pw}" "${url}"'/computer/api/json?depth=2&tree=computer[displayName,executors[currentExecutable[*]],oneOffExecutors[currentExecutable[*]]]' | jq -c '.computer | map({name: .displayName?, executors: (.executors? + .oneOffExecutors?) | map(select(.currentExecutable != null)) | map(.currentExecutable | {name: .fullDisplayName, url: .url}) })'
 }
 
-echo "INFO: Safe restarting Jenkins @ ${url}"
-echo "INFO: Putting Jenkins instance in quiet mode"
-"${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" quiet-down || :
+wait_for_build() {
+  local url="${1:-}"
+  builds=$(runningBuilds "${url}")
+  buildsCount=$(echo "${builds}" | jq -r 'map(.executors[]) | length')
+  if [[ "${buildsCount}" -gt 0 ]]; then
+    echo "INFO: There are still ${buildsCount} builds running:"
+    echo "${builds}" | jq -r 'map(.executors[].name)[]'
+    echo -n "INFO: Waiting for builds to complete (timeout=${timeout_sec}s)"
 
-builds=$(runningBuilds "${url}")
-buildsCount=$(echo "${builds}" | jq -r 'map(.executors[]) | length')
-if [[ "${buildsCount}" -gt 0 ]]; then
-  echo "INFO: There are still ${buildsCount} builds running:"
-  echo "${builds}" | jq -r 'map(.executors[].name)[]'
-  echo -n "INFO: Waiting for builds to complete (timeout=${timeout_sec}s)"
+    startTime=$(date +%s)
+    while [[ "${buildsCount}" -gt 0 ]]; do
+      buildsCount=$(runningBuilds "${url}" | jq -r 'map(.executors[]) | length')
+      sleep 10
+      if [[ $((startTime + timeout_sec)) -lt $(date +%s) ]]; then
+        echo ""
+        echo "INFO: Timeout after ${timeout_sec}s, still ${buildsCount} builds running. The following builds will be forcibly terminated"
+        runningBuilds "${url}" | jq -r 'map(.executors[].name)[]'
+        break
+      fi
+      echo -n "."
+    done
 
-  startTime=$(date +%s)
-  while [[ "${buildsCount}" -gt 0 ]]; do
-    buildsCount=$(runningBuilds "${url}" | jq -r 'map(.executors[]) | length')
-    sleep 10
-    if [[ $((startTime + timeout_sec)) -lt $(date +%s) ]]; then
-      echo ""
-      echo "INFO: Timeout after ${timeout_sec}s, still ${buildsCount} builds running. The following builds will be forcibly terminated"
-      runningBuilds "${url}" | jq -r 'map(.executors[].name)[]'
-      break
-    fi
-    echo -n "."
-  done
+    echo -e "\b."
+  fi
+}
 
-  echo -e "\b."
+http_code="$(curl -sL "${url}" -o /dev/null -w "%{http_code}")"
+
+if [[ "${http_code}" -eq 200 ]]; then
+  echo "INFO: Safe restarting Jenkins @ ${url}"
+  echo "INFO: Putting Jenkins instance in quiet mode"
+  "${SCRIPT_FOLDER}/jenkins-cli.sh" "${instance}" quiet-down || :
+
+  wait_for_build "${url}"
+else
+  echo "WARNING: Jenkins @ ${url} is not reachable. Skipping safe restart."
 fi
 
 #"${SCRIPT_FOLDER}/jenkins-switch-maintenance.sh" "${instance}" "on"
@@ -78,7 +89,7 @@ fi
 #shellcheck disable=SC1091
 . "${SCRIPT_FOLDER}/build/k8s-set-context.sh" "$(jq -r '.deployment.cluster' "${instance}/target/config.json")"
 
-echo -n "INFO: Restarting Jenkins"
+echo "INFO: Restarting Jenkins"
 
 kubectl rollout restart -n "${ns}" "sts/${stsName}"
 kubectl rollout status -n "${ns}" "sts/${stsName}"
