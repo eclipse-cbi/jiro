@@ -47,8 +47,6 @@ data:
             - "GROUP:Overall/Administer:admins"
             - "GROUP:Agent/Build:adoptium.mc"
             - "GROUP:Credentials/View:adoptium.mc"
-            - "GROUP:Gerrit/ManualTrigger:adoptium.mc"
-            - "GROUP:Gerrit/Retrigger:adoptium.mc"
             - "GROUP:Job/Build:adoptium.mc"
             - "GROUP:Job/Cancel:adoptium.mc"
             - "GROUP:Job/Configure:adoptium.mc"
