@@ -4,7 +4,6 @@
     displayName: "Eclipse Mission Control",
   },
   jenkins+: {
-    version: "2.361.4",
     plugins+: [
       "badge",
       "build-with-parameters",
