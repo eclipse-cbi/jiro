@@ -31,7 +31,7 @@ jenkins:
   - permanent:
       labelString: "windows windows10"
       launcher:
-        jnlp:
+        inbound:
           webSocket: true
           workDirSettings:
             disabled: false

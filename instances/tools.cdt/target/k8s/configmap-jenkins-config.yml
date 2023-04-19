@@ -441,7 +441,7 @@ data:
             remoteFS: "C:/Users/jenkins-agent"
             numExecutors: 1
             launcher:
-              jnlp:
+              inbound:
                 webSocket: true
                 workDirSettings:
                   disabled: false

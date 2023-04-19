@@ -466,8 +466,7 @@ data:
         - permanent:
             labelString: "windows windows10"
             launcher:
-              jnlp:
-                #vmargs: "-Xmx256m"
+              inbound:
                 webSocket: true
                 workDirSettings:
                   disabled: false

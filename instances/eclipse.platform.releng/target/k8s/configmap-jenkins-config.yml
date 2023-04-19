@@ -586,7 +586,7 @@ data:
             mode: EXCLUSIVE
             retentionStrategy: "always"
             launcher:
-              jnlp:
+              inbound:
                 webSocket: true
                 workDirSettings:
                   disabled: false
@@ -600,7 +600,7 @@ data:
             mode: EXCLUSIVE
             retentionStrategy: "always"
             launcher:
-              jnlp:
+              inbound:
                 webSocket: true
                 workDirSettings:
                   disabled: false
@@ -615,7 +615,7 @@ data:
             mode: EXCLUSIVE
             retentionStrategy: "always"
             launcher:
-              jnlp:
+              inbound:
                 webSocket: true
                 workDirSettings:
                   disabled: false
@@ -630,7 +630,7 @@ data:
             mode: EXCLUSIVE
             retentionStrategy: "always"
             launcher:
-              jnlp:
+              inbound:
                 webSocket: true
                 workDirSettings:
                   disabled: false
@@ -645,7 +645,7 @@ data:
             mode: EXCLUSIVE
             retentionStrategy: "always"
             launcher:
-              jnlp:
+              inbound:
                 webSocket: true
                 workDirSettings:
                   disabled: false
@@ -660,7 +660,7 @@ data:
             mode: EXCLUSIVE
             retentionStrategy: "always"
             launcher:
-              jnlp:
+              inbound:
                 webSocket: true
                 workDirSettings:
                   disabled: false
@@ -692,7 +692,7 @@ data:
             name: "qa6xd-win11"
             labelString: "windows"
             launcher:
-              jnlp:
+              inbound:
                 webSocket: true
                 workDirSettings:
                   disabled: false
