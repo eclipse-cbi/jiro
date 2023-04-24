@@ -25,6 +25,11 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         principal: "sravankumarl@in.ibm.com",
         grantedPermissions: permissionsTemplates.committerPermissionsList,
       },
+      // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2996
+      {
+        principal: "gpunathi@in.ibm.com",
+        grantedPermissions: permissionsTemplates.committerPermissionsList,
+      },
     ],
   },
 }
