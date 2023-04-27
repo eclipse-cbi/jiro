@@ -31,7 +31,7 @@ _check_if_var_exists() {
   local var="${1:-}"
   local name="${2:-}"
   if [[ -z "${var}" ]] || [[ "${var}" == "null" ]]; then
-    printf "ERROR: '${name}' must be set in %s.\n" "${LOCAL_CONFIG}"
+    printf "ERROR: '${name}' must be set in %s.\n" "${LOCAL_CONFIG}" >> /dev/tty
     exit 1
   fi
 }
@@ -56,10 +56,9 @@ get_var() {
   local lcv
 
   if [[ -z "${name}" ]]; then
-    printf "ERROR: 'name' must be set\n"
+    printf "ERROR: 'name' must be set\n" >> /dev/tty
     exit 1
   fi
-  
   if [[ -z "${group}" ]] || [[ "${group}" == "" ]]; then
     lcv="$(jq -r ".\"${name}\"" "${LOCAL_CONFIG}")"
     _check_if_var_exists "${lcv}" "${name}"
