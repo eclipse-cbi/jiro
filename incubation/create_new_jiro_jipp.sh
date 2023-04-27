@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
+#*******************************************************************************
+# Copyright (c) 2019 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
 
 # Bash strict-mode
 set -o errexit
@@ -63,7 +71,7 @@ wait_for_jipp_post_setup() {
     sleep 12
   done
   printf "\n"
-  
+
   if [[ $(curl -sL -w "%{http_code}\n" "https://${host}/${short_name}" -o /dev/null | grep 200) ]]; then
     printf "JIPP is online!\n"
     "${script_folder}/post_setup.sh" "${project_name}"

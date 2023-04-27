@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
+#*******************************************************************************
+# Copyright (c) 2019 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
 
 # Bash strict-mode
 set -o errexit
@@ -127,7 +135,7 @@ EOH
   echo "Copy files to Jiro pod ${SHORT_NAME}-0..."
   oc rsync tmp/ "${SHORT_NAME}-0:/var/jenkins/" -n="${SHORT_NAME}" --no-perms
   rm -rf tmp
-  #TODO: restart Jenkins via Jenkins CLI? 
+  #TODO: restart Jenkins via Jenkins CLI?
   echo "Force restart of Jenkins..."
   oc delete pod "${SHORT_NAME}-0" -n="${SHORT_NAME}" --force
 }
