@@ -505,6 +505,21 @@ data:
             name: "w8qlf-macos11-arm64"
             remoteFS: "/Users/genie.justj/jenkins"
             retentionStrategy: "always"
+        # https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/3050
+        - permanent:
+            labelString: "ppc64le"
+            launcher:
+              inbound:
+                webSocket: true
+                workDirSettings:
+                  disabled: false
+                  failIfWorkDirIsMissing: false
+                  internalDir: "remoting"
+            mode: EXCLUSIVE
+            name: "moh4B-project-provided-ppc64le"
+            nodeDescription: "Agent running on the same machine as\r\n<a href=\"https://ci.eclipse.org/releng/manage/computer/ppcle-test\">https://ci.eclipse.org/releng/manage/computer/ppcle-test</a>"
+            remoteFS: "/home/justj/build"
+            retentionStrategy: "always"
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
