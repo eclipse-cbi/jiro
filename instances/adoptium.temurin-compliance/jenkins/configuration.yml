@@ -388,7 +388,7 @@ jenkins:
       mode: EXCLUSIVE
       retentionStrategy: "always"
       launcher:
-        jnlp:
+        inbound:
           webSocket: true
           workDirSettings:
             disabled: false
@@ -403,7 +403,7 @@ jenkins:
       mode: EXCLUSIVE
       retentionStrategy: "always"
       launcher:
-        jnlp:
+        inbound:
           webSocket: true
           workDirSettings:
             disabled: false
@@ -479,7 +479,7 @@ jenkins:
       mode: EXCLUSIVE
       retentionStrategy: "always"
       launcher:
-        jnlp:
+        inbound:
           webSocket: true
           workDirSettings:
             disabled: false
@@ -494,7 +494,7 @@ jenkins:
       mode: EXCLUSIVE
       retentionStrategy: "always"
       launcher:
-        jnlp:
+        inbound:
           webSocket: true
           workDirSettings:
             disabled: false
@@ -509,7 +509,7 @@ jenkins:
       mode: EXCLUSIVE
       retentionStrategy: "always"
       launcher:
-        jnlp:
+        inbound:
           webSocket: true
           workDirSettings:
             disabled: false
