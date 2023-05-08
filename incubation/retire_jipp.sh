@@ -115,7 +115,7 @@ collect_backup() {
 
 delete_question(){
   local project_name="${1:-}"
-  read -rp "Do you want to delete the project? (Y)es, (N)o, E(x)it: " yn
+  read -rp "Do you want to delete the ${project_name} project on the cluster and in Jiro? (Y)es, (N)o, E(x)it: " yn
   case "${yn}" in
     [Yy]* ) delete_project "${project_name}";;
     [Nn]* ) echo "Skipping delete... ";return;;
@@ -128,7 +128,7 @@ delete_project() {
   local project_name="${1:-}"
   local short_name="${project_name##*.}"
   echo
-  echo "Deleting project/namespace on OpenShift..."
+  echo "Deleting project/namespace on the cluster..."
   oc delete project "${short_name}"
   oc delete pv "tools-jiro-${short_name}"
 
@@ -203,9 +203,10 @@ scp "backup/${BACKUP_FILE_NAME}" "${FILE_SERVER}:/tmp/"
 
 delete_question "${PROJECT_NAME}"
 
+mv_jipp_backup_to_archive "${SHORT_NAME}" "${BACKUP_FILE_NAME}"
+
 "${CI_ADMIN_ROOT}/jenkins/db_access.sh" "remove_jipp" "${PROJECT_NAME}"
 
-mv_jipp_backup_to_archive "${SHORT_NAME}" "${BACKUP_FILE_NAME}"
 
 echo
 echo "TODO:"
