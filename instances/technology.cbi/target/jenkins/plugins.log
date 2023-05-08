@@ -1,12 +1,12 @@
 Resulting plugin list:
-analysis-model-api 11.1.0
+analysis-model-api 11.2.0
 ant 487.vd79d090d4ea_e
 antisamy-markup-formatter 159.v25b_c67cd35fb_
 apache-httpcomponents-client-4-api 4.5.14-150.v7a_b_9d17134a_5
 authentication-tokens 1.53.v1c90fd9191a_b_
 authorize-project 1.5.1
 basic-branch-build-strategies 71.vc1421f89888e
-bootstrap5-api 5.2.2-2
+bootstrap5-api 5.2.2-3
 bouncycastle-api 2.27
 branch-api 2.1071.v1a_188a_562481
 build-timeout 1.30
@@ -64,7 +64,7 @@ jersey2-api 2.39.1-1
 jjwt-api 0.11.5-77.v646c772fddb_0
 jobConfigHistory 1207.vd28a_54732f92
 jquery3-api 3.6.4-1
-jsch 0.1.55.61.va_e9ee26616e7
+jsch 0.2.8-65.v052c39de79b_2
 junit 1198.ve38db_d1b_c975
 kubernetes 3923.v294a_d4250b_91
 kubernetes-client-api 6.4.1-215.v2ed17097a_8e9
@@ -115,7 +115,7 @@ ssh-credentials 305.v8f4381501156
 ssh-slaves 2.877.v365f5eb_a_b_eec
 structs 324.va_f5d6774f3a_d
 support-core 1278.vf26a_78c372f1
-timestamper 1.24
+timestamper 1.25
 token-macro 359.vb_cde11682e0c
 trilead-api 2.84.v72119de229b_7
 variant 59.vf075fe829ccb
