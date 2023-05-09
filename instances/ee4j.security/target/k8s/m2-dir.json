@@ -7,10 +7,10 @@
    "kind": "ConfigMap",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.es",
-         "org.eclipse.cbi.jiro/project.shortname": "es"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.security",
+         "org.eclipse.cbi.jiro/project.shortname": "security"
       },
       "name": "m2-dir",
-      "namespace": "es"
+      "namespace": "security"
    }
 }

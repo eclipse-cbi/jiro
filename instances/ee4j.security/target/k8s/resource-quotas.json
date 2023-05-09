@@ -3,11 +3,11 @@
    "kind": "ResourceQuota",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.es",
-         "org.eclipse.cbi.jiro/project.shortname": "es"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.security",
+         "org.eclipse.cbi.jiro/project.shortname": "security"
       },
       "name": "jenkins-instance-quota",
-      "namespace": "es"
+      "namespace": "security"
    },
    "spec": {
       "hard": {

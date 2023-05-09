@@ -3,11 +3,11 @@
    "kind": "Service",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.es",
-         "org.eclipse.cbi.jiro/project.shortname": "es"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.security",
+         "org.eclipse.cbi.jiro/project.shortname": "security"
       },
       "name": "jenkins-ui",
-      "namespace": "es"
+      "namespace": "security"
    },
    "spec": {
       "ports": [
@@ -19,7 +19,7 @@
          }
       ],
       "selector": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.es"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.security"
       }
    }
 }

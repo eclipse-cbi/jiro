@@ -6,10 +6,10 @@
          "kind": "PersistentVolume",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "ee4j.es",
-               "org.eclipse.cbi.jiro/project.shortname": "es"
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j.security",
+               "org.eclipse.cbi.jiro/project.shortname": "security"
             },
-            "name": "tools-jiro-es"
+            "name": "tools-jiro-security"
          },
          "spec": {
             "accessModes": [
@@ -19,8 +19,8 @@
                "storage": "20Gi"
             },
             "claimRef": {
-               "name": "tools-claim-jiro-es",
-               "namespace": "es"
+               "name": "tools-claim-jiro-security",
+               "namespace": "security"
             },
             "mountOptions": [
                "vers=4.2",
@@ -50,11 +50,11 @@
          "kind": "PersistentVolumeClaim",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "ee4j.es",
-               "org.eclipse.cbi.jiro/project.shortname": "es"
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j.security",
+               "org.eclipse.cbi.jiro/project.shortname": "security"
             },
-            "name": "tools-claim-jiro-es",
-            "namespace": "es"
+            "name": "tools-claim-jiro-security",
+            "namespace": "security"
          },
          "spec": {
             "accessModes": [

@@ -3,11 +3,11 @@
    "kind": "LimitRange",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.es",
-         "org.eclipse.cbi.jiro/project.shortname": "es"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.security",
+         "org.eclipse.cbi.jiro/project.shortname": "security"
       },
       "name": "jenkins-instance-limit-range",
-      "namespace": "es"
+      "namespace": "security"
    },
    "spec": {
       "limits": [

@@ -10,14 +10,14 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   labels:
-    org.eclipse.cbi.jiro/project.shortname: "es"
-    org.eclipse.cbi.jiro/project.fullName: "ee4j.es"
+    org.eclipse.cbi.jiro/project.shortname: "security"
+    org.eclipse.cbi.jiro/project.fullName: "ee4j.security"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.387.2"
-    org.eclipse.cbi.jiro/kubernetes.master.namespace: "es"
-  namespace: "es"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "security"
+  namespace: "security"
   name: jenkins-config
 data:
   jenkins.yaml: |
@@ -48,27 +48,27 @@ data:
             - "USER:Job/Read:anonymous"
             - "USER:Overall/Read:anonymous"
             - "GROUP:Job/ExtendedRead:common"
-            - "GROUP:Agent/Build:ee4j.es"
-            - "GROUP:Credentials/View:ee4j.es"
-            - "GROUP:Gerrit/ManualTrigger:ee4j.es"
-            - "GROUP:Gerrit/Retrigger:ee4j.es"
-            - "GROUP:Job/Build:ee4j.es"
-            - "GROUP:Job/Cancel:ee4j.es"
-            - "GROUP:Job/Configure:ee4j.es"
-            - "GROUP:Job/Create:ee4j.es"
-            - "GROUP:Job/Delete:ee4j.es"
-            - "GROUP:Job/Move:ee4j.es"
-            - "GROUP:Job/Read:ee4j.es"
-            - "GROUP:Job/Workspace:ee4j.es"
-            - "GROUP:Overall/Read:ee4j.es"
-            - "GROUP:Run/Delete:ee4j.es"
-            - "GROUP:Run/Replay:ee4j.es"
-            - "GROUP:Run/Update:ee4j.es"
-            - "GROUP:SCM/Tag:ee4j.es"
-            - "GROUP:View/Configure:ee4j.es"
-            - "GROUP:View/Create:ee4j.es"
-            - "GROUP:View/Delete:ee4j.es"
-            - "GROUP:View/Read:ee4j.es"
+            - "GROUP:Agent/Build:ee4j.security"
+            - "GROUP:Credentials/View:ee4j.security"
+            - "GROUP:Gerrit/ManualTrigger:ee4j.security"
+            - "GROUP:Gerrit/Retrigger:ee4j.security"
+            - "GROUP:Job/Build:ee4j.security"
+            - "GROUP:Job/Cancel:ee4j.security"
+            - "GROUP:Job/Configure:ee4j.security"
+            - "GROUP:Job/Create:ee4j.security"
+            - "GROUP:Job/Delete:ee4j.security"
+            - "GROUP:Job/Move:ee4j.security"
+            - "GROUP:Job/Read:ee4j.security"
+            - "GROUP:Job/Workspace:ee4j.security"
+            - "GROUP:Overall/Read:ee4j.security"
+            - "GROUP:Run/Delete:ee4j.security"
+            - "GROUP:Run/Replay:ee4j.security"
+            - "GROUP:Run/Update:ee4j.security"
+            - "GROUP:SCM/Tag:ee4j.security"
+            - "GROUP:View/Configure:ee4j.security"
+            - "GROUP:View/Create:ee4j.security"
+            - "GROUP:View/Delete:ee4j.security"
+            - "GROUP:View/Read:ee4j.security"
     
       markupFormatter: rawHtml
       crumbIssuer:
@@ -89,14 +89,14 @@ data:
       - kubernetes:
           name: "kubernetes"
           containerCapStr: "2"
-          jenkinsUrl: "http://jenkins-ui.es.svc.cluster.local/es"
-          jenkinsTunnel: "jenkins-discovery.es.svc.cluster.local:50000"
+          jenkinsUrl: "http://jenkins-ui.security.svc.cluster.local/security"
+          jenkinsTunnel: "jenkins-discovery.security.svc.cluster.local:50000"
           maxRequestsPerHostStr: "32"
-          namespace: "es"
+          namespace: "security"
           podRetention: "never"
           templates:
           - name: "basic"
-            namespace: "es"
+            namespace: "security"
             label: "basic"
             containers:
             - name: "jnlp"
@@ -132,7 +132,7 @@ data:
                 value: ""
             volumes:
             - persistentVolumeClaim:
-                claimName: "tools-claim-jiro-es"
+                claimName: "tools-claim-jiro-security"
                 mountPath: "/opt/tools"
                 readOnly: true
             - configMapVolume:
@@ -182,7 +182,7 @@ data:
                   configMap:
                     name: m2-dir
           - name: "basic-ubuntu"
-            namespace: "es"
+            namespace: "security"
             label: "basic-ubuntu"
             containers:
             - name: "jnlp"
@@ -218,7 +218,7 @@ data:
                 value: ""
             volumes:
             - persistentVolumeClaim:
-                claimName: "tools-claim-jiro-es"
+                claimName: "tools-claim-jiro-security"
                 mountPath: "/opt/tools"
                 readOnly: true
             - configMapVolume:
@@ -268,7 +268,7 @@ data:
                   configMap:
                     name: m2-dir
           - name: "centos-7"
-            namespace: "es"
+            namespace: "security"
             label: "migration jipp-migration centos-7"
             containers:
             - name: "jnlp"
@@ -304,7 +304,7 @@ data:
                 value: ""
             volumes:
             - persistentVolumeClaim:
-                claimName: "tools-claim-jiro-es"
+                claimName: "tools-claim-jiro-security"
                 mountPath: "/opt/tools"
                 readOnly: true
             - configMapVolume:
@@ -354,7 +354,7 @@ data:
                   configMap:
                     name: m2-dir
           - name: "centos-8"
-            namespace: "es"
+            namespace: "security"
             label: "centos-latest centos-8"
             containers:
             - name: "jnlp"
@@ -390,7 +390,7 @@ data:
                 value: ""
             volumes:
             - persistentVolumeClaim:
-                claimName: "tools-claim-jiro-es"
+                claimName: "tools-claim-jiro-security"
                 mountPath: "/opt/tools"
                 readOnly: true
             - configMapVolume:
@@ -454,7 +454,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci.eclipse.org/es
+        url: https://ci.eclipse.org/security
     
       mailer:
         replyToAddress: ci-admin@eclipse.org
@@ -473,11 +473,11 @@ data:
       simple-theme-plugin:
         elements:
         - cssUrl:
-            url: "/es/userContent/theme/quicksilver.css"
+            url: "/security/userContent/theme/quicksilver.css"
         - cssUrl:
             url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
         - jsUrl:
-            url: "/es/userContent/theme/title.js"
+            url: "/security/userContent/theme/title.js"
     
       buildDiscarders:
         configuredBuildDiscarders:
@@ -505,7 +505,7 @@ data:
             manageHooks: false
         hookSecretConfigs:
           - credentialsId: "github-webhook-secret"
-        hookUrl: "https://ci.eclipse.org/es/github-webhook/"
+        hookUrl: "https://ci.eclipse.org/security/github-webhook/"
     
       scmGit:
         createAccountBasedOnEmail: true

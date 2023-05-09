@@ -6,15 +6,15 @@
          "haproxy.router.openshift.io/timeout": "60s"
       },
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.es",
-         "org.eclipse.cbi.jiro/project.shortname": "es"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.security",
+         "org.eclipse.cbi.jiro/project.shortname": "security"
       },
-      "name": "es",
-      "namespace": "es"
+      "name": "security",
+      "namespace": "security"
    },
    "spec": {
       "host": "ci.eclipse.org",
-      "path": "/es",
+      "path": "/security",
       "port": {
          "targetPort": "http"
       },
