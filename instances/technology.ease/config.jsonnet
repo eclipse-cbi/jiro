@@ -7,8 +7,11 @@
     plugins+: [
       "blueocean",
       "code-coverage-api",
+      "compact-columns",
       "copyartifact",
       "embeddable-build-status",
+      "sectioned-view",
+      "view-job-filters",
     ],
   },
 }
