@@ -1,22 +1,6 @@
 jenkins:
   nodes:
   - permanent:
-      name: "deb10-x64-1"
-      nodeDescription: "Linux x86"
-      labelString: "Linux x86 UNB compile:riscv64:cross"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        command:
-          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@deb10-x64-1 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -Xmx256m -jar remoting.jar'\""
-      nodeProperties:
-      - envVars:
-          env:
-          - key: "CROSS_SYSROOT_RISCV64"
-            value: '/home/jenkins/riscv-debian/rootfs'
-  - permanent:
       name: "eclipseomr-1"
       nodeDescription: "eclipseomr-1 Linux PPCLE Ubuntu 20.04"
       labelString: "Linux PPCLE compile:plinux cgroup.v1"
@@ -342,7 +326,7 @@ jenkins:
   - permanent:
       name: "ub20-x64-omr7"
       nodeDescription: "Linux x86"
-      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux cgroup.v2"
+      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux cgroup.v2 compile:riscv64:cross"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -364,7 +348,7 @@ jenkins:
   - permanent:
       name: "ub20-x64-omr9"
       nodeDescription: "Linux x86"
-      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux cgroup.v2"
+      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux cgroup.v2 compile:riscv64:cross"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
