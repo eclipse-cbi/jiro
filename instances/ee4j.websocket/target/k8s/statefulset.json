@@ -141,6 +141,10 @@
                         "mountPath": "/run/secrets/jenkins/ssh",
                         "name": "gerrit-ssh-keys",
                         "readOnly": true
+                     },
+                     {
+                        "mountPath": "/var/jenkins/.ssh",
+                        "name": "master-known-hosts"
                      }
                   ]
                }
@@ -167,6 +171,12 @@
                   "secret": {
                      "secretName": "gerrit-ssh-keys"
                   }
+               },
+               {
+                  "configMap": {
+                     "name": "master-known-hosts"
+                  },
+                  "name": "master-known-hosts"
                }
             ]
          }
