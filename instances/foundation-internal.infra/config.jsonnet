@@ -18,6 +18,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         principal: "anonymous",
         grantedPermissions: [
           "Overall/Read",
+          "Job/Discover", // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/1157#note_1153239
         ]
       },
       {
