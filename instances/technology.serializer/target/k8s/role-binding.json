@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.serializer",
+         "org.eclipse.cbi.jiro/project.shortname": "serializer"
+      },
+      "name": "serializer",
+      "namespace": "serializer"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "serializer"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "serializer",
+         "namespace": "serializer"
+      }
+   ]
+}
