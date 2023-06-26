@@ -210,6 +210,7 @@ help() {
   printf "gitlab_webhook_secret\tCreate gitlab.eclipse.org Webhook Secret credentials.\n"
   printf "sonarcloud\t\tCreate sonarcloud.io credentials (secret text/token).\n"
   printf "npmjs\t\t\tCreate npmjs credentials (secret text/token).\n"
+  printf "pypi\t\t\tCreate pypi credentials (secret text/token).\n"
   exit 0
 }
 
@@ -235,6 +236,12 @@ auto() {
   echo "Checking for npmjs.com API token..."
   if passw cbi "bots/${project_name}/npmjs.com/token" 2&> /dev/null; then
     npmjs "${project_name}"
+  else
+    echo "  No API token found."
+  fi
+  echo "Checking for pypi.org API token..."
+  if passw cbi "bots/${project_name}/pypi.org/token" 2&> /dev/null; then
+    pypi "${project_name}"
   else
     echo "  No API token found."
   fi
@@ -316,6 +323,17 @@ npmjs() {
   token="$(passw cbi "bots/${project_name}/npmjs.com/token")"
 
   _create_string_credentials "${project_name}" "npmjs-token" "npmjs.com token" "${token}"
+}
+
+npmjs() {
+  local project_name="${1:-}"
+
+  _verify_inputs "${project_name}"
+
+  local token
+  token="$(passw cbi "bots/${project_name}/pypi.org/token")"
+
+  _create_string_credentials "${project_name}" "pypi-token" "pypi.org token" "${token}"
 }
 
 _default_usage() {
