@@ -11,9 +11,20 @@ A.page-header__brand-link{
   background-color: #4c4d4e;
 }
 
+#page-header .logo{
+  display: none;
+}
+
+#page-header .page-header__brand-link {
+  display: inline;
+}
+
 IMG.page-header__brand-image {
   content:url("https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg");
   width: 6rem;
+  height: 3.4rem;
+  vertical-align: middle;
+  margin-left: 1.2rem;
 }
 
 .page-header__brand-name {
@@ -26,7 +37,8 @@ IMG.page-header__brand-image {
   font-size: 18px;
   line-height: 24px;
   position: relative;
-  left: -5ch;
+  vertical-align: middle;
+  left: -4ch;
   color: #ffffff;
 }
 
