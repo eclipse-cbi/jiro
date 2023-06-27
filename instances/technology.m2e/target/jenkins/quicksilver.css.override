@@ -6,32 +6,44 @@
  or the MIT License which is available at https://opensource.org/licenses/MIT.
  * SPDX-License-Identifier: EPL-2.0 OR MIT
  */
-.ui-refresh .page-header, 
-.ui-refresh A.page-header__brand-link{
+.page-header, 
+A.page-header__brand-link{
   background-color: #4c4d4e;
 }
 
-.ui-refresh IMG.page-header__brand-image {
-  content:url("https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg");
-  width: 6rem;
+#page-header .logo{
+  display: none;
 }
 
-.ui-refresh .page-header__brand-name {
+#page-header .page-header__brand-link {
+  display: inline;
+}
+
+IMG.page-header__brand-image {
+  content:url("https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg");
+  width: 6rem;
+  height: 3.4rem;
+  vertical-align: middle;
+  margin-left: 1.2rem;
+}
+
+.page-header__brand-name {
   visibility: hidden;
 }
 
-.ui-refresh .page-header__brand-name:after {
+.page-header__brand-name:after {
   content: 'Eclipse Maven Integration';
   visibility: visible;
   font-size: 18px;
   line-height: 24px;
   position: relative;
-  left: -5ch;
+  vertical-align: middle;
+  left: -4ch;
   color: #ffffff;
 }
 
-.ui-refresh A.page-header__brand-link:link,
-.ui-refresh A.page-header__brand-link:visited {
+A.page-header__brand-link:link,
+A.page-header__brand-link:visited {
   color: #ffffff;
   text-decoration: none;
 }
