@@ -24,3 +24,13 @@ jenkins:
           offlineAddresses: "releng@eclipse.org"
           onlineAddresses: "releng@eclipse.org"
       retentionStrategy: "always"
+unclassified:
+  gitHubPluginConfig:
+    configs:
+      - name: "GitHub"
+        apiUrl: "https://api.github.com"
+        credentialsId: "github-bot-token"
+        manageHooks: false
+    hookSecretConfigs:
+      - credentialsId: "github-webhook-secret"
+    hookUrl: "https://ci.eclipse.org/emf/github-webhook/"
