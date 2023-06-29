@@ -28,6 +28,11 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         principal: "sarah_jackson@uk.ibm.com",
         grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel"],
       },
+      {
+        // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/3319
+        principal: "mahdi@ibm.com",
+        grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel"],
+      },
     ],
     plugins+: [
       "docker-plugin",
