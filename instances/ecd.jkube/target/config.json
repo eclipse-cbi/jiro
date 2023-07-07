@@ -497,7 +497,9 @@
             "principal": "ecd.jkube"
          }
       ],
-      "plugins": [ ],
+      "plugins": [
+         "github-scm-trait-notification-context"
+      ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",
