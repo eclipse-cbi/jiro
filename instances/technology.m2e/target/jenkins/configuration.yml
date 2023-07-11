@@ -65,7 +65,7 @@ jenkins:
   clouds:
   - kubernetes:
       name: "kubernetes"
-      containerCapStr: "2"
+      containerCapStr: "4"
       jenkinsUrl: "http://jenkins-ui.m2e.svc.cluster.local/m2e"
       jenkinsTunnel: "jenkins-discovery.m2e.svc.cluster.local:50000"
       maxRequestsPerHostStr: "32"
