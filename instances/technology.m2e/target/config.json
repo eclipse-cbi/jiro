@@ -449,7 +449,7 @@
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
-      "maxConcurrency": 2,
+      "maxConcurrency": 4,
       "permissions": [
          {
             "grantedPermissions": [
@@ -616,11 +616,11 @@
          "resources": {
             "cpu": {
                "limit": "2000m",
-               "request": "250m"
+               "request": "550m"
             },
             "memory": {
-               "limit": "1536Mi",
-               "request": "1536Mi"
+               "limit": "2048Mi",
+               "request": "2048Mi"
             }
          },
          "stsName": "m2e"
@@ -677,7 +677,7 @@
    "project": {
       "displayName": "Eclipse Maven Integration",
       "fullName": "technology.m2e",
-      "resourcePacks": 1,
+      "resourcePacks": 2,
       "shortName": "m2e",
       "unixGroupName": "technology.m2e"
    },
