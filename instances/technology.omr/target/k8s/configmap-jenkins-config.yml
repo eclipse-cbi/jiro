@@ -100,14 +100,6 @@ data:
             - "GROUP:View/Create:technology.omr"
             - "GROUP:View/Delete:technology.omr"
             - "GROUP:View/Read:technology.omr"
-            - "USER:Agent/Build:vsebe@ca.ibm.com"
-            - "USER:Agent/Configure:vsebe@ca.ibm.com"
-            - "USER:Agent/Connect:vsebe@ca.ibm.com"
-            - "USER:Agent/Disconnect:vsebe@ca.ibm.com"
-            - "USER:Job/Build:vsebe@ca.ibm.com"
-            - "USER:Job/Cancel:vsebe@ca.ibm.com"
-            - "USER:Job/Configure:vsebe@ca.ibm.com"
-            - "USER:Job/Create:vsebe@ca.ibm.com"
       markupFormatter: rawHtml
       crumbIssuer:
         standard:

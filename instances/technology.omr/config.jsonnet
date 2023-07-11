@@ -19,11 +19,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel"],
       },
       {
-        // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/1364
-        principal: "vsebe@ca.ibm.com",
-        grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel"],
-      },
-      {
         // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2042
         principal: "sarah_jackson@uk.ibm.com",
         grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel"],
