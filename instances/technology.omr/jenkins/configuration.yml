@@ -476,7 +476,7 @@ jenkins:
           port: "22"
           credentialsId: "omr-agents-ssh-zos"
           javaPath: "/u/user1/jdk-11.0.16+8/bin/java"
-          jvmOptions: "-Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.user.passphrase.file.encoding=IBM-1047 -Dfile.encoding=ISO8859_1"
+          jvmOptions: "-Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.user.passphrase.file.encoding=IBM-1047 -Dfile.encoding=ISO8859_1 -Djava.io.tmpdir=/u/user1/tmp"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7VsMDIM4P/r2lLsq0oTYJpUmoKQ6ZtQL5W8a3H/Pnp/4izOQIz7NY7RhmGdzS3UGxdESahom7Y7Zqt+D4rcPJcxfFYm+zPrZzgLExzBJEO39BDRsu0eNMU/dgcHsvVTi0qxuMEHIPUM7bk0KEAgdHzlSs658WyOOZLXn1eUOup7L0z5lT/m6gPK+0BOq5pXoON7Zi7JGppSW6Ff3nBXyipZX/jdjJ0/x0zdvgzq3XsPffksjTgPMwMnx5Aal7Tk8yNbdcSU9T0bg591JWmcJuHsWDKqt0GR3kQ0C8yDm8NUxTDohAcjjZYDUlsRTpG354gitGwS0DnxG7jAL8TWyH"
@@ -523,7 +523,7 @@ jenkins:
           port: "22"
           credentialsId: "omr-agents-ssh-zos"
           javaPath: "/u/user1/jdk-11.0.16+8/bin/java"
-          jvmOptions: "-Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.user.passphrase.file.encoding=IBM-1047 -Dfile.encoding=ISO8859_1"
+          jvmOptions: "-Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.user.passphrase.file.encoding=IBM-1047 -Dfile.encoding=ISO8859_1 -Djava.io.tmpdir=/u/user1/tmp"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7VsMDIM4P/r2lLsq0oTYJpUmoKQ6ZtQL5W8a3H/Pnp/4izOQIz7NY7RhmGdzS3UGxdESahom7Y7Zqt+D4rcPJcxfFYm+zPrZzgLExzBJEO39BDRsu0eNMU/dgcHsvVTi0qxuMEHIPUM7bk0KEAgdHzlSs658WyOOZLXn1eUOup7L0z5lT/m6gPK+0BOq5pXoON7Zi7JGppSW6Ff3nBXyipZX/jdjJ0/x0zdvgzq3XsPffksjTgPMwMnx5Aal7Tk8yNbdcSU9T0bg591JWmcJuHsWDKqt0GR3kQ0C8yDm8NUxTDohAcjjZYDUlsRTpG354gitGwS0DnxG7jAL8TWyH"
