@@ -497,7 +497,9 @@
             "principal": "iot.leshan"
          }
       ],
-      "plugins": [ ],
+      "plugins": [
+         "declarative-pipeline-migration-assistant"
+      ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",
