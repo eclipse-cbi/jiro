@@ -449,7 +449,7 @@
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
-      "maxConcurrency": 10,
+      "maxConcurrency": 12,
       "permissions": [
          {
             "grantedPermissions": [
@@ -642,12 +642,12 @@
          },
          "resources": {
             "cpu": {
-               "limit": "2900m",
-               "request": "1450m"
+               "limit": "3500m",
+               "request": "1750m"
             },
             "memory": {
-               "limit": "3584Mi",
-               "request": "3584Mi"
+               "limit": "4096Mi",
+               "request": "4096Mi"
             }
          },
          "stsName": "tycho"
@@ -704,7 +704,7 @@
    "project": {
       "displayName": "Eclipse Tycho",
       "fullName": "technology.tycho",
-      "resourcePacks": 5,
+      "resourcePacks": 6,
       "shortName": "tycho",
       "unixGroupName": "technology.tycho"
    },
