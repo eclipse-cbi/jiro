@@ -1,0 +1,16 @@
+unclassified:
+  gitLabConnectionConfig:
+    connections:
+      - apiTokenId: gitlab-api-token
+        clientBuilderId: autodetect
+        connectionTimeout: 10
+        ignoreCertificateErrors: false
+        name: gitlab.eclipse.org
+        readTimeout: 10
+        url: https://gitlab.eclipse.org
+  gitLabServers:
+    Servers:
+      - credentialsId: gitlab-personal-access-token
+        name: gitlab.eclipse.org
+        serverUrl: https://gitlab.eclipse.org
+        webhookSecretCredentialsId: gitlab-webhook-secret
