@@ -325,7 +325,7 @@ npmjs() {
   _create_string_credentials "${project_name}" "npmjs-token" "npmjs.com token" "${token}"
 }
 
-npmjs() {
+pypi() {
   local project_name="${1:-}"
 
   _verify_inputs "${project_name}"
