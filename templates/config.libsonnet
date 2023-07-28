@@ -32,7 +32,7 @@ local clouds = import "clouds.libsonnet";
     pluginsForceUpgrade: true,
     plugins: plugins.additionalPlugins($.project.fullName),
     permissions: permissions.projectPermissions($.project.unixGroupName,
-      permissions.committerPermissionsList + if std.objectHas($.secrets, "gerrit-trigger-plugin") then ["Gerrit/ManualTrigger", "Gerrit/Retrigger",] else []),
+      permissions.committerPermissionsList + if std.member($.jenkins.plugins, "gerrit-trigger") then ["Gerrit/ManualTrigger", "Gerrit/Retrigger",] else []),
   },
   jiroMaster: if ($.jenkins.version == "latest") then jiroMasters.masters[jiroMasters.latest] else jiroMasters.masters[$.jenkins.version],
   docker: {
@@ -202,7 +202,14 @@ local clouds = import "clouds.libsonnet";
       }
     }
   },
-  secrets: {
+  secrets: (
+    if std.member($.jenkins.plugins, "gerrit-trigger") then {
+        "gerrit-trigger-plugin": {
+          username: "genie." + $.project.shortName,
+          identityFile: "/run/secrets/jenkins/ssh/id_rsa",
+        },
+    } else
+    {}) + {
     dockerconfigjson: {
       "dockerconfigjson-for-pull-as-default": {
         serviceAccount: "default",
