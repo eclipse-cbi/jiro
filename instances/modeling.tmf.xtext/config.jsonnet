@@ -6,6 +6,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     resourcePacks: 2,
   },
   jenkins+: {
+    version: "2.387.3",
     staticAgentCount: 2,
     plugins+: [
       "copyartifact",
@@ -17,7 +18,8 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "parameterized-scheduler",
       "show-build-parameters",
       "slack",
-      "build-user-vars-plugin"
+      "build-user-vars-plugin",
+      "matrix-communication"
     ],
   },
   gradle+: {
