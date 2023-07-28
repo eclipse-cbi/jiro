@@ -110,7 +110,7 @@ deploy_jipp() {
   pushd "${SCRIPT_FOLDER}/.."
   #TODO: get rid of it
   make "deploy_${NEW_PROJECT_NAME}"
-  secrets/create_gerrit_ssh_keys_secret.sh "${NEW_PROJECT_NAME}"
+  secrets/create_gerrit_ssh_keys_secret.sh "${NEW_PROJECT_NAME}" || true
   popd
 }
 
@@ -159,9 +159,11 @@ fi
 echo
 echo "TODO:"
 if [[ "${OLD_SHORT_NAME}" != "${NEW_SHORT_NAME}" ]]; then
-  echo "* clean up old namespace"
-  echo "* remove backup?"
   echo "* double-check permissions in Jenkins"
+  echo "* clean up old namespace"
+  echo "  * oc delete project ${OLD_SHORT_NAME}"
+  echo "  * oc delete pv tools-jiro-${OLD_SHORT_NAME}"
+  echo "* remove backup?"
 fi
 echo "* commit changes (don't push)"
 
