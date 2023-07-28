@@ -107,12 +107,12 @@ local Kube = import "kube.libsonnet";
                   name: "jenkins-config",
                   readOnly: true,
                 },
-              ] + if std.objectHas(config.secrets["gerrit-trigger-plugin"], "username") then [ 
+              ] + if std.objectHas(config.secrets, "gerrit-trigger-plugin") then [
                 {
                   mountPath: "/run/secrets/jenkins/ssh",
                   name: "gerrit-ssh-keys",
                   readOnly: true,
-                } 
+                }
               ] else [],
               env: [
                 {
@@ -132,7 +132,7 @@ local Kube = import "kube.libsonnet";
                     // "-Dhudson.slaves.NodeProvisioner.initialDelay=0",
                     // "-Dhudson.slaves.NodeProvisioner.MARGIN=50",
                     // "-Dhudson.slaves.NodeProvisioner.MARGIN0=0.85",
-                    
+
                     "-Dhudson.footerURL=https://" + config.deployment.host,
                     "-Dhudson.model.UsageStatistics.disabled=true",
                     "-Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle",
@@ -141,11 +141,11 @@ local Kube = import "kube.libsonnet";
                     "-Djenkins.model.Jenkins.slaveAgentPortEnforce=true",
                     "-Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false",
                     "-Djenkins.install.runSetupWizard=false",
-                    
+
                     # since https://www.jenkins.io/changelog-stable/#v2.222.1
                     "-Djenkins.ui.refresh=true",
                     "-Djenkins.security.ManagePermission=true",
-                    
+
                     # See https://issues.jenkins.io/browse/JENKINS-50379
                     "-Dorg.jenkinsci.plugins.durabletask.BourneShellScript.HEARTBEAT_CHECK_INTERVAL=7200",
 
@@ -161,10 +161,10 @@ local Kube = import "kube.libsonnet";
 
                     # https://support.cloudbees.com/hc/en-us/articles/360030405571-Change-the-default-JNLP-image-for-kubernetes-agents-provisioning
                     "-Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=%s/%s/%s:%s" % [defaultJnlpAgent.docker.registry, defaultJnlpAgent.docker.repository, defaultJnlpAgent.docker.image, defaultJnlpAgent.docker.tag],
-                    
+
                     # https://github.com/jenkinsci/kubernetes-plugin/blob/master/README.md#specifying-a-different-default-agent-connection-timeout
                     "-Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=" + config.jenkins.agentConnectionTimeout,
-                    
+
                     # https://github.com/fabric8io/kubernetes-client/blob/master/README.md
                     "-Dkubernetes.websocket.ping.interval=30000",
                     ])
@@ -207,13 +207,13 @@ local Kube = import "kube.libsonnet";
                 name: "jenkins-config",
               },
             },
-          ] + if std.objectHas(config.secrets["gerrit-trigger-plugin"], "username") then [ 
+          ] + if std.objectHas(config.secrets, "gerrit-trigger-plugin") then [
             {
               name: "gerrit-ssh-keys",
               secret: {
                 secretName: "gerrit-ssh-keys",
               },
-            } 
+            }
           ] else [],
         },
       },
