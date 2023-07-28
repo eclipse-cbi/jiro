@@ -211,6 +211,7 @@ help() {
   printf "sonarcloud\t\tCreate sonarcloud.io credentials (secret text/token).\n"
   printf "npmjs\t\t\tCreate npmjs credentials (secret text/token).\n"
   printf "pypi\t\t\tCreate pypi credentials (secret text/token).\n"
+  printf "matrix\t\t\tCreate matrix credentials (secret text/token).\n"
   exit 0
 }
 
@@ -242,6 +243,12 @@ auto() {
   echo "Checking for pypi.org API token..."
   if passw cbi "bots/${project_name}/pypi.org/token" 2&> /dev/null; then
     pypi "${project_name}"
+  else
+    echo "  No API token found."
+  fi
+  echo "Checking for matrix.eclipse.org API token..."
+  if passw cbi "bots/${project_name}/matrix.eclipse.org/token" 2&> /dev/null; then
+    matrix "${project_name}"
   else
     echo "  No API token found."
   fi
@@ -334,6 +341,17 @@ pypi() {
   token="$(passw cbi "bots/${project_name}/pypi.org/token")"
 
   _create_string_credentials "${project_name}" "pypi-token" "pypi.org token" "${token}"
+}
+
+matrix() {
+  local project_name="${1:-}"
+
+  _verify_inputs "${project_name}"
+
+  local token
+  token="$(passw cbi "bots/${project_name}/matrix.eclipse.org/token")"
+
+  _create_string_credentials "${project_name}" "matrix-token" "matrix.eclipse.org token" "${token}"
 }
 
 _default_usage() {
