@@ -498,7 +498,8 @@
          }
       ],
       "plugins": [
-         "gradle"
+         "gradle",
+         "gerrit-trigger"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
@@ -538,7 +539,6 @@
          "extended-read-permission",
          "external-monitor-job",
          "extra-columns",
-         "gerrit-trigger",
          "ghprb",
          "git",
          "git-parameter",
