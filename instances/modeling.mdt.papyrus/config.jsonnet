@@ -7,11 +7,12 @@
   jenkins+: {
     plugins+: [
       "dashboard-view",
+      "gerrit-trigger",
       "zentimestamp",
     ],
   },
   clouds+: {
-    kubernetes+: { 
+    kubernetes+: {
       local currentCloud = self,
       templates+: {
         "centos-7-agent-6gb": currentCloud.templates["centos-7"] {

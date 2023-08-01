@@ -5,8 +5,8 @@
   },
   jenkins+: {
     plugins+: [
+      "gerrit-trigger",
       "gradle",
-      "gerrit-trigger"
     ]
   }
 }

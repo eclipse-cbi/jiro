@@ -6,6 +6,7 @@
   },
   jenkins+: {
     plugins+: [
+      "gerrit-trigger",
       "zentimestamp",
     ],
   },

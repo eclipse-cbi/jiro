@@ -6,6 +6,7 @@
   jenkins+: {
     plugins+: [
       "dashboard-view",
+      "gerrit-trigger",
     ],
   },
 }

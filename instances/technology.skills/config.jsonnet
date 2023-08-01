@@ -9,6 +9,7 @@
       "code-coverage-api",
       "copyartifact",
       "embeddable-build-status",
+      "gerrit-trigger",
     ],
   },
 }

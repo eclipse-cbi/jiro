@@ -10,6 +10,7 @@
     plugins+: [
       "ansicolor",
       "dashboard-view",
+      "gerrit-trigger",
       "git-forensics",
       "gradle",
     ],

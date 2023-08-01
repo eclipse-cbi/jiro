@@ -3,8 +3,13 @@
     fullName: "modeling.viatra",
     displayName: "Eclipse VIATRA",
   },
+  jenkins+: {
+    plugins+: [
+      "gerrit-trigger",
+    ]
+  },
   clouds+: {
-    kubernetes+: { 
+    kubernetes+: {
       local currentCloud = self,
       templates+: {
         "jipp-centos-7-6gb": currentCloud.templates["centos-7"] {
