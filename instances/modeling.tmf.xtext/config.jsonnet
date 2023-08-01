@@ -6,8 +6,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     resourcePacks: 2,
   },
   jenkins+: {
-    // workaround to avoid errors, when the Gerrit plugin is disabled
-    permissions: permissionsTemplates.projectPermissions($.project.unixGroupName, permissionsTemplates.committerPermissionsList),
     staticAgentCount: 2,
     plugins+: [
       "copyartifact",
@@ -53,9 +51,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
           env+: {
             JENKINS_REMOTING_JAVA_OPTS: [
               "-showversion",
-              "-XshowSettings:vm", 
-              "-Xmx512m", 
-              "-Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true", 
+              "-XshowSettings:vm",
+              "-Xmx512m",
+              "-Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true",
               "-Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
             ],
           },

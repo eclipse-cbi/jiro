@@ -6,6 +6,7 @@
   jenkins+: {
     plugins+: [
       "gradle",
+      "gerrit-trigger",
     ],
   },
 }

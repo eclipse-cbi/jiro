@@ -7,6 +7,7 @@
     plugins+: [
       "job-dsl",
       "purge-build-queue-plugin",
+      "gerrit-trigger",
     ],
   },
 }

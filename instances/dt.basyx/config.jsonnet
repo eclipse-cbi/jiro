@@ -8,6 +8,7 @@
       "envinject",
       "cmakebuilder",
       "gerrit-code-review",
+      "gerrit-trigger",
     ],
   },
 }

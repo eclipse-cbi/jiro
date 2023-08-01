@@ -8,6 +8,7 @@
     theme: "quicksilver-light",
     plugins+: [
       "dashboard-view",
+      "gerrit-trigger",
     ],
   }
 }

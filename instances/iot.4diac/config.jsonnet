@@ -8,6 +8,7 @@
       "cmakebuilder",
       "copyartifact",
       "cppcheck",
+      "gerrit-trigger",
     ],
   },
 }

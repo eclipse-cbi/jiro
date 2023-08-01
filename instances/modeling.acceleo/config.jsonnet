@@ -5,6 +5,7 @@
   },
   jenkins+: {
     plugins+: [
+      "gerrit-trigger",
       "jacoco",
       "warnings-ng",
     ],
