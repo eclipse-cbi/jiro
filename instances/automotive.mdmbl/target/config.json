@@ -498,8 +498,8 @@
          }
       ],
       "plugins": [
-         "gradle",
-         "gerrit-trigger"
+         "gerrit-trigger",
+         "gradle"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
