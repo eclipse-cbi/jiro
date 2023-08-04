@@ -498,6 +498,7 @@
          }
       ],
       "plugins": [
+         "gerrit-trigger",
          "nodejs"
       ],
       "pluginsForceUpgrade": true,
@@ -538,7 +539,6 @@
          "extended-read-permission",
          "external-monitor-job",
          "extra-columns",
-         "gerrit-trigger",
          "ghprb",
          "git",
          "git-parameter",
