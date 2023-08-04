@@ -663,5 +663,5 @@ data:
               - installSource:
                   installers:
                     - nodeJSInstaller:
-                        id: "19.1.0"
+                        id: "18.17.0"
                         npmPackagesRefreshHours: 72
