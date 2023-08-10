@@ -774,7 +774,6 @@
          "htmlpublisher",
          "parameterized-scheduler",
          "show-build-parameters",
-         "slack",
          "build-user-vars-plugin",
          "matrix-communication"
       ],
@@ -816,7 +815,6 @@
          "extended-read-permission",
          "external-monitor-job",
          "extra-columns",
-         "gerrit-trigger",
          "ghprb",
          "git",
          "git-parameter",
@@ -1021,10 +1019,6 @@
                "pull"
             ]
          }
-      },
-      "gerrit-trigger-plugin": {
-         "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-         "username": "genie.xtext"
       }
    }
 }

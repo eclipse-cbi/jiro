@@ -9,4 +9,3 @@ htmlpublisher
 matrix-communication
 parameterized-scheduler
 show-build-parameters
-slack

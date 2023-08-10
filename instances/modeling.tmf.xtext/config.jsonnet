@@ -17,7 +17,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "htmlpublisher",
       "parameterized-scheduler",
       "show-build-parameters",
-      "slack",
       "build-user-vars-plugin",
       "matrix-communication"
     ],
