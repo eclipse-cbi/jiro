@@ -496,7 +496,6 @@
          }
       ],
       "plugins": [
-         "slack",
          "parameterized-scheduler",
          "matrix-communication",
          "maven-plugin"

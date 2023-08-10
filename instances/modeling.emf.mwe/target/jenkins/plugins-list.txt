@@ -2,4 +2,3 @@
 matrix-communication
 maven-plugin
 parameterized-scheduler
-slack
