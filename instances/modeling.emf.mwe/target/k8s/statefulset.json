@@ -66,7 +66,7 @@
                         "value": "true"
                      }
                   ],
-                  "image": "docker.io/eclipsecbijenkins/modeling.emf.mwe:2.387.2",
+                  "image": "docker.io/eclipsecbijenkins/modeling.emf.mwe:2.387.3",
                   "imagePullPolicy": "Always",
                   "lifecycle": {
                      "preStop": {
@@ -136,11 +136,6 @@
                         "mountPath": "/etc/jenkins/",
                         "name": "jenkins-config",
                         "readOnly": true
-                     },
-                     {
-                        "mountPath": "/run/secrets/jenkins/ssh",
-                        "name": "gerrit-ssh-keys",
-                        "readOnly": true
                      }
                   ]
                }
@@ -161,12 +156,6 @@
                      "name": "jenkins-config"
                   },
                   "name": "jenkins-config"
-               },
-               {
-                  "name": "gerrit-ssh-keys",
-                  "secret": {
-                     "secretName": "gerrit-ssh-keys"
-                  }
                }
             ]
          }
