@@ -6,7 +6,6 @@
   jenkins+: {
     plugins+: [
       "embeddable-build-status",
-      "gerrit-trigger",
       "slack",
     ],
   },
