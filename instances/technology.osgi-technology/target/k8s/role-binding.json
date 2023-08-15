@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.osgi-technology",
+         "org.eclipse.cbi.jiro/project.shortname": "osgi-technology"
+      },
+      "name": "osgi-technology",
+      "namespace": "osgi-technology"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "osgi-technology"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "osgi-technology",
+         "namespace": "osgi-technology"
+      }
+   ]
+}
