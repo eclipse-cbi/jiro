@@ -27,8 +27,6 @@ jenkins:
         - "GROUP:Job/ExtendedRead:common"
         - "GROUP:Agent/Build:ee4j.jersey"
         - "GROUP:Credentials/View:ee4j.jersey"
-        - "GROUP:Gerrit/ManualTrigger:ee4j.jersey"
-        - "GROUP:Gerrit/Retrigger:ee4j.jersey"
         - "GROUP:Job/Build:ee4j.jersey"
         - "GROUP:Job/Cancel:ee4j.jersey"
         - "GROUP:Job/Configure:ee4j.jersey"
