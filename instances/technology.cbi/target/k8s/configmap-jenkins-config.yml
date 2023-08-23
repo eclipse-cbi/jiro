@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "technology.cbi"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.401.1"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.401.1"
+    org.eclipse.cbi.jiro/jenkins.version: "2.414.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.414.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cbi"
   namespace: "cbi"
   name: jenkins-config
@@ -41,32 +41,42 @@ data:
         - "Ping"
       authorizationStrategy:
         projectMatrix:
-          permissions:
-            - "GROUP:Overall/Administer:admins"
-            - "USER:Job/Read:anonymous"
-            - "USER:Overall/Read:anonymous"
-            - "GROUP:Job/ExtendedRead:common"
-            - "GROUP:Agent/Build:technology.cbi"
-            - "GROUP:Credentials/View:technology.cbi"
-            - "GROUP:Gerrit/ManualTrigger:technology.cbi"
-            - "GROUP:Gerrit/Retrigger:technology.cbi"
-            - "GROUP:Job/Build:technology.cbi"
-            - "GROUP:Job/Cancel:technology.cbi"
-            - "GROUP:Job/Configure:technology.cbi"
-            - "GROUP:Job/Create:technology.cbi"
-            - "GROUP:Job/Delete:technology.cbi"
-            - "GROUP:Job/Move:technology.cbi"
-            - "GROUP:Job/Read:technology.cbi"
-            - "GROUP:Job/Workspace:technology.cbi"
-            - "GROUP:Overall/Read:technology.cbi"
-            - "GROUP:Run/Delete:technology.cbi"
-            - "GROUP:Run/Replay:technology.cbi"
-            - "GROUP:Run/Update:technology.cbi"
-            - "GROUP:SCM/Tag:technology.cbi"
-            - "GROUP:View/Configure:technology.cbi"
-            - "GROUP:View/Create:technology.cbi"
-            - "GROUP:View/Delete:technology.cbi"
-            - "GROUP:View/Read:technology.cbi"
+          entries:
+            - group:
+                name: admins
+                permissions:
+                  - Overall/Administer
+            - user:
+                name: anonymous
+                permissions:
+                  - Job/Read
+                  - Overall/Read
+            - group:
+                name: common
+                permissions:
+                  - Job/ExtendedRead
+            - group:
+                name: technology.cbi
+                permissions:
+                  - Agent/Build
+                  - Credentials/View
+                  - Job/Build
+                  - Job/Cancel
+                  - Job/Configure
+                  - Job/Create
+                  - Job/Delete
+                  - Job/Move
+                  - Job/Read
+                  - Job/Workspace
+                  - Overall/Read
+                  - Run/Delete
+                  - Run/Replay
+                  - Run/Update
+                  - SCM/Tag
+                  - View/Configure
+                  - View/Create
+                  - View/Delete
+                  - View/Read
       markupFormatter: rawHtml
       crumbIssuer:
         standard:
@@ -95,7 +105,7 @@ data:
                 label: "basic"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3107.v665000b_51092
+                    image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3131.vf2b_b_798b_ce99
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -203,7 +213,7 @@ data:
                 label: "basic-ubuntu"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3107.v665000b_51092
+                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3131.vf2b_b_798b_ce99
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -311,7 +321,7 @@ data:
                 label: "migration jipp-migration centos-7"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3107.v665000b_51092
+                    image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3131.vf2b_b_798b_ce99
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -419,7 +429,7 @@ data:
                 label: "centos-latest centos-8"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3107.v665000b_51092
+                    image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3131.vf2b_b_798b_ce99
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0

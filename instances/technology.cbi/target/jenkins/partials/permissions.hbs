@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.cbi"
-- "GROUP:Credentials/View:technology.cbi"
-- "GROUP:Gerrit/ManualTrigger:technology.cbi"
-- "GROUP:Gerrit/Retrigger:technology.cbi"
-- "GROUP:Job/Build:technology.cbi"
-- "GROUP:Job/Cancel:technology.cbi"
-- "GROUP:Job/Configure:technology.cbi"
-- "GROUP:Job/Create:technology.cbi"
-- "GROUP:Job/Delete:technology.cbi"
-- "GROUP:Job/Move:technology.cbi"
-- "GROUP:Job/Read:technology.cbi"
-- "GROUP:Job/Workspace:technology.cbi"
-- "GROUP:Overall/Read:technology.cbi"
-- "GROUP:Run/Delete:technology.cbi"
-- "GROUP:Run/Replay:technology.cbi"
-- "GROUP:Run/Update:technology.cbi"
-- "GROUP:SCM/Tag:technology.cbi"
-- "GROUP:View/Configure:technology.cbi"
-- "GROUP:View/Create:technology.cbi"
-- "GROUP:View/Delete:technology.cbi"
-- "GROUP:View/Read:technology.cbi"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.cbi
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
