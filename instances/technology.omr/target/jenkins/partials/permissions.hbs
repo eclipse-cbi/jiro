@@ -1,58 +1,82 @@
-- "USER:Agent/Build:adam.brousseau88@gmail.com"
-- "USER:Agent/Configure:adam.brousseau88@gmail.com"
-- "USER:Agent/Connect:adam.brousseau88@gmail.com"
-- "USER:Agent/Disconnect:adam.brousseau88@gmail.com"
-- "USER:Job/Build:adam.brousseau88@gmail.com"
-- "USER:Job/Cancel:adam.brousseau88@gmail.com"
-- "USER:Job/Configure:adam.brousseau88@gmail.com"
-- "USER:Job/Create:adam.brousseau88@gmail.com"
-- "USER:Overall/SystemRead:adam.brousseau88@gmail.com"
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "USER:Agent/Build:joe_dekoning@ca.ibm.com"
-- "USER:Agent/Configure:joe_dekoning@ca.ibm.com"
-- "USER:Agent/Connect:joe_dekoning@ca.ibm.com"
-- "USER:Agent/Disconnect:joe_dekoning@ca.ibm.com"
-- "USER:Job/Build:joe_dekoning@ca.ibm.com"
-- "USER:Job/Cancel:joe_dekoning@ca.ibm.com"
-- "USER:Job/Configure:joe_dekoning@ca.ibm.com"
-- "USER:Job/Create:joe_dekoning@ca.ibm.com"
-- "USER:Agent/Build:mahdi@ibm.com"
-- "USER:Agent/Configure:mahdi@ibm.com"
-- "USER:Agent/Connect:mahdi@ibm.com"
-- "USER:Agent/Disconnect:mahdi@ibm.com"
-- "USER:Job/Build:mahdi@ibm.com"
-- "USER:Job/Cancel:mahdi@ibm.com"
-- "USER:Job/Configure:mahdi@ibm.com"
-- "USER:Job/Create:mahdi@ibm.com"
-- "USER:Agent/Build:sarah_jackson@uk.ibm.com"
-- "USER:Agent/Configure:sarah_jackson@uk.ibm.com"
-- "USER:Agent/Connect:sarah_jackson@uk.ibm.com"
-- "USER:Agent/Disconnect:sarah_jackson@uk.ibm.com"
-- "USER:Job/Build:sarah_jackson@uk.ibm.com"
-- "USER:Job/Cancel:sarah_jackson@uk.ibm.com"
-- "USER:Job/Configure:sarah_jackson@uk.ibm.com"
-- "USER:Job/Create:sarah_jackson@uk.ibm.com"
-- "GROUP:Agent/Build:technology.omr"
-- "GROUP:Agent/Connect:technology.omr"
-- "GROUP:Agent/Disconnect:technology.omr"
-- "GROUP:Credentials/View:technology.omr"
-- "GROUP:Job/Build:technology.omr"
-- "GROUP:Job/Cancel:technology.omr"
-- "GROUP:Job/Configure:technology.omr"
-- "GROUP:Job/Create:technology.omr"
-- "GROUP:Job/Delete:technology.omr"
-- "GROUP:Job/Move:technology.omr"
-- "GROUP:Job/Read:technology.omr"
-- "GROUP:Job/Workspace:technology.omr"
-- "GROUP:Overall/Read:technology.omr"
-- "GROUP:Run/Delete:technology.omr"
-- "GROUP:Run/Replay:technology.omr"
-- "GROUP:Run/Update:technology.omr"
-- "GROUP:SCM/Tag:technology.omr"
-- "GROUP:View/Configure:technology.omr"
-- "GROUP:View/Create:technology.omr"
-- "GROUP:View/Delete:technology.omr"
-- "GROUP:View/Read:technology.omr"
+  - user:
+      name: adam.brousseau88@gmail.com
+      permissions:
+       - Agent/Build
+       - Agent/Configure
+       - Agent/Connect
+       - Agent/Disconnect
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Overall/SystemRead
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - user:
+      name: joe_dekoning@ca.ibm.com
+      permissions:
+       - Agent/Build
+       - Agent/Configure
+       - Agent/Connect
+       - Agent/Disconnect
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+  - user:
+      name: mahdi@ibm.com
+      permissions:
+       - Agent/Build
+       - Agent/Configure
+       - Agent/Connect
+       - Agent/Disconnect
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+  - user:
+      name: sarah_jackson@uk.ibm.com
+      permissions:
+       - Agent/Build
+       - Agent/Configure
+       - Agent/Connect
+       - Agent/Disconnect
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+  - group:
+      name: technology.omr
+      permissions:
+       - Agent/Build
+       - Agent/Connect
+       - Agent/Disconnect
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

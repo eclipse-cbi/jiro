@@ -18,65 +18,89 @@ jenkins:
     - "Ping"
   authorizationStrategy:
     projectMatrix:
-      permissions:
-        - "USER:Agent/Build:adam.brousseau88@gmail.com"
-        - "USER:Agent/Configure:adam.brousseau88@gmail.com"
-        - "USER:Agent/Connect:adam.brousseau88@gmail.com"
-        - "USER:Agent/Disconnect:adam.brousseau88@gmail.com"
-        - "USER:Job/Build:adam.brousseau88@gmail.com"
-        - "USER:Job/Cancel:adam.brousseau88@gmail.com"
-        - "USER:Job/Configure:adam.brousseau88@gmail.com"
-        - "USER:Job/Create:adam.brousseau88@gmail.com"
-        - "USER:Overall/SystemRead:adam.brousseau88@gmail.com"
-        - "GROUP:Overall/Administer:admins"
-        - "USER:Job/Read:anonymous"
-        - "USER:Overall/Read:anonymous"
-        - "GROUP:Job/ExtendedRead:common"
-        - "USER:Agent/Build:joe_dekoning@ca.ibm.com"
-        - "USER:Agent/Configure:joe_dekoning@ca.ibm.com"
-        - "USER:Agent/Connect:joe_dekoning@ca.ibm.com"
-        - "USER:Agent/Disconnect:joe_dekoning@ca.ibm.com"
-        - "USER:Job/Build:joe_dekoning@ca.ibm.com"
-        - "USER:Job/Cancel:joe_dekoning@ca.ibm.com"
-        - "USER:Job/Configure:joe_dekoning@ca.ibm.com"
-        - "USER:Job/Create:joe_dekoning@ca.ibm.com"
-        - "USER:Agent/Build:mahdi@ibm.com"
-        - "USER:Agent/Configure:mahdi@ibm.com"
-        - "USER:Agent/Connect:mahdi@ibm.com"
-        - "USER:Agent/Disconnect:mahdi@ibm.com"
-        - "USER:Job/Build:mahdi@ibm.com"
-        - "USER:Job/Cancel:mahdi@ibm.com"
-        - "USER:Job/Configure:mahdi@ibm.com"
-        - "USER:Job/Create:mahdi@ibm.com"
-        - "USER:Agent/Build:sarah_jackson@uk.ibm.com"
-        - "USER:Agent/Configure:sarah_jackson@uk.ibm.com"
-        - "USER:Agent/Connect:sarah_jackson@uk.ibm.com"
-        - "USER:Agent/Disconnect:sarah_jackson@uk.ibm.com"
-        - "USER:Job/Build:sarah_jackson@uk.ibm.com"
-        - "USER:Job/Cancel:sarah_jackson@uk.ibm.com"
-        - "USER:Job/Configure:sarah_jackson@uk.ibm.com"
-        - "USER:Job/Create:sarah_jackson@uk.ibm.com"
-        - "GROUP:Agent/Build:technology.omr"
-        - "GROUP:Agent/Connect:technology.omr"
-        - "GROUP:Agent/Disconnect:technology.omr"
-        - "GROUP:Credentials/View:technology.omr"
-        - "GROUP:Job/Build:technology.omr"
-        - "GROUP:Job/Cancel:technology.omr"
-        - "GROUP:Job/Configure:technology.omr"
-        - "GROUP:Job/Create:technology.omr"
-        - "GROUP:Job/Delete:technology.omr"
-        - "GROUP:Job/Move:technology.omr"
-        - "GROUP:Job/Read:technology.omr"
-        - "GROUP:Job/Workspace:technology.omr"
-        - "GROUP:Overall/Read:technology.omr"
-        - "GROUP:Run/Delete:technology.omr"
-        - "GROUP:Run/Replay:technology.omr"
-        - "GROUP:Run/Update:technology.omr"
-        - "GROUP:SCM/Tag:technology.omr"
-        - "GROUP:View/Configure:technology.omr"
-        - "GROUP:View/Create:technology.omr"
-        - "GROUP:View/Delete:technology.omr"
-        - "GROUP:View/Read:technology.omr"
+      entries:
+        - user:
+            name: adam.brousseau88@gmail.com
+            permissions:
+              - Agent/Build
+              - Agent/Configure
+              - Agent/Connect
+              - Agent/Disconnect
+              - Job/Build
+              - Job/Cancel
+              - Job/Configure
+              - Job/Create
+              - Overall/SystemRead
+        - group:
+            name: admins
+            permissions:
+              - Overall/Administer
+        - user:
+            name: anonymous
+            permissions:
+              - Job/Read
+              - Overall/Read
+        - group:
+            name: common
+            permissions:
+              - Job/ExtendedRead
+        - user:
+            name: joe_dekoning@ca.ibm.com
+            permissions:
+              - Agent/Build
+              - Agent/Configure
+              - Agent/Connect
+              - Agent/Disconnect
+              - Job/Build
+              - Job/Cancel
+              - Job/Configure
+              - Job/Create
+        - user:
+            name: mahdi@ibm.com
+            permissions:
+              - Agent/Build
+              - Agent/Configure
+              - Agent/Connect
+              - Agent/Disconnect
+              - Job/Build
+              - Job/Cancel
+              - Job/Configure
+              - Job/Create
+        - user:
+            name: sarah_jackson@uk.ibm.com
+            permissions:
+              - Agent/Build
+              - Agent/Configure
+              - Agent/Connect
+              - Agent/Disconnect
+              - Job/Build
+              - Job/Cancel
+              - Job/Configure
+              - Job/Create
+        - group:
+            name: technology.omr
+            permissions:
+              - Agent/Build
+              - Agent/Connect
+              - Agent/Disconnect
+              - Credentials/View
+              - Job/Build
+              - Job/Cancel
+              - Job/Configure
+              - Job/Create
+              - Job/Delete
+              - Job/Move
+              - Job/Read
+              - Job/Workspace
+              - Overall/Read
+              - Run/Delete
+              - Run/Replay
+              - Run/Update
+              - SCM/Tag
+              - View/Configure
+              - View/Create
+              - View/Delete
+              - View/Read
   markupFormatter: rawHtml
   crumbIssuer:
     standard:
@@ -999,6 +1023,58 @@ jenkins:
                 - home: '/usr/lpp/java/J8.0_64/bin/java'
                   key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
                 - home: '/u/user1/jenkins-zos/git'
+                  key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+    - permanent:
+        name: "p8-java1-ibm11"
+        nodeDescription: "AIX 7.2"
+        labelString: "aix ppc compile:aix"
+        remoteFS: '/home/omr/'
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "140.211.9.181"
+            port: "22"
+            credentialsId: "omr-agents-ssh-rh7"
+            javaPath: ""
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDH8rDccX6sSEY+7w44UesVpzT/6NP1GEqMNMaPL4rDcweH/3ngzEJ1Nb802kwbPRtr0OSAtESJPCHCISgPi7IgzZNfPPIAwwBu1HQPtAZ4cK9Di7rfOvGXyED2zEOz/fAW8wGLU16VXXmJLcZ+eMwKsS8Gzzo5xb7RK9rEHv2LxWL9xS4CXCxpnJtcpfasrWyismdc/sW/IqP48+tTywRatjjFGz7o1aOfBgdeYy4vOCpEqdy+nvg3BUc0TnynhkXfo8ziKzAOWto4lGIeUxh751EW830atixZDPQLJl0fG8yji6Bn9bD2K7h7XowSujSAEOCYjL/MkEVH1598LyNKKVWSaZNCdHC2e09wRg8LDteNIekuH/chcEnhqBQuc/EuAUVORoO1fSv5WN27FxbPkdK3rISZy0eyuPbGtSIwyu3zcZ4cLjiw4HwcFOsP+cUEyFIkIC1+OWBCr4QrXWnrhIB/U3TSikLEThVOPNkzYNdHIieOxUK3bgYmnElqwds="
+        nodeProperties:
+          - envVars:
+              env:
+                - key: "PATH"
+                  value: '/opt/cmake-3.17.1/bin:/opt/IBM/xlC/13.1.3/bin:/opt/freeware/bin:$PATH'
+          - toolLocation:
+              locations:
+                - home: '/opt/freeware/bin/git'
+                  key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+    - permanent:
+        name: "p8-java1-ibm12"
+        nodeDescription: "AIX 7.2"
+        labelString: "aix ppc compile:aix"
+        remoteFS: '/home/omr/'
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "140.211.9.182"
+            port: "22"
+            credentialsId: "omr-agents-ssh-rh7"
+            javaPath: ""
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDH8rDccX6sSEY+7w44UesVpzT/6NP1GEqMNMaPL4rDcweH/3ngzEJ1Nb802kwbPRtr0OSAtESJPCHCISgPi7IgzZNfPPIAwwBu1HQPtAZ4cK9Di7rfOvGXyED2zEOz/fAW8wGLU16VXXmJLcZ+eMwKsS8Gzzo5xb7RK9rEHv2LxWL9xS4CXCxpnJtcpfasrWyismdc/sW/IqP48+tTywRatjjFGz7o1aOfBgdeYy4vOCpEqdy+nvg3BUc0TnynhkXfo8ziKzAOWto4lGIeUxh751EW830atixZDPQLJl0fG8yji6Bn9bD2K7h7XowSujSAEOCYjL/MkEVH1598LyNKKVWSaZNCdHC2e09wRg8LDteNIekuH/chcEnhqBQuc/EuAUVORoO1fSv5WN27FxbPkdK3rISZy0eyuPbGtSIwyu3zcZ4cLjiw4HwcFOsP+cUEyFIkIC1+OWBCr4QrXWnrhIB/U3TSikLEThVOPNkzYNdHIieOxUK3bgYmnElqwds="
+        nodeProperties:
+          - envVars:
+              env:
+                - key: "PATH"
+                  value: '/opt/cmake-3.17.1/bin:/opt/IBM/xlC/13.1.3/bin:/opt/freeware/bin:$PATH'
+          - toolLocation:
+              locations:
+                - home: '/opt/freeware/bin/git'
                   key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
 security:
   apiToken:
