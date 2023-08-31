@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ecd.che"
-- "GROUP:Credentials/View:ecd.che"
-- "GROUP:Gerrit/ManualTrigger:ecd.che"
-- "GROUP:Gerrit/Retrigger:ecd.che"
-- "GROUP:Job/Build:ecd.che"
-- "GROUP:Job/Cancel:ecd.che"
-- "GROUP:Job/Configure:ecd.che"
-- "GROUP:Job/Create:ecd.che"
-- "GROUP:Job/Delete:ecd.che"
-- "GROUP:Job/Move:ecd.che"
-- "GROUP:Job/Read:ecd.che"
-- "GROUP:Job/Workspace:ecd.che"
-- "GROUP:Overall/Read:ecd.che"
-- "GROUP:Run/Delete:ecd.che"
-- "GROUP:Run/Replay:ecd.che"
-- "GROUP:Run/Update:ecd.che"
-- "GROUP:SCM/Tag:ecd.che"
-- "GROUP:View/Configure:ecd.che"
-- "GROUP:View/Create:ecd.che"
-- "GROUP:View/Delete:ecd.che"
-- "GROUP:View/Read:ecd.che"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ecd.che
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
