@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "dt.esmf",
+         "org.eclipse.cbi.jiro/project.shortname": "esmf"
+      },
+      "name": "esmf",
+      "namespace": "esmf"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "esmf"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "esmf",
+         "namespace": "esmf"
+      }
+   ]
+}
