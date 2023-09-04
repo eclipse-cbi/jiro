@@ -1,0 +1,46 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "Role",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "dt.esmf",
+         "org.eclipse.cbi.jiro/project.shortname": "esmf"
+      },
+      "name": "jenkins-master-owner",
+      "namespace": "esmf"
+   },
+   "rules": [
+      {
+         "apiGroups": [
+            ""
+         ],
+         "resources": [
+            "pods",
+            "pods/exec"
+         ],
+         "verbs": [
+            "create",
+            "delete",
+            "get",
+            "list",
+            "patch",
+            "update",
+            "watch"
+         ]
+      },
+      {
+         "apiGroups": [
+            ""
+         ],
+         "resources": [
+            "pods/log",
+            "events"
+         ],
+         "verbs": [
+            "get",
+            "list",
+            "watch"
+         ]
+      }
+   ]
+}
