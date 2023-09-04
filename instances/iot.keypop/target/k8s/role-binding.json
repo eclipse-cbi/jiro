@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.keypop",
+         "org.eclipse.cbi.jiro/project.shortname": "keypop"
+      },
+      "name": "keypop",
+      "namespace": "keypop"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "keypop"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "keypop",
+         "namespace": "keypop"
+      }
+   ]
+}
