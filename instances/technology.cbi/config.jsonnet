@@ -19,6 +19,7 @@
       "mail-watcher-plugin",
       "mask-passwords",
       "metrics",
+      "nexus-jenkins-plugin",
       "prometheus",
       "pubsub-light",
       "slack",
