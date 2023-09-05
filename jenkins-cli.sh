@@ -38,7 +38,7 @@ jenkinsUrl="$(jq -r '.deployment.url' "${instance}/target/config.json")"
 jenkinsVersion="$(jq -r '.jiroMaster.version' "${instance}/target/config.json")"
 
 # First download the jar for the running version (if needed)
-mkdir -p .cli_temp_dir
+mkdir -p "${SCRIPT_FOLDER}/.cli_temp_dir"
 CLI_JAR="${SCRIPT_FOLDER}/.cli_temp_dir/${jenkinsVersion}-cli.jar"
 if [[ ! -f ${CLI_JAR} ]]; then
   curl -sfSL "${jenkinsUrl}/jnlpJars/jenkins-cli.jar" -o "${CLI_JAR}"
