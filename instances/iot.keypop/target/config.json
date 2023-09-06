@@ -95,6 +95,18 @@
                            }
                         ],
                         "name": "m2-dir"
+                     },
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.gradle/gradle.properties",
+                              "subPath": "gradle.properties"
+                           }
+                        ],
+                        "name": "gradle-secret-dir",
+                        "secret": {
+                           "name": "gradle-secret-dir"
+                        }
                      }
                   ]
                },
@@ -190,6 +202,18 @@
                            }
                         ],
                         "name": "m2-dir"
+                     },
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.gradle/gradle.properties",
+                              "subPath": "gradle.properties"
+                           }
+                        ],
+                        "name": "gradle-secret-dir",
+                        "secret": {
+                           "name": "gradle-secret-dir"
+                        }
                      }
                   ]
                },
@@ -293,6 +317,18 @@
                            }
                         ],
                         "name": "m2-dir"
+                     },
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.gradle/gradle.properties",
+                              "subPath": "gradle.properties"
+                           }
+                        ],
+                        "name": "gradle-secret-dir",
+                        "secret": {
+                           "name": "gradle-secret-dir"
+                        }
                      }
                   ]
                },
@@ -390,6 +426,18 @@
                            }
                         ],
                         "name": "m2-dir"
+                     },
+                     {
+                        "mounts": [
+                           {
+                              "mountPath": "/home/jenkins/.gradle/gradle.properties",
+                              "subPath": "gradle.properties"
+                           }
+                        ],
+                        "name": "gradle-secret-dir",
+                        "secret": {
+                           "name": "gradle-secret-dir"
+                        }
                      }
                   ]
                },
@@ -445,7 +493,7 @@
             }
          }
       },
-      "generate": false
+      "generate": true
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
@@ -495,7 +543,9 @@
             "principal": "iot.keypop"
          }
       ],
-      "plugins": [ ],
+      "plugins": [
+         "gradle"
+      ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",
