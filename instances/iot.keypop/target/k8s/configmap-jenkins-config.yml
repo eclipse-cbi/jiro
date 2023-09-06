@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "iot.keypop"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.387.3"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.387.3"
+    org.eclipse.cbi.jiro/jenkins.version: "2.414.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.414.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "keypop"
   namespace: "keypop"
   name: jenkins-config
@@ -110,7 +110,7 @@ data:
             label: "basic"
             containers:
             - name: "jnlp"
-              image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3107.v665000b_51092
+              image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3131.vf2b_b_798b_ce99
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -158,21 +158,6 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/wrapper"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/caches"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/daemon"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/native"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/workers"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/wrapper"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -199,10 +184,6 @@ data:
                     mountPath: /home/jenkins/.mavenrc
                     subPath: .mavenrc
                     readOnly: true
-                  - name: gradle-secret-dir
-                    mountPath: /home/jenkins/.gradle/gradle.properties
-                    subPath: gradle.properties
-                    readOnly: true
                 volumes:
                 - name: m2-secret-dir
                   secret:
@@ -210,15 +191,12 @@ data:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
-                - name: gradle-secret-dir
-                  secret:
-                    secretName: gradle-secret-dir
           - name: "basic-ubuntu"
             namespace: "keypop"
             label: "basic-ubuntu"
             containers:
             - name: "jnlp"
-              image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3107.v665000b_51092
+              image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3131.vf2b_b_798b_ce99
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -266,21 +244,6 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/wrapper"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/caches"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/daemon"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/native"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/workers"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/wrapper"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -307,10 +270,6 @@ data:
                     mountPath: /home/jenkins/.mavenrc
                     subPath: .mavenrc
                     readOnly: true
-                  - name: gradle-secret-dir
-                    mountPath: /home/jenkins/.gradle/gradle.properties
-                    subPath: gradle.properties
-                    readOnly: true
                 volumes:
                 - name: m2-secret-dir
                   secret:
@@ -318,15 +277,12 @@ data:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
-                - name: gradle-secret-dir
-                  secret:
-                    secretName: gradle-secret-dir
           - name: "centos-7"
             namespace: "keypop"
             label: "migration jipp-migration centos-7"
             containers:
             - name: "jnlp"
-              image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3107.v665000b_51092
+              image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3131.vf2b_b_798b_ce99
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -374,21 +330,6 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/wrapper"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/caches"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/daemon"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/native"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/workers"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/wrapper"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -415,10 +356,6 @@ data:
                     mountPath: /home/jenkins/.mavenrc
                     subPath: .mavenrc
                     readOnly: true
-                  - name: gradle-secret-dir
-                    mountPath: /home/jenkins/.gradle/gradle.properties
-                    subPath: gradle.properties
-                    readOnly: true
                 volumes:
                 - name: m2-secret-dir
                   secret:
@@ -426,15 +363,12 @@ data:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
-                - name: gradle-secret-dir
-                  secret:
-                    secretName: gradle-secret-dir
           - name: "centos-8"
             namespace: "keypop"
             label: "centos-latest centos-8"
             containers:
             - name: "jnlp"
-              image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3107.v665000b_51092
+              image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3131.vf2b_b_798b_ce99
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -482,21 +416,6 @@ data:
             - emptyDirVolume:
                 memory: false
                 mountPath: "/home/jenkins/.m2/wrapper"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/caches"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/daemon"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/native"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/workers"
-            - emptyDirVolume:
-                memory: false
-                mountPath: "/home/jenkins/.gradle/wrapper"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -523,10 +442,6 @@ data:
                     mountPath: /home/jenkins/.mavenrc
                     subPath: .mavenrc
                     readOnly: true
-                  - name: gradle-secret-dir
-                    mountPath: /home/jenkins/.gradle/gradle.properties
-                    subPath: gradle.properties
-                    readOnly: true
                 volumes:
                 - name: m2-secret-dir
                   secret:
@@ -534,9 +449,6 @@ data:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
-                - name: gradle-secret-dir
-                  secret:
-                    secretName: gradle-secret-dir
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
