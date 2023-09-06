@@ -5,5 +5,11 @@
   },
   jenkins+: {
     "version": "2.387.3",
+    plugins+: [
+      "gradle",
+    ],
+  },
+  gradle+: {
+    generate: true,
   }
 }
