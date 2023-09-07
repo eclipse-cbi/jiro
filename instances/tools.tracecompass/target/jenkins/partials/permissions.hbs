@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:tools.tracecompass"
-- "GROUP:Credentials/View:tools.tracecompass"
-- "GROUP:Gerrit/ManualTrigger:tools.tracecompass"
-- "GROUP:Gerrit/Retrigger:tools.tracecompass"
-- "GROUP:Job/Build:tools.tracecompass"
-- "GROUP:Job/Cancel:tools.tracecompass"
-- "GROUP:Job/Configure:tools.tracecompass"
-- "GROUP:Job/Create:tools.tracecompass"
-- "GROUP:Job/Delete:tools.tracecompass"
-- "GROUP:Job/Move:tools.tracecompass"
-- "GROUP:Job/Read:tools.tracecompass"
-- "GROUP:Job/Workspace:tools.tracecompass"
-- "GROUP:Overall/Read:tools.tracecompass"
-- "GROUP:Run/Delete:tools.tracecompass"
-- "GROUP:Run/Replay:tools.tracecompass"
-- "GROUP:Run/Update:tools.tracecompass"
-- "GROUP:SCM/Tag:tools.tracecompass"
-- "GROUP:View/Configure:tools.tracecompass"
-- "GROUP:View/Create:tools.tracecompass"
-- "GROUP:View/Delete:tools.tracecompass"
-- "GROUP:View/Read:tools.tracecompass"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: tools.tracecompass
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -5,8 +5,9 @@
     resourcePacks: 2
   },
   jenkins+: {
+    version: "2.414.1",
     plugins+: [
-      "gerrit-trigger",
+      "gerrit-trigger"
     ]
   }
 }
