@@ -539,6 +539,7 @@
          "ldap",
          "mailer",
          "matrix-auth",
+         "maven-plugin",
          "pam-auth",
          "parameterized-trigger",
          "pipeline-maven",
