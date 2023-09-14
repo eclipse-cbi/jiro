@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:tools.cdt.tcf"
-- "GROUP:Credentials/View:tools.cdt.tcf"
-- "GROUP:Gerrit/ManualTrigger:tools.cdt.tcf"
-- "GROUP:Gerrit/Retrigger:tools.cdt.tcf"
-- "GROUP:Job/Build:tools.cdt.tcf"
-- "GROUP:Job/Cancel:tools.cdt.tcf"
-- "GROUP:Job/Configure:tools.cdt.tcf"
-- "GROUP:Job/Create:tools.cdt.tcf"
-- "GROUP:Job/Delete:tools.cdt.tcf"
-- "GROUP:Job/Move:tools.cdt.tcf"
-- "GROUP:Job/Read:tools.cdt.tcf"
-- "GROUP:Job/Workspace:tools.cdt.tcf"
-- "GROUP:Overall/Read:tools.cdt.tcf"
-- "GROUP:Run/Delete:tools.cdt.tcf"
-- "GROUP:Run/Replay:tools.cdt.tcf"
-- "GROUP:Run/Update:tools.cdt.tcf"
-- "GROUP:SCM/Tag:tools.cdt.tcf"
-- "GROUP:View/Configure:tools.cdt.tcf"
-- "GROUP:View/Create:tools.cdt.tcf"
-- "GROUP:View/Delete:tools.cdt.tcf"
-- "GROUP:View/Read:tools.cdt.tcf"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: tools.cdt.tcf
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
