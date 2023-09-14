@@ -1,0 +1,11 @@
+{
+   "apiVersion": "v1",
+   "kind": "Namespace",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.epicyro",
+         "org.eclipse.cbi.jiro/project.shortname": "epicyro"
+      },
+      "name": "epicyro"
+   }
+}

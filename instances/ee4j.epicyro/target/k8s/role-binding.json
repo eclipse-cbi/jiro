@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.epicyro",
+         "org.eclipse.cbi.jiro/project.shortname": "epicyro"
+      },
+      "name": "epicyro",
+      "namespace": "epicyro"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "epicyro"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "epicyro",
+         "namespace": "epicyro"
+      }
+   ]
+}
