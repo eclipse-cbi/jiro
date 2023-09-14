@@ -1,0 +1,46 @@
+{
+   "apiVersion": "v1",
+   "kind": "LimitRange",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.epicyro",
+         "org.eclipse.cbi.jiro/project.shortname": "epicyro"
+      },
+      "name": "jenkins-instance-limit-range",
+      "namespace": "epicyro"
+   },
+   "spec": {
+      "limits": [
+         {
+            "max": {
+               "cpu": "2300m",
+               "memory": "8448Mi"
+            },
+            "min": {
+               "cpu": "200m",
+               "memory": "8Mi"
+            },
+            "type": "Pod"
+         },
+         {
+            "default": {
+               "cpu": "300m",
+               "memory": "256Mi"
+            },
+            "defaultRequest": {
+               "cpu": "200m",
+               "memory": "256Mi"
+            },
+            "max": {
+               "cpu": "2000m",
+               "memory": "8192Mi"
+            },
+            "min": {
+               "cpu": "100m",
+               "memory": "16Mi"
+            },
+            "type": "Container"
+         }
+      ]
+   }
+}

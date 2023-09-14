@@ -1,0 +1,21 @@
+{
+   "apiVersion": "v1",
+   "kind": "ResourceQuota",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.epicyro",
+         "org.eclipse.cbi.jiro/project.shortname": "epicyro"
+      },
+      "name": "jenkins-instance-quota",
+      "namespace": "epicyro"
+   },
+   "spec": {
+      "hard": {
+         "limits.cpu": "6600m",
+         "limits.memory": "10240Mi",
+         "pods": 3,
+         "requests.cpu": "2650m",
+         "requests.memory": "10240Mi"
+      }
+   }
+}
