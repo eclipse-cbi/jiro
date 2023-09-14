@@ -6,6 +6,7 @@
     resourcePacks: 5,
   },
   jenkins+: {
+    version: "2.414.1",
     plugins+: [
       "copyartifact",
       "docker-workflow",
