@@ -29,6 +29,14 @@ if [[ ! -f "${LOCAL_CONFIG}" ]]; then
 fi
 
 PASSWORD_STORE_DIR="$(jq -r '.["password-store"]["cbi-dir"]' "${LOCAL_CONFIG}")"
+
+if [[ -z "${PASSWORD_STORE_DIR}" ]] || [[ "${PASSWORD_STORE_DIR}" == "null" ]]; then
+  printf "ERROR: 'cbi-dir' must be set in %s.\n" "$(readlink -f "${LOCAL_CONFIG}")"
+  exit 1
+fi
+
+PASSWORD_STORE_DIR="$(readlink -f "${PASSWORD_STORE_DIR/#~\//${HOME}/}")"
+
 export PASSWORD_STORE_DIR
 
 #shellcheck disable=SC1091
