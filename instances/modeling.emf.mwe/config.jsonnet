@@ -4,11 +4,10 @@
     displayName: "Eclipse Modeling Workflow Engine"
   },
   jenkins+: {
-    version: "2.387.3",
+    version: "2.414.1",
     plugins+: [
       "parameterized-scheduler",
       "matrix-communication",
-      "maven-plugin"
     ],
   },
 }
