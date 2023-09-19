@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.xpect"
-- "GROUP:Credentials/View:modeling.xpect"
-- "GROUP:Gerrit/ManualTrigger:modeling.xpect"
-- "GROUP:Gerrit/Retrigger:modeling.xpect"
-- "GROUP:Job/Build:modeling.xpect"
-- "GROUP:Job/Cancel:modeling.xpect"
-- "GROUP:Job/Configure:modeling.xpect"
-- "GROUP:Job/Create:modeling.xpect"
-- "GROUP:Job/Delete:modeling.xpect"
-- "GROUP:Job/Move:modeling.xpect"
-- "GROUP:Job/Read:modeling.xpect"
-- "GROUP:Job/Workspace:modeling.xpect"
-- "GROUP:Overall/Read:modeling.xpect"
-- "GROUP:Run/Delete:modeling.xpect"
-- "GROUP:Run/Replay:modeling.xpect"
-- "GROUP:Run/Update:modeling.xpect"
-- "GROUP:SCM/Tag:modeling.xpect"
-- "GROUP:View/Configure:modeling.xpect"
-- "GROUP:View/Create:modeling.xpect"
-- "GROUP:View/Delete:modeling.xpect"
-- "GROUP:View/Read:modeling.xpect"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.xpect
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
