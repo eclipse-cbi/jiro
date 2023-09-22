@@ -44,6 +44,8 @@ jenkins:
             key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk11-latest"
           - home: "/opt/public/common/apache-maven-latest"
             key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
+          - home: "/opt/public/common/apache-maven-3.9.3"
+            key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-3.9.3"
           - home: "/usr/lib/jvm/java-17"
             key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk17-latest"
       - watcher:

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Agent/Build:callisto-dev"
-- "GROUP:Credentials/View:callisto-dev"
-- "GROUP:Gerrit/ManualTrigger:callisto-dev"
-- "GROUP:Gerrit/Retrigger:callisto-dev"
-- "GROUP:Job/Build:callisto-dev"
-- "GROUP:Job/Cancel:callisto-dev"
-- "GROUP:Job/Configure:callisto-dev"
-- "GROUP:Job/Create:callisto-dev"
-- "GROUP:Job/Delete:callisto-dev"
-- "GROUP:Job/Move:callisto-dev"
-- "GROUP:Job/Read:callisto-dev"
-- "GROUP:Job/Workspace:callisto-dev"
-- "GROUP:Overall/Read:callisto-dev"
-- "GROUP:Run/Delete:callisto-dev"
-- "GROUP:Run/Replay:callisto-dev"
-- "GROUP:Run/Update:callisto-dev"
-- "GROUP:SCM/Tag:callisto-dev"
-- "GROUP:View/Configure:callisto-dev"
-- "GROUP:View/Create:callisto-dev"
-- "GROUP:View/Delete:callisto-dev"
-- "GROUP:View/Read:callisto-dev"
-- "GROUP:Job/ExtendedRead:common"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: callisto-dev
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
