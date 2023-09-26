@@ -23,10 +23,10 @@ if [[ "${#}" -eq 0 ]]; then
   exit 1
 fi
 
-UPDATE_PLUGIN_LOG_FOLDER="${SCRIPT_FOLDER}/update_plugin_log"
-mkdir -p "${UPDATE_PLUGIN_LOG_FOLDER}"
+LOG_FOLDER="${SCRIPT_FOLDER}/update_plugin_log"
+mkdir -p "${LOG_FOLDER}"
 
-STILL_RUNNING_QUEUE="${UPDATE_PLUGIN_LOG_FOLDER}/instances_still_running_builds.txt"
+STILL_RUNNING_QUEUE="${LOG_FOLDER}/instances_still_running_builds.txt"
 
 runningBuilds() {
   local url="${1}"
@@ -54,5 +54,5 @@ for instance in "${@}"; do
   fi
 
   echo "Update!"
-  "${SCRIPT_FOLDER}/../jenkins-cli.sh" "${instance}" "groovy" "=" < "${SCRIPT_FOLDER}/../groovy/cli/update-jenkins-plugins.groovy" &> "${UPDATE_PLUGIN_LOG_FOLDER}/${project_name}.log" &
+  "${SCRIPT_FOLDER}/../jenkins-cli.sh" "${instance}" "groovy" "=" < "${SCRIPT_FOLDER}/../groovy/cli/update-jenkins-plugins.groovy" &> "${LOG_FOLDER}/${project_name}.log" &
 done
