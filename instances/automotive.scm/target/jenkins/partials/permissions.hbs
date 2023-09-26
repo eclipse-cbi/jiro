@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Agent/Build:automotive.scm"
-- "GROUP:Credentials/View:automotive.scm"
-- "GROUP:Gerrit/ManualTrigger:automotive.scm"
-- "GROUP:Gerrit/Retrigger:automotive.scm"
-- "GROUP:Job/Build:automotive.scm"
-- "GROUP:Job/Cancel:automotive.scm"
-- "GROUP:Job/Configure:automotive.scm"
-- "GROUP:Job/Create:automotive.scm"
-- "GROUP:Job/Delete:automotive.scm"
-- "GROUP:Job/Move:automotive.scm"
-- "GROUP:Job/Read:automotive.scm"
-- "GROUP:Job/Workspace:automotive.scm"
-- "GROUP:Overall/Read:automotive.scm"
-- "GROUP:Run/Delete:automotive.scm"
-- "GROUP:Run/Replay:automotive.scm"
-- "GROUP:Run/Update:automotive.scm"
-- "GROUP:SCM/Tag:automotive.scm"
-- "GROUP:View/Configure:automotive.scm"
-- "GROUP:View/Create:automotive.scm"
-- "GROUP:View/Delete:automotive.scm"
-- "GROUP:View/Read:automotive.scm"
-- "GROUP:Job/ExtendedRead:common"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: automotive.scm
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead

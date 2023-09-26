@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ecd.cdt-cloud"
-- "GROUP:Credentials/View:ecd.cdt-cloud"
-- "GROUP:Gerrit/ManualTrigger:ecd.cdt-cloud"
-- "GROUP:Gerrit/Retrigger:ecd.cdt-cloud"
-- "GROUP:Job/Build:ecd.cdt-cloud"
-- "GROUP:Job/Cancel:ecd.cdt-cloud"
-- "GROUP:Job/Configure:ecd.cdt-cloud"
-- "GROUP:Job/Create:ecd.cdt-cloud"
-- "GROUP:Job/Delete:ecd.cdt-cloud"
-- "GROUP:Job/Move:ecd.cdt-cloud"
-- "GROUP:Job/Read:ecd.cdt-cloud"
-- "GROUP:Job/Workspace:ecd.cdt-cloud"
-- "GROUP:Overall/Read:ecd.cdt-cloud"
-- "GROUP:Run/Delete:ecd.cdt-cloud"
-- "GROUP:Run/Replay:ecd.cdt-cloud"
-- "GROUP:Run/Update:ecd.cdt-cloud"
-- "GROUP:SCM/Tag:ecd.cdt-cloud"
-- "GROUP:View/Configure:ecd.cdt-cloud"
-- "GROUP:View/Create:ecd.cdt-cloud"
-- "GROUP:View/Delete:ecd.cdt-cloud"
-- "GROUP:View/Read:ecd.cdt-cloud"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ecd.cdt-cloud
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

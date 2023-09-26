@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Agent/Build:automotive"
-- "GROUP:Credentials/View:automotive"
-- "GROUP:Gerrit/ManualTrigger:automotive"
-- "GROUP:Gerrit/Retrigger:automotive"
-- "GROUP:Job/Build:automotive"
-- "GROUP:Job/Cancel:automotive"
-- "GROUP:Job/Configure:automotive"
-- "GROUP:Job/Create:automotive"
-- "GROUP:Job/Delete:automotive"
-- "GROUP:Job/Move:automotive"
-- "GROUP:Job/Read:automotive"
-- "GROUP:Job/Workspace:automotive"
-- "GROUP:Overall/Read:automotive"
-- "GROUP:Run/Delete:automotive"
-- "GROUP:Run/Replay:automotive"
-- "GROUP:Run/Update:automotive"
-- "GROUP:SCM/Tag:automotive"
-- "GROUP:View/Configure:automotive"
-- "GROUP:View/Create:automotive"
-- "GROUP:View/Delete:automotive"
-- "GROUP:View/Read:automotive"
-- "GROUP:Job/ExtendedRead:common"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: automotive
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead

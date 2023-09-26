@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ecd.jkube"
-- "GROUP:Credentials/View:ecd.jkube"
-- "GROUP:Gerrit/ManualTrigger:ecd.jkube"
-- "GROUP:Gerrit/Retrigger:ecd.jkube"
-- "GROUP:Job/Build:ecd.jkube"
-- "GROUP:Job/Cancel:ecd.jkube"
-- "GROUP:Job/Configure:ecd.jkube"
-- "GROUP:Job/Create:ecd.jkube"
-- "GROUP:Job/Delete:ecd.jkube"
-- "GROUP:Job/Move:ecd.jkube"
-- "GROUP:Job/Read:ecd.jkube"
-- "GROUP:Job/Workspace:ecd.jkube"
-- "GROUP:Overall/Read:ecd.jkube"
-- "GROUP:Run/Delete:ecd.jkube"
-- "GROUP:Run/Replay:ecd.jkube"
-- "GROUP:Run/Update:ecd.jkube"
-- "GROUP:SCM/Tag:ecd.jkube"
-- "GROUP:View/Configure:ecd.jkube"
-- "GROUP:View/Create:ecd.jkube"
-- "GROUP:View/Delete:ecd.jkube"
-- "GROUP:View/Read:ecd.jkube"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ecd.jkube
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ecd.emfcloud"
-- "GROUP:Credentials/View:ecd.emfcloud"
-- "GROUP:Gerrit/ManualTrigger:ecd.emfcloud"
-- "GROUP:Gerrit/Retrigger:ecd.emfcloud"
-- "GROUP:Job/Build:ecd.emfcloud"
-- "GROUP:Job/Cancel:ecd.emfcloud"
-- "GROUP:Job/Configure:ecd.emfcloud"
-- "GROUP:Job/Create:ecd.emfcloud"
-- "GROUP:Job/Delete:ecd.emfcloud"
-- "GROUP:Job/Move:ecd.emfcloud"
-- "GROUP:Job/Read:ecd.emfcloud"
-- "GROUP:Job/Workspace:ecd.emfcloud"
-- "GROUP:Overall/Read:ecd.emfcloud"
-- "GROUP:Run/Delete:ecd.emfcloud"
-- "GROUP:Run/Replay:ecd.emfcloud"
-- "GROUP:Run/Update:ecd.emfcloud"
-- "GROUP:SCM/Tag:ecd.emfcloud"
-- "GROUP:View/Configure:ecd.emfcloud"
-- "GROUP:View/Create:ecd.emfcloud"
-- "GROUP:View/Delete:ecd.emfcloud"
-- "GROUP:View/Read:ecd.emfcloud"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ecd.emfcloud
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

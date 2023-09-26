@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Agent/Build:automotive.ecal"
-- "GROUP:Credentials/View:automotive.ecal"
-- "GROUP:Gerrit/ManualTrigger:automotive.ecal"
-- "GROUP:Gerrit/Retrigger:automotive.ecal"
-- "GROUP:Job/Build:automotive.ecal"
-- "GROUP:Job/Cancel:automotive.ecal"
-- "GROUP:Job/Configure:automotive.ecal"
-- "GROUP:Job/Create:automotive.ecal"
-- "GROUP:Job/Delete:automotive.ecal"
-- "GROUP:Job/Move:automotive.ecal"
-- "GROUP:Job/Read:automotive.ecal"
-- "GROUP:Job/Workspace:automotive.ecal"
-- "GROUP:Overall/Read:automotive.ecal"
-- "GROUP:Run/Delete:automotive.ecal"
-- "GROUP:Run/Replay:automotive.ecal"
-- "GROUP:Run/Update:automotive.ecal"
-- "GROUP:SCM/Tag:automotive.ecal"
-- "GROUP:View/Configure:automotive.ecal"
-- "GROUP:View/Create:automotive.ecal"
-- "GROUP:View/Delete:automotive.ecal"
-- "GROUP:View/Read:automotive.ecal"
-- "GROUP:Job/ExtendedRead:common"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: automotive.ecal
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead

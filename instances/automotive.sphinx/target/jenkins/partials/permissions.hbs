@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Agent/Build:automotive.sphinx"
-- "GROUP:Credentials/View:automotive.sphinx"
-- "GROUP:Gerrit/ManualTrigger:automotive.sphinx"
-- "GROUP:Gerrit/Retrigger:automotive.sphinx"
-- "GROUP:Job/Build:automotive.sphinx"
-- "GROUP:Job/Cancel:automotive.sphinx"
-- "GROUP:Job/Configure:automotive.sphinx"
-- "GROUP:Job/Create:automotive.sphinx"
-- "GROUP:Job/Delete:automotive.sphinx"
-- "GROUP:Job/Move:automotive.sphinx"
-- "GROUP:Job/Read:automotive.sphinx"
-- "GROUP:Job/Workspace:automotive.sphinx"
-- "GROUP:Overall/Read:automotive.sphinx"
-- "GROUP:Run/Delete:automotive.sphinx"
-- "GROUP:Run/Replay:automotive.sphinx"
-- "GROUP:Run/Update:automotive.sphinx"
-- "GROUP:SCM/Tag:automotive.sphinx"
-- "GROUP:View/Configure:automotive.sphinx"
-- "GROUP:View/Create:automotive.sphinx"
-- "GROUP:View/Delete:automotive.sphinx"
-- "GROUP:View/Read:automotive.sphinx"
-- "GROUP:Job/ExtendedRead:common"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: automotive.sphinx
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead

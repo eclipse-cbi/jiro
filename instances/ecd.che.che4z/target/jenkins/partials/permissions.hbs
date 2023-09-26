@@ -1,25 +1,18 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Credentials/Create:andrea.zaccaro@broadcom.com"
-- "USER:Credentials/Update:andrea.zaccaro@broadcom.com"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ecd.che.che4z"
-- "GROUP:Credentials/View:ecd.che.che4z"
-- "GROUP:Job/Build:ecd.che.che4z"
-- "GROUP:Job/Cancel:ecd.che.che4z"
-- "GROUP:Job/Configure:ecd.che.che4z"
-- "GROUP:Job/Create:ecd.che.che4z"
-- "GROUP:Job/Delete:ecd.che.che4z"
-- "GROUP:Job/Move:ecd.che.che4z"
-- "GROUP:Job/Read:ecd.che.che4z"
-- "GROUP:Job/Workspace:ecd.che.che4z"
-- "GROUP:Overall/Read:ecd.che.che4z"
-- "GROUP:Run/Delete:ecd.che.che4z"
-- "GROUP:Run/Replay:ecd.che.che4z"
-- "GROUP:Run/Update:ecd.che.che4z"
-- "GROUP:SCM/Tag:ecd.che.che4z"
-- "GROUP:View/Configure:ecd.che.che4z"
-- "GROUP:View/Create:ecd.che.che4z"
-- "GROUP:View/Delete:ecd.che.che4z"
-- "GROUP:View/Read:ecd.che.che4z"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: andrea.zaccaro@broadcom.com
+      permissions:
+       - Credentials/Create
+       - Credentials/Update
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead

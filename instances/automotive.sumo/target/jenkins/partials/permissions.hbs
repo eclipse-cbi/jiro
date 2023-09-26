@@ -1,23 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Agent/Build:automotive.sumo"
-- "GROUP:Credentials/View:automotive.sumo"
-- "GROUP:Job/Build:automotive.sumo"
-- "GROUP:Job/Cancel:automotive.sumo"
-- "GROUP:Job/Configure:automotive.sumo"
-- "GROUP:Job/Create:automotive.sumo"
-- "GROUP:Job/Delete:automotive.sumo"
-- "GROUP:Job/Move:automotive.sumo"
-- "GROUP:Job/Read:automotive.sumo"
-- "GROUP:Job/Workspace:automotive.sumo"
-- "GROUP:Overall/Read:automotive.sumo"
-- "GROUP:Run/Delete:automotive.sumo"
-- "GROUP:Run/Replay:automotive.sumo"
-- "GROUP:Run/Update:automotive.sumo"
-- "GROUP:SCM/Tag:automotive.sumo"
-- "GROUP:View/Configure:automotive.sumo"
-- "GROUP:View/Create:automotive.sumo"
-- "GROUP:View/Delete:automotive.sumo"
-- "GROUP:View/Read:automotive.sumo"
-- "GROUP:Job/ExtendedRead:common"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: automotive.sumo
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead

@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:dt.basyx"
-- "GROUP:Credentials/View:dt.basyx"
-- "GROUP:Gerrit/ManualTrigger:dt.basyx"
-- "GROUP:Gerrit/Retrigger:dt.basyx"
-- "GROUP:Job/Build:dt.basyx"
-- "GROUP:Job/Cancel:dt.basyx"
-- "GROUP:Job/Configure:dt.basyx"
-- "GROUP:Job/Create:dt.basyx"
-- "GROUP:Job/Delete:dt.basyx"
-- "GROUP:Job/Move:dt.basyx"
-- "GROUP:Job/Read:dt.basyx"
-- "GROUP:Job/Workspace:dt.basyx"
-- "GROUP:Overall/Read:dt.basyx"
-- "GROUP:Run/Delete:dt.basyx"
-- "GROUP:Run/Replay:dt.basyx"
-- "GROUP:Run/Update:dt.basyx"
-- "GROUP:SCM/Tag:dt.basyx"
-- "GROUP:View/Configure:dt.basyx"
-- "GROUP:View/Create:dt.basyx"
-- "GROUP:View/Delete:dt.basyx"
-- "GROUP:View/Read:dt.basyx"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: dt.basyx
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

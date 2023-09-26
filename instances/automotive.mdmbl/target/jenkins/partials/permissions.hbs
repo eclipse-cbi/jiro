@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Agent/Build:automotive.mdmbl"
-- "GROUP:Credentials/View:automotive.mdmbl"
-- "GROUP:Gerrit/ManualTrigger:automotive.mdmbl"
-- "GROUP:Gerrit/Retrigger:automotive.mdmbl"
-- "GROUP:Job/Build:automotive.mdmbl"
-- "GROUP:Job/Cancel:automotive.mdmbl"
-- "GROUP:Job/Configure:automotive.mdmbl"
-- "GROUP:Job/Create:automotive.mdmbl"
-- "GROUP:Job/Delete:automotive.mdmbl"
-- "GROUP:Job/Move:automotive.mdmbl"
-- "GROUP:Job/Read:automotive.mdmbl"
-- "GROUP:Job/Workspace:automotive.mdmbl"
-- "GROUP:Overall/Read:automotive.mdmbl"
-- "GROUP:Run/Delete:automotive.mdmbl"
-- "GROUP:Run/Replay:automotive.mdmbl"
-- "GROUP:Run/Update:automotive.mdmbl"
-- "GROUP:SCM/Tag:automotive.mdmbl"
-- "GROUP:View/Configure:automotive.mdmbl"
-- "GROUP:View/Create:automotive.mdmbl"
-- "GROUP:View/Delete:automotive.mdmbl"
-- "GROUP:View/Read:automotive.mdmbl"
-- "GROUP:Job/ExtendedRead:common"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: automotive.mdmbl
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead

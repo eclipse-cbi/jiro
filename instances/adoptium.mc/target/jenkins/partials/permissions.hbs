@@ -1,23 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "GROUP:Agent/Build:adoptium.mc"
-- "GROUP:Credentials/View:adoptium.mc"
-- "GROUP:Job/Build:adoptium.mc"
-- "GROUP:Job/Cancel:adoptium.mc"
-- "GROUP:Job/Configure:adoptium.mc"
-- "GROUP:Job/Create:adoptium.mc"
-- "GROUP:Job/Delete:adoptium.mc"
-- "GROUP:Job/Move:adoptium.mc"
-- "GROUP:Job/Read:adoptium.mc"
-- "GROUP:Job/Workspace:adoptium.mc"
-- "GROUP:Overall/Read:adoptium.mc"
-- "GROUP:Run/Delete:adoptium.mc"
-- "GROUP:Run/Replay:adoptium.mc"
-- "GROUP:Run/Update:adoptium.mc"
-- "GROUP:SCM/Tag:adoptium.mc"
-- "GROUP:View/Configure:adoptium.mc"
-- "GROUP:View/Create:adoptium.mc"
-- "GROUP:View/Delete:adoptium.mc"
-- "GROUP:View/Read:adoptium.mc"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - group:
+      name: adoptium.mc
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead

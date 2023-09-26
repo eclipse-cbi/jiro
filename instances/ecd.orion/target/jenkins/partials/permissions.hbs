@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ecd.orion"
-- "GROUP:Credentials/View:ecd.orion"
-- "GROUP:Gerrit/ManualTrigger:ecd.orion"
-- "GROUP:Gerrit/Retrigger:ecd.orion"
-- "GROUP:Job/Build:ecd.orion"
-- "GROUP:Job/Cancel:ecd.orion"
-- "GROUP:Job/Configure:ecd.orion"
-- "GROUP:Job/Create:ecd.orion"
-- "GROUP:Job/Delete:ecd.orion"
-- "GROUP:Job/Move:ecd.orion"
-- "GROUP:Job/Read:ecd.orion"
-- "GROUP:Job/Workspace:ecd.orion"
-- "GROUP:Overall/Read:ecd.orion"
-- "GROUP:Run/Delete:ecd.orion"
-- "GROUP:Run/Replay:ecd.orion"
-- "GROUP:Run/Update:ecd.orion"
-- "GROUP:SCM/Tag:ecd.orion"
-- "GROUP:View/Configure:ecd.orion"
-- "GROUP:View/Create:ecd.orion"
-- "GROUP:View/Delete:ecd.orion"
-- "GROUP:View/Read:ecd.orion"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ecd.orion
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

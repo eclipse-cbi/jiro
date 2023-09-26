@@ -1,23 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Agent/Build:automotive.kuksa"
-- "GROUP:Credentials/View:automotive.kuksa"
-- "GROUP:Job/Build:automotive.kuksa"
-- "GROUP:Job/Cancel:automotive.kuksa"
-- "GROUP:Job/Configure:automotive.kuksa"
-- "GROUP:Job/Create:automotive.kuksa"
-- "GROUP:Job/Delete:automotive.kuksa"
-- "GROUP:Job/Move:automotive.kuksa"
-- "GROUP:Job/Read:automotive.kuksa"
-- "GROUP:Job/Workspace:automotive.kuksa"
-- "GROUP:Overall/Read:automotive.kuksa"
-- "GROUP:Run/Delete:automotive.kuksa"
-- "GROUP:Run/Replay:automotive.kuksa"
-- "GROUP:Run/Update:automotive.kuksa"
-- "GROUP:SCM/Tag:automotive.kuksa"
-- "GROUP:View/Configure:automotive.kuksa"
-- "GROUP:View/Create:automotive.kuksa"
-- "GROUP:View/Delete:automotive.kuksa"
-- "GROUP:View/Read:automotive.kuksa"
-- "GROUP:Job/ExtendedRead:common"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: automotive.kuksa
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead

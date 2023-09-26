@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Agent/Build:automotive.mosaic"
-- "GROUP:Credentials/View:automotive.mosaic"
-- "GROUP:Gerrit/ManualTrigger:automotive.mosaic"
-- "GROUP:Gerrit/Retrigger:automotive.mosaic"
-- "GROUP:Job/Build:automotive.mosaic"
-- "GROUP:Job/Cancel:automotive.mosaic"
-- "GROUP:Job/Configure:automotive.mosaic"
-- "GROUP:Job/Create:automotive.mosaic"
-- "GROUP:Job/Delete:automotive.mosaic"
-- "GROUP:Job/Move:automotive.mosaic"
-- "GROUP:Job/Read:automotive.mosaic"
-- "GROUP:Job/Workspace:automotive.mosaic"
-- "GROUP:Overall/Read:automotive.mosaic"
-- "GROUP:Run/Delete:automotive.mosaic"
-- "GROUP:Run/Replay:automotive.mosaic"
-- "GROUP:Run/Update:automotive.mosaic"
-- "GROUP:SCM/Tag:automotive.mosaic"
-- "GROUP:View/Configure:automotive.mosaic"
-- "GROUP:View/Create:automotive.mosaic"
-- "GROUP:View/Delete:automotive.mosaic"
-- "GROUP:View/Read:automotive.mosaic"
-- "GROUP:Job/ExtendedRead:common"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: automotive.mosaic
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead

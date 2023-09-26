@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "ecd.che"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.387.3"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.387.3"
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.414.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "che"
   namespace: "che"
   name: jenkins-config
@@ -112,7 +112,7 @@ data:
             label: "basic"
             containers:
             - name: "jnlp"
-              image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3107.v665000b_51092
+              image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3131.vf2b_b_798b_ce99
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -198,7 +198,7 @@ data:
             label: "basic-ubuntu"
             containers:
             - name: "jnlp"
-              image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3107.v665000b_51092
+              image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3131.vf2b_b_798b_ce99
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -284,7 +284,7 @@ data:
             label: "migration jipp-migration centos-7"
             containers:
             - name: "jnlp"
-              image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3107.v665000b_51092
+              image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3131.vf2b_b_798b_ce99
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -370,7 +370,7 @@ data:
             label: "centos-latest centos-8"
             containers:
             - name: "jnlp"
-              image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3107.v665000b_51092
+              image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3131.vf2b_b_798b_ce99
               alwaysPullImage: true
               livenessProbe:
                 failureThreshold: 0
@@ -664,6 +664,8 @@ data:
         installations:
           - name: "apache-maven-latest"
             home: "/opt/tools/apache-maven/latest"
+          - name: "apache-maven-3.9.3"
+            home: "/opt/tools/apache-maven/3.9.3"
           - name: "apache-maven-3.9.2"
             home: "/opt/tools/apache-maven/3.9.2"
           - name: "apache-maven-3.9.1"

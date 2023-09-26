@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Agent/Build:automotive.app4mc"
-- "GROUP:Credentials/View:automotive.app4mc"
-- "GROUP:Gerrit/ManualTrigger:automotive.app4mc"
-- "GROUP:Gerrit/Retrigger:automotive.app4mc"
-- "GROUP:Job/Build:automotive.app4mc"
-- "GROUP:Job/Cancel:automotive.app4mc"
-- "GROUP:Job/Configure:automotive.app4mc"
-- "GROUP:Job/Create:automotive.app4mc"
-- "GROUP:Job/Delete:automotive.app4mc"
-- "GROUP:Job/Move:automotive.app4mc"
-- "GROUP:Job/Read:automotive.app4mc"
-- "GROUP:Job/Workspace:automotive.app4mc"
-- "GROUP:Overall/Read:automotive.app4mc"
-- "GROUP:Run/Delete:automotive.app4mc"
-- "GROUP:Run/Replay:automotive.app4mc"
-- "GROUP:Run/Update:automotive.app4mc"
-- "GROUP:SCM/Tag:automotive.app4mc"
-- "GROUP:View/Configure:automotive.app4mc"
-- "GROUP:View/Create:automotive.app4mc"
-- "GROUP:View/Delete:automotive.app4mc"
-- "GROUP:View/Read:automotive.app4mc"
-- "GROUP:Job/ExtendedRead:common"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: automotive.app4mc
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead

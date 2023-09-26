@@ -1,23 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "GROUP:Agent/Build:adoptium.emt4j"
-- "GROUP:Credentials/View:adoptium.emt4j"
-- "GROUP:Job/Build:adoptium.emt4j"
-- "GROUP:Job/Cancel:adoptium.emt4j"
-- "GROUP:Job/Configure:adoptium.emt4j"
-- "GROUP:Job/Create:adoptium.emt4j"
-- "GROUP:Job/Delete:adoptium.emt4j"
-- "GROUP:Job/Move:adoptium.emt4j"
-- "GROUP:Job/Read:adoptium.emt4j"
-- "GROUP:Job/Workspace:adoptium.emt4j"
-- "GROUP:Overall/Read:adoptium.emt4j"
-- "GROUP:Run/Delete:adoptium.emt4j"
-- "GROUP:Run/Replay:adoptium.emt4j"
-- "GROUP:Run/Update:adoptium.emt4j"
-- "GROUP:SCM/Tag:adoptium.emt4j"
-- "GROUP:View/Configure:adoptium.emt4j"
-- "GROUP:View/Create:adoptium.emt4j"
-- "GROUP:View/Delete:adoptium.emt4j"
-- "GROUP:View/Read:adoptium.emt4j"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - group:
+      name: adoptium.emt4j
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead

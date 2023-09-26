@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ecd.sprotty"
-- "GROUP:Credentials/View:ecd.sprotty"
-- "GROUP:Gerrit/ManualTrigger:ecd.sprotty"
-- "GROUP:Gerrit/Retrigger:ecd.sprotty"
-- "GROUP:Job/Build:ecd.sprotty"
-- "GROUP:Job/Cancel:ecd.sprotty"
-- "GROUP:Job/Configure:ecd.sprotty"
-- "GROUP:Job/Create:ecd.sprotty"
-- "GROUP:Job/Delete:ecd.sprotty"
-- "GROUP:Job/Move:ecd.sprotty"
-- "GROUP:Job/Read:ecd.sprotty"
-- "GROUP:Job/Workspace:ecd.sprotty"
-- "GROUP:Overall/Read:ecd.sprotty"
-- "GROUP:Run/Delete:ecd.sprotty"
-- "GROUP:Run/Replay:ecd.sprotty"
-- "GROUP:Run/Update:ecd.sprotty"
-- "GROUP:SCM/Tag:ecd.sprotty"
-- "GROUP:View/Configure:ecd.sprotty"
-- "GROUP:View/Create:ecd.sprotty"
-- "GROUP:View/Delete:ecd.sprotty"
-- "GROUP:View/Read:ecd.sprotty"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ecd.sprotty
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

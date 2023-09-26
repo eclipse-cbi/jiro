@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ecd.glsp"
-- "GROUP:Credentials/View:ecd.glsp"
-- "GROUP:Gerrit/ManualTrigger:ecd.glsp"
-- "GROUP:Gerrit/Retrigger:ecd.glsp"
-- "GROUP:Job/Build:ecd.glsp"
-- "GROUP:Job/Cancel:ecd.glsp"
-- "GROUP:Job/Configure:ecd.glsp"
-- "GROUP:Job/Create:ecd.glsp"
-- "GROUP:Job/Delete:ecd.glsp"
-- "GROUP:Job/Move:ecd.glsp"
-- "GROUP:Job/Read:ecd.glsp"
-- "GROUP:Job/Workspace:ecd.glsp"
-- "GROUP:Overall/Read:ecd.glsp"
-- "GROUP:Run/Delete:ecd.glsp"
-- "GROUP:Run/Replay:ecd.glsp"
-- "GROUP:Run/Update:ecd.glsp"
-- "GROUP:SCM/Tag:ecd.glsp"
-- "GROUP:View/Configure:ecd.glsp"
-- "GROUP:View/Create:ecd.glsp"
-- "GROUP:View/Delete:ecd.glsp"
-- "GROUP:View/Read:ecd.glsp"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ecd.glsp
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

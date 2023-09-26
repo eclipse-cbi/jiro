@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ecd.theia"
-- "GROUP:Credentials/View:ecd.theia"
-- "GROUP:Gerrit/ManualTrigger:ecd.theia"
-- "GROUP:Gerrit/Retrigger:ecd.theia"
-- "GROUP:Job/Build:ecd.theia"
-- "GROUP:Job/Cancel:ecd.theia"
-- "GROUP:Job/Configure:ecd.theia"
-- "GROUP:Job/Create:ecd.theia"
-- "GROUP:Job/Delete:ecd.theia"
-- "GROUP:Job/Move:ecd.theia"
-- "GROUP:Job/Read:ecd.theia"
-- "GROUP:Job/Workspace:ecd.theia"
-- "GROUP:Overall/Read:ecd.theia"
-- "GROUP:Run/Delete:ecd.theia"
-- "GROUP:Run/Replay:ecd.theia"
-- "GROUP:Run/Update:ecd.theia"
-- "GROUP:SCM/Tag:ecd.theia"
-- "GROUP:View/Configure:ecd.theia"
-- "GROUP:View/Create:ecd.theia"
-- "GROUP:View/Delete:ecd.theia"
-- "GROUP:View/Read:ecd.theia"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ecd.theia
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Agent/Build:automotive.tractusx"
-- "GROUP:Credentials/View:automotive.tractusx"
-- "GROUP:Gerrit/ManualTrigger:automotive.tractusx"
-- "GROUP:Gerrit/Retrigger:automotive.tractusx"
-- "GROUP:Job/Build:automotive.tractusx"
-- "GROUP:Job/Cancel:automotive.tractusx"
-- "GROUP:Job/Configure:automotive.tractusx"
-- "GROUP:Job/Create:automotive.tractusx"
-- "GROUP:Job/Delete:automotive.tractusx"
-- "GROUP:Job/Move:automotive.tractusx"
-- "GROUP:Job/Read:automotive.tractusx"
-- "GROUP:Job/Workspace:automotive.tractusx"
-- "GROUP:Overall/Read:automotive.tractusx"
-- "GROUP:Run/Delete:automotive.tractusx"
-- "GROUP:Run/Replay:automotive.tractusx"
-- "GROUP:Run/Update:automotive.tractusx"
-- "GROUP:SCM/Tag:automotive.tractusx"
-- "GROUP:View/Configure:automotive.tractusx"
-- "GROUP:View/Create:automotive.tractusx"
-- "GROUP:View/Delete:automotive.tractusx"
-- "GROUP:View/Read:automotive.tractusx"
-- "GROUP:Job/ExtendedRead:common"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: automotive.tractusx
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
