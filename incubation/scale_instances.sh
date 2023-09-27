@@ -37,7 +37,7 @@ for instance in ../instances/*; do
   short_name="${instance_name##*.}"
   #echo "Short name: ${short_name}"
 
-  namespace="$(jq -r .clouds.kubernetes.namespace < "../instances/${instance_name}/target/config.json")"
+  namespace="$(jq -r '.clouds.kubernetes.namespace' < "${instance}/target/config.json")"
   if [[ "${COMMAND}" == "down" ]]; then
     replicas="0"
   else
