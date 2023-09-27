@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:eclipse.equinox"
-- "GROUP:Credentials/View:eclipse.equinox"
-- "GROUP:Gerrit/ManualTrigger:eclipse.equinox"
-- "GROUP:Gerrit/Retrigger:eclipse.equinox"
-- "GROUP:Job/Build:eclipse.equinox"
-- "GROUP:Job/Cancel:eclipse.equinox"
-- "GROUP:Job/Configure:eclipse.equinox"
-- "GROUP:Job/Create:eclipse.equinox"
-- "GROUP:Job/Delete:eclipse.equinox"
-- "GROUP:Job/Move:eclipse.equinox"
-- "GROUP:Job/Read:eclipse.equinox"
-- "GROUP:Job/Workspace:eclipse.equinox"
-- "GROUP:Overall/Read:eclipse.equinox"
-- "GROUP:Run/Delete:eclipse.equinox"
-- "GROUP:Run/Replay:eclipse.equinox"
-- "GROUP:Run/Update:eclipse.equinox"
-- "GROUP:SCM/Tag:eclipse.equinox"
-- "GROUP:View/Configure:eclipse.equinox"
-- "GROUP:View/Create:eclipse.equinox"
-- "GROUP:View/Delete:eclipse.equinox"
-- "GROUP:View/Read:eclipse.equinox"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: eclipse.equinox
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

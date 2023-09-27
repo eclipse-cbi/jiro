@@ -530,7 +530,6 @@
          "github-branch-source",
          "gitlab-plugin",
          "gitlab-branch-source",
-         "greenballs",
          "jdk-tool",
          "jobConfigHistory",
          "kubernetes",

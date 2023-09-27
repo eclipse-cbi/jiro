@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:eclipse.jdt"
-- "GROUP:Credentials/View:eclipse.jdt"
-- "GROUP:Gerrit/ManualTrigger:eclipse.jdt"
-- "GROUP:Gerrit/Retrigger:eclipse.jdt"
-- "GROUP:Job/Build:eclipse.jdt"
-- "GROUP:Job/Cancel:eclipse.jdt"
-- "GROUP:Job/Configure:eclipse.jdt"
-- "GROUP:Job/Create:eclipse.jdt"
-- "GROUP:Job/Delete:eclipse.jdt"
-- "GROUP:Job/Move:eclipse.jdt"
-- "GROUP:Job/Read:eclipse.jdt"
-- "GROUP:Job/Workspace:eclipse.jdt"
-- "GROUP:Overall/Read:eclipse.jdt"
-- "GROUP:Run/Delete:eclipse.jdt"
-- "GROUP:Run/Replay:eclipse.jdt"
-- "GROUP:Run/Update:eclipse.jdt"
-- "GROUP:SCM/Tag:eclipse.jdt"
-- "GROUP:View/Configure:eclipse.jdt"
-- "GROUP:View/Create:eclipse.jdt"
-- "GROUP:View/Delete:eclipse.jdt"
-- "GROUP:View/Read:eclipse.jdt"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: eclipse.jdt
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

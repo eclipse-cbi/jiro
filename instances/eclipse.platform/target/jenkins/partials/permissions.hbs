@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:eclipse.platform"
-- "GROUP:Credentials/View:eclipse.platform"
-- "GROUP:Gerrit/ManualTrigger:eclipse.platform"
-- "GROUP:Gerrit/Retrigger:eclipse.platform"
-- "GROUP:Job/Build:eclipse.platform"
-- "GROUP:Job/Cancel:eclipse.platform"
-- "GROUP:Job/Configure:eclipse.platform"
-- "GROUP:Job/Create:eclipse.platform"
-- "GROUP:Job/Delete:eclipse.platform"
-- "GROUP:Job/Move:eclipse.platform"
-- "GROUP:Job/Read:eclipse.platform"
-- "GROUP:Job/Workspace:eclipse.platform"
-- "GROUP:Overall/Read:eclipse.platform"
-- "GROUP:Run/Delete:eclipse.platform"
-- "GROUP:Run/Replay:eclipse.platform"
-- "GROUP:Run/Update:eclipse.platform"
-- "GROUP:SCM/Tag:eclipse.platform"
-- "GROUP:View/Configure:eclipse.platform"
-- "GROUP:View/Create:eclipse.platform"
-- "GROUP:View/Delete:eclipse.platform"
-- "GROUP:View/Read:eclipse.platform"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: eclipse.platform
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

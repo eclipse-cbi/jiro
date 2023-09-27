@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ee4j.authorization"
-- "GROUP:Credentials/View:ee4j.authorization"
-- "GROUP:Gerrit/ManualTrigger:ee4j.authorization"
-- "GROUP:Gerrit/Retrigger:ee4j.authorization"
-- "GROUP:Job/Build:ee4j.authorization"
-- "GROUP:Job/Cancel:ee4j.authorization"
-- "GROUP:Job/Configure:ee4j.authorization"
-- "GROUP:Job/Create:ee4j.authorization"
-- "GROUP:Job/Delete:ee4j.authorization"
-- "GROUP:Job/Move:ee4j.authorization"
-- "GROUP:Job/Read:ee4j.authorization"
-- "GROUP:Job/Workspace:ee4j.authorization"
-- "GROUP:Overall/Read:ee4j.authorization"
-- "GROUP:Run/Delete:ee4j.authorization"
-- "GROUP:Run/Replay:ee4j.authorization"
-- "GROUP:Run/Update:ee4j.authorization"
-- "GROUP:SCM/Tag:ee4j.authorization"
-- "GROUP:View/Configure:ee4j.authorization"
-- "GROUP:View/Create:ee4j.authorization"
-- "GROUP:View/Delete:ee4j.authorization"
-- "GROUP:View/Read:ee4j.authorization"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ee4j.authorization
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ee4j.cdi"
-- "GROUP:Credentials/View:ee4j.cdi"
-- "GROUP:Gerrit/ManualTrigger:ee4j.cdi"
-- "GROUP:Gerrit/Retrigger:ee4j.cdi"
-- "GROUP:Job/Build:ee4j.cdi"
-- "GROUP:Job/Cancel:ee4j.cdi"
-- "GROUP:Job/Configure:ee4j.cdi"
-- "GROUP:Job/Create:ee4j.cdi"
-- "GROUP:Job/Delete:ee4j.cdi"
-- "GROUP:Job/Move:ee4j.cdi"
-- "GROUP:Job/Read:ee4j.cdi"
-- "GROUP:Job/Workspace:ee4j.cdi"
-- "GROUP:Overall/Read:ee4j.cdi"
-- "GROUP:Run/Delete:ee4j.cdi"
-- "GROUP:Run/Replay:ee4j.cdi"
-- "GROUP:Run/Update:ee4j.cdi"
-- "GROUP:SCM/Tag:ee4j.cdi"
-- "GROUP:View/Configure:ee4j.cdi"
-- "GROUP:View/Create:ee4j.cdi"
-- "GROUP:View/Delete:ee4j.cdi"
-- "GROUP:View/Read:ee4j.cdi"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ee4j.cdi
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:eclipse.pde"
-- "GROUP:Credentials/View:eclipse.pde"
-- "GROUP:Gerrit/ManualTrigger:eclipse.pde"
-- "GROUP:Gerrit/Retrigger:eclipse.pde"
-- "GROUP:Job/Build:eclipse.pde"
-- "GROUP:Job/Cancel:eclipse.pde"
-- "GROUP:Job/Configure:eclipse.pde"
-- "GROUP:Job/Create:eclipse.pde"
-- "GROUP:Job/Delete:eclipse.pde"
-- "GROUP:Job/Move:eclipse.pde"
-- "GROUP:Job/Read:eclipse.pde"
-- "GROUP:Job/Workspace:eclipse.pde"
-- "GROUP:Overall/Read:eclipse.pde"
-- "GROUP:Run/Delete:eclipse.pde"
-- "GROUP:Run/Replay:eclipse.pde"
-- "GROUP:Run/Update:eclipse.pde"
-- "GROUP:SCM/Tag:eclipse.pde"
-- "GROUP:View/Configure:eclipse.pde"
-- "GROUP:View/Create:eclipse.pde"
-- "GROUP:View/Delete:eclipse.pde"
-- "GROUP:View/Read:eclipse.pde"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: eclipse.pde
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
