@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ee4j.parsson"
-- "GROUP:Credentials/View:ee4j.parsson"
-- "GROUP:Gerrit/ManualTrigger:ee4j.parsson"
-- "GROUP:Gerrit/Retrigger:ee4j.parsson"
-- "GROUP:Job/Build:ee4j.parsson"
-- "GROUP:Job/Cancel:ee4j.parsson"
-- "GROUP:Job/Configure:ee4j.parsson"
-- "GROUP:Job/Create:ee4j.parsson"
-- "GROUP:Job/Delete:ee4j.parsson"
-- "GROUP:Job/Move:ee4j.parsson"
-- "GROUP:Job/Read:ee4j.parsson"
-- "GROUP:Job/Workspace:ee4j.parsson"
-- "GROUP:Overall/Read:ee4j.parsson"
-- "GROUP:Run/Delete:ee4j.parsson"
-- "GROUP:Run/Replay:ee4j.parsson"
-- "GROUP:Run/Update:ee4j.parsson"
-- "GROUP:SCM/Tag:ee4j.parsson"
-- "GROUP:View/Configure:ee4j.parsson"
-- "GROUP:View/Create:ee4j.parsson"
-- "GROUP:View/Delete:ee4j.parsson"
-- "GROUP:View/Read:ee4j.parsson"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ee4j.parsson
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ee4j.expressly"
-- "GROUP:Credentials/View:ee4j.expressly"
-- "GROUP:Gerrit/ManualTrigger:ee4j.expressly"
-- "GROUP:Gerrit/Retrigger:ee4j.expressly"
-- "GROUP:Job/Build:ee4j.expressly"
-- "GROUP:Job/Cancel:ee4j.expressly"
-- "GROUP:Job/Configure:ee4j.expressly"
-- "GROUP:Job/Create:ee4j.expressly"
-- "GROUP:Job/Delete:ee4j.expressly"
-- "GROUP:Job/Move:ee4j.expressly"
-- "GROUP:Job/Read:ee4j.expressly"
-- "GROUP:Job/Workspace:ee4j.expressly"
-- "GROUP:Overall/Read:ee4j.expressly"
-- "GROUP:Run/Delete:ee4j.expressly"
-- "GROUP:Run/Replay:ee4j.expressly"
-- "GROUP:Run/Update:ee4j.expressly"
-- "GROUP:SCM/Tag:ee4j.expressly"
-- "GROUP:View/Configure:ee4j.expressly"
-- "GROUP:View/Create:ee4j.expressly"
-- "GROUP:View/Delete:ee4j.expressly"
-- "GROUP:View/Read:ee4j.expressly"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ee4j.expressly
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

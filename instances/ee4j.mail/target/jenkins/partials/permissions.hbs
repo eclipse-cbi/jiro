@@ -1,23 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ee4j.mail"
-- "GROUP:Credentials/View:ee4j.mail"
-- "GROUP:Job/Build:ee4j.mail"
-- "GROUP:Job/Cancel:ee4j.mail"
-- "GROUP:Job/Configure:ee4j.mail"
-- "GROUP:Job/Create:ee4j.mail"
-- "GROUP:Job/Delete:ee4j.mail"
-- "GROUP:Job/Move:ee4j.mail"
-- "GROUP:Job/Read:ee4j.mail"
-- "GROUP:Job/Workspace:ee4j.mail"
-- "GROUP:Overall/Read:ee4j.mail"
-- "GROUP:Run/Delete:ee4j.mail"
-- "GROUP:Run/Replay:ee4j.mail"
-- "GROUP:Run/Update:ee4j.mail"
-- "GROUP:SCM/Tag:ee4j.mail"
-- "GROUP:View/Configure:ee4j.mail"
-- "GROUP:View/Create:ee4j.mail"
-- "GROUP:View/Delete:ee4j.mail"
-- "GROUP:View/Read:ee4j.mail"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ee4j.mail
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

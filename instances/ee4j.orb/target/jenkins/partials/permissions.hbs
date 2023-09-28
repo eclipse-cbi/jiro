@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ee4j.orb"
-- "GROUP:Credentials/View:ee4j.orb"
-- "GROUP:Gerrit/ManualTrigger:ee4j.orb"
-- "GROUP:Gerrit/Retrigger:ee4j.orb"
-- "GROUP:Job/Build:ee4j.orb"
-- "GROUP:Job/Cancel:ee4j.orb"
-- "GROUP:Job/Configure:ee4j.orb"
-- "GROUP:Job/Create:ee4j.orb"
-- "GROUP:Job/Delete:ee4j.orb"
-- "GROUP:Job/Move:ee4j.orb"
-- "GROUP:Job/Read:ee4j.orb"
-- "GROUP:Job/Workspace:ee4j.orb"
-- "GROUP:Overall/Read:ee4j.orb"
-- "GROUP:Run/Delete:ee4j.orb"
-- "GROUP:Run/Replay:ee4j.orb"
-- "GROUP:Run/Update:ee4j.orb"
-- "GROUP:SCM/Tag:ee4j.orb"
-- "GROUP:View/Configure:ee4j.orb"
-- "GROUP:View/Create:ee4j.orb"
-- "GROUP:View/Delete:ee4j.orb"
-- "GROUP:View/Read:ee4j.orb"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ee4j.orb
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

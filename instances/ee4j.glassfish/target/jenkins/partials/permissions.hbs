@@ -1,23 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ee4j.glassfish"
-- "GROUP:Credentials/View:ee4j.glassfish"
-- "GROUP:Job/Build:ee4j.glassfish"
-- "GROUP:Job/Cancel:ee4j.glassfish"
-- "GROUP:Job/Configure:ee4j.glassfish"
-- "GROUP:Job/Create:ee4j.glassfish"
-- "GROUP:Job/Delete:ee4j.glassfish"
-- "GROUP:Job/Move:ee4j.glassfish"
-- "GROUP:Job/Read:ee4j.glassfish"
-- "GROUP:Job/Workspace:ee4j.glassfish"
-- "GROUP:Overall/Read:ee4j.glassfish"
-- "GROUP:Run/Delete:ee4j.glassfish"
-- "GROUP:Run/Replay:ee4j.glassfish"
-- "GROUP:Run/Update:ee4j.glassfish"
-- "GROUP:SCM/Tag:ee4j.glassfish"
-- "GROUP:View/Configure:ee4j.glassfish"
-- "GROUP:View/Create:ee4j.glassfish"
-- "GROUP:View/Delete:ee4j.glassfish"
-- "GROUP:View/Read:ee4j.glassfish"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ee4j.glassfish
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ee4j.jaxws"
-- "GROUP:Credentials/View:ee4j.jaxws"
-- "GROUP:Gerrit/ManualTrigger:ee4j.jaxws"
-- "GROUP:Gerrit/Retrigger:ee4j.jaxws"
-- "GROUP:Job/Build:ee4j.jaxws"
-- "GROUP:Job/Cancel:ee4j.jaxws"
-- "GROUP:Job/Configure:ee4j.jaxws"
-- "GROUP:Job/Create:ee4j.jaxws"
-- "GROUP:Job/Delete:ee4j.jaxws"
-- "GROUP:Job/Move:ee4j.jaxws"
-- "GROUP:Job/Read:ee4j.jaxws"
-- "GROUP:Job/Workspace:ee4j.jaxws"
-- "GROUP:Overall/Read:ee4j.jaxws"
-- "GROUP:Run/Delete:ee4j.jaxws"
-- "GROUP:Run/Replay:ee4j.jaxws"
-- "GROUP:Run/Update:ee4j.jaxws"
-- "GROUP:SCM/Tag:ee4j.jaxws"
-- "GROUP:View/Configure:ee4j.jaxws"
-- "GROUP:View/Create:ee4j.jaxws"
-- "GROUP:View/Delete:ee4j.jaxws"
-- "GROUP:View/Read:ee4j.jaxws"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ee4j.jaxws
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

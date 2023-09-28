@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ee4j.jakartaee-tck"
-- "GROUP:Credentials/View:ee4j.jakartaee-tck"
-- "GROUP:Gerrit/ManualTrigger:ee4j.jakartaee-tck"
-- "GROUP:Gerrit/Retrigger:ee4j.jakartaee-tck"
-- "GROUP:Job/Build:ee4j.jakartaee-tck"
-- "GROUP:Job/Cancel:ee4j.jakartaee-tck"
-- "GROUP:Job/Configure:ee4j.jakartaee-tck"
-- "GROUP:Job/Create:ee4j.jakartaee-tck"
-- "GROUP:Job/Delete:ee4j.jakartaee-tck"
-- "GROUP:Job/Move:ee4j.jakartaee-tck"
-- "GROUP:Job/Read:ee4j.jakartaee-tck"
-- "GROUP:Job/Workspace:ee4j.jakartaee-tck"
-- "GROUP:Overall/Read:ee4j.jakartaee-tck"
-- "GROUP:Run/Delete:ee4j.jakartaee-tck"
-- "GROUP:Run/Replay:ee4j.jakartaee-tck"
-- "GROUP:Run/Update:ee4j.jakartaee-tck"
-- "GROUP:SCM/Tag:ee4j.jakartaee-tck"
-- "GROUP:View/Configure:ee4j.jakartaee-tck"
-- "GROUP:View/Create:ee4j.jakartaee-tck"
-- "GROUP:View/Delete:ee4j.jakartaee-tck"
-- "GROUP:View/Read:ee4j.jakartaee-tck"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ee4j.jakartaee-tck
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

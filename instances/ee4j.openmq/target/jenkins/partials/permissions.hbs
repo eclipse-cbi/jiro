@@ -1,23 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ee4j.openmq"
-- "GROUP:Credentials/View:ee4j.openmq"
-- "GROUP:Job/Build:ee4j.openmq"
-- "GROUP:Job/Cancel:ee4j.openmq"
-- "GROUP:Job/Configure:ee4j.openmq"
-- "GROUP:Job/Create:ee4j.openmq"
-- "GROUP:Job/Delete:ee4j.openmq"
-- "GROUP:Job/Move:ee4j.openmq"
-- "GROUP:Job/Read:ee4j.openmq"
-- "GROUP:Job/Workspace:ee4j.openmq"
-- "GROUP:Overall/Read:ee4j.openmq"
-- "GROUP:Run/Delete:ee4j.openmq"
-- "GROUP:Run/Replay:ee4j.openmq"
-- "GROUP:Run/Update:ee4j.openmq"
-- "GROUP:SCM/Tag:ee4j.openmq"
-- "GROUP:View/Configure:ee4j.openmq"
-- "GROUP:View/Create:ee4j.openmq"
-- "GROUP:View/Delete:ee4j.openmq"
-- "GROUP:View/Read:ee4j.openmq"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ee4j.openmq
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

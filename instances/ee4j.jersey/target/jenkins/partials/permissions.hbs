@@ -1,23 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ee4j.jersey"
-- "GROUP:Credentials/View:ee4j.jersey"
-- "GROUP:Job/Build:ee4j.jersey"
-- "GROUP:Job/Cancel:ee4j.jersey"
-- "GROUP:Job/Configure:ee4j.jersey"
-- "GROUP:Job/Create:ee4j.jersey"
-- "GROUP:Job/Delete:ee4j.jersey"
-- "GROUP:Job/Move:ee4j.jersey"
-- "GROUP:Job/Read:ee4j.jersey"
-- "GROUP:Job/Workspace:ee4j.jersey"
-- "GROUP:Overall/Read:ee4j.jersey"
-- "GROUP:Run/Delete:ee4j.jersey"
-- "GROUP:Run/Replay:ee4j.jersey"
-- "GROUP:Run/Update:ee4j.jersey"
-- "GROUP:SCM/Tag:ee4j.jersey"
-- "GROUP:View/Configure:ee4j.jersey"
-- "GROUP:View/Create:ee4j.jersey"
-- "GROUP:View/Delete:ee4j.jersey"
-- "GROUP:View/Read:ee4j.jersey"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ee4j.jersey
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

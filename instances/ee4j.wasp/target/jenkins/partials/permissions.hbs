@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ee4j.wasp"
-- "GROUP:Credentials/View:ee4j.wasp"
-- "GROUP:Gerrit/ManualTrigger:ee4j.wasp"
-- "GROUP:Gerrit/Retrigger:ee4j.wasp"
-- "GROUP:Job/Build:ee4j.wasp"
-- "GROUP:Job/Cancel:ee4j.wasp"
-- "GROUP:Job/Configure:ee4j.wasp"
-- "GROUP:Job/Create:ee4j.wasp"
-- "GROUP:Job/Delete:ee4j.wasp"
-- "GROUP:Job/Move:ee4j.wasp"
-- "GROUP:Job/Read:ee4j.wasp"
-- "GROUP:Job/Workspace:ee4j.wasp"
-- "GROUP:Overall/Read:ee4j.wasp"
-- "GROUP:Run/Delete:ee4j.wasp"
-- "GROUP:Run/Replay:ee4j.wasp"
-- "GROUP:Run/Update:ee4j.wasp"
-- "GROUP:SCM/Tag:ee4j.wasp"
-- "GROUP:View/Configure:ee4j.wasp"
-- "GROUP:View/Create:ee4j.wasp"
-- "GROUP:View/Delete:ee4j.wasp"
-- "GROUP:View/Read:ee4j.wasp"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ee4j.wasp
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

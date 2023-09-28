@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ee4j.jstl"
-- "GROUP:Credentials/View:ee4j.jstl"
-- "GROUP:Gerrit/ManualTrigger:ee4j.jstl"
-- "GROUP:Gerrit/Retrigger:ee4j.jstl"
-- "GROUP:Job/Build:ee4j.jstl"
-- "GROUP:Job/Cancel:ee4j.jstl"
-- "GROUP:Job/Configure:ee4j.jstl"
-- "GROUP:Job/Create:ee4j.jstl"
-- "GROUP:Job/Delete:ee4j.jstl"
-- "GROUP:Job/Move:ee4j.jstl"
-- "GROUP:Job/Read:ee4j.jstl"
-- "GROUP:Job/Workspace:ee4j.jstl"
-- "GROUP:Overall/Read:ee4j.jstl"
-- "GROUP:Run/Delete:ee4j.jstl"
-- "GROUP:Run/Replay:ee4j.jstl"
-- "GROUP:Run/Update:ee4j.jstl"
-- "GROUP:SCM/Tag:ee4j.jstl"
-- "GROUP:View/Configure:ee4j.jstl"
-- "GROUP:View/Create:ee4j.jstl"
-- "GROUP:View/Delete:ee4j.jstl"
-- "GROUP:View/Read:ee4j.jstl"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ee4j.jstl
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

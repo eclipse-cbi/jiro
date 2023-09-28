@@ -1,23 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ee4j.nosql"
-- "GROUP:Credentials/View:ee4j.nosql"
-- "GROUP:Job/Build:ee4j.nosql"
-- "GROUP:Job/Cancel:ee4j.nosql"
-- "GROUP:Job/Configure:ee4j.nosql"
-- "GROUP:Job/Create:ee4j.nosql"
-- "GROUP:Job/Delete:ee4j.nosql"
-- "GROUP:Job/Move:ee4j.nosql"
-- "GROUP:Job/Read:ee4j.nosql"
-- "GROUP:Job/Workspace:ee4j.nosql"
-- "GROUP:Overall/Read:ee4j.nosql"
-- "GROUP:Run/Delete:ee4j.nosql"
-- "GROUP:Run/Replay:ee4j.nosql"
-- "GROUP:Run/Update:ee4j.nosql"
-- "GROUP:SCM/Tag:ee4j.nosql"
-- "GROUP:View/Configure:ee4j.nosql"
-- "GROUP:View/Create:ee4j.nosql"
-- "GROUP:View/Delete:ee4j.nosql"
-- "GROUP:View/Read:ee4j.nosql"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ee4j.nosql
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

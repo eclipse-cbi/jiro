@@ -18,32 +18,42 @@ jenkins:
     - "Ping"
   authorizationStrategy:
     projectMatrix:
-      permissions:
-        - "GROUP:Overall/Administer:admins"
-        - "USER:Job/Read:anonymous"
-        - "USER:Overall/Read:anonymous"
-        - "GROUP:Agent/Build:automotive.openpass"
-        - "GROUP:Credentials/View:automotive.openpass"
-        - "GROUP:Gerrit/ManualTrigger:automotive.openpass"
-        - "GROUP:Gerrit/Retrigger:automotive.openpass"
-        - "GROUP:Job/Build:automotive.openpass"
-        - "GROUP:Job/Cancel:automotive.openpass"
-        - "GROUP:Job/Configure:automotive.openpass"
-        - "GROUP:Job/Create:automotive.openpass"
-        - "GROUP:Job/Delete:automotive.openpass"
-        - "GROUP:Job/Move:automotive.openpass"
-        - "GROUP:Job/Read:automotive.openpass"
-        - "GROUP:Job/Workspace:automotive.openpass"
-        - "GROUP:Overall/Read:automotive.openpass"
-        - "GROUP:Run/Delete:automotive.openpass"
-        - "GROUP:Run/Replay:automotive.openpass"
-        - "GROUP:Run/Update:automotive.openpass"
-        - "GROUP:SCM/Tag:automotive.openpass"
-        - "GROUP:View/Configure:automotive.openpass"
-        - "GROUP:View/Create:automotive.openpass"
-        - "GROUP:View/Delete:automotive.openpass"
-        - "GROUP:View/Read:automotive.openpass"
-        - "GROUP:Job/ExtendedRead:common"
+      entries:
+        - group:
+            name: admins
+            permissions:
+              - Overall/Administer
+        - user:
+            name: anonymous
+            permissions:
+              - Job/Read
+              - Overall/Read
+        - group:
+            name: automotive.openpass
+            permissions:
+              - Agent/Build
+              - Credentials/View
+              - Job/Build
+              - Job/Cancel
+              - Job/Configure
+              - Job/Create
+              - Job/Delete
+              - Job/Move
+              - Job/Read
+              - Job/Workspace
+              - Overall/Read
+              - Run/Delete
+              - Run/Replay
+              - Run/Update
+              - SCM/Tag
+              - View/Configure
+              - View/Create
+              - View/Delete
+              - View/Read
+        - group:
+            name: common
+            permissions:
+              - Job/ExtendedRead
   markupFormatter: rawHtml
   crumbIssuer:
     standard:
@@ -72,7 +82,7 @@ jenkins:
             label: "basic"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3107.v665000b_51092
+                image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3131.vf2b_b_798b_ce99
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -158,7 +168,7 @@ jenkins:
             label: "basic-ubuntu"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3107.v665000b_51092
+                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3131.vf2b_b_798b_ce99
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -244,7 +254,7 @@ jenkins:
             label: "migration jipp-migration centos-7"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3107.v665000b_51092
+                image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3131.vf2b_b_798b_ce99
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -330,7 +340,7 @@ jenkins:
             label: "centos-latest centos-8"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3107.v665000b_51092
+                image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3131.vf2b_b_798b_ce99
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -646,6 +656,8 @@ tool:
     installations:
       - name: "apache-maven-latest"
         home: "/opt/tools/apache-maven/latest"
+      - name: "apache-maven-3.9.3"
+        home: "/opt/tools/apache-maven/3.9.3"
       - name: "apache-maven-3.9.2"
         home: "/opt/tools/apache-maven/3.9.2"
       - name: "apache-maven-3.9.1"

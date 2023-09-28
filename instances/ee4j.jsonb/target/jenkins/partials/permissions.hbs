@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ee4j.jsonb"
-- "GROUP:Credentials/View:ee4j.jsonb"
-- "GROUP:Gerrit/ManualTrigger:ee4j.jsonb"
-- "GROUP:Gerrit/Retrigger:ee4j.jsonb"
-- "GROUP:Job/Build:ee4j.jsonb"
-- "GROUP:Job/Cancel:ee4j.jsonb"
-- "GROUP:Job/Configure:ee4j.jsonb"
-- "GROUP:Job/Create:ee4j.jsonb"
-- "GROUP:Job/Delete:ee4j.jsonb"
-- "GROUP:Job/Move:ee4j.jsonb"
-- "GROUP:Job/Read:ee4j.jsonb"
-- "GROUP:Job/Workspace:ee4j.jsonb"
-- "GROUP:Overall/Read:ee4j.jsonb"
-- "GROUP:Run/Delete:ee4j.jsonb"
-- "GROUP:Run/Replay:ee4j.jsonb"
-- "GROUP:Run/Update:ee4j.jsonb"
-- "GROUP:SCM/Tag:ee4j.jsonb"
-- "GROUP:View/Configure:ee4j.jsonb"
-- "GROUP:View/Create:ee4j.jsonb"
-- "GROUP:View/Delete:ee4j.jsonb"
-- "GROUP:View/Read:ee4j.jsonb"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ee4j.jsonb
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

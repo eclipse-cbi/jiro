@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:ee4j.mojarra"
-- "GROUP:Credentials/View:ee4j.mojarra"
-- "GROUP:Gerrit/ManualTrigger:ee4j.mojarra"
-- "GROUP:Gerrit/Retrigger:ee4j.mojarra"
-- "GROUP:Job/Build:ee4j.mojarra"
-- "GROUP:Job/Cancel:ee4j.mojarra"
-- "GROUP:Job/Configure:ee4j.mojarra"
-- "GROUP:Job/Create:ee4j.mojarra"
-- "GROUP:Job/Delete:ee4j.mojarra"
-- "GROUP:Job/Move:ee4j.mojarra"
-- "GROUP:Job/Read:ee4j.mojarra"
-- "GROUP:Job/Workspace:ee4j.mojarra"
-- "GROUP:Overall/Read:ee4j.mojarra"
-- "GROUP:Run/Delete:ee4j.mojarra"
-- "GROUP:Run/Replay:ee4j.mojarra"
-- "GROUP:Run/Update:ee4j.mojarra"
-- "GROUP:SCM/Tag:ee4j.mojarra"
-- "GROUP:View/Configure:ee4j.mojarra"
-- "GROUP:View/Create:ee4j.mojarra"
-- "GROUP:View/Delete:ee4j.mojarra"
-- "GROUP:View/Read:ee4j.mojarra"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: ee4j.mojarra
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
