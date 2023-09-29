@@ -6,15 +6,15 @@
          "haproxy.router.openshift.io/timeout": "60s"
       },
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.bean-validation",
-         "org.eclipse.cbi.jiro/project.shortname": "bean-validation"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.validation",
+         "org.eclipse.cbi.jiro/project.shortname": "validation"
       },
-      "name": "bean-validation",
-      "namespace": "bean-validation"
+      "name": "validation",
+      "namespace": "validation"
    },
    "spec": {
       "host": "ci.eclipse.org",
-      "path": "/bean-validation",
+      "path": "/validation",
       "port": {
          "targetPort": "http"
       },

@@ -2,18 +2,18 @@
    "accessControl": {
       "primaryGroup": {
          "id": -1,
-         "name": "ee4j.bean-validation"
+         "name": "ee4j.validation"
       },
       "supplementalGroups": [ ],
       "user": {
          "id": -1,
-         "name": "genie.bean-validation"
+         "name": "genie.validation"
       }
    },
    "clouds": {
       "kubernetes": {
          "kind": "kubernetes",
-         "namespace": "bean-validation",
+         "namespace": "validation",
          "podRetention": "never",
          "templates": {
             "basic": {
@@ -408,14 +408,14 @@
       "controlPort": 8081,
       "host": "ci.eclipse.org",
       "jnlpPort": 50000,
-      "prefix": "/bean-validation",
+      "prefix": "/validation",
       "uiPort": 8080,
-      "url": "https://ci.eclipse.org/bean-validation"
+      "url": "https://ci.eclipse.org/validation"
    },
    "docker": {
       "master": {
          "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.414.2\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
-         "image": "ee4j.bean-validation",
+         "image": "ee4j.validation",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
          "tag": "2.414.2"
@@ -479,7 +479,7 @@
                "View/Delete",
                "View/Read"
             ],
-            "principal": "ee4j.bean-validation"
+            "principal": "ee4j.validation"
          }
       ],
       "plugins": [
@@ -581,10 +581,10 @@
                "request": "4096Mi"
             }
          },
-         "namespace": "bean-validation"
+         "namespace": "validation"
       },
       "master": {
-         "namespace": "bean-validation",
+         "namespace": "validation",
          "probe": {
             "liveness": {
                "delaySeconds": 480,
@@ -609,14 +609,14 @@
                "request": "1536Mi"
             }
          },
-         "stsName": "bean-validation"
+         "stsName": "validation"
       }
    },
    "maven": {
       "files": {
          "settings-security.xml": {
             "master": {
-               "pass": "bots/ee4j.bean-validation/apache-maven-security-settings"
+               "pass": "bots/ee4j.validation/apache-maven-security-settings"
             }
          },
          "settings.xml": {
@@ -631,16 +631,16 @@
             "servers": {
                "gpg.passphrase": {
                   "passphrase": {
-                     "pass": "bots/ee4j.bean-validation/gpg/passphrase"
+                     "pass": "bots/ee4j.validation/gpg/passphrase"
                   }
                },
                "ossrh": {
                   "nexusProUrl": "https://jakarta.oss.sonatype.org",
                   "password": {
-                     "pass": "bots/ee4j.bean-validation/oss.sonatype.org/password"
+                     "pass": "bots/ee4j.validation/oss.sonatype.org/password"
                   },
                   "username": {
-                     "pass": "bots/ee4j.bean-validation/oss.sonatype.org/username"
+                     "pass": "bots/ee4j.validation/oss.sonatype.org/username"
                   }
                },
                "repo.eclipse.org": {
@@ -661,11 +661,11 @@
       "transferListenerLogLevel": "warn"
    },
    "project": {
-      "displayName": "Jakarta Bean Validation",
-      "fullName": "ee4j.bean-validation",
+      "displayName": "Jakarta Validation",
+      "fullName": "ee4j.validation",
       "resourcePacks": 1,
-      "shortName": "bean-validation",
-      "unixGroupName": "ee4j.bean-validation"
+      "shortName": "validation",
+      "unixGroupName": "ee4j.validation"
    },
    "sbt": {
       "files": {
@@ -684,25 +684,8 @@
    },
    "secrets": {
       "dockerconfigjson": {
-         "dockerconfigjson-for-pull-as-bean-validation": {
-            "namespace": "bean-validation",
-            "servers": {
-               "https://index.docker.io/v1/": {
-                  "password": {
-                     "pass": "docker.com/default-image-puller/okd-c1/password"
-                  },
-                  "username": {
-                     "pass": "docker.com/default-image-puller/okd-c1/username"
-                  }
-               }
-            },
-            "serviceAccount": "bean-validation",
-            "type": [
-               "pull"
-            ]
-         },
          "dockerconfigjson-for-pull-as-default": {
-            "namespace": "bean-validation",
+            "namespace": "validation",
             "servers": {
                "https://index.docker.io/v1/": {
                   "password": {
@@ -714,6 +697,23 @@
                }
             },
             "serviceAccount": "default",
+            "type": [
+               "pull"
+            ]
+         },
+         "dockerconfigjson-for-pull-as-validation": {
+            "namespace": "validation",
+            "servers": {
+               "https://index.docker.io/v1/": {
+                  "password": {
+                     "pass": "docker.com/default-image-puller/okd-c1/password"
+                  },
+                  "username": {
+                     "pass": "docker.com/default-image-puller/okd-c1/username"
+                  }
+               }
+            },
+            "serviceAccount": "validation",
             "type": [
                "pull"
             ]

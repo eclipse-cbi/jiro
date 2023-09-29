@@ -10,14 +10,14 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   labels:
-    org.eclipse.cbi.jiro/project.shortname: "bean-validation"
-    org.eclipse.cbi.jiro/project.fullName: "ee4j.bean-validation"
+    org.eclipse.cbi.jiro/project.shortname: "validation"
+    org.eclipse.cbi.jiro/project.fullName: "ee4j.validation"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.414.2"
-    org.eclipse.cbi.jiro/kubernetes.master.namespace: "bean-validation"
-  namespace: "bean-validation"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "validation"
+  namespace: "validation"
   name: jenkins-config
 data:
   jenkins.yaml: |
@@ -58,7 +58,7 @@ data:
                   permissions:
                    - Job/ExtendedRead
               - group:
-                  name: ee4j.bean-validation
+                  name: ee4j.validation
                   permissions:
                    - Agent/Build
                    - Credentials/View
@@ -99,14 +99,14 @@ data:
       - kubernetes:
           name: "kubernetes"
           containerCapStr: "2"
-          jenkinsUrl: "http://jenkins-ui.bean-validation.svc.cluster.local/bean-validation"
-          jenkinsTunnel: "jenkins-discovery.bean-validation.svc.cluster.local:50000"
+          jenkinsUrl: "http://jenkins-ui.validation.svc.cluster.local/validation"
+          jenkinsTunnel: "jenkins-discovery.validation.svc.cluster.local:50000"
           maxRequestsPerHostStr: "32"
-          namespace: "bean-validation"
+          namespace: "validation"
           podRetention: "never"
           templates:
           - name: "basic"
-            namespace: "bean-validation"
+            namespace: "validation"
             label: "basic"
             containers:
             - name: "jnlp"
@@ -142,7 +142,7 @@ data:
                 value: ""
             volumes:
             - persistentVolumeClaim:
-                claimName: "tools-claim-jiro-bean-validation"
+                claimName: "tools-claim-jiro-validation"
                 mountPath: "/opt/tools"
                 readOnly: true
             - configMapVolume:
@@ -192,7 +192,7 @@ data:
                   configMap:
                     name: m2-dir
           - name: "basic-ubuntu"
-            namespace: "bean-validation"
+            namespace: "validation"
             label: "basic-ubuntu"
             containers:
             - name: "jnlp"
@@ -228,7 +228,7 @@ data:
                 value: ""
             volumes:
             - persistentVolumeClaim:
-                claimName: "tools-claim-jiro-bean-validation"
+                claimName: "tools-claim-jiro-validation"
                 mountPath: "/opt/tools"
                 readOnly: true
             - configMapVolume:
@@ -278,7 +278,7 @@ data:
                   configMap:
                     name: m2-dir
           - name: "centos-7"
-            namespace: "bean-validation"
+            namespace: "validation"
             label: "migration jipp-migration centos-7"
             containers:
             - name: "jnlp"
@@ -314,7 +314,7 @@ data:
                 value: ""
             volumes:
             - persistentVolumeClaim:
-                claimName: "tools-claim-jiro-bean-validation"
+                claimName: "tools-claim-jiro-validation"
                 mountPath: "/opt/tools"
                 readOnly: true
             - configMapVolume:
@@ -364,7 +364,7 @@ data:
                   configMap:
                     name: m2-dir
           - name: "centos-8"
-            namespace: "bean-validation"
+            namespace: "validation"
             label: "centos-latest centos-8"
             containers:
             - name: "jnlp"
@@ -400,7 +400,7 @@ data:
                 value: ""
             volumes:
             - persistentVolumeClaim:
-                claimName: "tools-claim-jiro-bean-validation"
+                claimName: "tools-claim-jiro-validation"
                 mountPath: "/opt/tools"
                 readOnly: true
             - configMapVolume:
@@ -477,7 +477,7 @@ data:
     unclassified:
       location:
         adminAddress: ci-admin@eclipse.org
-        url: https://ci.eclipse.org/bean-validation
+        url: https://ci.eclipse.org/validation
     
       mailer:
         replyToAddress: ci-admin@eclipse.org
@@ -496,11 +496,11 @@ data:
       simple-theme-plugin:
         elements:
         - cssUrl:
-            url: "/bean-validation/userContent/theme/quicksilver.css"
+            url: "/validation/userContent/theme/quicksilver.css"
         - cssUrl:
             url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
         - jsUrl:
-            url: "/bean-validation/userContent/theme/title.js"
+            url: "/validation/userContent/theme/title.js"
     
       buildDiscarders:
         configuredBuildDiscarders:
@@ -528,7 +528,7 @@ data:
             manageHooks: false
         hookSecretConfigs:
           - credentialsId: "github-webhook-secret"
-        hookUrl: "https://ci.eclipse.org/bean-validation/github-webhook/"
+        hookUrl: "https://ci.eclipse.org/validation/github-webhook/"
     
       scmGit:
         createAccountBasedOnEmail: true
