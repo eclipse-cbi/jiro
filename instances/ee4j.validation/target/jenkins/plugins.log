@@ -23,7 +23,7 @@ data-tables-api 1.13.6-4
 display-url-api 2.3.9
 durable-task 523.va_a_22cf15d5e0
 echarts-api 5.4.0-6
-email-ext 2.101
+email-ext 2.102
 extended-read-permission 53.v6499940139e5
 external-monitor-job 215.v2e88e894db_f8
 extra-columns 1.26
@@ -34,7 +34,7 @@ git 5.2.0
 git-client 4.5.0
 git-parameter 0.9.19
 github 1.37.3
-github-api 1.314-431.v78d72a_3fe4c3
+github-api 1.316-451.v15738eef3414
 github-branch-source 1741.va_3028eb_9fd21
 gitlab-api 5.3.0-91.v1f9a_fda_d654f
 gitlab-branch-source 677.v0b_63b_038322b_
@@ -94,7 +94,7 @@ scm-api 676.v886669a_199a_a_
 script-security 1275.v23895f409fb_d
 simple-theme-plugin 160.vb_76454b_67900
 snakeyaml-api 2.2-111.vc6598e30cc65
-sonar 2.15
+sonar 2.16
 ssh-agent 333.v878b_53c89511
 ssh-credentials 308.ve4497b_ccd8f4
 ssh-slaves 2.916.vd17b_43357ce4
@@ -109,7 +109,7 @@ workflow-api 1281.vca_5fddb_3fceb_
 workflow-basic-steps 1042.ve7b_140c4a_e0c
 workflow-cps 3793.v65dec41c3a_c3
 workflow-durable-task-step 1289.v4d3e7b_01546b_
-workflow-job 1346.v180a_63f40267
+workflow-job 1348.v32a_a_f150910e
 workflow-multibranch 756.v891d88f2cd46
 workflow-scm-step 415.v434365564324
 workflow-step-api 639.v6eca_cd8c04a_a_

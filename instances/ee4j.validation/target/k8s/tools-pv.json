@@ -6,10 +6,10 @@
          "kind": "PersistentVolume",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "ee4j.bean-validation",
-               "org.eclipse.cbi.jiro/project.shortname": "bean-validation"
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j.validation",
+               "org.eclipse.cbi.jiro/project.shortname": "validation"
             },
-            "name": "tools-jiro-bean-validation"
+            "name": "tools-jiro-validation"
          },
          "spec": {
             "accessModes": [
@@ -19,8 +19,8 @@
                "storage": "20Gi"
             },
             "claimRef": {
-               "name": "tools-claim-jiro-bean-validation",
-               "namespace": "bean-validation"
+               "name": "tools-claim-jiro-validation",
+               "namespace": "validation"
             },
             "mountOptions": [
                "vers=4.2",
@@ -50,11 +50,11 @@
          "kind": "PersistentVolumeClaim",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "ee4j.bean-validation",
-               "org.eclipse.cbi.jiro/project.shortname": "bean-validation"
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j.validation",
+               "org.eclipse.cbi.jiro/project.shortname": "validation"
             },
-            "name": "tools-claim-jiro-bean-validation",
-            "namespace": "bean-validation"
+            "name": "tools-claim-jiro-validation",
+            "namespace": "validation"
          },
          "spec": {
             "accessModes": [

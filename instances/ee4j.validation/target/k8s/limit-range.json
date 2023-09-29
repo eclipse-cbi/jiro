@@ -3,11 +3,11 @@
    "kind": "LimitRange",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.bean-validation",
-         "org.eclipse.cbi.jiro/project.shortname": "bean-validation"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.validation",
+         "org.eclipse.cbi.jiro/project.shortname": "validation"
       },
       "name": "jenkins-instance-limit-range",
-      "namespace": "bean-validation"
+      "namespace": "validation"
    },
    "spec": {
       "limits": [
