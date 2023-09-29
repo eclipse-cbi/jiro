@@ -1,46 +1,61 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "USER:Agent/Build:patrick.tessier@cea.fr"
-- "USER:Credentials/View:patrick.tessier@cea.fr"
-- "USER:Gerrit/ManualTrigger:patrick.tessier@cea.fr"
-- "USER:Gerrit/Retrigger:patrick.tessier@cea.fr"
-- "USER:Job/Build:patrick.tessier@cea.fr"
-- "USER:Job/Cancel:patrick.tessier@cea.fr"
-- "USER:Job/Configure:patrick.tessier@cea.fr"
-- "USER:Job/Create:patrick.tessier@cea.fr"
-- "USER:Job/Delete:patrick.tessier@cea.fr"
-- "USER:Job/Move:patrick.tessier@cea.fr"
-- "USER:Job/Read:patrick.tessier@cea.fr"
-- "USER:Job/Workspace:patrick.tessier@cea.fr"
-- "USER:Overall/Read:patrick.tessier@cea.fr"
-- "USER:Run/Delete:patrick.tessier@cea.fr"
-- "USER:Run/Replay:patrick.tessier@cea.fr"
-- "USER:Run/Update:patrick.tessier@cea.fr"
-- "USER:SCM/Tag:patrick.tessier@cea.fr"
-- "USER:View/Configure:patrick.tessier@cea.fr"
-- "USER:View/Create:patrick.tessier@cea.fr"
-- "USER:View/Delete:patrick.tessier@cea.fr"
-- "USER:View/Read:patrick.tessier@cea.fr"
-- "GROUP:Agent/Build:technology.xwt"
-- "GROUP:Credentials/View:technology.xwt"
-- "GROUP:Gerrit/ManualTrigger:technology.xwt"
-- "GROUP:Gerrit/Retrigger:technology.xwt"
-- "GROUP:Job/Build:technology.xwt"
-- "GROUP:Job/Cancel:technology.xwt"
-- "GROUP:Job/Configure:technology.xwt"
-- "GROUP:Job/Create:technology.xwt"
-- "GROUP:Job/Delete:technology.xwt"
-- "GROUP:Job/Move:technology.xwt"
-- "GROUP:Job/Read:technology.xwt"
-- "GROUP:Job/Workspace:technology.xwt"
-- "GROUP:Overall/Read:technology.xwt"
-- "GROUP:Run/Delete:technology.xwt"
-- "GROUP:Run/Replay:technology.xwt"
-- "GROUP:Run/Update:technology.xwt"
-- "GROUP:SCM/Tag:technology.xwt"
-- "GROUP:View/Configure:technology.xwt"
-- "GROUP:View/Create:technology.xwt"
-- "GROUP:View/Delete:technology.xwt"
-- "GROUP:View/Read:technology.xwt"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - user:
+      name: patrick.tessier@cea.fr
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
+  - group:
+      name: technology.xwt
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

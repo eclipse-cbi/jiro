@@ -51,7 +51,7 @@
                   "env": [
                      {
                         "name": "JAVA_OPTS",
-                        "value": "-showversion -XshowSettings:vm -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -XX:+DisableExplicitGC -Duser.timezone=America/Toronto -Dhudson.footerURL=https://ci.eclipse.org -Dhudson.model.UsageStatistics.disabled=true -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Djenkins.model.Jenkins.exitCodeOnRestart=0 -Djenkins.model.Jenkins.slaveAgentPort=50000 -Djenkins.model.Jenkins.slaveAgentPortEnforce=true -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false -Djenkins.install.runSetupWizard=false -Djenkins.ui.refresh=true -Djenkins.security.ManagePermission=true -Dorg.jenkinsci.plugins.durabletask.BourneShellScript.HEARTBEAT_CHECK_INTERVAL=7200 -DexecutableWar.jetty.disableCustomSessionIdCookieName=false -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.steady -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml -Dio.jenkins.plugins.casc.ConfigurationAsCode.initialDelay=5000 -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=docker.io/eclipsecbi/jiro-agent-basic:remoting-3107.v665000b_51092 -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180 -Dkubernetes.websocket.ping.interval=30000"
+                        "value": "-showversion -XshowSettings:vm -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -XX:+DisableExplicitGC -Duser.timezone=America/Toronto -Dhudson.footerURL=https://ci.eclipse.org -Dhudson.model.UsageStatistics.disabled=true -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Djenkins.model.Jenkins.exitCodeOnRestart=0 -Djenkins.model.Jenkins.slaveAgentPort=50000 -Djenkins.model.Jenkins.slaveAgentPortEnforce=true -Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false -Djenkins.install.runSetupWizard=false -Djenkins.ui.refresh=true -Djenkins.security.ManagePermission=true -Dorg.jenkinsci.plugins.durabletask.BourneShellScript.HEARTBEAT_CHECK_INTERVAL=7200 -DexecutableWar.jetty.disableCustomSessionIdCookieName=false -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.steady -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml -Dio.jenkins.plugins.casc.ConfigurationAsCode.initialDelay=5000 -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=docker.io/eclipsecbi/jiro-agent-basic:remoting-3131.vf2b_b_798b_ce99 -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180 -Dkubernetes.websocket.ping.interval=30000"
                      },
                      {
                         "name": "JENKINS_OPTS",
@@ -66,7 +66,7 @@
                         "value": "true"
                      }
                   ],
-                  "image": "docker.io/eclipsecbijenkins/technology.steady:2.387.2",
+                  "image": "docker.io/eclipsecbijenkins/technology.steady:2.414.2",
                   "imagePullPolicy": "Always",
                   "lifecycle": {
                      "preStop": {
@@ -136,11 +136,6 @@
                         "mountPath": "/etc/jenkins/",
                         "name": "jenkins-config",
                         "readOnly": true
-                     },
-                     {
-                        "mountPath": "/run/secrets/jenkins/ssh",
-                        "name": "gerrit-ssh-keys",
-                        "readOnly": true
                      }
                   ]
                }
@@ -161,12 +156,6 @@
                      "name": "jenkins-config"
                   },
                   "name": "jenkins-config"
-               },
-               {
-                  "name": "gerrit-ssh-keys",
-                  "secret": {
-                     "secretName": "gerrit-ssh-keys"
-                  }
                }
             ]
          }

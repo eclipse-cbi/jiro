@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:tools.gef"
-- "GROUP:Credentials/View:tools.gef"
-- "GROUP:Gerrit/ManualTrigger:tools.gef"
-- "GROUP:Gerrit/Retrigger:tools.gef"
-- "GROUP:Job/Build:tools.gef"
-- "GROUP:Job/Cancel:tools.gef"
-- "GROUP:Job/Configure:tools.gef"
-- "GROUP:Job/Create:tools.gef"
-- "GROUP:Job/Delete:tools.gef"
-- "GROUP:Job/Move:tools.gef"
-- "GROUP:Job/Read:tools.gef"
-- "GROUP:Job/Workspace:tools.gef"
-- "GROUP:Overall/Read:tools.gef"
-- "GROUP:Run/Delete:tools.gef"
-- "GROUP:Run/Replay:tools.gef"
-- "GROUP:Run/Update:tools.gef"
-- "GROUP:SCM/Tag:tools.gef"
-- "GROUP:View/Configure:tools.gef"
-- "GROUP:View/Create:tools.gef"
-- "GROUP:View/Delete:tools.gef"
-- "GROUP:View/Read:tools.gef"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: tools.gef
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

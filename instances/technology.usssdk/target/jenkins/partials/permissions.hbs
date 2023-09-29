@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.usssdk"
-- "GROUP:Credentials/View:technology.usssdk"
-- "GROUP:Gerrit/ManualTrigger:technology.usssdk"
-- "GROUP:Gerrit/Retrigger:technology.usssdk"
-- "GROUP:Job/Build:technology.usssdk"
-- "GROUP:Job/Cancel:technology.usssdk"
-- "GROUP:Job/Configure:technology.usssdk"
-- "GROUP:Job/Create:technology.usssdk"
-- "GROUP:Job/Delete:technology.usssdk"
-- "GROUP:Job/Move:technology.usssdk"
-- "GROUP:Job/Read:technology.usssdk"
-- "GROUP:Job/Workspace:technology.usssdk"
-- "GROUP:Overall/Read:technology.usssdk"
-- "GROUP:Run/Delete:technology.usssdk"
-- "GROUP:Run/Replay:technology.usssdk"
-- "GROUP:Run/Update:technology.usssdk"
-- "GROUP:SCM/Tag:technology.usssdk"
-- "GROUP:View/Configure:technology.usssdk"
-- "GROUP:View/Create:technology.usssdk"
-- "GROUP:View/Delete:technology.usssdk"
-- "GROUP:View/Read:technology.usssdk"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.usssdk
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

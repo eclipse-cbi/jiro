@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:tools.pdt"
-- "GROUP:Credentials/View:tools.pdt"
-- "GROUP:Gerrit/ManualTrigger:tools.pdt"
-- "GROUP:Gerrit/Retrigger:tools.pdt"
-- "GROUP:Job/Build:tools.pdt"
-- "GROUP:Job/Cancel:tools.pdt"
-- "GROUP:Job/Configure:tools.pdt"
-- "GROUP:Job/Create:tools.pdt"
-- "GROUP:Job/Delete:tools.pdt"
-- "GROUP:Job/Move:tools.pdt"
-- "GROUP:Job/Read:tools.pdt"
-- "GROUP:Job/Workspace:tools.pdt"
-- "GROUP:Overall/Read:tools.pdt"
-- "GROUP:Run/Delete:tools.pdt"
-- "GROUP:Run/Replay:tools.pdt"
-- "GROUP:Run/Update:tools.pdt"
-- "GROUP:SCM/Tag:tools.pdt"
-- "GROUP:View/Configure:tools.pdt"
-- "GROUP:View/Create:tools.pdt"
-- "GROUP:View/Delete:tools.pdt"
-- "GROUP:View/Read:tools.pdt"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: tools.pdt
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

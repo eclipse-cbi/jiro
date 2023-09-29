@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.apogy"
-- "GROUP:Credentials/View:technology.apogy"
-- "GROUP:Gerrit/ManualTrigger:technology.apogy"
-- "GROUP:Gerrit/Retrigger:technology.apogy"
-- "GROUP:Job/Build:technology.apogy"
-- "GROUP:Job/Cancel:technology.apogy"
-- "GROUP:Job/Configure:technology.apogy"
-- "GROUP:Job/Create:technology.apogy"
-- "GROUP:Job/Delete:technology.apogy"
-- "GROUP:Job/Move:technology.apogy"
-- "GROUP:Job/Read:technology.apogy"
-- "GROUP:Job/Workspace:technology.apogy"
-- "GROUP:Overall/Read:technology.apogy"
-- "GROUP:Run/Delete:technology.apogy"
-- "GROUP:Run/Replay:technology.apogy"
-- "GROUP:Run/Update:technology.apogy"
-- "GROUP:SCM/Tag:technology.apogy"
-- "GROUP:View/Configure:technology.apogy"
-- "GROUP:View/Create:technology.apogy"
-- "GROUP:View/Delete:technology.apogy"
-- "GROUP:View/Read:technology.apogy"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.apogy
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

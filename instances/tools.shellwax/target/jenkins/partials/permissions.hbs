@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:tools.shellwax"
-- "GROUP:Credentials/View:tools.shellwax"
-- "GROUP:Gerrit/ManualTrigger:tools.shellwax"
-- "GROUP:Gerrit/Retrigger:tools.shellwax"
-- "GROUP:Job/Build:tools.shellwax"
-- "GROUP:Job/Cancel:tools.shellwax"
-- "GROUP:Job/Configure:tools.shellwax"
-- "GROUP:Job/Create:tools.shellwax"
-- "GROUP:Job/Delete:tools.shellwax"
-- "GROUP:Job/Move:tools.shellwax"
-- "GROUP:Job/Read:tools.shellwax"
-- "GROUP:Job/Workspace:tools.shellwax"
-- "GROUP:Overall/Read:tools.shellwax"
-- "GROUP:Run/Delete:tools.shellwax"
-- "GROUP:Run/Replay:tools.shellwax"
-- "GROUP:Run/Update:tools.shellwax"
-- "GROUP:SCM/Tag:tools.shellwax"
-- "GROUP:View/Configure:tools.shellwax"
-- "GROUP:View/Create:tools.shellwax"
-- "GROUP:View/Delete:tools.shellwax"
-- "GROUP:View/Read:tools.shellwax"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: tools.shellwax
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

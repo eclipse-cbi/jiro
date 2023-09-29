@@ -1,23 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.dash"
-- "GROUP:Credentials/View:technology.dash"
-- "GROUP:Job/Build:technology.dash"
-- "GROUP:Job/Cancel:technology.dash"
-- "GROUP:Job/Configure:technology.dash"
-- "GROUP:Job/Create:technology.dash"
-- "GROUP:Job/Delete:technology.dash"
-- "GROUP:Job/Move:technology.dash"
-- "GROUP:Job/Read:technology.dash"
-- "GROUP:Job/Workspace:technology.dash"
-- "GROUP:Overall/Read:technology.dash"
-- "GROUP:Run/Delete:technology.dash"
-- "GROUP:Run/Replay:technology.dash"
-- "GROUP:Run/Update:technology.dash"
-- "GROUP:SCM/Tag:technology.dash"
-- "GROUP:View/Configure:technology.dash"
-- "GROUP:View/Create:technology.dash"
-- "GROUP:View/Delete:technology.dash"
-- "GROUP:View/Read:technology.dash"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.dash
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

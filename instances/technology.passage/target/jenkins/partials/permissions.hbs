@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.passage"
-- "GROUP:Credentials/View:technology.passage"
-- "GROUP:Gerrit/ManualTrigger:technology.passage"
-- "GROUP:Gerrit/Retrigger:technology.passage"
-- "GROUP:Job/Build:technology.passage"
-- "GROUP:Job/Cancel:technology.passage"
-- "GROUP:Job/Configure:technology.passage"
-- "GROUP:Job/Create:technology.passage"
-- "GROUP:Job/Delete:technology.passage"
-- "GROUP:Job/Move:technology.passage"
-- "GROUP:Job/Read:technology.passage"
-- "GROUP:Job/Workspace:technology.passage"
-- "GROUP:Overall/Read:technology.passage"
-- "GROUP:Run/Delete:technology.passage"
-- "GROUP:Run/Replay:technology.passage"
-- "GROUP:Run/Update:technology.passage"
-- "GROUP:SCM/Tag:technology.passage"
-- "GROUP:View/Configure:technology.passage"
-- "GROUP:View/Create:technology.passage"
-- "GROUP:View/Delete:technology.passage"
-- "GROUP:View/Read:technology.passage"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.passage
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

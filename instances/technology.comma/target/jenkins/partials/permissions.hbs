@@ -1,23 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.comma"
-- "GROUP:Credentials/View:technology.comma"
-- "GROUP:Job/Build:technology.comma"
-- "GROUP:Job/Cancel:technology.comma"
-- "GROUP:Job/Configure:technology.comma"
-- "GROUP:Job/Create:technology.comma"
-- "GROUP:Job/Delete:technology.comma"
-- "GROUP:Job/Move:technology.comma"
-- "GROUP:Job/Read:technology.comma"
-- "GROUP:Job/Workspace:technology.comma"
-- "GROUP:Overall/Read:technology.comma"
-- "GROUP:Run/Delete:technology.comma"
-- "GROUP:Run/Replay:technology.comma"
-- "GROUP:Run/Update:technology.comma"
-- "GROUP:SCM/Tag:technology.comma"
-- "GROUP:View/Configure:technology.comma"
-- "GROUP:View/Create:technology.comma"
-- "GROUP:View/Delete:technology.comma"
-- "GROUP:View/Read:technology.comma"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.comma
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

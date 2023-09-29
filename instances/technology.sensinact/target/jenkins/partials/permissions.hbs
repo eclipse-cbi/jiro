@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.sensinact"
-- "GROUP:Credentials/View:technology.sensinact"
-- "GROUP:Gerrit/ManualTrigger:technology.sensinact"
-- "GROUP:Gerrit/Retrigger:technology.sensinact"
-- "GROUP:Job/Build:technology.sensinact"
-- "GROUP:Job/Cancel:technology.sensinact"
-- "GROUP:Job/Configure:technology.sensinact"
-- "GROUP:Job/Create:technology.sensinact"
-- "GROUP:Job/Delete:technology.sensinact"
-- "GROUP:Job/Move:technology.sensinact"
-- "GROUP:Job/Read:technology.sensinact"
-- "GROUP:Job/Workspace:technology.sensinact"
-- "GROUP:Overall/Read:technology.sensinact"
-- "GROUP:Run/Delete:technology.sensinact"
-- "GROUP:Run/Replay:technology.sensinact"
-- "GROUP:Run/Update:technology.sensinact"
-- "GROUP:SCM/Tag:technology.sensinact"
-- "GROUP:View/Configure:technology.sensinact"
-- "GROUP:View/Create:technology.sensinact"
-- "GROUP:View/Delete:technology.sensinact"
-- "GROUP:View/Read:technology.sensinact"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.sensinact
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

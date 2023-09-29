@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.n4js"
-- "GROUP:Credentials/View:technology.n4js"
-- "GROUP:Gerrit/ManualTrigger:technology.n4js"
-- "GROUP:Gerrit/Retrigger:technology.n4js"
-- "GROUP:Job/Build:technology.n4js"
-- "GROUP:Job/Cancel:technology.n4js"
-- "GROUP:Job/Configure:technology.n4js"
-- "GROUP:Job/Create:technology.n4js"
-- "GROUP:Job/Delete:technology.n4js"
-- "GROUP:Job/Move:technology.n4js"
-- "GROUP:Job/Read:technology.n4js"
-- "GROUP:Job/Workspace:technology.n4js"
-- "GROUP:Overall/Read:technology.n4js"
-- "GROUP:Run/Delete:technology.n4js"
-- "GROUP:Run/Replay:technology.n4js"
-- "GROUP:Run/Update:technology.n4js"
-- "GROUP:SCM/Tag:technology.n4js"
-- "GROUP:View/Configure:technology.n4js"
-- "GROUP:View/Create:technology.n4js"
-- "GROUP:View/Delete:technology.n4js"
-- "GROUP:View/Read:technology.n4js"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.n4js
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:tools.objectteams"
-- "GROUP:Credentials/View:tools.objectteams"
-- "GROUP:Gerrit/ManualTrigger:tools.objectteams"
-- "GROUP:Gerrit/Retrigger:tools.objectteams"
-- "GROUP:Job/Build:tools.objectteams"
-- "GROUP:Job/Cancel:tools.objectteams"
-- "GROUP:Job/Configure:tools.objectteams"
-- "GROUP:Job/Create:tools.objectteams"
-- "GROUP:Job/Delete:tools.objectteams"
-- "GROUP:Job/Move:tools.objectteams"
-- "GROUP:Job/Read:tools.objectteams"
-- "GROUP:Job/Workspace:tools.objectteams"
-- "GROUP:Overall/Read:tools.objectteams"
-- "GROUP:Run/Delete:tools.objectteams"
-- "GROUP:Run/Replay:tools.objectteams"
-- "GROUP:Run/Update:tools.objectteams"
-- "GROUP:SCM/Tag:tools.objectteams"
-- "GROUP:View/Configure:tools.objectteams"
-- "GROUP:View/Create:tools.objectteams"
-- "GROUP:View/Delete:tools.objectteams"
-- "GROUP:View/Read:tools.objectteams"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: tools.objectteams
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

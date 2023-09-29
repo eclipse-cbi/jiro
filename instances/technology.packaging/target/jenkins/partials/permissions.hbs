@@ -1,31 +1,44 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "USER:Agent/Build:ed.merks@gmail.com"
-- "USER:Job/Build:ed.merks@gmail.com"
-- "USER:Job/Cancel:ed.merks@gmail.com"
-- "USER:Job/ExtendedRead:ed.merks@gmail.com"
-- "USER:Job/Read:ed.merks@gmail.com"
-- "USER:Overall/Read:ed.merks@gmail.com"
-- "GROUP:Agent/Build:technology.packaging"
-- "GROUP:Credentials/View:technology.packaging"
-- "GROUP:Gerrit/ManualTrigger:technology.packaging"
-- "GROUP:Gerrit/Retrigger:technology.packaging"
-- "GROUP:Job/Build:technology.packaging"
-- "GROUP:Job/Cancel:technology.packaging"
-- "GROUP:Job/Configure:technology.packaging"
-- "GROUP:Job/Create:technology.packaging"
-- "GROUP:Job/Delete:technology.packaging"
-- "GROUP:Job/Move:technology.packaging"
-- "GROUP:Job/Read:technology.packaging"
-- "GROUP:Job/Workspace:technology.packaging"
-- "GROUP:Overall/Read:technology.packaging"
-- "GROUP:Run/Delete:technology.packaging"
-- "GROUP:Run/Replay:technology.packaging"
-- "GROUP:Run/Update:technology.packaging"
-- "GROUP:SCM/Tag:technology.packaging"
-- "GROUP:View/Configure:technology.packaging"
-- "GROUP:View/Create:technology.packaging"
-- "GROUP:View/Delete:technology.packaging"
-- "GROUP:View/Read:technology.packaging"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - user:
+      name: ed.merks@gmail.com
+      permissions:
+       - Agent/Build
+       - Job/Build
+       - Job/Cancel
+       - Job/ExtendedRead
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: technology.packaging
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

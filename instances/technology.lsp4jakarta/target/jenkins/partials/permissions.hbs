@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.lsp4jakarta"
-- "GROUP:Credentials/View:technology.lsp4jakarta"
-- "GROUP:Gerrit/ManualTrigger:technology.lsp4jakarta"
-- "GROUP:Gerrit/Retrigger:technology.lsp4jakarta"
-- "GROUP:Job/Build:technology.lsp4jakarta"
-- "GROUP:Job/Cancel:technology.lsp4jakarta"
-- "GROUP:Job/Configure:technology.lsp4jakarta"
-- "GROUP:Job/Create:technology.lsp4jakarta"
-- "GROUP:Job/Delete:technology.lsp4jakarta"
-- "GROUP:Job/Move:technology.lsp4jakarta"
-- "GROUP:Job/Read:technology.lsp4jakarta"
-- "GROUP:Job/Workspace:technology.lsp4jakarta"
-- "GROUP:Overall/Read:technology.lsp4jakarta"
-- "GROUP:Run/Delete:technology.lsp4jakarta"
-- "GROUP:Run/Replay:technology.lsp4jakarta"
-- "GROUP:Run/Update:technology.lsp4jakarta"
-- "GROUP:SCM/Tag:technology.lsp4jakarta"
-- "GROUP:View/Configure:technology.lsp4jakarta"
-- "GROUP:View/Create:technology.lsp4jakarta"
-- "GROUP:View/Delete:technology.lsp4jakarta"
-- "GROUP:View/Read:technology.lsp4jakarta"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.lsp4jakarta
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

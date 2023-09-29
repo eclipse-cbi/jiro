@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.subversive"
-- "GROUP:Credentials/View:technology.subversive"
-- "GROUP:Gerrit/ManualTrigger:technology.subversive"
-- "GROUP:Gerrit/Retrigger:technology.subversive"
-- "GROUP:Job/Build:technology.subversive"
-- "GROUP:Job/Cancel:technology.subversive"
-- "GROUP:Job/Configure:technology.subversive"
-- "GROUP:Job/Create:technology.subversive"
-- "GROUP:Job/Delete:technology.subversive"
-- "GROUP:Job/Move:technology.subversive"
-- "GROUP:Job/Read:technology.subversive"
-- "GROUP:Job/Workspace:technology.subversive"
-- "GROUP:Overall/Read:technology.subversive"
-- "GROUP:Run/Delete:technology.subversive"
-- "GROUP:Run/Replay:technology.subversive"
-- "GROUP:Run/Update:technology.subversive"
-- "GROUP:SCM/Tag:technology.subversive"
-- "GROUP:View/Configure:technology.subversive"
-- "GROUP:View/Create:technology.subversive"
-- "GROUP:View/Delete:technology.subversive"
-- "GROUP:View/Read:technology.subversive"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.subversive
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

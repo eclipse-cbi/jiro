@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:tools.corrosion"
-- "GROUP:Credentials/View:tools.corrosion"
-- "GROUP:Gerrit/ManualTrigger:tools.corrosion"
-- "GROUP:Gerrit/Retrigger:tools.corrosion"
-- "GROUP:Job/Build:tools.corrosion"
-- "GROUP:Job/Cancel:tools.corrosion"
-- "GROUP:Job/Configure:tools.corrosion"
-- "GROUP:Job/Create:tools.corrosion"
-- "GROUP:Job/Delete:tools.corrosion"
-- "GROUP:Job/Move:tools.corrosion"
-- "GROUP:Job/Read:tools.corrosion"
-- "GROUP:Job/Workspace:tools.corrosion"
-- "GROUP:Overall/Read:tools.corrosion"
-- "GROUP:Run/Delete:tools.corrosion"
-- "GROUP:Run/Replay:tools.corrosion"
-- "GROUP:Run/Update:tools.corrosion"
-- "GROUP:SCM/Tag:tools.corrosion"
-- "GROUP:View/Configure:tools.corrosion"
-- "GROUP:View/Create:tools.corrosion"
-- "GROUP:View/Delete:tools.corrosion"
-- "GROUP:View/Read:tools.corrosion"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: tools.corrosion
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.packager"
-- "GROUP:Credentials/View:technology.packager"
-- "GROUP:Gerrit/ManualTrigger:technology.packager"
-- "GROUP:Gerrit/Retrigger:technology.packager"
-- "GROUP:Job/Build:technology.packager"
-- "GROUP:Job/Cancel:technology.packager"
-- "GROUP:Job/Configure:technology.packager"
-- "GROUP:Job/Create:technology.packager"
-- "GROUP:Job/Delete:technology.packager"
-- "GROUP:Job/Move:technology.packager"
-- "GROUP:Job/Read:technology.packager"
-- "GROUP:Job/Workspace:technology.packager"
-- "GROUP:Overall/Read:technology.packager"
-- "GROUP:Run/Delete:technology.packager"
-- "GROUP:Run/Replay:technology.packager"
-- "GROUP:Run/Update:technology.packager"
-- "GROUP:SCM/Tag:technology.packager"
-- "GROUP:View/Configure:technology.packager"
-- "GROUP:View/Create:technology.packager"
-- "GROUP:View/Delete:technology.packager"
-- "GROUP:View/Read:technology.packager"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.packager
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

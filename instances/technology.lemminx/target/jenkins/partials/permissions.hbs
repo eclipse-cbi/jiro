@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.lemminx"
-- "GROUP:Credentials/View:technology.lemminx"
-- "GROUP:Gerrit/ManualTrigger:technology.lemminx"
-- "GROUP:Gerrit/Retrigger:technology.lemminx"
-- "GROUP:Job/Build:technology.lemminx"
-- "GROUP:Job/Cancel:technology.lemminx"
-- "GROUP:Job/Configure:technology.lemminx"
-- "GROUP:Job/Create:technology.lemminx"
-- "GROUP:Job/Delete:technology.lemminx"
-- "GROUP:Job/Move:technology.lemminx"
-- "GROUP:Job/Read:technology.lemminx"
-- "GROUP:Job/Workspace:technology.lemminx"
-- "GROUP:Overall/Read:technology.lemminx"
-- "GROUP:Run/Delete:technology.lemminx"
-- "GROUP:Run/Replay:technology.lemminx"
-- "GROUP:Run/Update:technology.lemminx"
-- "GROUP:SCM/Tag:technology.lemminx"
-- "GROUP:View/Configure:technology.lemminx"
-- "GROUP:View/Create:technology.lemminx"
-- "GROUP:View/Delete:technology.lemminx"
-- "GROUP:View/Read:technology.lemminx"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.lemminx
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

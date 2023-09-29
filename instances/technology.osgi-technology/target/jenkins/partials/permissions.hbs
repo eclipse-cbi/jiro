@@ -1,23 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.osgi-technology"
-- "GROUP:Credentials/View:technology.osgi-technology"
-- "GROUP:Job/Build:technology.osgi-technology"
-- "GROUP:Job/Cancel:technology.osgi-technology"
-- "GROUP:Job/Configure:technology.osgi-technology"
-- "GROUP:Job/Create:technology.osgi-technology"
-- "GROUP:Job/Delete:technology.osgi-technology"
-- "GROUP:Job/Move:technology.osgi-technology"
-- "GROUP:Job/Read:technology.osgi-technology"
-- "GROUP:Job/Workspace:technology.osgi-technology"
-- "GROUP:Overall/Read:technology.osgi-technology"
-- "GROUP:Run/Delete:technology.osgi-technology"
-- "GROUP:Run/Replay:technology.osgi-technology"
-- "GROUP:Run/Update:technology.osgi-technology"
-- "GROUP:SCM/Tag:technology.osgi-technology"
-- "GROUP:View/Configure:technology.osgi-technology"
-- "GROUP:View/Create:technology.osgi-technology"
-- "GROUP:View/Delete:technology.osgi-technology"
-- "GROUP:View/Read:technology.osgi-technology"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.osgi-technology
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

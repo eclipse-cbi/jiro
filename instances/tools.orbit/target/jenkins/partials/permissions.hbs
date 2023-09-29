@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:tools.orbit"
-- "GROUP:Credentials/View:tools.orbit"
-- "GROUP:Gerrit/ManualTrigger:tools.orbit"
-- "GROUP:Gerrit/Retrigger:tools.orbit"
-- "GROUP:Job/Build:tools.orbit"
-- "GROUP:Job/Cancel:tools.orbit"
-- "GROUP:Job/Configure:tools.orbit"
-- "GROUP:Job/Create:tools.orbit"
-- "GROUP:Job/Delete:tools.orbit"
-- "GROUP:Job/Move:tools.orbit"
-- "GROUP:Job/Read:tools.orbit"
-- "GROUP:Job/Workspace:tools.orbit"
-- "GROUP:Overall/Read:tools.orbit"
-- "GROUP:Run/Delete:tools.orbit"
-- "GROUP:Run/Replay:tools.orbit"
-- "GROUP:Run/Update:tools.orbit"
-- "GROUP:SCM/Tag:tools.orbit"
-- "GROUP:View/Configure:tools.orbit"
-- "GROUP:View/Create:tools.orbit"
-- "GROUP:View/Delete:tools.orbit"
-- "GROUP:View/Read:tools.orbit"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: tools.orbit
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

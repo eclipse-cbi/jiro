@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.scout"
-- "GROUP:Credentials/View:technology.scout"
-- "GROUP:Gerrit/ManualTrigger:technology.scout"
-- "GROUP:Gerrit/Retrigger:technology.scout"
-- "GROUP:Job/Build:technology.scout"
-- "GROUP:Job/Cancel:technology.scout"
-- "GROUP:Job/Configure:technology.scout"
-- "GROUP:Job/Create:technology.scout"
-- "GROUP:Job/Delete:technology.scout"
-- "GROUP:Job/Move:technology.scout"
-- "GROUP:Job/Read:technology.scout"
-- "GROUP:Job/Workspace:technology.scout"
-- "GROUP:Overall/Read:technology.scout"
-- "GROUP:Run/Delete:technology.scout"
-- "GROUP:Run/Replay:technology.scout"
-- "GROUP:Run/Update:technology.scout"
-- "GROUP:SCM/Tag:technology.scout"
-- "GROUP:View/Configure:technology.scout"
-- "GROUP:View/Create:technology.scout"
-- "GROUP:View/Delete:technology.scout"
-- "GROUP:View/Read:technology.scout"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.scout
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

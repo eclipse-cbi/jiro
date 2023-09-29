@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.skills"
-- "GROUP:Credentials/View:technology.skills"
-- "GROUP:Gerrit/ManualTrigger:technology.skills"
-- "GROUP:Gerrit/Retrigger:technology.skills"
-- "GROUP:Job/Build:technology.skills"
-- "GROUP:Job/Cancel:technology.skills"
-- "GROUP:Job/Configure:technology.skills"
-- "GROUP:Job/Create:technology.skills"
-- "GROUP:Job/Delete:technology.skills"
-- "GROUP:Job/Move:technology.skills"
-- "GROUP:Job/Read:technology.skills"
-- "GROUP:Job/Workspace:technology.skills"
-- "GROUP:Overall/Read:technology.skills"
-- "GROUP:Run/Delete:technology.skills"
-- "GROUP:Run/Replay:technology.skills"
-- "GROUP:Run/Update:technology.skills"
-- "GROUP:SCM/Tag:technology.skills"
-- "GROUP:View/Configure:technology.skills"
-- "GROUP:View/Create:technology.skills"
-- "GROUP:View/Delete:technology.skills"
-- "GROUP:View/Read:technology.skills"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.skills
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

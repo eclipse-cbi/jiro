@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.sw360"
-- "GROUP:Credentials/View:technology.sw360"
-- "GROUP:Gerrit/ManualTrigger:technology.sw360"
-- "GROUP:Gerrit/Retrigger:technology.sw360"
-- "GROUP:Job/Build:technology.sw360"
-- "GROUP:Job/Cancel:technology.sw360"
-- "GROUP:Job/Configure:technology.sw360"
-- "GROUP:Job/Create:technology.sw360"
-- "GROUP:Job/Delete:technology.sw360"
-- "GROUP:Job/Move:technology.sw360"
-- "GROUP:Job/Read:technology.sw360"
-- "GROUP:Job/Workspace:technology.sw360"
-- "GROUP:Overall/Read:technology.sw360"
-- "GROUP:Run/Delete:technology.sw360"
-- "GROUP:Run/Replay:technology.sw360"
-- "GROUP:Run/Update:technology.sw360"
-- "GROUP:SCM/Tag:technology.sw360"
-- "GROUP:View/Configure:technology.sw360"
-- "GROUP:View/Create:technology.sw360"
-- "GROUP:View/Delete:technology.sw360"
-- "GROUP:View/Read:technology.sw360"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.sw360
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

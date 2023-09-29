@@ -414,11 +414,11 @@
    },
    "docker": {
       "master": {
-         "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.414.1\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
+         "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.414.2\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
          "image": "tools.tracecompass",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
-         "tag": "2.414.1"
+         "tag": "2.414.2"
       }
    },
    "gradle": {
@@ -491,7 +491,7 @@
       "staticAgentCount": 0,
       "theme": "quicksilver",
       "timezone": "America/Toronto",
-      "version": "2.414.1"
+      "version": "latest"
    },
    "jiroMaster": {
       "docker": {
@@ -499,15 +499,15 @@
          "image": "jiro-master",
          "registry": "docker.io",
          "repository": "eclipsecbi",
-         "tag": "2.414.1"
+         "tag": "2.414.2"
       },
       "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM eclipsecbi/semeru-ubuntu-coreutils:openjdk11-jammy\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/var/jenkins\"\n\n# jenkins version being bundled in this docker image\nENV JENKINS_HOME=\"/var/jenkins\"\nENV JENKINS_WAR=\"/usr/share/jenkins/jenkins.war\"\nENV COPY_REFERENCE_FILE_LOG=\"/var/jenkins/copy_reference_file.log\"\nENV REF=\"/usr/share/jenkins/ref\"\n\nVOLUME [ \"/var/jenkins\", \"/var/cache/jenkins/war\", \"/var/cache/jenkins/plugins\" ]\nWORKDIR \"/var/jenkins\"\n\nENTRYPOINT [\"uid_entrypoint\", \"/usr/bin/dumb-init\", \"--\", \"/usr/local/bin/jenkins.sh\"]\n\nRUN mkdir -p $(dirname \"/usr/share/jenkins/jenkins.war\") && mkdir -p \"/usr/share/jenkins/ref\"\n\nCOPY scripts/* /usr/local/bin/\nRUN chmod ug+x /usr/local/bin/*\n\nCOPY war/jenkins.war \"/usr/share/jenkins/jenkins.war\"\nCOPY ref/ \"/usr/share/jenkins/ref/\"\n",
       "home": "/var/jenkins",
-      "id": "2.414.1",
+      "id": "2.414.2",
       "key_fingerprint": "5BA31D57EF5975CA",
       "plugin_manager": {
-         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.12.11/jenkins-plugin-manager-2.12.11.jar",
-         "version": "2.12.11"
+         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.12.13/jenkins-plugin-manager-2.12.13.jar",
+         "version": "2.12.13"
       },
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
@@ -532,7 +532,6 @@
          "github-branch-source",
          "gitlab-plugin",
          "gitlab-branch-source",
-         "greenballs",
          "jdk-tool",
          "jobConfigHistory",
          "kubernetes",
@@ -567,9 +566,9 @@
       },
       "updateCenter": "https://updates.jenkins.io",
       "username": "jenkins",
-      "version": "2.414.1",
+      "version": "2.414.2",
       "war": "/usr/share/jenkins/jenkins.war",
-      "warBaseUrl": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/2.414.1",
+      "warBaseUrl": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/2.414.2",
       "webroot": "/var/cache/jenkins/war"
    },
    "kubernetes": {

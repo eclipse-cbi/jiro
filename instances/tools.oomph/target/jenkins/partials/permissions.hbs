@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:tools.oomph"
-- "GROUP:Credentials/View:tools.oomph"
-- "GROUP:Gerrit/ManualTrigger:tools.oomph"
-- "GROUP:Gerrit/Retrigger:tools.oomph"
-- "GROUP:Job/Build:tools.oomph"
-- "GROUP:Job/Cancel:tools.oomph"
-- "GROUP:Job/Configure:tools.oomph"
-- "GROUP:Job/Create:tools.oomph"
-- "GROUP:Job/Delete:tools.oomph"
-- "GROUP:Job/Move:tools.oomph"
-- "GROUP:Job/Read:tools.oomph"
-- "GROUP:Job/Workspace:tools.oomph"
-- "GROUP:Overall/Read:tools.oomph"
-- "GROUP:Run/Delete:tools.oomph"
-- "GROUP:Run/Replay:tools.oomph"
-- "GROUP:Run/Update:tools.oomph"
-- "GROUP:SCM/Tag:tools.oomph"
-- "GROUP:View/Configure:tools.oomph"
-- "GROUP:View/Create:tools.oomph"
-- "GROUP:View/Delete:tools.oomph"
-- "GROUP:View/Read:tools.oomph"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: tools.oomph
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

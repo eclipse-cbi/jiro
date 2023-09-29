@@ -20,32 +20,42 @@ jenkins:
 
   authorizationStrategy:
     projectMatrix:
-      permissions:
-        - "GROUP:Overall/Administer:admins"
-        - "USER:Job/Read:anonymous"
-        - "USER:Overall/Read:anonymous"
-        - "GROUP:Job/ExtendedRead:common"
-        - "GROUP:Agent/Build:technology.efxclipse"
-        - "GROUP:Credentials/View:technology.efxclipse"
-        - "GROUP:Gerrit/ManualTrigger:technology.efxclipse"
-        - "GROUP:Gerrit/Retrigger:technology.efxclipse"
-        - "GROUP:Job/Build:technology.efxclipse"
-        - "GROUP:Job/Cancel:technology.efxclipse"
-        - "GROUP:Job/Configure:technology.efxclipse"
-        - "GROUP:Job/Create:technology.efxclipse"
-        - "GROUP:Job/Delete:technology.efxclipse"
-        - "GROUP:Job/Move:technology.efxclipse"
-        - "GROUP:Job/Read:technology.efxclipse"
-        - "GROUP:Job/Workspace:technology.efxclipse"
-        - "GROUP:Overall/Read:technology.efxclipse"
-        - "GROUP:Run/Delete:technology.efxclipse"
-        - "GROUP:Run/Replay:technology.efxclipse"
-        - "GROUP:Run/Update:technology.efxclipse"
-        - "GROUP:SCM/Tag:technology.efxclipse"
-        - "GROUP:View/Configure:technology.efxclipse"
-        - "GROUP:View/Create:technology.efxclipse"
-        - "GROUP:View/Delete:technology.efxclipse"
-        - "GROUP:View/Read:technology.efxclipse"
+      entries:
+          - group:
+              name: admins
+              permissions:
+               - Overall/Administer
+          - user:
+              name: anonymous
+              permissions:
+               - Job/Read
+               - Overall/Read
+          - group:
+              name: common
+              permissions:
+               - Job/ExtendedRead
+          - group:
+              name: technology.efxclipse
+              permissions:
+               - Agent/Build
+               - Credentials/View
+               - Job/Build
+               - Job/Cancel
+               - Job/Configure
+               - Job/Create
+               - Job/Delete
+               - Job/Move
+               - Job/Read
+               - Job/Workspace
+               - Overall/Read
+               - Run/Delete
+               - Run/Replay
+               - Run/Update
+               - SCM/Tag
+               - View/Configure
+               - View/Create
+               - View/Delete
+               - View/Read
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -77,7 +87,7 @@ jenkins:
         label: "basic"
         containers:
         - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3107.v665000b_51092
+          image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3131.vf2b_b_798b_ce99
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -185,7 +195,7 @@ jenkins:
         label: "basic-ubuntu"
         containers:
         - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3107.v665000b_51092
+          image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3131.vf2b_b_798b_ce99
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -293,7 +303,7 @@ jenkins:
         label: "migration jipp-migration centos-7"
         containers:
         - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3107.v665000b_51092
+          image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3131.vf2b_b_798b_ce99
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -401,7 +411,7 @@ jenkins:
         label: "centos-latest centos-8"
         containers:
         - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3107.v665000b_51092
+          image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3131.vf2b_b_798b_ce99
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -515,6 +525,19 @@ security:
         strategy: "triggeringUsersAuthorizationStrategy"
   sSHD:
     port: -1
+  gitHostKeyVerificationConfiguration:
+    sshHostKeyVerificationStrategy:
+      manuallyProvidedKeyVerificationStrategy:
+        approvedHostKeys: |-
+          gitlab.eclipse.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBsuD5uVWgjZX3jrcvdWu0DwbbarL32mfbNAVABi4wCc
+          gitlab.eclipse.org ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCl6Wwb+m463X7a05TsllEYEmRklkwUWgqHVcvxsW6l6n9tPNcUWrcfTWupMQoONe7PuBsr6SkiYXRcSjHJy9qDXo5Nz/F/IU+EQ+haTU5pGfMRXAsQfdAB0AR5mSPOTkurRHL1sGi6jtp2wpgkbEfykcuEnmg36BCBqsARl08K6OuI2CtrKevXN0x5S5bF6vgzmvUm4aRQnF7WIg7HSOYVZIH5QGHsxsqr045xGLyk0scEIz6ZdslsinGYyvg8J9d6WJJebtjMX+KBHtXYKrFx0xqqnIYSj3WACaP32GDVFqPpxeNmJaVIJuymxsxxQMGYCsJT9diDv3dI+efu5xb
+          gitlab.eclipse.org ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBIPik0+gkBsbyVzTLvDq4ESZJMlUSZeb/tjdOHPbTLcSSlHX8R4CdqQwjWdxi4AMQ/76FXUsNH2azvkvgSh/r+E=
+          github.com,192.30.253.*,140.82.112.*,140.82.113.*,140.82.114.* ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk=
+          github.com,192.30.253.*,140.82.112.*,140.82.113.*,140.82.114.* ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
+          github.com,192.30.253.*,140.82.112.*,140.82.113.*,140.82.114.* ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+          projects-storage.eclipse.org,172.25.25.150 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDKbQI09/IKbvAi3n8a2nluRcaZTB5HgzXwfJv/FUUKwusSwoyMi25jxqCHJbcQco4oAS89i7UeX7YAb2EnrPDd+VebNuTtNfWewxsBjwGI1qKMUsmQc5cLut0p1pe0VRz5ZgnXQeT9FSVA3zha+mJ3OCDtl0svvu3t4jN0zgZZfrmtwz4KQZjlfVv/cPtTKy5+RhBF9Vmto0ZVG+x8DDvxxhi37w90hXjdIb2JpILO4B65A4gEv910DJuwQ6FmrRu6oyqg7+1gnqIPigha7sHKGOX5h+mVrQTYdmPFAvNVawSYpLcEeajh9RI5kKwML6ftnmS/213KkVUUArXCYf4BxBN4h8kpvWqxBOlBNXy6nBLtzuDOdLviOGJ0HbazksuCrcvrT1lV4CfjCOjPlc9zV2r61XpMKBTq/0WPfq/r7LrIkswdszn3yTzvb1/cFCyQfkCGZvkuXJsen5Doi3Ixb0mOO0u+zL17RiS7//PVFs95DszOXqXlOytyB+u9Hmk=
+          projects-storage.eclipse.org,172.25.25.150 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAOUQ8p0E/Ib3uchk+6wEZ8UtBHTBvyI2E+eA/sOXajLQPKP0XIbVyECy8x5OmrrlvOYs+LxxniGJ69UIjiYZqM=
+          projects-storage.eclipse.org,172.25.25.150 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAsn6PO2Uemsr7wIUu5x0RnlRcuK36D2sbmYNe2LSKdb
 
 unclassified:
   location:
@@ -704,6 +727,8 @@ tool:
     installations:
       - name: "apache-maven-latest"
         home: "/opt/tools/apache-maven/latest"
+      - name: "apache-maven-3.9.3"
+        home: "/opt/tools/apache-maven/3.9.3"
       - name: "apache-maven-3.9.2"
         home: "/opt/tools/apache-maven/3.9.2"
       - name: "apache-maven-3.9.1"

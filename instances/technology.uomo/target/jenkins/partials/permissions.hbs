@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.uomo"
-- "GROUP:Credentials/View:technology.uomo"
-- "GROUP:Gerrit/ManualTrigger:technology.uomo"
-- "GROUP:Gerrit/Retrigger:technology.uomo"
-- "GROUP:Job/Build:technology.uomo"
-- "GROUP:Job/Cancel:technology.uomo"
-- "GROUP:Job/Configure:technology.uomo"
-- "GROUP:Job/Create:technology.uomo"
-- "GROUP:Job/Delete:technology.uomo"
-- "GROUP:Job/Move:technology.uomo"
-- "GROUP:Job/Read:technology.uomo"
-- "GROUP:Job/Workspace:technology.uomo"
-- "GROUP:Overall/Read:technology.uomo"
-- "GROUP:Run/Delete:technology.uomo"
-- "GROUP:Run/Replay:technology.uomo"
-- "GROUP:Run/Update:technology.uomo"
-- "GROUP:SCM/Tag:technology.uomo"
-- "GROUP:View/Configure:technology.uomo"
-- "GROUP:View/Create:technology.uomo"
-- "GROUP:View/Delete:technology.uomo"
-- "GROUP:View/Read:technology.uomo"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.uomo
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:tools.acute"
-- "GROUP:Credentials/View:tools.acute"
-- "GROUP:Gerrit/ManualTrigger:tools.acute"
-- "GROUP:Gerrit/Retrigger:tools.acute"
-- "GROUP:Job/Build:tools.acute"
-- "GROUP:Job/Cancel:tools.acute"
-- "GROUP:Job/Configure:tools.acute"
-- "GROUP:Job/Create:tools.acute"
-- "GROUP:Job/Delete:tools.acute"
-- "GROUP:Job/Move:tools.acute"
-- "GROUP:Job/Read:tools.acute"
-- "GROUP:Job/Workspace:tools.acute"
-- "GROUP:Overall/Read:tools.acute"
-- "GROUP:Run/Delete:tools.acute"
-- "GROUP:Run/Replay:tools.acute"
-- "GROUP:Run/Update:tools.acute"
-- "GROUP:SCM/Tag:tools.acute"
-- "GROUP:View/Configure:tools.acute"
-- "GROUP:View/Create:tools.acute"
-- "GROUP:View/Delete:tools.acute"
-- "GROUP:View/Read:tools.acute"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: tools.acute
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

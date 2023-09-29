@@ -1,23 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.tm4e"
-- "GROUP:Credentials/View:technology.tm4e"
-- "GROUP:Job/Build:technology.tm4e"
-- "GROUP:Job/Cancel:technology.tm4e"
-- "GROUP:Job/Configure:technology.tm4e"
-- "GROUP:Job/Create:technology.tm4e"
-- "GROUP:Job/Delete:technology.tm4e"
-- "GROUP:Job/Move:technology.tm4e"
-- "GROUP:Job/Read:technology.tm4e"
-- "GROUP:Job/Workspace:technology.tm4e"
-- "GROUP:Overall/Read:technology.tm4e"
-- "GROUP:Run/Delete:technology.tm4e"
-- "GROUP:Run/Replay:technology.tm4e"
-- "GROUP:Run/Update:technology.tm4e"
-- "GROUP:SCM/Tag:technology.tm4e"
-- "GROUP:View/Configure:technology.tm4e"
-- "GROUP:View/Create:technology.tm4e"
-- "GROUP:View/Delete:technology.tm4e"
-- "GROUP:View/Read:technology.tm4e"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.tm4e
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

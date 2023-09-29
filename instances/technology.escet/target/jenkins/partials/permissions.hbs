@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.escet"
-- "GROUP:Credentials/View:technology.escet"
-- "GROUP:Gerrit/ManualTrigger:technology.escet"
-- "GROUP:Gerrit/Retrigger:technology.escet"
-- "GROUP:Job/Build:technology.escet"
-- "GROUP:Job/Cancel:technology.escet"
-- "GROUP:Job/Configure:technology.escet"
-- "GROUP:Job/Create:technology.escet"
-- "GROUP:Job/Delete:technology.escet"
-- "GROUP:Job/Move:technology.escet"
-- "GROUP:Job/Read:technology.escet"
-- "GROUP:Job/Workspace:technology.escet"
-- "GROUP:Overall/Read:technology.escet"
-- "GROUP:Run/Delete:technology.escet"
-- "GROUP:Run/Replay:technology.escet"
-- "GROUP:Run/Update:technology.escet"
-- "GROUP:SCM/Tag:technology.escet"
-- "GROUP:View/Configure:technology.escet"
-- "GROUP:View/Create:technology.escet"
-- "GROUP:View/Delete:technology.escet"
-- "GROUP:View/Read:technology.escet"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.escet
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

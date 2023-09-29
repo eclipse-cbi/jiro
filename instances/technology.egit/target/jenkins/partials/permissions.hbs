@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.egit"
-- "GROUP:Credentials/View:technology.egit"
-- "GROUP:Gerrit/ManualTrigger:technology.egit"
-- "GROUP:Gerrit/Retrigger:technology.egit"
-- "GROUP:Job/Build:technology.egit"
-- "GROUP:Job/Cancel:technology.egit"
-- "GROUP:Job/Configure:technology.egit"
-- "GROUP:Job/Create:technology.egit"
-- "GROUP:Job/Delete:technology.egit"
-- "GROUP:Job/Move:technology.egit"
-- "GROUP:Job/Read:technology.egit"
-- "GROUP:Job/Workspace:technology.egit"
-- "GROUP:Overall/Read:technology.egit"
-- "GROUP:Run/Delete:technology.egit"
-- "GROUP:Run/Replay:technology.egit"
-- "GROUP:Run/Update:technology.egit"
-- "GROUP:SCM/Tag:technology.egit"
-- "GROUP:View/Configure:technology.egit"
-- "GROUP:View/Create:technology.egit"
-- "GROUP:View/Delete:technology.egit"
-- "GROUP:View/Read:technology.egit"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.egit
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

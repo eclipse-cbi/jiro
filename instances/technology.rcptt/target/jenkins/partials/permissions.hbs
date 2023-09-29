@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.rcptt"
-- "GROUP:Credentials/View:technology.rcptt"
-- "GROUP:Gerrit/ManualTrigger:technology.rcptt"
-- "GROUP:Gerrit/Retrigger:technology.rcptt"
-- "GROUP:Job/Build:technology.rcptt"
-- "GROUP:Job/Cancel:technology.rcptt"
-- "GROUP:Job/Configure:technology.rcptt"
-- "GROUP:Job/Create:technology.rcptt"
-- "GROUP:Job/Delete:technology.rcptt"
-- "GROUP:Job/Move:technology.rcptt"
-- "GROUP:Job/Read:technology.rcptt"
-- "GROUP:Job/Workspace:technology.rcptt"
-- "GROUP:Overall/Read:technology.rcptt"
-- "GROUP:Run/Delete:technology.rcptt"
-- "GROUP:Run/Replay:technology.rcptt"
-- "GROUP:Run/Update:technology.rcptt"
-- "GROUP:SCM/Tag:technology.rcptt"
-- "GROUP:View/Configure:technology.rcptt"
-- "GROUP:View/Create:technology.rcptt"
-- "GROUP:View/Delete:technology.rcptt"
-- "GROUP:View/Read:technology.rcptt"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.rcptt
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

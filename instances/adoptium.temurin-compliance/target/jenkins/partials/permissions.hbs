@@ -1,23 +1,29 @@
-- "GROUP:Overall/Administer:admins"
-- "GROUP:Agent/Build:adoptium.temurin-compliance"
-- "GROUP:Agent/Connect:adoptium.temurin-compliance"
-- "GROUP:Agent/Disconnect:adoptium.temurin-compliance"
-- "GROUP:Agent/ExtendedRead:adoptium.temurin-compliance"
-- "GROUP:Credentials/View:adoptium.temurin-compliance"
-- "GROUP:Job/Build:adoptium.temurin-compliance"
-- "GROUP:Job/Cancel:adoptium.temurin-compliance"
-- "GROUP:Job/Configure:adoptium.temurin-compliance"
-- "GROUP:Job/Create:adoptium.temurin-compliance"
-- "GROUP:Job/Delete:adoptium.temurin-compliance"
-- "GROUP:Job/Move:adoptium.temurin-compliance"
-- "GROUP:Job/Read:adoptium.temurin-compliance"
-- "GROUP:Job/Workspace:adoptium.temurin-compliance"
-- "GROUP:Overall/Read:adoptium.temurin-compliance"
-- "GROUP:Run/Delete:adoptium.temurin-compliance"
-- "GROUP:Run/Replay:adoptium.temurin-compliance"
-- "GROUP:Run/Update:adoptium.temurin-compliance"
-- "GROUP:SCM/Tag:adoptium.temurin-compliance"
-- "GROUP:View/Configure:adoptium.temurin-compliance"
-- "GROUP:View/Create:adoptium.temurin-compliance"
-- "GROUP:View/Delete:adoptium.temurin-compliance"
-- "GROUP:View/Read:adoptium.temurin-compliance"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - group:
+      name: adoptium.temurin-compliance
+      permissions:
+       - Agent/Build
+       - Agent/Connect
+       - Agent/Disconnect
+       - Agent/ExtendedRead
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

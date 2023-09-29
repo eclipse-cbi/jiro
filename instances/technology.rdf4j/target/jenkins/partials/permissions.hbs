@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.rdf4j"
-- "GROUP:Credentials/View:technology.rdf4j"
-- "GROUP:Gerrit/ManualTrigger:technology.rdf4j"
-- "GROUP:Gerrit/Retrigger:technology.rdf4j"
-- "GROUP:Job/Build:technology.rdf4j"
-- "GROUP:Job/Cancel:technology.rdf4j"
-- "GROUP:Job/Configure:technology.rdf4j"
-- "GROUP:Job/Create:technology.rdf4j"
-- "GROUP:Job/Delete:technology.rdf4j"
-- "GROUP:Job/Move:technology.rdf4j"
-- "GROUP:Job/Read:technology.rdf4j"
-- "GROUP:Job/Workspace:technology.rdf4j"
-- "GROUP:Overall/Read:technology.rdf4j"
-- "GROUP:Run/Delete:technology.rdf4j"
-- "GROUP:Run/Replay:technology.rdf4j"
-- "GROUP:Run/Update:technology.rdf4j"
-- "GROUP:SCM/Tag:technology.rdf4j"
-- "GROUP:View/Configure:technology.rdf4j"
-- "GROUP:View/Create:technology.rdf4j"
-- "GROUP:View/Delete:technology.rdf4j"
-- "GROUP:View/Read:technology.rdf4j"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.rdf4j
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

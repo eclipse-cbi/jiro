@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.ease"
-- "GROUP:Credentials/View:technology.ease"
-- "GROUP:Gerrit/ManualTrigger:technology.ease"
-- "GROUP:Gerrit/Retrigger:technology.ease"
-- "GROUP:Job/Build:technology.ease"
-- "GROUP:Job/Cancel:technology.ease"
-- "GROUP:Job/Configure:technology.ease"
-- "GROUP:Job/Create:technology.ease"
-- "GROUP:Job/Delete:technology.ease"
-- "GROUP:Job/Move:technology.ease"
-- "GROUP:Job/Read:technology.ease"
-- "GROUP:Job/Workspace:technology.ease"
-- "GROUP:Overall/Read:technology.ease"
-- "GROUP:Run/Delete:technology.ease"
-- "GROUP:Run/Replay:technology.ease"
-- "GROUP:Run/Update:technology.ease"
-- "GROUP:SCM/Tag:technology.ease"
-- "GROUP:View/Configure:technology.ease"
-- "GROUP:View/Create:technology.ease"
-- "GROUP:View/Delete:technology.ease"
-- "GROUP:View/Read:technology.ease"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.ease
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

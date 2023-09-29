@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.collections"
-- "GROUP:Credentials/View:technology.collections"
-- "GROUP:Gerrit/ManualTrigger:technology.collections"
-- "GROUP:Gerrit/Retrigger:technology.collections"
-- "GROUP:Job/Build:technology.collections"
-- "GROUP:Job/Cancel:technology.collections"
-- "GROUP:Job/Configure:technology.collections"
-- "GROUP:Job/Create:technology.collections"
-- "GROUP:Job/Delete:technology.collections"
-- "GROUP:Job/Move:technology.collections"
-- "GROUP:Job/Read:technology.collections"
-- "GROUP:Job/Workspace:technology.collections"
-- "GROUP:Overall/Read:technology.collections"
-- "GROUP:Run/Delete:technology.collections"
-- "GROUP:Run/Replay:technology.collections"
-- "GROUP:Run/Update:technology.collections"
-- "GROUP:SCM/Tag:technology.collections"
-- "GROUP:View/Configure:technology.collections"
-- "GROUP:View/Create:technology.collections"
-- "GROUP:View/Delete:technology.collections"
-- "GROUP:View/Read:technology.collections"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.collections
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
