@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.sparkplug"
-- "GROUP:Credentials/View:iot.sparkplug"
-- "GROUP:Gerrit/ManualTrigger:iot.sparkplug"
-- "GROUP:Gerrit/Retrigger:iot.sparkplug"
-- "GROUP:Job/Build:iot.sparkplug"
-- "GROUP:Job/Cancel:iot.sparkplug"
-- "GROUP:Job/Configure:iot.sparkplug"
-- "GROUP:Job/Create:iot.sparkplug"
-- "GROUP:Job/Delete:iot.sparkplug"
-- "GROUP:Job/Move:iot.sparkplug"
-- "GROUP:Job/Read:iot.sparkplug"
-- "GROUP:Job/Workspace:iot.sparkplug"
-- "GROUP:Overall/Read:iot.sparkplug"
-- "GROUP:Run/Delete:iot.sparkplug"
-- "GROUP:Run/Replay:iot.sparkplug"
-- "GROUP:Run/Update:iot.sparkplug"
-- "GROUP:SCM/Tag:iot.sparkplug"
-- "GROUP:View/Configure:iot.sparkplug"
-- "GROUP:View/Create:iot.sparkplug"
-- "GROUP:View/Delete:iot.sparkplug"
-- "GROUP:View/Read:iot.sparkplug"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.sparkplug
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

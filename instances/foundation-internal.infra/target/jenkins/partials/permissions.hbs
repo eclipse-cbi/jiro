@@ -1,37 +1,70 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Discover:anonymous"
-- "USER:Overall/Read:anonymous"
-- "USER:Agent/Build:boris.baldassari@eclipse-foundation.org"
-- "USER:Overall/Read:boris.baldassari@eclipse-foundation.org"
-- "USER:Agent/Build:florent.zara@eclipse-foundation.org"
-- "USER:Overall/Read:florent.zara@eclipse-foundation.org"
-- "GROUP:Agent/Build:foundation-internal.it"
-- "GROUP:Credentials/View:foundation-internal.it"
-- "GROUP:Job/Build:foundation-internal.it"
-- "GROUP:Job/Cancel:foundation-internal.it"
-- "GROUP:Job/Configure:foundation-internal.it"
-- "GROUP:Job/Create:foundation-internal.it"
-- "GROUP:Job/Delete:foundation-internal.it"
-- "GROUP:Job/Move:foundation-internal.it"
-- "GROUP:Job/Read:foundation-internal.it"
-- "GROUP:Job/Workspace:foundation-internal.it"
-- "GROUP:Overall/Read:foundation-internal.it"
-- "GROUP:Run/Delete:foundation-internal.it"
-- "GROUP:Run/Replay:foundation-internal.it"
-- "GROUP:Run/Update:foundation-internal.it"
-- "GROUP:SCM/Tag:foundation-internal.it"
-- "GROUP:View/Configure:foundation-internal.it"
-- "GROUP:View/Create:foundation-internal.it"
-- "GROUP:View/Delete:foundation-internal.it"
-- "GROUP:View/Read:foundation-internal.it"
-- "GROUP:Overall/Read:foundation-internal.webdev"
-- "USER:Agent/Build:marco.jahn@eclipse-foundation.org"
-- "USER:Overall/Read:marco.jahn@eclipse-foundation.org"
-- "USER:Agent/Build:mariateresa.delgado@eclipse-foundation.org"
-- "USER:Overall/Read:mariateresa.delgado@eclipse-foundation.org"
-- "USER:Agent/Build:rahul.mohangeetha@eclipse-foundation.org"
-- "USER:Overall/Read:rahul.mohangeetha@eclipse-foundation.org"
-- "USER:Agent/Build:shawn.kilpatrick@eclipse-foundation.org"
-- "USER:Overall/Read:shawn.kilpatrick@eclipse-foundation.org"
-- "USER:Agent/Build:wayne.beaton@eclipse-foundation.org"
-- "USER:Overall/Read:wayne.beaton@eclipse-foundation.org"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Discover
+       - Overall/Read
+  - user:
+      name: boris.baldassari@eclipse-foundation.org
+      permissions:
+       - Agent/Build
+       - Overall/Read
+  - user:
+      name: florent.zara@eclipse-foundation.org
+      permissions:
+       - Agent/Build
+       - Overall/Read
+  - group:
+      name: foundation-internal.it
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
+  - group:
+      name: foundation-internal.webdev
+      permissions:
+       - Overall/Read
+  - user:
+      name: marco.jahn@eclipse-foundation.org
+      permissions:
+       - Agent/Build
+       - Overall/Read
+  - user:
+      name: mariateresa.delgado@eclipse-foundation.org
+      permissions:
+       - Agent/Build
+       - Overall/Read
+  - user:
+      name: rahul.mohangeetha@eclipse-foundation.org
+      permissions:
+       - Agent/Build
+       - Overall/Read
+  - user:
+      name: shawn.kilpatrick@eclipse-foundation.org
+      permissions:
+       - Agent/Build
+       - Overall/Read
+  - user:
+      name: wayne.beaton@eclipse-foundation.org
+      permissions:
+       - Agent/Build
+       - Overall/Read

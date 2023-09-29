@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.paho"
-- "GROUP:Credentials/View:iot.paho"
-- "GROUP:Gerrit/ManualTrigger:iot.paho"
-- "GROUP:Gerrit/Retrigger:iot.paho"
-- "GROUP:Job/Build:iot.paho"
-- "GROUP:Job/Cancel:iot.paho"
-- "GROUP:Job/Configure:iot.paho"
-- "GROUP:Job/Create:iot.paho"
-- "GROUP:Job/Delete:iot.paho"
-- "GROUP:Job/Move:iot.paho"
-- "GROUP:Job/Read:iot.paho"
-- "GROUP:Job/Workspace:iot.paho"
-- "GROUP:Overall/Read:iot.paho"
-- "GROUP:Run/Delete:iot.paho"
-- "GROUP:Run/Replay:iot.paho"
-- "GROUP:Run/Update:iot.paho"
-- "GROUP:SCM/Tag:iot.paho"
-- "GROUP:View/Configure:iot.paho"
-- "GROUP:View/Create:iot.paho"
-- "GROUP:View/Delete:iot.paho"
-- "GROUP:View/Read:iot.paho"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.paho
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

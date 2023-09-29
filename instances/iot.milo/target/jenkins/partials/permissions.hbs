@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.milo"
-- "GROUP:Credentials/View:iot.milo"
-- "GROUP:Gerrit/ManualTrigger:iot.milo"
-- "GROUP:Gerrit/Retrigger:iot.milo"
-- "GROUP:Job/Build:iot.milo"
-- "GROUP:Job/Cancel:iot.milo"
-- "GROUP:Job/Configure:iot.milo"
-- "GROUP:Job/Create:iot.milo"
-- "GROUP:Job/Delete:iot.milo"
-- "GROUP:Job/Move:iot.milo"
-- "GROUP:Job/Read:iot.milo"
-- "GROUP:Job/Workspace:iot.milo"
-- "GROUP:Overall/Read:iot.milo"
-- "GROUP:Run/Delete:iot.milo"
-- "GROUP:Run/Replay:iot.milo"
-- "GROUP:Run/Update:iot.milo"
-- "GROUP:SCM/Tag:iot.milo"
-- "GROUP:View/Configure:iot.milo"
-- "GROUP:View/Create:iot.milo"
-- "GROUP:View/Delete:iot.milo"
-- "GROUP:View/Read:iot.milo"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.milo
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

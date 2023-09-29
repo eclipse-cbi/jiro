@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.californium"
-- "GROUP:Credentials/View:iot.californium"
-- "GROUP:Gerrit/ManualTrigger:iot.californium"
-- "GROUP:Gerrit/Retrigger:iot.californium"
-- "GROUP:Job/Build:iot.californium"
-- "GROUP:Job/Cancel:iot.californium"
-- "GROUP:Job/Configure:iot.californium"
-- "GROUP:Job/Create:iot.californium"
-- "GROUP:Job/Delete:iot.californium"
-- "GROUP:Job/Move:iot.californium"
-- "GROUP:Job/Read:iot.californium"
-- "GROUP:Job/Workspace:iot.californium"
-- "GROUP:Overall/Read:iot.californium"
-- "GROUP:Run/Delete:iot.californium"
-- "GROUP:Run/Replay:iot.californium"
-- "GROUP:Run/Update:iot.californium"
-- "GROUP:SCM/Tag:iot.californium"
-- "GROUP:View/Configure:iot.californium"
-- "GROUP:View/Create:iot.californium"
-- "GROUP:View/Delete:iot.californium"
-- "GROUP:View/Read:iot.californium"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.californium
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

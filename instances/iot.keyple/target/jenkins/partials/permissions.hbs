@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.keyple"
-- "GROUP:Credentials/View:iot.keyple"
-- "GROUP:Gerrit/ManualTrigger:iot.keyple"
-- "GROUP:Gerrit/Retrigger:iot.keyple"
-- "GROUP:Job/Build:iot.keyple"
-- "GROUP:Job/Cancel:iot.keyple"
-- "GROUP:Job/Configure:iot.keyple"
-- "GROUP:Job/Create:iot.keyple"
-- "GROUP:Job/Delete:iot.keyple"
-- "GROUP:Job/Move:iot.keyple"
-- "GROUP:Job/Read:iot.keyple"
-- "GROUP:Job/Workspace:iot.keyple"
-- "GROUP:Overall/Read:iot.keyple"
-- "GROUP:Run/Delete:iot.keyple"
-- "GROUP:Run/Replay:iot.keyple"
-- "GROUP:Run/Update:iot.keyple"
-- "GROUP:SCM/Tag:iot.keyple"
-- "GROUP:View/Configure:iot.keyple"
-- "GROUP:View/Create:iot.keyple"
-- "GROUP:View/Delete:iot.keyple"
-- "GROUP:View/Read:iot.keyple"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.keyple
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

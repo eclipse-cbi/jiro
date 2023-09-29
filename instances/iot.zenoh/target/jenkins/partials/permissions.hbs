@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.zenoh"
-- "GROUP:Credentials/View:iot.zenoh"
-- "GROUP:Gerrit/ManualTrigger:iot.zenoh"
-- "GROUP:Gerrit/Retrigger:iot.zenoh"
-- "GROUP:Job/Build:iot.zenoh"
-- "GROUP:Job/Cancel:iot.zenoh"
-- "GROUP:Job/Configure:iot.zenoh"
-- "GROUP:Job/Create:iot.zenoh"
-- "GROUP:Job/Delete:iot.zenoh"
-- "GROUP:Job/Move:iot.zenoh"
-- "GROUP:Job/Read:iot.zenoh"
-- "GROUP:Job/Workspace:iot.zenoh"
-- "GROUP:Overall/Read:iot.zenoh"
-- "GROUP:Run/Delete:iot.zenoh"
-- "GROUP:Run/Replay:iot.zenoh"
-- "GROUP:Run/Update:iot.zenoh"
-- "GROUP:SCM/Tag:iot.zenoh"
-- "GROUP:View/Configure:iot.zenoh"
-- "GROUP:View/Create:iot.zenoh"
-- "GROUP:View/Delete:iot.zenoh"
-- "GROUP:View/Read:iot.zenoh"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.zenoh
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

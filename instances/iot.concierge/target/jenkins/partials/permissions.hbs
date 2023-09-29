@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.concierge"
-- "GROUP:Credentials/View:iot.concierge"
-- "GROUP:Gerrit/ManualTrigger:iot.concierge"
-- "GROUP:Gerrit/Retrigger:iot.concierge"
-- "GROUP:Job/Build:iot.concierge"
-- "GROUP:Job/Cancel:iot.concierge"
-- "GROUP:Job/Configure:iot.concierge"
-- "GROUP:Job/Create:iot.concierge"
-- "GROUP:Job/Delete:iot.concierge"
-- "GROUP:Job/Move:iot.concierge"
-- "GROUP:Job/Read:iot.concierge"
-- "GROUP:Job/Workspace:iot.concierge"
-- "GROUP:Overall/Read:iot.concierge"
-- "GROUP:Run/Delete:iot.concierge"
-- "GROUP:Run/Replay:iot.concierge"
-- "GROUP:Run/Update:iot.concierge"
-- "GROUP:SCM/Tag:iot.concierge"
-- "GROUP:View/Configure:iot.concierge"
-- "GROUP:View/Create:iot.concierge"
-- "GROUP:View/Delete:iot.concierge"
-- "GROUP:View/Read:iot.concierge"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.concierge
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

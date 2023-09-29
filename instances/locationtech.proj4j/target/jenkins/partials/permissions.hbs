@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:locationtech.proj4j"
-- "GROUP:Credentials/View:locationtech.proj4j"
-- "GROUP:Gerrit/ManualTrigger:locationtech.proj4j"
-- "GROUP:Gerrit/Retrigger:locationtech.proj4j"
-- "GROUP:Job/Build:locationtech.proj4j"
-- "GROUP:Job/Cancel:locationtech.proj4j"
-- "GROUP:Job/Configure:locationtech.proj4j"
-- "GROUP:Job/Create:locationtech.proj4j"
-- "GROUP:Job/Delete:locationtech.proj4j"
-- "GROUP:Job/Move:locationtech.proj4j"
-- "GROUP:Job/Read:locationtech.proj4j"
-- "GROUP:Job/Workspace:locationtech.proj4j"
-- "GROUP:Overall/Read:locationtech.proj4j"
-- "GROUP:Run/Delete:locationtech.proj4j"
-- "GROUP:Run/Replay:locationtech.proj4j"
-- "GROUP:Run/Update:locationtech.proj4j"
-- "GROUP:SCM/Tag:locationtech.proj4j"
-- "GROUP:View/Configure:locationtech.proj4j"
-- "GROUP:View/Create:locationtech.proj4j"
-- "GROUP:View/Delete:locationtech.proj4j"
-- "GROUP:View/Read:locationtech.proj4j"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: locationtech.proj4j
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

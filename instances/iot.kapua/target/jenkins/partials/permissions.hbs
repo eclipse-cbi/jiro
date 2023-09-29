@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.kapua"
-- "GROUP:Credentials/View:iot.kapua"
-- "GROUP:Gerrit/ManualTrigger:iot.kapua"
-- "GROUP:Gerrit/Retrigger:iot.kapua"
-- "GROUP:Job/Build:iot.kapua"
-- "GROUP:Job/Cancel:iot.kapua"
-- "GROUP:Job/Configure:iot.kapua"
-- "GROUP:Job/Create:iot.kapua"
-- "GROUP:Job/Delete:iot.kapua"
-- "GROUP:Job/Move:iot.kapua"
-- "GROUP:Job/Read:iot.kapua"
-- "GROUP:Job/Workspace:iot.kapua"
-- "GROUP:Overall/Read:iot.kapua"
-- "GROUP:Run/Delete:iot.kapua"
-- "GROUP:Run/Replay:iot.kapua"
-- "GROUP:Run/Update:iot.kapua"
-- "GROUP:SCM/Tag:iot.kapua"
-- "GROUP:View/Configure:iot.kapua"
-- "GROUP:View/Create:iot.kapua"
-- "GROUP:View/Delete:iot.kapua"
-- "GROUP:View/Read:iot.kapua"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.kapua
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.leshan"
-- "GROUP:Credentials/View:iot.leshan"
-- "GROUP:Gerrit/ManualTrigger:iot.leshan"
-- "GROUP:Gerrit/Retrigger:iot.leshan"
-- "GROUP:Job/Build:iot.leshan"
-- "GROUP:Job/Cancel:iot.leshan"
-- "GROUP:Job/Configure:iot.leshan"
-- "GROUP:Job/Create:iot.leshan"
-- "GROUP:Job/Delete:iot.leshan"
-- "GROUP:Job/Move:iot.leshan"
-- "GROUP:Job/Read:iot.leshan"
-- "GROUP:Job/Workspace:iot.leshan"
-- "GROUP:Overall/Read:iot.leshan"
-- "GROUP:Run/Delete:iot.leshan"
-- "GROUP:Run/Replay:iot.leshan"
-- "GROUP:Run/Update:iot.leshan"
-- "GROUP:SCM/Tag:iot.leshan"
-- "GROUP:View/Configure:iot.leshan"
-- "GROUP:View/Create:iot.leshan"
-- "GROUP:View/Delete:iot.leshan"
-- "GROUP:View/Read:iot.leshan"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.leshan
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

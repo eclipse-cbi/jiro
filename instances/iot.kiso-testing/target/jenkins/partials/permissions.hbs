@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.kiso-testing"
-- "GROUP:Credentials/View:iot.kiso-testing"
-- "GROUP:Gerrit/ManualTrigger:iot.kiso-testing"
-- "GROUP:Gerrit/Retrigger:iot.kiso-testing"
-- "GROUP:Job/Build:iot.kiso-testing"
-- "GROUP:Job/Cancel:iot.kiso-testing"
-- "GROUP:Job/Configure:iot.kiso-testing"
-- "GROUP:Job/Create:iot.kiso-testing"
-- "GROUP:Job/Delete:iot.kiso-testing"
-- "GROUP:Job/Move:iot.kiso-testing"
-- "GROUP:Job/Read:iot.kiso-testing"
-- "GROUP:Job/Workspace:iot.kiso-testing"
-- "GROUP:Overall/Read:iot.kiso-testing"
-- "GROUP:Run/Delete:iot.kiso-testing"
-- "GROUP:Run/Replay:iot.kiso-testing"
-- "GROUP:Run/Update:iot.kiso-testing"
-- "GROUP:SCM/Tag:iot.kiso-testing"
-- "GROUP:View/Configure:iot.kiso-testing"
-- "GROUP:View/Create:iot.kiso-testing"
-- "GROUP:View/Delete:iot.kiso-testing"
-- "GROUP:View/Read:iot.kiso-testing"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.kiso-testing
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

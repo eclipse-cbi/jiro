@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.4diac"
-- "GROUP:Credentials/View:iot.4diac"
-- "GROUP:Gerrit/ManualTrigger:iot.4diac"
-- "GROUP:Gerrit/Retrigger:iot.4diac"
-- "GROUP:Job/Build:iot.4diac"
-- "GROUP:Job/Cancel:iot.4diac"
-- "GROUP:Job/Configure:iot.4diac"
-- "GROUP:Job/Create:iot.4diac"
-- "GROUP:Job/Delete:iot.4diac"
-- "GROUP:Job/Move:iot.4diac"
-- "GROUP:Job/Read:iot.4diac"
-- "GROUP:Job/Workspace:iot.4diac"
-- "GROUP:Overall/Read:iot.4diac"
-- "GROUP:Run/Delete:iot.4diac"
-- "GROUP:Run/Replay:iot.4diac"
-- "GROUP:Run/Update:iot.4diac"
-- "GROUP:SCM/Tag:iot.4diac"
-- "GROUP:View/Configure:iot.4diac"
-- "GROUP:View/Create:iot.4diac"
-- "GROUP:View/Delete:iot.4diac"
-- "GROUP:View/Read:iot.4diac"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.4diac
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

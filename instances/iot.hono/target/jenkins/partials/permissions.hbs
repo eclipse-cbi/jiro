@@ -1,23 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.hono"
-- "GROUP:Credentials/View:iot.hono"
-- "GROUP:Job/Build:iot.hono"
-- "GROUP:Job/Cancel:iot.hono"
-- "GROUP:Job/Configure:iot.hono"
-- "GROUP:Job/Create:iot.hono"
-- "GROUP:Job/Delete:iot.hono"
-- "GROUP:Job/Move:iot.hono"
-- "GROUP:Job/Read:iot.hono"
-- "GROUP:Job/Workspace:iot.hono"
-- "GROUP:Overall/Read:iot.hono"
-- "GROUP:Run/Delete:iot.hono"
-- "GROUP:Run/Replay:iot.hono"
-- "GROUP:Run/Update:iot.hono"
-- "GROUP:SCM/Tag:iot.hono"
-- "GROUP:View/Configure:iot.hono"
-- "GROUP:View/Create:iot.hono"
-- "GROUP:View/Delete:iot.hono"
-- "GROUP:View/Read:iot.hono"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.hono
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.hawkbit"
-- "GROUP:Credentials/View:iot.hawkbit"
-- "GROUP:Gerrit/ManualTrigger:iot.hawkbit"
-- "GROUP:Gerrit/Retrigger:iot.hawkbit"
-- "GROUP:Job/Build:iot.hawkbit"
-- "GROUP:Job/Cancel:iot.hawkbit"
-- "GROUP:Job/Configure:iot.hawkbit"
-- "GROUP:Job/Create:iot.hawkbit"
-- "GROUP:Job/Delete:iot.hawkbit"
-- "GROUP:Job/Move:iot.hawkbit"
-- "GROUP:Job/Read:iot.hawkbit"
-- "GROUP:Job/Workspace:iot.hawkbit"
-- "GROUP:Overall/Read:iot.hawkbit"
-- "GROUP:Run/Delete:iot.hawkbit"
-- "GROUP:Run/Replay:iot.hawkbit"
-- "GROUP:Run/Update:iot.hawkbit"
-- "GROUP:SCM/Tag:iot.hawkbit"
-- "GROUP:View/Configure:iot.hawkbit"
-- "GROUP:View/Create:iot.hawkbit"
-- "GROUP:View/Delete:iot.hawkbit"
-- "GROUP:View/Read:iot.hawkbit"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.hawkbit
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

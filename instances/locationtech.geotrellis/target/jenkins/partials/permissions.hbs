@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:locationtech.geotrellis"
-- "GROUP:Credentials/View:locationtech.geotrellis"
-- "GROUP:Gerrit/ManualTrigger:locationtech.geotrellis"
-- "GROUP:Gerrit/Retrigger:locationtech.geotrellis"
-- "GROUP:Job/Build:locationtech.geotrellis"
-- "GROUP:Job/Cancel:locationtech.geotrellis"
-- "GROUP:Job/Configure:locationtech.geotrellis"
-- "GROUP:Job/Create:locationtech.geotrellis"
-- "GROUP:Job/Delete:locationtech.geotrellis"
-- "GROUP:Job/Move:locationtech.geotrellis"
-- "GROUP:Job/Read:locationtech.geotrellis"
-- "GROUP:Job/Workspace:locationtech.geotrellis"
-- "GROUP:Overall/Read:locationtech.geotrellis"
-- "GROUP:Run/Delete:locationtech.geotrellis"
-- "GROUP:Run/Replay:locationtech.geotrellis"
-- "GROUP:Run/Update:locationtech.geotrellis"
-- "GROUP:SCM/Tag:locationtech.geotrellis"
-- "GROUP:View/Configure:locationtech.geotrellis"
-- "GROUP:View/Create:locationtech.geotrellis"
-- "GROUP:View/Delete:locationtech.geotrellis"
-- "GROUP:View/Read:locationtech.geotrellis"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: locationtech.geotrellis
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

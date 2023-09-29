@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:locationtech.spatial4j"
-- "GROUP:Credentials/View:locationtech.spatial4j"
-- "GROUP:Gerrit/ManualTrigger:locationtech.spatial4j"
-- "GROUP:Gerrit/Retrigger:locationtech.spatial4j"
-- "GROUP:Job/Build:locationtech.spatial4j"
-- "GROUP:Job/Cancel:locationtech.spatial4j"
-- "GROUP:Job/Configure:locationtech.spatial4j"
-- "GROUP:Job/Create:locationtech.spatial4j"
-- "GROUP:Job/Delete:locationtech.spatial4j"
-- "GROUP:Job/Move:locationtech.spatial4j"
-- "GROUP:Job/Read:locationtech.spatial4j"
-- "GROUP:Job/Workspace:locationtech.spatial4j"
-- "GROUP:Overall/Read:locationtech.spatial4j"
-- "GROUP:Run/Delete:locationtech.spatial4j"
-- "GROUP:Run/Replay:locationtech.spatial4j"
-- "GROUP:Run/Update:locationtech.spatial4j"
-- "GROUP:SCM/Tag:locationtech.spatial4j"
-- "GROUP:View/Configure:locationtech.spatial4j"
-- "GROUP:View/Create:locationtech.spatial4j"
-- "GROUP:View/Delete:locationtech.spatial4j"
-- "GROUP:View/Read:locationtech.spatial4j"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: locationtech.spatial4j
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:locationtech.jts"
-- "GROUP:Credentials/View:locationtech.jts"
-- "GROUP:Gerrit/ManualTrigger:locationtech.jts"
-- "GROUP:Gerrit/Retrigger:locationtech.jts"
-- "GROUP:Job/Build:locationtech.jts"
-- "GROUP:Job/Cancel:locationtech.jts"
-- "GROUP:Job/Configure:locationtech.jts"
-- "GROUP:Job/Create:locationtech.jts"
-- "GROUP:Job/Delete:locationtech.jts"
-- "GROUP:Job/Move:locationtech.jts"
-- "GROUP:Job/Read:locationtech.jts"
-- "GROUP:Job/Workspace:locationtech.jts"
-- "GROUP:Overall/Read:locationtech.jts"
-- "GROUP:Run/Delete:locationtech.jts"
-- "GROUP:Run/Replay:locationtech.jts"
-- "GROUP:Run/Update:locationtech.jts"
-- "GROUP:SCM/Tag:locationtech.jts"
-- "GROUP:View/Configure:locationtech.jts"
-- "GROUP:View/Create:locationtech.jts"
-- "GROUP:View/Delete:locationtech.jts"
-- "GROUP:View/Read:locationtech.jts"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: locationtech.jts
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

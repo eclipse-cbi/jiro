@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.keti"
-- "GROUP:Credentials/View:iot.keti"
-- "GROUP:Gerrit/ManualTrigger:iot.keti"
-- "GROUP:Gerrit/Retrigger:iot.keti"
-- "GROUP:Job/Build:iot.keti"
-- "GROUP:Job/Cancel:iot.keti"
-- "GROUP:Job/Configure:iot.keti"
-- "GROUP:Job/Create:iot.keti"
-- "GROUP:Job/Delete:iot.keti"
-- "GROUP:Job/Move:iot.keti"
-- "GROUP:Job/Read:iot.keti"
-- "GROUP:Job/Workspace:iot.keti"
-- "GROUP:Overall/Read:iot.keti"
-- "GROUP:Run/Delete:iot.keti"
-- "GROUP:Run/Replay:iot.keti"
-- "GROUP:Run/Update:iot.keti"
-- "GROUP:SCM/Tag:iot.keti"
-- "GROUP:View/Configure:iot.keti"
-- "GROUP:View/Create:iot.keti"
-- "GROUP:View/Delete:iot.keti"
-- "GROUP:View/Read:iot.keti"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.keti
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

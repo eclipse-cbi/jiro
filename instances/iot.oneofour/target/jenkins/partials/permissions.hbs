@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.oneofour"
-- "GROUP:Credentials/View:iot.oneofour"
-- "GROUP:Gerrit/ManualTrigger:iot.oneofour"
-- "GROUP:Gerrit/Retrigger:iot.oneofour"
-- "GROUP:Job/Build:iot.oneofour"
-- "GROUP:Job/Cancel:iot.oneofour"
-- "GROUP:Job/Configure:iot.oneofour"
-- "GROUP:Job/Create:iot.oneofour"
-- "GROUP:Job/Delete:iot.oneofour"
-- "GROUP:Job/Move:iot.oneofour"
-- "GROUP:Job/Read:iot.oneofour"
-- "GROUP:Job/Workspace:iot.oneofour"
-- "GROUP:Overall/Read:iot.oneofour"
-- "GROUP:Run/Delete:iot.oneofour"
-- "GROUP:Run/Replay:iot.oneofour"
-- "GROUP:Run/Update:iot.oneofour"
-- "GROUP:SCM/Tag:iot.oneofour"
-- "GROUP:View/Configure:iot.oneofour"
-- "GROUP:View/Create:iot.oneofour"
-- "GROUP:View/Delete:iot.oneofour"
-- "GROUP:View/Read:iot.oneofour"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.oneofour
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

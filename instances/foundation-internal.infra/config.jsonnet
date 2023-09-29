@@ -11,7 +11,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     prefix: "/ci/" + $.project.shortName,
   },
   jenkins+: {
-    version: "2.401.1",
+    version: "2.414.2",
     staticAgentCount: 1,
     permissions: [
       {
@@ -78,8 +78,5 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     master+: {
       namespace: "foundation-internal-infra"
     }
-  },
-  secrets+: {
-    "gerrit-trigger-plugin": {},
   },
 }

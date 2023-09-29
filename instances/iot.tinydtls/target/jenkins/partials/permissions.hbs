@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.tinydtls"
-- "GROUP:Credentials/View:iot.tinydtls"
-- "GROUP:Gerrit/ManualTrigger:iot.tinydtls"
-- "GROUP:Gerrit/Retrigger:iot.tinydtls"
-- "GROUP:Job/Build:iot.tinydtls"
-- "GROUP:Job/Cancel:iot.tinydtls"
-- "GROUP:Job/Configure:iot.tinydtls"
-- "GROUP:Job/Create:iot.tinydtls"
-- "GROUP:Job/Delete:iot.tinydtls"
-- "GROUP:Job/Move:iot.tinydtls"
-- "GROUP:Job/Read:iot.tinydtls"
-- "GROUP:Job/Workspace:iot.tinydtls"
-- "GROUP:Overall/Read:iot.tinydtls"
-- "GROUP:Run/Delete:iot.tinydtls"
-- "GROUP:Run/Replay:iot.tinydtls"
-- "GROUP:Run/Update:iot.tinydtls"
-- "GROUP:SCM/Tag:iot.tinydtls"
-- "GROUP:View/Configure:iot.tinydtls"
-- "GROUP:View/Create:iot.tinydtls"
-- "GROUP:View/Delete:iot.tinydtls"
-- "GROUP:View/Read:iot.tinydtls"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.tinydtls
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

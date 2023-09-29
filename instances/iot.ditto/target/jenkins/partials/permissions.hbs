@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.ditto"
-- "GROUP:Credentials/View:iot.ditto"
-- "GROUP:Gerrit/ManualTrigger:iot.ditto"
-- "GROUP:Gerrit/Retrigger:iot.ditto"
-- "GROUP:Job/Build:iot.ditto"
-- "GROUP:Job/Cancel:iot.ditto"
-- "GROUP:Job/Configure:iot.ditto"
-- "GROUP:Job/Create:iot.ditto"
-- "GROUP:Job/Delete:iot.ditto"
-- "GROUP:Job/Move:iot.ditto"
-- "GROUP:Job/Read:iot.ditto"
-- "GROUP:Job/Workspace:iot.ditto"
-- "GROUP:Overall/Read:iot.ditto"
-- "GROUP:Run/Delete:iot.ditto"
-- "GROUP:Run/Replay:iot.ditto"
-- "GROUP:Run/Update:iot.ditto"
-- "GROUP:SCM/Tag:iot.ditto"
-- "GROUP:View/Configure:iot.ditto"
-- "GROUP:View/Create:iot.ditto"
-- "GROUP:View/Delete:iot.ditto"
-- "GROUP:View/Read:iot.ditto"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.ditto
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

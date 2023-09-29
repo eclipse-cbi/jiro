@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.kura"
-- "GROUP:Credentials/View:iot.kura"
-- "GROUP:Gerrit/ManualTrigger:iot.kura"
-- "GROUP:Gerrit/Retrigger:iot.kura"
-- "GROUP:Job/Build:iot.kura"
-- "GROUP:Job/Cancel:iot.kura"
-- "GROUP:Job/Configure:iot.kura"
-- "GROUP:Job/Create:iot.kura"
-- "GROUP:Job/Delete:iot.kura"
-- "GROUP:Job/Move:iot.kura"
-- "GROUP:Job/Read:iot.kura"
-- "GROUP:Job/Workspace:iot.kura"
-- "GROUP:Overall/Read:iot.kura"
-- "GROUP:Run/Delete:iot.kura"
-- "GROUP:Run/Replay:iot.kura"
-- "GROUP:Run/Update:iot.kura"
-- "GROUP:SCM/Tag:iot.kura"
-- "GROUP:View/Configure:iot.kura"
-- "GROUP:View/Create:iot.kura"
-- "GROUP:View/Delete:iot.kura"
-- "GROUP:View/Read:iot.kura"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.kura
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

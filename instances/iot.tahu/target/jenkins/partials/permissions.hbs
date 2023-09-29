@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.tahu"
-- "GROUP:Credentials/View:iot.tahu"
-- "GROUP:Gerrit/ManualTrigger:iot.tahu"
-- "GROUP:Gerrit/Retrigger:iot.tahu"
-- "GROUP:Job/Build:iot.tahu"
-- "GROUP:Job/Cancel:iot.tahu"
-- "GROUP:Job/Configure:iot.tahu"
-- "GROUP:Job/Create:iot.tahu"
-- "GROUP:Job/Delete:iot.tahu"
-- "GROUP:Job/Move:iot.tahu"
-- "GROUP:Job/Read:iot.tahu"
-- "GROUP:Job/Workspace:iot.tahu"
-- "GROUP:Overall/Read:iot.tahu"
-- "GROUP:Run/Delete:iot.tahu"
-- "GROUP:Run/Replay:iot.tahu"
-- "GROUP:Run/Update:iot.tahu"
-- "GROUP:SCM/Tag:iot.tahu"
-- "GROUP:View/Configure:iot.tahu"
-- "GROUP:View/Create:iot.tahu"
-- "GROUP:View/Delete:iot.tahu"
-- "GROUP:View/Read:iot.tahu"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.tahu
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

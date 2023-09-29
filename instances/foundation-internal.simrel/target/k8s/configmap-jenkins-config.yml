@@ -14,7 +14,7 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "foundation-internal.simrel"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.414.2"
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.414.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "simrel"
   namespace: "simrel"

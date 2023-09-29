@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.embed-cdt"
-- "GROUP:Credentials/View:iot.embed-cdt"
-- "GROUP:Gerrit/ManualTrigger:iot.embed-cdt"
-- "GROUP:Gerrit/Retrigger:iot.embed-cdt"
-- "GROUP:Job/Build:iot.embed-cdt"
-- "GROUP:Job/Cancel:iot.embed-cdt"
-- "GROUP:Job/Configure:iot.embed-cdt"
-- "GROUP:Job/Create:iot.embed-cdt"
-- "GROUP:Job/Delete:iot.embed-cdt"
-- "GROUP:Job/Move:iot.embed-cdt"
-- "GROUP:Job/Read:iot.embed-cdt"
-- "GROUP:Job/Workspace:iot.embed-cdt"
-- "GROUP:Overall/Read:iot.embed-cdt"
-- "GROUP:Run/Delete:iot.embed-cdt"
-- "GROUP:Run/Replay:iot.embed-cdt"
-- "GROUP:Run/Update:iot.embed-cdt"
-- "GROUP:SCM/Tag:iot.embed-cdt"
-- "GROUP:View/Configure:iot.embed-cdt"
-- "GROUP:View/Create:iot.embed-cdt"
-- "GROUP:View/Delete:iot.embed-cdt"
-- "GROUP:View/Read:iot.embed-cdt"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.embed-cdt
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

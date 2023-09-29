@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.packages"
-- "GROUP:Credentials/View:iot.packages"
-- "GROUP:Gerrit/ManualTrigger:iot.packages"
-- "GROUP:Gerrit/Retrigger:iot.packages"
-- "GROUP:Job/Build:iot.packages"
-- "GROUP:Job/Cancel:iot.packages"
-- "GROUP:Job/Configure:iot.packages"
-- "GROUP:Job/Create:iot.packages"
-- "GROUP:Job/Delete:iot.packages"
-- "GROUP:Job/Move:iot.packages"
-- "GROUP:Job/Read:iot.packages"
-- "GROUP:Job/Workspace:iot.packages"
-- "GROUP:Overall/Read:iot.packages"
-- "GROUP:Run/Delete:iot.packages"
-- "GROUP:Run/Replay:iot.packages"
-- "GROUP:Run/Update:iot.packages"
-- "GROUP:SCM/Tag:iot.packages"
-- "GROUP:View/Configure:iot.packages"
-- "GROUP:View/Create:iot.packages"
-- "GROUP:View/Delete:iot.packages"
-- "GROUP:View/Read:iot.packages"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.packages
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

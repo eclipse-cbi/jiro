@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:jakartaee.spec-committee"
-- "GROUP:Credentials/View:jakartaee.spec-committee"
-- "GROUP:Gerrit/ManualTrigger:jakartaee.spec-committee"
-- "GROUP:Gerrit/Retrigger:jakartaee.spec-committee"
-- "GROUP:Job/Build:jakartaee.spec-committee"
-- "GROUP:Job/Cancel:jakartaee.spec-committee"
-- "GROUP:Job/Configure:jakartaee.spec-committee"
-- "GROUP:Job/Create:jakartaee.spec-committee"
-- "GROUP:Job/Delete:jakartaee.spec-committee"
-- "GROUP:Job/Move:jakartaee.spec-committee"
-- "GROUP:Job/Read:jakartaee.spec-committee"
-- "GROUP:Job/Workspace:jakartaee.spec-committee"
-- "GROUP:Overall/Read:jakartaee.spec-committee"
-- "GROUP:Run/Delete:jakartaee.spec-committee"
-- "GROUP:Run/Replay:jakartaee.spec-committee"
-- "GROUP:Run/Update:jakartaee.spec-committee"
-- "GROUP:SCM/Tag:jakartaee.spec-committee"
-- "GROUP:View/Configure:jakartaee.spec-committee"
-- "GROUP:View/Create:jakartaee.spec-committee"
-- "GROUP:View/Delete:jakartaee.spec-committee"
-- "GROUP:View/Read:jakartaee.spec-committee"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: jakartaee.spec-committee
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

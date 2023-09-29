@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.amlen"
-- "GROUP:Credentials/View:iot.amlen"
-- "GROUP:Gerrit/ManualTrigger:iot.amlen"
-- "GROUP:Gerrit/Retrigger:iot.amlen"
-- "GROUP:Job/Build:iot.amlen"
-- "GROUP:Job/Cancel:iot.amlen"
-- "GROUP:Job/Configure:iot.amlen"
-- "GROUP:Job/Create:iot.amlen"
-- "GROUP:Job/Delete:iot.amlen"
-- "GROUP:Job/Move:iot.amlen"
-- "GROUP:Job/Read:iot.amlen"
-- "GROUP:Job/Workspace:iot.amlen"
-- "GROUP:Overall/Read:iot.amlen"
-- "GROUP:Run/Delete:iot.amlen"
-- "GROUP:Run/Replay:iot.amlen"
-- "GROUP:Run/Update:iot.amlen"
-- "GROUP:SCM/Tag:iot.amlen"
-- "GROUP:View/Configure:iot.amlen"
-- "GROUP:View/Create:iot.amlen"
-- "GROUP:View/Delete:iot.amlen"
-- "GROUP:View/Read:iot.amlen"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.amlen
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

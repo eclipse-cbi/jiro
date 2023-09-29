@@ -1,24 +1,33 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Discover:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Agent/Build:foundation-internal.webdev"
-- "GROUP:Credentials/View:foundation-internal.webdev"
-- "GROUP:Gerrit/ManualTrigger:foundation-internal.webdev"
-- "GROUP:Gerrit/Retrigger:foundation-internal.webdev"
-- "GROUP:Job/Build:foundation-internal.webdev"
-- "GROUP:Job/Cancel:foundation-internal.webdev"
-- "GROUP:Job/Configure:foundation-internal.webdev"
-- "GROUP:Job/Create:foundation-internal.webdev"
-- "GROUP:Job/Delete:foundation-internal.webdev"
-- "GROUP:Job/Move:foundation-internal.webdev"
-- "GROUP:Job/Read:foundation-internal.webdev"
-- "GROUP:Job/Workspace:foundation-internal.webdev"
-- "GROUP:Overall/Read:foundation-internal.webdev"
-- "GROUP:Run/Delete:foundation-internal.webdev"
-- "GROUP:Run/Replay:foundation-internal.webdev"
-- "GROUP:Run/Update:foundation-internal.webdev"
-- "GROUP:SCM/Tag:foundation-internal.webdev"
-- "GROUP:View/Configure:foundation-internal.webdev"
-- "GROUP:View/Create:foundation-internal.webdev"
-- "GROUP:View/Delete:foundation-internal.webdev"
-- "GROUP:View/Read:foundation-internal.webdev"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Discover
+       - Overall/Read
+  - group:
+      name: foundation-internal.webdev
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

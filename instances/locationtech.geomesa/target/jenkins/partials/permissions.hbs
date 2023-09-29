@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:locationtech.geomesa"
-- "GROUP:Credentials/View:locationtech.geomesa"
-- "GROUP:Gerrit/ManualTrigger:locationtech.geomesa"
-- "GROUP:Gerrit/Retrigger:locationtech.geomesa"
-- "GROUP:Job/Build:locationtech.geomesa"
-- "GROUP:Job/Cancel:locationtech.geomesa"
-- "GROUP:Job/Configure:locationtech.geomesa"
-- "GROUP:Job/Create:locationtech.geomesa"
-- "GROUP:Job/Delete:locationtech.geomesa"
-- "GROUP:Job/Move:locationtech.geomesa"
-- "GROUP:Job/Read:locationtech.geomesa"
-- "GROUP:Job/Workspace:locationtech.geomesa"
-- "GROUP:Overall/Read:locationtech.geomesa"
-- "GROUP:Run/Delete:locationtech.geomesa"
-- "GROUP:Run/Replay:locationtech.geomesa"
-- "GROUP:Run/Update:locationtech.geomesa"
-- "GROUP:SCM/Tag:locationtech.geomesa"
-- "GROUP:View/Configure:locationtech.geomesa"
-- "GROUP:View/Create:locationtech.geomesa"
-- "GROUP:View/Delete:locationtech.geomesa"
-- "GROUP:View/Read:locationtech.geomesa"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: locationtech.geomesa
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

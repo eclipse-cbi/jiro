@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:iot.fog05"
-- "GROUP:Credentials/View:iot.fog05"
-- "GROUP:Gerrit/ManualTrigger:iot.fog05"
-- "GROUP:Gerrit/Retrigger:iot.fog05"
-- "GROUP:Job/Build:iot.fog05"
-- "GROUP:Job/Cancel:iot.fog05"
-- "GROUP:Job/Configure:iot.fog05"
-- "GROUP:Job/Create:iot.fog05"
-- "GROUP:Job/Delete:iot.fog05"
-- "GROUP:Job/Move:iot.fog05"
-- "GROUP:Job/Read:iot.fog05"
-- "GROUP:Job/Workspace:iot.fog05"
-- "GROUP:Overall/Read:iot.fog05"
-- "GROUP:Run/Delete:iot.fog05"
-- "GROUP:Run/Replay:iot.fog05"
-- "GROUP:Run/Update:iot.fog05"
-- "GROUP:SCM/Tag:iot.fog05"
-- "GROUP:View/Configure:iot.fog05"
-- "GROUP:View/Create:iot.fog05"
-- "GROUP:View/Delete:iot.fog05"
-- "GROUP:View/Read:iot.fog05"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: iot.fog05
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
