@@ -7,10 +7,10 @@
    "kind": "ConfigMap",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.bean-validation",
-         "org.eclipse.cbi.jiro/project.shortname": "bean-validation"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.validation",
+         "org.eclipse.cbi.jiro/project.shortname": "validation"
       },
       "name": "m2-dir",
-      "namespace": "bean-validation"
+      "namespace": "validation"
    }
 }

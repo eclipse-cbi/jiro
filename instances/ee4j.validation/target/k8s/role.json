@@ -3,11 +3,11 @@
    "kind": "Role",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "ee4j.bean-validation",
-         "org.eclipse.cbi.jiro/project.shortname": "bean-validation"
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.validation",
+         "org.eclipse.cbi.jiro/project.shortname": "validation"
       },
       "name": "jenkins-master-owner",
-      "namespace": "bean-validation"
+      "namespace": "validation"
    },
    "rules": [
       {

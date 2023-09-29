@@ -32,7 +32,7 @@ IMG.page-header__brand-image {
 }
 
 .page-header__brand-name:after {
-  content: 'Jakarta Bean Validation';
+  content: 'Jakarta Validation';
   visibility: visible;
   font-size: 18px;
   line-height: 24px;
