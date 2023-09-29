@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.epsilon"
-- "GROUP:Credentials/View:modeling.epsilon"
-- "GROUP:Gerrit/ManualTrigger:modeling.epsilon"
-- "GROUP:Gerrit/Retrigger:modeling.epsilon"
-- "GROUP:Job/Build:modeling.epsilon"
-- "GROUP:Job/Cancel:modeling.epsilon"
-- "GROUP:Job/Configure:modeling.epsilon"
-- "GROUP:Job/Create:modeling.epsilon"
-- "GROUP:Job/Delete:modeling.epsilon"
-- "GROUP:Job/Move:modeling.epsilon"
-- "GROUP:Job/Read:modeling.epsilon"
-- "GROUP:Job/Workspace:modeling.epsilon"
-- "GROUP:Overall/Read:modeling.epsilon"
-- "GROUP:Run/Delete:modeling.epsilon"
-- "GROUP:Run/Replay:modeling.epsilon"
-- "GROUP:Run/Update:modeling.epsilon"
-- "GROUP:SCM/Tag:modeling.epsilon"
-- "GROUP:View/Configure:modeling.epsilon"
-- "GROUP:View/Create:modeling.epsilon"
-- "GROUP:View/Delete:modeling.epsilon"
-- "GROUP:View/Read:modeling.epsilon"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.epsilon
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

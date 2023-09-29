@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:polarsys.capella"
-- "GROUP:Credentials/View:polarsys.capella"
-- "GROUP:Gerrit/ManualTrigger:polarsys.capella"
-- "GROUP:Gerrit/Retrigger:polarsys.capella"
-- "GROUP:Job/Build:polarsys.capella"
-- "GROUP:Job/Cancel:polarsys.capella"
-- "GROUP:Job/Configure:polarsys.capella"
-- "GROUP:Job/Create:polarsys.capella"
-- "GROUP:Job/Delete:polarsys.capella"
-- "GROUP:Job/Move:polarsys.capella"
-- "GROUP:Job/Read:polarsys.capella"
-- "GROUP:Job/Workspace:polarsys.capella"
-- "GROUP:Overall/Read:polarsys.capella"
-- "GROUP:Run/Delete:polarsys.capella"
-- "GROUP:Run/Replay:polarsys.capella"
-- "GROUP:Run/Update:polarsys.capella"
-- "GROUP:SCM/Tag:polarsys.capella"
-- "GROUP:View/Configure:polarsys.capella"
-- "GROUP:View/Create:polarsys.capella"
-- "GROUP:View/Delete:polarsys.capella"
-- "GROUP:View/Read:polarsys.capella"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: polarsys.capella
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

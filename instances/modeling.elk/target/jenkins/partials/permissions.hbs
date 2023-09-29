@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.elk"
-- "GROUP:Credentials/View:modeling.elk"
-- "GROUP:Gerrit/ManualTrigger:modeling.elk"
-- "GROUP:Gerrit/Retrigger:modeling.elk"
-- "GROUP:Job/Build:modeling.elk"
-- "GROUP:Job/Cancel:modeling.elk"
-- "GROUP:Job/Configure:modeling.elk"
-- "GROUP:Job/Create:modeling.elk"
-- "GROUP:Job/Delete:modeling.elk"
-- "GROUP:Job/Move:modeling.elk"
-- "GROUP:Job/Read:modeling.elk"
-- "GROUP:Job/Workspace:modeling.elk"
-- "GROUP:Overall/Read:modeling.elk"
-- "GROUP:Run/Delete:modeling.elk"
-- "GROUP:Run/Replay:modeling.elk"
-- "GROUP:Run/Update:modeling.elk"
-- "GROUP:SCM/Tag:modeling.elk"
-- "GROUP:View/Configure:modeling.elk"
-- "GROUP:View/Create:modeling.elk"
-- "GROUP:View/Delete:modeling.elk"
-- "GROUP:View/Read:modeling.elk"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.elk
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

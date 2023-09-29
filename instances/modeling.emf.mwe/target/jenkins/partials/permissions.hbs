@@ -1,23 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.emf.mwe"
-- "GROUP:Credentials/View:modeling.emf.mwe"
-- "GROUP:Job/Build:modeling.emf.mwe"
-- "GROUP:Job/Cancel:modeling.emf.mwe"
-- "GROUP:Job/Configure:modeling.emf.mwe"
-- "GROUP:Job/Create:modeling.emf.mwe"
-- "GROUP:Job/Delete:modeling.emf.mwe"
-- "GROUP:Job/Move:modeling.emf.mwe"
-- "GROUP:Job/Read:modeling.emf.mwe"
-- "GROUP:Job/Workspace:modeling.emf.mwe"
-- "GROUP:Overall/Read:modeling.emf.mwe"
-- "GROUP:Run/Delete:modeling.emf.mwe"
-- "GROUP:Run/Replay:modeling.emf.mwe"
-- "GROUP:Run/Update:modeling.emf.mwe"
-- "GROUP:SCM/Tag:modeling.emf.mwe"
-- "GROUP:View/Configure:modeling.emf.mwe"
-- "GROUP:View/Create:modeling.emf.mwe"
-- "GROUP:View/Delete:modeling.emf.mwe"
-- "GROUP:View/Read:modeling.emf.mwe"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.emf.mwe
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

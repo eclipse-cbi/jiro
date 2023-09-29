@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:polarsys.esf"
-- "GROUP:Credentials/View:polarsys.esf"
-- "GROUP:Gerrit/ManualTrigger:polarsys.esf"
-- "GROUP:Gerrit/Retrigger:polarsys.esf"
-- "GROUP:Job/Build:polarsys.esf"
-- "GROUP:Job/Cancel:polarsys.esf"
-- "GROUP:Job/Configure:polarsys.esf"
-- "GROUP:Job/Create:polarsys.esf"
-- "GROUP:Job/Delete:polarsys.esf"
-- "GROUP:Job/Move:polarsys.esf"
-- "GROUP:Job/Read:polarsys.esf"
-- "GROUP:Job/Workspace:polarsys.esf"
-- "GROUP:Overall/Read:polarsys.esf"
-- "GROUP:Run/Delete:polarsys.esf"
-- "GROUP:Run/Replay:polarsys.esf"
-- "GROUP:Run/Update:polarsys.esf"
-- "GROUP:SCM/Tag:polarsys.esf"
-- "GROUP:View/Configure:polarsys.esf"
-- "GROUP:View/Create:polarsys.esf"
-- "GROUP:View/Delete:polarsys.esf"
-- "GROUP:View/Read:polarsys.esf"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: polarsys.esf
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

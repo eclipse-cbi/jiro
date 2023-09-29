@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.efm"
-- "GROUP:Credentials/View:modeling.efm"
-- "GROUP:Gerrit/ManualTrigger:modeling.efm"
-- "GROUP:Gerrit/Retrigger:modeling.efm"
-- "GROUP:Job/Build:modeling.efm"
-- "GROUP:Job/Cancel:modeling.efm"
-- "GROUP:Job/Configure:modeling.efm"
-- "GROUP:Job/Create:modeling.efm"
-- "GROUP:Job/Delete:modeling.efm"
-- "GROUP:Job/Move:modeling.efm"
-- "GROUP:Job/Read:modeling.efm"
-- "GROUP:Job/Workspace:modeling.efm"
-- "GROUP:Overall/Read:modeling.efm"
-- "GROUP:Run/Delete:modeling.efm"
-- "GROUP:Run/Replay:modeling.efm"
-- "GROUP:Run/Update:modeling.efm"
-- "GROUP:SCM/Tag:modeling.efm"
-- "GROUP:View/Configure:modeling.efm"
-- "GROUP:View/Create:modeling.efm"
-- "GROUP:View/Delete:modeling.efm"
-- "GROUP:View/Read:modeling.efm"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.efm
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

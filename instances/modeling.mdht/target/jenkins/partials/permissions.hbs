@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.mdht"
-- "GROUP:Credentials/View:modeling.mdht"
-- "GROUP:Gerrit/ManualTrigger:modeling.mdht"
-- "GROUP:Gerrit/Retrigger:modeling.mdht"
-- "GROUP:Job/Build:modeling.mdht"
-- "GROUP:Job/Cancel:modeling.mdht"
-- "GROUP:Job/Configure:modeling.mdht"
-- "GROUP:Job/Create:modeling.mdht"
-- "GROUP:Job/Delete:modeling.mdht"
-- "GROUP:Job/Move:modeling.mdht"
-- "GROUP:Job/Read:modeling.mdht"
-- "GROUP:Job/Workspace:modeling.mdht"
-- "GROUP:Overall/Read:modeling.mdht"
-- "GROUP:Run/Delete:modeling.mdht"
-- "GROUP:Run/Replay:modeling.mdht"
-- "GROUP:Run/Update:modeling.mdht"
-- "GROUP:SCM/Tag:modeling.mdht"
-- "GROUP:View/Configure:modeling.mdht"
-- "GROUP:View/Create:modeling.mdht"
-- "GROUP:View/Delete:modeling.mdht"
-- "GROUP:View/Read:modeling.mdht"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.mdht
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

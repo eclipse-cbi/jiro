@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.mdt.etrice"
-- "GROUP:Credentials/View:modeling.mdt.etrice"
-- "GROUP:Gerrit/ManualTrigger:modeling.mdt.etrice"
-- "GROUP:Gerrit/Retrigger:modeling.mdt.etrice"
-- "GROUP:Job/Build:modeling.mdt.etrice"
-- "GROUP:Job/Cancel:modeling.mdt.etrice"
-- "GROUP:Job/Configure:modeling.mdt.etrice"
-- "GROUP:Job/Create:modeling.mdt.etrice"
-- "GROUP:Job/Delete:modeling.mdt.etrice"
-- "GROUP:Job/Move:modeling.mdt.etrice"
-- "GROUP:Job/Read:modeling.mdt.etrice"
-- "GROUP:Job/Workspace:modeling.mdt.etrice"
-- "GROUP:Overall/Read:modeling.mdt.etrice"
-- "GROUP:Run/Delete:modeling.mdt.etrice"
-- "GROUP:Run/Replay:modeling.mdt.etrice"
-- "GROUP:Run/Update:modeling.mdt.etrice"
-- "GROUP:SCM/Tag:modeling.mdt.etrice"
-- "GROUP:View/Configure:modeling.mdt.etrice"
-- "GROUP:View/Create:modeling.mdt.etrice"
-- "GROUP:View/Delete:modeling.mdt.etrice"
-- "GROUP:View/Read:modeling.mdt.etrice"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.mdt.etrice
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

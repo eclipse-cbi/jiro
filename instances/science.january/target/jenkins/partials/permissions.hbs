@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:science.january"
-- "GROUP:Credentials/View:science.january"
-- "GROUP:Gerrit/ManualTrigger:science.january"
-- "GROUP:Gerrit/Retrigger:science.january"
-- "GROUP:Job/Build:science.january"
-- "GROUP:Job/Cancel:science.january"
-- "GROUP:Job/Configure:science.january"
-- "GROUP:Job/Create:science.january"
-- "GROUP:Job/Delete:science.january"
-- "GROUP:Job/Move:science.january"
-- "GROUP:Job/Read:science.january"
-- "GROUP:Job/Workspace:science.january"
-- "GROUP:Overall/Read:science.january"
-- "GROUP:Run/Delete:science.january"
-- "GROUP:Run/Replay:science.january"
-- "GROUP:Run/Update:science.january"
-- "GROUP:SCM/Tag:science.january"
-- "GROUP:View/Configure:science.january"
-- "GROUP:View/Create:science.january"
-- "GROUP:View/Delete:science.january"
-- "GROUP:View/Read:science.january"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: science.january
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

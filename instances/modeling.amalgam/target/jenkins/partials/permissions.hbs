@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.amalgam"
-- "GROUP:Credentials/View:modeling.amalgam"
-- "GROUP:Gerrit/ManualTrigger:modeling.amalgam"
-- "GROUP:Gerrit/Retrigger:modeling.amalgam"
-- "GROUP:Job/Build:modeling.amalgam"
-- "GROUP:Job/Cancel:modeling.amalgam"
-- "GROUP:Job/Configure:modeling.amalgam"
-- "GROUP:Job/Create:modeling.amalgam"
-- "GROUP:Job/Delete:modeling.amalgam"
-- "GROUP:Job/Move:modeling.amalgam"
-- "GROUP:Job/Read:modeling.amalgam"
-- "GROUP:Job/Workspace:modeling.amalgam"
-- "GROUP:Overall/Read:modeling.amalgam"
-- "GROUP:Run/Delete:modeling.amalgam"
-- "GROUP:Run/Replay:modeling.amalgam"
-- "GROUP:Run/Update:modeling.amalgam"
-- "GROUP:SCM/Tag:modeling.amalgam"
-- "GROUP:View/Configure:modeling.amalgam"
-- "GROUP:View/Create:modeling.amalgam"
-- "GROUP:View/Delete:modeling.amalgam"
-- "GROUP:View/Read:modeling.amalgam"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.amalgam
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

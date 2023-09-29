@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:rt.gemini"
-- "GROUP:Credentials/View:rt.gemini"
-- "GROUP:Gerrit/ManualTrigger:rt.gemini"
-- "GROUP:Gerrit/Retrigger:rt.gemini"
-- "GROUP:Job/Build:rt.gemini"
-- "GROUP:Job/Cancel:rt.gemini"
-- "GROUP:Job/Configure:rt.gemini"
-- "GROUP:Job/Create:rt.gemini"
-- "GROUP:Job/Delete:rt.gemini"
-- "GROUP:Job/Move:rt.gemini"
-- "GROUP:Job/Read:rt.gemini"
-- "GROUP:Job/Workspace:rt.gemini"
-- "GROUP:Overall/Read:rt.gemini"
-- "GROUP:Run/Delete:rt.gemini"
-- "GROUP:Run/Replay:rt.gemini"
-- "GROUP:Run/Update:rt.gemini"
-- "GROUP:SCM/Tag:rt.gemini"
-- "GROUP:View/Configure:rt.gemini"
-- "GROUP:View/Create:rt.gemini"
-- "GROUP:View/Delete:rt.gemini"
-- "GROUP:View/Read:rt.gemini"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: rt.gemini
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

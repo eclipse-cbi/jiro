@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.mdt.papyrus"
-- "GROUP:Credentials/View:modeling.mdt.papyrus"
-- "GROUP:Gerrit/ManualTrigger:modeling.mdt.papyrus"
-- "GROUP:Gerrit/Retrigger:modeling.mdt.papyrus"
-- "GROUP:Job/Build:modeling.mdt.papyrus"
-- "GROUP:Job/Cancel:modeling.mdt.papyrus"
-- "GROUP:Job/Configure:modeling.mdt.papyrus"
-- "GROUP:Job/Create:modeling.mdt.papyrus"
-- "GROUP:Job/Delete:modeling.mdt.papyrus"
-- "GROUP:Job/Move:modeling.mdt.papyrus"
-- "GROUP:Job/Read:modeling.mdt.papyrus"
-- "GROUP:Job/Workspace:modeling.mdt.papyrus"
-- "GROUP:Overall/Read:modeling.mdt.papyrus"
-- "GROUP:Run/Delete:modeling.mdt.papyrus"
-- "GROUP:Run/Replay:modeling.mdt.papyrus"
-- "GROUP:Run/Update:modeling.mdt.papyrus"
-- "GROUP:SCM/Tag:modeling.mdt.papyrus"
-- "GROUP:View/Configure:modeling.mdt.papyrus"
-- "GROUP:View/Create:modeling.mdt.papyrus"
-- "GROUP:View/Delete:modeling.mdt.papyrus"
-- "GROUP:View/Read:modeling.mdt.papyrus"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.mdt.papyrus
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

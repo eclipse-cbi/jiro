@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.gemoc"
-- "GROUP:Credentials/View:modeling.gemoc"
-- "GROUP:Gerrit/ManualTrigger:modeling.gemoc"
-- "GROUP:Gerrit/Retrigger:modeling.gemoc"
-- "GROUP:Job/Build:modeling.gemoc"
-- "GROUP:Job/Cancel:modeling.gemoc"
-- "GROUP:Job/Configure:modeling.gemoc"
-- "GROUP:Job/Create:modeling.gemoc"
-- "GROUP:Job/Delete:modeling.gemoc"
-- "GROUP:Job/Move:modeling.gemoc"
-- "GROUP:Job/Read:modeling.gemoc"
-- "GROUP:Job/Workspace:modeling.gemoc"
-- "GROUP:Overall/Read:modeling.gemoc"
-- "GROUP:Run/Delete:modeling.gemoc"
-- "GROUP:Run/Replay:modeling.gemoc"
-- "GROUP:Run/Update:modeling.gemoc"
-- "GROUP:SCM/Tag:modeling.gemoc"
-- "GROUP:View/Configure:modeling.gemoc"
-- "GROUP:View/Create:modeling.gemoc"
-- "GROUP:View/Delete:modeling.gemoc"
-- "GROUP:View/Read:modeling.gemoc"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.gemoc
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

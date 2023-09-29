@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:science.chemclipse"
-- "GROUP:Credentials/View:science.chemclipse"
-- "GROUP:Gerrit/ManualTrigger:science.chemclipse"
-- "GROUP:Gerrit/Retrigger:science.chemclipse"
-- "GROUP:Job/Build:science.chemclipse"
-- "GROUP:Job/Cancel:science.chemclipse"
-- "GROUP:Job/Configure:science.chemclipse"
-- "GROUP:Job/Create:science.chemclipse"
-- "GROUP:Job/Delete:science.chemclipse"
-- "GROUP:Job/Move:science.chemclipse"
-- "GROUP:Job/Read:science.chemclipse"
-- "GROUP:Job/Workspace:science.chemclipse"
-- "GROUP:Overall/Read:science.chemclipse"
-- "GROUP:Run/Delete:science.chemclipse"
-- "GROUP:Run/Replay:science.chemclipse"
-- "GROUP:Run/Update:science.chemclipse"
-- "GROUP:SCM/Tag:science.chemclipse"
-- "GROUP:View/Configure:science.chemclipse"
-- "GROUP:View/Create:science.chemclipse"
-- "GROUP:View/Delete:science.chemclipse"
-- "GROUP:View/Read:science.chemclipse"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: science.chemclipse
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

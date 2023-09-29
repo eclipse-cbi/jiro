@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.viatra"
-- "GROUP:Credentials/View:modeling.viatra"
-- "GROUP:Gerrit/ManualTrigger:modeling.viatra"
-- "GROUP:Gerrit/Retrigger:modeling.viatra"
-- "GROUP:Job/Build:modeling.viatra"
-- "GROUP:Job/Cancel:modeling.viatra"
-- "GROUP:Job/Configure:modeling.viatra"
-- "GROUP:Job/Create:modeling.viatra"
-- "GROUP:Job/Delete:modeling.viatra"
-- "GROUP:Job/Move:modeling.viatra"
-- "GROUP:Job/Read:modeling.viatra"
-- "GROUP:Job/Workspace:modeling.viatra"
-- "GROUP:Overall/Read:modeling.viatra"
-- "GROUP:Run/Delete:modeling.viatra"
-- "GROUP:Run/Replay:modeling.viatra"
-- "GROUP:Run/Update:modeling.viatra"
-- "GROUP:SCM/Tag:modeling.viatra"
-- "GROUP:View/Configure:modeling.viatra"
-- "GROUP:View/Create:modeling.viatra"
-- "GROUP:View/Delete:modeling.viatra"
-- "GROUP:View/Read:modeling.viatra"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.viatra
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

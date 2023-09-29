@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.graphiti"
-- "GROUP:Credentials/View:modeling.graphiti"
-- "GROUP:Gerrit/ManualTrigger:modeling.graphiti"
-- "GROUP:Gerrit/Retrigger:modeling.graphiti"
-- "GROUP:Job/Build:modeling.graphiti"
-- "GROUP:Job/Cancel:modeling.graphiti"
-- "GROUP:Job/Configure:modeling.graphiti"
-- "GROUP:Job/Create:modeling.graphiti"
-- "GROUP:Job/Delete:modeling.graphiti"
-- "GROUP:Job/Move:modeling.graphiti"
-- "GROUP:Job/Read:modeling.graphiti"
-- "GROUP:Job/Workspace:modeling.graphiti"
-- "GROUP:Overall/Read:modeling.graphiti"
-- "GROUP:Run/Delete:modeling.graphiti"
-- "GROUP:Run/Replay:modeling.graphiti"
-- "GROUP:Run/Update:modeling.graphiti"
-- "GROUP:SCM/Tag:modeling.graphiti"
-- "GROUP:View/Configure:modeling.graphiti"
-- "GROUP:View/Create:modeling.graphiti"
-- "GROUP:View/Delete:modeling.graphiti"
-- "GROUP:View/Read:modeling.graphiti"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.graphiti
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

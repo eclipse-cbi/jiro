@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.emfcompare"
-- "GROUP:Credentials/View:modeling.emfcompare"
-- "GROUP:Gerrit/ManualTrigger:modeling.emfcompare"
-- "GROUP:Gerrit/Retrigger:modeling.emfcompare"
-- "GROUP:Job/Build:modeling.emfcompare"
-- "GROUP:Job/Cancel:modeling.emfcompare"
-- "GROUP:Job/Configure:modeling.emfcompare"
-- "GROUP:Job/Create:modeling.emfcompare"
-- "GROUP:Job/Delete:modeling.emfcompare"
-- "GROUP:Job/Move:modeling.emfcompare"
-- "GROUP:Job/Read:modeling.emfcompare"
-- "GROUP:Job/Workspace:modeling.emfcompare"
-- "GROUP:Overall/Read:modeling.emfcompare"
-- "GROUP:Run/Delete:modeling.emfcompare"
-- "GROUP:Run/Replay:modeling.emfcompare"
-- "GROUP:Run/Update:modeling.emfcompare"
-- "GROUP:SCM/Tag:modeling.emfcompare"
-- "GROUP:View/Configure:modeling.emfcompare"
-- "GROUP:View/Create:modeling.emfcompare"
-- "GROUP:View/Delete:modeling.emfcompare"
-- "GROUP:View/Read:modeling.emfcompare"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.emfcompare
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

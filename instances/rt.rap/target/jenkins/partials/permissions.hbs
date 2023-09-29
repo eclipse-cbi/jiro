@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:rt.rap"
-- "GROUP:Credentials/View:rt.rap"
-- "GROUP:Gerrit/ManualTrigger:rt.rap"
-- "GROUP:Gerrit/Retrigger:rt.rap"
-- "GROUP:Job/Build:rt.rap"
-- "GROUP:Job/Cancel:rt.rap"
-- "GROUP:Job/Configure:rt.rap"
-- "GROUP:Job/Create:rt.rap"
-- "GROUP:Job/Delete:rt.rap"
-- "GROUP:Job/Move:rt.rap"
-- "GROUP:Job/Read:rt.rap"
-- "GROUP:Job/Workspace:rt.rap"
-- "GROUP:Overall/Read:rt.rap"
-- "GROUP:Run/Delete:rt.rap"
-- "GROUP:Run/Replay:rt.rap"
-- "GROUP:Run/Update:rt.rap"
-- "GROUP:SCM/Tag:rt.rap"
-- "GROUP:View/Configure:rt.rap"
-- "GROUP:View/Create:rt.rap"
-- "GROUP:View/Delete:rt.rap"
-- "GROUP:View/Read:rt.rap"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: rt.rap
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

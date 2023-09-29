@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:science.swtchart"
-- "GROUP:Credentials/View:science.swtchart"
-- "GROUP:Gerrit/ManualTrigger:science.swtchart"
-- "GROUP:Gerrit/Retrigger:science.swtchart"
-- "GROUP:Job/Build:science.swtchart"
-- "GROUP:Job/Cancel:science.swtchart"
-- "GROUP:Job/Configure:science.swtchart"
-- "GROUP:Job/Create:science.swtchart"
-- "GROUP:Job/Delete:science.swtchart"
-- "GROUP:Job/Move:science.swtchart"
-- "GROUP:Job/Read:science.swtchart"
-- "GROUP:Job/Workspace:science.swtchart"
-- "GROUP:Overall/Read:science.swtchart"
-- "GROUP:Run/Delete:science.swtchart"
-- "GROUP:Run/Replay:science.swtchart"
-- "GROUP:Run/Update:science.swtchart"
-- "GROUP:SCM/Tag:science.swtchart"
-- "GROUP:View/Configure:science.swtchart"
-- "GROUP:View/Create:science.swtchart"
-- "GROUP:View/Delete:science.swtchart"
-- "GROUP:View/Read:science.swtchart"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: science.swtchart
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

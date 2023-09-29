@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.modisco"
-- "GROUP:Credentials/View:modeling.modisco"
-- "GROUP:Gerrit/ManualTrigger:modeling.modisco"
-- "GROUP:Gerrit/Retrigger:modeling.modisco"
-- "GROUP:Job/Build:modeling.modisco"
-- "GROUP:Job/Cancel:modeling.modisco"
-- "GROUP:Job/Configure:modeling.modisco"
-- "GROUP:Job/Create:modeling.modisco"
-- "GROUP:Job/Delete:modeling.modisco"
-- "GROUP:Job/Move:modeling.modisco"
-- "GROUP:Job/Read:modeling.modisco"
-- "GROUP:Job/Workspace:modeling.modisco"
-- "GROUP:Overall/Read:modeling.modisco"
-- "GROUP:Run/Delete:modeling.modisco"
-- "GROUP:Run/Replay:modeling.modisco"
-- "GROUP:Run/Update:modeling.modisco"
-- "GROUP:SCM/Tag:modeling.modisco"
-- "GROUP:View/Configure:modeling.modisco"
-- "GROUP:View/Create:modeling.modisco"
-- "GROUP:View/Delete:modeling.modisco"
-- "GROUP:View/Read:modeling.modisco"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.modisco
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

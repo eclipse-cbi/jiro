@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.acceleo"
-- "GROUP:Credentials/View:modeling.acceleo"
-- "GROUP:Gerrit/ManualTrigger:modeling.acceleo"
-- "GROUP:Gerrit/Retrigger:modeling.acceleo"
-- "GROUP:Job/Build:modeling.acceleo"
-- "GROUP:Job/Cancel:modeling.acceleo"
-- "GROUP:Job/Configure:modeling.acceleo"
-- "GROUP:Job/Create:modeling.acceleo"
-- "GROUP:Job/Delete:modeling.acceleo"
-- "GROUP:Job/Move:modeling.acceleo"
-- "GROUP:Job/Read:modeling.acceleo"
-- "GROUP:Job/Workspace:modeling.acceleo"
-- "GROUP:Overall/Read:modeling.acceleo"
-- "GROUP:Run/Delete:modeling.acceleo"
-- "GROUP:Run/Replay:modeling.acceleo"
-- "GROUP:Run/Update:modeling.acceleo"
-- "GROUP:SCM/Tag:modeling.acceleo"
-- "GROUP:View/Configure:modeling.acceleo"
-- "GROUP:View/Create:modeling.acceleo"
-- "GROUP:View/Delete:modeling.acceleo"
-- "GROUP:View/Read:modeling.acceleo"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.acceleo
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

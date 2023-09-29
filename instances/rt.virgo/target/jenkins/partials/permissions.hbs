@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:rt.virgo"
-- "GROUP:Credentials/View:rt.virgo"
-- "GROUP:Gerrit/ManualTrigger:rt.virgo"
-- "GROUP:Gerrit/Retrigger:rt.virgo"
-- "GROUP:Job/Build:rt.virgo"
-- "GROUP:Job/Cancel:rt.virgo"
-- "GROUP:Job/Configure:rt.virgo"
-- "GROUP:Job/Create:rt.virgo"
-- "GROUP:Job/Delete:rt.virgo"
-- "GROUP:Job/Move:rt.virgo"
-- "GROUP:Job/Read:rt.virgo"
-- "GROUP:Job/Workspace:rt.virgo"
-- "GROUP:Overall/Read:rt.virgo"
-- "GROUP:Run/Delete:rt.virgo"
-- "GROUP:Run/Replay:rt.virgo"
-- "GROUP:Run/Update:rt.virgo"
-- "GROUP:SCM/Tag:rt.virgo"
-- "GROUP:View/Configure:rt.virgo"
-- "GROUP:View/Create:rt.virgo"
-- "GROUP:View/Delete:rt.virgo"
-- "GROUP:View/Read:rt.virgo"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: rt.virgo
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:polarsys.chess"
-- "GROUP:Credentials/View:polarsys.chess"
-- "GROUP:Gerrit/ManualTrigger:polarsys.chess"
-- "GROUP:Gerrit/Retrigger:polarsys.chess"
-- "GROUP:Job/Build:polarsys.chess"
-- "GROUP:Job/Cancel:polarsys.chess"
-- "GROUP:Job/Configure:polarsys.chess"
-- "GROUP:Job/Create:polarsys.chess"
-- "GROUP:Job/Delete:polarsys.chess"
-- "GROUP:Job/Move:polarsys.chess"
-- "GROUP:Job/Read:polarsys.chess"
-- "GROUP:Job/Workspace:polarsys.chess"
-- "GROUP:Overall/Read:polarsys.chess"
-- "GROUP:Run/Delete:polarsys.chess"
-- "GROUP:Run/Replay:polarsys.chess"
-- "GROUP:Run/Update:polarsys.chess"
-- "GROUP:SCM/Tag:polarsys.chess"
-- "GROUP:View/Configure:polarsys.chess"
-- "GROUP:View/Create:polarsys.chess"
-- "GROUP:View/Delete:polarsys.chess"
-- "GROUP:View/Read:polarsys.chess"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: polarsys.chess
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

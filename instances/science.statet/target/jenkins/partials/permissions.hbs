@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:science.statet"
-- "GROUP:Credentials/View:science.statet"
-- "GROUP:Gerrit/ManualTrigger:science.statet"
-- "GROUP:Gerrit/Retrigger:science.statet"
-- "GROUP:Job/Build:science.statet"
-- "GROUP:Job/Cancel:science.statet"
-- "GROUP:Job/Configure:science.statet"
-- "GROUP:Job/Create:science.statet"
-- "GROUP:Job/Delete:science.statet"
-- "GROUP:Job/Move:science.statet"
-- "GROUP:Job/Read:science.statet"
-- "GROUP:Job/Workspace:science.statet"
-- "GROUP:Overall/Read:science.statet"
-- "GROUP:Run/Delete:science.statet"
-- "GROUP:Run/Replay:science.statet"
-- "GROUP:Run/Update:science.statet"
-- "GROUP:SCM/Tag:science.statet"
-- "GROUP:View/Configure:science.statet"
-- "GROUP:View/Create:science.statet"
-- "GROUP:View/Delete:science.statet"
-- "GROUP:View/Read:science.statet"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: science.statet
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

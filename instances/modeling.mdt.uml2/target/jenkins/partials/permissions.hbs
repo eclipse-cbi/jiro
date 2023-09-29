@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.mdt.uml2"
-- "GROUP:Credentials/View:modeling.mdt.uml2"
-- "GROUP:Gerrit/ManualTrigger:modeling.mdt.uml2"
-- "GROUP:Gerrit/Retrigger:modeling.mdt.uml2"
-- "GROUP:Job/Build:modeling.mdt.uml2"
-- "GROUP:Job/Cancel:modeling.mdt.uml2"
-- "GROUP:Job/Configure:modeling.mdt.uml2"
-- "GROUP:Job/Create:modeling.mdt.uml2"
-- "GROUP:Job/Delete:modeling.mdt.uml2"
-- "GROUP:Job/Move:modeling.mdt.uml2"
-- "GROUP:Job/Read:modeling.mdt.uml2"
-- "GROUP:Job/Workspace:modeling.mdt.uml2"
-- "GROUP:Overall/Read:modeling.mdt.uml2"
-- "GROUP:Run/Delete:modeling.mdt.uml2"
-- "GROUP:Run/Replay:modeling.mdt.uml2"
-- "GROUP:Run/Update:modeling.mdt.uml2"
-- "GROUP:SCM/Tag:modeling.mdt.uml2"
-- "GROUP:View/Configure:modeling.mdt.uml2"
-- "GROUP:View/Create:modeling.mdt.uml2"
-- "GROUP:View/Delete:modeling.mdt.uml2"
-- "GROUP:View/Read:modeling.mdt.uml2"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.mdt.uml2
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

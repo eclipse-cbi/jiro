@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.mmt.qvtd"
-- "GROUP:Credentials/View:modeling.mmt.qvtd"
-- "GROUP:Gerrit/ManualTrigger:modeling.mmt.qvtd"
-- "GROUP:Gerrit/Retrigger:modeling.mmt.qvtd"
-- "GROUP:Job/Build:modeling.mmt.qvtd"
-- "GROUP:Job/Cancel:modeling.mmt.qvtd"
-- "GROUP:Job/Configure:modeling.mmt.qvtd"
-- "GROUP:Job/Create:modeling.mmt.qvtd"
-- "GROUP:Job/Delete:modeling.mmt.qvtd"
-- "GROUP:Job/Move:modeling.mmt.qvtd"
-- "GROUP:Job/Read:modeling.mmt.qvtd"
-- "GROUP:Job/Workspace:modeling.mmt.qvtd"
-- "GROUP:Overall/Read:modeling.mmt.qvtd"
-- "GROUP:Run/Delete:modeling.mmt.qvtd"
-- "GROUP:Run/Replay:modeling.mmt.qvtd"
-- "GROUP:Run/Update:modeling.mmt.qvtd"
-- "GROUP:SCM/Tag:modeling.mmt.qvtd"
-- "GROUP:View/Configure:modeling.mmt.qvtd"
-- "GROUP:View/Create:modeling.mmt.qvtd"
-- "GROUP:View/Delete:modeling.mmt.qvtd"
-- "GROUP:View/Read:modeling.mmt.qvtd"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.mmt.qvtd
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

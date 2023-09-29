@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.emf-parsley"
-- "GROUP:Credentials/View:modeling.emf-parsley"
-- "GROUP:Gerrit/ManualTrigger:modeling.emf-parsley"
-- "GROUP:Gerrit/Retrigger:modeling.emf-parsley"
-- "GROUP:Job/Build:modeling.emf-parsley"
-- "GROUP:Job/Cancel:modeling.emf-parsley"
-- "GROUP:Job/Configure:modeling.emf-parsley"
-- "GROUP:Job/Create:modeling.emf-parsley"
-- "GROUP:Job/Delete:modeling.emf-parsley"
-- "GROUP:Job/Move:modeling.emf-parsley"
-- "GROUP:Job/Read:modeling.emf-parsley"
-- "GROUP:Job/Workspace:modeling.emf-parsley"
-- "GROUP:Overall/Read:modeling.emf-parsley"
-- "GROUP:Run/Delete:modeling.emf-parsley"
-- "GROUP:Run/Replay:modeling.emf-parsley"
-- "GROUP:Run/Update:modeling.emf-parsley"
-- "GROUP:SCM/Tag:modeling.emf-parsley"
-- "GROUP:View/Configure:modeling.emf-parsley"
-- "GROUP:View/Create:modeling.emf-parsley"
-- "GROUP:View/Delete:modeling.emf-parsley"
-- "GROUP:View/Read:modeling.emf-parsley"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.emf-parsley
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

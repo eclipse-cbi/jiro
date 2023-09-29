@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.emfservices"
-- "GROUP:Credentials/View:modeling.emfservices"
-- "GROUP:Gerrit/ManualTrigger:modeling.emfservices"
-- "GROUP:Gerrit/Retrigger:modeling.emfservices"
-- "GROUP:Job/Build:modeling.emfservices"
-- "GROUP:Job/Cancel:modeling.emfservices"
-- "GROUP:Job/Configure:modeling.emfservices"
-- "GROUP:Job/Create:modeling.emfservices"
-- "GROUP:Job/Delete:modeling.emfservices"
-- "GROUP:Job/Move:modeling.emfservices"
-- "GROUP:Job/Read:modeling.emfservices"
-- "GROUP:Job/Workspace:modeling.emfservices"
-- "GROUP:Overall/Read:modeling.emfservices"
-- "GROUP:Run/Delete:modeling.emfservices"
-- "GROUP:Run/Replay:modeling.emfservices"
-- "GROUP:Run/Update:modeling.emfservices"
-- "GROUP:SCM/Tag:modeling.emfservices"
-- "GROUP:View/Configure:modeling.emfservices"
-- "GROUP:View/Create:modeling.emfservices"
-- "GROUP:View/Delete:modeling.emfservices"
-- "GROUP:View/Read:modeling.emfservices"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.emfservices
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

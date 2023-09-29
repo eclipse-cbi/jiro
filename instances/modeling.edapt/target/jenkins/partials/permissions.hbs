@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.edapt"
-- "GROUP:Credentials/View:modeling.edapt"
-- "GROUP:Gerrit/ManualTrigger:modeling.edapt"
-- "GROUP:Gerrit/Retrigger:modeling.edapt"
-- "GROUP:Job/Build:modeling.edapt"
-- "GROUP:Job/Cancel:modeling.edapt"
-- "GROUP:Job/Configure:modeling.edapt"
-- "GROUP:Job/Create:modeling.edapt"
-- "GROUP:Job/Delete:modeling.edapt"
-- "GROUP:Job/Move:modeling.edapt"
-- "GROUP:Job/Read:modeling.edapt"
-- "GROUP:Job/Workspace:modeling.edapt"
-- "GROUP:Overall/Read:modeling.edapt"
-- "GROUP:Run/Delete:modeling.edapt"
-- "GROUP:Run/Replay:modeling.edapt"
-- "GROUP:Run/Update:modeling.edapt"
-- "GROUP:SCM/Tag:modeling.edapt"
-- "GROUP:View/Configure:modeling.edapt"
-- "GROUP:View/Create:modeling.edapt"
-- "GROUP:View/Delete:modeling.edapt"
-- "GROUP:View/Read:modeling.edapt"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.edapt
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

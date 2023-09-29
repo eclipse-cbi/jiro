@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.emf.egf"
-- "GROUP:Credentials/View:modeling.emf.egf"
-- "GROUP:Gerrit/ManualTrigger:modeling.emf.egf"
-- "GROUP:Gerrit/Retrigger:modeling.emf.egf"
-- "GROUP:Job/Build:modeling.emf.egf"
-- "GROUP:Job/Cancel:modeling.emf.egf"
-- "GROUP:Job/Configure:modeling.emf.egf"
-- "GROUP:Job/Create:modeling.emf.egf"
-- "GROUP:Job/Delete:modeling.emf.egf"
-- "GROUP:Job/Move:modeling.emf.egf"
-- "GROUP:Job/Read:modeling.emf.egf"
-- "GROUP:Job/Workspace:modeling.emf.egf"
-- "GROUP:Overall/Read:modeling.emf.egf"
-- "GROUP:Run/Delete:modeling.emf.egf"
-- "GROUP:Run/Replay:modeling.emf.egf"
-- "GROUP:Run/Update:modeling.emf.egf"
-- "GROUP:SCM/Tag:modeling.emf.egf"
-- "GROUP:View/Configure:modeling.emf.egf"
-- "GROUP:View/Create:modeling.emf.egf"
-- "GROUP:View/Delete:modeling.emf.egf"
-- "GROUP:View/Read:modeling.emf.egf"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.emf.egf
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

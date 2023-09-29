@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.gendoc"
-- "GROUP:Credentials/View:modeling.gendoc"
-- "GROUP:Gerrit/ManualTrigger:modeling.gendoc"
-- "GROUP:Gerrit/Retrigger:modeling.gendoc"
-- "GROUP:Job/Build:modeling.gendoc"
-- "GROUP:Job/Cancel:modeling.gendoc"
-- "GROUP:Job/Configure:modeling.gendoc"
-- "GROUP:Job/Create:modeling.gendoc"
-- "GROUP:Job/Delete:modeling.gendoc"
-- "GROUP:Job/Move:modeling.gendoc"
-- "GROUP:Job/Read:modeling.gendoc"
-- "GROUP:Job/Workspace:modeling.gendoc"
-- "GROUP:Overall/Read:modeling.gendoc"
-- "GROUP:Run/Delete:modeling.gendoc"
-- "GROUP:Run/Replay:modeling.gendoc"
-- "GROUP:Run/Update:modeling.gendoc"
-- "GROUP:SCM/Tag:modeling.gendoc"
-- "GROUP:View/Configure:modeling.gendoc"
-- "GROUP:View/Create:modeling.gendoc"
-- "GROUP:View/Delete:modeling.gendoc"
-- "GROUP:View/Read:modeling.gendoc"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.gendoc
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

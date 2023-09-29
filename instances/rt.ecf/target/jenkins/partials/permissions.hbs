@@ -1,46 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "USER:Agent/Build:mat.booth@gmail.com"
-- "USER:Credentials/View:mat.booth@gmail.com"
-- "USER:Gerrit/ManualTrigger:mat.booth@gmail.com"
-- "USER:Gerrit/Retrigger:mat.booth@gmail.com"
-- "USER:Job/Build:mat.booth@gmail.com"
-- "USER:Job/Cancel:mat.booth@gmail.com"
-- "USER:Job/Configure:mat.booth@gmail.com"
-- "USER:Job/Create:mat.booth@gmail.com"
-- "USER:Job/Delete:mat.booth@gmail.com"
-- "USER:Job/Move:mat.booth@gmail.com"
-- "USER:Job/Read:mat.booth@gmail.com"
-- "USER:Job/Workspace:mat.booth@gmail.com"
-- "USER:Overall/Read:mat.booth@gmail.com"
-- "USER:Run/Delete:mat.booth@gmail.com"
-- "USER:Run/Replay:mat.booth@gmail.com"
-- "USER:Run/Update:mat.booth@gmail.com"
-- "USER:SCM/Tag:mat.booth@gmail.com"
-- "USER:View/Configure:mat.booth@gmail.com"
-- "USER:View/Create:mat.booth@gmail.com"
-- "USER:View/Delete:mat.booth@gmail.com"
-- "USER:View/Read:mat.booth@gmail.com"
-- "GROUP:Agent/Build:rt.ecf"
-- "GROUP:Credentials/View:rt.ecf"
-- "GROUP:Gerrit/ManualTrigger:rt.ecf"
-- "GROUP:Gerrit/Retrigger:rt.ecf"
-- "GROUP:Job/Build:rt.ecf"
-- "GROUP:Job/Cancel:rt.ecf"
-- "GROUP:Job/Configure:rt.ecf"
-- "GROUP:Job/Create:rt.ecf"
-- "GROUP:Job/Delete:rt.ecf"
-- "GROUP:Job/Move:rt.ecf"
-- "GROUP:Job/Read:rt.ecf"
-- "GROUP:Job/Workspace:rt.ecf"
-- "GROUP:Overall/Read:rt.ecf"
-- "GROUP:Run/Delete:rt.ecf"
-- "GROUP:Run/Replay:rt.ecf"
-- "GROUP:Run/Update:rt.ecf"
-- "GROUP:SCM/Tag:rt.ecf"
-- "GROUP:View/Configure:rt.ecf"
-- "GROUP:View/Create:rt.ecf"
-- "GROUP:View/Delete:rt.ecf"
-- "GROUP:View/Read:rt.ecf"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: rt.ecf
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

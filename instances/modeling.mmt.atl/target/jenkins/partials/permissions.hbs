@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.mmt.atl"
-- "GROUP:Credentials/View:modeling.mmt.atl"
-- "GROUP:Gerrit/ManualTrigger:modeling.mmt.atl"
-- "GROUP:Gerrit/Retrigger:modeling.mmt.atl"
-- "GROUP:Job/Build:modeling.mmt.atl"
-- "GROUP:Job/Cancel:modeling.mmt.atl"
-- "GROUP:Job/Configure:modeling.mmt.atl"
-- "GROUP:Job/Create:modeling.mmt.atl"
-- "GROUP:Job/Delete:modeling.mmt.atl"
-- "GROUP:Job/Move:modeling.mmt.atl"
-- "GROUP:Job/Read:modeling.mmt.atl"
-- "GROUP:Job/Workspace:modeling.mmt.atl"
-- "GROUP:Overall/Read:modeling.mmt.atl"
-- "GROUP:Run/Delete:modeling.mmt.atl"
-- "GROUP:Run/Replay:modeling.mmt.atl"
-- "GROUP:Run/Update:modeling.mmt.atl"
-- "GROUP:SCM/Tag:modeling.mmt.atl"
-- "GROUP:View/Configure:modeling.mmt.atl"
-- "GROUP:View/Create:modeling.mmt.atl"
-- "GROUP:View/Delete:modeling.mmt.atl"
-- "GROUP:View/Read:modeling.mmt.atl"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.mmt.atl
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

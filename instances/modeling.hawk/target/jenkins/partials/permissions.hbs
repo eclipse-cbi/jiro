@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.hawk"
-- "GROUP:Credentials/View:modeling.hawk"
-- "GROUP:Gerrit/ManualTrigger:modeling.hawk"
-- "GROUP:Gerrit/Retrigger:modeling.hawk"
-- "GROUP:Job/Build:modeling.hawk"
-- "GROUP:Job/Cancel:modeling.hawk"
-- "GROUP:Job/Configure:modeling.hawk"
-- "GROUP:Job/Create:modeling.hawk"
-- "GROUP:Job/Delete:modeling.hawk"
-- "GROUP:Job/Move:modeling.hawk"
-- "GROUP:Job/Read:modeling.hawk"
-- "GROUP:Job/Workspace:modeling.hawk"
-- "GROUP:Overall/Read:modeling.hawk"
-- "GROUP:Run/Delete:modeling.hawk"
-- "GROUP:Run/Replay:modeling.hawk"
-- "GROUP:Run/Update:modeling.hawk"
-- "GROUP:SCM/Tag:modeling.hawk"
-- "GROUP:View/Configure:modeling.hawk"
-- "GROUP:View/Create:modeling.hawk"
-- "GROUP:View/Delete:modeling.hawk"
-- "GROUP:View/Read:modeling.hawk"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.hawk
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

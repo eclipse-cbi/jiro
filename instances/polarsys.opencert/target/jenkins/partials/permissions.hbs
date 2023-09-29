@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:polarsys.opencert"
-- "GROUP:Credentials/View:polarsys.opencert"
-- "GROUP:Gerrit/ManualTrigger:polarsys.opencert"
-- "GROUP:Gerrit/Retrigger:polarsys.opencert"
-- "GROUP:Job/Build:polarsys.opencert"
-- "GROUP:Job/Cancel:polarsys.opencert"
-- "GROUP:Job/Configure:polarsys.opencert"
-- "GROUP:Job/Create:polarsys.opencert"
-- "GROUP:Job/Delete:polarsys.opencert"
-- "GROUP:Job/Move:polarsys.opencert"
-- "GROUP:Job/Read:polarsys.opencert"
-- "GROUP:Job/Workspace:polarsys.opencert"
-- "GROUP:Overall/Read:polarsys.opencert"
-- "GROUP:Run/Delete:polarsys.opencert"
-- "GROUP:Run/Replay:polarsys.opencert"
-- "GROUP:Run/Update:polarsys.opencert"
-- "GROUP:SCM/Tag:polarsys.opencert"
-- "GROUP:View/Configure:polarsys.opencert"
-- "GROUP:View/Create:polarsys.opencert"
-- "GROUP:View/Delete:polarsys.opencert"
-- "GROUP:View/Read:polarsys.opencert"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: polarsys.opencert
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:science.texlipse"
-- "GROUP:Credentials/View:science.texlipse"
-- "GROUP:Gerrit/ManualTrigger:science.texlipse"
-- "GROUP:Gerrit/Retrigger:science.texlipse"
-- "GROUP:Job/Build:science.texlipse"
-- "GROUP:Job/Cancel:science.texlipse"
-- "GROUP:Job/Configure:science.texlipse"
-- "GROUP:Job/Create:science.texlipse"
-- "GROUP:Job/Delete:science.texlipse"
-- "GROUP:Job/Move:science.texlipse"
-- "GROUP:Job/Read:science.texlipse"
-- "GROUP:Job/Workspace:science.texlipse"
-- "GROUP:Overall/Read:science.texlipse"
-- "GROUP:Run/Delete:science.texlipse"
-- "GROUP:Run/Replay:science.texlipse"
-- "GROUP:Run/Update:science.texlipse"
-- "GROUP:SCM/Tag:science.texlipse"
-- "GROUP:View/Configure:science.texlipse"
-- "GROUP:View/Create:science.texlipse"
-- "GROUP:View/Delete:science.texlipse"
-- "GROUP:View/Read:science.texlipse"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: science.texlipse
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

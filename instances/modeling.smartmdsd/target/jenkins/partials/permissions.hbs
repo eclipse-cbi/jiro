@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.smartmdsd"
-- "GROUP:Credentials/View:modeling.smartmdsd"
-- "GROUP:Gerrit/ManualTrigger:modeling.smartmdsd"
-- "GROUP:Gerrit/Retrigger:modeling.smartmdsd"
-- "GROUP:Job/Build:modeling.smartmdsd"
-- "GROUP:Job/Cancel:modeling.smartmdsd"
-- "GROUP:Job/Configure:modeling.smartmdsd"
-- "GROUP:Job/Create:modeling.smartmdsd"
-- "GROUP:Job/Delete:modeling.smartmdsd"
-- "GROUP:Job/Move:modeling.smartmdsd"
-- "GROUP:Job/Read:modeling.smartmdsd"
-- "GROUP:Job/Workspace:modeling.smartmdsd"
-- "GROUP:Overall/Read:modeling.smartmdsd"
-- "GROUP:Run/Delete:modeling.smartmdsd"
-- "GROUP:Run/Replay:modeling.smartmdsd"
-- "GROUP:Run/Update:modeling.smartmdsd"
-- "GROUP:SCM/Tag:modeling.smartmdsd"
-- "GROUP:View/Configure:modeling.smartmdsd"
-- "GROUP:View/Create:modeling.smartmdsd"
-- "GROUP:View/Delete:modeling.smartmdsd"
-- "GROUP:View/Read:modeling.smartmdsd"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.smartmdsd
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

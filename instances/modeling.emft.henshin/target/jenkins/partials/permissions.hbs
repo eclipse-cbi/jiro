@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.emft.henshin"
-- "GROUP:Credentials/View:modeling.emft.henshin"
-- "GROUP:Gerrit/ManualTrigger:modeling.emft.henshin"
-- "GROUP:Gerrit/Retrigger:modeling.emft.henshin"
-- "GROUP:Job/Build:modeling.emft.henshin"
-- "GROUP:Job/Cancel:modeling.emft.henshin"
-- "GROUP:Job/Configure:modeling.emft.henshin"
-- "GROUP:Job/Create:modeling.emft.henshin"
-- "GROUP:Job/Delete:modeling.emft.henshin"
-- "GROUP:Job/Move:modeling.emft.henshin"
-- "GROUP:Job/Read:modeling.emft.henshin"
-- "GROUP:Job/Workspace:modeling.emft.henshin"
-- "GROUP:Overall/Read:modeling.emft.henshin"
-- "GROUP:Run/Delete:modeling.emft.henshin"
-- "GROUP:Run/Replay:modeling.emft.henshin"
-- "GROUP:Run/Update:modeling.emft.henshin"
-- "GROUP:SCM/Tag:modeling.emft.henshin"
-- "GROUP:View/Configure:modeling.emft.henshin"
-- "GROUP:View/Create:modeling.emft.henshin"
-- "GROUP:View/Delete:modeling.emft.henshin"
-- "GROUP:View/Read:modeling.emft.henshin"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.emft.henshin
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

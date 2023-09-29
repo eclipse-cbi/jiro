@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.sirius"
-- "GROUP:Credentials/View:modeling.sirius"
-- "GROUP:Gerrit/ManualTrigger:modeling.sirius"
-- "GROUP:Gerrit/Retrigger:modeling.sirius"
-- "GROUP:Job/Build:modeling.sirius"
-- "GROUP:Job/Cancel:modeling.sirius"
-- "GROUP:Job/Configure:modeling.sirius"
-- "GROUP:Job/Create:modeling.sirius"
-- "GROUP:Job/Delete:modeling.sirius"
-- "GROUP:Job/Move:modeling.sirius"
-- "GROUP:Job/Read:modeling.sirius"
-- "GROUP:Job/Workspace:modeling.sirius"
-- "GROUP:Overall/Read:modeling.sirius"
-- "GROUP:Run/Delete:modeling.sirius"
-- "GROUP:Run/Replay:modeling.sirius"
-- "GROUP:Run/Update:modeling.sirius"
-- "GROUP:SCM/Tag:modeling.sirius"
-- "GROUP:View/Configure:modeling.sirius"
-- "GROUP:View/Create:modeling.sirius"
-- "GROUP:View/Delete:modeling.sirius"
-- "GROUP:View/Read:modeling.sirius"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.sirius
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

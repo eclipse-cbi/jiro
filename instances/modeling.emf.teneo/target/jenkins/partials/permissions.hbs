@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.emf.teneo"
-- "GROUP:Credentials/View:modeling.emf.teneo"
-- "GROUP:Gerrit/ManualTrigger:modeling.emf.teneo"
-- "GROUP:Gerrit/Retrigger:modeling.emf.teneo"
-- "GROUP:Job/Build:modeling.emf.teneo"
-- "GROUP:Job/Cancel:modeling.emf.teneo"
-- "GROUP:Job/Configure:modeling.emf.teneo"
-- "GROUP:Job/Create:modeling.emf.teneo"
-- "GROUP:Job/Delete:modeling.emf.teneo"
-- "GROUP:Job/Move:modeling.emf.teneo"
-- "GROUP:Job/Read:modeling.emf.teneo"
-- "GROUP:Job/Workspace:modeling.emf.teneo"
-- "GROUP:Overall/Read:modeling.emf.teneo"
-- "GROUP:Run/Delete:modeling.emf.teneo"
-- "GROUP:Run/Replay:modeling.emf.teneo"
-- "GROUP:Run/Update:modeling.emf.teneo"
-- "GROUP:SCM/Tag:modeling.emf.teneo"
-- "GROUP:View/Configure:modeling.emf.teneo"
-- "GROUP:View/Create:modeling.emf.teneo"
-- "GROUP:View/Delete:modeling.emf.teneo"
-- "GROUP:View/Read:modeling.emf.teneo"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.emf.teneo
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.capra"
-- "GROUP:Credentials/View:modeling.capra"
-- "GROUP:Gerrit/ManualTrigger:modeling.capra"
-- "GROUP:Gerrit/Retrigger:modeling.capra"
-- "GROUP:Job/Build:modeling.capra"
-- "GROUP:Job/Cancel:modeling.capra"
-- "GROUP:Job/Configure:modeling.capra"
-- "GROUP:Job/Create:modeling.capra"
-- "GROUP:Job/Delete:modeling.capra"
-- "GROUP:Job/Move:modeling.capra"
-- "GROUP:Job/Read:modeling.capra"
-- "GROUP:Job/Workspace:modeling.capra"
-- "GROUP:Overall/Read:modeling.capra"
-- "GROUP:Run/Delete:modeling.capra"
-- "GROUP:Run/Replay:modeling.capra"
-- "GROUP:Run/Update:modeling.capra"
-- "GROUP:SCM/Tag:modeling.capra"
-- "GROUP:View/Configure:modeling.capra"
-- "GROUP:View/Create:modeling.capra"
-- "GROUP:View/Delete:modeling.capra"
-- "GROUP:View/Read:modeling.capra"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.capra
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

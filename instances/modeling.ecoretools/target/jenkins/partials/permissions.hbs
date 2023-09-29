@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.ecoretools"
-- "GROUP:Credentials/View:modeling.ecoretools"
-- "GROUP:Gerrit/ManualTrigger:modeling.ecoretools"
-- "GROUP:Gerrit/Retrigger:modeling.ecoretools"
-- "GROUP:Job/Build:modeling.ecoretools"
-- "GROUP:Job/Cancel:modeling.ecoretools"
-- "GROUP:Job/Configure:modeling.ecoretools"
-- "GROUP:Job/Create:modeling.ecoretools"
-- "GROUP:Job/Delete:modeling.ecoretools"
-- "GROUP:Job/Move:modeling.ecoretools"
-- "GROUP:Job/Read:modeling.ecoretools"
-- "GROUP:Job/Workspace:modeling.ecoretools"
-- "GROUP:Overall/Read:modeling.ecoretools"
-- "GROUP:Run/Delete:modeling.ecoretools"
-- "GROUP:Run/Replay:modeling.ecoretools"
-- "GROUP:Run/Update:modeling.ecoretools"
-- "GROUP:SCM/Tag:modeling.ecoretools"
-- "GROUP:View/Configure:modeling.ecoretools"
-- "GROUP:View/Create:modeling.ecoretools"
-- "GROUP:View/Delete:modeling.ecoretools"
-- "GROUP:View/Read:modeling.ecoretools"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.ecoretools
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

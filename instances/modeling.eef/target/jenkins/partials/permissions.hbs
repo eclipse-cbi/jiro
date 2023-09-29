@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.eef"
-- "GROUP:Credentials/View:modeling.eef"
-- "GROUP:Gerrit/ManualTrigger:modeling.eef"
-- "GROUP:Gerrit/Retrigger:modeling.eef"
-- "GROUP:Job/Build:modeling.eef"
-- "GROUP:Job/Cancel:modeling.eef"
-- "GROUP:Job/Configure:modeling.eef"
-- "GROUP:Job/Create:modeling.eef"
-- "GROUP:Job/Delete:modeling.eef"
-- "GROUP:Job/Move:modeling.eef"
-- "GROUP:Job/Read:modeling.eef"
-- "GROUP:Job/Workspace:modeling.eef"
-- "GROUP:Overall/Read:modeling.eef"
-- "GROUP:Run/Delete:modeling.eef"
-- "GROUP:Run/Replay:modeling.eef"
-- "GROUP:Run/Update:modeling.eef"
-- "GROUP:SCM/Tag:modeling.eef"
-- "GROUP:View/Configure:modeling.eef"
-- "GROUP:View/Create:modeling.eef"
-- "GROUP:View/Delete:modeling.eef"
-- "GROUP:View/Read:modeling.eef"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.eef
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

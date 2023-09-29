@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.gmf-runtime"
-- "GROUP:Credentials/View:modeling.gmf-runtime"
-- "GROUP:Gerrit/ManualTrigger:modeling.gmf-runtime"
-- "GROUP:Gerrit/Retrigger:modeling.gmf-runtime"
-- "GROUP:Job/Build:modeling.gmf-runtime"
-- "GROUP:Job/Cancel:modeling.gmf-runtime"
-- "GROUP:Job/Configure:modeling.gmf-runtime"
-- "GROUP:Job/Create:modeling.gmf-runtime"
-- "GROUP:Job/Delete:modeling.gmf-runtime"
-- "GROUP:Job/Move:modeling.gmf-runtime"
-- "GROUP:Job/Read:modeling.gmf-runtime"
-- "GROUP:Job/Workspace:modeling.gmf-runtime"
-- "GROUP:Overall/Read:modeling.gmf-runtime"
-- "GROUP:Run/Delete:modeling.gmf-runtime"
-- "GROUP:Run/Replay:modeling.gmf-runtime"
-- "GROUP:Run/Update:modeling.gmf-runtime"
-- "GROUP:SCM/Tag:modeling.gmf-runtime"
-- "GROUP:View/Configure:modeling.gmf-runtime"
-- "GROUP:View/Create:modeling.gmf-runtime"
-- "GROUP:View/Delete:modeling.gmf-runtime"
-- "GROUP:View/Read:modeling.gmf-runtime"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.gmf-runtime
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

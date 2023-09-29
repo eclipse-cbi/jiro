@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.ecp"
-- "GROUP:Credentials/View:modeling.ecp"
-- "GROUP:Gerrit/ManualTrigger:modeling.ecp"
-- "GROUP:Gerrit/Retrigger:modeling.ecp"
-- "GROUP:Job/Build:modeling.ecp"
-- "GROUP:Job/Cancel:modeling.ecp"
-- "GROUP:Job/Configure:modeling.ecp"
-- "GROUP:Job/Create:modeling.ecp"
-- "GROUP:Job/Delete:modeling.ecp"
-- "GROUP:Job/Move:modeling.ecp"
-- "GROUP:Job/Read:modeling.ecp"
-- "GROUP:Job/Workspace:modeling.ecp"
-- "GROUP:Overall/Read:modeling.ecp"
-- "GROUP:Run/Delete:modeling.ecp"
-- "GROUP:Run/Replay:modeling.ecp"
-- "GROUP:Run/Update:modeling.ecp"
-- "GROUP:SCM/Tag:modeling.ecp"
-- "GROUP:View/Configure:modeling.ecp"
-- "GROUP:View/Create:modeling.ecp"
-- "GROUP:View/Delete:modeling.ecp"
-- "GROUP:View/Read:modeling.ecp"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.ecp
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

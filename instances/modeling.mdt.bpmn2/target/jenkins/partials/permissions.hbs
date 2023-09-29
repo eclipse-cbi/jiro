@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.mdt.bpmn2"
-- "GROUP:Credentials/View:modeling.mdt.bpmn2"
-- "GROUP:Gerrit/ManualTrigger:modeling.mdt.bpmn2"
-- "GROUP:Gerrit/Retrigger:modeling.mdt.bpmn2"
-- "GROUP:Job/Build:modeling.mdt.bpmn2"
-- "GROUP:Job/Cancel:modeling.mdt.bpmn2"
-- "GROUP:Job/Configure:modeling.mdt.bpmn2"
-- "GROUP:Job/Create:modeling.mdt.bpmn2"
-- "GROUP:Job/Delete:modeling.mdt.bpmn2"
-- "GROUP:Job/Move:modeling.mdt.bpmn2"
-- "GROUP:Job/Read:modeling.mdt.bpmn2"
-- "GROUP:Job/Workspace:modeling.mdt.bpmn2"
-- "GROUP:Overall/Read:modeling.mdt.bpmn2"
-- "GROUP:Run/Delete:modeling.mdt.bpmn2"
-- "GROUP:Run/Replay:modeling.mdt.bpmn2"
-- "GROUP:Run/Update:modeling.mdt.bpmn2"
-- "GROUP:SCM/Tag:modeling.mdt.bpmn2"
-- "GROUP:View/Configure:modeling.mdt.bpmn2"
-- "GROUP:View/Create:modeling.mdt.bpmn2"
-- "GROUP:View/Delete:modeling.mdt.bpmn2"
-- "GROUP:View/Read:modeling.mdt.bpmn2"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.mdt.bpmn2
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

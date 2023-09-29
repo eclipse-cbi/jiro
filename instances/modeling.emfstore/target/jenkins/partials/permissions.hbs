@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.emfstore"
-- "GROUP:Credentials/View:modeling.emfstore"
-- "GROUP:Gerrit/ManualTrigger:modeling.emfstore"
-- "GROUP:Gerrit/Retrigger:modeling.emfstore"
-- "GROUP:Job/Build:modeling.emfstore"
-- "GROUP:Job/Cancel:modeling.emfstore"
-- "GROUP:Job/Configure:modeling.emfstore"
-- "GROUP:Job/Create:modeling.emfstore"
-- "GROUP:Job/Delete:modeling.emfstore"
-- "GROUP:Job/Move:modeling.emfstore"
-- "GROUP:Job/Read:modeling.emfstore"
-- "GROUP:Job/Workspace:modeling.emfstore"
-- "GROUP:Overall/Read:modeling.emfstore"
-- "GROUP:Run/Delete:modeling.emfstore"
-- "GROUP:Run/Replay:modeling.emfstore"
-- "GROUP:Run/Update:modeling.emfstore"
-- "GROUP:SCM/Tag:modeling.emfstore"
-- "GROUP:View/Configure:modeling.emfstore"
-- "GROUP:View/Create:modeling.emfstore"
-- "GROUP:View/Delete:modeling.emfstore"
-- "GROUP:View/Read:modeling.emfstore"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.emfstore
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

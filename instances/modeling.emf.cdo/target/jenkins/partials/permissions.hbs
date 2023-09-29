@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.emf.cdo"
-- "GROUP:Credentials/View:modeling.emf.cdo"
-- "GROUP:Gerrit/ManualTrigger:modeling.emf.cdo"
-- "GROUP:Gerrit/Retrigger:modeling.emf.cdo"
-- "GROUP:Job/Build:modeling.emf.cdo"
-- "GROUP:Job/Cancel:modeling.emf.cdo"
-- "GROUP:Job/Configure:modeling.emf.cdo"
-- "GROUP:Job/Create:modeling.emf.cdo"
-- "GROUP:Job/Delete:modeling.emf.cdo"
-- "GROUP:Job/Move:modeling.emf.cdo"
-- "GROUP:Job/Read:modeling.emf.cdo"
-- "GROUP:Job/Workspace:modeling.emf.cdo"
-- "GROUP:Overall/Read:modeling.emf.cdo"
-- "GROUP:Run/Delete:modeling.emf.cdo"
-- "GROUP:Run/Replay:modeling.emf.cdo"
-- "GROUP:Run/Update:modeling.emf.cdo"
-- "GROUP:SCM/Tag:modeling.emf.cdo"
-- "GROUP:View/Configure:modeling.emf.cdo"
-- "GROUP:View/Create:modeling.emf.cdo"
-- "GROUP:View/Delete:modeling.emf.cdo"
-- "GROUP:View/Read:modeling.emf.cdo"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.emf.cdo
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

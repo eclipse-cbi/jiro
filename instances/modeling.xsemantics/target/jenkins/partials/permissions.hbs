@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.xsemantics"
-- "GROUP:Credentials/View:modeling.xsemantics"
-- "GROUP:Gerrit/ManualTrigger:modeling.xsemantics"
-- "GROUP:Gerrit/Retrigger:modeling.xsemantics"
-- "GROUP:Job/Build:modeling.xsemantics"
-- "GROUP:Job/Cancel:modeling.xsemantics"
-- "GROUP:Job/Configure:modeling.xsemantics"
-- "GROUP:Job/Create:modeling.xsemantics"
-- "GROUP:Job/Delete:modeling.xsemantics"
-- "GROUP:Job/Move:modeling.xsemantics"
-- "GROUP:Job/Read:modeling.xsemantics"
-- "GROUP:Job/Workspace:modeling.xsemantics"
-- "GROUP:Overall/Read:modeling.xsemantics"
-- "GROUP:Run/Delete:modeling.xsemantics"
-- "GROUP:Run/Replay:modeling.xsemantics"
-- "GROUP:Run/Update:modeling.xsemantics"
-- "GROUP:SCM/Tag:modeling.xsemantics"
-- "GROUP:View/Configure:modeling.xsemantics"
-- "GROUP:View/Create:modeling.xsemantics"
-- "GROUP:View/Delete:modeling.xsemantics"
-- "GROUP:View/Read:modeling.xsemantics"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.xsemantics
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
