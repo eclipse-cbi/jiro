@@ -35,58 +35,6 @@ jenkins:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDcGbOosxEs22/aErWNqhJg7xKcO8i4giQPHGoDh13pWh44Lqk1inQGXhIFdmL/3JX7dKSNyHrgHF0L61hzunwa5i5X4Hh9RgvHmntw1mEQOr2qi+9yoRv2tuwrNNpkfVeQnOXVOD0UiuL2MaC1bo1+PZo5UD65QF51ptsYO5Qpf/kP9uhQu7ZA81mMQeY1MlhnUaMRSVJl1+7DYlPvt77Z4fFGPnA34fH2fqbIeyZCXt9SBWvltFi4e/6ekmi7BMDcvHqaQvMMHaKhEOZPwn2lQ1grIfs/3AkRIQE+z5uoiPWikAbtE7rNYSEKK5AY6A4YCvEm5pcULEQClbKIB/+N"
   - permanent:
-      name: "p8-java1-ibm01"
-      nodeDescription: "AIX v7.1 PPC64 from OSU"
-      labelString: "aix ppc compile:aix"
-      remoteFS: '/home/jenkins/'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        ssh:
-          host: "140.211.9.160"
-          port: "22"
-          credentialsId: "omr-agents-ssh"
-          javaPath: ""
-          sshHostKeyVerificationStrategy:
-            manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCfkJVKzoxLCk7/MYuNXYhFLIVCztOVtqkiinuofPjBxIctkTlXb8urzLtSZDjTEFOqeKQqBZCDoLsK6utRjlCkoHhcb0IHyrAwEwoLmwNatLCoBuLs446B9kBxZPBeZle7AxJyA65BAITnsX83KD2hjp8C5aUPYCNK4zNOXHITSrXJLw9fi1hdx70pW+dn/GlPjHzjWux9GSdfA5X7kySEWRVtYSiXydpuRLnRevyuPZnSUsk8N2A2G5l01wXnvg1gGc7Ni6dse7SYw6VJ2GnJq4ZKqt5XYtlxEh74apCttA4QeZsn5HawSOsy4QIOyvNybvkm2ZdY9xeNXZkTTm5"
-      nodeProperties:
-      - envVars:
-          env:
-          - key: "PATH"
-            value: '/opt/cmake-3.17.1/bin:/opt/IBM/xlC/13.1.3/bin:/opt/freeware/bin:$PATH'
-      - toolLocation:
-          locations:
-          - home: '/opt/freeware/bin/git'
-            key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
-  - permanent:
-      name: "p8-java1-ibm02"
-      nodeDescription: "AIX v7.1 PPC64 from OSU"
-      labelString: "aix ppc compile:aix"
-      remoteFS: '/home/jenkins/'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        ssh:
-          host: "140.211.9.161"
-          port: "22"
-          credentialsId: "omr-agents-ssh"
-          javaPath: ""
-          sshHostKeyVerificationStrategy:
-            manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCfkJVKzoxLCk7/MYuNXYhFLIVCztOVtqkiinuofPjBxIctkTlXb8urzLtSZDjTEFOqeKQqBZCDoLsK6utRjlCkoHhcb0IHyrAwEwoLmwNatLCoBuLs446B9kBxZPBeZle7AxJyA65BAITnsX83KD2hjp8C5aUPYCNK4zNOXHITSrXJLw9fi1hdx70pW+dn/GlPjHzjWux9GSdfA5X7kySEWRVtYSiXydpuRLnRevyuPZnSUsk8N2A2G5l01wXnvg1gGc7Ni6dse7SYw6VJ2GnJq4ZKqt5XYtlxEh74apCttA4QeZsn5HawSOsy4QIOyvNybvkm2ZdY9xeNXZkTTm5"
-      nodeProperties:
-      - envVars:
-          env:
-          - key: "PATH"
-            value: '/opt/cmake-3.17.1/bin:/opt/IBM/xlC/13.1.3/bin:/opt/freeware/bin:$PATH'
-      - toolLocation:
-          locations:
-          - home: '/opt/freeware/bin/git'
-            key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
-  - permanent:
       name: "mac10-x64-omr1"
       nodeDescription: "Mac mini"
       labelString: "OSX x86 UNB compile:xosx"
