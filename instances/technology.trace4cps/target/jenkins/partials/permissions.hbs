@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.trace4cps"
-- "GROUP:Credentials/View:technology.trace4cps"
-- "GROUP:Gerrit/ManualTrigger:technology.trace4cps"
-- "GROUP:Gerrit/Retrigger:technology.trace4cps"
-- "GROUP:Job/Build:technology.trace4cps"
-- "GROUP:Job/Cancel:technology.trace4cps"
-- "GROUP:Job/Configure:technology.trace4cps"
-- "GROUP:Job/Create:technology.trace4cps"
-- "GROUP:Job/Delete:technology.trace4cps"
-- "GROUP:Job/Move:technology.trace4cps"
-- "GROUP:Job/Read:technology.trace4cps"
-- "GROUP:Job/Workspace:technology.trace4cps"
-- "GROUP:Overall/Read:technology.trace4cps"
-- "GROUP:Run/Delete:technology.trace4cps"
-- "GROUP:Run/Replay:technology.trace4cps"
-- "GROUP:Run/Update:technology.trace4cps"
-- "GROUP:SCM/Tag:technology.trace4cps"
-- "GROUP:View/Configure:technology.trace4cps"
-- "GROUP:View/Create:technology.trace4cps"
-- "GROUP:View/Delete:technology.trace4cps"
-- "GROUP:View/Read:technology.trace4cps"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.trace4cps
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

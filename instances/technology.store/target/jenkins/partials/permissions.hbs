@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.store"
-- "GROUP:Credentials/View:technology.store"
-- "GROUP:Gerrit/ManualTrigger:technology.store"
-- "GROUP:Gerrit/Retrigger:technology.store"
-- "GROUP:Job/Build:technology.store"
-- "GROUP:Job/Cancel:technology.store"
-- "GROUP:Job/Configure:technology.store"
-- "GROUP:Job/Create:technology.store"
-- "GROUP:Job/Delete:technology.store"
-- "GROUP:Job/Move:technology.store"
-- "GROUP:Job/Read:technology.store"
-- "GROUP:Job/Workspace:technology.store"
-- "GROUP:Overall/Read:technology.store"
-- "GROUP:Run/Delete:technology.store"
-- "GROUP:Run/Replay:technology.store"
-- "GROUP:Run/Update:technology.store"
-- "GROUP:SCM/Tag:technology.store"
-- "GROUP:View/Configure:technology.store"
-- "GROUP:View/Create:technology.store"
-- "GROUP:View/Delete:technology.store"
-- "GROUP:View/Read:technology.store"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.store
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

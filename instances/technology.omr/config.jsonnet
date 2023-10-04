@@ -6,7 +6,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     displayName: "Eclipse OMR",
   },
   jenkins+: {
-    version: "2.387.3",
     staticAgentCount: 40,
     permissions: permissionsTemplates.projectPermissions($.project.unixGroupName, permissionsTemplates.committerPermissionsList + ["Agent/Connect", "Agent/Disconnect"]) + [
       {

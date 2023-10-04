@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.stem"
-- "GROUP:Credentials/View:technology.stem"
-- "GROUP:Gerrit/ManualTrigger:technology.stem"
-- "GROUP:Gerrit/Retrigger:technology.stem"
-- "GROUP:Job/Build:technology.stem"
-- "GROUP:Job/Cancel:technology.stem"
-- "GROUP:Job/Configure:technology.stem"
-- "GROUP:Job/Create:technology.stem"
-- "GROUP:Job/Delete:technology.stem"
-- "GROUP:Job/Move:technology.stem"
-- "GROUP:Job/Read:technology.stem"
-- "GROUP:Job/Workspace:technology.stem"
-- "GROUP:Overall/Read:technology.stem"
-- "GROUP:Run/Delete:technology.stem"
-- "GROUP:Run/Replay:technology.stem"
-- "GROUP:Run/Update:technology.stem"
-- "GROUP:SCM/Tag:technology.stem"
-- "GROUP:View/Configure:technology.stem"
-- "GROUP:View/Create:technology.stem"
-- "GROUP:View/Delete:technology.stem"
-- "GROUP:View/Read:technology.stem"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.stem
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

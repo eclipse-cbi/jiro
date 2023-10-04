@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.lsat"
-- "GROUP:Credentials/View:technology.lsat"
-- "GROUP:Gerrit/ManualTrigger:technology.lsat"
-- "GROUP:Gerrit/Retrigger:technology.lsat"
-- "GROUP:Job/Build:technology.lsat"
-- "GROUP:Job/Cancel:technology.lsat"
-- "GROUP:Job/Configure:technology.lsat"
-- "GROUP:Job/Create:technology.lsat"
-- "GROUP:Job/Delete:technology.lsat"
-- "GROUP:Job/Move:technology.lsat"
-- "GROUP:Job/Read:technology.lsat"
-- "GROUP:Job/Workspace:technology.lsat"
-- "GROUP:Overall/Read:technology.lsat"
-- "GROUP:Run/Delete:technology.lsat"
-- "GROUP:Run/Replay:technology.lsat"
-- "GROUP:Run/Update:technology.lsat"
-- "GROUP:SCM/Tag:technology.lsat"
-- "GROUP:View/Configure:technology.lsat"
-- "GROUP:View/Create:technology.lsat"
-- "GROUP:View/Delete:technology.lsat"
-- "GROUP:View/Read:technology.lsat"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.lsat
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

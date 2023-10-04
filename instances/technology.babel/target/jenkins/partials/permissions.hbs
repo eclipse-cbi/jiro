@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.babel"
-- "GROUP:Credentials/View:technology.babel"
-- "GROUP:Gerrit/ManualTrigger:technology.babel"
-- "GROUP:Gerrit/Retrigger:technology.babel"
-- "GROUP:Job/Build:technology.babel"
-- "GROUP:Job/Cancel:technology.babel"
-- "GROUP:Job/Configure:technology.babel"
-- "GROUP:Job/Create:technology.babel"
-- "GROUP:Job/Delete:technology.babel"
-- "GROUP:Job/Move:technology.babel"
-- "GROUP:Job/Read:technology.babel"
-- "GROUP:Job/Workspace:technology.babel"
-- "GROUP:Overall/Read:technology.babel"
-- "GROUP:Run/Delete:technology.babel"
-- "GROUP:Run/Replay:technology.babel"
-- "GROUP:Run/Update:technology.babel"
-- "GROUP:SCM/Tag:technology.babel"
-- "GROUP:View/Configure:technology.babel"
-- "GROUP:View/Create:technology.babel"
-- "GROUP:View/Delete:technology.babel"
-- "GROUP:View/Read:technology.babel"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.babel
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

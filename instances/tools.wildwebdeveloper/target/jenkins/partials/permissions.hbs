@@ -1,23 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:tools.wildwebdeveloper"
-- "GROUP:Credentials/View:tools.wildwebdeveloper"
-- "GROUP:Job/Build:tools.wildwebdeveloper"
-- "GROUP:Job/Cancel:tools.wildwebdeveloper"
-- "GROUP:Job/Configure:tools.wildwebdeveloper"
-- "GROUP:Job/Create:tools.wildwebdeveloper"
-- "GROUP:Job/Delete:tools.wildwebdeveloper"
-- "GROUP:Job/Move:tools.wildwebdeveloper"
-- "GROUP:Job/Read:tools.wildwebdeveloper"
-- "GROUP:Job/Workspace:tools.wildwebdeveloper"
-- "GROUP:Overall/Read:tools.wildwebdeveloper"
-- "GROUP:Run/Delete:tools.wildwebdeveloper"
-- "GROUP:Run/Replay:tools.wildwebdeveloper"
-- "GROUP:Run/Update:tools.wildwebdeveloper"
-- "GROUP:SCM/Tag:tools.wildwebdeveloper"
-- "GROUP:View/Configure:tools.wildwebdeveloper"
-- "GROUP:View/Create:tools.wildwebdeveloper"
-- "GROUP:View/Delete:tools.wildwebdeveloper"
-- "GROUP:View/Read:tools.wildwebdeveloper"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: tools.wildwebdeveloper
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

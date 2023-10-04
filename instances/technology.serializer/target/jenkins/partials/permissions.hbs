@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.serializer"
-- "GROUP:Credentials/View:technology.serializer"
-- "GROUP:Gerrit/ManualTrigger:technology.serializer"
-- "GROUP:Gerrit/Retrigger:technology.serializer"
-- "GROUP:Job/Build:technology.serializer"
-- "GROUP:Job/Cancel:technology.serializer"
-- "GROUP:Job/Configure:technology.serializer"
-- "GROUP:Job/Create:technology.serializer"
-- "GROUP:Job/Delete:technology.serializer"
-- "GROUP:Job/Move:technology.serializer"
-- "GROUP:Job/Read:technology.serializer"
-- "GROUP:Job/Workspace:technology.serializer"
-- "GROUP:Overall/Read:technology.serializer"
-- "GROUP:Run/Delete:technology.serializer"
-- "GROUP:Run/Replay:technology.serializer"
-- "GROUP:Run/Update:technology.serializer"
-- "GROUP:SCM/Tag:technology.serializer"
-- "GROUP:View/Configure:technology.serializer"
-- "GROUP:View/Create:technology.serializer"
-- "GROUP:View/Delete:technology.serializer"
-- "GROUP:View/Read:technology.serializer"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.serializer
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

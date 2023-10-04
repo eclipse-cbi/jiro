@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:tools.ajdt"
-- "GROUP:Credentials/View:tools.ajdt"
-- "GROUP:Gerrit/ManualTrigger:tools.ajdt"
-- "GROUP:Gerrit/Retrigger:tools.ajdt"
-- "GROUP:Job/Build:tools.ajdt"
-- "GROUP:Job/Cancel:tools.ajdt"
-- "GROUP:Job/Configure:tools.ajdt"
-- "GROUP:Job/Create:tools.ajdt"
-- "GROUP:Job/Delete:tools.ajdt"
-- "GROUP:Job/Move:tools.ajdt"
-- "GROUP:Job/Read:tools.ajdt"
-- "GROUP:Job/Workspace:tools.ajdt"
-- "GROUP:Overall/Read:tools.ajdt"
-- "GROUP:Run/Delete:tools.ajdt"
-- "GROUP:Run/Replay:tools.ajdt"
-- "GROUP:Run/Update:tools.ajdt"
-- "GROUP:SCM/Tag:tools.ajdt"
-- "GROUP:View/Configure:tools.ajdt"
-- "GROUP:View/Create:tools.ajdt"
-- "GROUP:View/Delete:tools.ajdt"
-- "GROUP:View/Read:tools.ajdt"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: tools.ajdt
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.lsp4e"
-- "GROUP:Credentials/View:technology.lsp4e"
-- "GROUP:Gerrit/ManualTrigger:technology.lsp4e"
-- "GROUP:Gerrit/Retrigger:technology.lsp4e"
-- "GROUP:Job/Build:technology.lsp4e"
-- "GROUP:Job/Cancel:technology.lsp4e"
-- "GROUP:Job/Configure:technology.lsp4e"
-- "GROUP:Job/Create:technology.lsp4e"
-- "GROUP:Job/Delete:technology.lsp4e"
-- "GROUP:Job/Move:technology.lsp4e"
-- "GROUP:Job/Read:technology.lsp4e"
-- "GROUP:Job/Workspace:technology.lsp4e"
-- "GROUP:Overall/Read:technology.lsp4e"
-- "GROUP:Run/Delete:technology.lsp4e"
-- "GROUP:Run/Replay:technology.lsp4e"
-- "GROUP:Run/Update:technology.lsp4e"
-- "GROUP:SCM/Tag:technology.lsp4e"
-- "GROUP:View/Configure:technology.lsp4e"
-- "GROUP:View/Create:technology.lsp4e"
-- "GROUP:View/Delete:technology.lsp4e"
-- "GROUP:View/Read:technology.lsp4e"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.lsp4e
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

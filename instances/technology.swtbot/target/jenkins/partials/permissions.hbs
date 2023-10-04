@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.swtbot"
-- "GROUP:Credentials/View:technology.swtbot"
-- "GROUP:Gerrit/ManualTrigger:technology.swtbot"
-- "GROUP:Gerrit/Retrigger:technology.swtbot"
-- "GROUP:Job/Build:technology.swtbot"
-- "GROUP:Job/Cancel:technology.swtbot"
-- "GROUP:Job/Configure:technology.swtbot"
-- "GROUP:Job/Create:technology.swtbot"
-- "GROUP:Job/Delete:technology.swtbot"
-- "GROUP:Job/Move:technology.swtbot"
-- "GROUP:Job/Read:technology.swtbot"
-- "GROUP:Job/Workspace:technology.swtbot"
-- "GROUP:Overall/Read:technology.swtbot"
-- "GROUP:Run/Delete:technology.swtbot"
-- "GROUP:Run/Replay:technology.swtbot"
-- "GROUP:Run/Update:technology.swtbot"
-- "GROUP:SCM/Tag:technology.swtbot"
-- "GROUP:View/Configure:technology.swtbot"
-- "GROUP:View/Create:technology.swtbot"
-- "GROUP:View/Delete:technology.swtbot"
-- "GROUP:View/Read:technology.swtbot"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.swtbot
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

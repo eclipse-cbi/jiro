@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.microprofile"
-- "GROUP:Credentials/View:technology.microprofile"
-- "GROUP:Gerrit/ManualTrigger:technology.microprofile"
-- "GROUP:Gerrit/Retrigger:technology.microprofile"
-- "GROUP:Job/Build:technology.microprofile"
-- "GROUP:Job/Cancel:technology.microprofile"
-- "GROUP:Job/Configure:technology.microprofile"
-- "GROUP:Job/Create:technology.microprofile"
-- "GROUP:Job/Delete:technology.microprofile"
-- "GROUP:Job/Move:technology.microprofile"
-- "GROUP:Job/Read:technology.microprofile"
-- "GROUP:Job/Workspace:technology.microprofile"
-- "GROUP:Overall/Read:technology.microprofile"
-- "GROUP:Run/Delete:technology.microprofile"
-- "GROUP:Run/Replay:technology.microprofile"
-- "GROUP:Run/Update:technology.microprofile"
-- "GROUP:SCM/Tag:technology.microprofile"
-- "GROUP:View/Configure:technology.microprofile"
-- "GROUP:View/Create:technology.microprofile"
-- "GROUP:View/Delete:technology.microprofile"
-- "GROUP:View/Read:technology.microprofile"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.microprofile
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.edc"
-- "GROUP:Credentials/View:technology.edc"
-- "GROUP:Gerrit/ManualTrigger:technology.edc"
-- "GROUP:Gerrit/Retrigger:technology.edc"
-- "GROUP:Job/Build:technology.edc"
-- "GROUP:Job/Cancel:technology.edc"
-- "GROUP:Job/Configure:technology.edc"
-- "GROUP:Job/Create:technology.edc"
-- "GROUP:Job/Delete:technology.edc"
-- "GROUP:Job/Move:technology.edc"
-- "GROUP:Job/Read:technology.edc"
-- "GROUP:Job/Workspace:technology.edc"
-- "GROUP:Overall/Read:technology.edc"
-- "GROUP:Run/Delete:technology.edc"
-- "GROUP:Run/Replay:technology.edc"
-- "GROUP:Run/Update:technology.edc"
-- "GROUP:SCM/Tag:technology.edc"
-- "GROUP:View/Configure:technology.edc"
-- "GROUP:View/Create:technology.edc"
-- "GROUP:View/Delete:technology.edc"
-- "GROUP:View/Read:technology.edc"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.edc
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

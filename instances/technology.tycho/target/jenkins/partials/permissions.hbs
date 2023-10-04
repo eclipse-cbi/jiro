@@ -1,28 +1,41 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "USER:Agent/Connect:laeubi@laeubi-soft.de"
-- "USER:Agent/Disconnect:laeubi@laeubi-soft.de"
-- "USER:Agent/ExtendedRead:laeubi@laeubi-soft.de"
-- "GROUP:Agent/Build:technology.tycho"
-- "GROUP:Credentials/View:technology.tycho"
-- "GROUP:Gerrit/ManualTrigger:technology.tycho"
-- "GROUP:Gerrit/Retrigger:technology.tycho"
-- "GROUP:Job/Build:technology.tycho"
-- "GROUP:Job/Cancel:technology.tycho"
-- "GROUP:Job/Configure:technology.tycho"
-- "GROUP:Job/Create:technology.tycho"
-- "GROUP:Job/Delete:technology.tycho"
-- "GROUP:Job/Move:technology.tycho"
-- "GROUP:Job/Read:technology.tycho"
-- "GROUP:Job/Workspace:technology.tycho"
-- "GROUP:Overall/Read:technology.tycho"
-- "GROUP:Run/Delete:technology.tycho"
-- "GROUP:Run/Replay:technology.tycho"
-- "GROUP:Run/Update:technology.tycho"
-- "GROUP:SCM/Tag:technology.tycho"
-- "GROUP:View/Configure:technology.tycho"
-- "GROUP:View/Create:technology.tycho"
-- "GROUP:View/Delete:technology.tycho"
-- "GROUP:View/Read:technology.tycho"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - user:
+      name: laeubi@laeubi-soft.de
+      permissions:
+       - Agent/Connect
+       - Agent/Disconnect
+       - Agent/ExtendedRead
+  - group:
+      name: technology.tycho
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

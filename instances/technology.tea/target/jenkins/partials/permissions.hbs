@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.tea"
-- "GROUP:Credentials/View:technology.tea"
-- "GROUP:Gerrit/ManualTrigger:technology.tea"
-- "GROUP:Gerrit/Retrigger:technology.tea"
-- "GROUP:Job/Build:technology.tea"
-- "GROUP:Job/Cancel:technology.tea"
-- "GROUP:Job/Configure:technology.tea"
-- "GROUP:Job/Create:technology.tea"
-- "GROUP:Job/Delete:technology.tea"
-- "GROUP:Job/Move:technology.tea"
-- "GROUP:Job/Read:technology.tea"
-- "GROUP:Job/Workspace:technology.tea"
-- "GROUP:Overall/Read:technology.tea"
-- "GROUP:Run/Delete:technology.tea"
-- "GROUP:Run/Replay:technology.tea"
-- "GROUP:Run/Update:technology.tea"
-- "GROUP:SCM/Tag:technology.tea"
-- "GROUP:View/Configure:technology.tea"
-- "GROUP:View/Create:technology.tea"
-- "GROUP:View/Delete:technology.tea"
-- "GROUP:View/Read:technology.tea"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.tea
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.dltk"
-- "GROUP:Credentials/View:technology.dltk"
-- "GROUP:Gerrit/ManualTrigger:technology.dltk"
-- "GROUP:Gerrit/Retrigger:technology.dltk"
-- "GROUP:Job/Build:technology.dltk"
-- "GROUP:Job/Cancel:technology.dltk"
-- "GROUP:Job/Configure:technology.dltk"
-- "GROUP:Job/Create:technology.dltk"
-- "GROUP:Job/Delete:technology.dltk"
-- "GROUP:Job/Move:technology.dltk"
-- "GROUP:Job/Read:technology.dltk"
-- "GROUP:Job/Workspace:technology.dltk"
-- "GROUP:Overall/Read:technology.dltk"
-- "GROUP:Run/Delete:technology.dltk"
-- "GROUP:Run/Replay:technology.dltk"
-- "GROUP:Run/Update:technology.dltk"
-- "GROUP:SCM/Tag:technology.dltk"
-- "GROUP:View/Configure:technology.dltk"
-- "GROUP:View/Create:technology.dltk"
-- "GROUP:View/Delete:technology.dltk"
-- "GROUP:View/Read:technology.dltk"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.dltk
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -6,7 +6,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     resourcePacks: 2,
   },
   jenkins+: {
-    version: "2.387.3",
     staticAgentCount: 2,
     plugins+: [
       "copyartifact",

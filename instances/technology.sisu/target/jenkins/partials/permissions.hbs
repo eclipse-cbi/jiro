@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.sisu"
-- "GROUP:Credentials/View:technology.sisu"
-- "GROUP:Gerrit/ManualTrigger:technology.sisu"
-- "GROUP:Gerrit/Retrigger:technology.sisu"
-- "GROUP:Job/Build:technology.sisu"
-- "GROUP:Job/Cancel:technology.sisu"
-- "GROUP:Job/Configure:technology.sisu"
-- "GROUP:Job/Create:technology.sisu"
-- "GROUP:Job/Delete:technology.sisu"
-- "GROUP:Job/Move:technology.sisu"
-- "GROUP:Job/Read:technology.sisu"
-- "GROUP:Job/Workspace:technology.sisu"
-- "GROUP:Overall/Read:technology.sisu"
-- "GROUP:Run/Delete:technology.sisu"
-- "GROUP:Run/Replay:technology.sisu"
-- "GROUP:Run/Update:technology.sisu"
-- "GROUP:SCM/Tag:technology.sisu"
-- "GROUP:View/Configure:technology.sisu"
-- "GROUP:View/Create:technology.sisu"
-- "GROUP:View/Delete:technology.sisu"
-- "GROUP:View/Read:technology.sisu"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.sisu
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.eclemma"
-- "GROUP:Credentials/View:technology.eclemma"
-- "GROUP:Gerrit/ManualTrigger:technology.eclemma"
-- "GROUP:Gerrit/Retrigger:technology.eclemma"
-- "GROUP:Job/Build:technology.eclemma"
-- "GROUP:Job/Cancel:technology.eclemma"
-- "GROUP:Job/Configure:technology.eclemma"
-- "GROUP:Job/Create:technology.eclemma"
-- "GROUP:Job/Delete:technology.eclemma"
-- "GROUP:Job/Move:technology.eclemma"
-- "GROUP:Job/Read:technology.eclemma"
-- "GROUP:Job/Workspace:technology.eclemma"
-- "GROUP:Overall/Read:technology.eclemma"
-- "GROUP:Run/Delete:technology.eclemma"
-- "GROUP:Run/Replay:technology.eclemma"
-- "GROUP:Run/Update:technology.eclemma"
-- "GROUP:SCM/Tag:technology.eclemma"
-- "GROUP:View/Configure:technology.eclemma"
-- "GROUP:View/Create:technology.eclemma"
-- "GROUP:View/Delete:technology.eclemma"
-- "GROUP:View/Read:technology.eclemma"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.eclemma
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -569,8 +569,8 @@
       "id": "2.414.2",
       "key_fingerprint": "5BA31D57EF5975CA",
       "plugin_manager": {
-         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.12.11/jenkins-plugin-manager-2.12.11.jar",
-         "version": "2.12.11"
+         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.12.13/jenkins-plugin-manager-2.12.13.jar",
+         "version": "2.12.13"
       },
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
@@ -595,7 +595,6 @@
          "github-branch-source",
          "gitlab-plugin",
          "gitlab-branch-source",
-         "greenballs",
          "jdk-tool",
          "jobConfigHistory",
          "kubernetes",

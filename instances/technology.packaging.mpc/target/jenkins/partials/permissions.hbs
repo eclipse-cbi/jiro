@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.packaging.mpc"
-- "GROUP:Credentials/View:technology.packaging.mpc"
-- "GROUP:Gerrit/ManualTrigger:technology.packaging.mpc"
-- "GROUP:Gerrit/Retrigger:technology.packaging.mpc"
-- "GROUP:Job/Build:technology.packaging.mpc"
-- "GROUP:Job/Cancel:technology.packaging.mpc"
-- "GROUP:Job/Configure:technology.packaging.mpc"
-- "GROUP:Job/Create:technology.packaging.mpc"
-- "GROUP:Job/Delete:technology.packaging.mpc"
-- "GROUP:Job/Move:technology.packaging.mpc"
-- "GROUP:Job/Read:technology.packaging.mpc"
-- "GROUP:Job/Workspace:technology.packaging.mpc"
-- "GROUP:Overall/Read:technology.packaging.mpc"
-- "GROUP:Run/Delete:technology.packaging.mpc"
-- "GROUP:Run/Replay:technology.packaging.mpc"
-- "GROUP:Run/Update:technology.packaging.mpc"
-- "GROUP:SCM/Tag:technology.packaging.mpc"
-- "GROUP:View/Configure:technology.packaging.mpc"
-- "GROUP:View/Create:technology.packaging.mpc"
-- "GROUP:View/Delete:technology.packaging.mpc"
-- "GROUP:View/Read:technology.packaging.mpc"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.packaging.mpc
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

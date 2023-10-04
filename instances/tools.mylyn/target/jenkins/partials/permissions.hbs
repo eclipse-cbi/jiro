@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:tools.mylyn"
-- "GROUP:Credentials/View:tools.mylyn"
-- "GROUP:Gerrit/ManualTrigger:tools.mylyn"
-- "GROUP:Gerrit/Retrigger:tools.mylyn"
-- "GROUP:Job/Build:tools.mylyn"
-- "GROUP:Job/Cancel:tools.mylyn"
-- "GROUP:Job/Configure:tools.mylyn"
-- "GROUP:Job/Create:tools.mylyn"
-- "GROUP:Job/Delete:tools.mylyn"
-- "GROUP:Job/Move:tools.mylyn"
-- "GROUP:Job/Read:tools.mylyn"
-- "GROUP:Job/Workspace:tools.mylyn"
-- "GROUP:Overall/Read:tools.mylyn"
-- "GROUP:Run/Delete:tools.mylyn"
-- "GROUP:Run/Replay:tools.mylyn"
-- "GROUP:Run/Update:tools.mylyn"
-- "GROUP:SCM/Tag:tools.mylyn"
-- "GROUP:View/Configure:tools.mylyn"
-- "GROUP:View/Create:tools.mylyn"
-- "GROUP:View/Delete:tools.mylyn"
-- "GROUP:View/Read:tools.mylyn"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: tools.mylyn
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

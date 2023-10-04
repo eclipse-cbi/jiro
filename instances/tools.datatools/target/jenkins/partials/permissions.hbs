@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:tools.datatools"
-- "GROUP:Credentials/View:tools.datatools"
-- "GROUP:Gerrit/ManualTrigger:tools.datatools"
-- "GROUP:Gerrit/Retrigger:tools.datatools"
-- "GROUP:Job/Build:tools.datatools"
-- "GROUP:Job/Cancel:tools.datatools"
-- "GROUP:Job/Configure:tools.datatools"
-- "GROUP:Job/Create:tools.datatools"
-- "GROUP:Job/Delete:tools.datatools"
-- "GROUP:Job/Move:tools.datatools"
-- "GROUP:Job/Read:tools.datatools"
-- "GROUP:Job/Workspace:tools.datatools"
-- "GROUP:Overall/Read:tools.datatools"
-- "GROUP:Run/Delete:tools.datatools"
-- "GROUP:Run/Replay:tools.datatools"
-- "GROUP:Run/Update:tools.datatools"
-- "GROUP:SCM/Tag:tools.datatools"
-- "GROUP:View/Configure:tools.datatools"
-- "GROUP:View/Create:tools.datatools"
-- "GROUP:View/Delete:tools.datatools"
-- "GROUP:View/Read:tools.datatools"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: tools.datatools
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

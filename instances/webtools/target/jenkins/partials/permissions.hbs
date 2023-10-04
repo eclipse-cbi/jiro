@@ -1,46 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "USER:Agent/Build:nboldt@redhat.com"
-- "USER:Credentials/View:nboldt@redhat.com"
-- "USER:Gerrit/ManualTrigger:nboldt@redhat.com"
-- "USER:Gerrit/Retrigger:nboldt@redhat.com"
-- "USER:Job/Build:nboldt@redhat.com"
-- "USER:Job/Cancel:nboldt@redhat.com"
-- "USER:Job/Configure:nboldt@redhat.com"
-- "USER:Job/Create:nboldt@redhat.com"
-- "USER:Job/Delete:nboldt@redhat.com"
-- "USER:Job/Move:nboldt@redhat.com"
-- "USER:Job/Read:nboldt@redhat.com"
-- "USER:Job/Workspace:nboldt@redhat.com"
-- "USER:Overall/Read:nboldt@redhat.com"
-- "USER:Run/Delete:nboldt@redhat.com"
-- "USER:Run/Replay:nboldt@redhat.com"
-- "USER:Run/Update:nboldt@redhat.com"
-- "USER:SCM/Tag:nboldt@redhat.com"
-- "USER:View/Configure:nboldt@redhat.com"
-- "USER:View/Create:nboldt@redhat.com"
-- "USER:View/Delete:nboldt@redhat.com"
-- "USER:View/Read:nboldt@redhat.com"
-- "GROUP:Agent/Build:webtools"
-- "GROUP:Credentials/View:webtools"
-- "GROUP:Gerrit/ManualTrigger:webtools"
-- "GROUP:Gerrit/Retrigger:webtools"
-- "GROUP:Job/Build:webtools"
-- "GROUP:Job/Cancel:webtools"
-- "GROUP:Job/Configure:webtools"
-- "GROUP:Job/Create:webtools"
-- "GROUP:Job/Delete:webtools"
-- "GROUP:Job/Move:webtools"
-- "GROUP:Job/Read:webtools"
-- "GROUP:Job/Workspace:webtools"
-- "GROUP:Overall/Read:webtools"
-- "GROUP:Run/Delete:webtools"
-- "GROUP:Run/Replay:webtools"
-- "GROUP:Run/Update:webtools"
-- "GROUP:SCM/Tag:webtools"
-- "GROUP:View/Configure:webtools"
-- "GROUP:View/Create:webtools"
-- "GROUP:View/Delete:webtools"
-- "GROUP:View/Read:webtools"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: webtools
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.steady"
-- "GROUP:Credentials/View:technology.steady"
-- "GROUP:Gerrit/ManualTrigger:technology.steady"
-- "GROUP:Gerrit/Retrigger:technology.steady"
-- "GROUP:Job/Build:technology.steady"
-- "GROUP:Job/Cancel:technology.steady"
-- "GROUP:Job/Configure:technology.steady"
-- "GROUP:Job/Create:technology.steady"
-- "GROUP:Job/Delete:technology.steady"
-- "GROUP:Job/Move:technology.steady"
-- "GROUP:Job/Read:technology.steady"
-- "GROUP:Job/Workspace:technology.steady"
-- "GROUP:Overall/Read:technology.steady"
-- "GROUP:Run/Delete:technology.steady"
-- "GROUP:Run/Replay:technology.steady"
-- "GROUP:Run/Update:technology.steady"
-- "GROUP:SCM/Tag:technology.steady"
-- "GROUP:View/Configure:technology.steady"
-- "GROUP:View/Create:technology.steady"
-- "GROUP:View/Delete:technology.steady"
-- "GROUP:View/Read:technology.steady"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.steady
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

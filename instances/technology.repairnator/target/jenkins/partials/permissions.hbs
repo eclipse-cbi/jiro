@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.repairnator"
-- "GROUP:Credentials/View:technology.repairnator"
-- "GROUP:Gerrit/ManualTrigger:technology.repairnator"
-- "GROUP:Gerrit/Retrigger:technology.repairnator"
-- "GROUP:Job/Build:technology.repairnator"
-- "GROUP:Job/Cancel:technology.repairnator"
-- "GROUP:Job/Configure:technology.repairnator"
-- "GROUP:Job/Create:technology.repairnator"
-- "GROUP:Job/Delete:technology.repairnator"
-- "GROUP:Job/Move:technology.repairnator"
-- "GROUP:Job/Read:technology.repairnator"
-- "GROUP:Job/Workspace:technology.repairnator"
-- "GROUP:Overall/Read:technology.repairnator"
-- "GROUP:Run/Delete:technology.repairnator"
-- "GROUP:Run/Replay:technology.repairnator"
-- "GROUP:Run/Update:technology.repairnator"
-- "GROUP:SCM/Tag:technology.repairnator"
-- "GROUP:View/Configure:technology.repairnator"
-- "GROUP:View/Create:technology.repairnator"
-- "GROUP:View/Delete:technology.repairnator"
-- "GROUP:View/Read:technology.repairnator"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.repairnator
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

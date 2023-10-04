@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.jnosql"
-- "GROUP:Credentials/View:technology.jnosql"
-- "GROUP:Gerrit/ManualTrigger:technology.jnosql"
-- "GROUP:Gerrit/Retrigger:technology.jnosql"
-- "GROUP:Job/Build:technology.jnosql"
-- "GROUP:Job/Cancel:technology.jnosql"
-- "GROUP:Job/Configure:technology.jnosql"
-- "GROUP:Job/Create:technology.jnosql"
-- "GROUP:Job/Delete:technology.jnosql"
-- "GROUP:Job/Move:technology.jnosql"
-- "GROUP:Job/Read:technology.jnosql"
-- "GROUP:Job/Workspace:technology.jnosql"
-- "GROUP:Overall/Read:technology.jnosql"
-- "GROUP:Run/Delete:technology.jnosql"
-- "GROUP:Run/Replay:technology.jnosql"
-- "GROUP:Run/Update:technology.jnosql"
-- "GROUP:SCM/Tag:technology.jnosql"
-- "GROUP:View/Configure:technology.jnosql"
-- "GROUP:View/Create:technology.jnosql"
-- "GROUP:View/Delete:technology.jnosql"
-- "GROUP:View/Read:technology.jnosql"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.jnosql
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

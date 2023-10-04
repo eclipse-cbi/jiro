@@ -1,27 +1,40 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "USER:Agent/Connect:ed.merks@gmail.com"
-- "USER:Agent/Disconnect:ed.merks@gmail.com"
-- "GROUP:Agent/Build:technology.justj"
-- "GROUP:Credentials/View:technology.justj"
-- "GROUP:Gerrit/ManualTrigger:technology.justj"
-- "GROUP:Gerrit/Retrigger:technology.justj"
-- "GROUP:Job/Build:technology.justj"
-- "GROUP:Job/Cancel:technology.justj"
-- "GROUP:Job/Configure:technology.justj"
-- "GROUP:Job/Create:technology.justj"
-- "GROUP:Job/Delete:technology.justj"
-- "GROUP:Job/Move:technology.justj"
-- "GROUP:Job/Read:technology.justj"
-- "GROUP:Job/Workspace:technology.justj"
-- "GROUP:Overall/Read:technology.justj"
-- "GROUP:Run/Delete:technology.justj"
-- "GROUP:Run/Replay:technology.justj"
-- "GROUP:Run/Update:technology.justj"
-- "GROUP:SCM/Tag:technology.justj"
-- "GROUP:View/Configure:technology.justj"
-- "GROUP:View/Create:technology.justj"
-- "GROUP:View/Delete:technology.justj"
-- "GROUP:View/Read:technology.justj"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - user:
+      name: ed.merks@gmail.com
+      permissions:
+       - Agent/Connect
+       - Agent/Disconnect
+  - group:
+      name: technology.justj
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

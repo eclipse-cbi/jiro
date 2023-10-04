@@ -1,23 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:modeling.tmf.xtext"
-- "GROUP:Credentials/View:modeling.tmf.xtext"
-- "GROUP:Job/Build:modeling.tmf.xtext"
-- "GROUP:Job/Cancel:modeling.tmf.xtext"
-- "GROUP:Job/Configure:modeling.tmf.xtext"
-- "GROUP:Job/Create:modeling.tmf.xtext"
-- "GROUP:Job/Delete:modeling.tmf.xtext"
-- "GROUP:Job/Move:modeling.tmf.xtext"
-- "GROUP:Job/Read:modeling.tmf.xtext"
-- "GROUP:Job/Workspace:modeling.tmf.xtext"
-- "GROUP:Overall/Read:modeling.tmf.xtext"
-- "GROUP:Run/Delete:modeling.tmf.xtext"
-- "GROUP:Run/Replay:modeling.tmf.xtext"
-- "GROUP:Run/Update:modeling.tmf.xtext"
-- "GROUP:SCM/Tag:modeling.tmf.xtext"
-- "GROUP:View/Configure:modeling.tmf.xtext"
-- "GROUP:View/Create:modeling.tmf.xtext"
-- "GROUP:View/Delete:modeling.tmf.xtext"
-- "GROUP:View/Read:modeling.tmf.xtext"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: modeling.tmf.xtext
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

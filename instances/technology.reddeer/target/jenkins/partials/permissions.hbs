@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.reddeer"
-- "GROUP:Credentials/View:technology.reddeer"
-- "GROUP:Gerrit/ManualTrigger:technology.reddeer"
-- "GROUP:Gerrit/Retrigger:technology.reddeer"
-- "GROUP:Job/Build:technology.reddeer"
-- "GROUP:Job/Cancel:technology.reddeer"
-- "GROUP:Job/Configure:technology.reddeer"
-- "GROUP:Job/Create:technology.reddeer"
-- "GROUP:Job/Delete:technology.reddeer"
-- "GROUP:Job/Move:technology.reddeer"
-- "GROUP:Job/Read:technology.reddeer"
-- "GROUP:Job/Workspace:technology.reddeer"
-- "GROUP:Overall/Read:technology.reddeer"
-- "GROUP:Run/Delete:technology.reddeer"
-- "GROUP:Run/Replay:technology.reddeer"
-- "GROUP:Run/Update:technology.reddeer"
-- "GROUP:SCM/Tag:technology.reddeer"
-- "GROUP:View/Configure:technology.reddeer"
-- "GROUP:View/Create:technology.reddeer"
-- "GROUP:View/Delete:technology.reddeer"
-- "GROUP:View/Read:technology.reddeer"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.reddeer
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

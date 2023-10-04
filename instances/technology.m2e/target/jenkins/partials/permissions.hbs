@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.m2e"
-- "GROUP:Credentials/View:technology.m2e"
-- "GROUP:Gerrit/ManualTrigger:technology.m2e"
-- "GROUP:Gerrit/Retrigger:technology.m2e"
-- "GROUP:Job/Build:technology.m2e"
-- "GROUP:Job/Cancel:technology.m2e"
-- "GROUP:Job/Configure:technology.m2e"
-- "GROUP:Job/Create:technology.m2e"
-- "GROUP:Job/Delete:technology.m2e"
-- "GROUP:Job/Move:technology.m2e"
-- "GROUP:Job/Read:technology.m2e"
-- "GROUP:Job/Workspace:technology.m2e"
-- "GROUP:Overall/Read:technology.m2e"
-- "GROUP:Run/Delete:technology.m2e"
-- "GROUP:Run/Replay:technology.m2e"
-- "GROUP:Run/Update:technology.m2e"
-- "GROUP:SCM/Tag:technology.m2e"
-- "GROUP:View/Configure:technology.m2e"
-- "GROUP:View/Create:technology.m2e"
-- "GROUP:View/Delete:technology.m2e"
-- "GROUP:View/Read:technology.m2e"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.m2e
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

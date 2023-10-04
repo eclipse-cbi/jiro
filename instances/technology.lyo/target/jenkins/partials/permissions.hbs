@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.lyo"
-- "GROUP:Credentials/View:technology.lyo"
-- "GROUP:Gerrit/ManualTrigger:technology.lyo"
-- "GROUP:Gerrit/Retrigger:technology.lyo"
-- "GROUP:Job/Build:technology.lyo"
-- "GROUP:Job/Cancel:technology.lyo"
-- "GROUP:Job/Configure:technology.lyo"
-- "GROUP:Job/Create:technology.lyo"
-- "GROUP:Job/Delete:technology.lyo"
-- "GROUP:Job/Move:technology.lyo"
-- "GROUP:Job/Read:technology.lyo"
-- "GROUP:Job/Workspace:technology.lyo"
-- "GROUP:Overall/Read:technology.lyo"
-- "GROUP:Run/Delete:technology.lyo"
-- "GROUP:Run/Replay:technology.lyo"
-- "GROUP:Run/Update:technology.lyo"
-- "GROUP:SCM/Tag:technology.lyo"
-- "GROUP:View/Configure:technology.lyo"
-- "GROUP:View/Create:technology.lyo"
-- "GROUP:View/Delete:technology.lyo"
-- "GROUP:View/Read:technology.lyo"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.lyo
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

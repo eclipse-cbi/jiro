@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.efbt"
-- "GROUP:Credentials/View:technology.efbt"
-- "GROUP:Gerrit/ManualTrigger:technology.efbt"
-- "GROUP:Gerrit/Retrigger:technology.efbt"
-- "GROUP:Job/Build:technology.efbt"
-- "GROUP:Job/Cancel:technology.efbt"
-- "GROUP:Job/Configure:technology.efbt"
-- "GROUP:Job/Create:technology.efbt"
-- "GROUP:Job/Delete:technology.efbt"
-- "GROUP:Job/Move:technology.efbt"
-- "GROUP:Job/Read:technology.efbt"
-- "GROUP:Job/Workspace:technology.efbt"
-- "GROUP:Overall/Read:technology.efbt"
-- "GROUP:Run/Delete:technology.efbt"
-- "GROUP:Run/Replay:technology.efbt"
-- "GROUP:Run/Update:technology.efbt"
-- "GROUP:SCM/Tag:technology.efbt"
-- "GROUP:View/Configure:technology.efbt"
-- "GROUP:View/Create:technology.efbt"
-- "GROUP:View/Delete:technology.efbt"
-- "GROUP:View/Read:technology.efbt"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.efbt
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

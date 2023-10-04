@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.efxclipse"
-- "GROUP:Credentials/View:technology.efxclipse"
-- "GROUP:Gerrit/ManualTrigger:technology.efxclipse"
-- "GROUP:Gerrit/Retrigger:technology.efxclipse"
-- "GROUP:Job/Build:technology.efxclipse"
-- "GROUP:Job/Cancel:technology.efxclipse"
-- "GROUP:Job/Configure:technology.efxclipse"
-- "GROUP:Job/Create:technology.efxclipse"
-- "GROUP:Job/Delete:technology.efxclipse"
-- "GROUP:Job/Move:technology.efxclipse"
-- "GROUP:Job/Read:technology.efxclipse"
-- "GROUP:Job/Workspace:technology.efxclipse"
-- "GROUP:Overall/Read:technology.efxclipse"
-- "GROUP:Run/Delete:technology.efxclipse"
-- "GROUP:Run/Replay:technology.efxclipse"
-- "GROUP:Run/Update:technology.efxclipse"
-- "GROUP:SCM/Tag:technology.efxclipse"
-- "GROUP:View/Configure:technology.efxclipse"
-- "GROUP:View/Create:technology.efxclipse"
-- "GROUP:View/Delete:technology.efxclipse"
-- "GROUP:View/Read:technology.efxclipse"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.efxclipse
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

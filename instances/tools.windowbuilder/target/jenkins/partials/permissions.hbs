@@ -1,25 +1,35 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:tools.windowbuilder"
-- "GROUP:Credentials/View:tools.windowbuilder"
-- "GROUP:Gerrit/ManualTrigger:tools.windowbuilder"
-- "GROUP:Gerrit/Retrigger:tools.windowbuilder"
-- "GROUP:Job/Build:tools.windowbuilder"
-- "GROUP:Job/Cancel:tools.windowbuilder"
-- "GROUP:Job/Configure:tools.windowbuilder"
-- "GROUP:Job/Create:tools.windowbuilder"
-- "GROUP:Job/Delete:tools.windowbuilder"
-- "GROUP:Job/Move:tools.windowbuilder"
-- "GROUP:Job/Read:tools.windowbuilder"
-- "GROUP:Job/Workspace:tools.windowbuilder"
-- "GROUP:Overall/Read:tools.windowbuilder"
-- "GROUP:Run/Delete:tools.windowbuilder"
-- "GROUP:Run/Replay:tools.windowbuilder"
-- "GROUP:Run/Update:tools.windowbuilder"
-- "GROUP:SCM/Tag:tools.windowbuilder"
-- "GROUP:View/Configure:tools.windowbuilder"
-- "GROUP:View/Create:tools.windowbuilder"
-- "GROUP:View/Delete:tools.windowbuilder"
-- "GROUP:View/Read:tools.windowbuilder"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: tools.windowbuilder
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read

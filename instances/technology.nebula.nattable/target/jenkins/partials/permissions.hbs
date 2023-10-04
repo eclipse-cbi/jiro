@@ -1,25 +1,37 @@
-- "GROUP:Overall/Administer:admins"
-- "USER:Job/Read:anonymous"
-- "USER:Overall/Read:anonymous"
-- "GROUP:Job/ExtendedRead:common"
-- "GROUP:Agent/Build:technology.nebula.nattable"
-- "GROUP:Credentials/View:technology.nebula.nattable"
-- "GROUP:Gerrit/ManualTrigger:technology.nebula.nattable"
-- "GROUP:Gerrit/Retrigger:technology.nebula.nattable"
-- "GROUP:Job/Build:technology.nebula.nattable"
-- "GROUP:Job/Cancel:technology.nebula.nattable"
-- "GROUP:Job/Configure:technology.nebula.nattable"
-- "GROUP:Job/Create:technology.nebula.nattable"
-- "GROUP:Job/Delete:technology.nebula.nattable"
-- "GROUP:Job/Move:technology.nebula.nattable"
-- "GROUP:Job/Read:technology.nebula.nattable"
-- "GROUP:Job/Workspace:technology.nebula.nattable"
-- "GROUP:Overall/Read:technology.nebula.nattable"
-- "GROUP:Run/Delete:technology.nebula.nattable"
-- "GROUP:Run/Replay:technology.nebula.nattable"
-- "GROUP:Run/Update:technology.nebula.nattable"
-- "GROUP:SCM/Tag:technology.nebula.nattable"
-- "GROUP:View/Configure:technology.nebula.nattable"
-- "GROUP:View/Create:technology.nebula.nattable"
-- "GROUP:View/Delete:technology.nebula.nattable"
-- "GROUP:View/Read:technology.nebula.nattable"
+  - group:
+      name: admins
+      permissions:
+       - Overall/Administer
+  - user:
+      name: anonymous
+      permissions:
+       - Job/Read
+       - Overall/Read
+  - group:
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.nebula.nattable
+      permissions:
+       - Agent/Build
+       - Credentials/View
+       - Gerrit/ManualTrigger
+       - Gerrit/Retrigger
+       - Job/Build
+       - Job/Cancel
+       - Job/Configure
+       - Job/Create
+       - Job/Delete
+       - Job/Move
+       - Job/Read
+       - Job/Workspace
+       - Overall/Read
+       - Run/Delete
+       - Run/Replay
+       - Run/Update
+       - SCM/Tag
+       - View/Configure
+       - View/Create
+       - View/Delete
+       - View/Read
