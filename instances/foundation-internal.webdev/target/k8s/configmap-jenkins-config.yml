@@ -566,7 +566,7 @@ data:
             cachingConfiguration:
               excludedVersionsStr: "main"
               refreshTimeMinutes: 10080
-            defaultVersion: "refs/tags/v0.10.3"
+            defaultVersion: "refs/tags/v0.10.5"
             retriever:
               modernSCM:
                 scm:
