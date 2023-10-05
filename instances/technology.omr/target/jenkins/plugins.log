@@ -19,7 +19,7 @@ commons-lang3-api 3.13.0-62.v7d18e55f51e2
 commons-text-api 1.10.0-78.v3e7b_ea_d5a_fe1
 config-file-provider 959.vcff671a_4518b_
 configuration-as-code 1714.v09593e830cfa
-credentials 1271.v54b_1c2c6388a_
+credentials 1293.vff276f713473
 credentials-binding 636.v55f1275c7b_27
 data-tables-api 1.13.6-4
 display-url-api 2.200.vb_9327d658781
@@ -48,7 +48,7 @@ github 1.37.3
 github-api 1.316-451.v15738eef3414
 github-branch-source 1741.va_3028eb_9fd21
 gitlab-api 5.3.0-91.v1f9a_fda_d654f
-gitlab-branch-source 677.v0b_63b_038322b_
+gitlab-branch-source 680.vc179a_1a_37915
 gitlab-plugin 1.7.16
 gradle 2.8.2
 handy-uri-templates-2-api 2.1.8-22.v77d5b_75e6953
@@ -96,7 +96,7 @@ pipeline-stage-step 305.ve96d0205c1c6
 pipeline-stage-tags-metadata 2.2144.v077a_d1928a_40
 pipeline-stage-view 2.33
 plain-credentials 143.v1b_df8b_d3b_e48
-plugin-util-api 3.3.0
+plugin-util-api 3.4.0
 prism-api 1.29.0-8
 promoted-builds 892.vd6219fc0a_efb
 rebuild 320.v5a_0933a_e7d61
@@ -116,9 +116,9 @@ trilead-api 2.84.v72119de229b_7
 variant 60.v7290fc0eb_b_cd
 warnings-ng 10.4.0
 workflow-aggregator 596.v8c21c963d92d
-workflow-api 1281.vca_5fddb_3fceb_
+workflow-api 1283.v99c10937efcb_
 workflow-basic-steps 1042.ve7b_140c4a_e0c
-workflow-cps 3793.v65dec41c3a_c3
+workflow-cps 3802.vd42b_fcf00b_a_c
 workflow-durable-task-step 1289.v4d3e7b_01546b_
 workflow-job 1348.v32a_a_f150910e
 workflow-multibranch 756.v891d88f2cd46
