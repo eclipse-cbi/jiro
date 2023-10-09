@@ -70,7 +70,7 @@ jenkins:
   clouds:
     - kubernetes:
         name: "kubernetes"
-        containerCapStr: "4"
+        containerCapStr: "6"
         jenkinsUrl: "http://jenkins-ui.openpass.svc.cluster.local/openpass"
         jenkinsTunnel: "jenkins-discovery.openpass.svc.cluster.local:50000"
         maxRequestsPerHostStr: "32"
