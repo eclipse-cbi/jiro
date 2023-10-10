@@ -436,7 +436,7 @@
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
-      "maxConcurrency": 6,
+      "maxConcurrency": 10,
       "permissions": [
          {
             "grantedPermissions": [
@@ -602,12 +602,12 @@
          },
          "resources": {
             "cpu": {
-               "limit": "2000m",
-               "request": "850m"
+               "limit": "2900m",
+               "request": "1450m"
             },
             "memory": {
-               "limit": "2560Mi",
-               "request": "2560Mi"
+               "limit": "3584Mi",
+               "request": "3584Mi"
             }
          },
          "stsName": "openpass"
@@ -664,7 +664,7 @@
    "project": {
       "displayName": "Eclipse openPASS",
       "fullName": "automotive.openpass",
-      "resourcePacks": 3,
+      "resourcePacks": 5,
       "shortName": "openpass",
       "unixGroupName": "automotive.openpass"
    },

@@ -74,7 +74,7 @@
                            "command": [
                               "/bin/sh",
                               "-c",
-                              "java -cp /var/cache/jenkins/war/winstone.jar winstone.tools.WinstoneControl shutdown --host=localhost --port=8081 >/dev/termination-log 2>&1"
+                              "java -cp /var/cache/jenkins/war/executable/winstone.jar winstone.tools.WinstoneControl shutdown --host=localhost --port=8081 >/dev/termination-log 2>&1"
                            ]
                         }
                      }
@@ -112,11 +112,11 @@
                   },
                   "resources": {
                      "limits": {
-                        "cpu": "2000m",
-                        "memory": "2560Mi"
+                        "cpu": "2900m",
+                        "memory": "3584Mi"
                      },
                      "requests": {
-                        "cpu": "850m"
+                        "cpu": "1450m"
                      }
                   },
                   "volumeMounts": [
