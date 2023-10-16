@@ -85,7 +85,7 @@ local Kube = import "kube.libsonnet";
                 preStop: {
                   exec: {
                     # be even smarter and implement this in a script with a wait for job to complete. Adjust terminationGracePeriodSeconds accordingly
-                    command: ["/bin/sh","-c","java -cp " + config.jiroMaster.webroot + "/winstone.jar winstone.tools.WinstoneControl shutdown --host=localhost --port=" + config.deployment.controlPort + " >/dev/termination-log 2>&1"],
+                    command: ["/bin/sh","-c","java -cp " + config.jiroMaster.webroot + "/executable/winstone.jar winstone.tools.WinstoneControl shutdown --host=localhost --port=" + config.deployment.controlPort + " >/dev/termination-log 2>&1"],
                   },
                 },
               },
