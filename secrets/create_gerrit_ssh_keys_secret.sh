@@ -49,15 +49,21 @@ if [[ -z "${project_name}" ]]; then
  exit 1
 fi
 
+if [[ "${short_name}" == "webdev" ]]; then
+  namespace="foundation-internal-${short_name}"
+else
+  namespace="${short_name}"
+fi
+
 add_gerrit_secret() {
-  if [[ -f "${PASSWORD_STORE_DIR}/${pw_store_path}/id_rsa.gpg" ]]; then 
-    oc create secret generic gerrit-ssh-keys --namespace="${short_name}" --from-file="id_rsa=/dev/stdin" <<<"$(pass "${pw_store_path}/id_rsa")"
+  if [[ -f "${PASSWORD_STORE_DIR}/${pw_store_path}/id_rsa.gpg" ]]; then
+    oc create secret generic gerrit-ssh-keys --namespace="${namespace}" --from-file="id_rsa=/dev/stdin" <<<"$(pass "${pw_store_path}/id_rsa")"
   else
     echo "WARNING: Project does not have a pass entry '${PASSWORD_STORE_DIR}/${pw_store_path}/id_rsa'."
   fi
 }
 
-if oc get secrets --namespace="${short_name}" | grep -q "gerrit-ssh-keys"; then
+if oc get secrets --namespace="${namespace}" | grep -q "gerrit-ssh-keys"; then
   printf "Secret gerrit-ssh-keys already exists. Skipping creation...\n"
 else
   add_gerrit_secret
