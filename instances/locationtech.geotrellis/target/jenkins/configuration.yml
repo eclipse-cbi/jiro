@@ -490,6 +490,7 @@ security:
           projects-storage.eclipse.org,172.25.25.150 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDKbQI09/IKbvAi3n8a2nluRcaZTB5HgzXwfJv/FUUKwusSwoyMi25jxqCHJbcQco4oAS89i7UeX7YAb2EnrPDd+VebNuTtNfWewxsBjwGI1qKMUsmQc5cLut0p1pe0VRz5ZgnXQeT9FSVA3zha+mJ3OCDtl0svvu3t4jN0zgZZfrmtwz4KQZjlfVv/cPtTKy5+RhBF9Vmto0ZVG+x8DDvxxhi37w90hXjdIb2JpILO4B65A4gEv910DJuwQ6FmrRu6oyqg7+1gnqIPigha7sHKGOX5h+mVrQTYdmPFAvNVawSYpLcEeajh9RI5kKwML6ftnmS/213KkVUUArXCYf4BxBN4h8kpvWqxBOlBNXy6nBLtzuDOdLviOGJ0HbazksuCrcvrT1lV4CfjCOjPlc9zV2r61XpMKBTq/0WPfq/r7LrIkswdszn3yTzvb1/cFCyQfkCGZvkuXJsen5Doi3Ixb0mOO0u+zL17RiS7//PVFs95DszOXqXlOytyB+u9Hmk=
           projects-storage.eclipse.org,172.25.25.150 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAOUQ8p0E/Ib3uchk+6wEZ8UtBHTBvyI2E+eA/sOXajLQPKP0XIbVyECy8x5OmrrlvOYs+LxxniGJ69UIjiYZqM=
           projects-storage.eclipse.org,172.25.25.150 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAsn6PO2Uemsr7wIUu5x0RnlRcuK36D2sbmYNe2LSKdb
+          [git.eclipse.org]:29418 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA8+KrFs55Aw6ATeoTxSIQOLiYBDALPZ4qN02mvB49a2
 
 unclassified:
   location:
@@ -630,6 +631,8 @@ tool:
       home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
     - name: "temurin-latest"
       home: "/opt/tools/java/temurin/latest"
+    - name: "temurin-jdk21-latest"
+      home: "/opt/tools/java/temurin/jdk-21/latest"
     - name: "temurin-jdk20-latest"
       home: "/opt/tools/java/temurin/jdk-20/latest"
     - name: "temurin-jdk17-latest"
@@ -679,6 +682,8 @@ tool:
     installations:
       - name: "apache-maven-latest"
         home: "/opt/tools/apache-maven/latest"
+      - name: "apache-maven-3.9.5"
+        home: "/opt/tools/apache-maven/3.9.5"
       - name: "apache-maven-3.9.3"
         home: "/opt/tools/apache-maven/3.9.3"
       - name: "apache-maven-3.9.2"
