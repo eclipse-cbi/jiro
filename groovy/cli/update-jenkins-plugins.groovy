@@ -30,24 +30,6 @@ jenkins.model.Jenkins.instance.pluginManager.install(plugins, false).each { f ->
   println "    ${++count}/${plugins.size()}.."
 }
 
-// Find plugins that are deprecated
-def deprecated_plugins = jenkins.model.Jenkins.instance.pluginManager.activePlugins.findAll {
-  it -> it.isDeprecated()
-}.collect {
-  it -> it.getShortName()
-}
-
-println "  Found ${deprecated_plugins.size()} plugins that are deprecated."
-println "  " + deprecated_plugins
-
-// uninstall deprecated plugins
-println "  Uninstalling deprecated plugins..."
-long counter = 0
-deprecated_plugins.each{
-  jenkins.model.Jenkins.instance.pluginManager.getPlugin(it).doDoUninstall()
-  println "    ${++counter}/${deprecated_plugins.size()}.."
-}
-
 // safe restart
 
 println "  Restarting safely..."
