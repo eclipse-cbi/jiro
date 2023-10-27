@@ -623,7 +623,7 @@ data:
                     name: m2-dir
           - name: "jipp-centos-8-agent-8gb"
             namespace: "platform"
-            label: "centos-8-8gb"
+            label: "centos-8-8gb centos-latest-8gb"
             containers:
             - name: "jnlp"
               image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3131.vf2b_b_798b_ce99

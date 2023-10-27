@@ -666,7 +666,8 @@
                   ]
                },
                "labels": [
-                  "centos-8-8gb"
+                  "centos-8-8gb",
+                  "centos-latest-8gb"
                ],
                "maxHeap": "256m",
                "mode": "EXCLUSIVE",

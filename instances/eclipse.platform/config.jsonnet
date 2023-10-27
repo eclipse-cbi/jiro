@@ -28,7 +28,7 @@
           },
         },
         "jipp-centos-8-agent-8gb": currentCloud.templates["centos-8"] {
-          labels: ["centos-8-8gb"],
+          labels: ["centos-8-8gb", "centos-latest-8gb"],
           kubernetes+: {
             resources+: {
               memory: {
