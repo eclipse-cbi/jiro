@@ -2,7 +2,7 @@
    "accessControl": {
       "primaryGroup": {
          "id": -1,
-         "name": "callisto-dev"
+         "name": "technology.simrel"
       },
       "supplementalGroups": [ ],
       "user": {
@@ -479,7 +479,7 @@
                "View/Delete",
                "View/Read"
             ],
-            "principal": "callisto-dev"
+            "principal": "technology.simrel"
          }
       ],
       "plugins": [
@@ -668,7 +668,7 @@
       "fullName": "foundation-internal.simrel",
       "resourcePacks": 1,
       "shortName": "simrel",
-      "unixGroupName": "callisto-dev"
+      "unixGroupName": "technology.simrel"
    },
    "sbt": {
       "files": {

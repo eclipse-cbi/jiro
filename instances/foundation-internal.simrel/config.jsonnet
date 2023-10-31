@@ -2,7 +2,7 @@
   project+: {
     fullName: "foundation-internal.simrel",
     displayName: "Eclipse SimRel",
-    unixGroupName: "callisto-dev",
+    unixGroupName: "technology.simrel",
   },
   jenkins+: {
     plugins+: [

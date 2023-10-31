@@ -8,7 +8,11 @@
        - Job/Read
        - Overall/Read
   - group:
-      name: callisto-dev
+      name: common
+      permissions:
+       - Job/ExtendedRead
+  - group:
+      name: technology.simrel
       permissions:
        - Agent/Build
        - Credentials/View
@@ -29,7 +33,3 @@
        - View/Create
        - View/Delete
        - View/Read
-  - group:
-      name: common
-      permissions:
-       - Job/ExtendedRead
