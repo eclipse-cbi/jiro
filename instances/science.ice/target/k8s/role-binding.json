@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "science.ice",
+         "org.eclipse.cbi.jiro/project.shortname": "ice"
+      },
+      "name": "ice",
+      "namespace": "ice"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "ice"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "ice",
+         "namespace": "ice"
+      }
+   ]
+}
