@@ -1,6 +1,0 @@
-# GENERATED FILE - DO NOT EDIT
-blueocean
-code-coverage-api
-copyartifact
-embeddable-build-status
-gerrit-trigger
