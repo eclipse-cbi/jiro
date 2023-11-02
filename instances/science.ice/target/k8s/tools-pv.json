@@ -6,10 +6,10 @@
          "kind": "PersistentVolume",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "technology.skills",
-               "org.eclipse.cbi.jiro/project.shortname": "skills"
+               "org.eclipse.cbi.jiro/project.fullName": "science.ice",
+               "org.eclipse.cbi.jiro/project.shortname": "ice"
             },
-            "name": "tools-jiro-skills"
+            "name": "tools-jiro-ice"
          },
          "spec": {
             "accessModes": [
@@ -19,8 +19,8 @@
                "storage": "20Gi"
             },
             "claimRef": {
-               "name": "tools-claim-jiro-skills",
-               "namespace": "skills"
+               "name": "tools-claim-jiro-ice",
+               "namespace": "ice"
             },
             "mountOptions": [
                "vers=4.2",
@@ -50,11 +50,11 @@
          "kind": "PersistentVolumeClaim",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "technology.skills",
-               "org.eclipse.cbi.jiro/project.shortname": "skills"
+               "org.eclipse.cbi.jiro/project.fullName": "science.ice",
+               "org.eclipse.cbi.jiro/project.shortname": "ice"
             },
-            "name": "tools-claim-jiro-skills",
-            "namespace": "skills"
+            "name": "tools-claim-jiro-ice",
+            "namespace": "ice"
          },
          "spec": {
             "accessModes": [

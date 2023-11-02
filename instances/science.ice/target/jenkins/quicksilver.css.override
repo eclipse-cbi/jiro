@@ -32,7 +32,7 @@ IMG.page-header__brand-image {
 }
 
 .page-header__brand-name:after {
-  content: 'Eclipse Skills';
+  content: 'The Eclipse Integrated Computational Environment';
   visibility: visible;
   font-size: 18px;
   line-height: 24px;

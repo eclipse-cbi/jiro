@@ -3,11 +3,11 @@
    "kind": "Service",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "technology.skills",
-         "org.eclipse.cbi.jiro/project.shortname": "skills"
+         "org.eclipse.cbi.jiro/project.fullName": "science.ice",
+         "org.eclipse.cbi.jiro/project.shortname": "ice"
       },
       "name": "jenkins-discovery",
-      "namespace": "skills"
+      "namespace": "ice"
    },
    "spec": {
       "ports": [
@@ -19,7 +19,7 @@
          }
       ],
       "selector": {
-         "org.eclipse.cbi.jiro/project.fullName": "technology.skills"
+         "org.eclipse.cbi.jiro/project.fullName": "science.ice"
       }
    }
 }

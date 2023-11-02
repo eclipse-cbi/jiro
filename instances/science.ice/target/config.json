@@ -2,18 +2,18 @@
    "accessControl": {
       "primaryGroup": {
          "id": -1,
-         "name": "technology.skills"
+         "name": "science.ice"
       },
       "supplementalGroups": [ ],
       "user": {
          "id": -1,
-         "name": "genie.skills"
+         "name": "genie.ice"
       }
    },
    "clouds": {
       "kubernetes": {
          "kind": "kubernetes",
-         "namespace": "skills",
+         "namespace": "ice",
          "podRetention": "never",
          "templates": {
             "basic": {
@@ -408,14 +408,14 @@
       "controlPort": 8081,
       "host": "ci.eclipse.org",
       "jnlpPort": 50000,
-      "prefix": "/skills",
+      "prefix": "/ice",
       "uiPort": 8080,
-      "url": "https://ci.eclipse.org/skills"
+      "url": "https://ci.eclipse.org/ice"
    },
    "docker": {
       "master": {
          "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.414.2\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
-         "image": "technology.skills",
+         "image": "science.ice",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
          "tag": "2.414.2"
@@ -477,20 +477,12 @@
                "View/Configure",
                "View/Create",
                "View/Delete",
-               "View/Read",
-               "Gerrit/ManualTrigger",
-               "Gerrit/Retrigger"
+               "View/Read"
             ],
-            "principal": "technology.skills"
+            "principal": "science.ice"
          }
       ],
-      "plugins": [
-         "blueocean",
-         "code-coverage-api",
-         "copyartifact",
-         "embeddable-build-status",
-         "gerrit-trigger"
-      ],
+      "plugins": [ ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",
@@ -587,10 +579,10 @@
                "request": "4096Mi"
             }
          },
-         "namespace": "skills"
+         "namespace": "ice"
       },
       "master": {
-         "namespace": "skills",
+         "namespace": "ice",
          "probe": {
             "liveness": {
                "delaySeconds": 480,
@@ -615,14 +607,14 @@
                "request": "1536Mi"
             }
          },
-         "stsName": "skills"
+         "stsName": "ice"
       }
    },
    "maven": {
       "files": {
          "settings-security.xml": {
             "master": {
-               "pass": "bots/technology.skills/apache-maven-security-settings"
+               "pass": "bots/science.ice/apache-maven-security-settings"
             }
          },
          "settings.xml": {
@@ -637,16 +629,16 @@
             "servers": {
                "gpg.passphrase": {
                   "passphrase": {
-                     "pass": "bots/technology.skills/gpg/passphrase"
+                     "pass": "bots/science.ice/gpg/passphrase"
                   }
                },
                "ossrh": {
                   "nexusProUrl": "https://oss.sonatype.org",
                   "password": {
-                     "pass": "bots/technology.skills/oss.sonatype.org/password"
+                     "pass": "bots/science.ice/oss.sonatype.org/password"
                   },
                   "username": {
-                     "pass": "bots/technology.skills/oss.sonatype.org/username"
+                     "pass": "bots/science.ice/oss.sonatype.org/username"
                   }
                },
                "repo.eclipse.org": {
@@ -667,11 +659,11 @@
       "transferListenerLogLevel": "warn"
    },
    "project": {
-      "displayName": "Eclipse Skills",
-      "fullName": "technology.skills",
+      "displayName": "The Eclipse Integrated Computational Environment",
+      "fullName": "science.ice",
       "resourcePacks": 1,
-      "shortName": "skills",
-      "unixGroupName": "technology.skills"
+      "shortName": "ice",
+      "unixGroupName": "science.ice"
    },
    "sbt": {
       "files": {
@@ -691,7 +683,7 @@
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-default": {
-            "namespace": "skills",
+            "namespace": "ice",
             "servers": {
                "https://index.docker.io/v1/": {
                   "password": {
@@ -707,8 +699,8 @@
                "pull"
             ]
          },
-         "dockerconfigjson-for-pull-as-skills": {
-            "namespace": "skills",
+         "dockerconfigjson-for-pull-as-ice": {
+            "namespace": "ice",
             "servers": {
                "https://index.docker.io/v1/": {
                   "password": {
@@ -719,15 +711,11 @@
                   }
                }
             },
-            "serviceAccount": "skills",
+            "serviceAccount": "ice",
             "type": [
                "pull"
             ]
          }
-      },
-      "gerrit-trigger-plugin": {
-         "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-         "username": "genie.skills"
       }
    }
 }

@@ -3,11 +3,11 @@
    "kind": "ResourceQuota",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "technology.skills",
-         "org.eclipse.cbi.jiro/project.shortname": "skills"
+         "org.eclipse.cbi.jiro/project.fullName": "science.ice",
+         "org.eclipse.cbi.jiro/project.shortname": "ice"
       },
       "name": "jenkins-instance-quota",
-      "namespace": "skills"
+      "namespace": "ice"
    },
    "spec": {
       "hard": {

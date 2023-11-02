@@ -6,15 +6,15 @@
          "haproxy.router.openshift.io/timeout": "60s"
       },
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "technology.skills",
-         "org.eclipse.cbi.jiro/project.shortname": "skills"
+         "org.eclipse.cbi.jiro/project.fullName": "science.ice",
+         "org.eclipse.cbi.jiro/project.shortname": "ice"
       },
-      "name": "skills",
-      "namespace": "skills"
+      "name": "ice",
+      "namespace": "ice"
    },
    "spec": {
       "host": "ci.eclipse.org",
-      "path": "/skills",
+      "path": "/ice",
       "port": {
          "targetPort": "http"
       },

@@ -3,11 +3,11 @@
    "kind": "LimitRange",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "technology.skills",
-         "org.eclipse.cbi.jiro/project.shortname": "skills"
+         "org.eclipse.cbi.jiro/project.fullName": "science.ice",
+         "org.eclipse.cbi.jiro/project.shortname": "ice"
       },
       "name": "jenkins-instance-limit-range",
-      "namespace": "skills"
+      "namespace": "ice"
    },
    "spec": {
       "limits": [
