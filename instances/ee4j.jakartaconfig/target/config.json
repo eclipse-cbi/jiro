@@ -483,7 +483,8 @@
          }
       ],
       "plugins": [
-         "jacoco"
+         "jacoco",
+         "copyartifact"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
