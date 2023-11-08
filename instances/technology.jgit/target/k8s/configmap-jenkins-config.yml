@@ -705,6 +705,8 @@ data:
           home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
         - name: "temurin-latest"
           home: "/opt/tools/java/temurin/latest"
+        - name: "temurin-jdk21-latest"
+          home: "/opt/tools/java/temurin/jdk-21/latest"
         - name: "temurin-jdk20-latest"
           home: "/opt/tools/java/temurin/jdk-20/latest"
         - name: "temurin-jdk17-latest"
@@ -754,6 +756,8 @@ data:
         installations:
           - name: "apache-maven-latest"
             home: "/opt/tools/apache-maven/latest"
+          - name: "apache-maven-3.9.5"
+            home: "/opt/tools/apache-maven/3.9.5"
           - name: "apache-maven-3.9.3"
             home: "/opt/tools/apache-maven/3.9.3"
           - name: "apache-maven-3.9.2"
