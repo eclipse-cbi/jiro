@@ -141,6 +141,11 @@
                         "mountPath": "/run/secrets/jenkins/ssh",
                         "name": "gerrit-ssh-keys",
                         "readOnly": true
+                     },
+                     {
+                        "mountPath": "/run/secrets/jenkins/ssh-gerrithub.io",
+                        "name": "gerrithub-io-ssh-keys",
+                        "readOnly": true
                      }
                   ]
                }
@@ -166,6 +171,12 @@
                   "name": "gerrit-ssh-keys",
                   "secret": {
                      "secretName": "gerrit-ssh-keys"
+                  }
+               },
+               {
+                  "name": "gerrithub-io-ssh-keys",
+                  "secret": {
+                     "secretName": "gerrithub.io-ssh-keys"
                   }
                }
             ]

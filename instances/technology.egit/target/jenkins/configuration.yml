@@ -453,6 +453,7 @@ security:
           projects-storage.eclipse.org,172.25.25.150 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAOUQ8p0E/Ib3uchk+6wEZ8UtBHTBvyI2E+eA/sOXajLQPKP0XIbVyECy8x5OmrrlvOYs+LxxniGJ69UIjiYZqM=
           projects-storage.eclipse.org,172.25.25.150 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAsn6PO2Uemsr7wIUu5x0RnlRcuK36D2sbmYNe2LSKdb
           [git.eclipse.org]:29418 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA8+KrFs55Aw6ATeoTxSIQOLiYBDALPZ4qN02mvB49a2
+          [eclipse.gerrithub.io]:29418 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC1wudLWtuNHlf5/nz2eewG8B+iVWfuuQcu9eXj3aC8B
 
 unclassified:
   location:
@@ -593,8 +594,6 @@ tool:
       home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
     - name: "temurin-latest"
       home: "/opt/tools/java/temurin/latest"
-    - name: "temurin-jdk21-latest"
-      home: "/opt/tools/java/temurin/jdk-21/latest"
     - name: "temurin-jdk20-latest"
       home: "/opt/tools/java/temurin/jdk-20/latest"
     - name: "temurin-jdk17-latest"
@@ -644,8 +643,6 @@ tool:
     installations:
       - name: "apache-maven-latest"
         home: "/opt/tools/apache-maven/latest"
-      - name: "apache-maven-3.9.5"
-        home: "/opt/tools/apache-maven/3.9.5"
       - name: "apache-maven-3.9.3"
         home: "/opt/tools/apache-maven/3.9.3"
       - name: "apache-maven-3.9.2"
