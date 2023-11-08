@@ -32,9 +32,12 @@ PASSWORD_STORE_DIR="$(readlink -f "${PASSWORD_STORE_DIR/#~\//${HOME}/}")"
 export PASSWORD_STORE_DIR
 
 project_name="${1:-}"
-short_name=${project_name##*.}
+site="${2:-git.eclipse.org}"
 
-site=git.eclipse.org
+short_name=${project_name##*.}
+secret_name="${site}-ssh-keys"
+[[ "${site}" == "git.eclipse.org" ]] && secret_name="gerrit-ssh-keys"
+
 pw_store_path=bots/${project_name}/${site}
 
 usage() {
@@ -44,9 +47,9 @@ usage() {
 
 # check that project name is not empty
 if [[ -z "${project_name}" ]]; then
- printf "ERROR: a project name must be given.\n"
- usage
- exit 1
+  printf "ERROR: a project name must be given.\n"
+  usage
+  exit 1
 fi
 
 if [[ "${short_name}" == "webdev" ]]; then
@@ -56,20 +59,21 @@ else
 fi
 
 add_gerrit_secret() {
-  if [[ -f "${PASSWORD_STORE_DIR}/${pw_store_path}/id_rsa.gpg" ]]; then
-    oc create secret generic gerrit-ssh-keys --namespace="${namespace}" --from-file="id_rsa=/dev/stdin" <<<"$(pass "${pw_store_path}/id_rsa")"
+  if [[ -f "${PASSWORD_STORE_DIR}/${pw_store_path}/id_rsa.gpg" ]]; then 
+    oc create secret generic "${secret_name}" --namespace="${namespace}" --from-file="id_rsa=/dev/stdin" <<<"$(pass "${pw_store_path}/id_rsa")"
   else
     echo "WARNING: Project does not have a pass entry '${PASSWORD_STORE_DIR}/${pw_store_path}/id_rsa'."
   fi
 }
 
-if oc get secrets --namespace="${namespace}" | grep -q "gerrit-ssh-keys"; then
-  printf "Secret gerrit-ssh-keys already exists. Skipping creation...\n"
+if oc get secrets --namespace="${namespace}" | grep -q "${secret_name}"; then
+  printf "Secret %s already exists. Skipping creation...\n" "${secret_name}"
 else
   add_gerrit_secret
 fi
 
-echo "Adding user to Event Streaming Users group..."
-ssh -p 29418 git.eclipse.org gerrit set-members --add "${short_name}-bot@eclipse.org" '"Event Streaming Users"'
-
+if [[ "${site}" == "git.eclipse.org" ]]; then
+  echo "Adding user to Event Streaming Users group..."
+  ssh -p 29418 git.eclipse.org gerrit set-members --add "${short_name}-bot@eclipse.org" '"Event Streaming Users"'
+fi
 echo "Done."

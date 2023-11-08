@@ -113,6 +113,14 @@ local Kube = import "kube.libsonnet";
                   name: "gerrit-ssh-keys",
                   readOnly: true,
                 }
+              ] 
+              + if std.objectHas(config, "gerrit") then [
+                {
+                  mountPath: "/run/secrets/jenkins/ssh-" + gerrit.site,
+                  name: std.strReplace(gerrit.site, '.', '-') + "-ssh-keys",
+                  readOnly: true,
+                } 
+                for gerrit in config.gerrit
               ] else [],
               env: [
                 {
@@ -214,6 +222,15 @@ local Kube = import "kube.libsonnet";
                 secretName: "gerrit-ssh-keys",
               },
             }
+          ] 
+          + if std.objectHas(config, "gerrit") then [
+            {
+              name: std.strReplace(gerrit.site, '.', '-') + "-ssh-keys",
+              secret: {
+                secretName: gerrit.site + "-ssh-keys",
+              },
+            }
+            for gerrit in config.gerrit
           ] else [],
         },
       },
