@@ -35,8 +35,12 @@ project_name="${1:-}"
 site="${2:-git.eclipse.org}"
 
 short_name=${project_name##*.}
-secret_name="${site}-ssh-keys"
-[[ "${site}" == "git.eclipse.org" ]] && secret_name="gerrit-ssh-keys"
+
+if [[ "${site}" == "git.eclipse.org" ]]; then
+  secret_name="gerrit-ssh-keys"
+else
+  secret_name="${site}-ssh-keys"
+fi
 
 pw_store_path=bots/${project_name}/${site}
 
