@@ -18,4 +18,7 @@
   gradle+: {
     generate: true,
   },
+  gerrit+: [
+    { site: "gerrithub.io" }
+  ],
 }
