@@ -10,5 +10,8 @@
       "dashboard-view",
       "gerrit-trigger",
     ],
-  }
+  },
+  gerrit+: [
+    { site: "gerrithub.io" }
+  ],
 }

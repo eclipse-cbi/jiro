@@ -421,6 +421,11 @@
          "tag": "2.414.2"
       }
    },
+   "gerrit": [
+      {
+         "site": "gerrithub.io"
+      }
+   ],
    "gradle": {
       "files": {
          "gradle.properties": {
