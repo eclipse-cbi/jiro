@@ -23,6 +23,9 @@ BACKUP_FILE_NAME="jenkins_backup-${PROJECT_NAME}.tar.gz"
 
 CI_ADMIN_ROOT="${SCRIPT_FOLDER}/../../ci-admin"
 
+#shellcheck disable=SC1091
+source "${CI_ADMIN_ROOT}/utils/common.sh"
+
 usage() {
   printf "Usage: %s project_name\n" "${SCRIPT_NAME}"
   printf "\t%-16s project name (e.g. technology.cbi for CBI project).\n" "project_name"
@@ -35,24 +38,13 @@ if [[ -z "${PROJECT_NAME}" ]]; then
  exit 1
 fi
 
-
-# read local config
-
-LOCAL_CONFIG="${HOME}/.cbi/config"
-if [[ ! -f "${LOCAL_CONFIG}" ]]; then
-  echo "ERROR: File '$(readlink -f "${LOCAL_CONFIG}")' does not exists"
-  echo "Create one to configure db and file server credentials. Example:"
-  echo '{"file_server": {"server": "myserver2", "user": "user2", "pw": "<path in pass>", "pw_root": "<path in pass>"}}' | jq -M
-fi
-
-FILE_SERVER="$(jq -r '.["file_server"]["server"]' "${LOCAL_CONFIG}")"
-FILE_SERVER_USER="$(jq -r '.["file_server"]["user"]' "${LOCAL_CONFIG}")"
-FILE_SERVER_PW="$(jq -r '.["file_server"]["pw"]' "${LOCAL_CONFIG}")"
-FILE_SERVER_PW_ROOT="$(jq -r '.["file_server"]["pw_root"]' "${LOCAL_CONFIG}")"
+FILE_SERVER="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "get_var" "server" "file_server")"
+FILE_SERVER_USER="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "get_var" "user" "file_server")"
+FILE_SERVER_PW="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "get_var" "pw" "file_server")"
+FILE_SERVER_PW_ROOT="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "get_var" "pw_root" "file_server")"
 
 create_retire_script() {
-  local short_name="${1:-}"
-  local backup_file_name="${2:-}"
+  local backup_file_name="${BACKUP_FILE_NAME}"
   local jenkins_home="/var/jenkins"
   mkdir -p tmp
 
@@ -94,54 +86,28 @@ EOF
 
   chmod +x tmp/retire.sh
   echo
-  echo "Copying retire script to Jiro pod ${short_name}-0..."
-  oc rsync tmp/ "${short_name}-0:/var/jenkins/" -n="${short_name}" --no-perms
-  oc exec -n="${short_name}" "${short_name}-0" -i -t -- chmod +x /var/jenkins/retire.sh
+  echo "Copying retire script to Jiro pod ${SHORT_NAME}-0..."
+  oc rsync tmp/ "${SHORT_NAME}-0:/var/jenkins/" -n="${SHORT_NAME}" --no-perms
+  oc exec -n="${SHORT_NAME}" "${SHORT_NAME}-0" -i -t -- chmod +x /var/jenkins/retire.sh
 
   rm -rf tmp
 }
 
 collect_backup() {
-  local short_name="${1:-}"
+  create_retire_script
   echo
-  echo "Collecting jobs on Jiro pod ${short_name}-0..."
+  echo "Collecting jobs on Jiro pod ${SHORT_NAME}-0..."
 
-  oc exec -n="${short_name}" "${short_name}-0" -i -t -- /var/jenkins/retire.sh
+  oc exec -n="${SHORT_NAME}" "${SHORT_NAME}-0" -i -t -- /var/jenkins/retire.sh
 
-  echo "Copying files from Jiro pod ${short_name}-0..."
+  echo "Copying files from Jiro pod ${SHORT_NAME}-0..."
   mkdir -p backup
-  oc rsync -n="${short_name}" "${short_name}-0:/var/jenkins/backup/" backup/ --no-perms
+  oc rsync -n="${SHORT_NAME}" "${SHORT_NAME}-0:/var/jenkins/backup/" backup/ --no-perms
 }
 
-delete_question(){
-  local project_name="${1:-}"
-  read -rp "Do you want to delete the ${project_name} project on the cluster and in Jiro? (Y)es, (N)o, E(x)it: " yn
-  case "${yn}" in
-    [Yy]* ) delete_project "${project_name}";;
-    [Nn]* ) echo "Skipping delete... ";return;;
-    [Xx]* ) exit;;
-        * ) echo "Please answer (Y)es, (N)o, E(x)it";delete_question "${project_name}";;
-  esac
-}
-
-delete_project() {
-  local project_name="${1:-}"
-  local short_name="${project_name##*.}"
-  echo
-  echo "Deleting project/namespace on the cluster..."
-  oc delete project "${short_name}"
-  oc delete pv "tools-jiro-${short_name}"
-
-  echo
-  echo "Deleting project in Jiro..."
-  rm -rf "../instances/${project_name}"
-}
-
-mv_jipp_backup_to_archive() {
-  local short_name="${1:-}"
-  local file_name="${2:-}"
-
-  local genie_user="genie.${short_name}"
+copy_backup_to_archive() {
+  local file_name="${BACKUP_FILE_NAME}"
+  local genie_user="genie.${SHORT_NAME}"
 
   local server="${FILE_SERVER}"
   local user="${FILE_SERVER_USER}"
@@ -153,6 +119,11 @@ mv_jipp_backup_to_archive() {
   local serverRootPrompt="$server:~ # *"
 
   local archive_folder="/opt/public/hipp/archive/${genie_user}"
+
+  echo
+  echo "Copying backup tar.gz to ${FILE_SERVER}:/tmp..."
+  scp "backup/${BACKUP_FILE_NAME}" "${FILE_SERVER}:/tmp/"
+
   echo
   echo "Moving backup from /tmp/${file_name} to ${archive_folder}/..."
 
@@ -191,21 +162,34 @@ mv_jipp_backup_to_archive() {
 "
 }
 
+delete_project() {
+  echo
+  echo "Deleting project/namespace on the cluster..."
+  oc delete project "${SHORT_NAME}"
+  oc delete pv "tools-jiro-${SHORT_NAME}"
+
+  echo
+  echo "Deleting project in Jiro..."
+  rm -rf "../instances/${PROJECT_NAME}"
+}
+
+remove_jipp_from_db() {
+  "${CI_ADMIN_ROOT}/jenkins/db_access.sh" "remove_jipp" "${PROJECT_NAME}"
+}
+
 # Main
 
-create_retire_script "${SHORT_NAME}" "${BACKUP_FILE_NAME}"
+#TODO: check if namespace & jiro dir still exist
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
 
-collect_backup "${SHORT_NAME}"
+_question_action "collect the backup" collect_backup
 
-echo
-echo "Copying backup tar.gz to ${FILE_SERVER}:/tmp..."
-scp "backup/${BACKUP_FILE_NAME}" "${FILE_SERVER}:/tmp/"
+_question_action "copy the backup to the archive" copy_backup_to_archive
 
-delete_question "${PROJECT_NAME}"
+_question_action "delete the ${PROJECT_NAME} project on the cluster and in Jiro" delete_project
 
-mv_jipp_backup_to_archive "${SHORT_NAME}" "${BACKUP_FILE_NAME}"
-
-"${CI_ADMIN_ROOT}/jenkins/db_access.sh" "remove_jipp" "${PROJECT_NAME}"
+_question_action "remove the JIPP from the DB" remove_jipp_from_db
 
 
 echo
