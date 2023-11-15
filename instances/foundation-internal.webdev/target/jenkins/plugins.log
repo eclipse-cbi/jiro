@@ -1,5 +1,5 @@
 Resulting plugin list:
-analysis-model-api 11.11.0
+analysis-model-api 11.13.0
 ant 497.v94e7d9fffa_b_9
 antisamy-markup-formatter 162.v0e6ec0fcfcf6
 apache-httpcomponents-client-4-api 4.5.14-208.v438351942757
@@ -33,12 +33,12 @@ extra-columns 1.26
 font-awesome-api 6.4.2-1
 forensics-api 2.3.0
 ghprb 1.42.2
-git 5.2.0
+git 5.2.1
 git-client 4.5.0
 git-parameter 0.9.19
 github 1.37.3.1
 github-api 1.316-451.v15738eef3414
-github-branch-source 1741.va_3028eb_9fd21
+github-branch-source 1750.v6b_fb_8df8f985
 gitlab-api 5.3.0-91.v1f9a_fda_d654f
 gitlab-branch-source 684.vea_fa_7c1e2fe3
 gitlab-plugin 1.7.16
@@ -80,8 +80,8 @@ pipeline-github 2.8-155.8eab375ac9f8
 pipeline-graph-analysis 202.va_d268e64deb_3
 pipeline-groovy-lib 689.veec561a_dee13
 pipeline-input-step 477.v339683a_8d55e
-pipeline-maven 1345.va_0ef5530a_5ca_
-pipeline-maven-api 1345.va_0ef5530a_5ca_
+pipeline-maven 1362.vee39a_d4b_02b_1
+pipeline-maven-api 1362.vee39a_d4b_02b_1
 pipeline-milestone-step 111.v449306f708b_7
 pipeline-model-api 2.2150.v4cfd8916915c
 pipeline-model-definition 2.2150.v4cfd8916915c
