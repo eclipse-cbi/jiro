@@ -1,7 +1,8 @@
 {
   project+: {
     fullName: "eclipse.jdt.ls",
-    displayName: "Eclipse JDT Language Server"
+    displayName: "Eclipse JDT Language Server",
+    resourcePacks: 3,
   },
   jenkins+: {
     plugins+: [
