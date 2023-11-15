@@ -436,7 +436,7 @@
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
-      "maxConcurrency": 2,
+      "maxConcurrency": 6,
       "permissions": [
          {
             "grantedPermissions": [
@@ -606,11 +606,11 @@
          "resources": {
             "cpu": {
                "limit": "2000m",
-               "request": "250m"
+               "request": "850m"
             },
             "memory": {
-               "limit": "1536Mi",
-               "request": "1536Mi"
+               "limit": "2560Mi",
+               "request": "2560Mi"
             }
          },
          "stsName": "ls"
@@ -667,7 +667,7 @@
    "project": {
       "displayName": "Eclipse JDT Language Server",
       "fullName": "eclipse.jdt.ls",
-      "resourcePacks": 1,
+      "resourcePacks": 3,
       "shortName": "ls",
       "unixGroupName": "eclipse.jdt.ls"
    },
