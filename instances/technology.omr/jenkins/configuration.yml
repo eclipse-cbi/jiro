@@ -307,7 +307,7 @@ jenkins:
   - permanent:
       name: "ub20-x64-omr10"
       nodeDescription: "Linux x86"
-      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinuxi cgroup.v1"
+      labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux cgroup.v1"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
