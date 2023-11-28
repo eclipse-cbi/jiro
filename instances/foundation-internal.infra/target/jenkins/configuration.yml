@@ -490,6 +490,20 @@ jenkins:
         mode: EXCLUSIVE
         retentionStrategy: "always"
         numExecutors: 2
+    - permanent:
+        name: "metrics-vm1"
+        remoteFS: "/home/metrics"
+        launcher:
+          ssh:
+            credentialsId: "metrics-ssh-bot"
+            host: "4.180.46.65"
+            port: 2022
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBIQUZTgLsuKws+iCoZjI2CTCopxZN/zUCvCaOKLZXafFZ5Wt9DeLSt+Dc6V2rcYGz9T7ZQYnIO+6THFYbCglg2w="
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        numExecutors: 2
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
