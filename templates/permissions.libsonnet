@@ -1,27 +1,53 @@
 {
+  group(unixGroupName, projectGroupPermissionsList): [{
+    group: {
+      name: unixGroupName,
+      permissions: projectGroupPermissionsList
+    }
+  }]
+}
+
+{
+  user(unixUserName, projectUserPermissionsList): [{
+    user: {
+      name: unixUserName,
+      permissions: projectUserPermissionsList
+    }
+  }]
+}
+
+{
   projectPermissions(unixGroupName, projectGroupPermissionsList): [
     {
-      principal: "anonymous",
-      grantedPermissions: [
-        "Overall/Read",
-        "Job/Read"
-      ]
+      user: {
+        name: "anonymous",
+        permissions: [
+          "Overall/Read",
+          "Job/Read"
+        ]
+      }
     },
     {
-      principal: "common",
-      grantedPermissions: [
-        "Job/ExtendedRead"
-      ]
+      group: {
+        name: "common",
+        permissions: [
+          "Job/ExtendedRead"
+        ]
+      }
     },
     {
-      principal: "admins",
-      grantedPermissions: [
-        "Overall/Administer"
-      ]
+      group: {
+        name: "admins",
+        permissions: [
+          "Overall/Administer"
+        ]
+      }
     },
     {
-      principal: unixGroupName,
-      grantedPermissions: projectGroupPermissionsList,
+      group: {
+        name: unixGroupName,
+        permissions: projectGroupPermissionsList,
+      }
     },
   ],
 

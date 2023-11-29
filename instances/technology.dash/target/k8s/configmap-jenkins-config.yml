@@ -42,19 +42,19 @@ data:
       authorizationStrategy:
         projectMatrix:
           entries:
-            - group:
-                name: admins
-                permissions:
-                  - Overall/Administer
             - user:
                 name: anonymous
                 permissions:
-                  - Job/Read
                   - Overall/Read
+                  - Job/Read
             - group:
                 name: common
                 permissions:
                   - Job/ExtendedRead
+            - group:
+                name: admins
+                permissions:
+                  - Overall/Administer
             - group:
                 name: technology.dash
                 permissions:

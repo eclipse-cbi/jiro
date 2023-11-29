@@ -439,47 +439,55 @@
       "maxConcurrency": 2,
       "permissions": [
          {
-            "grantedPermissions": [
-               "Overall/Read",
-               "Job/Read"
-            ],
-            "principal": "anonymous"
+            "user": {
+               "name": "anonymous",
+               "permissions": [
+                  "Overall/Read",
+                  "Job/Read"
+               ]
+            }
          },
          {
-            "grantedPermissions": [
-               "Job/ExtendedRead"
-            ],
-            "principal": "common"
+            "group": {
+               "name": "common",
+               "permissions": [
+                  "Job/ExtendedRead"
+               ]
+            }
          },
          {
-            "grantedPermissions": [
-               "Overall/Administer"
-            ],
-            "principal": "admins"
+            "group": {
+               "name": "admins",
+               "permissions": [
+                  "Overall/Administer"
+               ]
+            }
          },
          {
-            "grantedPermissions": [
-               "Agent/Build",
-               "Credentials/View",
-               "Job/Build",
-               "Job/Cancel",
-               "Job/Configure",
-               "Job/Create",
-               "Job/Delete",
-               "Job/Move",
-               "Job/Read",
-               "Job/Workspace",
-               "Overall/Read",
-               "Run/Delete",
-               "Run/Replay",
-               "Run/Update",
-               "SCM/Tag",
-               "View/Configure",
-               "View/Create",
-               "View/Delete",
-               "View/Read"
-            ],
-            "principal": "technology.dash"
+            "group": {
+               "name": "technology.dash",
+               "permissions": [
+                  "Agent/Build",
+                  "Credentials/View",
+                  "Job/Build",
+                  "Job/Cancel",
+                  "Job/Configure",
+                  "Job/Create",
+                  "Job/Delete",
+                  "Job/Move",
+                  "Job/Read",
+                  "Job/Workspace",
+                  "Overall/Read",
+                  "Run/Delete",
+                  "Run/Replay",
+                  "Run/Update",
+                  "SCM/Tag",
+                  "View/Configure",
+                  "View/Create",
+                  "View/Delete",
+                  "View/Read"
+               ]
+            }
          }
       ],
       "plugins": [ ],
