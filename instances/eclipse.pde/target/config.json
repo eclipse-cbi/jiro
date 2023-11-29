@@ -530,7 +530,7 @@
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
-      "maxConcurrency": 2,
+      "maxConcurrency": 6,
       "permissions": [
          {
             "grantedPermissions": [
@@ -697,11 +697,11 @@
          "resources": {
             "cpu": {
                "limit": "2000m",
-               "request": "250m"
+               "request": "850m"
             },
             "memory": {
-               "limit": "1536Mi",
-               "request": "1536Mi"
+               "limit": "2560Mi",
+               "request": "2560Mi"
             }
          },
          "stsName": "pde"
@@ -758,7 +758,7 @@
    "project": {
       "displayName": "Eclipse Plugin Development Environment (PDE)",
       "fullName": "eclipse.pde",
-      "resourcePacks": 1,
+      "resourcePacks": 3,
       "shortName": "pde",
       "unixGroupName": "eclipse.pde"
    },

@@ -75,7 +75,7 @@ jenkins:
   clouds:
   - kubernetes:
       name: "kubernetes"
-      containerCapStr: "2"
+      containerCapStr: "6"
       jenkinsUrl: "http://jenkins-ui.pde.svc.cluster.local/pde"
       jenkinsTunnel: "jenkins-discovery.pde.svc.cluster.local:50000"
       maxRequestsPerHostStr: "32"

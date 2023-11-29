@@ -1,7 +1,8 @@
 {
   project+: {
     fullName: "eclipse.pde",
-    displayName: "Eclipse Plugin Development Environment (PDE)"
+    displayName: "Eclipse Plugin Development Environment (PDE)",
+    resourcePacks: 3,
   },
   jenkins+: {
     plugins+: [
