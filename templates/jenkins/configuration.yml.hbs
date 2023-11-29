@@ -172,6 +172,16 @@ security:
           [git.eclipse.org]:29418 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA8+KrFs55Aw6ATeoTxSIQOLiYBDALPZ4qN02mvB49a2
           [eclipse.gerrithub.io]:29418 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC1wudLWtuNHlf5/nz2eewG8B+iVWfuuQcu9eXj3aC8B
 
+appearance:
+  simpleTheme:
+    elements:
+    - cssUrl:
+        url: "{{deployment.prefix}}/userContent/theme/{{jenkins.theme}}.css"
+    - cssUrl:
+        url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+    - jsUrl:
+        url: "{{deployment.prefix}}/userContent/theme/title.js"
+
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
@@ -190,15 +200,6 @@ unclassified:
 
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED
-
-  simple-theme-plugin:
-    elements:
-    - cssUrl:
-        url: "{{deployment.prefix}}/userContent/theme/{{jenkins.theme}}.css"
-    - cssUrl:
-        url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
-    - jsUrl:
-        url: "{{deployment.prefix}}/userContent/theme/title.js"
 
   buildDiscarders:
     configuredBuildDiscarders:
