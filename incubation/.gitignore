@@ -2,3 +2,5 @@
 /tmp/
 /jcasc_update.log
 /update_plugin_log/
+/uninstall_deprecated_plugins_log/
+/uninstall_plugins_log/
