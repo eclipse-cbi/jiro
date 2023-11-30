@@ -87,7 +87,7 @@ jenkins:
           - home: '/usr/bin/mvn'
             key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
           - home: '/usr/bin/java'
-            key: "hudson.model.JDK$DescriptorImpl@jdk1.8.0-latest"
+            key: "hudson.model.JDK$DescriptorImpl@openjdk-latest"
       - watcher:
           offlineAddresses: "releng@eclipse.org"
           onlineAddresses: "releng@eclipse.org"
