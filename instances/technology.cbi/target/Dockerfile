@@ -1,4 +1,4 @@
-FROM docker.io/eclipsecbi/jiro-master:2.414.3
+FROM docker.io/eclipsecbi/jiro-master:2.426.1
 
 EXPOSE 8080
 EXPOSE 50000
