@@ -1,5 +1,6 @@
 local jiroMasters = import '../../jiro-masters/masters.jsonnet';
 local permissions = import 'permissions.libsonnet';
+local permissions_extra = import 'permissions_extra.libsonnet';
 local plugins = import 'plugins.libsonnet';
 local clouds = import "clouds.libsonnet";
 {
@@ -32,7 +33,8 @@ local clouds = import "clouds.libsonnet";
     pluginsForceUpgrade: true,
     plugins: plugins.additionalPlugins($.project.fullName),
     permissions: permissions.projectPermissions($.project.unixGroupName,
-      permissions.committerPermissionsList + if std.member($.jenkins.plugins, "gerrit-trigger") then ["Gerrit/ManualTrigger", "Gerrit/Retrigger",] else []),
+      permissions.committerPermissionsList + if std.member($.jenkins.plugins, "gerrit-trigger") then ["Gerrit/ManualTrigger", "Gerrit/Retrigger",] else [])
+      + permissions_extra.additionalPermissions($.project.fullName),
   },
   jiroMaster: if ($.jenkins.version == "latest") then jiroMasters.masters[jiroMasters.latest] else jiroMasters.masters[$.jenkins.version],
   docker: {
