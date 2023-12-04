@@ -13,23 +13,12 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   jenkins+: {
     version: "2.414.2",
     staticAgentCount: 8, // fake higher number of staticAgent to increase controller's resources
-    permissions: [
-      {
-        user: "anonymous",
-        permissions: [
-          "Overall/Read",
-          "Job/Discover",  // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/1056
-        ]
-      },
-      {
-        group: $.project.unixGroupName,
-        permissions: permissionsTemplates.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger",],
-      },
-      {
-        group "admins",
-        permissions: ["Overall/Administer"],
-      },
-    ],
+    permissions+:
+      // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/1056
+      permissionsTemplates.user("anonymous", ["Overall/Read", "Job/Discover"]) +
+      permissionsTemplates.group($.project.unixGroupName, permissionsTemplates.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger",]) +
+      permissionsTemplates.group("admins", ["Overall/Administer"])
+    ,
     plugins+: [
       "disable-failed-job",
       "docker-workflow",

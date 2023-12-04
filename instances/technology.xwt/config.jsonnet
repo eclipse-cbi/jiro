@@ -9,12 +9,8 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     plugins+: [
       "gerrit-trigger",
     ],
-    permissions+: [
-      {
-        // https://bugs.eclipse.org/bugs/show_bug.cgi?id=547567
-        user: "patrick.tessier@cea.fr",
-        permissions: permissionsTemplates.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger"],
-      }
-    ]
+    permissions+:
+      // https://bugs.eclipse.org/bugs/show_bug.cgi?id=547567
+      permissionsTemplates.user("patrick.tessier@cea.fr", permissionsTemplates.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger"])
   }
 }

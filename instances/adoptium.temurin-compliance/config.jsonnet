@@ -8,16 +8,10 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   },
   jenkins+: {
     staticAgentCount: 10,
-    permissions: [
-      {
-        group: "admins",
-        permissions: ["Overall/Administer"],
-      },
-      {
-        group: $.project.unixGroupName,
-        permissions: permissionsTemplates.committerPermissionsList + ["Agent/Connect", "Agent/Disconnect", "Agent/ExtendedRead"],
-      },
-    ],
+    permissions:
+      permissionsTemplates.group("admins", ["Overall/Administer"]) +
+      permissionsTemplates.group($.project.unixGroupName, permissionsTemplates.committerPermissionsList + ["Agent/Connect", "Agent/Disconnect", "Agent/ExtendedRead"])
+    ,
     plugins+: [
       "artifactory",
       "badge",

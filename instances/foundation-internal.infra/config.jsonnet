@@ -13,58 +13,23 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   jenkins+: {
     version: "2.414.2",
     staticAgentCount: 1,
-    permissions: [
-      {
-        user: "anonymous",
-        permissions: [
-          "Overall/Read",
-          "Job/Discover", // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/1157#note_1153239
-        ]
-      },
-      {
-        group: "admins",
-        permissions: ["Overall/Administer"],
-      },
-      {
-        group: "foundation-internal.webdev",
-        permissions: ["Overall/Read"],
-      },
-      {
-        user: "wayne.beaton@eclipse-foundation.org",
-        permissions: ["Overall/Read", "Agent/Build"],
-      },
+    permissions:
+      // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/1157#note_1153239
+      permissionsTemplates.user("anonymous", ["Overall/Read", "Job/Discover"]) +
+      permissionsTemplates.group("admins", ["Overall/Administer"]) +
+      permissionsTemplates.group("foundation-internal.webdev", ["Overall/Read"]) +
+      permissionsTemplates.user("wayne.beaton@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
       // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/617
-      {
-        user: "boris.baldassari@eclipse-foundation.org",
-        permissions: ["Overall/Read", "Agent/Build"],
-      },
+      permissionsTemplates.user("boris.baldassari@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
       // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/1033
-      {
-        user: "florent.zara@eclipse-foundation.org",
-        permissions: ["Overall/Read", "Agent/Build"],
-      },
+      permissionsTemplates.user("florent.zara@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
       // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/933
-      {
-        user: "shawn.kilpatrick@eclipse-foundation.org",
-        permissions: ["Overall/Read", "Agent/Build"],
-      },
-      {
-        user: "marco.jahn@eclipse-foundation.org",
-        permissions: ["Overall/Read", "Agent/Build"],
-      },
-      {
-        user: "mariateresa.delgado@eclipse-foundation.org",
-        permissions: ["Overall/Read", "Agent/Build"],
-      },
-      {
-        user: "rahul.mohangeetha@eclipse-foundation.org",
-        permissions: ["Overall/Read", "Agent/Build"],
-      },
-      {
-        user: "foundation-internal.it",
-        permissions: permissionsTemplates.committerPermissionsList,
-      }
-    ],
+      permissionsTemplates.user("shawn.kilpatrick@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
+      permissionsTemplates.user("marco.jahn@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
+      permissionsTemplates.user("mariateresa.delgado@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
+      permissionsTemplates.user("rahul.mohangeetha@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
+      permissionsTemplates.group("foundation-internal.it", permissionsTemplates.committerPermissionsList)
+    ,
     plugins+: [
       "docker-workflow",
       "kubernetes-cli",
