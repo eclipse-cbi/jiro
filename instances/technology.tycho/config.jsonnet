@@ -6,8 +6,8 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     resourcePacks: 6,
   },
   jenkins+: {
-    permissions+: 
+    permissions+:
       // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/1110#note_648658
-      permissionsTemplates.projectPermissions("laeubi@laeubi-soft.de", ["Agent/Connect", "Agent/Disconnect", "Agent/ExtendedRead"])
+      permissionsTemplates.user("laeubi@laeubi-soft.de", ["Agent/Connect", "Agent/Disconnect", "Agent/ExtendedRead"])
   },
 }

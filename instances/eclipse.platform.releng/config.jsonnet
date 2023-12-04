@@ -17,9 +17,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     ],
     staticAgentCount: 10,
     permissions+:
-      permissionsTemplates.projectPermissions("sravankumarl@in.ibm.com", ["Agent/Connect", "Agent/Disconnect"]) +
+      permissionsTemplates.user("sravankumarl@in.ibm.com", ["Agent/Connect", "Agent/Disconnect"]) +
       // https://bugs.eclipse.org/bugs/show_bug.cgi?id=562806#c15
-      permissionsTemplates.projectPermissions("akurtakov@gmail.com", ["Agent/Connect", "Agent/Disconnect"])
+      permissionsTemplates.user("akurtakov@gmail.com", ["Agent/Connect", "Agent/Disconnect"])
   },
   maven+: {
     local superSettings = super.files["settings.xml"],

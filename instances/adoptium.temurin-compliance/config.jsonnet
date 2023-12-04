@@ -4,18 +4,18 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   project+: {
     fullName: "adoptium.temurin-compliance",
     displayName: "Eclipse Temurin Compliance",
-    
+
   },
   jenkins+: {
     staticAgentCount: 10,
     permissions: [
       {
-        principal: "admins",
-        grantedPermissions: ["Overall/Administer"],
+        group: "admins",
+        permissions: ["Overall/Administer"],
       },
       {
-        principal: $.project.unixGroupName,
-        grantedPermissions: permissionsTemplates.committerPermissionsList + ["Agent/Connect", "Agent/Disconnect", "Agent/ExtendedRead"],
+        group: $.project.unixGroupName,
+        permissions: permissionsTemplates.committerPermissionsList + ["Agent/Connect", "Agent/Disconnect", "Agent/ExtendedRead"],
       },
     ],
     plugins+: [

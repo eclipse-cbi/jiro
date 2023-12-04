@@ -15,54 +15,54 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     staticAgentCount: 1,
     permissions: [
       {
-        principal: "anonymous",
-        grantedPermissions: [
+        user: "anonymous",
+        permissions: [
           "Overall/Read",
           "Job/Discover", // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/1157#note_1153239
         ]
       },
       {
-        principal: "admins",
-        grantedPermissions: ["Overall/Administer"],
+        group: "admins",
+        permissions: ["Overall/Administer"],
       },
       {
-        principal: "foundation-internal.webdev",
-        grantedPermissions: ["Overall/Read"],
+        group: "foundation-internal.webdev",
+        permissions: ["Overall/Read"],
       },
       {
-        principal: "wayne.beaton@eclipse-foundation.org",
-        grantedPermissions: ["Overall/Read", "Agent/Build"],
+        user: "wayne.beaton@eclipse-foundation.org",
+        permissions: ["Overall/Read", "Agent/Build"],
       },
       // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/617
       {
-        principal: "boris.baldassari@eclipse-foundation.org",
-        grantedPermissions: ["Overall/Read", "Agent/Build"],
+        user: "boris.baldassari@eclipse-foundation.org",
+        permissions: ["Overall/Read", "Agent/Build"],
       },
       // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/1033
       {
-        principal: "florent.zara@eclipse-foundation.org",
-        grantedPermissions: ["Overall/Read", "Agent/Build"],
+        user: "florent.zara@eclipse-foundation.org",
+        permissions: ["Overall/Read", "Agent/Build"],
       },
       // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/933
       {
-        principal: "shawn.kilpatrick@eclipse-foundation.org",
-        grantedPermissions: ["Overall/Read", "Agent/Build"],
+        user: "shawn.kilpatrick@eclipse-foundation.org",
+        permissions: ["Overall/Read", "Agent/Build"],
       },
       {
-        principal: "marco.jahn@eclipse-foundation.org",
-        grantedPermissions: ["Overall/Read", "Agent/Build"],
+        user: "marco.jahn@eclipse-foundation.org",
+        permissions: ["Overall/Read", "Agent/Build"],
       },
       {
-        principal: "mariateresa.delgado@eclipse-foundation.org",
-        grantedPermissions: ["Overall/Read", "Agent/Build"],
+        user: "mariateresa.delgado@eclipse-foundation.org",
+        permissions: ["Overall/Read", "Agent/Build"],
       },
       {
-        principal: "rahul.mohangeetha@eclipse-foundation.org",
-        grantedPermissions: ["Overall/Read", "Agent/Build"],
+        user: "rahul.mohangeetha@eclipse-foundation.org",
+        permissions: ["Overall/Read", "Agent/Build"],
       },
       {
-        principal: "foundation-internal.it",
-        grantedPermissions: permissionsTemplates.committerPermissionsList,
+        user: "foundation-internal.it",
+        permissions: permissionsTemplates.committerPermissionsList,
       }
     ],
     plugins+: [

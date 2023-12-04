@@ -10,23 +10,23 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     permissions: permissionsTemplates.projectPermissions($.project.unixGroupName, permissionsTemplates.committerPermissionsList + ["Agent/Connect", "Agent/Disconnect"]) + [
       {
         // https://bugs.eclipse.org/bugs/show_bug.cgi?id=570552
-        principal: "adam.brousseau88@gmail.com",
-        grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel", "Overall/SystemRead"],
+        user: "adam.brousseau88@gmail.com",
+        permissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel", "Overall/SystemRead"],
       },
       {
         // https://bugs.eclipse.org/bugs/show_bug.cgi?id=570552
-        principal: "joe_dekoning@ca.ibm.com",
-        grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel"],
+        user: "joe_dekoning@ca.ibm.com",
+        permissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel"],
       },
       {
         // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2042
-        principal: "sarah_jackson@uk.ibm.com",
-        grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel"],
+        user: "sarah_jackson@uk.ibm.com",
+        permissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel"],
       },
       {
         // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/3319
-        principal: "mahdi@ibm.com",
-        grantedPermissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel"],
+        user: "mahdi@ibm.com",
+        permissions: ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel"],
       },
     ],
     plugins+: [

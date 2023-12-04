@@ -7,8 +7,8 @@
       permissions+: [
       // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2481
       {
-        principal: "ed.merks@gmail.com",
-        grantedPermissions: ["Overall/Read", "Job/Build", "Job/Read", "Job/ExtendedRead", "Job/Cancel", "Agent/Build"],
+        user: "ed.merks@gmail.com",
+        permissions: ["Overall/Read", "Job/Build", "Job/Read", "Job/ExtendedRead", "Job/Cancel", "Agent/Build"],
       },
       ],
   },

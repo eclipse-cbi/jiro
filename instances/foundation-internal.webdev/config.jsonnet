@@ -15,19 +15,19 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     staticAgentCount: 8, // fake higher number of staticAgent to increase controller's resources
     permissions: [
       {
-        principal: "anonymous",
-        grantedPermissions: [
+        user: "anonymous",
+        permissions: [
           "Overall/Read",
           "Job/Discover",  // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/1056
         ]
       },
       {
-        principal: $.project.unixGroupName,
-        grantedPermissions: permissionsTemplates.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger",],
+        group: $.project.unixGroupName,
+        permissions: permissionsTemplates.committerPermissionsList + ["Gerrit/ManualTrigger", "Gerrit/Retrigger",],
       },
       {
-        principal: "admins",
-        grantedPermissions: ["Overall/Administer"],
+        group "admins",
+        permissions: ["Overall/Administer"],
       },
     ],
     plugins+: [

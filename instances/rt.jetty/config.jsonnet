@@ -10,25 +10,25 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     // https://bugs.eclipse.org/bugs/show_bug.cgi?id=572882
     permissions+: [
       {
-        principal: "akurtako@redhat.com",
-        grantedPermissions: permissionsTemplates.committerPermissionsList,
+        user: "akurtako@redhat.com",
+        permissions: permissionsTemplates.committerPermissionsList,
       },
       {
-        principal: "rgrunber@redhat.com",
-        grantedPermissions: permissionsTemplates.committerPermissionsList,
+        user: "rgrunber@redhat.com",
+        permissions: permissionsTemplates.committerPermissionsList,
       },
       {
-        principal: "matthias.sohn@sap.com",
-        grantedPermissions: permissionsTemplates.committerPermissionsList,
+        user: "matthias.sohn@sap.com",
+        permissions: permissionsTemplates.committerPermissionsList,
       },
       {
-        principal: "sravankumarl@in.ibm.com",
-        grantedPermissions: permissionsTemplates.committerPermissionsList,
+        user: "sravankumarl@in.ibm.com",
+        permissions: permissionsTemplates.committerPermissionsList,
       },
       // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2996
       {
-        principal: "gpunathi@in.ibm.com",
-        grantedPermissions: permissionsTemplates.committerPermissionsList,
+        user: "gpunathi@in.ibm.com",
+        permissions: permissionsTemplates.committerPermissionsList,
       },
     ],
   },

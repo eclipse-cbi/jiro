@@ -1,4 +1,3 @@
-local permissionsTemplates = import '../../templates/permissions.libsonnet';
 {
   project+: {
     fullName: "modeling.tmf.xtext",

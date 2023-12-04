@@ -7,7 +7,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   },
   jenkins+: {
     permissions+:
-      permissionsTemplates.projectPermissions("ed.merks@gmail.com", ["Agent/Connect", "Agent/Disconnect"]),
+      permissionsTemplates.user("ed.merks@gmail.com", ["Agent/Connect", "Agent/Disconnect"]),
     plugins+: [
       "build-with-parameters",
       "mail-watcher-plugin",
