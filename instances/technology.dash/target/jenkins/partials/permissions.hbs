@@ -1,16 +1,11 @@
-- user:
-    name: anonymous
-    permissions:
-      - Overall/Read
-      - Job/Read
-- group:
-    name: common
-    permissions:
-      - Job/ExtendedRead
 - group:
     name: admins
     permissions:
       - Overall/Administer
+- group:
+    name: common
+    permissions:
+      - Job/ExtendedRead
 - group:
     name: technology.dash
     permissions:
@@ -33,3 +28,8 @@
       - View/Create
       - View/Delete
       - View/Read
+- user:
+    name: anonymous
+    permissions:
+      - Overall/Read
+      - Job/Read

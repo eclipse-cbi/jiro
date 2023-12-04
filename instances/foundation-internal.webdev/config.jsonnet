@@ -11,7 +11,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     prefix: "/ci/"+ $.project.shortName,
   },
   jenkins+: {
-    version: "2.414.2",
+    version: "2.426.1",
     staticAgentCount: 8, // fake higher number of staticAgent to increase controller's resources
     permissions+:
       // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/1056

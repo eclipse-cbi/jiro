@@ -14,7 +14,7 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "technology.dash"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.426.1"
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.426.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "dash"
   namespace: "dash"
@@ -42,19 +42,14 @@ data:
       authorizationStrategy:
         projectMatrix:
           entries:
-            - user:
-                name: anonymous
-                permissions:
-                  - Overall/Read
-                  - Job/Read
-            - group:
-                name: common
-                permissions:
-                  - Job/ExtendedRead
             - group:
                 name: admins
                 permissions:
                   - Overall/Administer
+            - group:
+                name: common
+                permissions:
+                  - Job/ExtendedRead
             - group:
                 name: technology.dash
                 permissions:
@@ -77,6 +72,11 @@ data:
                   - View/Create
                   - View/Delete
                   - View/Read
+            - user:
+                name: anonymous
+                permissions:
+                  - Overall/Read
+                  - Job/Read
       markupFormatter: rawHtml
       crumbIssuer:
         standard:
@@ -634,26 +634,20 @@ data:
             home: "/opt/tools/java/oracle/jdk-9/latest"
           - name: "oracle-jdk8-latest"
             home: "/opt/tools/java/oracle/jdk-8/latest"
-          - name: "oracle-jdk7-latest"
-            home: "/opt/tools/java/oracle/jdk-7/latest"
-          - name: "oracle-jdk6-latest"
-            home: "/opt/tools/java/oracle/jdk-6/latest"
-          - name: "oracle-jdk5-latest"
-            home: "/opt/tools/java/oracle/jdk-5/latest"
           - name: "ibm-jdk8-latest"
             home: "/opt/tools/java/ibm/jdk-8/latest"
           - name: "ibm-latest"
             home: "/opt/tools/java/ibm/latest"
           - name: "semeru-latest"
             home: "/opt/tools/java/semeru/latest"
-          - name: "semeru-jdk8-latest"
-            home: "/opt/tools/java/semeru/jdk-8/latest"
-          - name: "semeru-jdk11-latest"
-            home: "/opt/tools/java/semeru/jdk-11/latest"
-          - name: "semeru-jdk17-latest"
-            home: "/opt/tools/java/semeru/jdk-17/latest"
           - name: "semeru-jdk18-latest"
             home: "/opt/tools/java/semeru/jdk-18/latest"
+          - name: "semeru-jdk17-latest"
+            home: "/opt/tools/java/semeru/jdk-17/latest"
+          - name: "semeru-jdk11-latest"
+            home: "/opt/tools/java/semeru/jdk-11/latest"
+          - name: "semeru-jdk8-latest"
+            home: "/opt/tools/java/semeru/jdk-8/latest"
       ant:
         installations:
           - name: "apache-ant-latest"

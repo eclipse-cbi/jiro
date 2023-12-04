@@ -23,11 +23,6 @@ jenkins:
             name: admins
             permissions:
               - Overall/Administer
-        - user:
-            name: anonymous
-            permissions:
-              - Job/Read
-              - Overall/Read
         - group:
             name: automotive.openpass
             permissions:
@@ -54,6 +49,11 @@ jenkins:
             name: common
             permissions:
               - Job/ExtendedRead
+        - user:
+            name: anonymous
+            permissions:
+              - Overall/Read
+              - Job/Read
   markupFormatter: rawHtml
   crumbIssuer:
     standard:
@@ -82,7 +82,7 @@ jenkins:
             label: "basic"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3131.vf2b_b_798b_ce99
+                image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3160.vd76b_9ddd10cc
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -168,7 +168,7 @@ jenkins:
             label: "basic-ubuntu"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3131.vf2b_b_798b_ce99
+                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3160.vd76b_9ddd10cc
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -254,7 +254,7 @@ jenkins:
             label: "migration jipp-migration centos-7"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3131.vf2b_b_798b_ce99
+                image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3160.vd76b_9ddd10cc
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -340,7 +340,7 @@ jenkins:
             label: "centos-latest centos-8"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3131.vf2b_b_798b_ce99
+                image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3160.vd76b_9ddd10cc
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -462,6 +462,15 @@ security:
           gitlab.eclipse.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBsuD5uVWgjZX3jrcvdWu0DwbbarL32mfbNAVABi4wCc
           gitlab.eclipse.org ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCl6Wwb+m463X7a05TsllEYEmRklkwUWgqHVcvxsW6l6n9tPNcUWrcfTWupMQoONe7PuBsr6SkiYXRcSjHJy9qDXo5Nz/F/IU+EQ+haTU5pGfMRXAsQfdAB0AR5mSPOTkurRHL1sGi6jtp2wpgkbEfykcuEnmg36BCBqsARl08K6OuI2CtrKevXN0x5S5bF6vgzmvUm4aRQnF7WIg7HSOYVZIH5QGHsxsqr045xGLyk0scEIz6ZdslsinGYyvg8J9d6WJJebtjMX+KBHtXYKrFx0xqqnIYSj3WACaP32GDVFqPpxeNmJaVIJuymxsxxQMGYCsJT9diDv3dI+efu5xb
           gitlab.eclipse.org ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBIPik0+gkBsbyVzTLvDq4ESZJMlUSZeb/tjdOHPbTLcSSlHX8R4CdqQwjWdxi4AMQ/76FXUsNH2azvkvgSh/r+E=
+appearance:
+  simpleTheme:
+    elements:
+      - cssUrl:
+          url: "/openpass/userContent/theme/quicksilver.css"
+      - cssUrl:
+          url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+      - jsUrl:
+          url: "/openpass/userContent/theme/title.js"
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
@@ -477,14 +486,6 @@ unclassified:
       smtpHost: "mail.eclipse.org"
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED
-  simple-theme-plugin:
-    elements:
-      - cssUrl:
-          url: "/openpass/userContent/theme/quicksilver.css"
-      - cssUrl:
-          url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
-      - jsUrl:
-          url: "/openpass/userContent/theme/title.js"
   buildDiscarders:
     configuredBuildDiscarders:
       - "jobBuildDiscarder"
@@ -625,26 +626,20 @@ tool:
         home: "/opt/tools/java/oracle/jdk-9/latest"
       - name: "oracle-jdk8-latest"
         home: "/opt/tools/java/oracle/jdk-8/latest"
-      - name: "oracle-jdk7-latest"
-        home: "/opt/tools/java/oracle/jdk-7/latest"
-      - name: "oracle-jdk6-latest"
-        home: "/opt/tools/java/oracle/jdk-6/latest"
-      - name: "oracle-jdk5-latest"
-        home: "/opt/tools/java/oracle/jdk-5/latest"
       - name: "ibm-jdk8-latest"
         home: "/opt/tools/java/ibm/jdk-8/latest"
       - name: "ibm-latest"
         home: "/opt/tools/java/ibm/latest"
       - name: "semeru-latest"
         home: "/opt/tools/java/semeru/latest"
-      - name: "semeru-jdk8-latest"
-        home: "/opt/tools/java/semeru/jdk-8/latest"
-      - name: "semeru-jdk11-latest"
-        home: "/opt/tools/java/semeru/jdk-11/latest"
-      - name: "semeru-jdk17-latest"
-        home: "/opt/tools/java/semeru/jdk-17/latest"
       - name: "semeru-jdk18-latest"
         home: "/opt/tools/java/semeru/jdk-18/latest"
+      - name: "semeru-jdk17-latest"
+        home: "/opt/tools/java/semeru/jdk-17/latest"
+      - name: "semeru-jdk11-latest"
+        home: "/opt/tools/java/semeru/jdk-11/latest"
+      - name: "semeru-jdk8-latest"
+        home: "/opt/tools/java/semeru/jdk-8/latest"
   ant:
     installations:
       - name: "apache-ant-latest"

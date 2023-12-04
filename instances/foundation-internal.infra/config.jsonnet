@@ -11,7 +11,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     prefix: "/ci/" + $.project.shortName,
   },
   jenkins+: {
-    version: "2.414.2",
+    version: "2.426.1",
     staticAgentCount: 1,
     permissions:
       // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/1157#note_1153239

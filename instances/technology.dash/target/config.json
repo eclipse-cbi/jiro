@@ -495,7 +495,7 @@
       "staticAgentCount": 0,
       "theme": "quicksilver",
       "timezone": "America/Toronto",
-      "version": "2.426.1"
+      "version": "latest"
    },
    "jiroMaster": {
       "docker": {

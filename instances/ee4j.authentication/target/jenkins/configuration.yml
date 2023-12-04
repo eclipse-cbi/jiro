@@ -21,41 +21,41 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       entries:
-          - group:
-              name: admins
-              permissions:
-               - Overall/Administer
-          - user:
-              name: anonymous
-              permissions:
-               - Job/Read
-               - Overall/Read
-          - group:
-              name: common
-              permissions:
-               - Job/ExtendedRead
-          - group:
-              name: ee4j.authentication
-              permissions:
-               - Agent/Build
-               - Credentials/View
-               - Job/Build
-               - Job/Cancel
-               - Job/Configure
-               - Job/Create
-               - Job/Delete
-               - Job/Move
-               - Job/Read
-               - Job/Workspace
-               - Overall/Read
-               - Run/Delete
-               - Run/Replay
-               - Run/Update
-               - SCM/Tag
-               - View/Configure
-               - View/Create
-               - View/Delete
-               - View/Read
+        - group:
+            name: admins
+            permissions:
+              - Overall/Administer
+        - group:
+            name: common
+            permissions:
+              - Job/ExtendedRead
+        - group:
+            name: ee4j.authentication
+            permissions:
+              - Agent/Build
+              - Credentials/View
+              - Job/Build
+              - Job/Cancel
+              - Job/Configure
+              - Job/Create
+              - Job/Delete
+              - Job/Move
+              - Job/Read
+              - Job/Workspace
+              - Overall/Read
+              - Run/Delete
+              - Run/Replay
+              - Run/Update
+              - SCM/Tag
+              - View/Configure
+              - View/Create
+              - View/Delete
+              - View/Read
+        - user:
+            name: anonymous
+            permissions:
+              - Overall/Read
+              - Job/Read
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -611,12 +611,6 @@ tool:
       home: "/opt/tools/java/oracle/jdk-9/latest"
     - name: "oracle-jdk8-latest"
       home: "/opt/tools/java/oracle/jdk-8/latest"
-    - name: "oracle-jdk7-latest"
-      home: "/opt/tools/java/oracle/jdk-7/latest"
-    - name: "oracle-jdk6-latest"
-      home: "/opt/tools/java/oracle/jdk-6/latest"
-    - name: "oracle-jdk5-latest"
-      home: "/opt/tools/java/oracle/jdk-5/latest"
     - name: "ibm-jdk8-latest"
       home: "/opt/tools/java/ibm/jdk-8/latest"
     - name: "ibm-latest"

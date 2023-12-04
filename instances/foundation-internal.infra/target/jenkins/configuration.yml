@@ -23,21 +23,6 @@ jenkins:
             name: admins
             permissions:
               - Overall/Administer
-        - user:
-            name: anonymous
-            permissions:
-              - Job/Discover
-              - Overall/Read
-        - user:
-            name: boris.baldassari@eclipse-foundation.org
-            permissions:
-              - Agent/Build
-              - Overall/Read
-        - user:
-            name: florent.zara@eclipse-foundation.org
-            permissions:
-              - Agent/Build
-              - Overall/Read
         - group:
             name: foundation-internal.it
             permissions:
@@ -65,30 +50,45 @@ jenkins:
             permissions:
               - Overall/Read
         - user:
+            name: anonymous
+            permissions:
+              - Overall/Read
+              - Job/Discover
+        - user:
+            name: boris.baldassari@eclipse-foundation.org
+            permissions:
+              - Overall/Read
+              - Agent/Build
+        - user:
+            name: florent.zara@eclipse-foundation.org
+            permissions:
+              - Overall/Read
+              - Agent/Build
+        - user:
             name: marco.jahn@eclipse-foundation.org
             permissions:
-              - Agent/Build
               - Overall/Read
+              - Agent/Build
         - user:
             name: mariateresa.delgado@eclipse-foundation.org
             permissions:
-              - Agent/Build
               - Overall/Read
+              - Agent/Build
         - user:
             name: rahul.mohangeetha@eclipse-foundation.org
             permissions:
-              - Agent/Build
               - Overall/Read
+              - Agent/Build
         - user:
             name: shawn.kilpatrick@eclipse-foundation.org
             permissions:
-              - Agent/Build
               - Overall/Read
+              - Agent/Build
         - user:
             name: wayne.beaton@eclipse-foundation.org
             permissions:
-              - Agent/Build
               - Overall/Read
+              - Agent/Build
   markupFormatter: rawHtml
   crumbIssuer:
     standard:
@@ -117,7 +117,7 @@ jenkins:
             label: "basic"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3131.vf2b_b_798b_ce99
+                image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3160.vd76b_9ddd10cc
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -203,7 +203,7 @@ jenkins:
             label: "basic-ubuntu"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3131.vf2b_b_798b_ce99
+                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3160.vd76b_9ddd10cc
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -289,7 +289,7 @@ jenkins:
             label: "migration jipp-migration centos-7"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3131.vf2b_b_798b_ce99
+                image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3160.vd76b_9ddd10cc
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -375,7 +375,7 @@ jenkins:
             label: "centos-latest centos-8"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3131.vf2b_b_798b_ce99
+                image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3160.vd76b_9ddd10cc
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -537,6 +537,15 @@ security:
           [foundation.eclipse.org]:29418,[172.25.25.206]:29418 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEArAdc5w86HX4vPtqpUVir4WuNWJVTLv8f5X3UuCxbCzlYUljvRRteW4O19D2Ud4ClHK+Bw54nYW1kKgPslUGcM6Qeb3iPLK43TQOqjOYDSjy11iXeZ0SaYLsGgibRPT+VLZGAHqbmXvYxuK68vuCQCwgAQ1e02OcAQMX0t/0TboaFtdz0dQeX6y3gztpw87HzNOzKBxbJ13cMlqqysXoZ420huu8+oSwGfIHCRl8z39KnNmBxyOpE/Kzwl0YvGIZSPVGOuuI+24R53bNYT69n4cOuAk/VTa7JAC+i9cN6T3tDDDk9TrKezZtKvHYLZDXEIOCgj56rB7kvA+Ub0jnAgw==
           [foundation.eclipse.org]:29418 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBkIIXQt8hQ/2xqrDc7n9iat1JQwiCoBT8JecHbk+COS
           20.104.233.12 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDkH1ET4ScUfV5JHHr7f7dOg4jHg09SL2Q03ST6oAmC5yxmU52uu8vhUZRM5H5zjrW4ml7/U4s+J3LyUHNtcQq5xqBrQCDc2uSXUTFeShp3FeehHRvvOzlJqSANvQj+0Qdxb/aU0lxAYXaLsRy+HEH75aSceTXYDFvVjygteBApVFAaTCNYlDNPsxMUQ1ZKi7cy7DPT1w6PVpGO+9i7WXHkMCJlhOLf6ivJWgH5NtcHJMAxs7fGHYPjn8rUJlSAY/Hg1bT5JcGAdNWxsaCmKMucaGBeHz2E+hXtx6k4ye5fJqlFuWkxfWyJSewmoNrilACl9XKp5mPbVZyCZCDJCtVYkT6gf3nm5bTiSfIBb5fLM1eVKssa2PNcEW7sajRKEpw6GKcD0a1gj1ERbZapVWk42AD9TCIeaT8SniZrq60n5E/SVRBQvoCArdLIQgfm4zflUsH/gFeMFMV/PvQ6vrbRCd+fhbnaRWFVOpUUwwMaM+8OXCbS9XOPge8B2wqOVqk=
+appearance:
+  simpleTheme:
+    elements:
+      - cssUrl:
+          url: "/ci/infra/userContent/theme/quicksilver.css"
+      - cssUrl:
+          url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+      - jsUrl:
+          url: "/ci/infra/userContent/theme/title.js"
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
@@ -552,14 +561,6 @@ unclassified:
       smtpHost: "mail.eclipse.org"
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED
-  simple-theme-plugin:
-    elements:
-      - cssUrl:
-          url: "/ci/infra/userContent/theme/quicksilver.css"
-      - cssUrl:
-          url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
-      - jsUrl:
-          url: "/ci/infra/userContent/theme/title.js"
   buildDiscarders:
     configuredBuildDiscarders:
       - "jobBuildDiscarder"
@@ -700,26 +701,20 @@ tool:
         home: "/opt/tools/java/oracle/jdk-9/latest"
       - name: "oracle-jdk8-latest"
         home: "/opt/tools/java/oracle/jdk-8/latest"
-      - name: "oracle-jdk7-latest"
-        home: "/opt/tools/java/oracle/jdk-7/latest"
-      - name: "oracle-jdk6-latest"
-        home: "/opt/tools/java/oracle/jdk-6/latest"
-      - name: "oracle-jdk5-latest"
-        home: "/opt/tools/java/oracle/jdk-5/latest"
       - name: "ibm-jdk8-latest"
         home: "/opt/tools/java/ibm/jdk-8/latest"
       - name: "ibm-latest"
         home: "/opt/tools/java/ibm/latest"
       - name: "semeru-latest"
         home: "/opt/tools/java/semeru/latest"
-      - name: "semeru-jdk8-latest"
-        home: "/opt/tools/java/semeru/jdk-8/latest"
-      - name: "semeru-jdk11-latest"
-        home: "/opt/tools/java/semeru/jdk-11/latest"
-      - name: "semeru-jdk17-latest"
-        home: "/opt/tools/java/semeru/jdk-17/latest"
       - name: "semeru-jdk18-latest"
         home: "/opt/tools/java/semeru/jdk-18/latest"
+      - name: "semeru-jdk17-latest"
+        home: "/opt/tools/java/semeru/jdk-17/latest"
+      - name: "semeru-jdk11-latest"
+        home: "/opt/tools/java/semeru/jdk-11/latest"
+      - name: "semeru-jdk8-latest"
+        home: "/opt/tools/java/semeru/jdk-8/latest"
   ant:
     installations:
       - name: "apache-ant-latest"

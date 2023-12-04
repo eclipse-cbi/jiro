@@ -21,41 +21,41 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       entries:
-          - group:
-              name: admins
-              permissions:
-               - Overall/Administer
-          - user:
-              name: anonymous
-              permissions:
-               - Job/Read
-               - Overall/Read
-          - group:
-              name: common
-              permissions:
-               - Job/ExtendedRead
-          - group:
-              name: jakartaee.spec-committee
-              permissions:
-               - Agent/Build
-               - Credentials/View
-               - Job/Build
-               - Job/Cancel
-               - Job/Configure
-               - Job/Create
-               - Job/Delete
-               - Job/Move
-               - Job/Read
-               - Job/Workspace
-               - Overall/Read
-               - Run/Delete
-               - Run/Replay
-               - Run/Update
-               - SCM/Tag
-               - View/Configure
-               - View/Create
-               - View/Delete
-               - View/Read
+        - group:
+            name: admins
+            permissions:
+              - Overall/Administer
+        - group:
+            name: common
+            permissions:
+              - Job/ExtendedRead
+        - group:
+            name: jakartaee.spec-committee
+            permissions:
+              - Agent/Build
+              - Credentials/View
+              - Job/Build
+              - Job/Cancel
+              - Job/Configure
+              - Job/Create
+              - Job/Delete
+              - Job/Move
+              - Job/Read
+              - Job/Workspace
+              - Overall/Read
+              - Run/Delete
+              - Run/Replay
+              - Run/Update
+              - SCM/Tag
+              - View/Configure
+              - View/Create
+              - View/Delete
+              - View/Read
+        - user:
+            name: anonymous
+            permissions:
+              - Overall/Read
+              - Job/Read
 
   markupFormatter: rawHtml
   crumbIssuer:
@@ -87,7 +87,7 @@ jenkins:
         label: "basic"
         containers:
         - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3131.vf2b_b_798b_ce99
+          image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3160.vd76b_9ddd10cc
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -173,7 +173,7 @@ jenkins:
         label: "basic-ubuntu"
         containers:
         - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3131.vf2b_b_798b_ce99
+          image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3160.vd76b_9ddd10cc
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -259,7 +259,7 @@ jenkins:
         label: "migration jipp-migration centos-7"
         containers:
         - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3131.vf2b_b_798b_ce99
+          image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3160.vd76b_9ddd10cc
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -345,7 +345,7 @@ jenkins:
         label: "centos-latest centos-8"
         containers:
         - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3131.vf2b_b_798b_ce99
+          image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3160.vd76b_9ddd10cc
           alwaysPullImage: true
           livenessProbe:
             failureThreshold: 0
@@ -451,6 +451,17 @@ security:
           projects-storage.eclipse.org,172.25.25.150 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAOUQ8p0E/Ib3uchk+6wEZ8UtBHTBvyI2E+eA/sOXajLQPKP0XIbVyECy8x5OmrrlvOYs+LxxniGJ69UIjiYZqM=
           projects-storage.eclipse.org,172.25.25.150 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAsn6PO2Uemsr7wIUu5x0RnlRcuK36D2sbmYNe2LSKdb
           [git.eclipse.org]:29418 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA8+KrFs55Aw6ATeoTxSIQOLiYBDALPZ4qN02mvB49a2
+          [eclipse.gerrithub.io]:29418 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC1wudLWtuNHlf5/nz2eewG8B+iVWfuuQcu9eXj3aC8B
+
+appearance:
+  simpleTheme:
+    elements:
+    - cssUrl:
+        url: "/jakartaee-spec-committee/userContent/theme/quicksilver.css"
+    - cssUrl:
+        url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+    - jsUrl:
+        url: "/jakartaee-spec-committee/userContent/theme/title.js"
 
 unclassified:
   location:
@@ -470,15 +481,6 @@ unclassified:
 
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED
-
-  simple-theme-plugin:
-    elements:
-    - cssUrl:
-        url: "/jakartaee-spec-committee/userContent/theme/quicksilver.css"
-    - cssUrl:
-        url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
-    - jsUrl:
-        url: "/jakartaee-spec-committee/userContent/theme/title.js"
 
   buildDiscarders:
     configuredBuildDiscarders:
@@ -609,26 +611,20 @@ tool:
       home: "/opt/tools/java/oracle/jdk-9/latest"
     - name: "oracle-jdk8-latest"
       home: "/opt/tools/java/oracle/jdk-8/latest"
-    - name: "oracle-jdk7-latest"
-      home: "/opt/tools/java/oracle/jdk-7/latest"
-    - name: "oracle-jdk6-latest"
-      home: "/opt/tools/java/oracle/jdk-6/latest"
-    - name: "oracle-jdk5-latest"
-      home: "/opt/tools/java/oracle/jdk-5/latest"
     - name: "ibm-jdk8-latest"
       home: "/opt/tools/java/ibm/jdk-8/latest"
     - name: "ibm-latest"
       home: "/opt/tools/java/ibm/latest"
     - name: "semeru-latest"
       home: "/opt/tools/java/semeru/latest"
-    - name: "semeru-jdk8-latest"
-      home: "/opt/tools/java/semeru/jdk-8/latest"
-    - name: "semeru-jdk11-latest"
-      home: "/opt/tools/java/semeru/jdk-11/latest"
-    - name: "semeru-jdk17-latest"
-      home: "/opt/tools/java/semeru/jdk-17/latest"
     - name: "semeru-jdk18-latest"
       home: "/opt/tools/java/semeru/jdk-18/latest"
+    - name: "semeru-jdk17-latest"
+      home: "/opt/tools/java/semeru/jdk-17/latest"
+    - name: "semeru-jdk11-latest"
+      home: "/opt/tools/java/semeru/jdk-11/latest"
+    - name: "semeru-jdk8-latest"
+      home: "/opt/tools/java/semeru/jdk-8/latest"
   ant:
     installations:
     - name: "apache-ant-latest"
