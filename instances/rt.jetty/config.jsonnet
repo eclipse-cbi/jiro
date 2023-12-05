@@ -14,6 +14,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       permissionsTemplates.user("matthias.sohn@sap.com", permissionsTemplates.committerPermissionsList) +
       permissionsTemplates.user("sravankumarl@in.ibm.com", permissionsTemplates.committerPermissionsList) +
       // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2996
-      permissionsTemplates.user("gpunathi@in.ibm.com", permissionsTemplates.committerPermissionsList) +
+      permissionsTemplates.user("gpunathi@in.ibm.com", permissionsTemplates.committerPermissionsList)
   },
 }
