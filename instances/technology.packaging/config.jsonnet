@@ -1,3 +1,5 @@
+local permissionsTemplates = import '../../templates/permissions.libsonnet';
+
 {
   project+: {
     fullName: "technology.packaging",
