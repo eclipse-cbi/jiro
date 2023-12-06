@@ -39,7 +39,7 @@ CONFIG_JSON="${INSTANCE}/target/config.json"
 install_additional_plugins() {
   local build_dir
   build_dir="$(readlink -f "${INSTANCE}/target/jenkins")"
-  
+
   INFO "Downloading plugin manager tool"
   download ifmodified "$(jq -r '.jiroMaster.plugin_manager.jar' "${CONFIG_JSON}")" "${build_dir}/tools/jenkins-plugin-manager.jar"
 
@@ -62,7 +62,7 @@ install_additional_plugins() {
       && cp '${war_file}' ${image_wd}" |& TRACE
 
   INFO "Downloading additional plugins"
-  local update_center 
+  local update_center
   update_center="$(jq -r '.jiroMaster.updateCenter' "${CONFIG_JSON}")"
   docker run -u "$(id -u):$(id -g)" --rm \
     -v "${build_dir}:${image_wd}" \
@@ -105,6 +105,8 @@ jq -r '.docker.master.dockerfile' "${CONFIG_JSON}" > "${dockerfile}"
 INFO "Building ${image}:${tag} from ${dockerfile} (push=${PUSH_IMAGES})"
 dockerw build "${image}" "${tag}" "${dockerfile}" "$(dirname "${dockerfile}")" "${PUSH_IMAGES}" false
 
-# remove ${build_dir}/ref/plugins/ to save disk space, comment out for debugging purposes
+# remove ${build_dir}/ref/plugins/ and jenkins.war file to save disk space, comment out for debugging purposes
 build_dir="$(readlink -f "${INSTANCE}/target/jenkins")"
 rm -rf "${build_dir}/ref/plugins/"
+rm -rf "${build_dir}/jenkins.war"
+rm -rf "${build_dir}/tools"
