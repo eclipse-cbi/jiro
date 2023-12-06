@@ -56,6 +56,50 @@ jenkins:
             permissions:
               - Overall/Read
               - Job/Read
+        - user:
+            name: arjan.tijms@omnifish.ee
+            permissions:
+              - Agent/Build
+              - Credentials/View
+              - Job/Build
+              - Job/Cancel
+              - Job/Configure
+              - Job/Create
+              - Job/Delete
+              - Job/Move
+              - Job/Read
+              - Job/Workspace
+              - Overall/Read
+              - Run/Delete
+              - Run/Replay
+              - Run/Update
+              - SCM/Tag
+              - View/Configure
+              - View/Create
+              - View/Delete
+              - View/Read
+        - user:
+            name: edward.burns@microsoft.com
+            permissions:
+              - Agent/Build
+              - Credentials/View
+              - Job/Build
+              - Job/Cancel
+              - Job/Configure
+              - Job/Create
+              - Job/Delete
+              - Job/Move
+              - Job/Read
+              - Job/Workspace
+              - Overall/Read
+              - Run/Delete
+              - Run/Replay
+              - Run/Update
+              - SCM/Tag
+              - View/Configure
+              - View/Create
+              - View/Delete
+              - View/Read
 
   markupFormatter: rawHtml
   crumbIssuer:
