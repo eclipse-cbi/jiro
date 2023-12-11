@@ -24,4 +24,4 @@ if [[ ! -f "${json}" ]]; then
 fi
 
 # removes duplicate entries, but does not merge entries
-jq -c '.jenkins.permissions | unique' "${json}" | yq -P 'sort_keys(..)' -p json -o yaml -
+jq -c '.jenkins.permissions | unique' "${json}" | yq -P 'sort_keys(..)' -o yaml -
