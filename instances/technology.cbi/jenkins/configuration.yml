@@ -12,7 +12,7 @@ jenkins:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeTB1LA7FnUI8kNrY8zVx/Ywy1RN4tJj11W9QWFWTr6gAJgSNEneKIa8hnjZEPddYOIsBOQ9VSvgXYGFRKEFXW23zskuWEyCqSZ/e7RTw2VTCh5nfUZlX1eG7iujn1mpineX/+hRR7HtxDM9MPhpbrq6HVjXuSx8mex9vu4p20ZVZkewedmtG2+qYDDTsv8uw0kX+kkyRuE6An14omsCQ+8mJ17zQnGXN2CnrXXMOWbgH9BC8RZUvNZOzNY1JkWf9EqY2Tz3YJPgUM+9qVj3/BEjGopEIUT/jDuk2NnOo+V1GT8aWzwmBjv91F7wgjuQ72cV8GeSbxz0utQ9isuMkp"
       mode: EXCLUSIVE
       name: "fmlw3-ubuntu1804"
-      nodeDescription: "4vCPU, 16GB RAM, Hosted @ Azure"
+      nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
       remoteFS: "/home/genie.cbi/jenkins-agent"
       numExecutors: 2
       nodeProperties:
