@@ -85,7 +85,7 @@ unclassified:
       url: "https://gitlab.eclipse.org"
   gitLabServers:
     servers:
-    - credentialsId: "gitlab-personal-access-token"
+    - credentialsId: "gitlab-api-token"
       name: "gitlab.eclipse.org"
       serverUrl: "https://gitlab.eclipse.org"
       webhookSecretCredentialsId: "gitlab-webhook-secret"
