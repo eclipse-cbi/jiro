@@ -2,6 +2,7 @@
   project+: {
     fullName: "technology.cbi",
     displayName: "Eclipse CBI",
+    resourcePacks: 5,
   },
   jenkins+: {
     version: "2.426.1",
