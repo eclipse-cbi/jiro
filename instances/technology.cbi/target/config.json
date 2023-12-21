@@ -484,7 +484,7 @@
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
-      "maxConcurrency": 2,
+      "maxConcurrency": 10,
       "permissions": [
          {
             "user": {
@@ -674,12 +674,12 @@
          },
          "resources": {
             "cpu": {
-               "limit": "2000m",
-               "request": "700m"
+               "limit": "3800m",
+               "request": "1900m"
             },
             "memory": {
-               "limit": "2304Mi",
-               "request": "2304Mi"
+               "limit": "4352Mi",
+               "request": "4352Mi"
             }
          },
          "stsName": "cbi"
@@ -736,7 +736,7 @@
    "project": {
       "displayName": "Eclipse CBI",
       "fullName": "technology.cbi",
-      "resourcePacks": 1,
+      "resourcePacks": 5,
       "shortName": "cbi",
       "unixGroupName": "technology.cbi"
    },

@@ -13,8 +13,8 @@
       "limits": [
          {
             "max": {
-               "cpu": "2300m",
-               "memory": "8448Mi"
+               "cpu": "8300m",
+               "memory": "16640Mi"
             },
             "min": {
                "cpu": "200m",
@@ -32,8 +32,8 @@
                "memory": "256Mi"
             },
             "max": {
-               "cpu": "2000m",
-               "memory": "8192Mi"
+               "cpu": "8000m",
+               "memory": "16384Mi"
             },
             "min": {
                "cpu": "100m",
