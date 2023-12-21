@@ -51,7 +51,7 @@ unclassified:
       cachingConfiguration:
         excludedVersionsStr: "main"
         refreshTimeMinutes: 10080
-      defaultVersion: "refs/tags/v0.10.7"
+      defaultVersion: "refs/tags/v0.11.0"
       retriever:
         modernSCM:
           scm:
@@ -59,7 +59,7 @@ unclassified:
               credentialsId: "gitlab-credentials"
               id: "c5c54f66-beeb-4d2f-905f-c225e7586b8b"
               projectOwner: "eclipsefdn/it/releng"
-              projectPath: "eclipsefdn/it/releng/jenkins-pipeline-library"
+              projectPath: "eclipsefdn/it/releng/jenkins-pipeline-service/jenkins-pipeline-library"
               serverName: "gitlab.eclipse.org"
               traits:
               - gitLabBranchDiscovery:
