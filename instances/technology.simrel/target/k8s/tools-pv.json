@@ -6,7 +6,7 @@
          "kind": "PersistentVolume",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "foundation-internal.simrel",
+               "org.eclipse.cbi.jiro/project.fullName": "technology.simrel",
                "org.eclipse.cbi.jiro/project.shortname": "simrel"
             },
             "name": "tools-jiro-simrel"
@@ -50,7 +50,7 @@
          "kind": "PersistentVolumeClaim",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "foundation-internal.simrel",
+               "org.eclipse.cbi.jiro/project.fullName": "technology.simrel",
                "org.eclipse.cbi.jiro/project.shortname": "simrel"
             },
             "name": "tools-claim-jiro-simrel",

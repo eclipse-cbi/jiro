@@ -3,7 +3,7 @@
    "kind": "StatefulSet",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "foundation-internal.simrel",
+         "org.eclipse.cbi.jiro/project.fullName": "technology.simrel",
          "org.eclipse.cbi.jiro/project.shortname": "simrel"
       },
       "name": "simrel",
@@ -13,14 +13,14 @@
       "replicas": 1,
       "selector": {
          "matchLabels": {
-            "org.eclipse.cbi.jiro/project.fullName": "foundation-internal.simrel"
+            "org.eclipse.cbi.jiro/project.fullName": "technology.simrel"
          }
       },
       "serviceName": "simrel",
       "template": {
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "foundation-internal.simrel",
+               "org.eclipse.cbi.jiro/project.fullName": "technology.simrel",
                "org.eclipse.cbi.jiro/project.shortname": "simrel"
             },
             "name": "simrel"
@@ -66,7 +66,7 @@
                         "value": "true"
                      }
                   ],
-                  "image": "docker.io/eclipsecbijenkins/foundation-internal.simrel:2.426.1",
+                  "image": "docker.io/eclipsecbijenkins/technology.simrel:2.426.1",
                   "imagePullPolicy": "Always",
                   "lifecycle": {
                      "preStop": {

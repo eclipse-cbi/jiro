@@ -6,7 +6,7 @@
          "haproxy.router.openshift.io/timeout": "60s"
       },
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "foundation-internal.simrel",
+         "org.eclipse.cbi.jiro/project.fullName": "technology.simrel",
          "org.eclipse.cbi.jiro/project.shortname": "simrel"
       },
       "name": "simrel",

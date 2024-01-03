@@ -7,7 +7,7 @@
    "kind": "ConfigMap",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "foundation-internal.simrel",
+         "org.eclipse.cbi.jiro/project.fullName": "technology.simrel",
          "org.eclipse.cbi.jiro/project.shortname": "simrel"
       },
       "name": "m2-dir",

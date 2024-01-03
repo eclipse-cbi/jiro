@@ -3,7 +3,7 @@
    "kind": "LimitRange",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "foundation-internal.simrel",
+         "org.eclipse.cbi.jiro/project.fullName": "technology.simrel",
          "org.eclipse.cbi.jiro/project.shortname": "simrel"
       },
       "name": "jenkins-instance-limit-range",

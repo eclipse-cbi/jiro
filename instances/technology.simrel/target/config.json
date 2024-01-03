@@ -415,7 +415,7 @@
    "docker": {
       "master": {
          "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.426.1\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
-         "image": "foundation-internal.simrel",
+         "image": "technology.simrel",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
          "tag": "2.426.1"
@@ -627,7 +627,7 @@
       "files": {
          "settings-security.xml": {
             "master": {
-               "pass": "bots/foundation-internal.simrel/apache-maven-security-settings"
+               "pass": "bots/technology.simrel/apache-maven-security-settings"
             }
          },
          "settings.xml": {
@@ -642,16 +642,16 @@
             "servers": {
                "gpg.passphrase": {
                   "passphrase": {
-                     "pass": "bots/foundation-internal.simrel/gpg/passphrase"
+                     "pass": "bots/technology.simrel/gpg/passphrase"
                   }
                },
                "ossrh": {
                   "nexusProUrl": "https://oss.sonatype.org",
                   "password": {
-                     "pass": "bots/foundation-internal.simrel/oss.sonatype.org/password"
+                     "pass": "bots/technology.simrel/oss.sonatype.org/password"
                   },
                   "username": {
-                     "pass": "bots/foundation-internal.simrel/oss.sonatype.org/username"
+                     "pass": "bots/technology.simrel/oss.sonatype.org/username"
                   }
                },
                "repo.eclipse.org": {
@@ -673,7 +673,7 @@
    },
    "project": {
       "displayName": "Eclipse SimRel",
-      "fullName": "foundation-internal.simrel",
+      "fullName": "technology.simrel",
       "resourcePacks": 1,
       "shortName": "simrel",
       "unixGroupName": "technology.simrel"

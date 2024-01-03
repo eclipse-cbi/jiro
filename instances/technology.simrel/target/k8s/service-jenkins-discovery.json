@@ -3,23 +3,23 @@
    "kind": "Service",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "foundation-internal.simrel",
+         "org.eclipse.cbi.jiro/project.fullName": "technology.simrel",
          "org.eclipse.cbi.jiro/project.shortname": "simrel"
       },
-      "name": "jenkins-ui",
+      "name": "jenkins-discovery",
       "namespace": "simrel"
    },
    "spec": {
       "ports": [
          {
-            "name": "http",
-            "port": 80,
+            "name": "jnlp",
+            "port": 50000,
             "protocol": "TCP",
-            "targetPort": 8080
+            "targetPort": 50000
          }
       ],
       "selector": {
-         "org.eclipse.cbi.jiro/project.fullName": "foundation-internal.simrel"
+         "org.eclipse.cbi.jiro/project.fullName": "technology.simrel"
       }
    }
 }

@@ -11,7 +11,7 @@ kind: ConfigMap
 metadata:
   labels:
     org.eclipse.cbi.jiro/project.shortname: "simrel"
-    org.eclipse.cbi.jiro/project.fullName: "foundation-internal.simrel"
+    org.eclipse.cbi.jiro/project.fullName: "technology.simrel"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"

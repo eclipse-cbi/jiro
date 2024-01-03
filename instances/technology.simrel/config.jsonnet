@@ -1,8 +1,7 @@
 {
   project+: {
-    fullName: "foundation-internal.simrel",
+    fullName: "technology.simrel",
     displayName: "Eclipse SimRel",
-    unixGroupName: "technology.simrel",
   },
   jenkins+: {
     plugins+: [
