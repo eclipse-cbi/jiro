@@ -561,7 +561,8 @@
          "gerrit-code-review",
          "github-checks",
          "git-forensics",
-         "job-dsl"
+         "job-dsl",
+         "pipeline-graph-view"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 10,
