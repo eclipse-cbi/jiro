@@ -4,3 +4,4 @@ git-forensics
 github-checks
 job-dsl
 mail-watcher-plugin
+pipeline-graph-view
