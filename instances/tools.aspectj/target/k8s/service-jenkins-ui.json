@@ -3,11 +3,11 @@
    "kind": "Service",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "tools.ajdt",
-         "org.eclipse.cbi.jiro/project.shortname": "ajdt"
+         "org.eclipse.cbi.jiro/project.fullName": "tools.aspectj",
+         "org.eclipse.cbi.jiro/project.shortname": "aspectj"
       },
       "name": "jenkins-ui",
-      "namespace": "ajdt"
+      "namespace": "aspectj"
    },
    "spec": {
       "ports": [
@@ -19,7 +19,7 @@
          }
       ],
       "selector": {
-         "org.eclipse.cbi.jiro/project.fullName": "tools.ajdt"
+         "org.eclipse.cbi.jiro/project.fullName": "tools.aspectj"
       }
    }
 }

@@ -30,7 +30,7 @@ jenkins:
             permissions:
               - Job/ExtendedRead
         - group:
-            name: tools.ajdt
+            name: tools.aspectj
             permissions:
               - Agent/Build
               - Credentials/View
@@ -76,14 +76,14 @@ jenkins:
   - kubernetes:
       name: "kubernetes"
       containerCapStr: "2"
-      jenkinsUrl: "http://jenkins-ui.ajdt.svc.cluster.local/ajdt"
-      jenkinsTunnel: "jenkins-discovery.ajdt.svc.cluster.local:50000"
+      jenkinsUrl: "http://jenkins-ui.aspectj.svc.cluster.local/aspectj"
+      jenkinsTunnel: "jenkins-discovery.aspectj.svc.cluster.local:50000"
       maxRequestsPerHostStr: "32"
-      namespace: "ajdt"
+      namespace: "aspectj"
       podRetention: "never"
       templates:
       - name: "basic"
-        namespace: "ajdt"
+        namespace: "aspectj"
         label: "basic"
         containers:
         - name: "jnlp"
@@ -119,7 +119,7 @@ jenkins:
             value: ""
         volumes:
         - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-ajdt"
+            claimName: "tools-claim-jiro-aspectj"
             mountPath: "/opt/tools"
             readOnly: true
         - configMapVolume:
@@ -169,7 +169,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - name: "basic-ubuntu"
-        namespace: "ajdt"
+        namespace: "aspectj"
         label: "basic-ubuntu"
         containers:
         - name: "jnlp"
@@ -205,7 +205,7 @@ jenkins:
             value: ""
         volumes:
         - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-ajdt"
+            claimName: "tools-claim-jiro-aspectj"
             mountPath: "/opt/tools"
             readOnly: true
         - configMapVolume:
@@ -255,7 +255,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - name: "centos-7"
-        namespace: "ajdt"
+        namespace: "aspectj"
         label: "migration jipp-migration centos-7"
         containers:
         - name: "jnlp"
@@ -291,7 +291,7 @@ jenkins:
             value: ""
         volumes:
         - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-ajdt"
+            claimName: "tools-claim-jiro-aspectj"
             mountPath: "/opt/tools"
             readOnly: true
         - configMapVolume:
@@ -341,7 +341,7 @@ jenkins:
               configMap:
                 name: m2-dir
       - name: "centos-8"
-        namespace: "ajdt"
+        namespace: "aspectj"
         label: "centos-latest centos-8"
         containers:
         - name: "jnlp"
@@ -377,7 +377,7 @@ jenkins:
             value: ""
         volumes:
         - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-ajdt"
+            claimName: "tools-claim-jiro-aspectj"
             mountPath: "/opt/tools"
             readOnly: true
         - configMapVolume:
@@ -457,16 +457,16 @@ appearance:
   simpleTheme:
     elements:
     - cssUrl:
-        url: "/ajdt/userContent/theme/quicksilver.css"
+        url: "/aspectj/userContent/theme/quicksilver.css"
     - cssUrl:
         url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
     - jsUrl:
-        url: "/ajdt/userContent/theme/title.js"
+        url: "/aspectj/userContent/theme/title.js"
 
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
-    url: https://ci.eclipse.org/ajdt
+    url: https://ci.eclipse.org/aspectj
 
   mailer:
     replyToAddress: ci-admin@eclipse.org
@@ -508,7 +508,7 @@ unclassified:
         manageHooks: false
     hookSecretConfigs:
       - credentialsId: "github-webhook-secret"
-    hookUrl: "https://ci.eclipse.org/ajdt/github-webhook/"
+    hookUrl: "https://ci.eclipse.org/aspectj/github-webhook/"
 
   scmGit:
     createAccountBasedOnEmail: true

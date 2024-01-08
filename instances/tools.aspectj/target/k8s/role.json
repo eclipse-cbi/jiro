@@ -3,11 +3,11 @@
    "kind": "Role",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "tools.ajdt",
-         "org.eclipse.cbi.jiro/project.shortname": "ajdt"
+         "org.eclipse.cbi.jiro/project.fullName": "tools.aspectj",
+         "org.eclipse.cbi.jiro/project.shortname": "aspectj"
       },
       "name": "jenkins-master-owner",
-      "namespace": "ajdt"
+      "namespace": "aspectj"
    },
    "rules": [
       {

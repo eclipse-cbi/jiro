@@ -6,10 +6,10 @@
    "kind": "ConfigMap",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "tools.ajdt",
-         "org.eclipse.cbi.jiro/project.shortname": "ajdt"
+         "org.eclipse.cbi.jiro/project.fullName": "tools.aspectj",
+         "org.eclipse.cbi.jiro/project.shortname": "aspectj"
       },
       "name": "known-hosts",
-      "namespace": "ajdt"
+      "namespace": "aspectj"
    }
 }

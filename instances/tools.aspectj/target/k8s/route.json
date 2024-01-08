@@ -6,15 +6,15 @@
          "haproxy.router.openshift.io/timeout": "60s"
       },
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "tools.ajdt",
-         "org.eclipse.cbi.jiro/project.shortname": "ajdt"
+         "org.eclipse.cbi.jiro/project.fullName": "tools.aspectj",
+         "org.eclipse.cbi.jiro/project.shortname": "aspectj"
       },
-      "name": "ajdt",
-      "namespace": "ajdt"
+      "name": "aspectj",
+      "namespace": "aspectj"
    },
    "spec": {
       "host": "ci.eclipse.org",
-      "path": "/ajdt",
+      "path": "/aspectj",
       "port": {
          "targetPort": "http"
       },

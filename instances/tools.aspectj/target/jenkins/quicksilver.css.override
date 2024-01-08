@@ -32,7 +32,7 @@ IMG.page-header__brand-image {
 }
 
 .page-header__brand-name:after {
-  content: 'Eclipse AJDT';
+  content: 'Eclipse AspectJ';
   visibility: visible;
   font-size: 18px;
   line-height: 24px;

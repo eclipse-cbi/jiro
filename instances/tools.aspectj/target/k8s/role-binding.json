@@ -3,22 +3,22 @@
    "kind": "RoleBinding",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "tools.ajdt",
-         "org.eclipse.cbi.jiro/project.shortname": "ajdt"
+         "org.eclipse.cbi.jiro/project.fullName": "tools.aspectj",
+         "org.eclipse.cbi.jiro/project.shortname": "aspectj"
       },
-      "name": "ajdt",
-      "namespace": "ajdt"
+      "name": "aspectj",
+      "namespace": "aspectj"
    },
    "roleRef": {
       "kind": "Role",
       "name": "jenkins-master-owner",
-      "namespace": "ajdt"
+      "namespace": "aspectj"
    },
    "subjects": [
       {
          "kind": "ServiceAccount",
-         "name": "ajdt",
-         "namespace": "ajdt"
+         "name": "aspectj",
+         "namespace": "aspectj"
       }
    ]
 }

@@ -3,11 +3,11 @@
    "kind": "LimitRange",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "tools.ajdt",
-         "org.eclipse.cbi.jiro/project.shortname": "ajdt"
+         "org.eclipse.cbi.jiro/project.fullName": "tools.aspectj",
+         "org.eclipse.cbi.jiro/project.shortname": "aspectj"
       },
       "name": "jenkins-instance-limit-range",
-      "namespace": "ajdt"
+      "namespace": "aspectj"
    },
    "spec": {
       "limits": [

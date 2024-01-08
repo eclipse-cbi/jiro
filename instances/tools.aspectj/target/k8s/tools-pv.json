@@ -6,10 +6,10 @@
          "kind": "PersistentVolume",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "tools.ajdt",
-               "org.eclipse.cbi.jiro/project.shortname": "ajdt"
+               "org.eclipse.cbi.jiro/project.fullName": "tools.aspectj",
+               "org.eclipse.cbi.jiro/project.shortname": "aspectj"
             },
-            "name": "tools-jiro-ajdt"
+            "name": "tools-jiro-aspectj"
          },
          "spec": {
             "accessModes": [
@@ -19,8 +19,8 @@
                "storage": "20Gi"
             },
             "claimRef": {
-               "name": "tools-claim-jiro-ajdt",
-               "namespace": "ajdt"
+               "name": "tools-claim-jiro-aspectj",
+               "namespace": "aspectj"
             },
             "mountOptions": [
                "vers=4.2",
@@ -50,11 +50,11 @@
          "kind": "PersistentVolumeClaim",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "tools.ajdt",
-               "org.eclipse.cbi.jiro/project.shortname": "ajdt"
+               "org.eclipse.cbi.jiro/project.fullName": "tools.aspectj",
+               "org.eclipse.cbi.jiro/project.shortname": "aspectj"
             },
-            "name": "tools-claim-jiro-ajdt",
-            "namespace": "ajdt"
+            "name": "tools-claim-jiro-aspectj",
+            "namespace": "aspectj"
          },
          "spec": {
             "accessModes": [
