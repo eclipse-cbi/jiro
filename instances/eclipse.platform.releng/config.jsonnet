@@ -15,6 +15,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "git-forensics",
       "job-dsl",
       "pipeline-graph-view",
+      "pipeline-utility-steps",
     ],
     staticAgentCount: 10,
     permissions+:
