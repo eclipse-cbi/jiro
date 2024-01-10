@@ -26,6 +26,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "mail-watcher-plugin",
       "openshift-client",
       "pipeline-github",
+      "pipeline-graph-view",
       "slack",
     ],
   },

@@ -5,4 +5,5 @@ kubernetes-cli
 mail-watcher-plugin
 openshift-client
 pipeline-github
+pipeline-graph-view
 slack
