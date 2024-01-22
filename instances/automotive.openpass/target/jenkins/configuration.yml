@@ -423,7 +423,7 @@ jenkins:
                     name: m2-dir
   nodes:
     - permanent:
-        labelString: "windows windows10"
+        labelString: "windows"
         launcher:
           inbound:
             webSocket: true
@@ -435,6 +435,28 @@ jenkins:
         name: "b9qls-windows-10"
         nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure"
         remoteFS: "C:\\Users\\genie.simopenpass\\jenkins_agent"
+        retentionStrategy: "always"
+        nodeProperties:
+          - watcher:
+              offlineAddresses: "releng@eclipse.org"
+              onlineAddresses: "releng@eclipse.org"
+          - toolLocation:
+              locations:
+                - home: "C:\\Program Files\\Git\\bin\\git"
+                  key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+    - permanent:
+        labelString: "windows10"
+        launcher:
+          inbound:
+            webSocket: true
+            workDirSettings:
+              disabled: false
+              failIfWorkDirIsMissing: false
+              internalDir: "remoting"
+        mode: EXCLUSIVE
+        name: "9pfnn-win10"
+        nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure"
+        remoteFS: "C:\\Users\\genie.openpass\\jenkins_agent"
         retentionStrategy: "always"
         nodeProperties:
           - watcher:
