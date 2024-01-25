@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.426.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.426.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "foundation-internal-webdev"
   namespace: "foundation-internal-webdev"
   name: jenkins-config
