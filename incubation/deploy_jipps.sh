@@ -41,9 +41,8 @@ no_of_processes=2
 for instance in "${@}"; do
   while [ "$(jobs | wc -l)" -ge ${no_of_processes} ] ; do sleep 1 ; done
   project_name="$(basename "${instance}")"
-  printf "%s: " "${project_name}"
-
   url="$(jq -r '.deployment.url' "${instance}/target/config.json")"
+  printf "%s: %s - " "${project_name}" "${url}"
 
   builds=$(runningBuilds "${url}")
   buildsCount=$(echo "${builds}" | jq -r 'map(.executors[]) | length')
