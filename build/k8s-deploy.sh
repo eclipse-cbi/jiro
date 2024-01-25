@@ -84,3 +84,5 @@ else
   ## TODO: compare pod .status.containerStatuses[].imageID vs latest pull from docker registry and check if restart is required.
   "${SCRIPT_FOLDER}/../jenkins-safe-restart.sh" "${instance}" || :
 fi
+
+echo "Access: $(jq -r '.deployment.url' "${instance}/target/config.json")"
