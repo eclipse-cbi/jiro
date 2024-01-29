@@ -205,6 +205,7 @@ help() {
   printf "auto\t\t\tTest which token credentials exist and create them (except for sonarcloud).\n"
   printf "default\t\t\tCreate any kind of credentials (secret text/token).\n"
   printf "docker\t\t\tCreate docker.com token credentials (secret text/token).\n"
+  printf "quay\t\t\tCreate quay.io token credentials (secret text/token).\n"
   printf "github\t\t\tCreate github.com token credentials (secret text/token) and username/token credentials (username/token).\n"
   printf "gitlab\t\t\tCreate gitlab.eclipse.org token credentials (secret text/token).\n"
   printf "gitlab_pat\t\tCreate gitlab.eclipse.org PAT credentials (GitLab PAT token).\n"
@@ -224,6 +225,12 @@ auto() {
   echo "Checking for docker.com API token..."
   if passw cbi "bots/${project_name}/docker.com/api-token" 2&> /dev/null; then
     docker "${project_name}"
+  else
+    echo "  No API token found."
+  fi
+  echo "Checking for quay.io API token..."
+  if passw cbi "bots/${project_name}/quay.io/api-token" 2&> /dev/null; then
+    quay "${project_name}"
   else
     echo "  No API token found."
   fi
@@ -272,6 +279,17 @@ docker() {
   token="$(passw cbi "bots/${project_name}/docker.com/api-token")"
 
   _create_string_credentials "${project_name}" "docker-bot-token" "Docker Bot token" "${token}" "docker.com"
+}
+
+quay() {
+  local project_name="${1:-}"
+
+  _verify_inputs "${project_name}"
+
+  local token
+  token="$(passw cbi "bots/${project_name}/quay.io/api-token")"
+
+  _create_string_credentials "${project_name}" "quay-bot-token" "Quay Bot token" "${token}" "quay.io"
 }
 
 github() {
