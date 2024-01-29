@@ -22,9 +22,13 @@ if [[ "${#}" -eq 0 ]]; then
   exit 1
 fi
 
+curl_command() {
+  local url="${1:-}"
+  echo "${project_name} ${url} $(curl -sLI -m 10 "${url}" | grep -i 'x-jenkins' | grep -v 'x-jenkins-session' | awk '{print $2}')"
+}
+
 for instance in "${@}"; do
   project_name="$(basename "${instance}")"
   url="$(jq -r '.deployment.url' "${instance}/target/config.json")"
-  # version="$(curl -sLI "${url}" | grep -i 'x-jenkins' | grep -v 'x-jenkins-session' | awk '{print $2}')"
-  echo "${project_name} ${url} $(curl -sLI "${url}" | grep -i 'x-jenkins' | grep -v 'x-jenkins-session' | awk '{print $2}')"
-done | column -t
+  curl_command "${url}" &
+done | sort | column -t
