@@ -610,7 +610,8 @@
       ],
       "plugins": [
          "gerrit-trigger",
-         "zentimestamp"
+         "zentimestamp",
+         "lockable-resources"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
