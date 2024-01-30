@@ -7,6 +7,7 @@
     plugins+: [
       "embeddable-build-status",
       "slack",
+      "lockable-resources",
     ],
   },
 }
