@@ -505,7 +505,8 @@
       ],
       "plugins": [
          "embeddable-build-status",
-         "slack"
+         "slack",
+         "lockable-resources"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
