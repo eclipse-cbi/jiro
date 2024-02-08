@@ -12,7 +12,7 @@ jenkins:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCZt0a9fSaLDdGRGSBE1vBN47xvsgxwe44zFlelq4/3rGhOVHdisScbd+y0jlZoe4Q8nmZ2k96ubV4fG12V8tA6JPr/jcS50QkaJlHaEeXCt+rPK1aagQXiitdOEmmDm9FntneCsvhw6n8j3U0hXLZf7iQfYCRMzUVKu0G9dCNe+YiDHosHc24GKsqyeIOGh1HnL1UjIkOxwCa5G0n/vTImQ6cLUym6PUmznzhvdj8Fc7KzPnl87wPzI9xfyacvbIghGklmbL3gel2gNEbThU6saNPCZZJ+4hxzHFuCFgWFFiwUo31s9XbmTduu+m5ZQpYw949bGj96ArmSKtDw1Sgz"
       mode: EXCLUSIVE
       name: "w9x5t-ubuntu1804"
-      nodeDescription: "4vCPU, 16GB RAM, Hosted @ Azure"
+      nodeDescription: "4vCPU, 8GB RAM, Hosted @ Azure"
       remoteFS: "/home/genie.webdev/jenkins-agent"
       numExecutors: 2
       nodeProperties:
