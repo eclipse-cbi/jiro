@@ -42,6 +42,7 @@ expand_templated_yaml() {
   local template_dirname="${2}"
   local config="${3}"
   local partials="${4:-}"
+
   if [[ -n "${partials}" ]]; then
     hbs -s -D "${config}" -H "${template_dirname}"'/helpers/*.js' -P "${template_dirname}"'/partials/*.hbs' -P "${partials}"'/*.hbs' "${yml_source}"
   else
@@ -52,6 +53,7 @@ expand_templated_yaml() {
 tmp=$(mktemp)
 
 if [[ -f "${yml_source}" ]]; then
+
   expanded_src=$(mktemp)
   expand_templated_yaml "${yml_source}" "$(dirname "${template}")" "${config}" "${partials}" > "${expanded_src}"
   expanded_tpl=$(mktemp)
@@ -66,6 +68,6 @@ else
 fi
 
 echo "# GENERATED FILE - DO NOT EDIT"
-expand_templated_yaml "${tmp}" "$(dirname "${template}")" "${config}" "${partials}"
 
-rm "${tmp}"
+expand_templated_yaml "${tmp}" "$(dirname "${template}")" "${config}" "${partials}"| yq
+
