@@ -1,4 +1,5 @@
 # GENERATED FILE - DO NOT EDIT
+build-blocker-plugin
 gerrit-trigger
 lockable-resources
 zentimestamp
