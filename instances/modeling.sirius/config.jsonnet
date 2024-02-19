@@ -6,6 +6,7 @@
   },
   jenkins+: {
     plugins+: [
+      "build-blocker-plugin",
       "gerrit-trigger",
       "zentimestamp",
       "lockable-resources",
