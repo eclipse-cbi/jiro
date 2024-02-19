@@ -25,6 +25,6 @@
   agent_min_cpu_limit::2000,
   jnlp_cpu_burst::1.5,
   jnlp_cpu::200,
-  jnlp_mem::256,
+  jnlp_mem::512,
 
 }
