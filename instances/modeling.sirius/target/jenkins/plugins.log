@@ -7,8 +7,7 @@ authentication-tokens 1.53.v1c90fd9191a_b_
 authorize-project 1.7.1
 bootstrap5-api 5.3.2-3
 bouncycastle-api 2.30.1.77-225.v26ea_c9455fd9
-branch-api 2.1144.v1425d1c3d5a_7
-build-blocker-plugin 1.7.9
+branch-api 2.1148.vce12cfcdf090
 build-timeout 1.32
 caffeine-api 3.1.8-133.v17b_1ff2e0599
 checks-api 2.0.2
@@ -65,7 +64,7 @@ kubernetes 4186.v1d804571d5d4
 kubernetes-client-api 6.10.0-240.v57880ce8b_0b_2
 kubernetes-credentials 0.11
 ldap 711.vb_d1a_491714dc
-lockable-resources 1232.v512d6c434eb_d
+lockable-resources 1243.v346d600eea_24
 mailer 463.vedf8358e006b_
 matrix-auth 3.2.1
 matrix-project 822.824.v14451b_c0fd42
@@ -113,7 +112,7 @@ warnings-ng 10.7.0
 workflow-aggregator 596.v8c21c963d92d
 workflow-api 1291.v51fd2a_625da_7
 workflow-basic-steps 1042.ve7b_140c4a_e0c
-workflow-cps 3853.vb_a_490d892963
+workflow-cps 3867.v535458ce43fd
 workflow-durable-task-step 1331.vc8c2fed35334
 workflow-job 1385.vb_58b_86ea_fff1
 workflow-multibranch 773.vc4fe1378f1d5
