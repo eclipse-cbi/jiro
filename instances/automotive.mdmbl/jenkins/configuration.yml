@@ -1,17 +1,33 @@
 tool:
   gradle:
     installations:
-    - name: "gradle-latest"
-      properties:
-      - installSource:
-          installers:
-          - gradleInstaller:
-              id: "6.8.2"
+      - name: "gradle-latest"
+        properties:
+          - installSource:
+              installers:
+                - gradleInstaller:
+                    id: "6.8.2"
   sonarRunnerInstallation:
     installations:
-    - name: "SonarQube Scanner"
-      properties:
-      - installSource:
-          installers:
-          - sonarRunnerInstaller:
-              id: "4.6.0.2311"
+      - name: "SonarQube Scanner"
+        properties:
+          - installSource:
+              installers:
+                - sonarRunnerInstaller:
+                    id: "4.6.0.2311"
+unclassified:
+  gitLabConnectionConfig:
+    connections:
+      - apiTokenId: gitlab-api-token
+        clientBuilderId: autodetect
+        connectionTimeout: 10
+        ignoreCertificateErrors: false
+        name: gitlab.eclipse.org
+        readTimeout: 10
+        url: https://gitlab.eclipse.org
+  gitLabServers:
+    Servers:
+      - credentialsId: gitlab-api-token
+        name: gitlab.eclipse.org
+        serverUrl: https://gitlab.eclipse.org
+        webhookSecretCredentialsId: gitlab-webhook-secret
