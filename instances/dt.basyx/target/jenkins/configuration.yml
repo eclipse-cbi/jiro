@@ -12,12 +12,10 @@ jenkins:
   scmCheckoutRetryCount: 2
   mode: EXCLUSIVE
   systemMessage: ""
-
   disableRememberMe: false
   agentProtocols:
     - "JNLP4-connect"
     - "Ping"
-
   authorizationStrategy:
     projectMatrix:
       entries:
@@ -58,12 +56,10 @@ jenkins:
             permissions:
               - Overall/Read
               - Job/Read
-
   markupFormatter: rawHtml
   crumbIssuer:
     standard:
-       excludeClientIPFromCrumb: false
-
+      excludeClientIPFromCrumb: false
   securityRealm:
     ldap:
       configurations:
@@ -73,361 +69,360 @@ jenkins:
           server: ldaps://ldapcluster.eclipse.org
           userSearch: mail={0}
           mailAddressAttributeName: mail
-
   clouds:
-  - kubernetes:
-      name: "kubernetes"
-      containerCapStr: "2"
-      jenkinsUrl: "http://jenkins-ui.basyx.svc.cluster.local/basyx"
-      jenkinsTunnel: "jenkins-discovery.basyx.svc.cluster.local:50000"
-      maxRequestsPerHostStr: "32"
-      namespace: "basyx"
-      podRetention: "never"
-      templates:
-      - name: "basic"
+    - kubernetes:
+        name: "kubernetes"
+        containerCapStr: "2"
+        jenkinsUrl: "http://jenkins-ui.basyx.svc.cluster.local/basyx"
+        jenkinsTunnel: "jenkins-discovery.basyx.svc.cluster.local:50000"
+        maxRequestsPerHostStr: "32"
         namespace: "basyx"
-        label: "basic"
-        containers:
-        - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3160.vd76b_9ddd10cc
-          alwaysPullImage: true
-          livenessProbe:
-            failureThreshold: 0
-            initialDelaySeconds: 0
-            periodSeconds: 0
-            successThreshold: 0
-            timeoutSeconds: 0
-          resourceLimitCpu: "2000m"
-          resourceRequestCpu: "1000m"
-          resourceLimitMemory: "4096Mi"
-          resourceRequestMemory: "4096Mi"
-          ttyEnabled: true
-          command: ""
-          args: ""
-        instanceCap: -1
-        nodeUsageMode: NORMAL
-        envVars:
-        - envVar:
-            key: "JAVA_TOOL_OPTIONS"
-            value: ""
-        - envVar:
-            key: "JENKINS_REMOTING_JAVA_OPTS"
-            value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
-        - envVar:
-            key: "OPENJ9_JAVA_OPTIONS"
-            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
-        - envVar:
-            key: "_JAVA_OPTIONS"
-            value: ""
-        volumes:
-        - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-basyx"
-            mountPath: "/opt/tools"
-            readOnly: true
-        - configMapVolume:
-            configMapName: "known-hosts"
-            mountPath: "/home/jenkins/.ssh/"
-            subPath: "."
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.m2/repository"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.m2/wrapper"
-        workspaceVolume:
-          emptyDirWorkspaceVolume:
-            memory: false
-        yaml: |
-          apiVersion: v1
-          kind: Pod
-          spec:
+        podRetention: "never"
+        templates:
+          - name: "basic"
+            namespace: "basyx"
+            label: "basic"
             containers:
-            - name: jnlp
-              volumeMounts:
-              - name: m2-secret-dir
-                mountPath: /home/jenkins/.m2/settings-security.xml
-                subPath: settings-security.xml
-                readOnly: true
-              - name: m2-secret-dir
-                mountPath: /home/jenkins/.m2/settings.xml
-                subPath: settings.xml
-                readOnly: true
-              - name: m2-dir
-                mountPath: /home/jenkins/.m2/toolchains.xml
-                subPath: toolchains.xml
-                readOnly: true
-              - name: m2-dir
-                mountPath: /home/jenkins/.mavenrc
-                subPath: .mavenrc
-                readOnly: true
+              - name: "jnlp"
+                image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3160.vd76b_9ddd10cc
+                alwaysPullImage: true
+                livenessProbe:
+                  failureThreshold: 0
+                  initialDelaySeconds: 0
+                  periodSeconds: 0
+                  successThreshold: 0
+                  timeoutSeconds: 0
+                resourceLimitCpu: "2000m"
+                resourceRequestCpu: "1000m"
+                resourceLimitMemory: "4096Mi"
+                resourceRequestMemory: "4096Mi"
+                ttyEnabled: true
+                command: ""
+                args: ""
+            instanceCap: -1
+            nodeUsageMode: NORMAL
+            envVars:
+              - envVar:
+                  key: "JAVA_TOOL_OPTIONS"
+                  value: ""
+              - envVar:
+                  key: "JENKINS_REMOTING_JAVA_OPTS"
+                  value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+              - envVar:
+                  key: "OPENJ9_JAVA_OPTIONS"
+                  value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+              - envVar:
+                  key: "_JAVA_OPTIONS"
+                  value: ""
             volumes:
-            - name: m2-secret-dir
-              secret:
-                secretName: m2-secret-dir
-            - name: m2-dir
-              configMap:
-                name: m2-dir
-      - name: "basic-ubuntu"
-        namespace: "basyx"
-        label: "basic-ubuntu"
-        containers:
-        - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3160.vd76b_9ddd10cc
-          alwaysPullImage: true
-          livenessProbe:
-            failureThreshold: 0
-            initialDelaySeconds: 0
-            periodSeconds: 0
-            successThreshold: 0
-            timeoutSeconds: 0
-          resourceLimitCpu: "2000m"
-          resourceRequestCpu: "1000m"
-          resourceLimitMemory: "4096Mi"
-          resourceRequestMemory: "4096Mi"
-          ttyEnabled: true
-          command: ""
-          args: ""
-        instanceCap: -1
-        nodeUsageMode: EXCLUSIVE
-        envVars:
-        - envVar:
-            key: "JAVA_TOOL_OPTIONS"
-            value: ""
-        - envVar:
-            key: "JENKINS_REMOTING_JAVA_OPTS"
-            value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
-        - envVar:
-            key: "OPENJ9_JAVA_OPTIONS"
-            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
-        - envVar:
-            key: "_JAVA_OPTIONS"
-            value: ""
-        volumes:
-        - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-basyx"
-            mountPath: "/opt/tools"
-            readOnly: true
-        - configMapVolume:
-            configMapName: "known-hosts"
-            mountPath: "/home/jenkins/.ssh/"
-            subPath: "."
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.m2/repository"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.m2/wrapper"
-        workspaceVolume:
-          emptyDirWorkspaceVolume:
-            memory: false
-        yaml: |
-          apiVersion: v1
-          kind: Pod
-          spec:
+              - persistentVolumeClaim:
+                  claimName: "tools-claim-jiro-basyx"
+                  mountPath: "/opt/tools"
+                  readOnly: true
+              - configMapVolume:
+                  configMapName: "known-hosts"
+                  mountPath: "/home/jenkins/.ssh/"
+                  subPath: "."
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.m2/repository"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.m2/wrapper"
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: m2-dir
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                  - name: m2-dir
+                    mountPath: /home/jenkins/.mavenrc
+                    subPath: .mavenrc
+                    readOnly: true
+                volumes:
+                - name: m2-secret-dir
+                  secret:
+                    secretName: m2-secret-dir
+                - name: m2-dir
+                  configMap:
+                    name: m2-dir
+          - name: "basic-ubuntu"
+            namespace: "basyx"
+            label: "basic-ubuntu"
             containers:
-            - name: jnlp
-              volumeMounts:
-              - name: m2-secret-dir
-                mountPath: /home/jenkins/.m2/settings-security.xml
-                subPath: settings-security.xml
-                readOnly: true
-              - name: m2-secret-dir
-                mountPath: /home/jenkins/.m2/settings.xml
-                subPath: settings.xml
-                readOnly: true
-              - name: m2-dir
-                mountPath: /home/jenkins/.m2/toolchains.xml
-                subPath: toolchains.xml
-                readOnly: true
-              - name: m2-dir
-                mountPath: /home/jenkins/.mavenrc
-                subPath: .mavenrc
-                readOnly: true
+              - name: "jnlp"
+                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3160.vd76b_9ddd10cc
+                alwaysPullImage: true
+                livenessProbe:
+                  failureThreshold: 0
+                  initialDelaySeconds: 0
+                  periodSeconds: 0
+                  successThreshold: 0
+                  timeoutSeconds: 0
+                resourceLimitCpu: "2000m"
+                resourceRequestCpu: "1000m"
+                resourceLimitMemory: "4096Mi"
+                resourceRequestMemory: "4096Mi"
+                ttyEnabled: true
+                command: ""
+                args: ""
+            instanceCap: -1
+            nodeUsageMode: EXCLUSIVE
+            envVars:
+              - envVar:
+                  key: "JAVA_TOOL_OPTIONS"
+                  value: ""
+              - envVar:
+                  key: "JENKINS_REMOTING_JAVA_OPTS"
+                  value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+              - envVar:
+                  key: "OPENJ9_JAVA_OPTIONS"
+                  value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+              - envVar:
+                  key: "_JAVA_OPTIONS"
+                  value: ""
             volumes:
-            - name: m2-secret-dir
-              secret:
-                secretName: m2-secret-dir
-            - name: m2-dir
-              configMap:
-                name: m2-dir
-      - name: "centos-7"
-        namespace: "basyx"
-        label: "migration jipp-migration centos-7"
-        containers:
-        - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3160.vd76b_9ddd10cc
-          alwaysPullImage: true
-          livenessProbe:
-            failureThreshold: 0
-            initialDelaySeconds: 0
-            periodSeconds: 0
-            successThreshold: 0
-            timeoutSeconds: 0
-          resourceLimitCpu: "2000m"
-          resourceRequestCpu: "1000m"
-          resourceLimitMemory: "4096Mi"
-          resourceRequestMemory: "4096Mi"
-          ttyEnabled: true
-          command: ""
-          args: ""
-        instanceCap: -1
-        nodeUsageMode: EXCLUSIVE
-        envVars:
-        - envVar:
-            key: "JAVA_TOOL_OPTIONS"
-            value: ""
-        - envVar:
-            key: "JENKINS_REMOTING_JAVA_OPTS"
-            value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
-        - envVar:
-            key: "OPENJ9_JAVA_OPTIONS"
-            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
-        - envVar:
-            key: "_JAVA_OPTIONS"
-            value: ""
-        volumes:
-        - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-basyx"
-            mountPath: "/opt/tools"
-            readOnly: true
-        - configMapVolume:
-            configMapName: "known-hosts"
-            mountPath: "/home/jenkins/.ssh/"
-            subPath: "."
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.m2/repository"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.m2/wrapper"
-        workspaceVolume:
-          emptyDirWorkspaceVolume:
-            memory: false
-        yaml: |
-          apiVersion: v1
-          kind: Pod
-          spec:
+              - persistentVolumeClaim:
+                  claimName: "tools-claim-jiro-basyx"
+                  mountPath: "/opt/tools"
+                  readOnly: true
+              - configMapVolume:
+                  configMapName: "known-hosts"
+                  mountPath: "/home/jenkins/.ssh/"
+                  subPath: "."
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.m2/repository"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.m2/wrapper"
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: m2-dir
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                  - name: m2-dir
+                    mountPath: /home/jenkins/.mavenrc
+                    subPath: .mavenrc
+                    readOnly: true
+                volumes:
+                - name: m2-secret-dir
+                  secret:
+                    secretName: m2-secret-dir
+                - name: m2-dir
+                  configMap:
+                    name: m2-dir
+          - name: "centos-7"
+            namespace: "basyx"
+            label: "migration jipp-migration centos-7"
             containers:
-            - name: jnlp
-              volumeMounts:
-              - name: m2-secret-dir
-                mountPath: /home/jenkins/.m2/settings-security.xml
-                subPath: settings-security.xml
-                readOnly: true
-              - name: m2-secret-dir
-                mountPath: /home/jenkins/.m2/settings.xml
-                subPath: settings.xml
-                readOnly: true
-              - name: m2-dir
-                mountPath: /home/jenkins/.m2/toolchains.xml
-                subPath: toolchains.xml
-                readOnly: true
-              - name: m2-dir
-                mountPath: /home/jenkins/.mavenrc
-                subPath: .mavenrc
-                readOnly: true
+              - name: "jnlp"
+                image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3160.vd76b_9ddd10cc
+                alwaysPullImage: true
+                livenessProbe:
+                  failureThreshold: 0
+                  initialDelaySeconds: 0
+                  periodSeconds: 0
+                  successThreshold: 0
+                  timeoutSeconds: 0
+                resourceLimitCpu: "2000m"
+                resourceRequestCpu: "1000m"
+                resourceLimitMemory: "4096Mi"
+                resourceRequestMemory: "4096Mi"
+                ttyEnabled: true
+                command: ""
+                args: ""
+            instanceCap: -1
+            nodeUsageMode: EXCLUSIVE
+            envVars:
+              - envVar:
+                  key: "JAVA_TOOL_OPTIONS"
+                  value: ""
+              - envVar:
+                  key: "JENKINS_REMOTING_JAVA_OPTS"
+                  value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+              - envVar:
+                  key: "OPENJ9_JAVA_OPTIONS"
+                  value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+              - envVar:
+                  key: "_JAVA_OPTIONS"
+                  value: ""
             volumes:
-            - name: m2-secret-dir
-              secret:
-                secretName: m2-secret-dir
-            - name: m2-dir
-              configMap:
-                name: m2-dir
-      - name: "centos-8"
-        namespace: "basyx"
-        label: "centos-latest centos-8"
-        containers:
-        - name: "jnlp"
-          image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3160.vd76b_9ddd10cc
-          alwaysPullImage: true
-          livenessProbe:
-            failureThreshold: 0
-            initialDelaySeconds: 0
-            periodSeconds: 0
-            successThreshold: 0
-            timeoutSeconds: 0
-          resourceLimitCpu: "2000m"
-          resourceRequestCpu: "1000m"
-          resourceLimitMemory: "4096Mi"
-          resourceRequestMemory: "4096Mi"
-          ttyEnabled: true
-          command: ""
-          args: ""
-        instanceCap: -1
-        nodeUsageMode: EXCLUSIVE
-        envVars:
-        - envVar:
-            key: "JAVA_TOOL_OPTIONS"
-            value: ""
-        - envVar:
-            key: "JENKINS_REMOTING_JAVA_OPTS"
-            value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
-        - envVar:
-            key: "OPENJ9_JAVA_OPTIONS"
-            value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
-        - envVar:
-            key: "_JAVA_OPTIONS"
-            value: ""
-        volumes:
-        - persistentVolumeClaim:
-            claimName: "tools-claim-jiro-basyx"
-            mountPath: "/opt/tools"
-            readOnly: true
-        - configMapVolume:
-            configMapName: "known-hosts"
-            mountPath: "/home/jenkins/.ssh/"
-            subPath: "."
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.m2/repository"
-        - emptyDirVolume:
-            memory: false
-            mountPath: "/home/jenkins/.m2/wrapper"
-        workspaceVolume:
-          emptyDirWorkspaceVolume:
-            memory: false
-        yaml: |
-          apiVersion: v1
-          kind: Pod
-          spec:
+              - persistentVolumeClaim:
+                  claimName: "tools-claim-jiro-basyx"
+                  mountPath: "/opt/tools"
+                  readOnly: true
+              - configMapVolume:
+                  configMapName: "known-hosts"
+                  mountPath: "/home/jenkins/.ssh/"
+                  subPath: "."
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.m2/repository"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.m2/wrapper"
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: m2-dir
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                  - name: m2-dir
+                    mountPath: /home/jenkins/.mavenrc
+                    subPath: .mavenrc
+                    readOnly: true
+                volumes:
+                - name: m2-secret-dir
+                  secret:
+                    secretName: m2-secret-dir
+                - name: m2-dir
+                  configMap:
+                    name: m2-dir
+          - name: "centos-8"
+            namespace: "basyx"
+            label: "centos-latest centos-8"
             containers:
-            - name: jnlp
-              volumeMounts:
-              - name: m2-secret-dir
-                mountPath: /home/jenkins/.m2/settings-security.xml
-                subPath: settings-security.xml
-                readOnly: true
-              - name: m2-secret-dir
-                mountPath: /home/jenkins/.m2/settings.xml
-                subPath: settings.xml
-                readOnly: true
-              - name: m2-dir
-                mountPath: /home/jenkins/.m2/toolchains.xml
-                subPath: toolchains.xml
-                readOnly: true
-              - name: m2-dir
-                mountPath: /home/jenkins/.mavenrc
-                subPath: .mavenrc
-                readOnly: true
+              - name: "jnlp"
+                image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3160.vd76b_9ddd10cc
+                alwaysPullImage: true
+                livenessProbe:
+                  failureThreshold: 0
+                  initialDelaySeconds: 0
+                  periodSeconds: 0
+                  successThreshold: 0
+                  timeoutSeconds: 0
+                resourceLimitCpu: "2000m"
+                resourceRequestCpu: "1000m"
+                resourceLimitMemory: "4096Mi"
+                resourceRequestMemory: "4096Mi"
+                ttyEnabled: true
+                command: ""
+                args: ""
+            instanceCap: -1
+            nodeUsageMode: EXCLUSIVE
+            envVars:
+              - envVar:
+                  key: "JAVA_TOOL_OPTIONS"
+                  value: ""
+              - envVar:
+                  key: "JENKINS_REMOTING_JAVA_OPTS"
+                  value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+              - envVar:
+                  key: "OPENJ9_JAVA_OPTIONS"
+                  value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+              - envVar:
+                  key: "_JAVA_OPTIONS"
+                  value: ""
             volumes:
-            - name: m2-secret-dir
-              secret:
-                secretName: m2-secret-dir
-            - name: m2-dir
-              configMap:
-                name: m2-dir
+              - persistentVolumeClaim:
+                  claimName: "tools-claim-jiro-basyx"
+                  mountPath: "/opt/tools"
+                  readOnly: true
+              - configMapVolume:
+                  configMapName: "known-hosts"
+                  mountPath: "/home/jenkins/.ssh/"
+                  subPath: "."
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.m2/repository"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.m2/wrapper"
+            workspaceVolume:
+              emptyDirWorkspaceVolume:
+                memory: false
+            yaml: |
+              apiVersion: v1
+              kind: Pod
+              spec:
+                containers:
+                - name: jnlp
+                  volumeMounts:
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings-security.xml
+                    subPath: settings-security.xml
+                    readOnly: true
+                  - name: m2-secret-dir
+                    mountPath: /home/jenkins/.m2/settings.xml
+                    subPath: settings.xml
+                    readOnly: true
+                  - name: m2-dir
+                    mountPath: /home/jenkins/.m2/toolchains.xml
+                    subPath: toolchains.xml
+                    readOnly: true
+                  - name: m2-dir
+                    mountPath: /home/jenkins/.mavenrc
+                    subPath: .mavenrc
+                    readOnly: true
+                volumes:
+                - name: m2-secret-dir
+                  secret:
+                    secretName: m2-secret-dir
+                - name: m2-dir
+                  configMap:
+                    name: m2-dir
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
@@ -435,8 +430,8 @@ security:
     usageStatisticsEnabled: true
   queueItemAuthenticator:
     authenticators:
-    - global:
-        strategy: "triggeringUsersAuthorizationStrategy"
+      - global:
+          strategy: "triggeringUsersAuthorizationStrategy"
   sSHD:
     port: -1
   gitHostKeyVerificationConfiguration:
@@ -454,54 +449,46 @@ security:
           projects-storage.eclipse.org,172.25.25.150 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAsn6PO2Uemsr7wIUu5x0RnlRcuK36D2sbmYNe2LSKdb
           [git.eclipse.org]:29418 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA8+KrFs55Aw6ATeoTxSIQOLiYBDALPZ4qN02mvB49a2
           [eclipse.gerrithub.io]:29418 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC1wudLWtuNHlf5/nz2eewG8B+iVWfuuQcu9eXj3aC8B
-
 appearance:
   simpleTheme:
     elements:
-    - cssUrl:
-        url: "/basyx/userContent/theme/quicksilver.css"
-    - cssUrl:
-        url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
-    - jsUrl:
-        url: "/basyx/userContent/theme/title.js"
-
+      - cssUrl:
+          url: "/basyx/userContent/theme/quicksilver.css"
+      - cssUrl:
+          url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+      - jsUrl:
+          url: "/basyx/userContent/theme/title.js"
 unclassified:
   location:
     adminAddress: ci-admin@eclipse.org
     url: https://ci.eclipse.org/basyx
-
   mailer:
     replyToAddress: ci-admin@eclipse.org
     smtpHost: mail.eclipse.org
-
   email-ext:
     defaultContentType: "text/html"
     defaultReplyTo: "ci-admin@eclipse.org"
     mailAccount:
       address: "ci-admin@eclipse.org"
       smtpHost: "mail.eclipse.org"
-
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED
-
   buildDiscarders:
     configuredBuildDiscarders:
-    - "jobBuildDiscarder"
-    - simpleBuildDiscarder:
-        discarder:
-          logRotator:
-            artifactNumToKeepStr: "5"
-            numToKeepStr: "128"
-
+      - "jobBuildDiscarder"
+      - simpleBuildDiscarder:
+          discarder:
+            logRotator:
+              artifactNumToKeepStr: "5"
+              numToKeepStr: "128"
   sonarGlobalConfiguration:
     buildWrapperEnabled: true
     installations:
-    - name: "SonarCloud.io"
-      serverUrl: "https://sonarcloud.io"
-      triggers:
-        skipScmCause: false
-        skipUpstreamCause: false
-
+      - name: "SonarCloud.io"
+        serverUrl: "https://sonarcloud.io"
+        triggers:
+          skipScmCause: false
+          skipUpstreamCause: false
   gitHubPluginConfig:
     configs:
       - name: "GitHub"
@@ -511,139 +498,146 @@ unclassified:
     hookSecretConfigs:
       - credentialsId: "github-webhook-secret"
     hookUrl: "https://ci.eclipse.org/basyx/github-webhook/"
-
   scmGit:
     createAccountBasedOnEmail: true
     useExistingAccountWithSameEmail: true
-
+  jobConfigHistory:
+    excludePattern: "queue\\.xml|nodeMonitors\\.xml|UpdateCenter\\.xml|global-build-stats|LockableResourcesManager\\.xml|MilestoneStep\\.xml"
+    maxDaysToKeepEntries: "60"
+    maxEntriesPerPage: "12"
+    maxHistoryEntries: "500"
+    saveModuleConfiguration: false
+    showBuildBadges: "never"
+    showChangeReasonCommentWindow: false
+    skipDuplicateHistory: true
 tool:
   jdk:
     installations:
-    - name: "openjdk-latest"
-      home: "/opt/tools/java/openjdk/latest"
-    - name: "openjdk-ea-latest"
-      home: "/opt/tools/java/openjdk/ea-latest"
-    - name: "openjdk-jdk22-latest"
-      home: "/opt/tools/java/openjdk/jdk-22/latest"
-    - name: "openjdk-jdk21-latest"
-      home: "/opt/tools/java/openjdk/jdk-21/latest"
-    - name: "openjdk-jdk20-latest"
-      home: "/opt/tools/java/openjdk/jdk-20/latest"
-    - name: "openjdk-jdk19-latest"
-      home: "/opt/tools/java/openjdk/jdk-19/latest"
-    - name: "openjdk-jdk18-latest"
-      home: "/opt/tools/java/openjdk/jdk-18/latest"
-    - name: "openjdk-jdk17-latest"
-      home: "/opt/tools/java/openjdk/jdk-17/latest"
-    - name: "openjdk-jdk16-latest"
-      home: "/opt/tools/java/openjdk/jdk-16/latest"
-    - name: "openjdk-jdk15-latest"
-      home: "/opt/tools/java/openjdk/jdk-15/latest"
-    - name: "openjdk-jdk14-latest"
-      home: "/opt/tools/java/openjdk/jdk-14/latest"
-    - name: "openjdk-jdk13-latest"
-      home: "/opt/tools/java/openjdk/jdk-13/latest"
-    - name: "openjdk-jdk12-latest"
-      home: "/opt/tools/java/openjdk/jdk-12/latest"
-    - name: "openjdk-jdk11-latest"
-      home: "/opt/tools/java/openjdk/jdk-11/latest"
-    - name: "openjdk-jdk10-latest"
-      home: "/opt/tools/java/openjdk/jdk-10/latest"
-    - name: "openjdk-jdk9-latest"
-      home: "/opt/tools/java/openjdk/jdk-9/latest"
-    - name: "adoptopenjdk-hotspot-latest"
-      home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
-    - name: "adoptopenjdk-hotspot-latest-lts"
-      home: "/opt/tools/java/adoptopenjdk/hotspot-latest-lts"
-    - name: "adoptopenjdk-hotspot-jdk16-latest"
-      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-16/latest"
-    - name: "adoptopenjdk-hotspot-jdk15-latest"
-      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-15/latest"
-    - name: "adoptopenjdk-hotspot-jdk14-latest"
-      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-14/latest"
-    - name: "adoptopenjdk-hotspot-jdk13-latest"
-      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-13/latest"
-    - name: "adoptopenjdk-hotspot-jdk12-latest"
-      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest"
-    - name: "adoptopenjdk-hotspot-jdk11-latest"
-      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
-    - name: "adoptopenjdk-hotspot-jdk10-latest"
-      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest"
-    - name: "adoptopenjdk-hotspot-jdk9-latest"
-      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest"
-    - name: "adoptopenjdk-hotspot-jdk8-latest"
-      home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
-    - name: "adoptopenjdk-openj9-latest"
-      home: "/opt/tools/java/adoptopenjdk/openj9-latest"
-    - name: "adoptopenjdk-openj9-latest-lts"
-      home: "/opt/tools/java/adoptopenjdk/openj9-latest-lts"
-    - name: "adoptopenjdk-openj9-jdk16-latest"
-      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-16/latest"
-    - name: "adoptopenjdk-openj9-jdk15-latest"
-      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-15/latest"
-    - name: "adoptopenjdk-openj9-jdk14-latest"
-      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-14/latest"
-    - name: "adoptopenjdk-openj9-jdk13-latest"
-      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-13/latest"
-    - name: "adoptopenjdk-openj9-jdk12-latest"
-      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-12/latest"
-    - name: "adoptopenjdk-openj9-jdk11-latest"
-      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
-    - name: "adoptopenjdk-openj9-jdk10-latest"
-      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-10/latest"
-    - name: "adoptopenjdk-openj9-jdk9-latest"
-      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-9/latest"
-    - name: "adoptopenjdk-openj9-jdk8-latest"
-      home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
-    - name: "temurin-latest"
-      home: "/opt/tools/java/temurin/latest"
-    - name: "temurin-jdk21-latest"
-      home: "/opt/tools/java/temurin/jdk-21/latest"
-    - name: "temurin-jdk20-latest"
-      home: "/opt/tools/java/temurin/jdk-20/latest"
-    - name: "temurin-jdk17-latest"
-      home: "/opt/tools/java/temurin/jdk-17/latest"
-    - name: "temurin-jdk11-latest"
-      home: "/opt/tools/java/temurin/jdk-11/latest"
-    - name: "temurin-jdk8-latest"
-      home: "/opt/tools/java/temurin/jdk-8/latest"
-    - name: "oracle-latest"
-      home: "/opt/tools/java/oracle/latest"
-    - name: "oracle-jdk10-latest"
-      home: "/opt/tools/java/oracle/jdk-10/latest"
-    - name: "oracle-jdk9-latest"
-      home: "/opt/tools/java/oracle/jdk-9/latest"
-    - name: "oracle-jdk8-latest"
-      home: "/opt/tools/java/oracle/jdk-8/latest"
-    - name: "ibm-jdk8-latest"
-      home: "/opt/tools/java/ibm/jdk-8/latest"
-    - name: "ibm-latest"
-      home: "/opt/tools/java/ibm/latest"
-    - name: "semeru-latest"
-      home: "/opt/tools/java/semeru/latest"
-    - name: "semeru-jdk21-latest"
-      home: "/opt/tools/java/semeru/jdk-21/latest"
-    - name: "semeru-jdk20-latest"
-      home: "/opt/tools/java/semeru/jdk-20/latest"
-    - name: "semeru-jdk19-latest"
-      home: "/opt/tools/java/semeru/jdk-19/latest"
-    - name: "semeru-jdk18-latest"
-      home: "/opt/tools/java/semeru/jdk-18/latest"
-    - name: "semeru-jdk17-latest"
-      home: "/opt/tools/java/semeru/jdk-17/latest"
-    - name: "semeru-jdk11-latest"
-      home: "/opt/tools/java/semeru/jdk-11/latest"
-    - name: "semeru-jdk8-latest"
-      home: "/opt/tools/java/semeru/jdk-8/latest"
+      - name: "openjdk-latest"
+        home: "/opt/tools/java/openjdk/latest"
+      - name: "openjdk-ea-latest"
+        home: "/opt/tools/java/openjdk/ea-latest"
+      - name: "openjdk-jdk22-latest"
+        home: "/opt/tools/java/openjdk/jdk-22/latest"
+      - name: "openjdk-jdk21-latest"
+        home: "/opt/tools/java/openjdk/jdk-21/latest"
+      - name: "openjdk-jdk20-latest"
+        home: "/opt/tools/java/openjdk/jdk-20/latest"
+      - name: "openjdk-jdk19-latest"
+        home: "/opt/tools/java/openjdk/jdk-19/latest"
+      - name: "openjdk-jdk18-latest"
+        home: "/opt/tools/java/openjdk/jdk-18/latest"
+      - name: "openjdk-jdk17-latest"
+        home: "/opt/tools/java/openjdk/jdk-17/latest"
+      - name: "openjdk-jdk16-latest"
+        home: "/opt/tools/java/openjdk/jdk-16/latest"
+      - name: "openjdk-jdk15-latest"
+        home: "/opt/tools/java/openjdk/jdk-15/latest"
+      - name: "openjdk-jdk14-latest"
+        home: "/opt/tools/java/openjdk/jdk-14/latest"
+      - name: "openjdk-jdk13-latest"
+        home: "/opt/tools/java/openjdk/jdk-13/latest"
+      - name: "openjdk-jdk12-latest"
+        home: "/opt/tools/java/openjdk/jdk-12/latest"
+      - name: "openjdk-jdk11-latest"
+        home: "/opt/tools/java/openjdk/jdk-11/latest"
+      - name: "openjdk-jdk10-latest"
+        home: "/opt/tools/java/openjdk/jdk-10/latest"
+      - name: "openjdk-jdk9-latest"
+        home: "/opt/tools/java/openjdk/jdk-9/latest"
+      - name: "adoptopenjdk-hotspot-latest"
+        home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
+      - name: "adoptopenjdk-hotspot-latest-lts"
+        home: "/opt/tools/java/adoptopenjdk/hotspot-latest-lts"
+      - name: "adoptopenjdk-hotspot-jdk16-latest"
+        home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-16/latest"
+      - name: "adoptopenjdk-hotspot-jdk15-latest"
+        home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-15/latest"
+      - name: "adoptopenjdk-hotspot-jdk14-latest"
+        home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-14/latest"
+      - name: "adoptopenjdk-hotspot-jdk13-latest"
+        home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-13/latest"
+      - name: "adoptopenjdk-hotspot-jdk12-latest"
+        home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest"
+      - name: "adoptopenjdk-hotspot-jdk11-latest"
+        home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
+      - name: "adoptopenjdk-hotspot-jdk10-latest"
+        home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest"
+      - name: "adoptopenjdk-hotspot-jdk9-latest"
+        home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest"
+      - name: "adoptopenjdk-hotspot-jdk8-latest"
+        home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
+      - name: "adoptopenjdk-openj9-latest"
+        home: "/opt/tools/java/adoptopenjdk/openj9-latest"
+      - name: "adoptopenjdk-openj9-latest-lts"
+        home: "/opt/tools/java/adoptopenjdk/openj9-latest-lts"
+      - name: "adoptopenjdk-openj9-jdk16-latest"
+        home: "/opt/tools/java/adoptopenjdk/openj9-jdk-16/latest"
+      - name: "adoptopenjdk-openj9-jdk15-latest"
+        home: "/opt/tools/java/adoptopenjdk/openj9-jdk-15/latest"
+      - name: "adoptopenjdk-openj9-jdk14-latest"
+        home: "/opt/tools/java/adoptopenjdk/openj9-jdk-14/latest"
+      - name: "adoptopenjdk-openj9-jdk13-latest"
+        home: "/opt/tools/java/adoptopenjdk/openj9-jdk-13/latest"
+      - name: "adoptopenjdk-openj9-jdk12-latest"
+        home: "/opt/tools/java/adoptopenjdk/openj9-jdk-12/latest"
+      - name: "adoptopenjdk-openj9-jdk11-latest"
+        home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
+      - name: "adoptopenjdk-openj9-jdk10-latest"
+        home: "/opt/tools/java/adoptopenjdk/openj9-jdk-10/latest"
+      - name: "adoptopenjdk-openj9-jdk9-latest"
+        home: "/opt/tools/java/adoptopenjdk/openj9-jdk-9/latest"
+      - name: "adoptopenjdk-openj9-jdk8-latest"
+        home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
+      - name: "temurin-latest"
+        home: "/opt/tools/java/temurin/latest"
+      - name: "temurin-jdk21-latest"
+        home: "/opt/tools/java/temurin/jdk-21/latest"
+      - name: "temurin-jdk20-latest"
+        home: "/opt/tools/java/temurin/jdk-20/latest"
+      - name: "temurin-jdk17-latest"
+        home: "/opt/tools/java/temurin/jdk-17/latest"
+      - name: "temurin-jdk11-latest"
+        home: "/opt/tools/java/temurin/jdk-11/latest"
+      - name: "temurin-jdk8-latest"
+        home: "/opt/tools/java/temurin/jdk-8/latest"
+      - name: "oracle-latest"
+        home: "/opt/tools/java/oracle/latest"
+      - name: "oracle-jdk10-latest"
+        home: "/opt/tools/java/oracle/jdk-10/latest"
+      - name: "oracle-jdk9-latest"
+        home: "/opt/tools/java/oracle/jdk-9/latest"
+      - name: "oracle-jdk8-latest"
+        home: "/opt/tools/java/oracle/jdk-8/latest"
+      - name: "ibm-jdk8-latest"
+        home: "/opt/tools/java/ibm/jdk-8/latest"
+      - name: "ibm-latest"
+        home: "/opt/tools/java/ibm/latest"
+      - name: "semeru-latest"
+        home: "/opt/tools/java/semeru/latest"
+      - name: "semeru-jdk21-latest"
+        home: "/opt/tools/java/semeru/jdk-21/latest"
+      - name: "semeru-jdk20-latest"
+        home: "/opt/tools/java/semeru/jdk-20/latest"
+      - name: "semeru-jdk19-latest"
+        home: "/opt/tools/java/semeru/jdk-19/latest"
+      - name: "semeru-jdk18-latest"
+        home: "/opt/tools/java/semeru/jdk-18/latest"
+      - name: "semeru-jdk17-latest"
+        home: "/opt/tools/java/semeru/jdk-17/latest"
+      - name: "semeru-jdk11-latest"
+        home: "/opt/tools/java/semeru/jdk-11/latest"
+      - name: "semeru-jdk8-latest"
+        home: "/opt/tools/java/semeru/jdk-8/latest"
   ant:
     installations:
-    - name: "apache-ant-latest"
-      home: ""
-      properties:
-      - installSource:
-          installers:
-          - antFromApache:
-              id: "1.10.12"
+      - name: "apache-ant-latest"
+        home: ""
+        properties:
+          - installSource:
+              installers:
+                - antFromApache:
+                    id: "1.10.12"
   maven:
     installations:
       - name: "apache-maven-latest"
@@ -682,5 +676,5 @@ tool:
         home: "/opt/tools/apache-maven/3.2.5"
   git:
     installations:
-    - name: "Default"
-      home: "git"
+      - name: "Default"
+        home: "git"

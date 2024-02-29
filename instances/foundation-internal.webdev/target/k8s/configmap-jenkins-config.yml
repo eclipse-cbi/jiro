@@ -547,6 +547,15 @@ data:
       scmGit:
         createAccountBasedOnEmail: true
         useExistingAccountWithSameEmail: true
+      jobConfigHistory:
+        excludePattern: "queue\\.xml|nodeMonitors\\.xml|UpdateCenter\\.xml|global-build-stats|LockableResourcesManager\\.xml|MilestoneStep\\.xml"
+        maxDaysToKeepEntries: "60"
+        maxEntriesPerPage: "12"
+        maxHistoryEntries: "500"
+        saveModuleConfiguration: false
+        showBuildBadges: "never"
+        showChangeReasonCommentWindow: false
+        skipDuplicateHistory: true
       openShift:
         clusterConfigs:
           - credentialsId: "ecda650e-23ab-4b17-82cd-20e4e6cbb9d7"

@@ -12,10 +12,10 @@
    "spec": {
       "hard": {
          "limits.cpu": "6600m",
-         "limits.memory": "10240Mi",
+         "limits.memory": "10752Mi",
          "pods": 3,
          "requests.cpu": "2650m",
-         "requests.memory": "10240Mi"
+         "requests.memory": "10752Mi"
       }
    }
 }

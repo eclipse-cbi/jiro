@@ -14,7 +14,7 @@
          {
             "max": {
                "cpu": "3500m",
-               "memory": "8448Mi"
+               "memory": "8704Mi"
             },
             "min": {
                "cpu": "200m",
@@ -25,11 +25,11 @@
          {
             "default": {
                "cpu": "300m",
-               "memory": "256Mi"
+               "memory": "512Mi"
             },
             "defaultRequest": {
                "cpu": "200m",
-               "memory": "256Mi"
+               "memory": "512Mi"
             },
             "max": {
                "cpu": "3500m",
