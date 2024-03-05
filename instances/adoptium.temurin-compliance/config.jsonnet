@@ -29,6 +29,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "slack",
       "tap",
       "build-with-parameters",
+      "view-job-filters",
       "xvfb",
       "monitoring ",
       "xunit",
