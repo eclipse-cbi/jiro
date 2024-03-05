@@ -523,6 +523,7 @@ jenkins:
   - permanent:
       name: "jck-scaleway-ubuntu2310-riscv64-1"
       nodeDescription: "RiscV RV64GCV 4 cores 1,85 GHz"
+      labelString: "hw.arch.riscv64 hw.arch.riscv ci.role.test sw.os.linux"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -535,11 +536,12 @@ jenkins:
           javaPath: ""
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCWj9s/chXQynZvLa3OMGuZGyNEiFohyU1TRWrKpY4OvuoBdQhplFiqi3Vz2e++sxa+tKdsMz6s/uFKWEbIOu7wto4kA6RNpE+Y10cm9UfUnF0Gm1pQ9BrAC9SBW32xhPyiN6r4sxHMJsscsMK9Jn9ZrBnWhyYfuyBvrTE0QglZlQG1A0D8zTM2ObcaFF2FH4MS6sx0/LNR4uDrEFwDVMsb0EFMEgKSymHgToi3gB/JZPm6zmb9LkVah1geTdzUEkQkgSvBGQ0Q7jYJtAbm6zX3+DpWBeW56pge439qXWFSxm9/yMkWLGWtpS1iV/t0oSAv3XwgLrQ85GGVD8PV0kz0uVe2DsnL4CVIXE3SG8RWHCIk6r0LH12iDX8emcU9g11t9NLdo1YQVhnbKTTW14RjfACOcXMzA+psc6eG3NEwPST08hwfmb5kCJDDziu3zjsiotDQQMfM0kDxq91bvsmJJWFJOQBTpFlO8REUDAB22agGfAABSY8bHeuLszen0Qs="
+              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII1Oqkhk3Nl8VvNPc75BlN+uqtFT8FF4uRDJ/sPD3yj9"
 
   - permanent:
       name: "jck-scaleway-ubuntu2310-riscv64-2"
       nodeDescription: "RiscV RV64GCV 4 cores 1,85 GHz"
+      labelString: "hw.arch.riscv64 hw.arch.riscv ci.role.test sw.os.linux"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -552,7 +554,7 @@ jenkins:
           javaPath: ""
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCySBuEEAK9//Nb18po4aGUgbbbuIjmAN8SkDmEy/6xdEQjw6PjZIxZp9k5CzXysBDAIZRwnnkNKTDUp61QFtfrf+xXKOCmUQVhP3wC4FZ8ydtAVDABybfW347YZtYrzT2+jz7vd8f5lkD1aNS0FxSGk+ugpjZ4vJk/hsw5ubRxaXrdBRbGsELpDDxN77GkaoHe+C/aPRDRL+KhS4F8d9fXmBCePNzJ6ERRzQEDt24RZkHqm6ZjlAt9rzkBaANFZjIqh20fV1g28BrD/LJJ/NkXxPYeqcJIVrOyd0fh03mT5jBt8F1Jvn7XqwZb3hBU3lseClnrfZMrp8rYkrFUcrBRYcIYEV3liomgcM74W6HCuPGoe6kn8tL/sdnCrW+t3/sT96KsIipc2Qld4DBgBYljj3cRp0L7/h1NcB+ZADk+o1Fu5BSlj1QE0FMOCT6wtbrVUb0o0eKGXtRtg7OzDi2QES4JBIziUwVMFNN2lzhVUeFoUmhgfIvzKWVFupgQrIE="
+              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ2yPeoqt5JFNu+lMTcspRcQrhb3q8HyeFHB69uYRZKS"
 unclassified:
   globalLibraries:
     libraries:
