@@ -974,13 +974,13 @@ data:
             retentionStrategy: "always"
             launcher:
               ssh:
-                host: "62.210.163.167"
+                host: "62.210.163.106"
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: ""
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
-                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ2yPeoqt5JFNu+lMTcspRcQrhb3q8HyeFHB69uYRZKS"
+                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL4WK+PrmT4Jr+QcsGdxkAW+MPmqlA3uH2EDVE6t9F0m"
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
