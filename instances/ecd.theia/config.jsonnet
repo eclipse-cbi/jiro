@@ -7,6 +7,7 @@
     plugins+: [
       "embeddable-build-status",
       "mail-watcher-plugin",
+      "nodejs",
       "pipeline-utility-steps",
     ],
   },
