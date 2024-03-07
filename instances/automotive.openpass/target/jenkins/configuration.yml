@@ -728,3 +728,12 @@ tool:
     installations:
       - name: "Default"
         home: "git"
+  nodejs:
+    installations:
+      - name: "node_16.x"
+        properties:
+          - installSource:
+              installers:
+                - nodeJSInstaller:
+                    id: "16.20.2"
+                    npmPackagesRefreshHours: 72

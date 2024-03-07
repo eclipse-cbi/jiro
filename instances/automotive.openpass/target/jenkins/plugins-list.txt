@@ -1,3 +1,4 @@
 # GENERATED FILE - DO NOT EDIT
 conditional-buildstep
 mail-watcher-plugin
+nodejs
