@@ -6,6 +6,7 @@
   jenkins+: {
     theme: "quicksilver-light",
     plugins+: [
+      "buckminster",
       "gerrit-trigger",
     ]
   }
