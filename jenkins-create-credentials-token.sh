@@ -244,6 +244,11 @@ auto() {
   if passw cbi "bots/${project_name}/gitlab.eclipse.org/api-token" 2&> /dev/null; then
     gitlab "${project_name}"
     gitlab_pat "${project_name}"
+  else
+    echo "  No API token found."
+  fi
+  echo "Checking for gitlab.eclipse.org webhook secret token..."
+  if passw cbi "bots/${project_name}/gitlab.eclipse.org/webhook-secret" 2&> /dev/null; then
     gitlab_webhook_secret "${project_name}"
   else
     echo "  No API token found."
