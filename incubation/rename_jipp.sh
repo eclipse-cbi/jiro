@@ -139,6 +139,10 @@ echo
 echo "JIPP for ${OLD_PROJECT_NAME} will be renamed to ${NEW_PROJECT_NAME}..."
 read -rsp $'Press any key to continue, or CTRL+C to abort...\n' -n1
 
+echo
+echo "Connected to cluster?"
+read -rsp $'Press any key to continue, or CTRL+C to abort...\n' -n1
+
 shutdown_old_instance
 backup_pv
 rename_instance_folder
