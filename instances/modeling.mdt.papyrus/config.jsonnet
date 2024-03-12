@@ -8,6 +8,7 @@
     plugins+: [
       "dashboard-view",
       "gerrit-trigger",
+      "nodejs",
       "zentimestamp",
     ],
   },

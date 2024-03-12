@@ -13,3 +13,14 @@ unclassified:
     - credentialsId: "gitlab-personal-access-token"
       name: "gitlab.eclipse.org"
       serverUrl: "https://gitlab.eclipse.org"
+
+tool:
+  nodejs:
+    installations:
+    - name: "node_20.x"
+      properties:
+      - installSource:
+          installers:
+          - nodeJSInstaller:
+              id: "20.11.1"
+              npmPackagesRefreshHours: 72

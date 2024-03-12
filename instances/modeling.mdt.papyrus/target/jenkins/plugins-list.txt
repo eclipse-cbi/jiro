@@ -1,4 +1,5 @@
 # GENERATED FILE - DO NOT EDIT
 dashboard-view
 gerrit-trigger
+nodejs
 zentimestamp
