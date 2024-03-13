@@ -15,6 +15,7 @@
       "favorite",
       "gradle",
       "handy-uri-templates-2-api",
+      "hashicorp-vault-plugin",
       "htmlpublisher",
       "jenkins-design-language",
       "mail-watcher-plugin",

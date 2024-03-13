@@ -1,6 +1,7 @@
 # GENERATED FILE - DO NOT EDIT
 docker-workflow
 gradle
+hashicorp-vault-plugin
 kubernetes-cli
 mail-watcher-plugin
 pipeline-github
