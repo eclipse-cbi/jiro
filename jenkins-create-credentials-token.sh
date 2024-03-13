@@ -291,10 +291,12 @@ quay() {
 
   _verify_inputs "${project_name}"
 
+  local username
+  username="$(passw cbi "bots/${project_name}/quay.io/robot-username")"
   local token
-  token="$(passw cbi "bots/${project_name}/quay.io/api-token")"
+  token="$(passw cbi "bots/${project_name}/quay.io/robot-token")"
 
-  _create_string_credentials "${project_name}" "quay-bot-token" "Quay Bot token" "${token}" "quay.io"
+  _create_username_token_credentials "${project_name}" "quay-bot" "Quay bot (Robot username/token)" "${username}" "${token}" "quay.io"
 }
 
 github() {
