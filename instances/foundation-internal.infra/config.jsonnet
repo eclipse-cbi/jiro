@@ -31,6 +31,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     ,
     plugins+: [
       "docker-workflow",
+      "hashicorp-vault-plugin",
       "kubernetes-cli",
       "mail-watcher-plugin",
       "pipeline-github",

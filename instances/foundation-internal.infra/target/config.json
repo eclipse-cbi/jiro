@@ -554,6 +554,7 @@
       ],
       "plugins": [
          "docker-workflow",
+         "hashicorp-vault-plugin",
          "kubernetes-cli",
          "mail-watcher-plugin",
          "pipeline-github",
@@ -579,8 +580,8 @@
       "id": "2.426.3",
       "key_fingerprint": "5BA31D57EF5975CA",
       "plugin_manager": {
-         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.12.13/jenkins-plugin-manager-2.12.13.jar",
-         "version": "2.12.13"
+         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.12.15/jenkins-plugin-manager-2.12.15.jar",
+         "version": "2.12.15"
       },
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
