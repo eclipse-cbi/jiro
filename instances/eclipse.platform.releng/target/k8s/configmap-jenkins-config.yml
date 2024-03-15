@@ -726,6 +726,28 @@ data:
                       key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest"
             remoteFS: "C:\\Users\\genie.releng\\"
             retentionStrategy: "always"
+        - permanent:
+            labelString: "windows windows11 swt.natives-win32.win32.aarch64"
+            launcher:
+              inbound:
+                webSocket: true
+                workDirSettings:
+                  disabled: false
+                  failIfWorkDirIsMissing: false
+                  internalDir: "remoting"
+            mode: EXCLUSIVE
+            name: "rie8t-win11-arm64"
+            nodeDescription: "Windows 11 Pro ARM64, 2vCPUs, 8GB RAM, hosted on Azure"
+            remoteFS: "C:\\Users\\genie.releng.rie8t-win11-arm\\jenkins_agent"
+            retentionStrategy: "always"
+            nodeProperties:
+              - watcher:
+                  offlineAddresses: "releng@eclipse.org"
+                  onlineAddresses: "releng@eclipse.org"
+              - toolLocation:
+                  locations:
+                    - home: "C:\\Program Files\\Git\\bin\\git"
+                      key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
