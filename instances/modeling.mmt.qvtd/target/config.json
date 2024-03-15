@@ -492,7 +492,6 @@
          }
       ],
       "plugins": [
-         "buckminster",
          "gerrit-trigger"
       ],
       "pluginsForceUpgrade": true,
