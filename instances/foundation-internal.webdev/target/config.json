@@ -504,6 +504,15 @@
                   "Overall/Administer"
                ]
             }
+         },
+         {
+            "user": {
+               "name": "martin.lowe@eclipse-foundation.org",
+               "permissions": [
+                  "Credentials/Create",
+                  "Credentials/Update"
+               ]
+            }
          }
       ],
       "plugins": [

@@ -15,7 +15,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     permissions+:
       // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/1056
       permissionsTemplates.user("anonymous", ["Overall/Read", "Job/Discover"]) +
-      permissionsTemplates.group("admins", ["Overall/Administer"])
+      permissionsTemplates.group("admins", ["Overall/Administer"]) +
+      // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/1571#note_1985722
+      permissionsTemplates.user("martin.lowe@eclipse-foundation.org", ["Credentials/Create", "Credentials/Update"])
     ,
     plugins+: [
       "disable-failed-job",
