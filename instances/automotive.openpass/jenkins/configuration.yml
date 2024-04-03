@@ -32,6 +32,29 @@ jenkins:
             failIfWorkDirIsMissing: false
             internalDir: "remoting"
       mode: EXCLUSIVE
+      name: "9pfnn-win10-clone"
+      nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure\r\n<br/><br/>\r\
+        \nCloned disk from agent 9pfnn-win10 (2024-04-03)"
+      nodeProperties:
+      - watcher:
+          offlineAddresses: "releng@eclipse.org"
+          onlineAddresses: "releng@eclipse.org"
+      - toolLocation:
+          locations:
+          - home: "C:\\Program Files\\Git\\bin\\git"
+            key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+      remoteFS: "C:\\Users\\genie.openpass\\jenkins_agent"
+      retentionStrategy: "always"
+  - permanent:
+      labelString: "windows10"
+      launcher:
+        inbound:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+      mode: EXCLUSIVE
       name: "9pfnn-win10"
       nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure"
       remoteFS: "C:\\Users\\genie.openpass\\jenkins_agent"
