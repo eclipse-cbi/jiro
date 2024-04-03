@@ -6,34 +6,52 @@
  or the MIT License which is available at https://opensource.org/licenses/MIT.
  * SPDX-License-Identifier: EPL-2.0 OR MIT
  */
-.ui-refresh .page-header, 
-.ui-refresh A.page-header__brand-link{
+.page-header,
+A.page-header__brand-link{
   background-color: #4c4d4e;
 }
 
-.ui-refresh IMG.page-header__brand-image {
-  content:url("https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg");
-  width: 6rem;
+#page-header .logo{
+  display: none;
 }
 
-.ui-refresh .page-header__brand-name {
+#page-header .page-header__brand-link {
+  display: inline;
+}
+
+IMG.page-header__brand-image {
+  content:url("https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg");
+  width: 6rem;
+  height: 3.4rem;
+  vertical-align: middle;
+  margin-left: 1.2rem;
+}
+
+.page-header__brand-name {
   visibility: hidden;
 }
 
-.ui-refresh .page-header__brand-name:after {
+.page-header__brand-name:after {
   content: 'Eclipse QVTd';
   visibility: visible;
   font-size: 18px;
   line-height: 24px;
   position: relative;
-  left: -5ch;
+  vertical-align: middle;
+  left: -4ch;
   color: #ffffff;
 }
 
-.ui-refresh A.page-header__brand-link:link,
-.ui-refresh A.page-header__brand-link:visited {
+A.page-header__brand-link:link,
+A.page-header__brand-link:visited {
   color: #ffffff;
   text-decoration: none;
+}
+
+#page-header .page-header__hyperlinks a:active,
+#page-header .page-header__hyperlinks a:link {
+  color: #ffffff;
+  font-weight: bold;
 }
 
 #breadcrumbBar div {
@@ -63,7 +81,7 @@ footer {
   background-color: #efefef;
   text-decoration: underline;
 }
- 
+
 .build-rss-links, #rss-bar, .page_generated, .rest_api {
   display: none;
 }
@@ -74,7 +92,7 @@ a:visited {
 
 a:focus, a:hover {
   color: #305e72;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:active, a:hover {
@@ -83,8 +101,6 @@ a:active, a:hover {
 
 a, a:link {
   color: #3f7b96;
-  text-decoration: none;
-  background-color: transparent;
 }
 
 body, table, form, input, td, th, p, textarea, select {
