@@ -5,4 +5,5 @@ hashicorp-vault-plugin
 kubernetes-cli
 mail-watcher-plugin
 pipeline-github
+prometheus
 slack

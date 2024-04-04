@@ -89,6 +89,25 @@ unclassified:
       name: "gitlab.eclipse.org"
       serverUrl: "https://gitlab.eclipse.org"
       webhookSecretCredentialsId: "gitlab-webhook-secret"
+  prometheusConfiguration:
+    appendParamLabel: false
+    appendStatusLabel: false
+    collectCodeCoverage: false
+    collectDiskUsage: true
+    collectNodeStatus: true
+    collectingMetricsPeriodInSeconds: 120
+    countAbortedBuilds: true
+    countFailedBuilds: true
+    countNotBuiltBuilds: true
+    countSuccessfulBuilds: true
+    countUnstableBuilds: true
+    defaultNamespace: "foundation-internal-webdev"
+    fetchTestResults: true
+    jobAttributeName: "jenkins_job"
+    path: "prometheus"
+    perBuildMetrics: false
+    processingDisabledBuilds: false
+    useAuthenticatedEndpoint: false
 
 tool:
   oc:
