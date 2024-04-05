@@ -574,7 +574,7 @@ unclassified:
               gitlab:
                 credentialsId: "gitlab-credentials"
                 id: "c5c54f66-beeb-4d2f-905f-c225e7586b8b"
-                projectOwner: "eclipsefdn/it/releng"
+                projectOwner: "eclipsefdn/it/releng/jenkins-pipeline-service"
                 projectPath: "eclipsefdn/it/releng/jenkins-pipeline-service/jenkins-pipeline-library"
                 serverName: "gitlab.eclipse.org"
                 traits:
