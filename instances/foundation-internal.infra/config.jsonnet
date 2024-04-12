@@ -35,7 +35,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "kubernetes-cli",
       "mail-watcher-plugin",
       "pipeline-github",
-      "prometheus",
       "slack",
       "gradle",
     ],

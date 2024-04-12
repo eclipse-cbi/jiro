@@ -558,7 +558,6 @@
          "kubernetes-cli",
          "mail-watcher-plugin",
          "pipeline-github",
-         "prometheus",
          "slack",
          "gradle"
       ],
@@ -618,6 +617,7 @@
          "parameterized-trigger",
          "pipeline-maven",
          "pipeline-stage-view",
+         "prometheus",
          "promoted-builds",
          "rebuild",
          "simple-theme-plugin",

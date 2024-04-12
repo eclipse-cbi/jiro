@@ -616,9 +616,6 @@ unclassified:
     showBuildBadges: "never"
     showChangeReasonCommentWindow: false
     skipDuplicateHistory: true
-  slackNotifier:
-    teamDomain: "eclipsefoundation"
-    tokenCredentialId: "03a52394-e33f-46fc-be2a-222bf8e9a58f"
   prometheusConfiguration:
     appendParamLabel: false
     appendStatusLabel: false
@@ -648,6 +645,9 @@ unclassified:
     perBuildMetrics: false
     processingDisabledBuilds: false
     useAuthenticatedEndpoint: false
+  slackNotifier:
+    teamDomain: "eclipsefoundation"
+    tokenCredentialId: "03a52394-e33f-46fc-be2a-222bf8e9a58f"
 tool:
   jdk:
     installations:

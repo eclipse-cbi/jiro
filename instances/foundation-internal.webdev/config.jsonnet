@@ -27,7 +27,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "openshift-client",
       "pipeline-github",
       "pipeline-graph-view",
-      "prometheus",
       "slack",
     ],
   },

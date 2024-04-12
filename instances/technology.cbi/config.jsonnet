@@ -23,7 +23,6 @@
       "metrics",
       "nexus-jenkins-plugin",
       "pipeline-graph-view",
-      "prometheus",
       "pubsub-light",
       "slack",
       "sse-gateway",
