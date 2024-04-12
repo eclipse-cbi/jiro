@@ -37,7 +37,17 @@ unclassified:
     countNotBuiltBuilds: true
     countSuccessfulBuilds: true
     countUnstableBuilds: true
-    defaultNamespace: "cbi"
+    defaultNamespace: ""
+    disabledMetricConfig:
+      entries:
+      - regexDisabledMetric:
+          regex: "jenkins_builds_last_stage_duration.*"
+      - regexDisabledMetric:
+          regex: "jvm_.*"
+      - regexDisabledMetric:
+          regex: "vm_memory.*"
+      - regexDisabledMetric:
+          regex: "jenkins_builds_discard_active.*"
     fetchTestResults: true
     jobAttributeName: "jenkins_job"
     path: "prometheus"
