@@ -7,7 +7,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
 
   },
   jenkins+: {
-    staticAgentCount: 10,
+    staticAgentCount: 26,
     permissions:
       permissionsTemplates.group("admins", ["Overall/Administer"]) +
       permissionsTemplates.group($.project.unixGroupName, permissionsTemplates.committerPermissionsList + ["Agent/Connect", "Agent/Disconnect", "Agent/ExtendedRead"])

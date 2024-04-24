@@ -990,6 +990,24 @@ jenkins:
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL4WK+PrmT4Jr+QcsGdxkAW+MPmqlA3uH2EDVE6t9F0m"
+    - permanent:
+        name: "jck-ubuntu-2204-solaris10"
+        nodeDescription: ""
+        labelString: ""
+        remoteFS: "/export/home/jenkins"
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "72.178.96.199"
+            port: "2222"
+            credentialsId: "jenkins-jck-ssh"
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC36M/rOZAgnBQYfWwgGy32eE5e9WzggIvjnVESEEjxsZ9YYsA/i4gcJZgg6rdyrCRHjWYX4Rm0o5bVVQT5AD7O2pzzIP6miOC+W++cZqn8gwtkJ4s9uP1U2yq01KMr3tdvJ73jD9gOrjwn5myu0epPf80MIqP2Wy5YXIHAG8Ucbls7KlnZKG9rU5j+6ZqXZqsKD41BwFQJvude4Tz22WOStxylN/WVS19VKkjx7f0JDj4jPapNGko1+fz98qYZ7YmB7gv+fFEcdTVuSswisIyKOgEoid/8/G/X9qjYzak3iyQ24ApIVcj4ZJwEVMAwMS2B5d680hWqmsFS8Kbx9Eik/eK6+FfQ4EwY0nTZSEIBuvbWemEOohdIe3HnNJRsD8RaZ2TRyLoIylfOAwTbPmDyySzpmucUgtHNvDc32VBsI8WosQqf990zFSJqBT8E7WEKnCWUQdvvPaze11LIP+IoBTDLQnEWb2thlcpGV+UhjuBCDj6+b2BrUSxkWY9lLqU="
+            javaPath: "/usr/lib/jvm/jdk-11/bin/java"
+            jvmOptions: "-Xmx512m"
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
