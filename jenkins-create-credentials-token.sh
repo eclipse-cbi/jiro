@@ -280,10 +280,12 @@ docker() {
 
   _verify_inputs "${project_name}"
 
+  local username
+  username="$(passw cbi "bots/${project_name}/docker.com/username")"
   local token
   token="$(passw cbi "bots/${project_name}/docker.com/api-token")"
 
-  _create_string_credentials "${project_name}" "docker-bot-token" "Docker Bot token" "${token}" "docker.com"
+  _create_username_token_credentials "${project_name}" "docker-bot-token" "Docker Bot token" "${username}" "${token}" "docker.com"
 }
 
 quay() {
