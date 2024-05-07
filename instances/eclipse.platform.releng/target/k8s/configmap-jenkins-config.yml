@@ -506,7 +506,7 @@ data:
         - permanent:
             name: "b9h15-macos11-x86_64"
             nodeDescription: "macOS 11 (Big Sur), no login session, hosted on MacStadium"
-            labelString: "macos macos-11 swt.natives-cocoa.macosx.x86_64"
+            labelString: "macos macos-11 swt.natives-cocoa.macosx.x86_64 native.builder-cocoa.macosx.x86_64"
             remoteFS: '/Users/genie.releng/jenkins_agent/'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -530,7 +530,7 @@ data:
         - permanent:
             name: "rs68g-win10"
             nodeDescription: "Windows 10 Pro, hosted on Azure"
-            labelString: "windows swt.natives-win32.win32.x86_64"
+            labelString: "windows swt.natives-win32.win32.x86_64 native.builder-win32.win32.x86_64"
             remoteFS: 'C:\Users\genie.releng\ci'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -596,7 +596,7 @@ data:
                   onlineAddresses: "releng@eclipse.org"
         - permanent:
             name: "ppcle-buildTest"
-            labelString: "ppctest ppcbuild swt.natives-gtk.linux.ppc64le"
+            labelString: "ppctest ppcbuild swt.natives-gtk.linux.ppc64le native.builder-gtk.linux.ppc64le"
             remoteFS: "/home/swtbuild/build"
             numExecutors: 1
             mode: EXCLUSIVE
@@ -624,7 +624,7 @@ data:
                   internalDir: "remoting"
         - permanent:
             name: "centos-aarch64-1"
-            labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64"
+            labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64 native.builder-gtk.linux.aarch64"
             nodeDescription: "Agent provided by the project"
             remoteFS: "/home/swtbuild/build"
             numExecutors: 1
@@ -639,7 +639,7 @@ data:
                   internalDir: "remoting"
         - permanent:
             name: "centos-aarch64-2"
-            labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64"
+            labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64 native.builder-gtk.linux.aarch64"
             nodeDescription: "Agent provided by the project"
             remoteFS: "/home/swtbuild/build"
             numExecutors: 1
@@ -654,7 +654,7 @@ data:
                   internalDir: "remoting"
         - permanent:
             name: "centos-aarch64-3"
-            labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64"
+            labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64 native.builder-gtk.linux.aarch64"
             nodeDescription: "Agent provided by the project"
             remoteFS: "/home/swtbuild/build"
             numExecutors: 1
@@ -669,7 +669,7 @@ data:
                   internalDir: "remoting"
         - permanent:
             name: "centos-aarch64-4"
-            labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64"
+            labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64 native.builder-gtk.linux.aarch64"
             nodeDescription: "Agent provided by the project"
             remoteFS: "/home/swtbuild/build"
             numExecutors: 1
@@ -684,7 +684,7 @@ data:
                   internalDir: "remoting"
         - permanent:
             name: "nc1ht-macos11-arm64"
-            labelString: "macos macos11 swt.natives-cocoa.macosx.aarch64"
+            labelString: "macos macos11 swt.natives-cocoa.macosx.aarch64 native.builder-cocoa.macosx.aarch64"
             nodeDescription: "macOS Ventura 13.0.1"
             launcher:
               ssh:
@@ -727,7 +727,7 @@ data:
             remoteFS: "C:\\Users\\genie.releng\\"
             retentionStrategy: "always"
         - permanent:
-            labelString: "windows windows11 swt.natives-win32.win32.aarch64"
+            labelString: "windows windows11 swt.natives-win32.win32.aarch64 native.builder-win32.win32.aarch64"
             launcher:
               inbound:
                 webSocket: true
