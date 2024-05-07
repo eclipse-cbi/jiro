@@ -1000,7 +1000,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           ssh:
-            host: "72.178.96.199"
+            host: "172.178.96.199"
             port: "2222"
             credentialsId: "jenkins-jck-ssh"
             sshHostKeyVerificationStrategy:
