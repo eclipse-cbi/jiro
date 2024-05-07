@@ -594,6 +594,7 @@
          "namespace": "openpass"
       },
       "master": {
+         "defaultJnlpAgentLabel": "basic-ubuntu",
          "namespace": "openpass",
          "probe": {
             "liveness": {

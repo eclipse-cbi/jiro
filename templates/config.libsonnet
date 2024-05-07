@@ -78,6 +78,7 @@ local clouds = import "clouds.libsonnet";
   },
   kubernetes: {
     master: {
+      defaultJnlpAgentLabel: "basic",
       namespace: $.project.shortName,
       stsName: $.project.shortName,
       resources: {

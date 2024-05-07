@@ -60,7 +60,7 @@
               },
             ] else []),
           },
-        } for agentName in std.objectFields(agents) 
+        } for agentName in std.objectFields(agents)
       },
     },
   },

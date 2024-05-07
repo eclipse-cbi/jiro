@@ -11,4 +11,9 @@
       "conditional-buildstep",
     ],
   },
+  kubernetes+: {
+    master+: {
+      defaultJnlpAgentLabel: "basic-ubuntu",
+    }
+  }
 }
