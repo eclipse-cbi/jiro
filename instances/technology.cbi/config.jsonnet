@@ -29,6 +29,11 @@
       "trilead-api",
     ],
   },
+  kubernetes+: {
+    master+: {
+      defaultJnlpAgentLabel: "basic-ubuntu",
+    }
+  },
   gradle+: {
     generate: true,
   },
