@@ -6,8 +6,11 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     displayName: "Eclipse Packaging Project",
   },
   jenkins+: {
-      permissions+:
-        // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2481
-        permissionsTemplates.user("ed.merks@gmail.com", ["Overall/Read", "Job/Build", "Job/Read", "Job/ExtendedRead", "Job/Cancel", "Agent/Build"])
+    permissions+:
+      // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2481
+      permissionsTemplates.user("ed.merks@gmail.com", ["Overall/Read", "Job/Build", "Job/Read", "Job/ExtendedRead", "Job/Cancel", "Agent/Build"]),
+    plugins+: [
+      "urltrigger",
+    ]
   },
 }
