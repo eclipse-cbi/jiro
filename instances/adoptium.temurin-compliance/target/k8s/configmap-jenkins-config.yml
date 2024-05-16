@@ -1026,11 +1026,17 @@ data:
                 host: "172.178.96.199"
                 port: "2222"
                 credentialsId: "jenkins-jck-ssh"
+                javaPath: "/usr/lib/jvm/jdk11/bin/java"
+                jvmOptions: "-Xmx512m"
+                prefixStartSlaveCmd: "export LD_PRELOAD_64=/usr/lib/jvm/fallocate.so && export PATH=/usr/local/bin:$PATH &&"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
-                    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC36M/rOZAgnBQYfWwgGy32eE5e9WzggIvjnVESEEjxsZ9YYsA/i4gcJZgg6rdyrCRHjWYX4Rm0o5bVVQT5AD7O2pzzIP6miOC+W++cZqn8gwtkJ4s9uP1U2yq01KMr3tdvJ73jD9gOrjwn5myu0epPf80MIqP2Wy5YXIHAG8Ucbls7KlnZKG9rU5j+6ZqXZqsKD41BwFQJvude4Tz22WOStxylN/WVS19VKkjx7f0JDj4jPapNGko1+fz98qYZ7YmB7gv+fFEcdTVuSswisIyKOgEoid/8/G/X9qjYzak3iyQ24ApIVcj4ZJwEVMAwMS2B5d680hWqmsFS8Kbx9Eik/eK6+FfQ4EwY0nTZSEIBuvbWemEOohdIe3HnNJRsD8RaZ2TRyLoIylfOAwTbPmDyySzpmucUgtHNvDc32VBsI8WosQqf990zFSJqBT8E7WEKnCWUQdvvPaze11LIP+IoBTDLQnEWb2thlcpGV+UhjuBCDj6+b2BrUSxkWY9lLqU="
-                javaPath: "/usr/lib/jvm/jdk-11/bin/java"
-                jvmOptions: "-Xmx512m"
+                    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGhVR1QeERK3rvLSG08NZY5iT4XqyBZwhrJFjY7dpu6urlCsXgK4epH/rOBeNXriRdWtFpHG88aRR75d0VZ0ouyyWsSgfQhCZmfhwL4/xFMsGfXq/WqMiSAwFNouGgQwBJNIR9bV/sYnix26K2K26EUQ6HbiTsJnbtvWVHnVldpvjLXT+h/IcN+0+d9QOGAboopxqaDTAglA6tjHT9A/VTwXTFkdWgupZCLXCrQgYhDPJm9JzN0kAGz8TrLjWMbD2XdbLnCEZjntDEHtj2Vti7rYIMPyVOfx9xEZt6IPLed8DnzGnVJa9Uh3zdjKtoIywC518K3iVV4OcLcKxJFwTD"
+            nodeProperties:
+              - envVars:
+                  env:
+                    - key: "PATH"
+                      value: "/usr/local/bin:/opt/csw/bin:/usr/bin:/bin:/usr/sbin"
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
