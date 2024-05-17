@@ -5,6 +5,7 @@
   },
   jenkins+: {
     plugins+: [
+      "lockable-resources",
       "slack",
     ],
   },
