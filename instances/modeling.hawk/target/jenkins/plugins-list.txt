@@ -1,2 +1,3 @@
 # GENERATED FILE - DO NOT EDIT
+lockable-resources
 slack
