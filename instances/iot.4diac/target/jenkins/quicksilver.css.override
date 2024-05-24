@@ -48,8 +48,9 @@ A.page-header__brand-link:visited {
   text-decoration: none;
 }
 
+#page-header .page-header__hyperlinks a:link,
 #page-header .page-header__hyperlinks a:active,
-#page-header .page-header__hyperlinks a:link {
+#page-header .page-header__hyperlinks a:visited {
   color: #ffffff;
   font-weight: bold;
 }
@@ -83,6 +84,10 @@ footer {
   display: none;
 }
 
+a, a:link {
+  color: #3f7b96;
+}
+
 a:visited {
   color: #af6e3d;
 }
@@ -92,13 +97,10 @@ a:focus, a:hover {
   text-decoration: none;
 }
 
-a:active, a:hover {
+a:hover, a:active {
   outline: 0;
 }
 
-a, a:link {
-  color: #3f7b96;
-}
 
 body, table, form, input, td, th, p, textarea, select {
   font-family: Libre Franklin,Helvetica Neue,Helvetica,Arial,sans-serif;

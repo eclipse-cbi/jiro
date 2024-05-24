@@ -6,5 +6,4 @@ mail-watcher-plugin
 openshift-client
 pipeline-github
 pipeline-graph-view
-prometheus
 slack

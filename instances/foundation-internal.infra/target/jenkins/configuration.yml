@@ -117,7 +117,7 @@ jenkins:
             label: "basic"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3160.vd76b_9ddd10cc
+                image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3206.vb_15dcf73f6a_9
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -203,7 +203,7 @@ jenkins:
             label: "basic-ubuntu"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3160.vd76b_9ddd10cc
+                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3206.vb_15dcf73f6a_9
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -289,7 +289,7 @@ jenkins:
             label: "migration jipp-migration centos-7"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3160.vd76b_9ddd10cc
+                image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3206.vb_15dcf73f6a_9
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -375,7 +375,7 @@ jenkins:
             label: "centos-latest centos-8"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3160.vd76b_9ddd10cc
+                image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3206.vb_15dcf73f6a_9
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -598,35 +598,6 @@ unclassified:
     showBuildBadges: "never"
     showChangeReasonCommentWindow: false
     skipDuplicateHistory: true
-  prometheusConfiguration:
-    appendParamLabel: false
-    appendStatusLabel: false
-    collectCodeCoverage: false
-    collectDiskUsage: true
-    collectNodeStatus: true
-    collectingMetricsPeriodInSeconds: 120
-    countAbortedBuilds: true
-    countFailedBuilds: true
-    countNotBuiltBuilds: true
-    countSuccessfulBuilds: true
-    countUnstableBuilds: true
-    defaultNamespace: ""
-    disabledMetricConfig:
-      entries:
-        - regexDisabledMetric:
-            regex: "jenkins_builds_last_stage_duration.*"
-        - regexDisabledMetric:
-            regex: "jvm_.*"
-        - regexDisabledMetric:
-            regex: "vm_memory.*"
-        - regexDisabledMetric:
-            regex: "jenkins_builds_discard_active.*"
-    fetchTestResults: true
-    jobAttributeName: "jenkins_job"
-    path: "prometheus"
-    perBuildMetrics: false
-    processingDisabledBuilds: false
-    useAuthenticatedEndpoint: false
   gitLabConnectionConfig:
     connections:
       - apiTokenId: "gitlab-api-token"
