@@ -855,7 +855,7 @@ data:
                 jvmOptions: "-Xmx512m"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
-                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGnVm//6K2A6I8ZHia8x7TXsd12+jcf0b8036fEtJHtV"
+                    key: "ecdsa-sha2-nistp256 AAAAC3NzaC1lZDI1NTE5AAAAIJMiN8jiLvdbLsMj6fo2dOMdTRosn6ec+GL3mqBAZCV6AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKizGJkv6jwuI23Ryz2DrHdGbffHAvQeI2Icb2xRpuzv/B8u/eA9jQ1T0VIT9FkH3xSf4RSZ+fLSYFDvy+Mh5ck="
         - permanent:
             name: "jck-equinix_esxi-containerized-alpine317-x64-1"
             nodeDescription: "Container host is equinix_esxi-ubuntu2204-x64-1"
