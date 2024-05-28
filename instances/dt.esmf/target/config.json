@@ -481,7 +481,9 @@
             }
          }
       ],
-      "plugins": [ ],
+      "plugins": [
+         "nodejs"
+      ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",
