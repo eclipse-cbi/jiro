@@ -84,10 +84,6 @@ jenkins:
                   periodSeconds: 0
                   successThreshold: 0
                   timeoutSeconds: 0
-                resourceLimitCpu: "2000m"
-                resourceRequestCpu: "1000m"
-                resourceLimitMemory: "4096Mi"
-                resourceRequestMemory: "4096Mi"
                 ttyEnabled: true
                 command: ""
                 args: ""
@@ -133,6 +129,13 @@ jenkins:
               spec:
                 containers:
                 - name: jnlp
+                  resources:
+                    limits:
+                      cpu: "2000m"
+                      memory: "4096Mi"
+                    requests:
+                      cpu: "1000m"
+                      memory: "4096Mi"
                   volumeMounts:
                   - name: m2-secret-dir
                     mountPath: /home/jenkins/.m2/settings-security.xml
@@ -170,10 +173,6 @@ jenkins:
                   periodSeconds: 0
                   successThreshold: 0
                   timeoutSeconds: 0
-                resourceLimitCpu: "2000m"
-                resourceRequestCpu: "1000m"
-                resourceLimitMemory: "4096Mi"
-                resourceRequestMemory: "4096Mi"
                 ttyEnabled: true
                 command: ""
                 args: ""
@@ -219,6 +218,13 @@ jenkins:
               spec:
                 containers:
                 - name: jnlp
+                  resources:
+                    limits:
+                      cpu: "2000m"
+                      memory: "4096Mi"
+                    requests:
+                      cpu: "1000m"
+                      memory: "4096Mi"
                   volumeMounts:
                   - name: m2-secret-dir
                     mountPath: /home/jenkins/.m2/settings-security.xml
@@ -256,10 +262,6 @@ jenkins:
                   periodSeconds: 0
                   successThreshold: 0
                   timeoutSeconds: 0
-                resourceLimitCpu: "2000m"
-                resourceRequestCpu: "1000m"
-                resourceLimitMemory: "4096Mi"
-                resourceRequestMemory: "4096Mi"
                 ttyEnabled: true
                 command: ""
                 args: ""
@@ -305,6 +307,13 @@ jenkins:
               spec:
                 containers:
                 - name: jnlp
+                  resources:
+                    limits:
+                      cpu: "2000m"
+                      memory: "4096Mi"
+                    requests:
+                      cpu: "1000m"
+                      memory: "4096Mi"
                   volumeMounts:
                   - name: m2-secret-dir
                     mountPath: /home/jenkins/.m2/settings-security.xml
@@ -342,10 +351,6 @@ jenkins:
                   periodSeconds: 0
                   successThreshold: 0
                   timeoutSeconds: 0
-                resourceLimitCpu: "2000m"
-                resourceRequestCpu: "1000m"
-                resourceLimitMemory: "4096Mi"
-                resourceRequestMemory: "4096Mi"
                 ttyEnabled: true
                 command: ""
                 args: ""
@@ -391,6 +396,13 @@ jenkins:
               spec:
                 containers:
                 - name: jnlp
+                  resources:
+                    limits:
+                      cpu: "2000m"
+                      memory: "4096Mi"
+                    requests:
+                      cpu: "1000m"
+                      memory: "4096Mi"
                   volumeMounts:
                   - name: m2-secret-dir
                     mountPath: /home/jenkins/.m2/settings-security.xml
@@ -798,24 +810,6 @@ jenkins:
               failIfWorkDirIsMissing: false
               internalDir: "remoting"
     - permanent:
-        name: "jck-equinix_esxi-ubuntu2204-x64-1"
-        nodeDescription: ""
-        labelString: "ci.role.test hw.arch.x86 sw.os.linux"
-        remoteFS: '/home/jenkins'
-        numExecutors: 1
-        mode: EXCLUSIVE
-        retentionStrategy: "always"
-        launcher:
-          ssh:
-            host: "147.28.133.219"
-            port: "22"
-            credentialsId: "jenkins-jck-ssh"
-            javaPath: "/usr/lib/jvm/jdk-11/bin/java"
-            jvmOptions: "-Xmx512m"
-            sshHostKeyVerificationStrategy:
-              manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGnVm//6K2A6I8ZHia8x7TXsd12+jcf0b8036fEtJHtV"
-    - permanent:
         name: "jck-azure-ubuntu2204-x64-1"
         nodeDescription: ""
         labelString: "ci.role.test hw.arch.x86 sw.os.linux"
@@ -832,21 +826,7 @@ jenkins:
             jvmOptions: "-Xmx512m"
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
-                key: "ecdsa-sha2-nistp256 AAAAC3NzaC1lZDI1NTE5AAAAIJMiN8jiLvdbLsMj6fo2dOMdTRosn6ec+GL3mqBAZCV6AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKizGJkv6jwuI23Ryz2DrHdGbffHAvQeI2Icb2xRpuzv/B8u/eA9jQ1T0VIT9FkH3xSf4RSZ+fLSYFDvy+Mh5ck="
-    - permanent:
-        name: "jck-equinix_esxi-containerized-alpine317-x64-1"
-        nodeDescription: "Container host is equinix_esxi-ubuntu2204-x64-1"
-        labelString: "ci.role.test hw.arch.x86 sw.os.alpine-linux"
-        remoteFS: "/home/jenkins"
-        retentionStrategy: "always"
-        launcher:
-          ssh:
-            credentialsId: "jenkins-jck-ssh"
-            host: "147.28.133.219"
-            port: 2222
-            sshHostKeyVerificationStrategy:
-              manuallyTrustedKeyVerificationStrategy:
-                requireInitialManualTrust: true
+                key: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKizGJkv6jwuI23Ryz2DrHdGbffHAvQeI2Icb2xRpuzv/B8u/eA9jQ1T0VIT9FkH3xSf4RSZ+fLSYFDvy+Mh5ck="
     - permanent:
         name: "jck-azure-containerized-alpine317-x64-1"
         nodeDescription: "Container host is jck-azure-ubuntu2204-x64-1"
