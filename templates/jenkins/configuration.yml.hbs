@@ -62,10 +62,6 @@ jenkins:
             periodSeconds: 0
             successThreshold: 0
             timeoutSeconds: 0
-          resourceLimitCpu: "{{this.kubernetes.resources.cpu.limit}}"
-          resourceRequestCpu: "{{this.kubernetes.resources.cpu.request}}"
-          resourceLimitMemory: "{{this.kubernetes.resources.memory.limit}}"
-          resourceRequestMemory: "{{this.kubernetes.resources.memory.request}}"
           ttyEnabled: true
           command: ""
           args: ""
@@ -128,6 +124,13 @@ jenkins:
           spec:
             containers:
             - name: jnlp
+              resources:
+                limits:
+                  cpu: "{{this.kubernetes.resources.cpu.limit}}"
+                  memory: "{{this.kubernetes.resources.memory.limit}}"
+                requests:
+                  cpu: "{{this.kubernetes.resources.cpu.request}}"
+                  memory: "{{this.kubernetes.resources.memory.request}}"
               volumeMounts:
               {{#each kubernetes.volumes}}
               {{#each mounts}}
