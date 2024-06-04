@@ -14,7 +14,7 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "technology.cbi"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.452.1-jdk17"
+    org.eclipse.cbi.jiro/jenkins.version: "2.452.1"
     org.eclipse.cbi.jiro/jenkins.actualVersion: "2.452.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cbi"
   namespace: "cbi"
@@ -113,10 +113,6 @@ data:
                       periodSeconds: 0
                       successThreshold: 0
                       timeoutSeconds: 0
-                    resourceLimitCpu: "2000m"
-                    resourceRequestCpu: "1000m"
-                    resourceLimitMemory: "4096Mi"
-                    resourceRequestMemory: "4096Mi"
                     ttyEnabled: true
                     command: ""
                     args: ""
@@ -177,6 +173,13 @@ data:
                   spec:
                     containers:
                     - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "4096Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "4096Mi"
                       volumeMounts:
                       - name: m2-secret-dir
                         mountPath: /home/jenkins/.m2/settings-security.xml
@@ -221,10 +224,6 @@ data:
                       periodSeconds: 0
                       successThreshold: 0
                       timeoutSeconds: 0
-                    resourceLimitCpu: "2000m"
-                    resourceRequestCpu: "1000m"
-                    resourceLimitMemory: "4096Mi"
-                    resourceRequestMemory: "4096Mi"
                     ttyEnabled: true
                     command: ""
                     args: ""
@@ -285,6 +284,13 @@ data:
                   spec:
                     containers:
                     - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "4096Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "4096Mi"
                       volumeMounts:
                       - name: m2-secret-dir
                         mountPath: /home/jenkins/.m2/settings-security.xml
@@ -329,10 +335,6 @@ data:
                       periodSeconds: 0
                       successThreshold: 0
                       timeoutSeconds: 0
-                    resourceLimitCpu: "2000m"
-                    resourceRequestCpu: "1000m"
-                    resourceLimitMemory: "4096Mi"
-                    resourceRequestMemory: "4096Mi"
                     ttyEnabled: true
                     command: ""
                     args: ""
@@ -393,6 +395,13 @@ data:
                   spec:
                     containers:
                     - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "4096Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "4096Mi"
                       volumeMounts:
                       - name: m2-secret-dir
                         mountPath: /home/jenkins/.m2/settings-security.xml
@@ -437,10 +446,6 @@ data:
                       periodSeconds: 0
                       successThreshold: 0
                       timeoutSeconds: 0
-                    resourceLimitCpu: "2000m"
-                    resourceRequestCpu: "1000m"
-                    resourceLimitMemory: "4096Mi"
-                    resourceRequestMemory: "4096Mi"
                     ttyEnabled: true
                     command: ""
                     args: ""
@@ -501,6 +506,13 @@ data:
                   spec:
                     containers:
                     - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "4096Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "4096Mi"
                       volumeMounts:
                       - name: m2-secret-dir
                         mountPath: /home/jenkins/.m2/settings-security.xml
