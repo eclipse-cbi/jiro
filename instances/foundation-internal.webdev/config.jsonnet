@@ -22,6 +22,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     plugins+: [
       "disable-failed-job",
       "docker-workflow",
+      "hashicorp-vault-plugin",
       "kubernetes-cli",
       "mail-watcher-plugin",
       "openshift-client",

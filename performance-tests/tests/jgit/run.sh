@@ -17,8 +17,8 @@ IFS=$'\n\t'
 WORKSPACE="$(mktemp -d)"
 cd "${WORKSPACE}"
 
-echo "INFO: Cloning https://git.eclipse.org/r/jgit/jgit..."
-git clone https://git.eclipse.org/r/jgit/jgit .
+echo "INFO: Cloning https://github.com/eclipse-jgit/jgit.git..."
+git clone https://github.com/eclipse-jgit/jgit.git .
 
 echo "INFO: Checkouting tags/v5.8.1.202007141445-r..."
 git checkout --quiet -b v5.8.1.202007141445-r v5.8.1.202007141445-r
@@ -26,9 +26,9 @@ git checkout --quiet -b v5.8.1.202007141445-r v5.8.1.202007141445-r
 "${JAVA_HOME}/bin/java" -version
 mkdir -p "${WORKSPACE}/tmp"
 
-echo "INFO: Downloading maven-3.6.3..."
-curl -sSLf https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz | tar zxf - 
-PATH="${WORKSPACE}/apache-maven-3.6.3/bin:${PATH}"
+echo "INFO: Downloading maven-3.9.7..."
+curl -sSLf https://downloads.apache.org/maven/maven-3/3.9.7/binaries/apache-maven-3.9.7-bin.tar.gz | tar zxf - 
+PATH="${WORKSPACE}/apache-maven-3.9.7/bin:${PATH}"
 
 echo "INFO: Run tests..."
 mvn -V -B --errors -T 2 \

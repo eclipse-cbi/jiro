@@ -14,8 +14,8 @@ set -o pipefail
 
 IFS=$'\n\t'
 
-echo "INFO: Downloading maven-3.6.3..."
-curl -sSLf https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz | tar zxf - 
+echo "INFO: Downloading maven-3.9.7..."
+curl -sSLf https://downloads.apache.org/maven/maven-3/3.9.7/binaries/apache-maven-3.9.7-bin.tar.gz | tar zxf - 
 
 echo "INFO: Cloning https://github.com/google/guava..."
 git clone --quiet https://github.com/google/guava 
