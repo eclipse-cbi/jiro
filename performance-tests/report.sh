@@ -26,13 +26,15 @@ fi
 print_table() {
   local header=$1
   local query=$2
-  local data=$(cat "${report_all_data}" | sed 's/okdnode-//' | jq  -r 'sort_by(.node_name|tonumber?)'  | jq -r "$query")
+  local data 
+  data=$(sed 's/okdnode-//' < "${report_all_data}" | jq  -r 'sort_by(.node_name|tonumber?)'  | jq -r "$query")
 
   echo "| Node Name | $header |"
   echo "|$(echo "Node Name | $header" | sed 's/[^|]/-/g')|"
 
   while read -r line; do
-    echo "| $(echo $line | sed 's/ / | /g') |"
+    #echo "| $(echo $line | sed 's/ / | /g') |"
+    echo "| ${line//[[:blank:]]/ | } |"
   done <<< "$data"
 }
 
