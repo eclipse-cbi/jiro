@@ -33,3 +33,5 @@ kubectl --context="${CONTEXT}" get nodes -l "${NODE_ROLE}" -o json | jq -r '.ite
   SHELL=$(type -p bash) parallel --eta --line-buffer --no-notice -j8 "${SCRIPT_FOLDER}/run-perftests.sh" "${BUILD_SCRIPT}" "${LOG_FOLDER}"
 
 jq -s '.' "${LOG_FOLDER}"/*.json > "${LOG_FOLDER}/all.json"
+
+./report.sh "${LOG_FOLDER}"

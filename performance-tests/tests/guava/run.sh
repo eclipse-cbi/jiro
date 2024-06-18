@@ -25,10 +25,10 @@ echo "INFO: Checkouting tags/v30.1.1..."
 git checkout --quiet -b v30.1.1 v30.1.1
 
 echo "INFO: Building with Maven..."
-../apache-maven-3.6.3/bin/mvn -V -B -Dmaven.repo.local="$(pwd)/m2repo" -Dmaven.repo.remote="https://repo.eclipse.org" -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn install -U -DskipTests=true 
+../apache-maven-3.9.7/bin/mvn -V -B -Dmaven.repo.local="$(pwd)/m2repo" -Dmaven.repo.remote="https://repo.eclipse.org" -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn install -U -DskipTests=true 
 
 echo "INFO: Running tests..."
-if ! ../apache-maven-3.6.3/bin/mvn -V -B -Dmaven.repo.local="$(pwd)/m2repo" -Dmaven.repo.remote="https://repo.eclipse.org" -P!standard-with-extra-repos verify -U -Dmaven.javadoc.skip=true; then
+if ! ../apache-maven-3.9.7/bin/mvn -V -B -Dmaven.repo.local="$(pwd)/m2repo" -Dmaven.repo.remote="https://repo.eclipse.org" -P!standard-with-extra-repos verify -U -Dmaven.javadoc.skip=true; then
   ./util/print_surefire_reports.sh
 fi
 
