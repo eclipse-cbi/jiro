@@ -18,13 +18,13 @@ cloudbees-disk-usage-simple 203.v3f46a_7462b_1a_
 cloudbees-folder 6.928.v7c780211d66e
 cloudbees-jenkins-advisor 358.v58972d19b_1f0
 command-launcher 107.v773860566e2e
-commons-lang3-api 3.13.0-62.v7d18e55f51e2
+commons-lang3-api 3.14.0-76.vda_5591261cfe
 commons-text-api 1.11.0-109.vfe16c66636eb_
 config-file-provider 973.vb_a_80ecb_9a_4d0
 configuration-as-code 1810.v9b_c30a_249a_4c
 credentials 1337.v60b_d7b_c7b_c9f
 credentials-binding 677.vdc9d38cb_254d
-data-tables-api 2.0.7-1
+data-tables-api 2.0.8-1
 display-url-api 2.204.vf6fddd8a_8b_e9
 durable-task 555.v6802fe0f0b_82
 echarts-api 5.5.0-1
@@ -61,7 +61,7 @@ javadoc 243.vb_b_503b_b_45537
 javax-activation-api 1.2.0-7
 jaxb 2.3.9-1
 jdk-tool 73.vddf737284550
-jenkins-design-language 1.27.12
+jenkins-design-language 1.27.13
 jersey2-api 2.42-147.va_28a_44603b_d5
 jjwt-api 0.11.5-112.ve82dfb_224b_a_d
 jobConfigHistory 1229.v3039470161a_d
@@ -71,7 +71,7 @@ jsch 0.2.16-86.v42e010d9484b_
 json-api 20240303-41.v94e11e6de726
 json-path-api 2.9.0-58.v62e3e85b_a_655
 junit 1265.v65b_14fa_f12f0
-kubernetes 4238.v41b_3ef14a_5d8
+kubernetes 4245.vf5b_83f1fee6e
 kubernetes-client-api 6.10.0-240.v57880ce8b_0b_2
 kubernetes-credentials 174.va_36e093562d9
 ldap 725.v3cb_b_711b_1a_ef
@@ -82,8 +82,8 @@ matrix-auth 3.2.2
 matrix-project 832.va_66e270d2946
 maven-plugin 3.23
 metrics 4.2.21-451.vd51df8df52ec
-mina-sshd-api-common 2.12.1-101.v85b_e08b_780dd
-mina-sshd-api-core 2.12.1-101.v85b_e08b_780dd
+mina-sshd-api-common 2.12.1-113.v4d3ea_5eb_7f72
+mina-sshd-api-core 2.12.1-113.v4d3ea_5eb_7f72
 nexus-jenkins-plugin 3.14.431.v37ca_dc788b_b_1
 okhttp-api 4.11.0-172.vda_da_1feeb_c6e
 pam-auth 1.11
@@ -93,8 +93,8 @@ pipeline-graph-analysis 216.vfd8b_ece330ca_
 pipeline-graph-view 287.v3ef017b_780d5
 pipeline-groovy-lib 710.v4b_94b_077a_808
 pipeline-input-step 495.ve9c153f6067b_
-pipeline-maven 1419.v89b_ec7a_c8b_c5
-pipeline-maven-api 1419.v89b_ec7a_c8b_c5
+pipeline-maven 1421.v610fa_b_e2d60e
+pipeline-maven-api 1421.v610fa_b_e2d60e
 pipeline-milestone-step 119.vdfdc43fc3b_9a_
 pipeline-model-api 2.2198.v41dd8ef6dd56
 pipeline-model-definition 2.2198.v41dd8ef6dd56
@@ -106,7 +106,7 @@ pipeline-stage-view 2.34
 plain-credentials 182.v468b_97b_9dcb_8
 plugin-util-api 4.1.0
 prism-api 1.29.0-15
-prometheus 770.ve5e758db_606e
+prometheus 773.v3b_62d8178eec
 promoted-builds 957.vf5b_cee587563
 pubsub-light 1.18
 rebuild 332.va_1ee476d8f6d
@@ -114,7 +114,7 @@ resource-disposer 0.23
 scm-api 690.vfc8b_54395023
 script-security 1341.va_2819b_414686
 simple-theme-plugin 176.v39740c03a_a_f5
-slack 715.v1cfed1b_9c63c
+slack 722.vd07f1ea_7ff40
 snakeyaml-api 2.2-111.vc6598e30cc65
 sonar 2.17.2
 sse-gateway 1.27
