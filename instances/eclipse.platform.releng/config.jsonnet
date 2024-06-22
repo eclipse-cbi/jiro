@@ -6,6 +6,8 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     displayName: "Eclipse Platform Releng",
     resourcePacks: 5,
     unixGroupName: "eclipse.platform",
+    # remoteFSSuffix must be individual among all JIPPs which link the eclipse.platform.releng/jenkins/configuration.yml
+    remoteFSSuffix: "releng",
   },
   jenkins+: {
     plugins+: [
