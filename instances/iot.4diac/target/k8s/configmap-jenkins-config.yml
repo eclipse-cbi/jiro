@@ -115,10 +115,6 @@ data:
                       periodSeconds: 0
                       successThreshold: 0
                       timeoutSeconds: 0
-                    resourceLimitCpu: "2000m"
-                    resourceRequestCpu: "1000m"
-                    resourceLimitMemory: "4096Mi"
-                    resourceRequestMemory: "4096Mi"
                     ttyEnabled: true
                     command: ""
                     args: ""
@@ -164,6 +160,13 @@ data:
                   spec:
                     containers:
                     - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "4096Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "4096Mi"
                       volumeMounts:
                       - name: m2-secret-dir
                         mountPath: /home/jenkins/.m2/settings-security.xml
@@ -201,10 +204,6 @@ data:
                       periodSeconds: 0
                       successThreshold: 0
                       timeoutSeconds: 0
-                    resourceLimitCpu: "2000m"
-                    resourceRequestCpu: "1000m"
-                    resourceLimitMemory: "4096Mi"
-                    resourceRequestMemory: "4096Mi"
                     ttyEnabled: true
                     command: ""
                     args: ""
@@ -250,6 +249,13 @@ data:
                   spec:
                     containers:
                     - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "4096Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "4096Mi"
                       volumeMounts:
                       - name: m2-secret-dir
                         mountPath: /home/jenkins/.m2/settings-security.xml
@@ -287,10 +293,6 @@ data:
                       periodSeconds: 0
                       successThreshold: 0
                       timeoutSeconds: 0
-                    resourceLimitCpu: "2000m"
-                    resourceRequestCpu: "1000m"
-                    resourceLimitMemory: "4096Mi"
-                    resourceRequestMemory: "4096Mi"
                     ttyEnabled: true
                     command: ""
                     args: ""
@@ -336,6 +338,13 @@ data:
                   spec:
                     containers:
                     - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "4096Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "4096Mi"
                       volumeMounts:
                       - name: m2-secret-dir
                         mountPath: /home/jenkins/.m2/settings-security.xml
@@ -373,10 +382,6 @@ data:
                       periodSeconds: 0
                       successThreshold: 0
                       timeoutSeconds: 0
-                    resourceLimitCpu: "2000m"
-                    resourceRequestCpu: "1000m"
-                    resourceLimitMemory: "4096Mi"
-                    resourceRequestMemory: "4096Mi"
                     ttyEnabled: true
                     command: ""
                     args: ""
@@ -422,6 +427,13 @@ data:
                   spec:
                     containers:
                     - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "4096Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "4096Mi"
                       volumeMounts:
                       - name: m2-secret-dir
                         mountPath: /home/jenkins/.m2/settings-security.xml
