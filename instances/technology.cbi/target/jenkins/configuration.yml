@@ -188,6 +188,8 @@ jenkins:
                 - name: gradle-secret-dir
                   secret:
                     secretName: gradle-secret-dir
+            inheritYamlMergeStrategy: "true"
+            yamlMergeStrategy: "merge"
           - name: "basic-ubuntu"
             namespace: "cbi"
             label: "basic-ubuntu"
@@ -299,6 +301,8 @@ jenkins:
                 - name: gradle-secret-dir
                   secret:
                     secretName: gradle-secret-dir
+            inheritYamlMergeStrategy: "true"
+            yamlMergeStrategy: "merge"
           - name: "centos-7"
             namespace: "cbi"
             label: "migration jipp-migration centos-7"
@@ -410,6 +414,8 @@ jenkins:
                 - name: gradle-secret-dir
                   secret:
                     secretName: gradle-secret-dir
+            inheritYamlMergeStrategy: "true"
+            yamlMergeStrategy: "merge"
           - name: "centos-8"
             namespace: "cbi"
             label: "centos-latest centos-8"
@@ -521,6 +527,8 @@ jenkins:
                 - name: gradle-secret-dir
                   secret:
                     secretName: gradle-secret-dir
+            inheritYamlMergeStrategy: "true"
+            yamlMergeStrategy: "merge"
   nodes:
     - permanent:
         labelString: "docker-build"

@@ -51,7 +51,7 @@ gradle 2.12
 gson-api 2.11.0-41.v019fcf6125dc
 handy-uri-templates-2-api 2.1.8-30.v7e777411b_148
 hashicorp-vault-plugin 368.v48134f694db_f
-htmlpublisher 1.34
+htmlpublisher 1.35
 instance-identity 185.v303dc7c645f9
 ionicons-api 74.v93d5eb_813d5f
 jackson2-api 2.17.0-379.v02de8ec9f64c
@@ -90,7 +90,7 @@ pam-auth 1.11
 parameterized-trigger 806.vf6fff3e28c3e
 pipeline-build-step 540.vb_e8849e1a_b_d8
 pipeline-graph-analysis 216.vfd8b_ece330ca_
-pipeline-graph-view 287.v3ef017b_780d5
+pipeline-graph-view 304.va_f2a_16b_e4964
 pipeline-groovy-lib 727.ve832a_9244dfa_
 pipeline-input-step 495.ve9c153f6067b_
 pipeline-maven 1421.v610fa_b_e2d60e
@@ -120,7 +120,7 @@ sonar 2.17.2
 sse-gateway 1.27
 ssh-agent 367.vf9076cd4ee21
 ssh-credentials 337.v395d2403ccd4
-ssh-slaves 2.968.v6f8823c91de4
+ssh-slaves 2.973.v0fa_8c0dea_f9f
 structs 337.v1b_04ea_4df7c8
 support-core 1449.v261d6f7b_f9f3
 timestamper 1.27
