@@ -21,11 +21,12 @@ checks-api 2.2.0
 cloudbees-disk-usage-simple 203.v3f46a_7462b_1a_
 cloudbees-folder 6.928.v7c780211d66e
 command-launcher 107.v773860566e2e
+commons-compress-api 1.26.1-2
 commons-lang3-api 3.14.0-76.vda_5591261cfe
 commons-text-api 1.12.0-119.v73ef73f2345d
 config-file-provider 973.vb_a_80ecb_9a_4d0
 configuration-as-code 1810.v9b_c30a_249a_4c
-copyartifact 722.v0662a_9b_e22a_c
+copyartifact 746.vd2a_674fb_4f6f
 credentials 1337.v60b_d7b_c7b_c9f
 credentials-binding 677.vdc9d38cb_254d
 data-tables-api 2.0.8-1
@@ -77,7 +78,7 @@ jsch 0.2.16-86.v42e010d9484b_
 json-api 20240303-41.v94e11e6de726
 json-path-api 2.9.0-58.v62e3e85b_a_655
 junit 1265.v65b_14fa_f12f0
-kubernetes 4245.vf5b_83f1fee6e
+kubernetes 4246.v5a_12b_1fe120e
 kubernetes-client-api 6.10.0-240.v57880ce8b_0b_2
 kubernetes-credentials 174.va_36e093562d9
 ldap 725.v3cb_b_711b_1a_ef
@@ -107,7 +108,7 @@ pipeline-rest-api 2.34
 pipeline-stage-step 312.v8cd10304c27a_
 pipeline-stage-tags-metadata 2.2198.v41dd8ef6dd56
 pipeline-stage-view 2.34
-pipeline-utility-steps 2.16.2
+pipeline-utility-steps 2.17.0
 plain-credentials 182.v468b_97b_9dcb_8
 plugin-util-api 4.1.0
 prism-api 1.29.0-15
@@ -135,7 +136,7 @@ warnings-ng 11.3.0
 workflow-aggregator 596.v8c21c963d92d
 workflow-api 1316.v33eb_726c50b_a_
 workflow-basic-steps 1058.vcb_fc1e3a_21a_9
-workflow-cps 3894.3896.vca_2c931e7935
+workflow-cps 3903.v48a_8836749e9
 workflow-durable-task-step 1353.v1891a_b_01da_18
 workflow-job 1400.v7fd111b_ec82f
 workflow-multibranch 783.va_6eb_ef636fb_d
