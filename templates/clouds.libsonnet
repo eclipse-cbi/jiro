@@ -8,6 +8,8 @@
         [agentName]: agents[agentName].spec + agents[agentName].variants[config.jiroMaster.remoting.version] + {
           kubernetes: {
             resources: config.kubernetes.agents.defaultResources,
+            inheritYamlMergeStrategy: true,
+            yamlMergeStrategy: "merge",
             local dot_m2 = agents[agentName].spec.home + "/.m2",
             volumes: (if config.maven.generate then [
               {

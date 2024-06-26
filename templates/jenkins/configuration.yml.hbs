@@ -146,6 +146,8 @@ jenkins:
               {{#if configMap}}configMap{{/if}}{{#if secret}}secret{{/if}}:
                 {{#if configMap}}name: {{configMap.name}}{{/if}}{{#if secret}}secretName: {{secret.name}}{{/if}}
             {{/each}}
+        inheritYamlMergeStrategy: "{{this.kubernetes.inheritYamlMergeStrategy}}"
+        yamlMergeStrategy: "{{this.kubernetes.yamlMergeStrategy}}"
       {{/each}}
   {{/each}}
 security:
