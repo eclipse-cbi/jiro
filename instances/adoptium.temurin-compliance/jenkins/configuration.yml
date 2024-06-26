@@ -511,6 +511,42 @@ jenkins:
               key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB5+4FN+1n3hGBoahfBq0xc0yYEZT22d5oTObjQnQlmU"
 
   - permanent:
+      name: "jck-scaleway-ubuntu2404-riscv64-2"
+      nodeDescription: "RiscV RV64GCV 4 cores 1,85 GHz"
+      labelString: "hw.arch.riscv64 hw.arch.riscv ci.role.test sw.os.linux"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "62.210.163.164"
+          port: "22"
+          credentialsId: "jenkins-jck-ssh"
+          javaPath: ""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFiT96PJGr+0f9wSunhF2AoqARawYTbaL3BIwnJB65Hj"
+
+  - permanent:
+      name: "jck-scaleway-ubuntu2404-riscv64-3"
+      nodeDescription: "RiscV RV64GCV 4 cores 1,85 GHz"
+      labelString: "hw.arch.riscv64 hw.arch.riscv ci.role.test sw.os.linux"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "62.210.163.34"
+          port: "22"
+          credentialsId: "jenkins-jck-ssh"
+          javaPath: ""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJCwhR7dAioY+ugVaUv7zWbOaDJmj66mPJaqtrNFDF8r"
+
+  - permanent:
       name: "jck-scaleway-ubuntu2310-riscv64-1"
       nodeDescription: "RiscV RV64GCV 4 cores 1,85 GHz"
       labelString: "hw.arch.riscv64 hw.arch.riscv ci.role.test sw.os.linux"
