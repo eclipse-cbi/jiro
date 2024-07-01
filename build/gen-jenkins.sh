@@ -53,4 +53,11 @@ EOF
 mkdir -p "${target}/partials"
 "${SCRIPT_FOLDER}/gen-permissions.sh" "${instance}/target/config.json" > "${target}/partials/permissions.hbs"
 
-"${SCRIPT_FOLDER}/gen-yaml.sh" "${instance}/jenkins/configuration.yml" "${jenkinsTemplateFolder}/configuration.yml.hbs" "${instance}/target/config.json" "${target}/partials" > "${target}/configuration.yml"
+# Expand instance name variables in jenkins/configuration.yml
+projectName="$(jq -r '.project.fullName' "${instance}/target/config.json")"
+expandedJenkinsConfigYML=$(mktemp)
+sed -e "s/&&INSTANCE_NAME&&/${projectName}/g" "${instance}/jenkins/configuration.yml" > "${expandedJenkinsConfigYML}"
+
+"${SCRIPT_FOLDER}/gen-yaml.sh" "${expandedJenkinsConfigYML}" "${jenkinsTemplateFolder}/configuration.yml.hbs" "${instance}/target/config.json" "${target}/partials" > "${target}/configuration.yml"
+
+rm "${expandedJenkinsConfigYML}"

@@ -195,6 +195,8 @@ Specific JCasC options like static build agents, plugin configs, etc can be defi
 
 E.g. [instances/technology.cbi/jenkins/configuration.yml](https://github.com/eclipse-cbi/jiro/blob/master/instances/technology.cbi/jenkins/configuration.yml)
 
+The placeholder `&&INSTANCE_NAME&&` is substituded by the instance's full name.
+
 ```jsonnet
 jenkins:
   nodes:
@@ -211,7 +213,7 @@ jenkins:
       mode: EXCLUSIVE
       name: "fmlw3-ubuntu1804"
       nodeDescription: "4vCPU, 16GB RAM, Hosted @ Azure"
-      remoteFS: "/home/genie.cbi/jenkins-agent"
+      remoteFS: "/home/genie.cbi/jenkins-agent/&&INSTANCE_NAME&&"
       numExecutors: 2
       nodeProperties:
       - watcher:
