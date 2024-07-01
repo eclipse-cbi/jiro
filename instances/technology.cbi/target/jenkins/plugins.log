@@ -22,10 +22,12 @@ commons-lang3-api 3.14.0-76.vda_5591261cfe
 commons-text-api 1.12.0-119.v73ef73f2345d
 config-file-provider 973.vb_a_80ecb_9a_4d0
 configuration-as-code 1810.v9b_c30a_249a_4c
-credentials 1337.v60b_d7b_c7b_c9f
+credentials 1344.v5a_3f65a_1e173
 credentials-binding 677.vdc9d38cb_254d
 data-tables-api 2.0.8-1
 display-url-api 2.204.vf6fddd8a_8b_e9
+docker-commons 439.va_3cb_0a_6a_fb_29
+docker-workflow 580.vc0c340686b_54
 durable-task 555.v6802fe0f0b_82
 echarts-api 5.5.0-1
 eddsa-api 0.3.0-4.v84c6f0f4969e
@@ -103,7 +105,7 @@ pipeline-rest-api 2.34
 pipeline-stage-step 312.v8cd10304c27a_
 pipeline-stage-tags-metadata 2.2198.v41dd8ef6dd56
 pipeline-stage-view 2.34
-plain-credentials 182.v468b_97b_9dcb_8
+plain-credentials 183.va_de8f1dd5a_2b_
 plugin-util-api 4.1.0
 prism-api 1.29.0-15
 prometheus 773.v3b_62d8178eec
@@ -121,7 +123,7 @@ sse-gateway 1.27
 ssh-agent 367.vf9076cd4ee21
 ssh-credentials 337.v395d2403ccd4
 ssh-slaves 2.973.v0fa_8c0dea_f9f
-structs 337.v1b_04ea_4df7c8
+structs 338.v848422169819
 support-core 1449.v261d6f7b_f9f3
 timestamper 1.27
 token-macro 400.v35420b_922dcb_

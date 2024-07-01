@@ -11,6 +11,7 @@
       "basic-branch-build-strategies",
       "cloudbees-jenkins-advisor",
       "cloudbees-disk-usage-simple",
+      "docker-workflow",
       "embeddable-build-status",
       "favorite",
       "gradle",
