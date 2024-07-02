@@ -17,6 +17,13 @@ unclassified:
 tool:
   nodejs:
     installations:
+    - name: "node_18.x"
+      properties:
+      - installSource:
+          installers:
+          - nodeJSInstaller:
+              id: "18.7.0"
+              npmPackagesRefreshHours: 72
     - name: "node_20.x"
       properties:
       - installSource:

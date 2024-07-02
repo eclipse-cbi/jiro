@@ -115,10 +115,6 @@ data:
                       periodSeconds: 0
                       successThreshold: 0
                       timeoutSeconds: 0
-                    resourceLimitCpu: "2000m"
-                    resourceRequestCpu: "1000m"
-                    resourceLimitMemory: "4096Mi"
-                    resourceRequestMemory: "4096Mi"
                     ttyEnabled: true
                     command: ""
                     args: ""
@@ -164,6 +160,13 @@ data:
                   spec:
                     containers:
                     - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "4096Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "4096Mi"
                       volumeMounts:
                       - name: m2-secret-dir
                         mountPath: /home/jenkins/.m2/settings-security.xml
@@ -188,6 +191,8 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
               - name: "basic-ubuntu"
                 namespace: "papyrus"
                 label: "basic-ubuntu"
@@ -201,10 +206,6 @@ data:
                       periodSeconds: 0
                       successThreshold: 0
                       timeoutSeconds: 0
-                    resourceLimitCpu: "2000m"
-                    resourceRequestCpu: "1000m"
-                    resourceLimitMemory: "4096Mi"
-                    resourceRequestMemory: "4096Mi"
                     ttyEnabled: true
                     command: ""
                     args: ""
@@ -250,6 +251,13 @@ data:
                   spec:
                     containers:
                     - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "4096Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "4096Mi"
                       volumeMounts:
                       - name: m2-secret-dir
                         mountPath: /home/jenkins/.m2/settings-security.xml
@@ -274,6 +282,8 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
               - name: "centos-7"
                 namespace: "papyrus"
                 label: "migration jipp-migration centos-7"
@@ -287,10 +297,6 @@ data:
                       periodSeconds: 0
                       successThreshold: 0
                       timeoutSeconds: 0
-                    resourceLimitCpu: "2000m"
-                    resourceRequestCpu: "1000m"
-                    resourceLimitMemory: "4096Mi"
-                    resourceRequestMemory: "4096Mi"
                     ttyEnabled: true
                     command: ""
                     args: ""
@@ -336,6 +342,13 @@ data:
                   spec:
                     containers:
                     - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "4096Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "4096Mi"
                       volumeMounts:
                       - name: m2-secret-dir
                         mountPath: /home/jenkins/.m2/settings-security.xml
@@ -360,6 +373,8 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
               - name: "centos-7-agent-6gb"
                 namespace: "papyrus"
                 label: "centos-7-6gb"
@@ -373,10 +388,6 @@ data:
                       periodSeconds: 0
                       successThreshold: 0
                       timeoutSeconds: 0
-                    resourceLimitCpu: "2000m"
-                    resourceRequestCpu: "1000m"
-                    resourceLimitMemory: "6144Mi"
-                    resourceRequestMemory: "6144Mi"
                     ttyEnabled: true
                     command: ""
                     args: ""
@@ -422,6 +433,13 @@ data:
                   spec:
                     containers:
                     - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "6144Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "6144Mi"
                       volumeMounts:
                       - name: m2-secret-dir
                         mountPath: /home/jenkins/.m2/settings-security.xml
@@ -446,6 +464,8 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
               - name: "centos-8"
                 namespace: "papyrus"
                 label: "centos-latest centos-8"
@@ -459,10 +479,6 @@ data:
                       periodSeconds: 0
                       successThreshold: 0
                       timeoutSeconds: 0
-                    resourceLimitCpu: "2000m"
-                    resourceRequestCpu: "1000m"
-                    resourceLimitMemory: "4096Mi"
-                    resourceRequestMemory: "4096Mi"
                     ttyEnabled: true
                     command: ""
                     args: ""
@@ -508,6 +524,13 @@ data:
                   spec:
                     containers:
                     - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "4096Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "4096Mi"
                       volumeMounts:
                       - name: m2-secret-dir
                         mountPath: /home/jenkins/.m2/settings-security.xml
@@ -532,6 +555,8 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
@@ -809,6 +834,13 @@ data:
             home: "git"
       nodejs:
         installations:
+          - name: "node_18.x"
+            properties:
+              - installSource:
+                  installers:
+                    - nodeJSInstaller:
+                        id: "18.20.3"
+                        npmPackagesRefreshHours: 72
           - name: "node_20.x"
             properties:
               - installSource:
