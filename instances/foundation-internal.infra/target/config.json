@@ -45,6 +45,7 @@
                },
                "home": "/home/jenkins",
                "kubernetes": {
+                  "inheritYamlMergeStrategy": true,
                   "resources": {
                      "cpu": {
                         "limit": "2000m",
@@ -88,7 +89,8 @@
                         ],
                         "name": "m2-dir"
                      }
-                  ]
+                  ],
+                  "yamlMergeStrategy": "merge"
                },
                "labels": [
                   "basic"
@@ -138,6 +140,7 @@
                },
                "home": "/home/jenkins",
                "kubernetes": {
+                  "inheritYamlMergeStrategy": true,
                   "resources": {
                      "cpu": {
                         "limit": "2000m",
@@ -181,7 +184,8 @@
                         ],
                         "name": "m2-dir"
                      }
-                  ]
+                  ],
+                  "yamlMergeStrategy": "merge"
                },
                "labels": [
                   "basic-ubuntu"
@@ -231,6 +235,7 @@
                },
                "home": "/home/jenkins",
                "kubernetes": {
+                  "inheritYamlMergeStrategy": true,
                   "resources": {
                      "cpu": {
                         "limit": "2000m",
@@ -274,7 +279,8 @@
                         ],
                         "name": "m2-dir"
                      }
-                  ]
+                  ],
+                  "yamlMergeStrategy": "merge"
                },
                "labels": [
                   "migration",
@@ -326,6 +332,7 @@
                },
                "home": "/home/jenkins",
                "kubernetes": {
+                  "inheritYamlMergeStrategy": true,
                   "resources": {
                      "cpu": {
                         "limit": "2000m",
@@ -369,7 +376,8 @@
                         ],
                         "name": "m2-dir"
                      }
-                  ]
+                  ],
+                  "yamlMergeStrategy": "merge"
                },
                "labels": [
                   "centos-latest",
@@ -427,7 +435,7 @@
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
-      "maxConcurrency": 4,
+      "maxConcurrency": 6,
       "permissions": [
          {
             "user": {
@@ -582,6 +590,7 @@
          "authorize-project",
          "bouncycastle-api",
          "build-timeout",
+         "cloudbees-disk-usage-simple",
          "cloudbees-folder",
          "command-launcher",
          "config-file-provider",
@@ -672,11 +681,11 @@
          "resources": {
             "cpu": {
                "limit": "2000m",
-               "request": "700m"
+               "request": "1000m"
             },
             "memory": {
-               "limit": "2304Mi",
-               "request": "2304Mi"
+               "limit": "2816Mi",
+               "request": "2816Mi"
             }
          },
          "stsName": "infra"
@@ -733,7 +742,7 @@
    "project": {
       "displayName": "Eclipse Foundation Infra",
       "fullName": "foundation-internal.infra",
-      "resourcePacks": 2,
+      "resourcePacks": 3,
       "shortName": "infra",
       "unixGroupName": "foundation-internal.infra"
    },
