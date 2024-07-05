@@ -36,7 +36,6 @@ external-monitor-job 215.v2e88e894db_f8
 extra-columns 1.26
 font-awesome-api 6.5.2-1
 forensics-api 2.4.0
-gerrit-trigger 2.41.1
 ghprb 1.42.2
 git 5.2.2
 git-client 5.0.0
@@ -110,7 +109,7 @@ sonar 2.17.2
 ssh-agent 367.vf9076cd4ee21
 ssh-credentials 337.v395d2403ccd4
 ssh-slaves 2.973.v0fa_8c0dea_f9f
-structs 337.v1b_04ea_4df7c8
+structs 338.v848422169819
 timestamper 1.27
 token-macro 400.v35420b_922dcb_
 trilead-api 2.147.vb_73cc728a_32e

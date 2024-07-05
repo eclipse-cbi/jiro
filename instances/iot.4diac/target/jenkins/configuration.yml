@@ -49,8 +49,6 @@ jenkins:
               - View/Create
               - View/Delete
               - View/Read
-              - Gerrit/ManualTrigger
-              - Gerrit/Retrigger
         - user:
             name: anonymous
             permissions:
@@ -168,6 +166,8 @@ jenkins:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+            inheritYamlMergeStrategy: "true"
+            yamlMergeStrategy: "merge"
           - name: "basic-ubuntu"
             namespace: "4diac"
             label: "basic-ubuntu"
@@ -257,6 +257,8 @@ jenkins:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+            inheritYamlMergeStrategy: "true"
+            yamlMergeStrategy: "merge"
           - name: "centos-7"
             namespace: "4diac"
             label: "migration jipp-migration centos-7"
@@ -346,6 +348,8 @@ jenkins:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+            inheritYamlMergeStrategy: "true"
+            yamlMergeStrategy: "merge"
           - name: "centos-8"
             namespace: "4diac"
             label: "centos-latest centos-8"
@@ -435,6 +439,8 @@ jenkins:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+            inheritYamlMergeStrategy: "true"
+            yamlMergeStrategy: "merge"
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false

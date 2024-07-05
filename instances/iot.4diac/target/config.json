@@ -45,6 +45,7 @@
                },
                "home": "/home/jenkins",
                "kubernetes": {
+                  "inheritYamlMergeStrategy": true,
                   "resources": {
                      "cpu": {
                         "limit": "2000m",
@@ -88,7 +89,8 @@
                         ],
                         "name": "m2-dir"
                      }
-                  ]
+                  ],
+                  "yamlMergeStrategy": "merge"
                },
                "labels": [
                   "basic"
@@ -138,6 +140,7 @@
                },
                "home": "/home/jenkins",
                "kubernetes": {
+                  "inheritYamlMergeStrategy": true,
                   "resources": {
                      "cpu": {
                         "limit": "2000m",
@@ -181,7 +184,8 @@
                         ],
                         "name": "m2-dir"
                      }
-                  ]
+                  ],
+                  "yamlMergeStrategy": "merge"
                },
                "labels": [
                   "basic-ubuntu"
@@ -231,6 +235,7 @@
                },
                "home": "/home/jenkins",
                "kubernetes": {
+                  "inheritYamlMergeStrategy": true,
                   "resources": {
                      "cpu": {
                         "limit": "2000m",
@@ -274,7 +279,8 @@
                         ],
                         "name": "m2-dir"
                      }
-                  ]
+                  ],
+                  "yamlMergeStrategy": "merge"
                },
                "labels": [
                   "migration",
@@ -326,6 +332,7 @@
                },
                "home": "/home/jenkins",
                "kubernetes": {
+                  "inheritYamlMergeStrategy": true,
                   "resources": {
                      "cpu": {
                         "limit": "2000m",
@@ -369,7 +376,8 @@
                         ],
                         "name": "m2-dir"
                      }
-                  ]
+                  ],
+                  "yamlMergeStrategy": "merge"
                },
                "labels": [
                   "centos-latest",
@@ -476,9 +484,7 @@
                   "View/Configure",
                   "View/Create",
                   "View/Delete",
-                  "View/Read",
-                  "Gerrit/ManualTrigger",
-                  "Gerrit/Retrigger"
+                  "View/Read"
                ]
             }
          }
@@ -486,8 +492,7 @@
       "plugins": [
          "cmakebuilder",
          "copyartifact",
-         "cppcheck",
-         "gerrit-trigger"
+         "cppcheck"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
@@ -725,10 +730,6 @@
                "pull"
             ]
          }
-      },
-      "gerrit-trigger-plugin": {
-         "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-         "username": "genie.4diac"
       }
    }
 }
