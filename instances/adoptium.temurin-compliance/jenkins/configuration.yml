@@ -585,7 +585,7 @@ jenkins:
   - permanent:
       name: "jck-ubuntu-2204-solaris10"
       nodeDescription: ""
-      labelString: ""
+      labelString: "ci.role.test hw.arch.x86 sw.os.sunos"
       remoteFS: "/export/home/jenkins"
       numExecutors: 1
       mode: EXCLUSIVE
