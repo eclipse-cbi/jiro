@@ -721,6 +721,24 @@ data:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChUHeepF+GU5QCh6Q3JiPZYZ8pAJ7yH9IaiT0FEHYB7d5GGyDYTT+XAcGg+DKcdyrwkV6IEFr8NFEIAXhr7Nr/hia5/gY+12kZvQT1HCj1EYbb80AJOQm/PqPlxBH96ThwlI3QCoNLkWz454QJxhMPscpkUr2umg8L3l0x09XjjLZqk+DIvEntL2ZEvoG7WyEOzc+FG3QA8XTLh3Q+OtLcQP+fsrLyvYXEeE3dMWzoTU+nsxG0HD40wMy+go07odciLu79GT+DU79I9fYf14gNN/ulWfe6L5aP44ejPUpoWfpVbJl00bvWX2XKiNc63Z+wCobAvA93F6Am2gHySYrh"
         - permanent:
+            name: "jck-skytap-aix72-ppc64-5"
+            nodeDescription: "AIX 7.2 machine hosted by Skytap"
+            labelString: "ci.role.test hw.arch.ppc64 sw.os.aix sw.os.aix.7_2"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              ssh:
+                host: "20.61.136.213"
+                port: "22"
+                credentialsId: "jenkins-jck-ssh"
+                javaPath: "/usr/jdk-11.0.23+9/bin/java"
+                jvmOptions: "-Xmx1g"
+                sshHostKeyVerificationStrategy:
+                  manuallyProvidedKeyVerificationStrategy:
+                    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChUHeepF+GU5QCh6Q3JiPZYZ8pAJ7yH9IaiT0FEHYB7d5GGyDYTT+XAcGg+DKcdyrwkV6IEFr8NFEIAXhr7Nr/hia5/gY+12kZvQT1HCj1EYbb80AJOQm/PqPlxBH96ThwlI3QCoNLkWz454QJxhMPscpkUr2umg8L3l0x09XjjLZqk+DIvEntL2ZEvoG7WyEOzc+FG3QA8XTLh3Q+OtLcQP+fsrLyvYXEeE3dMWzoTU+nsxG0HD40wMy+go07odciLu79GT+DU79I9fYf14gNN/ulWfe6L5aP44ejPUpoWfpVbJl00bvWX2XKiNc63Z+wCobAvA93F6Am2gHySYrh"
+        - permanent:
             name: "jck-digitalocean-ubuntu2004-x64-1"
             nodeDescription: "Intel Xeon system hosted at digitalocean"
             labelString: "ci.role.test hw.arch.x86 sw.os.linux"
