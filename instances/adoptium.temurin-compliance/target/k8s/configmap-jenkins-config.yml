@@ -183,6 +183,8 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
               - name: "basic-ubuntu"
                 namespace: "temurin-compliance"
                 label: "basic-ubuntu"
@@ -272,6 +274,8 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
               - name: "centos-7"
                 namespace: "temurin-compliance"
                 label: "migration jipp-migration centos-7"
@@ -361,6 +365,8 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
               - name: "centos-8"
                 namespace: "temurin-compliance"
                 label: "centos-latest centos-8"
@@ -450,6 +456,8 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
       nodes:
         - permanent:
             name: "jck-marist-ubuntu2004-s390x-3"
@@ -1018,7 +1026,7 @@ data:
         - permanent:
             name: "jck-ubuntu-2204-solaris10"
             nodeDescription: ""
-            labelString: ""
+            labelString: "ci.role.test hw.arch.x86 sw.os.sunos"
             remoteFS: "/export/home/jenkins"
             numExecutors: 1
             mode: EXCLUSIVE
