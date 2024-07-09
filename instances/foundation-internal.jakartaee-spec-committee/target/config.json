@@ -45,6 +45,7 @@
                },
                "home": "/home/jenkins",
                "kubernetes": {
+                  "inheritYamlMergeStrategy": true,
                   "resources": {
                      "cpu": {
                         "limit": "2000m",
@@ -88,7 +89,8 @@
                         ],
                         "name": "m2-dir"
                      }
-                  ]
+                  ],
+                  "yamlMergeStrategy": "merge"
                },
                "labels": [
                   "basic"
@@ -138,6 +140,7 @@
                },
                "home": "/home/jenkins",
                "kubernetes": {
+                  "inheritYamlMergeStrategy": true,
                   "resources": {
                      "cpu": {
                         "limit": "2000m",
@@ -181,7 +184,8 @@
                         ],
                         "name": "m2-dir"
                      }
-                  ]
+                  ],
+                  "yamlMergeStrategy": "merge"
                },
                "labels": [
                   "basic-ubuntu"
@@ -231,6 +235,7 @@
                },
                "home": "/home/jenkins",
                "kubernetes": {
+                  "inheritYamlMergeStrategy": true,
                   "resources": {
                      "cpu": {
                         "limit": "2000m",
@@ -274,7 +279,8 @@
                         ],
                         "name": "m2-dir"
                      }
-                  ]
+                  ],
+                  "yamlMergeStrategy": "merge"
                },
                "labels": [
                   "migration",
@@ -326,6 +332,7 @@
                },
                "home": "/home/jenkins",
                "kubernetes": {
+                  "inheritYamlMergeStrategy": true,
                   "resources": {
                      "cpu": {
                         "limit": "2000m",
@@ -369,7 +376,8 @@
                         ],
                         "name": "m2-dir"
                      }
-                  ]
+                  ],
+                  "yamlMergeStrategy": "merge"
                },
                "labels": [
                   "centos-latest",
@@ -511,6 +519,7 @@
          "authorize-project",
          "bouncycastle-api",
          "build-timeout",
+         "cloudbees-disk-usage-simple",
          "cloudbees-folder",
          "command-launcher",
          "config-file-provider",
