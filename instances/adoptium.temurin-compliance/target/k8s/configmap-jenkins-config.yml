@@ -723,7 +723,7 @@ data:
         - permanent:
             name: "jck-skytap-aix72-ppc64-5"
             nodeDescription: "AIX 7.2 machine hosted by Skytap"
-            labelString: "ci.role.test hw.arch.ppc64 sw.os.aix sw.os.aix.7_2"
+            labelString: "ci.role.test hw.arch.ppc64 sw.os.aix sw.os.aix.7_2 sw.os.aix.7_2TL5"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE

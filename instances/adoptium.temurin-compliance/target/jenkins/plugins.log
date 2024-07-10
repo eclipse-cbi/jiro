@@ -27,7 +27,7 @@ commons-text-api 1.12.0-119.v73ef73f2345d
 config-file-provider 973.vb_a_80ecb_9a_4d0
 configuration-as-code 1810.v9b_c30a_249a_4c
 copyartifact 746.vd2a_674fb_4f6f
-credentials 1355.v46f52a_b_98d64
+credentials 1361.v56f5ca_35d21c
 credentials-binding 681.vf91669a_32e45
 data-tables-api 2.0.8-1
 display-url-api 2.204.vf6fddd8a_8b_e9
@@ -42,7 +42,7 @@ external-monitor-job 215.v2e88e894db_f8
 extra-columns 1.26
 font-awesome-api 6.5.2-1
 forensics-api 2.4.0
-generic-webhook-trigger 2.2.1
+generic-webhook-trigger 2.2.2
 ghprb 1.42.2
 git 5.2.2
 git-client 5.0.0
@@ -137,12 +137,12 @@ workflow-aggregator 596.v8c21c963d92d
 workflow-api 1316.v33eb_726c50b_a_
 workflow-basic-steps 1058.vcb_fc1e3a_21a_9
 workflow-cps 3903.v48a_8836749e9
-workflow-durable-task-step 1353.v1891a_b_01da_18
+workflow-durable-task-step 1360.v82d13453da_a_f
 workflow-job 1400.v7fd111b_ec82f
 workflow-multibranch 783.787.v50539468395f
 workflow-scm-step 427.v4ca_6512e7df1
-workflow-step-api 657.v03b_e8115821b_
-workflow-support 907.v6713a_ed8a_573
+workflow-step-api 678.v3ee58b_469476
+workflow-support 920.v59f71ce16f04
 ws-cleanup 0.46
 xunit 3.1.4
 xvfb 1.2
