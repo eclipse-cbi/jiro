@@ -7,6 +7,7 @@
     plugins+: [
       "build-name-setter",
       "mail-watcher-plugin",
+      "pipeline-utility-steps",
       "zentimestamp",
     ],
   },
