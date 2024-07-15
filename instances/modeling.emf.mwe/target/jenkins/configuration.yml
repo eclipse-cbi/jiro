@@ -166,6 +166,8 @@ jenkins:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+            inheritYamlMergeStrategy: "true"
+            yamlMergeStrategy: "merge"
           - name: "basic-ubuntu"
             namespace: "mwe"
             label: "basic-ubuntu"
@@ -255,6 +257,8 @@ jenkins:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+            inheritYamlMergeStrategy: "true"
+            yamlMergeStrategy: "merge"
           - name: "centos-7"
             namespace: "mwe"
             label: "migration jipp-migration centos-7"
@@ -344,6 +348,8 @@ jenkins:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+            inheritYamlMergeStrategy: "true"
+            yamlMergeStrategy: "merge"
           - name: "centos-8"
             namespace: "mwe"
             label: "centos-latest centos-8"
@@ -433,6 +439,8 @@ jenkins:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+            inheritYamlMergeStrategy: "true"
+            yamlMergeStrategy: "merge"
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
