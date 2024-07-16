@@ -46,8 +46,23 @@ echo "/* GENERATED FILE - DO NOT EDIT */" > "${target}/${jenkinsTheme}.css.overr
 hbs -s -D "${instance}/target/config.json" "${jenkinsTemplateFolder}/${jenkinsTheme}.css.hbs" >> "${target}/${jenkinsTheme}.css.override"
 
 displayName="$(jq -r '.project.displayName' "${instance}/target/config.json")"
+fullName="$(jq -r '.project.fullName' "${instance}/target/config.json")"
 cat <<EOF > "${target}/title.js"
 document.title = "${displayName} - " + document.title;
+document.addEventListener('DOMContentLoaded', function() {
+    let header = document.querySelector('.page-header__brand');
+    if (header) {
+        let newLink = document.createElement('a');
+        newLink.href = 'https://github.com/eclipse-cbi/jiro/blob/master/instances/${fullName}/target/config.json';
+        newLink.textContent = 'JIRO';
+        newLink.style = 'color: white; border-left: 1px solid white; padding-left: 1em; font-size: 1.1em; position: relative; top: 0.2em; left: -1.6em;';
+        newLink.target = '_blank';
+        newLink.title = 'JIRO Configuration as Code';
+        header.appendChild(newLink);
+    } else {
+        console.log('Element with class "header" not found.');
+    }
+});
 EOF
 
 mkdir -p "${target}/partials"
