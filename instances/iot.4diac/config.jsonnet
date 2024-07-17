@@ -7,7 +7,6 @@
     plugins+: [
       "cmakebuilder",
       "copyartifact",
-      "cppcheck",
     ],
   },
 }

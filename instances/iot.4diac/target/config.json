@@ -491,8 +491,7 @@
       ],
       "plugins": [
          "cmakebuilder",
-         "copyartifact",
-         "cppcheck"
+         "copyartifact"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
