@@ -229,7 +229,7 @@ auto() {
     echo "  No API token found."
   fi
   echo "Checking for quay.io API token..."
-  if passw cbi "bots/${project_name}/quay.io/api-token" 2&> /dev/null; then
+  if passw cbi "bots/${project_name}/quay.io/robot-token" 2&> /dev/null; then
     quay "${project_name}"
   else
     echo "  No API token found."
