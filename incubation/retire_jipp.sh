@@ -173,9 +173,6 @@ delete_project() {
   rm -rf "../instances/${PROJECT_NAME}"
 }
 
-remove_jipp_from_db() {
-  "${CI_ADMIN_ROOT}/jenkins/db_access.sh" "remove_jipp" "${PROJECT_NAME}"
-}
 
 # Main
 
@@ -188,9 +185,6 @@ _question_action "collect the backup" collect_backup
 _question_action "copy the backup to the archive" copy_backup_to_archive
 
 _question_action "delete the ${PROJECT_NAME} project on the cluster and in Jiro" delete_project
-
-_question_action "remove the JIPP from the DB" remove_jipp_from_db
-
 
 echo
 echo "TODO:"
