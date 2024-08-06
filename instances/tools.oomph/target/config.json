@@ -582,6 +582,14 @@
                   "View/Read"
                ]
             }
+         },
+         {
+            "user": {
+               "name": "ed.merks@gmail.com",
+               "permissions": [
+                  "Overall/SystemRead"
+               ]
+            }
          }
       ],
       "plugins": [
@@ -619,7 +627,6 @@
          "authorize-project",
          "bouncycastle-api",
          "build-timeout",
-         "cloudbees-disk-usage-simple",
          "cloudbees-folder",
          "command-launcher",
          "config-file-provider",

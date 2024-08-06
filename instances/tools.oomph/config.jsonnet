@@ -1,3 +1,5 @@
+local permissionsTemplates = import '../../templates/permissions.libsonnet';
+
 {
   project+: {
     fullName: "tools.oomph",
@@ -11,6 +13,8 @@
       "multiple-scms",
       "zentimestamp",
     ],
+    permissions+:
+      permissionsTemplates.user("ed.merks@gmail.com", ["Overall/SystemRead"]),
   },
   clouds+: {
     kubernetes+: {
