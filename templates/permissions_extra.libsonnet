@@ -1,6 +1,4 @@
 local release_coordinator_jipps() = [
-  "ee4j.authentication",
-  "ee4j.authorization",
   "ee4j.ca",
   "ee4j.cdi",
   "ee4j.cu",
