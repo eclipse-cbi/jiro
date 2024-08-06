@@ -98,6 +98,11 @@ jenkins:
             memory: false
             mountPath: "/home/jenkins/.sbt"
         {{/if}}
+        {{#if ../../develocity.generate}}
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/.develocity"
+        {{/if}}
         {{#if ../../gradle.generate}}
         - emptyDirVolume:
             memory: false

@@ -38,4 +38,7 @@
   gradle+: {
     generate: true,
   },
+  develocity+: {
+    generate: true,
+  },
 }
