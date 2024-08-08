@@ -1,0 +1,31 @@
+#*******************************************************************************
+# Copyright (c) 2019 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "equinox"
+    org.eclipse.cbi.jiro/project.fullName: "eclipse.platform.equinox"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.190.1"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "equinox"
+    org.eclipse.cbi.jiro/project.sponsorshipLevel: "S0"
+  namespace: "equinox"
+  name: master-known-hosts
+data:
+  known_hosts: |-
+    208.52.161.179 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3Mo4/c9Hn6sA594UEGHVxCKbu/QtophcofQIfrX1cJwkxfx/MGjMhllrWw49SfpNPh/VOlR4T7r3xeFq9TM+sDXAii54deTENpqg5q1uBOx9hi+7W8MhKpuJEhwL37kTQHSjcnIcexpm76Tbyd3QtHU3xQzMCjfREfqIAWkWaKbdzNVu1JJRcwqRXDDzPNkoLfYUZtdQi/XiROlX5zYh3/GpQctGkL3y8mdkeUY7RGUDKTjd7osAK59IR30H2KFRfewey9YnMnIKM0cokA8t3KDvAwmXFLQ+iAxG1RFLZQ88iz7agO1clNYFR3+2ersXcMu/AZUoA6sBsBXIJ9419
+    199.229.252.222 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIDpuYI9V+tjtHK8Tty9ZNgYnkWgCRI4lprI8eRxj8zeJhXH4nZvK2od8dR5N0StvQEt/rzKTlxGm3roF4ibGHQEHyBG1M99LG8/vim9JvogR2sKys6goNHmBICxP99vPo6GTJ8pcb2pmYdY6ZwW05NaFcgaslzg0fdGlJrFYIauERFVGON/+KXPs3u4RBbSm+0sDZB83Sf6ME7OgFRp9EXVIcombNv8smRcb+VTIR+JK2NXvKfFPR8xWrnE9q8h73J8HPi25KRJvuiwQPrYvVrE1oxifxawwHiBxGWr+pSh1KIJiatg71f514vOpFrKK8CuPKRYbRRfzbnzj/i90b
+    199.229.252.231 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIDpuYI9V+tjtHK8Tty9ZNgYnkWgCRI4lprI8eRxj8zeJhXH4nZvK2od8dR5N0StvQEt/rzKTlxGm3roF4ibGHQEHyBG1M99LG8/vim9JvogR2sKys6goNHmBICxP99vPo6GTJ8pcb2pmYdY6ZwW05NaFcgaslzg0fdGlJrFYIauERFVGON/+KXPs3u4RBbSm+0sDZB83Sf6ME7OgFRp9EXVIcombNv8smRcb+VTIR+JK2NXvKfFPR8xWrnE9q8h73J8HPi25KRJvuiwQPrYvVrE1oxifxawwHiBxGWr+pSh1KIJiatg71f514vOpFrKK8CuPKRYbRRfzbnzj/i90b
+    35.196.120.228 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDWh6lJpuNxDVvfSfLjdjfF6DygBspcxp+rnrv2hHVh16MRAF/qtsMru6kBMPiMaMASUl5d4FfsZnbBIpg51hPY5HaUYx71KQM5QevlXnUqqxkkvHpZxLt1M8Xh+cvo3RPHoFCE00MbMmVFPatUtRMprga7z5SgEKeKdyxcKirwyTHu8zVQmBLrctiIplNII594GphiJr3MUBK/oEf1AoQS+P/r2WFJZlbvlAwlpQ+BHlW1jQUGCAVZcGpfTE4KIAc4/GHUiEDcNR3ZH2/U4DmH0r1F8CqQpAqDw5+aM/dYS4GSaml774XOV4esNfPQYHkkIdfaqFk0S6WQyvHba05P
+    207.254.46.148 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCejyvfy3TfWh2CwKcEwj3BdLRb5ZpCw1k846vwpq/RzKEpIWFXarfH3KcDSDFUXQFSxxDCOokbfvPYxG+MyqmkQZ+g8nAahVX07rKIZu7AudHVPmYNOr8+iwKst38MuBB77UEKWwIaAov8UcM4bC6xPGc7SDVW59bMa151GN/dSDKHqTgKz2vMS62tdUG4D/bVYVYzmwSDOs85wnsX+oZe8TXABEt94jy10uDpgSkABdzNl/0m/C1boSIi3hOBrWuIk676PNj2lcUWz69SSUlmFElI7q9Mo+1TxuA0KQxy9D87mkRQ6lesZv/+CQJMhVuIso+APktrQ9uw3RhAbGoVq3MtANEoy3yv005HKIxnsVhUhkSCB1/EFSerbVBLndVXqY/3R7NgJDI0kbYg8VLLRWCoALveiO40Ss7tiHrTHXY2hFBsrhAzPTCZGLUbCjVc6tN+at1hjXhSJoB0h5uInywgMc1TfiJapihvrFoJlU+OhkJ/+oP6BgwVWDohiGE=
+    35.196.82.59 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCcc2k3hDeh60ivTJCTmFJCbsN5maW3M30lHjs1LH8MMY5Xl2m0bg65mEVwgXH4w3oStDFdxCkXIcQf2pvhLcGYxhIhZj0thju14kGyPEm4lYdQhqEKn1o1ThRR9LAVANBFduE7nb+ohiZQFDpvhxEQzMi4BNCHxGdiriT0TteR044CZEtTtYO5DANZgNzQ0hqYzV2ooaE3ZeswcBQ7KF/aARB6SiAj3QDVvf5TUYtYFlgCwXRwSv9aHWkstrnRgQWI2hZ577BH6NcsDVb6inWIgJyi1o8ykKtoLX7x26HL5MyP854FT7pOhlU/QV84W/o3hdxknDpcaXwX6fukLNYf
+    
