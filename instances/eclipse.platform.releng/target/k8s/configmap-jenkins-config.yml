@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.452.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.452.4"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "releng"
   namespace: "releng"
   name: jenkins-config
@@ -115,7 +115,7 @@ data:
                 label: "basic"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3206.vb_15dcf73f6a_9
+                    image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3206.3208.v409508a_675ff
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -218,7 +218,7 @@ data:
                 label: "basic-ubuntu"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3206.vb_15dcf73f6a_9
+                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3206.3208.v409508a_675ff
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -321,7 +321,7 @@ data:
                 label: "migration jipp-migration centos-7"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3206.vb_15dcf73f6a_9
+                    image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3206.3208.v409508a_675ff
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -424,7 +424,7 @@ data:
                 label: "centos-latest centos-8"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3206.vb_15dcf73f6a_9
+                    image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3206.3208.v409508a_675ff
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -527,7 +527,7 @@ data:
             name: "b9h15-macos11-x86_64"
             nodeDescription: "macOS 11 (Big Sur), no login session, hosted on MacStadium"
             labelString: "macos macos-11 swt.natives-cocoa.macosx.x86_64 native.builder-cocoa.macosx.x86_64"
-            remoteFS: '/Users/genie.releng/jenkins_agent/'
+            remoteFS: '/Users/genie.releng/jenkins_agent/releng/'
             numExecutors: 1
             mode: EXCLUSIVE
             retentionStrategy: "always"
@@ -551,7 +551,7 @@ data:
             name: "rs68g-win10"
             nodeDescription: "Windows 10 Pro, hosted on Azure"
             labelString: "windows swt.natives-win32.win32.x86_64 native.builder-win32.win32.x86_64"
-            remoteFS: 'C:\Users\genie.releng\ci'
+            remoteFS: 'C:\Users\genie.releng\cireleng\'
             numExecutors: 1
             mode: EXCLUSIVE
             retentionStrategy: "always"
@@ -589,7 +589,7 @@ data:
             name: "zyt5z-centos83"
             nodeDescription: "Dedicated agent for performance tests, hosted on Azure"
             labelString: "performance docker-build"
-            remoteFS: '/home/genie.releng/jenkins'
+            remoteFS: '/home/genie.releng/jenkins/releng/'
             numExecutors: 1
             mode: EXCLUSIVE
             retentionStrategy: "always"
@@ -617,7 +617,7 @@ data:
         - permanent:
             name: "ppcle-buildTest"
             labelString: "ppctest ppcbuild swt.natives-gtk.linux.ppc64le native.builder-gtk.linux.ppc64le"
-            remoteFS: "/home/swtbuild/build"
+            remoteFS: "/home/swtbuild/build/releng/"
             numExecutors: 1
             mode: EXCLUSIVE
             retentionStrategy: "always"
@@ -631,7 +631,7 @@ data:
         - permanent:
             name: "ppcle-test"
             labelString: "ppctest"
-            remoteFS: "/home/swtbuild/build"
+            remoteFS: "/home/swtbuild/build/releng/"
             numExecutors: 1
             mode: EXCLUSIVE
             retentionStrategy: "always"
@@ -646,7 +646,7 @@ data:
             name: "centos-aarch64-1"
             labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64 native.builder-gtk.linux.aarch64"
             nodeDescription: "Agent provided by the project"
-            remoteFS: "/home/swtbuild/build"
+            remoteFS: "/home/swtbuild/build/releng/"
             numExecutors: 1
             mode: EXCLUSIVE
             retentionStrategy: "always"
@@ -661,7 +661,7 @@ data:
             name: "centos-aarch64-2"
             labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64 native.builder-gtk.linux.aarch64"
             nodeDescription: "Agent provided by the project"
-            remoteFS: "/home/swtbuild/build"
+            remoteFS: "/home/swtbuild/build/releng/"
             numExecutors: 1
             mode: EXCLUSIVE
             retentionStrategy: "always"
@@ -676,7 +676,7 @@ data:
             name: "centos-aarch64-3"
             labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64 native.builder-gtk.linux.aarch64"
             nodeDescription: "Agent provided by the project"
-            remoteFS: "/home/swtbuild/build"
+            remoteFS: "/home/swtbuild/build/releng/"
             numExecutors: 1
             mode: EXCLUSIVE
             retentionStrategy: "always"
@@ -691,7 +691,7 @@ data:
             name: "centos-aarch64-4"
             labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64 native.builder-gtk.linux.aarch64"
             nodeDescription: "Agent provided by the project"
-            remoteFS: "/home/swtbuild/build"
+            remoteFS: "/home/swtbuild/build/releng/"
             numExecutors: 1
             mode: EXCLUSIVE
             retentionStrategy: "always"
@@ -722,7 +722,7 @@ data:
                       key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk17-latest"
                     - home: "/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home/bin"
                       key: "hudson.model.JDK$DescriptorImpl@adoptopenjdk-hotspot-jdk11-latest"
-            remoteFS: "/Users/genie.releng"
+            remoteFS: "/Users/genie.releng/releng/"
             retentionStrategy: "always"
         - permanent:
             name: "qa6xd-win11"
@@ -744,7 +744,7 @@ data:
                   locations:
                     - home: "C:\\ProgramData\\chocolatey\\lib\\ant\\tools\\apache-ant-1.10.13"
                       key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest"
-            remoteFS: "C:\\Users\\genie.releng\\"
+            remoteFS: "C:\\Users\\genie.releng\releng\\"
             retentionStrategy: "always"
         - permanent:
             labelString: "windows windows11 swt.natives-win32.win32.aarch64 native.builder-win32.win32.aarch64"
@@ -758,7 +758,7 @@ data:
             mode: EXCLUSIVE
             name: "rie8t-win11-arm64"
             nodeDescription: "Windows 11 Pro ARM64, 2vCPUs, 8GB RAM, hosted on Azure"
-            remoteFS: "C:\\Users\\genie.releng.rie8t-win11-arm\\jenkins_agent"
+            remoteFS: "C:\\Users\\genie.releng.rie8t-win11-arm\\jenkins_agent\releng\\"
             retentionStrategy: "always"
             nodeProperties:
               - watcher:

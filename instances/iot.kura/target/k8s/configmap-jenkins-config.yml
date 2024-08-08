@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.452.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.452.4"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "kura"
   namespace: "kura"
   name: jenkins-config
@@ -105,7 +105,7 @@ data:
                 label: "basic"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3206.vb_15dcf73f6a_9
+                    image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3206.3208.v409508a_675ff
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -189,12 +189,14 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
               - name: "basic-ubuntu"
                 namespace: "kura"
                 label: "basic-ubuntu"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3206.vb_15dcf73f6a_9
+                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3206.3208.v409508a_675ff
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -278,12 +280,14 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
               - name: "centos-7"
                 namespace: "kura"
                 label: "migration jipp-migration centos-7"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3206.vb_15dcf73f6a_9
+                    image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3206.3208.v409508a_675ff
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -367,12 +371,14 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
               - name: "centos-8"
                 namespace: "kura"
                 label: "centos-latest centos-8"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3206.vb_15dcf73f6a_9
+                    image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3206.3208.v409508a_675ff
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -456,6 +462,8 @@ data:
                     - name: m2-dir
                       configMap:
                         name: m2-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false

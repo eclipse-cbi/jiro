@@ -1,6 +1,6 @@
 Resulting plugin list:
 analysis-model-api 12.4.0
-ant 497.v94e7d9fffa_b_9
+ant 511.v0a_a_1a_334f41b_
 antisamy-markup-formatter 162.v0e6ec0fcfcf6
 apache-httpcomponents-client-4-api 4.5.14-208.v438351942757
 apache-httpcomponents-client-5-api 5.3.1-110.v77252fb_d4da_5
@@ -17,7 +17,7 @@ checks-api 2.2.0
 cloudbees-disk-usage-simple 203.v3f46a_7462b_1a_
 cloudbees-folder 6.928.v7c780211d66e
 cloudbees-jenkins-advisor 358.v58972d19b_1f0
-command-launcher 107.v773860566e2e
+command-launcher 115.vd8b_301cc15d0
 commons-lang3-api 3.14.0-76.vda_5591261cfe
 commons-text-api 1.12.0-129.v99a_50df237f7
 config-file-provider 973.vb_a_80ecb_9a_4d0
@@ -26,7 +26,7 @@ credentials 1371.vfee6b_095f0a_3
 credentials-binding 681.vf91669a_32e45
 data-tables-api 2.0.8-1
 display-url-api 2.204.vf6fddd8a_8b_e9
-docker-commons 439.va_3cb_0a_6a_fb_29
+docker-commons 443.v921729d5611d
 docker-workflow 580.vc0c340686b_54
 durable-task 568.v8fb_5c57e8417
 echarts-api 5.5.0-1
@@ -36,17 +36,17 @@ embeddable-build-status 487.va_0ef04c898a_2
 extended-read-permission 53.v6499940139e5
 external-monitor-job 215.v2e88e894db_f8
 extra-columns 1.26
-favorite 2.218.vd60382506538
+favorite 2.221.v19ca_666b_62f5
 font-awesome-api 6.5.2-1
 forensics-api 2.4.0
 ghprb 1.42.2
-git 5.2.2
+git 5.3.0
 git-client 5.0.0
 git-parameter 0.9.19
 github 1.39.0
 github-api 1.321-468.v6a_9f5f2d5a_7e
 github-branch-source 1793.v1831e9c68d77
-gitlab-api 5.3.0-91.v1f9a_fda_d654f
+gitlab-api 5.6.0-97.v6603a_83f8690
 gitlab-branch-source 704.vc7f1202d7e14
 gitlab-plugin 1.8.1
 gradle 2.12
@@ -59,12 +59,12 @@ ionicons-api 74.v93d5eb_813d5f
 jackson2-api 2.17.0-379.v02de8ec9f64c
 jakarta-activation-api 2.1.3-1
 jakarta-mail-api 2.1.3-1
-javadoc 243.vb_b_503b_b_45537
+javadoc 280.v050b_5c849f69
 javax-activation-api 1.2.0-7
 jaxb 2.3.9-1
-jdk-tool 73.vddf737284550
+jdk-tool 80.v8a_dee33ed6f0
 jenkins-design-language 1.27.14
-jersey2-api 2.42-147.va_28a_44603b_d5
+jersey2-api 2.44-151.v6df377fff741
 jjwt-api 0.11.5-112.ve82dfb_224b_a_d
 jobConfigHistory 1229.v3039470161a_d
 joda-time-api 2.12.7-29.v5a_b_e3a_82269a_
@@ -72,7 +72,7 @@ jquery3-api 3.7.1-2
 jsch 0.2.16-86.v42e010d9484b_
 json-api 20240303-41.v94e11e6de726
 json-path-api 2.9.0-58.v62e3e85b_a_655
-junit 1280.v310a_78b_9a_1e0
+junit 1284.vf75d778f98c5
 kubernetes 4280.vd919fa_528c7e
 kubernetes-client-api 6.10.0-240.v57880ce8b_0b_2
 kubernetes-credentials 174.va_36e093562d9
@@ -117,7 +117,7 @@ scm-api 696.v778d637b_a_762
 script-security 1341.va_2819b_414686
 simple-theme-plugin 191.vcd207ef9dd24
 slack 734.v7f9ec8b_66975
-snakeyaml-api 2.2-111.vc6598e30cc65
+snakeyaml-api 2.2-121.v5a_68b_9300b_d4
 sonar 2.17.2
 sse-gateway 1.27
 ssh-agent 376.v8933585c69d3
@@ -129,7 +129,7 @@ timestamper 1.27
 token-macro 400.v35420b_922dcb_
 trilead-api 2.147.vb_73cc728a_32e
 variant 60.v7290fc0eb_b_cd
-warnings-ng 11.3.0
+warnings-ng 11.4.0
 workflow-aggregator 600.vb_57cdd26fdd7
 workflow-api 1322.v857eeeea_9902
 workflow-basic-steps 1058.vcb_fc1e3a_21a_9

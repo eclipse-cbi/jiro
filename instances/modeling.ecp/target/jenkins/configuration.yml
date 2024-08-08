@@ -84,7 +84,7 @@ jenkins:
             label: "basic"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3206.vb_15dcf73f6a_9
+                image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3206.3208.v409508a_675ff
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -92,10 +92,6 @@ jenkins:
                   periodSeconds: 0
                   successThreshold: 0
                   timeoutSeconds: 0
-                resourceLimitCpu: "2000m"
-                resourceRequestCpu: "1000m"
-                resourceLimitMemory: "4096Mi"
-                resourceRequestMemory: "4096Mi"
                 ttyEnabled: true
                 command: ""
                 args: ""
@@ -141,6 +137,13 @@ jenkins:
               spec:
                 containers:
                 - name: jnlp
+                  resources:
+                    limits:
+                      cpu: "2000m"
+                      memory: "4096Mi"
+                    requests:
+                      cpu: "1000m"
+                      memory: "4096Mi"
                   volumeMounts:
                   - name: m2-secret-dir
                     mountPath: /home/jenkins/.m2/settings-security.xml
@@ -165,12 +168,14 @@ jenkins:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+            inheritYamlMergeStrategy: "true"
+            yamlMergeStrategy: "merge"
           - name: "basic-ubuntu"
             namespace: "ecp"
             label: "basic-ubuntu"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3206.vb_15dcf73f6a_9
+                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3206.3208.v409508a_675ff
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -178,10 +183,6 @@ jenkins:
                   periodSeconds: 0
                   successThreshold: 0
                   timeoutSeconds: 0
-                resourceLimitCpu: "2000m"
-                resourceRequestCpu: "1000m"
-                resourceLimitMemory: "4096Mi"
-                resourceRequestMemory: "4096Mi"
                 ttyEnabled: true
                 command: ""
                 args: ""
@@ -227,6 +228,13 @@ jenkins:
               spec:
                 containers:
                 - name: jnlp
+                  resources:
+                    limits:
+                      cpu: "2000m"
+                      memory: "4096Mi"
+                    requests:
+                      cpu: "1000m"
+                      memory: "4096Mi"
                   volumeMounts:
                   - name: m2-secret-dir
                     mountPath: /home/jenkins/.m2/settings-security.xml
@@ -251,12 +259,14 @@ jenkins:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+            inheritYamlMergeStrategy: "true"
+            yamlMergeStrategy: "merge"
           - name: "centos-7"
             namespace: "ecp"
             label: "migration jipp-migration centos-7"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3206.vb_15dcf73f6a_9
+                image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3206.3208.v409508a_675ff
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -264,10 +274,6 @@ jenkins:
                   periodSeconds: 0
                   successThreshold: 0
                   timeoutSeconds: 0
-                resourceLimitCpu: "2000m"
-                resourceRequestCpu: "1000m"
-                resourceLimitMemory: "4096Mi"
-                resourceRequestMemory: "4096Mi"
                 ttyEnabled: true
                 command: ""
                 args: ""
@@ -313,6 +319,13 @@ jenkins:
               spec:
                 containers:
                 - name: jnlp
+                  resources:
+                    limits:
+                      cpu: "2000m"
+                      memory: "4096Mi"
+                    requests:
+                      cpu: "1000m"
+                      memory: "4096Mi"
                   volumeMounts:
                   - name: m2-secret-dir
                     mountPath: /home/jenkins/.m2/settings-security.xml
@@ -337,12 +350,14 @@ jenkins:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+            inheritYamlMergeStrategy: "true"
+            yamlMergeStrategy: "merge"
           - name: "centos-8"
             namespace: "ecp"
             label: "centos-latest centos-8"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3206.vb_15dcf73f6a_9
+                image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3206.3208.v409508a_675ff
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -350,10 +365,6 @@ jenkins:
                   periodSeconds: 0
                   successThreshold: 0
                   timeoutSeconds: 0
-                resourceLimitCpu: "2000m"
-                resourceRequestCpu: "1000m"
-                resourceLimitMemory: "4096Mi"
-                resourceRequestMemory: "4096Mi"
                 ttyEnabled: true
                 command: ""
                 args: ""
@@ -399,6 +410,13 @@ jenkins:
               spec:
                 containers:
                 - name: jnlp
+                  resources:
+                    limits:
+                      cpu: "2000m"
+                      memory: "4096Mi"
+                    requests:
+                      cpu: "1000m"
+                      memory: "4096Mi"
                   volumeMounts:
                   - name: m2-secret-dir
                     mountPath: /home/jenkins/.m2/settings-security.xml
@@ -423,6 +441,8 @@ jenkins:
                 - name: m2-dir
                   configMap:
                     name: m2-dir
+            inheritYamlMergeStrategy: "true"
+            yamlMergeStrategy: "merge"
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
