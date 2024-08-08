@@ -1,1 +1,202 @@
-../../eclipse.platform.releng/jenkins/configuration.yml
+jenkins:
+  nodes:
+  - permanent:
+      name: "b9h15-macos11-x86_64"
+      nodeDescription: "macOS 11 (Big Sur), no login session, hosted on MacStadium"
+      labelString: "macos macos-11 swt.natives-cocoa.macosx.x86_64 native.builder-cocoa.macosx.x86_64"
+      remoteFS: '/Users/genie.equinox/jenkins_agent/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          credentialsId: "b9h15-macos11-x86_64-bot-ssh"
+          host: "208.52.161.179"
+          port: 22
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDlxEHVKo8Mu6JEHdDOabGlbvZTQISBnCWWUXq2G/csOQwY2CimuzC3BX5ysdORTTnpMtq7Ck75cXMXr1h0mHszU7Pwx5ZPpTvNyWFFt9zMevlViGKy4OWSkq9W8qEL/JsZm1LGtP/lau+26XmE4gId1GAs2urTxbn923XSuFCbSEQAdPs11K8FRK4espEfXqmQ/w6BdiISwy3zB6/HKbOS462Qcar/1J9434nkTicH8bl5lGMfMFo57JsgrYcMFM5zB2GqHORHGsQ/88J/dsoTX1Bn+irZ6JMHx0HrkVJz1zXqDtfs8CH4q8PtFPFuSfEj2WZ7fGcRExqkiZ5mGfqrVsN5cV5vwXPE/EKFjxCgPvfUcmLHEYl00PhvyjScrP2XBJ1cFnHt44Ia0mM5zn69pxLWeuMdwfwk1mS+wAYvmwa0lGK61YupgOBiSyMV1KSYSnlcIyc1mRguZT6x3/qktzX7urJumuOskTnbAX5HdJnr7kWYmrBc4/Uyf8SXfes="
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "PATH"
+            value: '$HOME/.cargo/bin:$PATH'
+      - watcher:
+          offlineAddresses: "releng@eclipse.org"
+          onlineAddresses: "releng@eclipse.org"
+  - permanent:
+      name: "rs68g-win10"
+      nodeDescription: "Windows 10 Pro, hosted on Azure"
+      labelString: "windows swt.natives-win32.win32.x86_64 native.builder-win32.win32.x86_64"
+      remoteFS: 'C:\Users\genie.equinox\ci\'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "13.68.249.87"
+          port: "22"
+          credentialsId: "rs68g-win10-ssh"
+          javaPath: "\"C:\\Program Files\\AdoptOpenJDK\\jdk-11.0.11.9-hotspot\\bin\\java.exe\""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDAkHWAKiWv/T3uaCBj8RdbPR4BW3GBdb5Digq4lpwnFc5xCLCZ/Wke6GBEBlai+zJndjm5sNYgKAAGUOFvW1t0ZCFxgS+uZ+tu2eyDoGyCAvS+XzbzN4pEGf3x/2GJE2aWoesrdx/Uhc/8J3cZG04Fy1SsllW36j4e/20PnZaCtPRBuU/9ZlX4pUDKIUDV+7ejOTTViAzxV0IqUQagiKLv1rxgkRQRgy49+oszYbTFmO7Sqy8L20sSRpSjO0eym6CTpbdjJSm70ZjlJNFocwREmlISNtdPPzY56NWQKf6qpzTlw94zZGVV/0WNdapn3pWS3OLIttVB1C1f1nHBdwvmooFgFiTJzfWaqY9wZFy+jNDi8BHHauLYySIh2PT65XWltnnJcwPM/87nk0hESuBglq3580mGbqoqYmoYhVOsJgn0r0HOHoCsfrUkk9EbUzuUh4TmbR9d6c+zrXe/p6XW8MNNoD1FC+IpruUiEIK9sJ25LAdeXP0hupL9SbddlCc="
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "JAVA_HOME"
+            value: 'C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot'
+          - key: "PATH"
+            value: 'C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\ProgramData\GooGet;C:\Users\SSHD\AppData\Local\Microsoft\WindowsApps;C:\ProgramData\chocolatey\bin'
+          - key: "VS90_HOME"
+            value: 'C:\Program Files (x86)\Microsoft Visual Studio\2019'
+          - key: "VS90COMNTOOLS"
+            value: 'C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools'
+      - toolLocation:
+          locations:
+          - home: 'C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.1\bin\mvn.cmd'
+            key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
+          - home: 'C:\ProgramData\chocolatey\bin\ant.bat'
+            key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-1.9.6"
+          - home: 'C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot'
+            key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk11-latest"
+          - home: 'C:\tools\cygwin\bin\git'
+            key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+  - permanent:
+      name: "zyt5z-centos83"
+      nodeDescription: "Dedicated agent for performance tests, hosted on Azure"
+      labelString: "performance docker-build"
+      remoteFS: '/home/genie.equinox/jenkins/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "20.231.104.175"
+          port: "22"
+          credentialsId: "zyt5z-centos83-ssh"
+          javaPath: ""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6tfKfT8YiNcb3WQOO2t4AmMEGsq+IhxAo2ROEXYrcYDJNWiR7jI4drW1jlOICQKqN5EcvBmTAUegHWuUVE+EVAQm9HrqFtAkJ7bhCcAUTtoMqdYzIR6vQ0LKCMsw6KuGVqsZ2Ub2pkA7CCbJE0CEX5uQFRFd57ngn5+kOJ4TcM9x8N7dEXyIv0lgos9J9JEm/XAlLfsdPomi79KcAE4DTWPkMCgs91aTzTRylIb0iEeReTSljw0UyWdsZgwPEX3ISUM+dWA0nl4W/lyeiEjD8r8EWx8h7POZXlMyYuwysbatrU8hfUlGoLKEKLuzozMfJCgW/v7gITU8J5pXCs4hV1lynM1G0avGnNWBrdeX+PW8abKK015/OZ+28Lt9+ig+BQtIF0S3AcUzzDPTjz1CpO0pq1dh2A2ed5RwHSg18CGzU17s4rnbBsNqZyB34NoUMEb0Lfs2ozucfXsasIhbtTqoo08LopcHagYx0VOHrYv3PPjOEemROmMPiU2xc1i8="
+      nodeProperties:
+      - toolLocation:
+          locations:
+          - home: '/usr/bin/ant'
+            key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-1.9.6"
+          - home: '/usr/bin/mvn'
+            key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
+          - home: '/usr/bin/java'
+            key: "hudson.model.JDK$DescriptorImpl@openjdk-latest"
+      - watcher:
+          offlineAddresses: "releng@eclipse.org"
+          onlineAddresses: "releng@eclipse.org"
+  - permanent:
+      name: "ppcle-buildTest"
+      labelString: "ppctest ppcbuild swt.natives-gtk.linux.ppc64le native.builder-gtk.linux.ppc64le"
+      remoteFS: "/home/swtbuild/build/"
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        inbound:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+  - permanent:
+      name: "ppcle-test"
+      labelString: "ppctest"
+      remoteFS: "/home/swtbuild/build/"
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        inbound:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+  - permanent:
+      name: "centos-aarch64-1"
+      labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64 native.builder-gtk.linux.aarch64"
+      nodeDescription: "Agent provided by the project"
+      remoteFS: "/home/swtbuild/build/"
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        inbound:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+  - permanent:
+      name: "nc1ht-macos11-arm64"
+      labelString: "macos macos11 swt.natives-cocoa.macosx.aarch64 native.builder-cocoa.macosx.aarch64"
+      nodeDescription: "macOS Ventura 13.0.1"
+      launcher:
+        ssh:
+          credentialsId: "nc1ht-macos11-arm64-bot-ssh"
+          host: "208.52.190.236"
+          port: 22
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2EUBUJSBAIzhw5Vc1B/nIwWNWix+4Co8xtYGOJjEPP"
+      mode: EXCLUSIVE
+      nodeProperties:
+      - toolLocation:
+          locations:
+          - home: "/usr/local/openjdk-17/Contents/Home/bin"
+            key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk17-latest"
+          - home: "/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home/bin"
+            key: "hudson.model.JDK$DescriptorImpl@adoptopenjdk-hotspot-jdk11-latest"
+      remoteFS: "/Users/genie.equinox/"
+      retentionStrategy: "always"
+  - permanent:
+      name: "qa6xd-win11"
+      labelString: "windows"
+      launcher:
+        inbound:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+      mode: EXCLUSIVE
+      nodeDescription: "Windows 11 Pro, hosted on Azure"
+      nodeProperties:
+      - watcher:
+          offlineAddresses: "releng@eclipse.org"
+          onlineAddresses: "releng@eclipse.org"
+      - toolLocation:
+          locations:
+          - home: "C:\\ProgramData\\chocolatey\\lib\\ant\\tools\\apache-ant-1.10.13"
+            key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest"
+      remoteFS: "C:\\Users\\genie.equinox\\"
+      retentionStrategy: "always"
+  - permanent:
+      labelString: "windows windows11 swt.natives-win32.win32.aarch64 native.builder-win32.win32.aarch64"
+      launcher:
+        inbound:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+      mode: EXCLUSIVE
+      name: "rie8t-win11-arm64"
+      nodeDescription: "Windows 11 Pro ARM64, 2vCPUs, 8GB RAM, hosted on Azure"
+      remoteFS: "C:\\Users\\genie.equinox.rie8t-win11-arm\\jenkins_agent\\"
+      retentionStrategy: "always"
+      nodeProperties:
+      - watcher:
+          offlineAddresses: "releng@eclipse.org"
+          onlineAddresses: "releng@eclipse.org"
+      - toolLocation:
+          locations:
+          - home: "C:\\Program Files\\Git\\bin\\git"
+            key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"

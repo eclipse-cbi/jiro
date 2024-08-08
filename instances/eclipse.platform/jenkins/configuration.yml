@@ -4,7 +4,7 @@ jenkins:
       name: "b9h15-macos11-x86_64"
       nodeDescription: "macOS 11 (Big Sur), no login session, hosted on MacStadium"
       labelString: "macos macos-11 swt.natives-cocoa.macosx.x86_64 native.builder-cocoa.macosx.x86_64"
-      remoteFS: '/Users/genie.releng/jenkins_agent/'
+      remoteFS: '/Users/genie.platform/jenkins_agent/'
       numExecutors: 1
       mode: EXCLUSIVE
       retentionStrategy: "always"
@@ -28,7 +28,7 @@ jenkins:
       name: "rs68g-win10"
       nodeDescription: "Windows 10 Pro, hosted on Azure"
       labelString: "windows swt.natives-win32.win32.x86_64 native.builder-win32.win32.x86_64"
-      remoteFS: 'C:\Users\genie.releng\ci\'
+      remoteFS: 'C:\Users\genie.platform\ci\'
       numExecutors: 1
       mode: EXCLUSIVE
       retentionStrategy: "always"
@@ -66,7 +66,7 @@ jenkins:
       name: "zyt5z-centos83"
       nodeDescription: "Dedicated agent for performance tests, hosted on Azure"
       labelString: "performance docker-build"
-      remoteFS: '/home/genie.releng/jenkins/'
+      remoteFS: '/home/genie.platform/jenkins/'
       numExecutors: 1
       mode: EXCLUSIVE
       retentionStrategy: "always"
@@ -135,51 +135,6 @@ jenkins:
             failIfWorkDirIsMissing: false
             internalDir: "remoting"
   - permanent:
-      name: "centos-aarch64-2"
-      labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64 native.builder-gtk.linux.aarch64"
-      nodeDescription: "Agent provided by the project"
-      remoteFS: "/home/swtbuild/build/"
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        inbound:
-          webSocket: true
-          workDirSettings:
-            disabled: false
-            failIfWorkDirIsMissing: false
-            internalDir: "remoting"
-  - permanent:
-      name: "centos-aarch64-3"
-      labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64 native.builder-gtk.linux.aarch64"
-      nodeDescription: "Agent provided by the project"
-      remoteFS: "/home/swtbuild/build/"
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        inbound:
-          webSocket: true
-          workDirSettings:
-            disabled: false
-            failIfWorkDirIsMissing: false
-            internalDir: "remoting"
-  - permanent:
-      name: "centos-aarch64-4"
-      labelString: "aarch64 arm64 swt.natives-gtk.linux.aarch64 native.builder-gtk.linux.aarch64"
-      nodeDescription: "Agent provided by the project"
-      remoteFS: "/home/swtbuild/build/"
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        inbound:
-          webSocket: true
-          workDirSettings:
-            disabled: false
-            failIfWorkDirIsMissing: false
-            internalDir: "remoting"
-  - permanent:
       name: "nc1ht-macos11-arm64"
       labelString: "macos macos11 swt.natives-cocoa.macosx.aarch64 native.builder-cocoa.macosx.aarch64"
       nodeDescription: "macOS Ventura 13.0.1"
@@ -199,7 +154,7 @@ jenkins:
             key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk17-latest"
           - home: "/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home/bin"
             key: "hudson.model.JDK$DescriptorImpl@adoptopenjdk-hotspot-jdk11-latest"
-      remoteFS: "/Users/genie.releng/"
+      remoteFS: "/Users/genie.platform/"
       retentionStrategy: "always"
   - permanent:
       name: "qa6xd-win11"
@@ -221,7 +176,7 @@ jenkins:
           locations:
           - home: "C:\\ProgramData\\chocolatey\\lib\\ant\\tools\\apache-ant-1.10.13"
             key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest"
-      remoteFS: "C:\\Users\\genie.releng\\"
+      remoteFS: "C:\\Users\\genie.platform\\"
       retentionStrategy: "always"
   - permanent:
       labelString: "windows windows11 swt.natives-win32.win32.aarch64 native.builder-win32.win32.aarch64"
@@ -235,7 +190,7 @@ jenkins:
       mode: EXCLUSIVE
       name: "rie8t-win11-arm64"
       nodeDescription: "Windows 11 Pro ARM64, 2vCPUs, 8GB RAM, hosted on Azure"
-      remoteFS: "C:\\Users\\genie.releng.rie8t-win11-arm\\jenkins_agent\\"
+      remoteFS: "C:\\Users\\genie.platform.rie8t-win11-arm\\jenkins_agent\\"
       retentionStrategy: "always"
       nodeProperties:
       - watcher:

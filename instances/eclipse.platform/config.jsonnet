@@ -3,8 +3,6 @@
     fullName: "eclipse.platform",
     displayName: "Eclipse Platform",
     resourcePacks: 4,
-    # remoteFSSuffix must be individual among all JIPPs which link the eclipse.platform.releng/jenkins/configuration.yml
-    remoteFSSuffix: "platform",
   },
   jenkins+: {
     plugins+: [
