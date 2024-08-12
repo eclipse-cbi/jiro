@@ -853,7 +853,6 @@
    "project": {
       "displayName": "Eclipse Platform Releng",
       "fullName": "eclipse.platform.releng",
-      "remoteFSSuffix": "releng",
       "resourcePacks": 5,
       "shortName": "releng",
       "unixGroupName": "eclipse.platform"
