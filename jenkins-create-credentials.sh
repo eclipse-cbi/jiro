@@ -49,6 +49,8 @@ if [[ -z "${PROJECT_NAME}" ]]; then
   exit 1
 fi
 
+CI_INSTANCE_PATH="${SCRIPT_FOLDER}/instances/${PROJECT_NAME}"
+
 PROJECTS_STORAGE_PASS_DOMAIN="projects-storage.eclipse.org"
 GIT_ECLIPSE_PASS_DOMAIN="git.eclipse.org"
 GITHUB_PASS_DOMAIN="github.com"
@@ -59,7 +61,7 @@ GPG_PASS_DOMAIN="gpg"
 create_domain() {
     local domain_name="${1:-}"
     echo "  Creating domain '${domain_name}'..."
-    "${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" create-credentials-domain-by-xml system::system::jenkins <<EOF
+    "${SCRIPT_FOLDER}/jenkins-cli.sh" "${CI_INSTANCE_PATH}" create-credentials-domain-by-xml system::system::jenkins <<EOF
 <com.cloudbees.plugins.credentials.domains.Domain>
   <name>${domain_name}</name>
   <specifications/>
@@ -77,7 +79,7 @@ create_username_password_credentials() {
 
   # check if credentials already exist, update password if yes
   local reply
-  reply=$("${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}" 2>&1 || true)
+  reply=$("${SCRIPT_FOLDER}/jenkins-cli.sh" "${CI_INSTANCE_PATH}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}" 2>&1 || true)
   local cli_command
   local update_id
   if [[ "${reply}" == "No such domain" ]]; then
@@ -93,13 +95,13 @@ create_username_password_credentials() {
     update_id="${id}"
   else
     echo "Unexpected reply: ${reply}"
-    "${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}"
+    "${SCRIPT_FOLDER}/jenkins-cli.sh" "${CI_INSTANCE_PATH}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}"
     exit 1
   fi
 
   # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
   #shellcheck disable=SC2086
-  "${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
+  "${SCRIPT_FOLDER}/jenkins-cli.sh" "${CI_INSTANCE_PATH}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
 <com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
   <scope>GLOBAL</scope>
   <id>${id}</id>
@@ -121,7 +123,7 @@ create_ssh_credentials_xml() {
 
   # check if credentials already exist
   local reply
-  reply=$("${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}" 2>&1 || true)
+  reply=$("${SCRIPT_FOLDER}/jenkins-cli.sh" "${CI_INSTANCE_PATH}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}" 2>&1 || true)
   local cli_command
   local update_id
   if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then #skip for global domain ("_")
@@ -142,7 +144,7 @@ create_ssh_credentials_xml() {
 
   # ${update_id} is deliberatly not put in quotes to be only used if credentials are updated. and yes, this is a hack
   #shellcheck disable=SC2086
-  "${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
+  "${SCRIPT_FOLDER}/jenkins-cli.sh" "${CI_INSTANCE_PATH}" "${cli_command}" "system::system::jenkins" "${domain_name}" ${update_id} <<EOF
 <com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey>
   <scope>GLOBAL</scope>
   <id>${id}</id>
@@ -166,7 +168,7 @@ create_file_credentials() {
 
   # check if credentials already exist
   local reply
-  reply="$("${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}" 2>&1 || true)"
+  reply="$("${SCRIPT_FOLDER}/jenkins-cli.sh" "${CI_INSTANCE_PATH}" get-credentials-as-xml system::system::jenkins "${domain_name}" "${id}" 2>&1 || true)"
   local cli_command
   if [[ "${reply}" == "No such domain" && "${domain_name}" != "_" ]]; then
     create_domain "${domain_name}"
@@ -182,7 +184,7 @@ create_file_credentials() {
     exit 1
   fi
 
-  "${SCRIPT_FOLDER}/jenkins-cli.sh" "${SCRIPT_FOLDER}/instances/${PROJECT_NAME}" "${cli_command}" "system::system::jenkins" "${domain_name}" <<EOF
+  "${SCRIPT_FOLDER}/jenkins-cli.sh" "${CI_INSTANCE_PATH}" "${cli_command}" "system::system::jenkins" "${domain_name}" <<EOF
 <org.jenkinsci.plugins.plaincredentials.impl.FileCredentialsImpl>
   <scope>GLOBAL</scope>
   <id>${id}</id>
