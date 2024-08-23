@@ -14,3 +14,27 @@ unclassified:
       name: "gitlab.eclipse.org"
       serverUrl: "https://gitlab.eclipse.org"
       webhookSecretCredentialsId: "gitlab-webhook-secret"
+  globalLibraries:
+    libraries:
+    - name: "releng-pipeline"
+      cachingConfiguration:
+        excludedVersionsStr: "main"
+        refreshTimeMinutes: 10080
+      defaultVersion: "refs/tags/v0.11.0"
+      retriever:
+        modernSCM:
+          scm:
+            gitlab:
+              id: "c772d333-af3d-4636-a31c-eb8294edb7d5"
+              projectOwner: "eclipsefdn/it/releng/jenkins-pipeline-service"
+              projectPath: "eclipsefdn/it/releng/jenkins-pipeline-service/jenkins-pipeline-library"
+              serverName: "gitlab.eclipse.org"
+              traits:
+              - gitLabBranchDiscovery:
+                  strategyId: 1
+              - gitLabOriginDiscovery:
+                  strategyId: 2
+              - gitLabForkDiscovery:
+                  buildMRForksNotMirror: false
+                  strategyId: 2
+                  trust: "gitLabTrustPermissions"
