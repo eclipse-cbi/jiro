@@ -564,6 +564,238 @@ data:
                         secretName: gradle-secret-dir
                 inheritYamlMergeStrategy: "true"
                 yamlMergeStrategy: "merge"
+              - name: "ubuntu-2204"
+                namespace: "cbi"
+                label: "ubuntu-2204"
+                containers:
+                  - name: "jnlp"
+                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3248.3250.v3277a_8e88c9b_
+                    alwaysPullImage: true
+                    livenessProbe:
+                      failureThreshold: 0
+                      initialDelaySeconds: 0
+                      periodSeconds: 0
+                      successThreshold: 0
+                      timeoutSeconds: 0
+                    ttyEnabled: true
+                    command: ""
+                    args: ""
+                instanceCap: -1
+                nodeUsageMode: EXCLUSIVE
+                envVars:
+                  - envVar:
+                      key: "JAVA_TOOL_OPTIONS"
+                      value: ""
+                  - envVar:
+                      key: "JENKINS_REMOTING_JAVA_OPTS"
+                      value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  - envVar:
+                      key: "OPENJ9_JAVA_OPTIONS"
+                      value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+                  - envVar:
+                      key: "_JAVA_OPTIONS"
+                      value: ""
+                volumes:
+                  - persistentVolumeClaim:
+                      claimName: "tools-claim-jiro-cbi"
+                      mountPath: "/opt/tools"
+                      readOnly: true
+                  - configMapVolume:
+                      configMapName: "known-hosts"
+                      mountPath: "/home/jenkins/.ssh/"
+                      subPath: "."
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/repository"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/wrapper"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/.develocity"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.gradle/caches"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.gradle/daemon"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.gradle/native"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.gradle/workers"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.gradle/wrapper"
+                workspaceVolume:
+                  emptyDirWorkspaceVolume:
+                    memory: false
+                yaml: |
+                  apiVersion: v1
+                  kind: Pod
+                  spec:
+                    containers:
+                    - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "4096Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "4096Mi"
+                      volumeMounts:
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings-security.xml
+                        subPath: settings-security.xml
+                        readOnly: true
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings.xml
+                        subPath: settings.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.m2/toolchains.xml
+                        subPath: toolchains.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.mavenrc
+                        subPath: .mavenrc
+                        readOnly: true
+                      - name: gradle-secret-dir
+                        mountPath: /home/jenkins/.gradle/gradle.properties
+                        subPath: gradle.properties
+                        readOnly: true
+                    volumes:
+                    - name: m2-secret-dir
+                      secret:
+                        secretName: m2-secret-dir
+                    - name: m2-dir
+                      configMap:
+                        name: m2-dir
+                    - name: gradle-secret-dir
+                      secret:
+                        secretName: gradle-secret-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
+              - name: "ubuntu-2404"
+                namespace: "cbi"
+                label: "ubuntu-latest ubuntu-2404"
+                containers:
+                  - name: "jnlp"
+                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3248.3250.v3277a_8e88c9b_
+                    alwaysPullImage: true
+                    livenessProbe:
+                      failureThreshold: 0
+                      initialDelaySeconds: 0
+                      periodSeconds: 0
+                      successThreshold: 0
+                      timeoutSeconds: 0
+                    ttyEnabled: true
+                    command: ""
+                    args: ""
+                instanceCap: -1
+                nodeUsageMode: EXCLUSIVE
+                envVars:
+                  - envVar:
+                      key: "JAVA_TOOL_OPTIONS"
+                      value: ""
+                  - envVar:
+                      key: "JENKINS_REMOTING_JAVA_OPTS"
+                      value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  - envVar:
+                      key: "OPENJ9_JAVA_OPTIONS"
+                      value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+                  - envVar:
+                      key: "_JAVA_OPTIONS"
+                      value: ""
+                volumes:
+                  - persistentVolumeClaim:
+                      claimName: "tools-claim-jiro-cbi"
+                      mountPath: "/opt/tools"
+                      readOnly: true
+                  - configMapVolume:
+                      configMapName: "known-hosts"
+                      mountPath: "/home/jenkins/.ssh/"
+                      subPath: "."
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/repository"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/wrapper"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/.develocity"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.gradle/caches"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.gradle/daemon"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.gradle/native"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.gradle/workers"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.gradle/wrapper"
+                workspaceVolume:
+                  emptyDirWorkspaceVolume:
+                    memory: false
+                yaml: |
+                  apiVersion: v1
+                  kind: Pod
+                  spec:
+                    containers:
+                    - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "4096Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "4096Mi"
+                      volumeMounts:
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings-security.xml
+                        subPath: settings-security.xml
+                        readOnly: true
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings.xml
+                        subPath: settings.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.m2/toolchains.xml
+                        subPath: toolchains.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.mavenrc
+                        subPath: .mavenrc
+                        readOnly: true
+                      - name: gradle-secret-dir
+                        mountPath: /home/jenkins/.gradle/gradle.properties
+                        subPath: gradle.properties
+                        readOnly: true
+                    volumes:
+                    - name: m2-secret-dir
+                      secret:
+                        secretName: m2-secret-dir
+                    - name: m2-dir
+                      configMap:
+                        name: m2-dir
+                    - name: gradle-secret-dir
+                      secret:
+                        secretName: gradle-secret-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
       nodes:
         - permanent:
             labelString: "docker-build"
@@ -576,7 +808,7 @@ data:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeTB1LA7FnUI8kNrY8zVx/Ywy1RN4tJj11W9QWFWTr6gAJgSNEneKIa8hnjZEPddYOIsBOQ9VSvgXYGFRKEFXW23zskuWEyCqSZ/e7RTw2VTCh5nfUZlX1eG7iujn1mpineX/+hRR7HtxDM9MPhpbrq6HVjXuSx8mex9vu4p20ZVZkewedmtG2+qYDDTsv8uw0kX+kkyRuE6An14omsCQ+8mJ17zQnGXN2CnrXXMOWbgH9BC8RZUvNZOzNY1JkWf9EqY2Tz3YJPgUM+9qVj3/BEjGopEIUT/jDuk2NnOo+V1GT8aWzwmBjv91F7wgjuQ72cV8GeSbxz0utQ9isuMkp"
             mode: EXCLUSIVE
-            name: "fmlw3-ubuntu1804"
+            name: "ubuntu1804-azr-ef-fmlw3"
             nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
             remoteFS: "/home/genie.cbi/jenkins-agent"
             numExecutors: 2

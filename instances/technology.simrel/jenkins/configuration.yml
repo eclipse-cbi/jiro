@@ -1,7 +1,7 @@
 jenkins:
   nodes:
   - permanent:
-      name: "fmlw3-ubuntu1804"
+      name: "ubuntu1804-azr-ef-fmlw3"
       nodeDescription: "2vCPU, 8GB RAM, Hosted @ Azure"
       numExecutors: 1
       remoteFS: "/home/genie.simrel/jenkins-agent"
