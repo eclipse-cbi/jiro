@@ -974,6 +974,23 @@ data:
                   locations:
                     - home: "C:\\Program Files\\Git\\bin\\git"
                       key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+        - permanent:
+            name: "riscv-build1"
+            nodeDescription: "4-core 8Gb riscv machine hosted by EF"
+            labelString: "hw.arch.riscv64 riscv64 swt.natives-gtk.linux.riscv64 native.builder-gtk.linux.riscv64"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              ssh:
+                host: "172.30.206.101"
+                port: "22"
+                credentialsId: "jenkins-riscv-ssh"
+                javaPath: "/usr/bin/java"
+                sshHostKeyVerificationStrategy:
+                  manuallyProvidedKeyVerificationStrategy:
+                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICeTNQnWYtVTCBVHpUs1siycRREat1tkFeRNz6eds2h/"
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
