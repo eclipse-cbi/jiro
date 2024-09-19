@@ -8,5 +8,6 @@
       "gerrit-trigger",
       "gradle",
     ]
-  }
+  },
+  seLinuxLevel: "s0:c47,c44",
 }

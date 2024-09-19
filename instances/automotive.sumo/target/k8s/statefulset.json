@@ -119,6 +119,12 @@
                         "cpu": "550m"
                      }
                   },
+                  "securityContext": {
+                     "seLinuxOptions": {
+                        "level": "s0:c54,c39",
+                        "type": "spc_t"
+                     }
+                  },
                   "volumeMounts": [
                      {
                         "mountPath": "/var/jenkins",

@@ -779,6 +779,8 @@ data:
             home: "/opt/tools/java/openjdk/latest"
           - name: "openjdk-ea-latest"
             home: "/opt/tools/java/openjdk/ea-latest"
+          - name: "openjdk-jdk24-latest"
+            home: "/opt/tools/java/openjdk/jdk-24/latest"
           - name: "openjdk-jdk23-latest"
             home: "/opt/tools/java/openjdk/jdk-23/latest"
           - name: "openjdk-jdk22-latest"
@@ -908,6 +910,8 @@ data:
         installations:
           - name: "apache-maven-latest"
             home: "/opt/tools/apache-maven/latest"
+          - name: "apache-maven-3.9.9"
+            home: "/opt/tools/apache-maven/3.9.9"
           - name: "apache-maven-3.9.6"
             home: "/opt/tools/apache-maven/3.9.6"
           - name: "apache-maven-3.9.5"
