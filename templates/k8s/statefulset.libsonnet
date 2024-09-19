@@ -122,6 +122,13 @@ local Kube = import "kube.libsonnet";
                 }
                 for gerrit in config.gerrit
               ] else []),
+              securityContext: if std.objectHas(config, "seLinuxLevel") then
+                {
+                  "seLinuxOptions": {
+                    "level": config.seLinuxLevel,
+                    "type": "spc_t",
+                  },
+                } else {},
               env: [
                 {
                   name: "JAVA_OPTS",
