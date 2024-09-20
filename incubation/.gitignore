@@ -4,3 +4,5 @@
 /update_plugin_log/
 /uninstall_deprecated_plugins_log/
 /uninstall_plugins_log/
+/cephfs_migration_backup/
+/dormant_jipps/
