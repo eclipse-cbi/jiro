@@ -964,7 +964,9 @@ jenkins:
             host: "172.30.206.102"
             port: "2022"
             credentialsId: "jenkins-riscv-ssh"
+            prefixStartSlaveCmd: "ulimit -c 0 && "
             javaPath: "/usr/bin/java"
+            jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKJ2Lzuv0XMw3KCnkSRmOL2Dz+glZIdwwaqErqmnoaHm"
