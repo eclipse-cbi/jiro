@@ -14,4 +14,5 @@
       "xvfb",
     ],
   },
+  seLinuxLevel: "s0:c58,c37",
 }
