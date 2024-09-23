@@ -1,9 +1,9 @@
 Resulting plugin list:
-analysis-model-api 12.4.0
+analysis-model-api 12.5.0
 ant 511.v0a_a_1a_334f41b_
 antisamy-markup-formatter 162.v0e6ec0fcfcf6
 apache-httpcomponents-client-4-api 4.5.14-208.v438351942757
-apache-httpcomponents-client-5-api 5.3.1-110.v77252fb_d4da_5
+apache-httpcomponents-client-5-api 5.3.1-117.v4d95117cd34f
 asm-api 9.7-33.v4d23ef79fcc8
 authentication-tokens 1.119.v50285141b_7e1
 authorize-project 1.7.2
@@ -19,7 +19,7 @@ command-launcher 115.vd8b_301cc15d0
 commons-compress-api 1.26.1-2
 commons-lang3-api 3.17.0-84.vb_b_938040b_078
 commons-text-api 1.12.0-129.v99a_50df237f7
-config-file-provider 973.vb_a_80ecb_9a_4d0
+config-file-provider 978.v8e85886ffdc4
 configuration-as-code 1850.va_a_8c31d3158b_
 credentials 1378.v81ef4269d764
 credentials-binding 681.vf91669a_32e45
@@ -36,7 +36,7 @@ font-awesome-api 6.6.0-2
 forensics-api 2.6.0
 gerrit-code-review 0.4.9
 ghprb 1.42.2
-git 5.5.0
+git 5.5.1
 git-client 5.0.0
 git-forensics 2.2.1
 git-parameter 0.9.19
@@ -62,16 +62,16 @@ jdk-tool 80.v8a_dee33ed6f0
 jersey2-api 2.44-151.v6df377fff741
 jjwt-api 0.11.5-112.ve82dfb_224b_a_d
 job-dsl 1.87
-jobConfigHistory 1259.v8f2448483000
+jobConfigHistory 1264.v054b_c928547e
 joda-time-api 2.13.0-85.vb_64d1c2921f1
 jquery3-api 3.7.1-2
 jsch 0.2.16-86.v42e010d9484b_
 json-api 20240303-41.v94e11e6de726
 json-path-api 2.9.0-58.v62e3e85b_a_655
 junit 1300.v03d9d8a_cf1fb_
-kubernetes 4285.v50ed5f624918
+kubernetes 4288.v1719f9d0c854
 kubernetes-client-api 6.10.0-240.v57880ce8b_0b_2
-kubernetes-credentials 189.v90a_488b_d1d65
+kubernetes-credentials 190.v03c305394deb_
 ldap 725.v3cb_b_711b_1a_ef
 mail-watcher-plugin 1.19
 mailer 472.vf7c289a_4b_420
@@ -120,7 +120,7 @@ timestamper 1.27
 token-macro 400.v35420b_922dcb_
 trilead-api 2.147.vb_73cc728a_32e
 variant 60.v7290fc0eb_b_cd
-warnings-ng 11.4.1
+warnings-ng 11.6.0
 workflow-aggregator 600.vb_57cdd26fdd7
 workflow-api 1336.vee415d95c521
 workflow-basic-steps 1058.vcb_fc1e3a_21a_9
