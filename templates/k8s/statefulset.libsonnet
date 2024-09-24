@@ -246,14 +246,7 @@ local Kube = import "kube.libsonnet";
           metadata: {
             name: "jenkins-home",
           },
-          spec: {
-            accessModes: [ "ReadWriteOnce", ],
-            resources: {
-              requests: {
-                storage: "50Gi",
-              },
-            },
-          },
+          spec: config.kubernetes.master.volumeClaimTemplates.jenkinsHomeSpec
         },
       ],
     },
