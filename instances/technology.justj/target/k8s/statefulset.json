@@ -119,6 +119,7 @@
                         "cpu": "250m"
                      }
                   },
+                  "securityContext": { },
                   "volumeMounts": [
                      {
                         "mountPath": "/var/jenkins",
