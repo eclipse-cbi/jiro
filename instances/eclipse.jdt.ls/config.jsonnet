@@ -13,4 +13,5 @@
       "mattermost",
     ],
   },
+  seLinuxLevel: "s0:c46,c45",
 }

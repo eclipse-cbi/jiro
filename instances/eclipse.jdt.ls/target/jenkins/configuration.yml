@@ -717,6 +717,8 @@ tool:
         home: "/opt/tools/java/openjdk/latest"
       - name: "openjdk-ea-latest"
         home: "/opt/tools/java/openjdk/ea-latest"
+      - name: "openjdk-jdk24-latest"
+        home: "/opt/tools/java/openjdk/jdk-24/latest"
       - name: "openjdk-jdk23-latest"
         home: "/opt/tools/java/openjdk/jdk-23/latest"
       - name: "openjdk-jdk22-latest"
