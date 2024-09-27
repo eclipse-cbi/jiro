@@ -28,4 +28,5 @@
       },
     },
   },
+  seLinuxLevel: "s0:c51,c25",
 }
