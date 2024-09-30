@@ -5,5 +5,6 @@
   },
   maven+: {
     showVersion: false,
-  }
+  },
+  seLinuxLevel: "s0:c45,c5",
 }

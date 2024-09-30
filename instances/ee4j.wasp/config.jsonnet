@@ -7,5 +7,6 @@
     plugins+: [
       "envinject",
     ],
-  }
+  },
+  seLinuxLevel: "s0:c56,c55",
 }

@@ -7,5 +7,6 @@
     plugins+: [
       "copyartifact",
     ],
-  }
+  },
+  seLinuxLevel: "s0:c58,c27",
 }

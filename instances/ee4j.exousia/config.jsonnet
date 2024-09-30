@@ -8,4 +8,5 @@
       "envinject"
     ]
   },
+  seLinuxLevel: "s0:c36,c25",
 }

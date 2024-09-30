@@ -9,4 +9,5 @@
       "copyartifact",
     ],
   },
+  seLinuxLevel: "s0:c42,c24",
 }
