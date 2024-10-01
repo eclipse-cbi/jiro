@@ -10,5 +10,6 @@
   },
   gradle+: {
     generate: true,
-  }
+  },
+  seLinuxLevel: "s0:c60,c40",
 }
