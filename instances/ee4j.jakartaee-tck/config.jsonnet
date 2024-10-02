@@ -1,3 +1,4 @@
+local permissionsTemplates = import '../../templates/permissions.libsonnet';
 {
   project+: {
     fullName: "ee4j.jakartaee-tck",
@@ -16,5 +17,7 @@
       "extended-choice-parameter",
       "groovy",
     ],
+    permissions+:
+      permissionsTemplates.user("smarlow@redhat.com", ["Overall/SystemRead"]),
   },
 }
