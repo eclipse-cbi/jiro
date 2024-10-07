@@ -5,5 +5,6 @@
   },
   sbt+: {
     generate: true,
-  }
+  },
+  seLinuxLevel: "s0:c40,c25",
 }
