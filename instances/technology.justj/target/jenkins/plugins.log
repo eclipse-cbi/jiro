@@ -35,7 +35,7 @@ extra-columns 1.26
 font-awesome-api 6.6.0-2
 forensics-api 2.6.0
 ghprb 1.42.2
-git 5.5.1
+git 5.5.2
 git-client 5.0.0
 git-parameter 0.9.19
 github 1.40.0
@@ -64,7 +64,7 @@ jquery3-api 3.7.1-2
 jsch 0.2.16-86.v42e010d9484b_
 json-api 20240303-41.v94e11e6de726
 json-path-api 2.9.0-58.v62e3e85b_a_655
-junit 1303.v05e2505656b_7
+junit 1304.vc85a_b_ca_96613
 kubernetes 4290.v93ea_4b_b_26a_61
 kubernetes-client-api 6.10.0-240.v57880ce8b_0b_2
 kubernetes-credentials 190.v03c305394deb_
@@ -75,8 +75,8 @@ matrix-auth 3.2.2
 matrix-project 838.v4d7b_7b_f9b_d4b_
 maven-plugin 3.23
 metrics 4.2.21-451.vd51df8df52ec
-mina-sshd-api-common 2.13.2-125.v200281b_61d59
-mina-sshd-api-core 2.13.2-125.v200281b_61d59
+mina-sshd-api-common 2.14.0-133.vcc091215a_358
+mina-sshd-api-core 2.14.0-133.vcc091215a_358
 okhttp-api 4.11.0-172.vda_da_1feeb_c6e
 pam-auth 1.11
 parameterized-trigger 806.vf6fff3e28c3e

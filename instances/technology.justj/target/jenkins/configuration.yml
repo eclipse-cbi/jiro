@@ -630,7 +630,7 @@ jenkins:
             yamlMergeStrategy: "merge"
   nodes:
     - permanent:
-        labelString: "windows windows10"
+        labelString: "x86_64 windows windows10"
         launcher:
           inbound:
             webSocket: true
