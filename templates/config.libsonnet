@@ -1,4 +1,4 @@
-local jiroMasters = import '../../jiro-masters/masters.jsonnet';
+local jiroMasters = import '../../jiro-masters/jiro.jsonnet';
 local permissions = import 'permissions.libsonnet';
 local permissions_extra = import 'permissions_extra.libsonnet';
 local plugins = import 'plugins.libsonnet';
@@ -36,7 +36,7 @@ local clouds = import "clouds.libsonnet";
       permissions.committerPermissionsList + if std.member($.jenkins.plugins, "gerrit-trigger") then ["Gerrit/ManualTrigger", "Gerrit/Retrigger",] else [])
       + permissions_extra.additionalPermissions($.project.fullName),
   },
-  jiroMaster: if ($.jenkins.version == "latest") then jiroMasters.masters[jiroMasters.latest] else jiroMasters.masters[$.jenkins.version],
+  jiroMaster: if ($.jenkins.version == "latest") then jiroMasters.controllers[jiroMasters.latest] else jiroMasters.controllers[$.jenkins.version],
   docker: {
     master: {
       registry: $.jiroMaster.docker.registry,
