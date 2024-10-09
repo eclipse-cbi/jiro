@@ -70,7 +70,7 @@ jenkins:
   clouds:
     - kubernetes:
         name: "kubernetes"
-        containerCapStr: "2"
+        containerCapStr: "6"
         jenkinsUrl: "http://jenkins-ui.scm.svc.cluster.local/scm"
         jenkinsTunnel: "jenkins-discovery.scm.svc.cluster.local:50000"
         maxRequestsPerHostStr: "32"
