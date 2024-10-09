@@ -20,4 +20,5 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     permissions+:
       permissionsTemplates.user("smarlow@redhat.com", ["Overall/SystemRead"]),
   },
+  seLinuxLevel: "s0:c43,c2",
 }
