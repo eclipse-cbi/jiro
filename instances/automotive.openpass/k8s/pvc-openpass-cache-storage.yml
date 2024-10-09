@@ -8,5 +8,5 @@ spec:
     - "ReadWriteMany"
   resources:
     requests:
-      storage: "100Gi"
+      storage: "200Gi"
   storageClassName: cephfs-2repl
