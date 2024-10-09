@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.452.4"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.462.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cdi"
   namespace: "cdi"
   name: jenkins-config
@@ -149,7 +149,7 @@ data:
                 label: "basic"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3206.3208.v409508a_675ff
+                    image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3248.3250.v3277a_8e88c9b_
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -240,7 +240,7 @@ data:
                 label: "basic-ubuntu"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3206.3208.v409508a_675ff
+                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3248.3250.v3277a_8e88c9b_
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -331,7 +331,7 @@ data:
                 label: "migration jipp-migration centos-7"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3206.3208.v409508a_675ff
+                    image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3248.3250.v3277a_8e88c9b_
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -422,7 +422,7 @@ data:
                 label: "centos-latest centos-8"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3206.3208.v409508a_675ff
+                    image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3248.3250.v3277a_8e88c9b_
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -513,7 +513,7 @@ data:
                 label: "ubuntu-2204"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3206.3208.v409508a_675ff
+                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3248.3250.v3277a_8e88c9b_
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -604,7 +604,7 @@ data:
                 label: "ubuntu-latest ubuntu-2404"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3206.3208.v409508a_675ff
+                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3248.3250.v3277a_8e88c9b_
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0

@@ -1,5 +1,5 @@
 Resulting plugin list:
-analysis-model-api 12.6.0
+analysis-model-api 12.9.0
 ant 511.v0a_a_1a_334f41b_
 antisamy-markup-formatter 162.v0e6ec0fcfcf6
 apache-httpcomponents-client-4-api 4.5.14-208.v438351942757
@@ -14,15 +14,15 @@ build-timeout 1.33
 caffeine-api 3.1.8-133.v17b_1ff2e0599
 checks-api 2.2.1
 cloudbees-disk-usage-simple 203.v3f46a_7462b_1a_
-cloudbees-folder 6.928.v7c780211d66e
+cloudbees-folder 6.955.v81e2a_35c08d3
 command-launcher 115.vd8b_301cc15d0
 commons-lang3-api 3.17.0-84.vb_b_938040b_078
 commons-text-api 1.12.0-129.v99a_50df237f7
 config-file-provider 978.v8e85886ffdc4
 configuration-as-code 1850.va_a_8c31d3158b_
-credentials 1380.va_435002fa_924
+credentials 1384.vf0a_2ed06f9c6
 credentials-binding 681.vf91669a_32e45
-data-tables-api 2.1.6-1
+data-tables-api 2.1.8-1
 display-url-api 2.204.vf6fddd8a_8b_e9
 docker-commons 443.v921729d5611d
 docker-workflow 580.vc0c340686b_54
@@ -45,7 +45,7 @@ github-branch-source 1797.v86fdb_4d57d43
 gitlab-api 5.6.0-97.v6603a_83f8690
 gitlab-branch-source 710.v6f19df32544b_
 gitlab-plugin 1.8.1
-gradle 2.13
+gradle 2.13.1
 gson-api 2.11.0-41.v019fcf6125dc
 handy-uri-templates-2-api 2.1.8-30.v7e777411b_148
 hashicorp-vault-plugin 370.v946b_53544a_30
@@ -66,7 +66,7 @@ jquery3-api 3.7.1-2
 jsch 0.2.16-86.v42e010d9484b_
 json-api 20240303-41.v94e11e6de726
 json-path-api 2.9.0-58.v62e3e85b_a_655
-junit 1303.v05e2505656b_7
+junit 1304.vc85a_b_ca_96613
 kubernetes 4290.v93ea_4b_b_26a_61
 kubernetes-cli 1.12.1
 kubernetes-client-api 6.10.0-240.v57880ce8b_0b_2
@@ -75,7 +75,7 @@ ldap 725.v3cb_b_711b_1a_ef
 mail-watcher-plugin 1.19
 mailer 488.v0c9639c1a_eb_3
 matrix-auth 3.2.2
-matrix-project 838.v4d7b_7b_f9b_d4b_
+matrix-project 839.vff91cd7e3a_b_2
 maven-plugin 3.23
 metrics 4.2.21-451.vd51df8df52ec
 mina-sshd-api-common 2.14.0-133.vcc091215a_358
@@ -99,7 +99,7 @@ pipeline-stage-step 312.v8cd10304c27a_
 pipeline-stage-tags-metadata 2.2214.vb_b_34b_2ea_9b_83
 pipeline-stage-view 2.34
 plain-credentials 183.va_de8f1dd5a_2b_
-plugin-util-api 4.1.0
+plugin-util-api 5.1.0
 prism-api 1.29.0-17
 prometheus 787.v52e8f47488fc
 promoted-builds 965.vcda_c6a_e0998f
@@ -108,7 +108,7 @@ resource-disposer 0.24
 scm-api 696.v778d637b_a_762
 script-security 1362.v67dc1f0e1b_b_3
 simple-theme-plugin 196.v96d9592f4efa_
-slack 741.v00f9591c586d
+slack 751.v2e44153c8fe1
 snakeyaml-api 2.3-123.v13484c65210a_
 sonar 2.17.2
 ssh-agent 376.v8933585c69d3
@@ -119,17 +119,17 @@ timestamper 1.27
 token-macro 400.v35420b_922dcb_
 trilead-api 2.147.vb_73cc728a_32e
 variant 60.v7290fc0eb_b_cd
-warnings-ng 11.7.0
+warnings-ng 11.9.0
 workflow-aggregator 600.vb_57cdd26fdd7
 workflow-api 1336.vee415d95c521
 workflow-basic-steps 1058.vcb_fc1e3a_21a_9
 workflow-cps 3969.vdc9d3a_efcc6a_
 workflow-durable-task-step 1371.vb_7cec8f3b_95e
-workflow-job 1400.v7fd111b_ec82f
-workflow-multibranch 783.787.v50539468395f
+workflow-job 1436.vfa_244484591f
+workflow-multibranch 795.ve0cb_1f45ca_9a_
 workflow-scm-step 427.v4ca_6512e7df1
 workflow-step-api 678.v3ee58b_469476
 workflow-support 926.v9f4f9b_b_98c19
-ws-cleanup 0.46
+ws-cleanup 0.47
 xvnc 1.28
 
