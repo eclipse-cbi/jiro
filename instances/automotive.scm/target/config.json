@@ -640,7 +640,7 @@
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
-      "maxConcurrency": 2,
+      "maxConcurrency": 6,
       "permissions": [
          {
             "user": {
@@ -816,11 +816,11 @@
          "resources": {
             "cpu": {
                "limit": "2000m",
-               "request": "250m"
+               "request": "850m"
             },
             "memory": {
-               "limit": "1536Mi",
-               "request": "1536Mi"
+               "limit": "2560Mi",
+               "request": "2560Mi"
             }
          },
          "stsName": "scm"
@@ -877,7 +877,7 @@
    "project": {
       "displayName": "Eclipse SCM",
       "fullName": "automotive.scm",
-      "resourcePacks": 1,
+      "resourcePacks": 3,
       "shortName": "scm",
       "unixGroupName": "automotive.scm"
    },
