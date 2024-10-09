@@ -82,13 +82,31 @@ unclassified:
       name: "gitlab.eclipse.org"
       readTimeout: 10
       url: "https://gitlab.eclipse.org"
+    - apiTokenId: "gitlab-emo-api-token"
+      clientBuilderId: "autodetect"
+      connectionTimeout: 10
+      ignoreCertificateErrors: false
+      name: "gitlab.eclipse.org emo"
+      readTimeout: 10
+      url: "https://gitlab.eclipse.org"
   gitLabServers:
     servers:
     - credentialsId: "gitlab-personal-access-token"
       name: "gitlab.eclipse.org"
       serverUrl: "https://gitlab.eclipse.org"
       webhookSecretCredentialsId: "gitlab-webhook-secret"
-
+    - credentialsId: "gitlab-emo-personal-access-token"
+      name: "gitlab.eclipse.org emo"
+      serverUrl: "https://gitlab.eclipse.org"
+      webhookSecretCredentialsId: "gitlab-emo-webhook-secret"
+  hashicorpVault:
+    configuration:
+      disableChildPoliciesOverride: false
+      engineVersion: 2
+      timeout: 60
+      vaultCredentialId: "secretsmanager-approle"
+      vaultUrl: "https://secretsmanager.eclipse.org"
+      
 tool:
   gradle:
     installations:
