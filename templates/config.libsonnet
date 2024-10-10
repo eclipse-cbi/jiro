@@ -105,7 +105,18 @@ local clouds = import "clouds.libsonnet";
           timeoutSeconds: 10,
           failureThreshold: 5
         }
-      }
+      },
+      volumeClaimTemplates:{
+        jenkinsHomeSpec: {
+          storageClassName: "cephfs-2repl",
+          accessModes: ["ReadWriteOnce"],
+          resources: {
+            requests: {
+              storage: "50Gi",
+            },
+          },
+        },
+      },
     },
     agents: {
       namespace: $.kubernetes.master.namespace,  # should be changed to something agent-specific to fix #5
