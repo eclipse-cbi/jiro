@@ -11,5 +11,6 @@
       "copyartifact",
       "view-job-filters",
     ],
-  }
+  },
+  seLinuxLevel: "s0:c40,c35",
 }
