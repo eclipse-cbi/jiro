@@ -250,7 +250,10 @@ local Kube = import "kube.libsonnet";
             accessModes: [ "ReadWriteOnce", ],
             resources: {
               requests: {
-                storage: "50Gi",
+                storage: if std.objectHas(config, "storage") && std.objectHas(config.storage, "quota") then
+                  config.storage.quota
+                else
+                  "50Gi",  //default value
               },
             },
           },
