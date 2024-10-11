@@ -177,7 +177,7 @@
                ],
                "resources": {
                   "requests": {
-                     "storage": "50Gi"
+                     "storage": "200Gi"
                   }
                }
             }

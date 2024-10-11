@@ -13,4 +13,7 @@
     ],
   },
   seLinuxLevel: "s0:c40,c35",
+  storage: {
+    quota: "250Gi"
+  }
 }

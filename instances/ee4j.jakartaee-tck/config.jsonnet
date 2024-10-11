@@ -21,4 +21,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       permissionsTemplates.user("smarlow@redhat.com", ["Overall/SystemRead"]),
   },
   seLinuxLevel: "s0:c43,c2",
+  storage: {
+    quota: "200Gi"
+  }
 }
