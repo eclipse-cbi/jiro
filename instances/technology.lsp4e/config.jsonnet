@@ -8,4 +8,5 @@
       "gerrit-code-review",
     ],
   },
+  seLinuxLevel: "s0:c47,c4",
 }
