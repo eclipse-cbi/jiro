@@ -16,4 +16,5 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2996
       permissionsTemplates.user("gpunathi@in.ibm.com", permissionsTemplates.committerPermissionsList)
   },
+  seLinuxLevel: "s0:c44,c9",
 }
