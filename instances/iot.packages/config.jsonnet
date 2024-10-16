@@ -7,5 +7,6 @@
     plugins+: [
       "gerrit-trigger"
     ]
-  }
+  },
+  seLinuxLevel: "s0:c50,c45",
 }
