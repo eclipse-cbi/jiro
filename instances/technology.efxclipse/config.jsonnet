@@ -6,4 +6,5 @@
   gradle+: {
     generate: true
   },
+  seLinuxLevel: "s0:c37,c4",
 }
