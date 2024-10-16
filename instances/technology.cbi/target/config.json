@@ -992,6 +992,7 @@
       },
       "generate": false
    },
+   "seLinuxLevel": "s0:c27,c9",
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-cbi": {

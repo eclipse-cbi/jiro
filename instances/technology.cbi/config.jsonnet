@@ -41,4 +41,5 @@
   develocity+: {
     generate: true,
   },
+  seLinuxLevel: "s0:c27,c9",
 }
