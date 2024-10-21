@@ -263,4 +263,4 @@ jenkins:
           jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKJ2Lzuv0XMw3KCnkSRmOL2Dz+glZIdwwaqErqmnoaHm"
+              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF8QagFvSqEwoiC+9zTw1F9BV7MfRo16NmTJoXgPSwDi"
