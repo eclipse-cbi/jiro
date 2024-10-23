@@ -38,4 +38,5 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       },
     },
   },
+  seLinuxLevel: "s0:c50,c0",
 }
