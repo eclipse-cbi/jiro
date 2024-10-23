@@ -992,7 +992,7 @@ data:
                 jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
-                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF8QagFvSqEwoiC+9zTw1F9BV7MfRo16NmTJoXgPSwDi"
+                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDf/pkxDx8mNaUfZYPeV/sOxXldsHRkleNHevV2ggPTA"
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
