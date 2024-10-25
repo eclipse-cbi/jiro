@@ -1,7 +1,6 @@
 # GENERATED FILE - DO NOT EDIT
 Parameterized-Remote-Trigger
 artifactory
-badge
 build-user-vars-plugin
 build-with-parameters
 copyartifact
