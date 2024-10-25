@@ -112,11 +112,11 @@
                   },
                   "resources": {
                      "limits": {
-                        "cpu": "2000m",
-                        "memory": "2048Mi"
+                        "cpu": "2300m",
+                        "memory": "3072Mi"
                      },
                      "requests": {
-                        "cpu": "550m"
+                        "cpu": "1150m"
                      }
                   },
                   "securityContext": {

@@ -806,7 +806,7 @@
          "zentimestamp"
       ],
       "pluginsForceUpgrade": true,
-      "staticAgentCount": 0,
+      "staticAgentCount": 4,
       "theme": "quicksilver",
       "timezone": "America/Toronto",
       "version": "latest"
@@ -925,12 +925,12 @@
          },
          "resources": {
             "cpu": {
-               "limit": "2000m",
-               "request": "550m"
+               "limit": "2300m",
+               "request": "1150m"
             },
             "memory": {
-               "limit": "2048Mi",
-               "request": "2048Mi"
+               "limit": "3072Mi",
+               "request": "3072Mi"
             }
          },
          "stsName": "oomph"

@@ -7,6 +7,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     resourcePacks: 2,
   },
   jenkins+: {
+    staticAgentCount: 4, // => https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/5120
     plugins+: [
       "build-name-setter",
       "mail-watcher-plugin",
