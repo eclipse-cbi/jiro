@@ -1097,7 +1097,7 @@ data:
             launcher:
               ssh:
                 credentialsId: "jenkins-jck-ssh"
-                host: "20.234.51.61"
+                host: "52.142.50.166"
                 port: 2222
                 sshHostKeyVerificationStrategy:
                   manuallyTrustedKeyVerificationStrategy:
