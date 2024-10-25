@@ -1057,14 +1057,14 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           ssh:
-            host: "20.234.51.61"
+            host: "52.142.50.166"
             port: "22"
             credentialsId: "jenkins-jck-ssh"
             javaPath:
             jvmOptions: "-Xmx512m"
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
-                key: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKizGJkv6jwuI23Ryz2DrHdGbffHAvQeI2Icb2xRpuzv/B8u/eA9jQ1T0VIT9FkH3xSf4RSZ+fLSYFDvy+Mh5ck="
+                key: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPVWsratBbWvRahSTuhRDHVp554yxsTePk6C51u+qJq95TAbFMcg+54IGjMYsK9atI7hLYDh1/WpKZwhKceo7LY="
     - permanent:
         name: "jck-azure-containerized-alpine317-x64-1"
         nodeDescription: "Container host is jck-azure-ubuntu2204-x64-1"

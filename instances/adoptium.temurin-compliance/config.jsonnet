@@ -14,7 +14,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     ,
     plugins+: [
       "artifactory",
-      "badge",
       "build-user-vars-plugin",
       "build-with-parameters",
       "copyartifact",
