@@ -9,4 +9,5 @@
       "description-setter",
     ],
   },
+  seLinuxLevel: "s0:c34,c19",
 }

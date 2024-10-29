@@ -896,6 +896,7 @@
       },
       "generate": false
    },
+   "seLinuxLevel": "s0:c32,c24",
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-chemclipse": {

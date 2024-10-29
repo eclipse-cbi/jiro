@@ -8,4 +8,5 @@
       "declarative-pipeline-migration-assistant",
     ],
   },
+  seLinuxLevel: "s0:c46,c30",
 }

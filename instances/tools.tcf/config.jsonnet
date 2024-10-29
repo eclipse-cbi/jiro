@@ -9,5 +9,6 @@
       "gerrit-trigger",
       "warnings-ng",
     ]
-  }
+  },
+  seLinuxLevel: "s0:c55,c5",
 }

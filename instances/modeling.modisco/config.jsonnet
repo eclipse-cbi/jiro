@@ -9,4 +9,5 @@
       "gerrit-trigger",
     ],
   },
+  seLinuxLevel: "s0:c48,c22",
 }
