@@ -2,7 +2,7 @@
   project+: {
     fullName: "automotive.openpass",
     displayName: "Eclipse openPASS",
-    resourcePacks: 3
+    resourcePacks: 13
   },
   jenkins+: {
     plugins+: [

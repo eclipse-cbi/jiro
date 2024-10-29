@@ -4,7 +4,7 @@ ant 511.v0a_a_1a_334f41b_
 antisamy-markup-formatter 162.v0e6ec0fcfcf6
 apache-httpcomponents-client-4-api 4.5.14-208.v438351942757
 apache-httpcomponents-client-5-api 5.4-118.v199115451c4d
-asm-api 9.7.1-95.v9f552033802a_
+asm-api 9.7.1-97.v4cc844130d97
 authentication-tokens 1.119.v50285141b_7e1
 authorize-project 1.7.2
 bootstrap5-api 5.3.3-1
@@ -26,7 +26,7 @@ credentials-binding 681.vf91669a_32e45
 data-tables-api 2.1.8-1
 display-url-api 2.204.vf6fddd8a_8b_e9
 durable-task 577.v2a_8a_4b_7c0247
-echarts-api 5.5.1-1
+echarts-api 5.5.1-3
 eddsa-api 0.3.0-4.v84c6f0f4969e
 email-ext 1844.v3ea_a_b_842374a_
 extended-read-permission 53.v6499940139e5
@@ -44,7 +44,7 @@ github-branch-source 1797.v86fdb_4d57d43
 gitlab-api 5.6.0-97.v6603a_83f8690
 gitlab-branch-source 710.v6f19df32544b_
 gitlab-plugin 1.8.1
-gson-api 2.11.0-41.v019fcf6125dc
+gson-api 2.11.0-85.v1f4e87273c33
 handy-uri-templates-2-api 2.1.8-30.v7e777411b_148
 hashicorp-vault-plugin 370.v946b_53544a_30
 instance-identity 201.vd2a_b_5a_468a_a_6
@@ -62,9 +62,9 @@ jobConfigHistory 1268.v75ce751da_911
 joda-time-api 2.13.0-85.vb_64d1c2921f1
 jquery3-api 3.7.1-2
 jsch 0.2.16-86.v42e010d9484b_
-json-api 20240303-41.v94e11e6de726
-json-path-api 2.9.0-58.v62e3e85b_a_655
-junit 1304.vc85a_b_ca_96613
+json-api 20240303-101.v7a_8666713110
+json-path-api 2.9.0-118.v7f23ed82a_8b_8
+junit 1307.vdd5b_2646279e
 kubernetes 4290.v93ea_4b_b_26a_61
 kubernetes-client-api 6.10.0-240.v57880ce8b_0b_2
 kubernetes-credentials 190.v03c305394deb_
@@ -104,7 +104,7 @@ rebuild 332.va_1ee476d8f6d
 resource-disposer 0.24
 run-condition 1.7
 scm-api 696.v778d637b_a_762
-script-security 1362.v67dc1f0e1b_b_3
+script-security 1365.v4778ca_84b_de5
 simple-theme-plugin 196.v96d9592f4efa_
 snakeyaml-api 2.3-123.v13484c65210a_
 sonar 2.17.2
@@ -126,7 +126,7 @@ workflow-job 1436.vfa_244484591f
 workflow-multibranch 795.ve0cb_1f45ca_9a_
 workflow-scm-step 427.v4ca_6512e7df1
 workflow-step-api 678.v3ee58b_469476
-workflow-support 926.v9f4f9b_b_98c19
+workflow-support 930.vf51d22b_ce488
 ws-cleanup 0.47
 xvnc 1.28
 

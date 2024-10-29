@@ -93,7 +93,7 @@ data:
       clouds:
         - kubernetes:
             name: "kubernetes"
-            containerCapStr: "6"
+            containerCapStr: "26"
             jenkinsUrl: "http://jenkins-ui.openpass.svc.cluster.local/openpass"
             jenkinsTunnel: "jenkins-discovery.openpass.svc.cluster.local:50000"
             maxRequestsPerHostStr: "32"
@@ -647,28 +647,6 @@ data:
                 inheritYamlMergeStrategy: "true"
                 yamlMergeStrategy: "merge"
       nodes:
-        - permanent:
-            labelString: "windows"
-            launcher:
-              inbound:
-                webSocket: true
-                workDirSettings:
-                  disabled: false
-                  failIfWorkDirIsMissing: false
-                  internalDir: "remoting"
-            mode: EXCLUSIVE
-            name: "b9qls-windows-10"
-            nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure"
-            remoteFS: "C:\\Users\\genie.simopenpass\\jenkins_agent"
-            retentionStrategy: "always"
-            nodeProperties:
-              - watcher:
-                  offlineAddresses: "releng@eclipse.org"
-                  onlineAddresses: "releng@eclipse.org"
-              - toolLocation:
-                  locations:
-                    - home: "C:\\Program Files\\Git\\bin\\git"
-                      key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
         - permanent:
             labelString: "windows10"
             launcher:
