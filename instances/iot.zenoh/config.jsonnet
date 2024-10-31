@@ -8,4 +8,5 @@
       "embeddable-build-status",
     ],
   },
+  seLinuxLevel: "s0:c58,c2",
 }

@@ -11,4 +11,5 @@
       "copyartifact",
     ],
   },
+  seLinuxLevel: "s0:c56,c15",
 }

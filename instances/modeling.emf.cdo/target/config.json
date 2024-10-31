@@ -901,6 +901,7 @@
       },
       "generate": false
    },
+   "seLinuxLevel": "s0:c31,c30",
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-cdo": {

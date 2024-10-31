@@ -7,5 +7,6 @@
     plugins+: [
       "extended-choice-parameter",
     ]
-  }
+  },
+  seLinuxLevel: "s0:c30,c20",
 }

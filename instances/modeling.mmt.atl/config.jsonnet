@@ -7,5 +7,6 @@
     plugins+: [
       "gerrit-trigger"
     ]
-  }
+  },
+  seLinuxLevel: "s0:c29,c19",
 }

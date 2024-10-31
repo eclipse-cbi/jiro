@@ -896,6 +896,7 @@
       },
       "generate": false
    },
+   "seLinuxLevel": "s0:c27,c14",
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-dash": {

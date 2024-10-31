@@ -11,4 +11,5 @@
       "zentimestamp",
     ],
   },
+  seLinuxLevel: "s0:c31,c30",
 }

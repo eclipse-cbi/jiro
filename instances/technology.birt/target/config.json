@@ -898,6 +898,7 @@
       },
       "generate": false
    },
+   "seLinuxLevel": "s0:c30,c20",
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-birt": {

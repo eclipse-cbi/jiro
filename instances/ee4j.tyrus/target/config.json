@@ -899,6 +899,7 @@
       },
       "generate": false
    },
+   "seLinuxLevel": "s0:c56,c15",
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-default": {
