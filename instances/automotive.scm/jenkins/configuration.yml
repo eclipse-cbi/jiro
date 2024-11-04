@@ -38,3 +38,27 @@ unclassified:
                   buildMRForksNotMirror: false
                   strategyId: 2
                   trust: "gitLabTrustPermissions"
+jenkins:
+  nodes:
+  - permanent:
+      labelString: "windows windows10"
+      launcher:
+        inbound:
+          webSocket: true
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+      mode: EXCLUSIVE
+      name: "2IidJ-win10"
+      nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure"
+      remoteFS: "C:\\Users\\genie.scm\\jenkins_agent"
+      retentionStrategy: "always"
+      nodeProperties:
+      - watcher:
+          offlineAddresses: "releng@eclipse.org"
+          onlineAddresses: "releng@eclipse.org"
+      - toolLocation:
+          locations:
+          - home: "C:\\Program Files\\Git\\bin\\git"
+            key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"

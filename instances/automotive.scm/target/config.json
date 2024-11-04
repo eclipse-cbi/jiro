@@ -694,7 +694,9 @@
             }
          }
       ],
-      "plugins": [ ],
+      "plugins": [
+         "mail-watcher-plugin"
+      ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",

@@ -5,4 +5,9 @@
     resourcePacks: 3
   },
   seLinuxLevel: "s0:c38,c22",
+  jenkins+: {
+    plugins+: [
+      "mail-watcher-plugin",
+    ],
+  },
 }
