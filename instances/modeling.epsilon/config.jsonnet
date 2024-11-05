@@ -10,4 +10,5 @@
       "lockable-resources",
     ],
   },
+  seLinuxLevel: "s0:c38,c37",
 }

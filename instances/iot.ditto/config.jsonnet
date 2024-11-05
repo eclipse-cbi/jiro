@@ -9,4 +9,5 @@
       "pipeline-utility-steps",
     ],
   },
+  seLinuxLevel: "s0:c34,c29",
 }

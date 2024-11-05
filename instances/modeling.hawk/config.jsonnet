@@ -9,4 +9,5 @@
       "slack",
     ],
   },
+  seLinuxLevel: "s0:c41,c25",
 }
