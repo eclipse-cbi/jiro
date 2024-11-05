@@ -951,8 +951,6 @@ jenkins:
               locations:
                 - home: "C:\\Program Files\\Git\\bin\\git"
                   key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
-                - home: "C:\\apache-ant\\apache-ant-1.10.15"
-                  key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest"
     - permanent:
         name: "riscv-build2"
         nodeDescription: "4-core 8Gb riscv machine hosted by EF"
@@ -1051,7 +1049,7 @@ unclassified:
     createAccountBasedOnEmail: true
     useExistingAccountWithSameEmail: true
   jobConfigHistory:
-    excludePattern: "queue\\.xml|nodeMonitors\\.xml|UpdateCenter\\.xml|global-build-stats|LockableResourcesManager\\.xml|MilestoneStep\\.xml"
+    excludePattern: "queue\\.xml|nodeMonitors\\.xml|UpdateCenter\\.xml|global-build-stats|LockableResourcesManager\\.xml|MilestoneStep\\.xml|hudson.plugins.xvnc.Xvnc\\.xml"
     maxDaysToKeepEntries: "60"
     maxEntriesPerPage: "12"
     maxHistoryEntries: "500"
