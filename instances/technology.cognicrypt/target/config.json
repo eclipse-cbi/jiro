@@ -896,6 +896,7 @@
       },
       "generate": false
    },
+   "seLinuxLevel": "s0:c33,c7",
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-cognicrypt": {

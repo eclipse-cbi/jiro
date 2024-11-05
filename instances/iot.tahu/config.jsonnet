@@ -8,4 +8,5 @@
       "maven-plugin",
     ],
   },
+  seLinuxLevel: "s0:c58,c32",
 }
