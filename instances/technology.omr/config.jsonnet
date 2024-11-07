@@ -7,6 +7,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   },
   jenkins+: {
     staticAgentCount: 40,
+    mountPrivateKey: true,
     permissions:
       permissionsTemplates.projectPermissions($.project.unixGroupName, permissionsTemplates.committerPermissionsList + ["Agent/Connect", "Agent/Disconnect"]) +
       // https://bugs.eclipse.org/bugs/show_bug.cgi?id=570552
@@ -24,7 +25,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "embeddable-build-status",
       "envinject",
       "generic-webhook-trigger",
-      "gerrit-trigger", # required for ssh key for agent connections
       "gradle",
     ],
   },

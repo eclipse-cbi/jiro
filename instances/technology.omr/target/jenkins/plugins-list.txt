@@ -4,5 +4,4 @@ docker-workflow
 embeddable-build-status
 envinject
 generic-webhook-trigger
-gerrit-trigger
 gradle

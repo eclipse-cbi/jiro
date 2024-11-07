@@ -641,6 +641,7 @@
    "jenkins": {
       "agentConnectionTimeout": 180,
       "maxConcurrency": 2,
+      "mountPrivateKey": true,
       "permissions": [
          {
             "user": {
@@ -763,7 +764,6 @@
          "embeddable-build-status",
          "envinject",
          "generic-webhook-trigger",
-         "gerrit-trigger",
          "gradle"
       ],
       "pluginsForceUpgrade": true,
