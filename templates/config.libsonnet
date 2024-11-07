@@ -206,7 +206,7 @@ local clouds = import "clouds.libsonnet";
     }
   },
   secrets: (
-    if std.member($.jenkins.plugins, "gerrit-trigger") then {
+    if std.member($.jenkins.plugins, "gerrit-trigger") || $.jenkins.mountPrivateKey then {
         "gerrit-trigger-plugin": {
           username: "genie." + $.project.shortName,
           identityFile: "/run/secrets/jenkins/ssh/id_rsa",
