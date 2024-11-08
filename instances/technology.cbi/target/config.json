@@ -108,7 +108,7 @@
                   "basic"
                ],
                "maxHeap": "256m",
-               "mode": "NORMAL",
+               "mode": "EXCLUSIVE",
                "name": "basic",
                "remoting": {
                   "jar": "/usr/share/jenkins/agent.jar",
@@ -215,7 +215,7 @@
                   "basic-ubuntu"
                ],
                "maxHeap": "256m",
-               "mode": "EXCLUSIVE",
+               "mode": "NORMAL",
                "name": "basic-ubuntu",
                "remoting": {
                   "jar": "/usr/share/jenkins/agent.jar",

@@ -94,7 +94,7 @@ jenkins:
                 command: ""
                 args: ""
             instanceCap: -1
-            nodeUsageMode: NORMAL
+            nodeUsageMode: EXCLUSIVE
             envVars:
               - envVar:
                   key: "JAVA_TOOL_OPTIONS"
@@ -210,7 +210,7 @@ jenkins:
                 command: ""
                 args: ""
             instanceCap: -1
-            nodeUsageMode: EXCLUSIVE
+            nodeUsageMode: NORMAL
             envVars:
               - envVar:
                   key: "JAVA_TOOL_OPTIONS"
