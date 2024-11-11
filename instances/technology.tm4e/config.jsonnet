@@ -7,5 +7,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   },
   jenkins+: {
     permissions: permissionsTemplates.projectPermissions($.project.unixGroupName, permissionsTemplates.committerPermissionsList)
-  }
+  },
+  seLinuxLevel: "s0:c55,c50",
 }

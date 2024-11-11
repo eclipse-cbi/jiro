@@ -8,5 +8,6 @@
       "gradle",
       "matrix-communication"
     ]
-  }
+  },
+  seLinuxLevel: "s0:c47,c9",
 }
