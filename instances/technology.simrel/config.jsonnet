@@ -11,4 +11,5 @@
       "date-parameter",
     ],
   },
+  seLinuxLevel: "s0:c53,c27",
 }

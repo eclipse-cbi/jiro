@@ -10,4 +10,5 @@
       "gerrit-trigger",
     ],
   },
+  seLinuxLevel: "s0:c32,c14",
 }

@@ -902,6 +902,7 @@
       },
       "generate": false
    },
+   "seLinuxLevel": "s0:c32,c14",
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-che": {
