@@ -708,7 +708,8 @@
          }
       ],
       "plugins": [
-         "urltrigger"
+         "urltrigger",
+         "pipeline-graph-view"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
