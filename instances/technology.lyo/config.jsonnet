@@ -11,4 +11,5 @@
   maven+: {
     showVersion: false,
   },
+  seLinuxLevel: "s0:c47,c19",
 }

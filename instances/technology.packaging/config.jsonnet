@@ -14,4 +14,5 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "pipeline-graph-view",
     ]
   },
+  seLinuxLevel: "s0:c51,c0",
 }
