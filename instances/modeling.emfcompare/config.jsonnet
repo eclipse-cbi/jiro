@@ -8,4 +8,5 @@
       "jacoco",
     ],
   },
+  seLinuxLevel: "s0:c38,c22",
 }

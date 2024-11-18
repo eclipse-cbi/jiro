@@ -9,4 +9,5 @@
       "warnings-ng",
     ],
   },
+  seLinuxLevel: "s0:c28,c12",
 }
