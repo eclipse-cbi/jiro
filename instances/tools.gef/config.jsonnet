@@ -9,6 +9,8 @@
       "copyartifact",
       "parameterized-scheduler",
       "slack",
+      "github-checks",
+      "git-forensics",
     ],
   },
 }

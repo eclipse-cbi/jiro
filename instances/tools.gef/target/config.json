@@ -698,7 +698,9 @@
          "build-name-setter",
          "copyartifact",
          "parameterized-scheduler",
-         "slack"
+         "slack",
+         "github-checks",
+         "git-forensics"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
