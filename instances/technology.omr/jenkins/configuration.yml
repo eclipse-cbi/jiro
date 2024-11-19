@@ -230,7 +230,7 @@ jenkins:
   - permanent:
       name: "rh7-s390x-03"
       nodeDescription: "zLinux node"
-      labelString: "Linux 390 compile:zlinux"
+      labelString: "Linux 390 compile:zlinux shared"
       remoteFS: '/home/omr'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -248,7 +248,7 @@ jenkins:
   - permanent:
       name: "rh7-s390x-04"
       nodeDescription: "zLinux node"
-      labelString: "Linux 390 compile:zlinux"
+      labelString: "Linux 390 compile:zlinux shared"
       remoteFS: '/home/omr'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -267,7 +267,7 @@ jenkins:
   - permanent:
       name: "win2019x64-openj9-1"
       nodeDescription: "Windows x86 "
-      labelString: "Windows x86 compile:xwindows"
+      labelString: "Windows x86 compile:xwindows shared"
       remoteFS: 'c:\omr'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -285,7 +285,7 @@ jenkins:
   - permanent:
       name: "win2019x64-openj9-2"
       nodeDescription: "Windows x86 "
-      labelString: "Windows x86 compile:xwindows"
+      labelString: "Windows x86 compile:xwindows shared"
       remoteFS: 'c:\omr'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -397,7 +397,7 @@ jenkins:
   - permanent:
       name: "p8-java1-ibm11"
       nodeDescription: "AIX 7.2"
-      labelString: "aix ppc compile:aix"
+      labelString: "aix ppc compile:aix shared"
       remoteFS: '/home/omr/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -423,7 +423,7 @@ jenkins:
   - permanent:
       name: "p8-java1-ibm12"
       nodeDescription: "AIX 7.2"
-      labelString: "aix ppc compile:aix"
+      labelString: "aix ppc compile:aix shared"
       remoteFS: '/home/omr/'
       numExecutors: 1
       mode: EXCLUSIVE
