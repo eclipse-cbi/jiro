@@ -1,5 +1,5 @@
 Resulting plugin list:
-analysis-model-api 12.9.0
+analysis-model-api 12.9.1
 ant 511.v0a_a_1a_334f41b_
 antisamy-markup-formatter 162.v0e6ec0fcfcf6
 apache-httpcomponents-client-4-api 4.5.14-208.v438351942757
@@ -16,7 +16,7 @@ checks-api 2.2.1
 cloud-stats 336.v788e4055508b_
 cloudbees-disk-usage-simple 232.v713eeed2e1f4
 cloudbees-folder 6.955.v81e2a_35c08d3
-command-launcher 115.vd8b_301cc15d0
+command-launcher 116.vd85919c54a_d6
 commons-lang3-api 3.17.0-84.vb_b_938040b_078
 commons-text-api 1.12.0-129.v99a_50df237f7
 config-file-provider 980.v88956a_a_5d6a_d
@@ -25,7 +25,7 @@ credentials 1384.vf0a_2ed06f9c6
 credentials-binding 681.vf91669a_32e45
 data-tables-api 2.1.8-1
 display-url-api 2.204.vf6fddd8a_8b_e9
-docker-commons 443.v921729d5611d
+docker-commons 445.v6b_646c962a_94
 docker-java-api 3.4.0-94.v65ced49b_a_7d5
 docker-plugin 1.7.0
 docker-workflow 580.vc0c340686b_54
@@ -50,7 +50,7 @@ github 1.40.0
 github-api 1.321-468.v6a_9f5f2d5a_7e
 github-branch-source 1807.v50351eb_7dd13
 gitlab-api 5.6.0-97.v6603a_83f8690
-gitlab-branch-source 711.v41fb_c8b_2b_7a_e
+gitlab-branch-source 714.v45a_1ef5eb_247
 gitlab-plugin 1.8.2
 gradle 2.13.1
 gson-api 2.11.0-85.v1f4e87273c33
@@ -73,7 +73,7 @@ jquery3-api 3.7.1-2
 jsch 0.2.16-86.v42e010d9484b_
 json-api 20240303-101.v7a_8666713110
 json-path-api 2.9.0-118.v7f23ed82a_8b_8
-junit 1307.vdd5b_2646279e
+junit 1309.v0078b_fecd6ed
 kubernetes 4296.v20a_7e4d77cf6
 kubernetes-client-api 6.10.0-240.v57880ce8b_0b_2
 kubernetes-credentials 190.v03c305394deb_
@@ -95,22 +95,22 @@ pipeline-input-step 495.ve9c153f6067b_
 pipeline-maven 1457.vf7a_de13b_c0d4
 pipeline-maven-api 1457.vf7a_de13b_c0d4
 pipeline-milestone-step 119.vdfdc43fc3b_9a_
-pipeline-model-api 2.2214.vb_b_34b_2ea_9b_83
-pipeline-model-definition 2.2214.vb_b_34b_2ea_9b_83
-pipeline-model-extensions 2.2214.vb_b_34b_2ea_9b_83
+pipeline-model-api 2.2218.v56d0cda_37c72
+pipeline-model-definition 2.2218.v56d0cda_37c72
+pipeline-model-extensions 2.2218.v56d0cda_37c72
 pipeline-rest-api 2.34
 pipeline-stage-step 312.v8cd10304c27a_
-pipeline-stage-tags-metadata 2.2214.vb_b_34b_2ea_9b_83
+pipeline-stage-tags-metadata 2.2218.v56d0cda_37c72
 pipeline-stage-view 2.34
 plain-credentials 183.va_de8f1dd5a_2b_
 plugin-util-api 5.1.0
-prism-api 1.29.0-17
+prism-api 1.29.0-18
 prometheus 795.v995762102f28
 promoted-builds 965.vcda_c6a_e0998f
 rebuild 332.va_1ee476d8f6d
 resource-disposer 0.24
 scm-api 696.v778d637b_a_762
-script-security 1367.vdf2fc45f229c
+script-security 1369.v9b_98a_4e95b_2d
 simple-theme-plugin 196.v96d9592f4efa_
 snakeyaml-api 2.3-123.v13484c65210a_
 sonar 2.17.2
@@ -122,12 +122,12 @@ timestamper 1.27
 token-macro 400.v35420b_922dcb_
 trilead-api 2.147.vb_73cc728a_32e
 variant 60.v7290fc0eb_b_cd
-warnings-ng 11.10.0
+warnings-ng 11.11.0
 workflow-aggregator 600.vb_57cdd26fdd7
 workflow-api 1336.vee415d95c521
 workflow-basic-steps 1058.vcb_fc1e3a_21a_9
-workflow-cps 3990.vd281dd77a_388
-workflow-durable-task-step 1371.vb_7cec8f3b_95e
+workflow-cps 3993.v3e20a_37282f8
+workflow-durable-task-step 1378.v6a_3e903058a_3
 workflow-job 1436.vfa_244484591f
 workflow-multibranch 795.ve0cb_1f45ca_9a_
 workflow-scm-step 427.v4ca_6512e7df1
