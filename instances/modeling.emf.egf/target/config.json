@@ -689,15 +689,12 @@
                   "View/Configure",
                   "View/Create",
                   "View/Delete",
-                  "View/Read",
-                  "Gerrit/ManualTrigger",
-                  "Gerrit/Retrigger"
+                  "View/Read"
                ]
             }
          }
       ],
       "plugins": [
-         "gerrit-trigger",
          "jacoco"
       ],
       "pluginsForceUpgrade": true,
@@ -901,6 +898,7 @@
       },
       "generate": false
    },
+   "seLinuxLevel": "s0:c37,c9",
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-default": {
@@ -937,10 +935,6 @@
                "pull"
             ]
          }
-      },
-      "gerrit-trigger-plugin": {
-         "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-         "username": "genie.egf"
       }
    }
 }

@@ -5,8 +5,8 @@
   },
   jenkins+: {
     plugins+: [
-      "gerrit-trigger",
       "jacoco",
     ],
   },
+  seLinuxLevel: "s0:c37,c9",
 }
