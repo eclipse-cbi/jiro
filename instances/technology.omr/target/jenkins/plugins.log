@@ -113,7 +113,7 @@ scm-api 696.v778d637b_a_762
 script-security 1369.v9b_98a_4e95b_2d
 simple-theme-plugin 196.v96d9592f4efa_
 snakeyaml-api 2.3-123.v13484c65210a_
-sonar 2.17.2
+sonar 2.17.3
 ssh-agent 376.v8933585c69d3
 ssh-credentials 343.v884f71d78167
 ssh-slaves 2.973.v0fa_8c0dea_f9f
@@ -122,7 +122,7 @@ timestamper 1.27
 token-macro 400.v35420b_922dcb_
 trilead-api 2.147.vb_73cc728a_32e
 variant 60.v7290fc0eb_b_cd
-warnings-ng 11.11.0
+warnings-ng 11.12.0
 workflow-aggregator 600.vb_57cdd26fdd7
 workflow-api 1336.vee415d95c521
 workflow-basic-steps 1058.vcb_fc1e3a_21a_9

@@ -790,116 +790,6 @@ data:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCspEGvtfpQj+fxpcaiUNf94HAQRbaxkr2WmblScHRtE9ZgQ3spck0fLhcYmH+XzywyMsKmadRJq5qsXY1Uzp0aMq6BsRBbebzeP0lu+7X291z9fWKV63WllNsvXAUgvmxkH+saRJiP6G1nbWp4iah6PWT0md5pKFwvmSURjci26ZPzd0EDDxgLyzOFA/xaK6klXaCDlJc8ql497fP9luox1ZqcYJ4IXCfu5qEEfuDS7weDnJsxkGV2oiz7lVCwM6KQ+7wuAAYCHsDwDutWiFbtZiXg0kO03tMJYnFfxt3IsnPJCowBUdB5o3fo7TKFTRmy82ptwFPNXd1JjAVzm9sZ"
         - permanent:
-            name: "ub20-ppcle-omr1"
-            nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB compile:plinux cgroup.v1"
-            remoteFS: '/home/jenkins'
-            numExecutors: 1
-            mode: EXCLUSIVE
-            retentionStrategy: "always"
-            launcher:
-              command:
-                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-ppcle-omr1 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
-        - permanent:
-            name: "ub20-ppcle-omr2"
-            nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB compile:plinux cgroup.v2"
-            remoteFS: '/home/jenkins'
-            numExecutors: 1
-            mode: EXCLUSIVE
-            retentionStrategy: "always"
-            launcher:
-              command:
-                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub20-ppcle-omr2 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
-        - permanent:
-            name: "ub1604-p8-unb-03"
-            nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB compile:plinux"
-            remoteFS: '/home/jenkins'
-            numExecutors: 1
-            mode: EXCLUSIVE
-            retentionStrategy: "always"
-            launcher:
-              command:
-                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-03 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
-        - permanent:
-            name: "ub1604-p8-unb-04"
-            nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB compile:plinux"
-            remoteFS: '/home/jenkins'
-            numExecutors: 1
-            mode: EXCLUSIVE
-            retentionStrategy: "always"
-            launcher:
-              command:
-                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-04 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
-        - permanent:
-            name: "ub1604-p8-unb-05"
-            nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB compile:plinux"
-            remoteFS: '/home/jenkins'
-            numExecutors: 1
-            mode: EXCLUSIVE
-            retentionStrategy: "always"
-            launcher:
-              command:
-                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-05 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
-        - permanent:
-            name: "ub1604-p8-unb-06"
-            nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB compile:plinux"
-            remoteFS: '/home/jenkins'
-            numExecutors: 1
-            mode: EXCLUSIVE
-            retentionStrategy: "always"
-            launcher:
-              command:
-                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-06 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
-        - permanent:
-            name: "ub1604-p8-unb-07"
-            nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB compile:plinux"
-            remoteFS: '/home/jenkins'
-            numExecutors: 1
-            mode: EXCLUSIVE
-            retentionStrategy: "always"
-            launcher:
-              command:
-                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-07 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
-        - permanent:
-            name: "ub1604-p8-unb-08"
-            nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB compile:plinux"
-            remoteFS: '/home/jenkins'
-            numExecutors: 1
-            mode: EXCLUSIVE
-            retentionStrategy: "always"
-            launcher:
-              command:
-                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-08 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
-        - permanent:
-            name: "ub1604-p8-unb-09"
-            nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB compile:plinux"
-            remoteFS: '/home/jenkins'
-            numExecutors: 1
-            mode: EXCLUSIVE
-            retentionStrategy: "always"
-            launcher:
-              command:
-                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-09 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
-        - permanent:
-            name: "ub1604-p8-unb-10"
-            nodeDescription: "Linux PPCLE UNB"
-            labelString: "Linux PPCLE UNB compile:plinux"
-            remoteFS: '/home/jenkins'
-            numExecutors: 1
-            mode: EXCLUSIVE
-            retentionStrategy: "always"
-            launcher:
-              command:
-                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh jenkins@ub1604-p8-unb-10 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
-        - permanent:
             name: "ub20-x64-omr1"
             nodeDescription: "Linux x86"
             labelString: "Linux x86 UNB compile:aarch64:cross compile:arm:cross compile:xlinux cgroup.v1"
@@ -1034,7 +924,7 @@ data:
         - permanent:
             name: "rh7-s390x-03"
             nodeDescription: "zLinux node"
-            labelString: "Linux 390 compile:zlinux"
+            labelString: "Linux 390 compile:zlinux shared"
             remoteFS: '/home/omr'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -1052,7 +942,7 @@ data:
         - permanent:
             name: "rh7-s390x-04"
             nodeDescription: "zLinux node"
-            labelString: "Linux 390 compile:zlinux"
+            labelString: "Linux 390 compile:zlinux shared"
             remoteFS: '/home/omr'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -1070,7 +960,7 @@ data:
         - permanent:
             name: "win2019x64-openj9-1"
             nodeDescription: "Windows x86 "
-            labelString: "Windows x86 compile:xwindows"
+            labelString: "Windows x86 compile:xwindows shared"
             remoteFS: 'c:\omr'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -1088,7 +978,7 @@ data:
         - permanent:
             name: "win2019x64-openj9-2"
             nodeDescription: "Windows x86 "
-            labelString: "Windows x86 compile:xwindows"
+            labelString: "Windows x86 compile:xwindows shared"
             remoteFS: 'c:\omr'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -1200,7 +1090,7 @@ data:
         - permanent:
             name: "p8-java1-ibm11"
             nodeDescription: "AIX 7.2"
-            labelString: "aix ppc compile:aix"
+            labelString: "aix ppc compile:aix shared"
             remoteFS: '/home/omr/'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -1226,7 +1116,7 @@ data:
         - permanent:
             name: "p8-java1-ibm12"
             nodeDescription: "AIX 7.2"
-            labelString: "aix ppc compile:aix"
+            labelString: "aix ppc compile:aix shared"
             remoteFS: '/home/omr/'
             numExecutors: 1
             mode: EXCLUSIVE
