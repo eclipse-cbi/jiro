@@ -689,16 +689,12 @@
                   "View/Configure",
                   "View/Create",
                   "View/Delete",
-                  "View/Read",
-                  "Gerrit/ManualTrigger",
-                  "Gerrit/Retrigger"
+                  "View/Read"
                ]
             }
          }
       ],
-      "plugins": [
-         "gerrit-trigger"
-      ],
+      "plugins": [ ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",
@@ -937,10 +933,6 @@
                "pull"
             ]
          }
-      },
-      "gerrit-trigger-plugin": {
-         "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-         "username": "genie.packages"
       }
    }
 }

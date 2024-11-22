@@ -689,15 +689,12 @@
                   "View/Configure",
                   "View/Create",
                   "View/Delete",
-                  "View/Read",
-                  "Gerrit/ManualTrigger",
-                  "Gerrit/Retrigger"
+                  "View/Read"
                ]
             }
          }
       ],
       "plugins": [
-         "gerrit-trigger",
          "gradle"
       ],
       "pluginsForceUpgrade": true,
@@ -938,10 +935,6 @@
                "pull"
             ]
          }
-      },
-      "gerrit-trigger-plugin": {
-         "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-         "username": "genie.mdmbl"
       }
    }
 }

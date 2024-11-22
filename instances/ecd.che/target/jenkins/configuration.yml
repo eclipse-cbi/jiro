@@ -49,8 +49,6 @@ jenkins:
               - View/Create
               - View/Delete
               - View/Read
-              - Gerrit/ManualTrigger
-              - Gerrit/Retrigger
         - user:
             name: anonymous
             permissions:

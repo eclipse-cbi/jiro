@@ -7,7 +7,6 @@
     plugins+: [
       "job-dsl",
       "purge-build-queue-plugin",
-      "gerrit-trigger",
     ],
   },
   seLinuxLevel: "s0:c32,c14",

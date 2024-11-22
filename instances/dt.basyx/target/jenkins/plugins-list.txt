@@ -2,4 +2,3 @@
 cmakebuilder
 envinject
 gerrit-code-review
-gerrit-trigger

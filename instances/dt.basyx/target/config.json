@@ -689,9 +689,7 @@
                   "View/Configure",
                   "View/Create",
                   "View/Delete",
-                  "View/Read",
-                  "Gerrit/ManualTrigger",
-                  "Gerrit/Retrigger"
+                  "View/Read"
                ]
             }
          }
@@ -699,8 +697,7 @@
       "plugins": [
          "envinject",
          "cmakebuilder",
-         "gerrit-code-review",
-         "gerrit-trigger"
+         "gerrit-code-review"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
@@ -940,10 +937,6 @@
                "pull"
             ]
          }
-      },
-      "gerrit-trigger-plugin": {
-         "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-         "username": "genie.basyx"
       }
    }
 }

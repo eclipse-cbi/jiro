@@ -689,17 +689,14 @@
                   "View/Configure",
                   "View/Create",
                   "View/Delete",
-                  "View/Read",
-                  "Gerrit/ManualTrigger",
-                  "Gerrit/Retrigger"
+                  "View/Read"
                ]
             }
          }
       ],
       "plugins": [
          "job-dsl",
-         "purge-build-queue-plugin",
-         "gerrit-trigger"
+         "purge-build-queue-plugin"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
@@ -939,10 +936,6 @@
                "pull"
             ]
          }
-      },
-      "gerrit-trigger-plugin": {
-         "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-         "username": "genie.che"
       }
    }
 }
