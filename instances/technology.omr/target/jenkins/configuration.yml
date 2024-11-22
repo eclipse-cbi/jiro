@@ -1226,6 +1226,7 @@ jenkins:
               locations:
                 - home: '/opt/freeware/bin/git'
                   key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+    - permanent:
         name: "riscv-build2"
         nodeDescription: "4-core 8Gb riscv machine hosted by EF"
         labelString: "hw.arch.riscv64 riscv64 swt.natives-gtk.linux.riscv64 native.builder-gtk.linux.riscv64"
