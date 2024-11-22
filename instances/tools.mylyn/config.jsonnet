@@ -34,4 +34,5 @@
       },
     },
   },
+  seLinuxLevel: "s0:c49,c4",
 }

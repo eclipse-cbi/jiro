@@ -21,4 +21,5 @@
   gerrit+: [
     { site: "gerrithub.io" }
   ],
+  seLinuxLevel: "s0:c44,c14",
 }

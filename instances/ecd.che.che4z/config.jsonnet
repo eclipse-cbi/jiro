@@ -13,5 +13,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "embeddable-build-status",
       "copyartifact",
     ],
-  }
+  },
+  seLinuxLevel: "s0:c32,c19",
 }
