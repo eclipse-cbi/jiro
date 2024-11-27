@@ -5,7 +5,7 @@
     resourcePacks: 5,
   },
   jenkins+: {
-    version: "2.479.1",
+    version: "2.479.2",
     staticAgentCount: 3,
     plugins+: [
       "basic-branch-build-strategies",
@@ -23,7 +23,6 @@
       "mask-passwords",
       "metrics",
       "nexus-jenkins-plugin",
-      "pipeline-graph-view",
       "pubsub-light",
       "slack",
       "sse-gateway",
