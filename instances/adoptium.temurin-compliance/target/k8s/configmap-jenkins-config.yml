@@ -655,7 +655,7 @@ data:
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: "/usr/lib/jvm/jdk-11/bin/java"
-                jvmOptions: "-Xmx512m"
+                jvmOptions: "-Xmx512m -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDXa49sG2Jyl/bq2D9z/GfzC1W7eLRIC/iOa/o4nxl0/"
@@ -673,7 +673,7 @@ data:
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: "/usr/lib/jvm/jdk-11/bin/java"
-                jvmOptions: "-Xmx512m"
+                jvmOptions: "-Xmx512m -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPgLhlW7LdMg6VRkyl4trVUWvUvHD92264xtC7rgFe8s"
@@ -691,7 +691,7 @@ data:
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: "/usr/lib/jvm/jdk-11/bin/java"
-                jvmOptions: "-Xmx512m"
+                jvmOptions: "-Xmx512m -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDJ8vY1vg2dBnt3GqzLEPq7Ozm4VBIDUgJQ62aZjiePprh9L91k231XSDj94CWV4WAzUAQ7BC4jjsOd7ZUTjC8punF6Eecaj80Qhs88ZzuZZTHR9KatAbJKa5BtxsJcENMTGouQGHydxhJp5KgoguuZuD7h8Q4JHWQSGdMrEV/tfAX9q5nPwKjINAVXxpnfTB6A0D8/uPUmXzGFiM+uv3A3xRBdrCzbrBL/sDqPD6NNLOgiVbV1J5dbGE3poeBiHnoEpgmrMcPRgjZyPwbLgn5D+xQ/T/fwzhSXuOWXAovRDv4mLipqHLQiCikjaxdGQ2Fsg0lLvDNQbiNag9KrDrWf"
@@ -709,7 +709,7 @@ data:
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: "/usr/bin/java"
-                jvmOptions: "-Xmx1g"
+                jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC02p+ksu/ZuynsIBUOy+X+nMm8G1Zqkxrji1H0KbAJ1OqrPtbH/gjsCh16o1jdgXyQt+gY/Hc2QWwuEsb31aGnJ+OfhmSB1hvCWm73+fC83GB/9gtquuAvgKiyBETgDaoFp2Pbrx0uFi/4SKMVfWHiBttYlRbDwr+vzj1J2AtWWjwGiNfxCZU69S6QAbzqA8RwqOTe/K5Ilc4Z8yuXED7qRl4k2aciIyJ9SesuKyOp2wC1zPTWWLAKrtus0tfH/dSzN0Ryr+Ps6KBb/Q+799Aye3EExHcsZR+HKJutL31qXZGYlwfD6qc0gU3HSgJtZ2X14AEaE6gBVoiJmQ2Po8pDeVH5hnHItPMzEHMOA3zSFngj5jf7stQoE4daWQpokZtwrYVPVwj44s3CtiSakKr/iYCpXhKIKDtKpqSGoqjm9DVYmVjTBS01VG4Uu6H6vZIcshXz/8FmJ4kzGHOlkFhABv/+pnj3QfF1HJWMuSmeL7I/AOx7HWfdkS/MZTlzvV0="
@@ -727,7 +727,7 @@ data:
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: "/usr/bin/java"
-                jvmOptions: "-Xmx1g"
+                jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDOAtFDmpy1wZWch5nLQsyvo0JMIy5bGpDNtofoMzr0QAKngH8sqdnokjakiylKkbJP+6H2UMHYBz5cwZN3vnnnJEGPwA5IrMVNxd4m48Sc3QOpEdLSnk+DFJwgFluBseJZ2UtQOFQJJPIBigdJ4vdUyyklAMgnQ5jqoipuCNBF0YZWCd2zDVev0/eWZiq+jR+N561NCnc/jW+qrruB/VH9v+ykSdkWIlNezxLtFKcb7B2alh3kYIeOFu9azLkXcrnORbO2z4aoR4hgmaOeqk9MU8S7HdYd+cndQqQ3tsexQa34K74rQPdGfB++i1VNKnDLBL0rLUAAPdI2+LjegFDDpUJFze7Cf6XGYaI+/Ax3mOIWp9P84wPgRRYw6Sv6QQTdUJpgfCgIQgc/AW5vEE4zvSkYVwPEJ4K29u8rs7zNVWELZxV4UXk2n0XL4KK+oA45cz5w6kRbt9APgVGz3kC/EOJGCnN9HWMMZNsTWylcFHFrsVIYwZZRZvcN5/7I+ZM="
@@ -745,6 +745,7 @@ data:
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: ""
+                jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDZfmr8Aqu+/0UcWgKvdB77F9pqgxTfUgq6TBd96w3p57SOEKPR2WafpZiUagn6QNbzV7m3QHIRN4rqFtLzQwd0MWi54qTorWxmSbVc02WqVvDPL7r2jNH8p5E+TcPQwSBvbeY3sBSujwWFLnXXhZLJIv52SVjacX53eLnPrJkmDrYGzySUHT0v1SoeNVebTYyUGIKmpo035ImcgMW8bDCoGoDywHB4NQFKytZdL65sVwwvlkCn7HM5vXxdOFOxDKWs9g60HB7qA6/DHvGLvO+WiZoqmOQWfxesCt2Tusy9ehVRhxYlNE6Kc6kD+OS14nXEAUPNnSmrptFriQdgJI+ykHXEkg1EZp1lLq9iWdQDg42yi08Sz9ImGVDEcdl1MOMc7iDbdIwT0I1i8/R6Q/y5ZN827FGygIyGIsnIf/BOQh23y1ESCtH/c49tfBXmOCCBHBD8wAbtH73ba9yuJTYT3hWo218nmEIHa2w5Lc08DX5JHnwUM6X/MU3tsc1TRrU="
@@ -762,6 +763,7 @@ data:
                 port: "21222"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: "/usr/lib/jvm/jdk11/bin/java"
+                jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 prefixStartSlaveCmd: "export LD_PRELOAD_64=/usr/lib/jvm/fallocate.so && export PATH=/usr/local/bin:$PATH &&"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
@@ -863,7 +865,7 @@ data:
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: "/usr/jdk-11.0.17+8/bin/java"
-                jvmOptions: "-Xmx1g"
+                jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChUHeepF+GU5QCh6Q3JiPZYZ8pAJ7yH9IaiT0FEHYB7d5GGyDYTT+XAcGg+DKcdyrwkV6IEFr8NFEIAXhr7Nr/hia5/gY+12kZvQT1HCj1EYbb80AJOQm/PqPlxBH96ThwlI3QCoNLkWz454QJxhMPscpkUr2umg8L3l0x09XjjLZqk+DIvEntL2ZEvoG7WyEOzc+FG3QA8XTLh3Q+OtLcQP+fsrLyvYXEeE3dMWzoTU+nsxG0HD40wMy+go07odciLu79GT+DU79I9fYf14gNN/ulWfe6L5aP44ejPUpoWfpVbJl00bvWX2XKiNc63Z+wCobAvA93F6Am2gHySYrh"
@@ -881,7 +883,7 @@ data:
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: "/usr/jdk-11.0.17+8/bin/java"
-                jvmOptions: "-Xmx1g"
+                jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChUHeepF+GU5QCh6Q3JiPZYZ8pAJ7yH9IaiT0FEHYB7d5GGyDYTT+XAcGg+DKcdyrwkV6IEFr8NFEIAXhr7Nr/hia5/gY+12kZvQT1HCj1EYbb80AJOQm/PqPlxBH96ThwlI3QCoNLkWz454QJxhMPscpkUr2umg8L3l0x09XjjLZqk+DIvEntL2ZEvoG7WyEOzc+FG3QA8XTLh3Q+OtLcQP+fsrLyvYXEeE3dMWzoTU+nsxG0HD40wMy+go07odciLu79GT+DU79I9fYf14gNN/ulWfe6L5aP44ejPUpoWfpVbJl00bvWX2XKiNc63Z+wCobAvA93F6Am2gHySYrh"
@@ -899,7 +901,7 @@ data:
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: "/usr/jdk-11.0.23+9/bin/java"
-                jvmOptions: "-Xmx1g"
+                jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChUHeepF+GU5QCh6Q3JiPZYZ8pAJ7yH9IaiT0FEHYB7d5GGyDYTT+XAcGg+DKcdyrwkV6IEFr8NFEIAXhr7Nr/hia5/gY+12kZvQT1HCj1EYbb80AJOQm/PqPlxBH96ThwlI3QCoNLkWz454QJxhMPscpkUr2umg8L3l0x09XjjLZqk+DIvEntL2ZEvoG7WyEOzc+FG3QA8XTLh3Q+OtLcQP+fsrLyvYXEeE3dMWzoTU+nsxG0HD40wMy+go07odciLu79GT+DU79I9fYf14gNN/ulWfe6L5aP44ejPUpoWfpVbJl00bvWX2XKiNc63Z+wCobAvA93F6Am2gHySYrh"
@@ -917,6 +919,7 @@ data:
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: ""
+                jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDFX/QboG247pAS/oU1I8jIBDpztdXJp2VisbQ7h4Av6JAG8nN+JVmBdsqOHuARxEQb8xQXa5ZRVz2x02JKiDuzslFg6Eb/lpFapfVLO0vI2YPhWCPddRj1jqEuDkuL3hyIq3uoOc3mhdJAre6oL587C1jKQERvOfpqhLbR026WO8DcwSXGvj11Urfv/P3T6dIx/6O1y6P24Rm8VYUI7Vqh/B+7kbyLMm6CBscvKGsJ5ripYTBrjp/dI+FS+Pe1e6r8qx4wzb8a7EaKq7fAqu4szh+hxAj1AUHm7JObOAQ0phdDVWa10tQ4lAjxBrDs/fYGWirDmuXBfUUTUWavR31K1G2DuSl+T29adkP92sEKStqqfChsv7mt5MrA67fTMgEr1UM+aKcQGFYcxUNh+EznuYHfzUps13maXgJ52dj6N2ev+RCft1nsSB5V63sBobRBJgBVJtQaZVpK0RX1JOh2+SYRPgsy8FquNNBBsh05czB9eFdKRFXcZgTzc2KakJ0="
@@ -934,6 +937,7 @@ data:
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: ""
+                jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDtygfAPmqmBzCiO1yrjuX2LjSBha9p5z8CyhDZv+TywsaSz5Y72qDO/V/QVMiHZ29VN4iv+m8LHI0SX4z9bLtagPt1hzAgK4diaLZJLTa0c6qkrXLuHfDmt3lFZwgdD3xUKJXRb9hJopazkLVRflnEa7rtE/gBV1GlhBNSiMogHJm8gObghAkWbe7oZyg0mZH0MoX47GihkaXMvWOpt8dfW2+64Sq6axa7KDGqwyRx5aL2sWJCNARZjceFbuue4LooYd1cLnR7jeRMImo87201m+gX4IXsQX8f97QI8zurmFjj47V/X4GFjx2yJLDKOODBVCobUr1Legie8Ge6yc8QT/WRUwuZa2lEAGcx2olcFpb0SOP98OoEYof32cCMdSVUVsLBIYSNqJCCeEe+uggGrN7m3WNkvI+qAiCDmuQqYL+1kVaCxu/kzm1rxFBtJmQIBI7LKXHkuV2gwUvFXIiY6BpfnHZSit/dND0zvQfi9swsOUz0LIUzLTrybNrZats="
@@ -951,7 +955,7 @@ data:
                 port: "5378"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: "/usr/lib/jvm/jdk-11/bin/java"
-                jvmOptions: "-Xmx512m"
+                jvmOptions: "-Xmx512m -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDKhRM5aejXDVO4p5SH49g7oz+za5TBVO6ZujHWx/IvY1XorayXUIO7Ke66Kb/Ju7XOaYXZtujiHTgwmQAK2AL4Rp/uyUQ4La/cnHysgN1FI3l53IYPwkrViJYp8VbvqFSZbD1QtaILWCzsuDXYcGD5vBIGrxHUnVOQybgEmW/4BulXe0qNfJEuDS+fYH8U1qO76Ss7zBzH+fCiMeyJ2i+uddYzj6I1297y6kD7dGM61FZF/JdCvIfIqPcZ4iQZPg4d2l33WpO5oegDwrFRKxSN71mgS8g7P4SgXd1/mQGX6Zm37MhK+mVKJpHQ+8I5RPQYK8TbKkXYiq5Gw7BmH2Cx"
@@ -964,7 +968,7 @@ data:
             launcher:
               ssh:
                 javaPath: "/usr/bin/java"
-                jvmOptions: "-Xmx512m"
+                jvmOptions: "-Xmx512m -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 credentialsId: "jenkins-jck-ssh"
                 host: "139.178.86.125"
                 port: 2222
@@ -977,6 +981,7 @@ data:
             retentionStrategy: "always"
             launcher:
               ssh:
+                jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 credentialsId: "jenkins-jck-ssh"
                 host: "178.62.54.114"
                 port: 2222
@@ -989,6 +994,7 @@ data:
             retentionStrategy: "always"
             launcher:
               ssh:
+                jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 credentialsId: "jenkins-jck-ssh"
                 host: "139.178.86.125"
                 port: 2224
@@ -1067,7 +1073,7 @@ data:
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath:
-                jvmOptions: "-Xmx512m"
+                jvmOptions: "-Xmx512m -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPVWsratBbWvRahSTuhRDHVp554yxsTePk6C51u+qJq95TAbFMcg+54IGjMYsK9atI7hLYDh1/WpKZwhKceo7LY="
@@ -1079,6 +1085,7 @@ data:
             retentionStrategy: "always"
             launcher:
               ssh:
+                jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 credentialsId: "jenkins-jck-ssh"
                 host: "52.142.50.166"
                 port: 2222
@@ -1165,6 +1172,7 @@ data:
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: ""
+                jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB5+4FN+1n3hGBoahfBq0xc0yYEZT22d5oTObjQnQlmU"
@@ -1182,6 +1190,7 @@ data:
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: ""
+                jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFiT96PJGr+0f9wSunhF2AoqARawYTbaL3BIwnJB65Hj"
@@ -1199,6 +1208,7 @@ data:
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: ""
+                jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJCwhR7dAioY+ugVaUv7zWbOaDJmj66mPJaqtrNFDF8r"
@@ -1216,6 +1226,7 @@ data:
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: ""
+                jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII1Oqkhk3Nl8VvNPc75BlN+uqtFT8FF4uRDJ/sPD3yj9"
@@ -1233,6 +1244,7 @@ data:
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: ""
+                jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL4WK+PrmT4Jr+QcsGdxkAW+MPmqlA3uH2EDVE6t9F0m"
@@ -1250,7 +1262,7 @@ data:
                 port: "2222"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: "/usr/lib/jvm/jdk11/bin/java"
-                jvmOptions: "-Xmx512m"
+                jvmOptions: "-Xmx512m -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 prefixStartSlaveCmd: "export LD_PRELOAD_64=/usr/lib/jvm/fallocate.so && export PATH=/usr/local/bin:$PATH &&"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
@@ -1341,7 +1353,7 @@ data:
         createAccountBasedOnEmail: true
         useExistingAccountWithSameEmail: true
       jobConfigHistory:
-        excludePattern: "queue\\.xml|nodeMonitors\\.xml|UpdateCenter\\.xml|global-build-stats|LockableResourcesManager\\.xml|MilestoneStep\\.xml"
+        excludePattern: "queue\\.xml|nodeMonitors\\.xml|UpdateCenter\\.xml|global-build-stats|LockableResourcesManager\\.xml|MilestoneStep\\.xml|hudson.plugins.xvnc.Xvnc\\.xml"
         maxDaysToKeepEntries: "60"
         maxEntriesPerPage: "12"
         maxHistoryEntries: "500"
@@ -1504,7 +1516,7 @@ data:
               - installSource:
                   installers:
                     - antFromApache:
-                        id: "1.10.12"
+                        id: "1.10.15"
       maven:
         installations:
           - name: "apache-maven-latest"
