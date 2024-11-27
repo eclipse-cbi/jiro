@@ -689,16 +689,12 @@
                   "View/Configure",
                   "View/Create",
                   "View/Delete",
-                  "View/Read",
-                  "Gerrit/ManualTrigger",
-                  "Gerrit/Retrigger"
+                  "View/Read"
                ]
             }
          }
       ],
-      "plugins": [
-         "gerrit-trigger"
-      ],
+      "plugins": [ ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",
@@ -900,6 +896,7 @@
       },
       "generate": false
    },
+   "seLinuxLevel": "s0:c49,c14",
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-default": {
@@ -936,10 +933,6 @@
                "pull"
             ]
          }
-      },
-      "gerrit-trigger-plugin": {
-         "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
-         "username": "genie.nattable"
       }
    }
 }

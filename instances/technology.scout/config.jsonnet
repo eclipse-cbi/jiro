@@ -8,4 +8,5 @@
       "job-dsl",
     ],
   },
+  seLinuxLevel: "s0:c52,c49",
 }

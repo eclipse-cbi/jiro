@@ -9,4 +9,5 @@
       "matrix-communication",
     ],
   },
+  seLinuxLevel: "s0:c48,c47",
 }

@@ -119,7 +119,12 @@
                         "cpu": "250m"
                      }
                   },
-                  "securityContext": { },
+                  "securityContext": {
+                     "seLinuxOptions": {
+                        "level": "s0:c49,c14",
+                        "type": "spc_t"
+                     }
+                  },
                   "volumeMounts": [
                      {
                         "mountPath": "/var/jenkins",
@@ -136,11 +141,6 @@
                      {
                         "mountPath": "/etc/jenkins/",
                         "name": "jenkins-config",
-                        "readOnly": true
-                     },
-                     {
-                        "mountPath": "/run/secrets/jenkins/ssh",
-                        "name": "gerrit-ssh-keys",
                         "readOnly": true
                      }
                   ]
@@ -162,12 +162,6 @@
                      "name": "jenkins-config"
                   },
                   "name": "jenkins-config"
-               },
-               {
-                  "name": "gerrit-ssh-keys",
-                  "secret": {
-                     "secretName": "gerrit-ssh-keys"
-                  }
                }
             ]
          }

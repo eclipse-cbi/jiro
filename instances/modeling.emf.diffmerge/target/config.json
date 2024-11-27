@@ -753,6 +753,7 @@
          "parameterized-trigger",
          "pipeline-maven",
          "pipeline-stage-view",
+         "pipeline-graph-view",
          "prometheus",
          "promoted-builds",
          "rebuild",
@@ -896,6 +897,7 @@
       },
       "generate": false
    },
+   "seLinuxLevel": "s0:c34,c24",
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-default": {
