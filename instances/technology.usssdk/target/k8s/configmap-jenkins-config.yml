@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.462.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.479.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "usssdk"
   namespace: "usssdk"
   name: jenkins-config
@@ -72,8 +72,6 @@ data:
                   - View/Create
                   - View/Delete
                   - View/Read
-                  - Gerrit/ManualTrigger
-                  - Gerrit/Retrigger
             - user:
                 name: anonymous
                 permissions:
@@ -107,98 +105,7 @@ data:
                 label: "basic"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3248.3250.v3277a_8e88c9b_
-                    alwaysPullImage: true
-                    livenessProbe:
-                      failureThreshold: 0
-                      initialDelaySeconds: 0
-                      periodSeconds: 0
-                      successThreshold: 0
-                      timeoutSeconds: 0
-                    ttyEnabled: true
-                    command: ""
-                    args: ""
-                instanceCap: -1
-                nodeUsageMode: NORMAL
-                envVars:
-                  - envVar:
-                      key: "JAVA_TOOL_OPTIONS"
-                      value: ""
-                  - envVar:
-                      key: "JENKINS_REMOTING_JAVA_OPTS"
-                      value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
-                  - envVar:
-                      key: "OPENJ9_JAVA_OPTIONS"
-                      value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
-                  - envVar:
-                      key: "_JAVA_OPTIONS"
-                      value: ""
-                volumes:
-                  - persistentVolumeClaim:
-                      claimName: "tools-claim-jiro-usssdk"
-                      mountPath: "/opt/tools"
-                      readOnly: true
-                  - configMapVolume:
-                      configMapName: "known-hosts"
-                      mountPath: "/home/jenkins/.ssh/"
-                      subPath: "."
-                  - emptyDirVolume:
-                      memory: false
-                      mountPath: "/home/jenkins/"
-                  - emptyDirVolume:
-                      memory: false
-                      mountPath: "/home/jenkins/.m2/repository"
-                  - emptyDirVolume:
-                      memory: false
-                      mountPath: "/home/jenkins/.m2/wrapper"
-                workspaceVolume:
-                  emptyDirWorkspaceVolume:
-                    memory: false
-                yaml: |
-                  apiVersion: v1
-                  kind: Pod
-                  spec:
-                    containers:
-                    - name: jnlp
-                      resources:
-                        limits:
-                          cpu: "2000m"
-                          memory: "4096Mi"
-                        requests:
-                          cpu: "1000m"
-                          memory: "4096Mi"
-                      volumeMounts:
-                      - name: m2-secret-dir
-                        mountPath: /home/jenkins/.m2/settings-security.xml
-                        subPath: settings-security.xml
-                        readOnly: true
-                      - name: m2-secret-dir
-                        mountPath: /home/jenkins/.m2/settings.xml
-                        subPath: settings.xml
-                        readOnly: true
-                      - name: m2-dir
-                        mountPath: /home/jenkins/.m2/toolchains.xml
-                        subPath: toolchains.xml
-                        readOnly: true
-                      - name: m2-dir
-                        mountPath: /home/jenkins/.mavenrc
-                        subPath: .mavenrc
-                        readOnly: true
-                    volumes:
-                    - name: m2-secret-dir
-                      secret:
-                        secretName: m2-secret-dir
-                    - name: m2-dir
-                      configMap:
-                        name: m2-dir
-                inheritYamlMergeStrategy: "true"
-                yamlMergeStrategy: "merge"
-              - name: "basic-ubuntu"
-                namespace: "usssdk"
-                label: "basic-ubuntu"
-                containers:
-                  - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3248.3250.v3277a_8e88c9b_
+                    image: docker.io/eclipsecbi/jiro-agent-basic:remoting-3261.v9c670a_4748a_9
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -284,12 +191,103 @@ data:
                         name: m2-dir
                 inheritYamlMergeStrategy: "true"
                 yamlMergeStrategy: "merge"
+              - name: "basic-ubuntu"
+                namespace: "usssdk"
+                label: "basic-ubuntu"
+                containers:
+                  - name: "jnlp"
+                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3261.v9c670a_4748a_9
+                    alwaysPullImage: true
+                    livenessProbe:
+                      failureThreshold: 0
+                      initialDelaySeconds: 0
+                      periodSeconds: 0
+                      successThreshold: 0
+                      timeoutSeconds: 0
+                    ttyEnabled: true
+                    command: ""
+                    args: ""
+                instanceCap: -1
+                nodeUsageMode: NORMAL
+                envVars:
+                  - envVar:
+                      key: "JAVA_TOOL_OPTIONS"
+                      value: ""
+                  - envVar:
+                      key: "JENKINS_REMOTING_JAVA_OPTS"
+                      value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  - envVar:
+                      key: "OPENJ9_JAVA_OPTIONS"
+                      value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+                  - envVar:
+                      key: "_JAVA_OPTIONS"
+                      value: ""
+                volumes:
+                  - persistentVolumeClaim:
+                      claimName: "tools-claim-jiro-usssdk"
+                      mountPath: "/opt/tools"
+                      readOnly: true
+                  - configMapVolume:
+                      configMapName: "known-hosts"
+                      mountPath: "/home/jenkins/.ssh/"
+                      subPath: "."
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/repository"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/wrapper"
+                workspaceVolume:
+                  emptyDirWorkspaceVolume:
+                    memory: false
+                yaml: |
+                  apiVersion: v1
+                  kind: Pod
+                  spec:
+                    containers:
+                    - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "4096Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "4096Mi"
+                      volumeMounts:
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings-security.xml
+                        subPath: settings-security.xml
+                        readOnly: true
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings.xml
+                        subPath: settings.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.m2/toolchains.xml
+                        subPath: toolchains.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.mavenrc
+                        subPath: .mavenrc
+                        readOnly: true
+                    volumes:
+                    - name: m2-secret-dir
+                      secret:
+                        secretName: m2-secret-dir
+                    - name: m2-dir
+                      configMap:
+                        name: m2-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
               - name: "centos-7"
                 namespace: "usssdk"
                 label: "migration jipp-migration centos-7"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3248.3250.v3277a_8e88c9b_
+                    image: docker.io/eclipsecbi/jiro-agent-centos-7:remoting-3261.v9c670a_4748a_9
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -380,7 +378,7 @@ data:
                 label: "centos-latest centos-8"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3248.3250.v3277a_8e88c9b_
+                    image: docker.io/eclipsecbi/jiro-agent-centos-8:remoting-3261.v9c670a_4748a_9
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -471,7 +469,7 @@ data:
                 label: "ubuntu-2204"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3248.3250.v3277a_8e88c9b_
+                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3261.v9c670a_4748a_9
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -562,7 +560,7 @@ data:
                 label: "ubuntu-latest ubuntu-2404"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3248.3250.v3277a_8e88c9b_
+                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3261.v9c670a_4748a_9
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -727,7 +725,7 @@ data:
         createAccountBasedOnEmail: true
         useExistingAccountWithSameEmail: true
       jobConfigHistory:
-        excludePattern: "queue\\.xml|nodeMonitors\\.xml|UpdateCenter\\.xml|global-build-stats|LockableResourcesManager\\.xml|MilestoneStep\\.xml"
+        excludePattern: "queue\\.xml|nodeMonitors\\.xml|UpdateCenter\\.xml|global-build-stats|LockableResourcesManager\\.xml|MilestoneStep\\.xml|hudson.plugins.xvnc.Xvnc\\.xml"
         maxDaysToKeepEntries: "60"
         maxEntriesPerPage: "12"
         maxHistoryEntries: "500"
@@ -868,7 +866,7 @@ data:
               - installSource:
                   installers:
                     - antFromApache:
-                        id: "1.10.12"
+                        id: "1.10.15"
       maven:
         installations:
           - name: "apache-maven-latest"

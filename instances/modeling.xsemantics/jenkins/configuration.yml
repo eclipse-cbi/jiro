@@ -1,16 +1,19 @@
 jenkins:
   nodes:
   - permanent:
+      name: "promotion-vm"
+      numExecutors: 2
+      remoteFS: "/opt/public/hipp/homes/genie.xsemantics"
       launcher:
         ssh:
           credentialsId: "projects-storage.eclipse.org-bot-ssh"
           host: "promotion-vm"
+          javaPath: "/opt/public/common/java/openjdk/jdk-17_x64-latest/bin/java"
           port: 22
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCukLXXVZMDbnRtcMwcXXUfgBzsxzEDt3LgPAzT3ucMG1XGayg0HFFVA1SXMviZe1fzMSHESSMUFf7xxJCqxfVl9sBGcsycjGV55R68AOrA3sL8699VX++VJLcM2TRw05gbDcNnihmWGe10agbA3UoX7dohqbyBTkuhdgHzNwPzdsPW0Q2d0DG6RkluCBFN6LU7+SOq6Uj+NJiw/xnyaOkrIIY3pLRd4l5mpmqLzRb4YTjkMCnyIoxq+/G9NQAGyCO9rN+sl+r7p0Vlbv42RWLits/429nb/LPCrSy7RUHfdFVNDJvSEjX00Gyjwh5QlcgrTzKzh9gheeTREdfj/mQ7kmkao1IM6XvXEjZZ7pQCj2UANRwh5nPpDdrP/Ajfu5V/fo4Z4k443+r1JCElPirqi67qyEdFUsYsWl4uo0+QIH91xPKtphzOl+VACaisgdyanNndFnvRTPGZP/tkSLutTw+clfzCABlSV3704v1TMs/CNK4xmHonXEu4QY6bMvs="
       mode: EXCLUSIVE
-      name: "promotion-vm"
       nodeProperties:
       - toolLocation:
           locations:
@@ -23,6 +26,4 @@ jenkins:
       - watcher:
           offlineAddresses: "releng@eclipse.org"
           onlineAddresses: "releng@eclipse.org"
-      numExecutors: 2
-      remoteFS: "/opt/public/hipp/homes/genie.xsemantics"
       retentionStrategy: "always"

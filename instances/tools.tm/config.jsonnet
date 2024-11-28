@@ -7,7 +7,6 @@
     plugins+: [
       "dashboard-view",
       "description-setter",
-      "gerrit-trigger",
       "warnings-ng",
     ]
   },

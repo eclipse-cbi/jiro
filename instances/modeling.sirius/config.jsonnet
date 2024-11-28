@@ -6,7 +6,6 @@
   },
   jenkins+: {
     plugins+: [
-      "gerrit-trigger",
       "zentimestamp",
       "lockable-resources",
     ],
