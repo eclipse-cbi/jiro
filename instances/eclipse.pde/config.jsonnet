@@ -14,7 +14,7 @@
     kubernetes+: {
       local currentCloud = self,
       templates+: {
-        "jipp-centos-8-agent-8gb": currentCloud.templates["centos-8"] {
+        "jipp-ubuntu-2404-agent-8gb": currentCloud.templates["ubuntu-2404"] {
           labels: ["centos-8-8gb", "centos-latest-8gb"],
           kubernetes+: {
             resources+: {

@@ -11,10 +11,5 @@
       "conditional-buildstep",
     ],
   },
-  kubernetes+: {
-    master+: {
-      defaultJnlpAgentLabel: "basic-ubuntu",
-    }
-  },
   seLinuxLevel: "s0:c54,c4",
 }

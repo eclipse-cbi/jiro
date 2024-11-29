@@ -12,7 +12,7 @@
     kubernetes+: { 
       local currentCloud = self,
       templates+: {
-        "jipp-migration-agent-6gb": currentCloud.templates["centos-7"] {
+        "jipp-ubuntu-2404-agent-6gb": currentCloud.templates["ubuntu-2404"] {
           labels: ["migration-6gb"],
           kubernetes+: {
             resources+: {
