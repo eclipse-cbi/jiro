@@ -1,4 +1,3 @@
 # GENERATED FILE - DO NOT EDIT
-gerrit-trigger
 lockable-resources
 zentimestamp
