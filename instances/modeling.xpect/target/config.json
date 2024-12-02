@@ -401,7 +401,8 @@
          }
       ],
       "plugins": [
-         "matrix-communication"
+         "matrix-communication",
+         "parameterized-scheduler"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
