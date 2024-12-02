@@ -879,9 +879,8 @@ data:
                 host: "172.30.206.101"
                 port: "2024"
                 credentialsId: "jenkins-riscv-ssh"
-                prefixStartSlaveCmd: "ulimit -c 0 && "
                 javaPath: "/usr/bin/java"
-                jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
+                jvmOptions: ""
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPsJnWbfj/JEsbilsTcxhtKBtcy54JNCIafUd3ffCxtN"
