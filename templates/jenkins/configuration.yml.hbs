@@ -44,6 +44,8 @@ jenkins:
       containerCapStr: "{{../jenkins.maxConcurrency}}"
       jenkinsUrl: "http://jenkins-ui.{{../kubernetes.master.namespace}}.svc.cluster.local{{../deployment.prefix}}"
       jenkinsTunnel: "jenkins-discovery.{{../kubernetes.master.namespace}}.svc.cluster.local:{{../deployment.jnlpPort}}"
+      garbageCollection:
+        timeout: 300
       maxRequestsPerHostStr: "32"
       namespace: "{{this.namespace}}"
       podRetention: "never"
