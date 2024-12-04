@@ -73,6 +73,8 @@ jenkins:
         containerCapStr: "2"
         jenkinsUrl: "http://jenkins-ui.theia.svc.cluster.local/theia"
         jenkinsTunnel: "jenkins-discovery.theia.svc.cluster.local:50000"
+        garbageCollection:
+          timeout: 300
         maxRequestsPerHostStr: "32"
         namespace: "theia"
         podRetention: "never"
