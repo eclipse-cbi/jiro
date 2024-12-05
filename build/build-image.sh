@@ -33,7 +33,7 @@ fi
 
 "${SCRIPT_FOLDER}/gen-jenkins.sh" "${INSTANCE}"
 
-TOOLS_IMAGE="eclipsecbi/eclipse-temurin-coreutils:11-alpine"
+TOOLS_IMAGE="eclipsecbi/eclipse-temurin-coreutils:17-alpine"
 CONFIG_JSON="${INSTANCE}/target/config.json"
 
 install_additional_plugins() {
