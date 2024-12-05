@@ -106,6 +106,8 @@ data:
             containerCapStr: "10"
             jenkinsUrl: "http://jenkins-ui.releng.svc.cluster.local/releng"
             jenkinsTunnel: "jenkins-discovery.releng.svc.cluster.local:50000"
+            garbageCollection:
+              timeout: 300
             maxRequestsPerHostStr: "32"
             namespace: "releng"
             podRetention: "never"
@@ -457,7 +459,7 @@ data:
                 host: "13.68.249.87"
                 port: "22"
                 credentialsId: "rs68g-win10-ssh"
-                javaPath: "\"C:\\Program Files\\AdoptOpenJDK\\jdk-11.0.11.9-hotspot\\bin\\java.exe\""
+                javaPath: "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.5.11-hotspot\\bin\\java.exe"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDAkHWAKiWv/T3uaCBj8RdbPR4BW3GBdb5Digq4lpwnFc5xCLCZ/Wke6GBEBlai+zJndjm5sNYgKAAGUOFvW1t0ZCFxgS+uZ+tu2eyDoGyCAvS+XzbzN4pEGf3x/2GJE2aWoesrdx/Uhc/8J3cZG04Fy1SsllW36j4e/20PnZaCtPRBuU/9ZlX4pUDKIUDV+7ejOTTViAzxV0IqUQagiKLv1rxgkRQRgy49+oszYbTFmO7Sqy8L20sSRpSjO0eym6CTpbdjJSm70ZjlJNFocwREmlISNtdPPzY56NWQKf6qpzTlw94zZGVV/0WNdapn3pWS3OLIttVB1C1f1nHBdwvmooFgFiTJzfWaqY9wZFy+jNDi8BHHauLYySIh2PT65XWltnnJcwPM/87nk0hESuBglq3580mGbqoqYmoYhVOsJgn0r0HOHoCsfrUkk9EbUzuUh4TmbR9d6c+zrXe/p6XW8MNNoD1FC+IpruUiEIK9sJ25LAdeXP0hupL9SbddlCc="
@@ -467,7 +469,7 @@ data:
                     - key: "JAVA_HOME"
                       value: 'C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot'
                     - key: "PATH"
-                      value: 'C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\ProgramData\GooGet;C:\Users\SSHD\AppData\Local\Microsoft\WindowsApps;C:\ProgramData\chocolatey\bin'
+                      value: 'C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\ProgramData\GooGet;C:\Users\SSHD\AppData\Local\Microsoft\WindowsApps;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\bin'
                     - key: "VS90_HOME"
                       value: 'C:\Program Files (x86)\Microsoft Visual Studio\2019'
                     - key: "VS90COMNTOOLS"
@@ -480,7 +482,7 @@ data:
                       key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-1.9.6"
                     - home: 'C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot'
                       key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk11-latest"
-                    - home: 'C:\tools\cygwin\bin\git'
+                    - home: 'C:\Program Files\Git\bin\git'
                       key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
         - permanent:
             name: "zyt5z-centos83"
@@ -641,6 +643,8 @@ data:
                   locations:
                     - home: "C:\\ProgramData\\chocolatey\\lib\\ant\\tools\\apache-ant-1.10.13"
                       key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest"
+                    - home: 'C:\Program Files\Git\bin\git'
+                      key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
             remoteFS: "C:\\Users\\genie.releng\\"
             retentionStrategy: "always"
         - permanent:

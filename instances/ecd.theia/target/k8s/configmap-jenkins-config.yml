@@ -420,7 +420,7 @@ data:
               - envVars:
                   env:
                     - key: "Path"
-                      value: "C:\\tools\\cygwin\\bin;C:\\Users\\genie.theia\\AppData\\Roaming\\npm;C:\\Program Files\\nodejs;$Path"
+                      value: "C:\\Program Files\\Git\\bin;C:\\tools\\cygwin\\bin;C:\\Users\\genie.theia\\AppData\\Roaming\\npm;C:\\Program Files\\nodejs;$Path"
               - watcher:
                   offlineAddresses: "releng@eclipse.org"
                   onlineAddresses: "releng@eclipse.org"
