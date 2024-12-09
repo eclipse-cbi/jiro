@@ -73,6 +73,8 @@ jenkins:
         containerCapStr: "8"
         jenkinsUrl: "http://jenkins-ui.cdt.svc.cluster.local/cdt"
         jenkinsTunnel: "jenkins-discovery.cdt.svc.cluster.local:50000"
+        garbageCollection:
+          timeout: 300
         maxRequestsPerHostStr: "32"
         namespace: "cdt"
         podRetention: "never"
@@ -350,21 +352,6 @@ jenkins:
                     name: m2-dir
             inheritYamlMergeStrategy: "true"
             yamlMergeStrategy: "merge"
-  nodes:
-    - permanent:
-        name: "windows-agent"
-        nodeDescription: "Agent provided by the project"
-        remoteFS: "C:/Users/jenkins-agent"
-        numExecutors: 1
-        launcher:
-          inbound:
-            webSocket: true
-            workDirSettings:
-              disabled: false
-              failIfWorkDirIsMissing: false
-              internalDir: "remoting"
-        mode: EXCLUSIVE
-        retentionStrategy: "always"
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
