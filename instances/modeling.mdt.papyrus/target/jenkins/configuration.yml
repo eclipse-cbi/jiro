@@ -73,6 +73,8 @@ jenkins:
         containerCapStr: "6"
         jenkinsUrl: "http://jenkins-ui.papyrus.svc.cluster.local/papyrus"
         jenkinsTunnel: "jenkins-discovery.papyrus.svc.cluster.local:50000"
+        garbageCollection:
+          timeout: 300
         maxRequestsPerHostStr: "32"
         namespace: "papyrus"
         podRetention: "never"
@@ -542,6 +544,28 @@ unclassified:
       - credentialsId: "gitlab-personal-access-token"
         name: "gitlab.eclipse.org"
         serverUrl: "https://gitlab.eclipse.org"
+  globalLibraries:
+    libraries:
+      - name: "releng-pipeline"
+        defaultVersion: "main"
+        retriever:
+          modernSCM:
+            scm:
+              gitlab:
+                credentialsId: "gitlab-bot-ssh"
+                id: "611f7518-2540-47d8-8f31-a011fd6f9c15"
+                projectOwner: "eclipsefdn/it/releng/jenkins-pipeline-service"
+                projectPath: "eclipsefdn/it/releng/jenkins-pipeline-service/jenkins-pipeline-library"
+                serverName: "gitlab.eclipse.org"
+                traits:
+                  - gitLabBranchDiscovery:
+                      strategyId: 1
+                  - gitLabOriginDiscovery:
+                      strategyId: 2
+                  - gitLabForkDiscovery:
+                      buildMRForksNotMirror: false
+                      strategyId: 2
+                      trust: "gitLabTrustPermissions"
 tool:
   jdk:
     installations:
