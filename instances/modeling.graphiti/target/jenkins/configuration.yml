@@ -73,6 +73,8 @@ jenkins:
         containerCapStr: "2"
         jenkinsUrl: "http://jenkins-ui.graphiti.svc.cluster.local/graphiti"
         jenkinsTunnel: "jenkins-discovery.graphiti.svc.cluster.local:50000"
+        garbageCollection:
+          timeout: 300
         maxRequestsPerHostStr: "32"
         namespace: "graphiti"
         podRetention: "never"

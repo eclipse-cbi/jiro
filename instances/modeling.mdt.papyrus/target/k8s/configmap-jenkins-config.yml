@@ -96,6 +96,8 @@ data:
             containerCapStr: "6"
             jenkinsUrl: "http://jenkins-ui.papyrus.svc.cluster.local/papyrus"
             jenkinsTunnel: "jenkins-discovery.papyrus.svc.cluster.local:50000"
+            garbageCollection:
+              timeout: 300
             maxRequestsPerHostStr: "32"
             namespace: "papyrus"
             podRetention: "never"

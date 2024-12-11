@@ -9,4 +9,5 @@
       "build-with-parameters"
     ],
   },
+  seLinuxLevel: "s0:c46,c40",
 }
