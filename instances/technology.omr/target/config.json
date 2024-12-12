@@ -462,6 +462,22 @@
                   "Job/Cancel"
                ]
             }
+         },
+         {
+            "user": {
+               "name": "aswinkr77@gmail.com",
+               "permissions": [
+                  "Agent/Connect",
+                  "Agent/Disconnect",
+                  "Agent/Configure",
+                  "Agent/Build",
+                  "Job/Create",
+                  "Job/Configure",
+                  "Job/Build",
+                  "Job/Cancel",
+                  "Overall/SystemRead"
+               ]
+            }
          }
       ],
       "plugins": [

@@ -17,7 +17,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2042
       permissionsTemplates.user("sarah_jackson@uk.ibm.com", ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel"]) +
       // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/3319
-      permissionsTemplates.user("mahdi@ibm.com", ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel"])
+      permissionsTemplates.user("mahdi@ibm.com", ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel"]) +
+      // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/5344
+      permissionsTemplates.user("aswinkr77@gmail.com", ["Agent/Connect", "Agent/Disconnect", "Agent/Configure", "Agent/Build", "Job/Create", "Job/Configure", "Job/Build", "Job/Cancel", "Overall/SystemRead"])
     ,
     plugins+: [
       "docker-plugin",
