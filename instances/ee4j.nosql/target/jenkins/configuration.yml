@@ -117,6 +117,8 @@ jenkins:
         containerCapStr: "2"
         jenkinsUrl: "http://jenkins-ui.nosql.svc.cluster.local/nosql"
         jenkinsTunnel: "jenkins-discovery.nosql.svc.cluster.local:50000"
+        garbageCollection:
+          timeout: 300
         maxRequestsPerHostStr: "32"
         namespace: "nosql"
         podRetention: "never"
