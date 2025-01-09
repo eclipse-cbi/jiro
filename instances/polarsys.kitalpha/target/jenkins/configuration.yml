@@ -73,6 +73,8 @@ jenkins:
         containerCapStr: "2"
         jenkinsUrl: "http://jenkins-ui.kitalpha.svc.cluster.local/kitalpha"
         jenkinsTunnel: "jenkins-discovery.kitalpha.svc.cluster.local:50000"
+        garbageCollection:
+          timeout: 300
         maxRequestsPerHostStr: "32"
         namespace: "kitalpha"
         podRetention: "never"

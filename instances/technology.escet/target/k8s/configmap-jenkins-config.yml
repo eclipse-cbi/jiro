@@ -96,6 +96,8 @@ data:
             containerCapStr: "4"
             jenkinsUrl: "http://jenkins-ui.escet.svc.cluster.local/escet"
             jenkinsTunnel: "jenkins-discovery.escet.svc.cluster.local:50000"
+            garbageCollection:
+              timeout: 300
             maxRequestsPerHostStr: "32"
             namespace: "escet"
             podRetention: "never"
