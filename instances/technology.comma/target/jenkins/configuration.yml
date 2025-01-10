@@ -73,6 +73,8 @@ jenkins:
         containerCapStr: "2"
         jenkinsUrl: "http://jenkins-ui.comma.svc.cluster.local/comma"
         jenkinsTunnel: "jenkins-discovery.comma.svc.cluster.local:50000"
+        garbageCollection:
+          timeout: 300
         maxRequestsPerHostStr: "32"
         namespace: "comma"
         podRetention: "never"
@@ -537,6 +539,8 @@ tool:
         home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
       - name: "temurin-latest"
         home: "/opt/tools/java/temurin/latest"
+      - name: "temurin-jdk23-latest"
+        home: "/opt/tools/java/temurin/jdk-23/latest"
       - name: "temurin-jdk22-latest"
         home: "/opt/tools/java/temurin/jdk-22/latest"
       - name: "temurin-jdk21-latest"

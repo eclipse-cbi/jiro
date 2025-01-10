@@ -420,8 +420,8 @@
       "id": "2.479.2",
       "key_fingerprint": "5BA31D57EF5975CA",
       "plugin_manager": {
-         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.13.0/jenkins-plugin-manager-2.13.0.jar",
-         "version": "2.13.0"
+         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.13.2/jenkins-plugin-manager-2.13.2.jar",
+         "version": "2.13.2"
       },
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
@@ -603,6 +603,7 @@
       },
       "generate": false
    },
+   "seLinuxLevel": "s0:c56,c0",
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-default": {

@@ -13,4 +13,5 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "mail-watcher-plugin",
     ],
   },
+  seLinuxLevel: "s0:c45,c25",
 }
