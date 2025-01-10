@@ -214,6 +214,7 @@ help() {
   printf "npmjs\t\t\tCreate npmjs credentials (secret text/token).\n"
   printf "pypi\t\t\tCreate pypi credentials (secret text/token).\n"
   printf "matrix\t\t\tCreate matrix credentials (secret text/token).\n"
+  printf "develocity\t\t\tCreate develocity credentials (secret text/token).\n"
   exit 0
 }
 
@@ -268,6 +269,12 @@ auto() {
   echo "Checking for matrix.eclipse.org API token..."
   if passw cbi "bots/${project_name}/matrix.eclipse.org/token" 2&> /dev/null; then
     matrix "${project_name}"
+  else
+    echo "  No API token found."
+  fi
+  echo "Checking for develocity.eclipse.org API token..."
+  if passw cbi "bots/${project_name}/develocity.eclipse.org/api-token" 2&> /dev/null; then
+    develocity "${project_name}"
   else
     echo "  No API token found."
   fi
@@ -397,6 +404,17 @@ matrix() {
   token="$(passw cbi "bots/${project_name}/matrix.eclipse.org/token")"
 
   _create_string_credentials "${project_name}" "matrix-token" "matrix.eclipse.org token" "${token}"
+}
+
+develocity() {
+  local project_name="${1:-}"
+
+  _verify_inputs "${project_name}"
+
+  local token
+  token="$(passw cbi "bots/${project_name}/develocity.eclipse.org/api-token")"
+
+  _create_string_credentials "${project_name}" "develocity-token" "develocity.eclipse.org token" "${token}"
 }
 
 _default_usage() {
