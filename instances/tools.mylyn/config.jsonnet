@@ -9,6 +9,9 @@
       "warnings-ng",
     ]
   },
+  develocity+: {
+    generate: true,
+  },
   maven+: {
     local superSettings = super.files["settings.xml"],
     files+: {
