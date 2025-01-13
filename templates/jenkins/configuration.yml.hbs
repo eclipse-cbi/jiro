@@ -255,6 +255,14 @@ unclassified:
     showChangeReasonCommentWindow: false
     skipDuplicateHistory: true
 
+  hashicorpVault:
+    configuration:
+      disableChildPoliciesOverride: false
+      engineVersion: 2
+      timeout: 60
+      vaultCredentialId: "secretsmanager-approle"
+      vaultUrl: "https://secretsmanager.eclipse.org"
+
 tool:
   {{> tools-jdk }}
   {{> tools-ant }}
