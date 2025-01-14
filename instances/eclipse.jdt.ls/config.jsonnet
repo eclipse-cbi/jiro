@@ -11,6 +11,8 @@
       "envinject",
       "issue-link",
       "mattermost",
+      "github-checks",
+      "git-forensics",
     ],
   },
   seLinuxLevel: "s0:c46,c45",
