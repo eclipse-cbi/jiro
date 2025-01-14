@@ -39,4 +39,5 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   secrets+: {
     "gerrit-trigger-plugin": {},
   },
+  seLinuxLevel: "s0:c28,c2",
 }

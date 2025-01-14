@@ -44,4 +44,5 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       namespace: "foundation-internal-infra"
     }
   },
+  seLinuxLevel: "s0:c27,c24",
 }

@@ -131,6 +131,8 @@ data:
             containerCapStr: "6"
             jenkinsUrl: "http://jenkins-ui.foundation-internal-infra.svc.cluster.local/ci/infra"
             jenkinsTunnel: "jenkins-discovery.foundation-internal-infra.svc.cluster.local:50000"
+            garbageCollection:
+              timeout: 300
             maxRequestsPerHostStr: "32"
             namespace: "foundation-internal-infra"
             podRetention: "never"
@@ -655,6 +657,8 @@ data:
             home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
           - name: "temurin-latest"
             home: "/opt/tools/java/temurin/latest"
+          - name: "temurin-jdk23-latest"
+            home: "/opt/tools/java/temurin/jdk-23/latest"
           - name: "temurin-jdk22-latest"
             home: "/opt/tools/java/temurin/jdk-22/latest"
           - name: "temurin-jdk21-latest"

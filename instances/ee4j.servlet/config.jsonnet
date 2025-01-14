@@ -8,4 +8,5 @@
       "dashboard-view",
     ],
   },
+  seLinuxLevel: "s0:c53,c12",
 }
