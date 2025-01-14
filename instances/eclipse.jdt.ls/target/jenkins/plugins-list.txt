@@ -2,5 +2,7 @@
 build-timestamp
 copyartifact
 envinject
+git-forensics
+github-checks
 issue-link
 mattermost

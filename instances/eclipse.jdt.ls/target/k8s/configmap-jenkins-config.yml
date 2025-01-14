@@ -96,6 +96,8 @@ data:
             containerCapStr: "6"
             jenkinsUrl: "http://jenkins-ui.ls.svc.cluster.local/ls"
             jenkinsTunnel: "jenkins-discovery.ls.svc.cluster.local:50000"
+            garbageCollection:
+              timeout: 300
             maxRequestsPerHostStr: "32"
             namespace: "ls"
             podRetention: "never"
@@ -460,6 +462,13 @@ data:
         showBuildBadges: "never"
         showChangeReasonCommentWindow: false
         skipDuplicateHistory: true
+      hashicorpVault:
+        configuration:
+          disableChildPoliciesOverride: false
+          engineVersion: 2
+          timeout: 60
+          vaultCredentialId: "secretsmanager-approle"
+          vaultUrl: "https://secretsmanager.eclipse.org"
     tool:
       jdk:
         installations:
@@ -545,6 +554,8 @@ data:
             home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
           - name: "temurin-latest"
             home: "/opt/tools/java/temurin/latest"
+          - name: "temurin-jdk23-latest"
+            home: "/opt/tools/java/temurin/jdk-23/latest"
           - name: "temurin-jdk22-latest"
             home: "/opt/tools/java/temurin/jdk-22/latest"
           - name: "temurin-jdk21-latest"
