@@ -12,4 +12,5 @@
       "pipeline-github",
     ],
   },
+  seLinuxLevel: "s0:c32,c4",
 }

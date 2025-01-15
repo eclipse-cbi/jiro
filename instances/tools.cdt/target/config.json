@@ -608,6 +608,7 @@
       },
       "generate": false
    },
+   "seLinuxLevel": "s0:c32,c4",
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-cdt": {
