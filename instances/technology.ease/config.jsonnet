@@ -14,4 +14,5 @@
       "view-job-filters",
     ],
   },
+  seLinuxLevel: "s0:c35,c15",
 }
