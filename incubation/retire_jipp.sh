@@ -190,3 +190,4 @@ echo
 echo "TODO:"
 echo "- commit and push changes to jiro repo"
 echo "- comment on issue"
+echo "- update ci.eclipse.org dashboard"
