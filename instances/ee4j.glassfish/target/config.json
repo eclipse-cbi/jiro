@@ -322,6 +322,9 @@
       "uiPort": 8080,
       "url": "https://ci.eclipse.org/glassfish"
    },
+   "develocity": {
+      "generate": true
+   },
    "docker": {
       "master": {
          "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.479.2\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver-light.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
@@ -403,7 +406,8 @@
       "plugins": [
          "jacoco",
          "copyartifact",
-         "view-job-filters"
+         "view-job-filters",
+         "gradle"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
@@ -424,8 +428,8 @@
       "id": "2.479.2",
       "key_fingerprint": "5BA31D57EF5975CA",
       "plugin_manager": {
-         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.13.0/jenkins-plugin-manager-2.13.0.jar",
-         "version": "2.13.0"
+         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.13.2/jenkins-plugin-manager-2.13.2.jar",
+         "version": "2.13.2"
       },
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
