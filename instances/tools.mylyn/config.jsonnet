@@ -7,6 +7,7 @@
     plugins+: [
       "xunit",
       "warnings-ng",
+      "gradle"
     ]
   },
   develocity+: {

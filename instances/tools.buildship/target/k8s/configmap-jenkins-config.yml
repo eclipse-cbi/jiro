@@ -151,6 +151,9 @@ data:
                   - emptyDirVolume:
                       memory: false
                       mountPath: "/home/jenkins/.m2/wrapper"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/.develocity"
                 workspaceVolume:
                   emptyDirWorkspaceVolume:
                     memory: false
@@ -242,6 +245,9 @@ data:
                   - emptyDirVolume:
                       memory: false
                       mountPath: "/home/jenkins/.m2/wrapper"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/.develocity"
                 workspaceVolume:
                   emptyDirWorkspaceVolume:
                     memory: false
@@ -333,6 +339,9 @@ data:
                   - emptyDirVolume:
                       memory: false
                       mountPath: "/home/jenkins/.m2/wrapper"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/.develocity"
                 workspaceVolume:
                   emptyDirWorkspaceVolume:
                     memory: false

@@ -9,5 +9,8 @@
       "gradle",
     ],
   },
+  develocity+: {
+    generate: true,
+  },
   seLinuxLevel: "s0:c64,c39",
 }

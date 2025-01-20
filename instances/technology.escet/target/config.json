@@ -403,7 +403,9 @@
             }
          }
       ],
-      "plugins": [ ],
+      "plugins": [
+         "gradle"
+      ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",

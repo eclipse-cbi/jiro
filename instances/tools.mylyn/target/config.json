@@ -417,7 +417,8 @@
       ],
       "plugins": [
          "xunit",
-         "warnings-ng"
+         "warnings-ng",
+         "gradle"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
