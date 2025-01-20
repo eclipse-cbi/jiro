@@ -4,6 +4,11 @@
     displayName: "Eclipse ESCET",
     resourcePacks: 2,
   },
+  jenkins+: {
+    plugins+: [
+      "gradle",
+    ],
+  },
   develocity+: {
     generate: true,
   },

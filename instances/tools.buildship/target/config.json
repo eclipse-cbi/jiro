@@ -322,6 +322,9 @@
       "uiPort": 8080,
       "url": "https://ci.eclipse.org/buildship"
    },
+   "develocity": {
+      "generate": true
+   },
    "docker": {
       "master": {
          "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.479.2\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
@@ -400,7 +403,10 @@
             }
          }
       ],
-      "plugins": [ ],
+      "plugins": [
+         "envinject",
+         "gradle"
+      ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",
@@ -603,6 +609,7 @@
       },
       "generate": false
    },
+   "seLinuxLevel": "s0:c64,c39",
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-buildship": {
