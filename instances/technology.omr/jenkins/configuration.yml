@@ -313,7 +313,7 @@ jenkins:
           host: "148.100.36.158"
           port: "22"
           credentialsId: "omr-agents-ssh-zos"
-          javaPath: "/u/user1/jdk-11.0.16+8/bin/java"
+          javaPath: "/u/user1/jdk17/bin/java"
           jvmOptions: "-Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.user.passphrase.file.encoding=IBM-1047 -Dfile.encoding=ISO8859_1 -Djava.io.tmpdir=/u/user1/tmp"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
@@ -360,7 +360,7 @@ jenkins:
           host: "148.100.36.159"
           port: "22"
           credentialsId: "omr-agents-ssh-zos"
-          javaPath: "/u/user1/jdk-11.0.16+8/bin/java"
+          javaPath: "/u/user1/jdk17/bin/java"
           jvmOptions: "-Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.user.passphrase.file.encoding=IBM-1047 -Dfile.encoding=ISO8859_1 -Djava.io.tmpdir=/u/user1/tmp"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
