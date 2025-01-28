@@ -724,7 +724,7 @@ jenkins:
             host: "148.100.36.158"
             port: "22"
             credentialsId: "omr-agents-ssh-zos"
-            javaPath: "/u/user1/jdk-11.0.16+8/bin/java"
+            javaPath: "/u/user1/jdk17/bin/java"
             jvmOptions: "-Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.user.passphrase.file.encoding=IBM-1047 -Dfile.encoding=ISO8859_1 -Djava.io.tmpdir=/u/user1/tmp"
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
@@ -771,7 +771,7 @@ jenkins:
             host: "148.100.36.159"
             port: "22"
             credentialsId: "omr-agents-ssh-zos"
-            javaPath: "/u/user1/jdk-11.0.16+8/bin/java"
+            javaPath: "/u/user1/jdk17/bin/java"
             jvmOptions: "-Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.user.passphrase.file.encoding=IBM-1047 -Dfile.encoding=ISO8859_1 -Djava.io.tmpdir=/u/user1/tmp"
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
@@ -962,6 +962,13 @@ unclassified:
     showBuildBadges: "never"
     showChangeReasonCommentWindow: false
     skipDuplicateHistory: true
+  hashicorpVault:
+    configuration:
+      disableChildPoliciesOverride: false
+      engineVersion: 2
+      timeout: 60
+      vaultCredentialId: "secretsmanager-approle"
+      vaultUrl: "https://secretsmanager.eclipse.org"
 tool:
   jdk:
     installations:
@@ -1047,6 +1054,8 @@ tool:
         home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
       - name: "temurin-latest"
         home: "/opt/tools/java/temurin/latest"
+      - name: "temurin-jdk23-latest"
+        home: "/opt/tools/java/temurin/jdk-23/latest"
       - name: "temurin-jdk22-latest"
         home: "/opt/tools/java/temurin/jdk-22/latest"
       - name: "temurin-jdk21-latest"
