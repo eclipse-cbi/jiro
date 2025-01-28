@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.swtimagej",
+         "org.eclipse.cbi.jiro/project.shortname": "swtimagej"
+      },
+      "name": "swtimagej",
+      "namespace": "swtimagej"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "swtimagej"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "swtimagej",
+         "namespace": "swtimagej"
+      }
+   ]
+}
