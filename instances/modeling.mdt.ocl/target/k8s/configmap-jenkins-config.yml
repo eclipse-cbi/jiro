@@ -96,6 +96,8 @@ data:
             containerCapStr: "2"
             jenkinsUrl: "http://jenkins-ui.ocl.svc.cluster.local/ocl"
             jenkinsTunnel: "jenkins-discovery.ocl.svc.cluster.local:50000"
+            garbageCollection:
+              timeout: 300
             maxRequestsPerHostStr: "32"
             namespace: "ocl"
             podRetention: "never"
@@ -373,6 +375,13 @@ data:
                         name: m2-dir
                 inheritYamlMergeStrategy: "true"
                 yamlMergeStrategy: "merge"
+      globalNodeProperties:
+        - envVars:
+            env:
+              - key: "LIBGL_ALWAYS_SOFTWARE"
+                value: "1"
+              - key: "NO_AT_BRIDGE"
+                value: "1"
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
@@ -460,6 +469,13 @@ data:
         showBuildBadges: "never"
         showChangeReasonCommentWindow: false
         skipDuplicateHistory: true
+      hashicorpVault:
+        configuration:
+          disableChildPoliciesOverride: false
+          engineVersion: 2
+          timeout: 60
+          vaultCredentialId: "secretsmanager-approle"
+          vaultUrl: "https://secretsmanager.eclipse.org"
     tool:
       jdk:
         installations:
@@ -545,6 +561,8 @@ data:
             home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
           - name: "temurin-latest"
             home: "/opt/tools/java/temurin/latest"
+          - name: "temurin-jdk23-latest"
+            home: "/opt/tools/java/temurin/jdk-23/latest"
           - name: "temurin-jdk22-latest"
             home: "/opt/tools/java/temurin/jdk-22/latest"
           - name: "temurin-jdk21-latest"

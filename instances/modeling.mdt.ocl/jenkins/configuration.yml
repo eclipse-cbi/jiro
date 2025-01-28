@@ -1,0 +1,8 @@
+jenkins:
+  globalNodeProperties:
+    - envVars:
+        env:
+        - key: "LIBGL_ALWAYS_SOFTWARE"
+          value: "1"
+        - key: "NO_AT_BRIDGE"
+          value: "1"
