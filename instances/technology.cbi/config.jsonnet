@@ -5,7 +5,7 @@
     resourcePacks: 5,
   },
   jenkins+: {
-    version: "2.479.2",
+    version: "2.492.1",
     staticAgentCount: 3,
     plugins+: [
       "basic-branch-build-strategies",
