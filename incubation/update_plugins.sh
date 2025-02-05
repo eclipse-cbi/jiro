@@ -34,7 +34,9 @@ runningBuilds() {
   jenkins_user="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "get_var" "user" "jenkins_login")"
   local jenkins_pw
   jenkins_pw="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "get_var" "pw" "jenkins_login")"
-  curl --retry 10 -gSs --user "${jenkins_user}:${jenkins_pw}" "${url}"'/computer/api/json?depth=2&tree=computer[displayName,executors[currentExecutable[*]],oneOffExecutors[currentExecutable[*]]]' | jq -c '.computer | map({name: .displayName?, executors: (.executors? + .oneOffExecutors?) | map(select(.currentExecutable != null)) | map(.currentExecutable | {name: .fullDisplayName, url: .url}) })'
+  local numberOfRunningBuilds
+  numberOfRunningBuilds="$(curl --retry 10 -gSs --user "${jenkins_user}:${jenkins_pw}" "${url}"'/computer/api/json' | jq -c '.busyExecutors')"
+  echo "${numberOfRunningBuilds}"
 }
 
 no_of_processes=2
@@ -45,8 +47,7 @@ for instance in "${@}"; do
 
   url="$(jq -r '.deployment.url' "${instance}/target/config.json")"
 
-  builds=$(runningBuilds "${url}")
-  buildsCount=$(echo "${builds}" | jq -r 'map(.executors[]) | length')
+  buildsCount=$(runningBuilds "${url}")
   if [[ "${buildsCount}" -gt 0 ]]; then
     echo "There are still ${buildsCount} builds running!"
     echo "${project_name}" >> "${STILL_RUNNING_QUEUE}"
