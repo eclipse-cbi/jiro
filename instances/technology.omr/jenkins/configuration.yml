@@ -439,6 +439,84 @@ jenkins:
           - home: '/u/user1/jenkins-zos/git'
             key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
   - permanent:
+      name: "ZISVJD30"
+      nodeDescription: "zOS node"
+      labelString: "zOS 390 compile:zos"
+      remoteFS: '/u/user1/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "148.100.36.166"
+          port: "65522"
+          credentialsId: "omr-agents-ssh-zos"
+          javaPath: "/u/user1/jdk17/bin/java"
+          jvmOptions: "-Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.user.passphrase.file.encoding=IBM-1047 -Dfile.encoding=ISO8859_1 -Djava.io.tmpdir=/u/user1/tmp"
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKjFm85L8GcY34Rr+8FBIP7TOf7ji9In3bSPC3E0AOzo"
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "_BPXK_AUTOCVT"
+            value: 'ON'
+          - key: "_C89_CCMODE"
+            value: '1'
+          - key: "_CC_CCMODE"
+            value: '1'
+          - key: "_CEE_RUNOPTS"
+            value: 'FILETAG(AUTOCVT,AUTOTAG) POSIX(ON)'
+          - key: "_CXX_CCMODE"
+            value: '1'
+          - key: "_TAG_REDIR_ERR"
+            value: 'txt'
+          - key: "_TAG_REDIR_OUT"
+            value: 'txt'
+          - key: "PATH"
+            value: '/u/user1/jenkins-zos:$PATH'
+          - key: "PERL5LIB"
+            value: '/u/user1/zopen/usr/local/lib'
+  - permanent:
+      name: "ZISVJD39"
+      nodeDescription: "zOS node"
+      labelString: "zOS 390 compile:zos"
+      remoteFS: '/u/user1/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "148.100.36.167"
+          port: "65522"
+          credentialsId: "omr-agents-ssh-zos"
+          javaPath: "/u/user1/jdk17/bin/java"
+          jvmOptions: "-Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.user.passphrase.file.encoding=IBM-1047 -Dfile.encoding=ISO8859_1 -Djava.io.tmpdir=/u/user1/tmp"
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOgqfKb6DJ6Gn+CVtwtVebwVxezf7MYB87ZPV8yWy6vX"
+      nodeProperties:
+      - envVars:
+          env:
+          - key: "_BPXK_AUTOCVT"
+            value: 'ON'
+          - key: "_C89_CCMODE"
+            value: '1'
+          - key: "_CC_CCMODE"
+            value: '1'
+          - key: "_CEE_RUNOPTS"
+            value: 'FILETAG(AUTOCVT,AUTOTAG) POSIX(ON)'
+          - key: "_CXX_CCMODE"
+            value: '1'
+          - key: "_TAG_REDIR_ERR"
+            value: 'txt'
+          - key: "_TAG_REDIR_OUT"
+            value: 'txt'
+          - key: "PATH"
+            value: '/u/user1/jenkins-zos:$PATH'
+          - key: "PERL5LIB"
+            value: '/u/user1/zopen/usr/local/lib'
+  - permanent:
       name: "p8-java1-ibm11"
       nodeDescription: "AIX 7.2"
       labelString: "aix ppc compile:aix shared"
