@@ -1,6 +1,7 @@
 # GENERATED FILE - DO NOT EDIT
 disable-failed-job
 docker-workflow
+gradle
 hashicorp-vault-plugin
 kubernetes-cli
 mail-watcher-plugin
