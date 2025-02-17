@@ -22,6 +22,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     plugins+: [
       "disable-failed-job",
       "docker-workflow",
+      "gradle",
       "hashicorp-vault-plugin",
       "kubernetes-cli",
       "mail-watcher-plugin",
@@ -35,6 +36,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     master+: {
       namespace: "foundation-internal-webdev"
     }
+  },
+  develocity+: {
+    generate: true,
   },
   secrets+: {
     "gerrit-trigger-plugin": {},

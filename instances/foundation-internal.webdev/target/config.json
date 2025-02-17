@@ -19,7 +19,9 @@
             "basic": {
                "agentWorkdir": "/home/jenkins/jenkins-agent",
                "docker": {
-                  "aliases": [ ],
+                  "aliases": [
+                     "docker.io/eclipsecbi/jiro-agent-basic-ubuntu:latest"
+                  ],
                   "context": "basic",
                   "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM docker.io/eclipsecbi/jiro-agent-basic-ubuntu:spec\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/home/jenkins\"\n\nVOLUME [ \"/home/jenkins\" ]\nWORKDIR \"/home/jenkins\"\nENTRYPOINT [ \"/usr/local/bin/jenkins-agent\" ]\n\nADD \"https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/3261.v9c670a_4748a_9/remoting-3261.v9c670a_4748a_9.jar\" \"/usr/share/jenkins/agent.jar\"\nADD \"https://github.com/jenkinsci/docker-agent/raw/3261.v9c670a_4748a_9-8/jenkins-agent\" \"/usr/local/bin/jenkins-agent\"\n\nRUN sed -e 's/JAVA_OPTS/JAVA_OPTS \\$JENKINS_REMOTING_JAVA_OPTS/g' /usr/local/bin/jenkins-agent > /usr/local/bin/jenkins-agent.sed \\\n    && mv /usr/local/bin/jenkins-agent.sed /usr/local/bin/jenkins-agent\n\nRUN chmod 755 \"$(dirname \"/usr/share/jenkins/agent.jar\")\" \\\n  && chmod 644 \"/usr/share/jenkins/agent.jar\" \\\n  && chmod ug+rx \"/usr/local/bin/jenkins-agent\" \\\n  && chgrp 0 \"/usr/local/bin/jenkins-agent\"\n\nRUN ln -sf /bin/bash /bin/sh\n\nUSER 10001:0\n\n",
                   "image": "jiro-agent-basic-ubuntu",
@@ -115,7 +117,9 @@
             "ubuntu-2204": {
                "agentWorkdir": "/home/jenkins/jenkins-agent",
                "docker": {
-                  "aliases": [ ],
+                  "aliases": [
+                     "docker.io/eclipsecbi/jiro-agent-ubuntu-2204:latest"
+                  ],
                   "build_args": "['FROM_TAG': '22.04']",
                   "context": "ubuntu",
                   "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM docker.io/eclipsecbi/jiro-agent-ubuntu-2204:spec\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/home/jenkins\"\n\nVOLUME [ \"/home/jenkins\" ]\nWORKDIR \"/home/jenkins\"\nENTRYPOINT [ \"/usr/local/bin/jenkins-agent\" ]\n\nADD \"https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/3261.v9c670a_4748a_9/remoting-3261.v9c670a_4748a_9.jar\" \"/usr/share/jenkins/agent.jar\"\nADD \"https://github.com/jenkinsci/docker-agent/raw/3261.v9c670a_4748a_9-8/jenkins-agent\" \"/usr/local/bin/jenkins-agent\"\n\nRUN sed -e 's/JAVA_OPTS/JAVA_OPTS \\$JENKINS_REMOTING_JAVA_OPTS/g' /usr/local/bin/jenkins-agent > /usr/local/bin/jenkins-agent.sed \\\n    && mv /usr/local/bin/jenkins-agent.sed /usr/local/bin/jenkins-agent\n\nRUN chmod 755 \"$(dirname \"/usr/share/jenkins/agent.jar\")\" \\\n  && chmod 644 \"/usr/share/jenkins/agent.jar\" \\\n  && chmod ug+rx \"/usr/local/bin/jenkins-agent\" \\\n  && chgrp 0 \"/usr/local/bin/jenkins-agent\"\n\nRUN ln -sf /bin/bash /bin/sh\n\nUSER 10001:0\n\n",
@@ -211,7 +215,9 @@
             "ubuntu-2404": {
                "agentWorkdir": "/home/jenkins/jenkins-agent",
                "docker": {
-                  "aliases": [ ],
+                  "aliases": [
+                     "docker.io/eclipsecbi/jiro-agent-ubuntu-2404:latest"
+                  ],
                   "build_args": "['FROM_TAG': '24.04']",
                   "context": "ubuntu",
                   "dockerfile": "#*******************************************************************************\n# Copyright (c) 2020 Eclipse Foundation and others.\n# This program and the accompanying materials are made available\n# under the terms of the Eclipse Public License 2.0\n# which is available at http://www.eclipse.org/legal/epl-v20.html,\n# or the MIT License which is available at https://opensource.org/licenses/MIT.\n# SPDX-License-Identifier: EPL-2.0 OR MIT\n#*******************************************************************************\nFROM docker.io/eclipsecbi/jiro-agent-ubuntu-2404:spec\n\n# These environment variables will be used in the uid_entrypoint script from the parent image\nENV USER_NAME=\"jenkins\"\nENV HOME=\"/home/jenkins\"\n\nVOLUME [ \"/home/jenkins\" ]\nWORKDIR \"/home/jenkins\"\nENTRYPOINT [ \"/usr/local/bin/jenkins-agent\" ]\n\nADD \"https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/3261.v9c670a_4748a_9/remoting-3261.v9c670a_4748a_9.jar\" \"/usr/share/jenkins/agent.jar\"\nADD \"https://github.com/jenkinsci/docker-agent/raw/3261.v9c670a_4748a_9-8/jenkins-agent\" \"/usr/local/bin/jenkins-agent\"\n\nRUN sed -e 's/JAVA_OPTS/JAVA_OPTS \\$JENKINS_REMOTING_JAVA_OPTS/g' /usr/local/bin/jenkins-agent > /usr/local/bin/jenkins-agent.sed \\\n    && mv /usr/local/bin/jenkins-agent.sed /usr/local/bin/jenkins-agent\n\nRUN chmod 755 \"$(dirname \"/usr/share/jenkins/agent.jar\")\" \\\n  && chmod 644 \"/usr/share/jenkins/agent.jar\" \\\n  && chmod ug+rx \"/usr/local/bin/jenkins-agent\" \\\n  && chgrp 0 \"/usr/local/bin/jenkins-agent\"\n\nRUN ln -sf /bin/bash /bin/sh\n\nUSER 10001:0\n\n",
@@ -322,6 +328,9 @@
       "uiPort": 8080,
       "url": "https://foundation.eclipse.org/ci/webdev"
    },
+   "develocity": {
+      "generate": true
+   },
    "docker": {
       "master": {
          "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.479.2\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
@@ -429,6 +438,7 @@
       "plugins": [
          "disable-failed-job",
          "docker-workflow",
+         "gradle",
          "hashicorp-vault-plugin",
          "kubernetes-cli",
          "mail-watcher-plugin",
