@@ -30,4 +30,5 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "gradle",
     ],
   },
+  seLinuxLevel: "s0:c49,c39",
 }
