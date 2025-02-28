@@ -10,7 +10,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     staticAgentCount: 26,
     permissions:
       permissionsTemplates.group("admins", ["Overall/Administer"]) +
-      permissionsTemplates.group($.project.unixGroupName, permissionsTemplates.committerPermissionsList + ["Agent/Connect", "Agent/Disconnect", "Agent/ExtendedRead"])
+      permissionsTemplates.group($.project.unixGroupName, permissionsTemplates.committerPermissionsList + ["Agent/Connect", "Agent/Disconnect", "Agent/ExtendedRead"]) +
+      // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/1673
+      permissionsTemplates.user("tc-trigger-bot@eclipse.org", ["Overall/Read", "Job/Read", "Job/Build", "Agent/Build"])
     ,
     plugins+: [
       "artifactory",
