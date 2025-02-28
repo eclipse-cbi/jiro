@@ -2,6 +2,7 @@ html, body {
   background-color: #404040;
   color: #fff;
   font-family: sans-serif;
+  height: 100vh;
 }
 
 h1 {
@@ -14,4 +15,6 @@ h1, h3, p, .btn {
 
 .btn {
   font-size: 80%;
+  font-family: sans-serif;
+  font-weight: bold;
 }

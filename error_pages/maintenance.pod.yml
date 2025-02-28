@@ -26,7 +26,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: nginx
-        image: eclipsecbijenkins/maintenance_page:latest
+        image: eclipsecbi/maintenance-curtain:latest
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
