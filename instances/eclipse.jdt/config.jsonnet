@@ -11,4 +11,5 @@
       "git-forensics",
     ],
   },
+  seLinuxLevel: "s0:c43,c37",
 }
