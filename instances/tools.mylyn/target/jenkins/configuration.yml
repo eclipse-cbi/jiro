@@ -13,9 +13,6 @@ jenkins:
   mode: EXCLUSIVE
   systemMessage: ""
   disableRememberMe: false
-  agentProtocols:
-    - "JNLP4-connect"
-    - "Ping"
   authorizationStrategy:
     projectMatrix:
       entries:
@@ -84,7 +81,7 @@ jenkins:
             label: "basic basic-ubuntu"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3261.v9c670a_4748a_9
+                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3283.v92c105e0f819
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -182,7 +179,7 @@ jenkins:
             label: "ubuntu-2204"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3261.v9c670a_4748a_9
+                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3283.v92c105e0f819
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -280,7 +277,7 @@ jenkins:
             label: "ubuntu-latest ubuntu-2404 migration jipp-migration centos-7 centos-8 centos-latest"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3261.v9c670a_4748a_9
+                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3283.v92c105e0f819
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0

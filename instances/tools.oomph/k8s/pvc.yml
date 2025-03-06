@@ -1,0 +1,47 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: oomph-data
+  namespace: oomph
+spec:
+  capacity:
+     storage: 300Gi
+  accessModes:
+    - ReadWriteMany
+  claimRef:
+    namespace: oomph
+    name: oomph-data
+  nfs:
+    path: /home/data/httpd/download.eclipse.org/oomph
+    server: nfsmaster
+  mountOptions:
+    - vers=4.2
+    - rw
+    - proto=tcp
+    - rsize=32768
+    - wsize=32768
+    - timeo=600
+    - fg
+    - hard
+    - retrans=10
+    - intr
+    - relatime
+    - nodiratime
+    - async
+  persistentVolumeReclaimPolicy: Retain
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: oomph-data
+  namespace: oomph
+spec:
+  accessModes:
+    - ReadWriteMany
+  selector: 
+    matchLabels:
+      path: oomph-data
+  resources:
+    requests:
+      storage: 300Gi

@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.479.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.492.2"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "emf-parsley"
   namespace: "emf-parsley"
   name: jenkins-config
@@ -36,9 +36,6 @@ data:
       mode: EXCLUSIVE
       systemMessage: ""
       disableRememberMe: false
-      agentProtocols:
-        - "JNLP4-connect"
-        - "Ping"
       authorizationStrategy:
         projectMatrix:
           entries:
@@ -96,6 +93,8 @@ data:
             containerCapStr: "2"
             jenkinsUrl: "http://jenkins-ui.emf-parsley.svc.cluster.local/emf-parsley"
             jenkinsTunnel: "jenkins-discovery.emf-parsley.svc.cluster.local:50000"
+            garbageCollection:
+              timeout: 300
             maxRequestsPerHostStr: "32"
             namespace: "emf-parsley"
             podRetention: "never"
@@ -105,7 +104,7 @@ data:
                 label: "basic basic-ubuntu"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3261.v9c670a_4748a_9
+                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3283.v92c105e0f819
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -196,7 +195,7 @@ data:
                 label: "ubuntu-2204"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3261.v9c670a_4748a_9
+                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3283.v92c105e0f819
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -287,7 +286,7 @@ data:
                 label: "ubuntu-latest ubuntu-2404 migration jipp-migration centos-7 centos-8 centos-latest"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3261.v9c670a_4748a_9
+                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3283.v92c105e0f819
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -488,6 +487,13 @@ data:
         showBuildBadges: "never"
         showChangeReasonCommentWindow: false
         skipDuplicateHistory: true
+      hashicorpVault:
+        configuration:
+          disableChildPoliciesOverride: false
+          engineVersion: 2
+          timeout: 60
+          vaultCredentialId: "secretsmanager-approle"
+          vaultUrl: "https://secretsmanager.eclipse.org"
     tool:
       jdk:
         installations:
@@ -573,6 +579,8 @@ data:
             home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
           - name: "temurin-latest"
             home: "/opt/tools/java/temurin/latest"
+          - name: "temurin-jdk23-latest"
+            home: "/opt/tools/java/temurin/jdk-23/latest"
           - name: "temurin-jdk22-latest"
             home: "/opt/tools/java/temurin/jdk-22/latest"
           - name: "temurin-jdk21-latest"
