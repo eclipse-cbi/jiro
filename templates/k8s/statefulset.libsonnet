@@ -154,7 +154,6 @@ local Kube = import "kube.libsonnet";
                     "-Djenkins.model.Jenkins.exitCodeOnRestart=0",
                     "-Djenkins.model.Jenkins.slaveAgentPort=" + config.deployment.jnlpPort,
                     "-Djenkins.model.Jenkins.slaveAgentPortEnforce=true",
-                    "-Djenkins.slaves.JnlpSlaveAgentProtocol3.enabled=false",
                     "-Djenkins.install.runSetupWizard=false",
 
                     # since https://www.jenkins.io/changelog-stable/#v2.222.1
