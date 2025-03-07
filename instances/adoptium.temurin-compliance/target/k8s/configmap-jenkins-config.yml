@@ -36,9 +36,6 @@ data:
       mode: EXCLUSIVE
       systemMessage: ""
       disableRememberMe: false
-      agentProtocols:
-        - "JNLP4-connect"
-        - "Ping"
       authorizationStrategy:
         projectMatrix:
           entries:
@@ -517,7 +514,7 @@ data:
                       value: "/opt/csw/bin/ssh"
         - permanent:
             name: "gn324-macos11-x64"
-            labelString: "ci.role.test hw.arch.x86 sw.os.osx"
+            labelString: "ci.role.test hw.arch.x86 sw.os.osx sw.os.osx.11"
             remoteFS: "/Users/jenkins"
             retentionStrategy: "always"
             launcher:
@@ -535,7 +532,7 @@ data:
                       value: "/usr/local/bin:/opt/X11/bin"
         - permanent:
             name: "iywk3-macos11-x64"
-            labelString: "ci.role.test hw.arch.x86 sw.os.osx"
+            labelString: "ci.role.test hw.arch.x86 sw.os.osx sw.os.osx.11"
             remoteFS: "/Users/jenkins"
             retentionStrategy: "always"
             launcher:
@@ -553,7 +550,7 @@ data:
                       value: "/usr/local/bin:/opt/X11/bin"
         - permanent:
             name: "esmv4-macos11-arm64"
-            labelString: "ci.role.test hw.arch.aarch64 sw.os.osx"
+            labelString: "ci.role.test hw.arch.aarch64 sw.os.osx sw.os.osx.11"
             remoteFS: "/Users/jenkins"
             retentionStrategy: "always"
             launcher:
@@ -571,7 +568,7 @@ data:
                       value: "/usr/local/bin:/opt/homebrew/bin:/opt/X11/bin"
         - permanent:
             name: "noh7B-macos12-arm64"
-            labelString: "ci.role.test hw.arch.aarch64 sw.os.osx"
+            labelString: "ci.role.test hw.arch.aarch64 sw.os.osx sw.os.osx.12"
             remoteFS: "/Users/jenkins"
             retentionStrategy: "always"
             launcher:
@@ -876,7 +873,7 @@ data:
         - permanent:
             name: "jck-aema7-macos11-x64"
             nodeDescription: "Mac machine hosted on MacStadium"
-            labelString: "sw.os.osx"
+            labelString: "sw.os.osx sw.os.osx.11"
             remoteFS: "/Users/jenkins"
             numExecutors: 1
             mode: EXCLUSIVE
