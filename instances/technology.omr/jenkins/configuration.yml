@@ -68,6 +68,17 @@ jenkins:
         command:
           command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix omr@192.168.10.176 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java  -jar remoting.jar'\""
   - permanent:
+      name: "mac15-aarch64-2"
+      nodeDescription: "Macmini9,1 - 2020<br />Disk Space - 460 GB<br />CPU - 8 (4 performance and 4 efficiency) Cores<br />RAM - 16 GB<br />"
+      labelString: "OSX aarch64 UNB compile:amac"
+      remoteFS: '/Users/omr'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        command:
+          command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix omr@192.168.10.170 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java  -jar remoting.jar'\""
+  - permanent:
       name: "mac10-x64-omr1"
       nodeDescription: "Mac mini"
       labelString: "OSX x86 UNB compile:xosx"
