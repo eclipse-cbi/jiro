@@ -401,7 +401,8 @@
          }
       ],
       "plugins": [
-         "jacoco"
+         "jacoco",
+         "github-scm-trait-notification-context"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
