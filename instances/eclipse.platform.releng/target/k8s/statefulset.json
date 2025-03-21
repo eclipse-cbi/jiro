@@ -119,7 +119,12 @@
                         "cpu": "2950m"
                      }
                   },
-                  "securityContext": { },
+                  "securityContext": {
+                     "seLinuxOptions": {
+                        "level": "s0:c52,c29",
+                        "type": "spc_t"
+                     }
+                  },
                   "volumeMounts": [
                      {
                         "mountPath": "/var/jenkins",
@@ -182,7 +187,7 @@
                ],
                "resources": {
                   "requests": {
-                     "storage": "50Gi"
+                     "storage": "150Gi"
                   }
                }
             }

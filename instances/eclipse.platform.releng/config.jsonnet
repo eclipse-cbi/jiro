@@ -87,5 +87,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
         mirrors: superSettings.mirrors,
       },
     },
-  }
+  },
+  storage: {
+    quota:"150Gi"
+  },
+  seLinuxLevel: "s0:c52,c29",
 }

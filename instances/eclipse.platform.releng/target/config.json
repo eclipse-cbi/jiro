@@ -764,6 +764,7 @@
       },
       "generate": false
    },
+   "seLinuxLevel": "s0:c52,c29",
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-default": {
@@ -801,5 +802,8 @@
             ]
          }
       }
+   },
+   "storage": {
+      "quota": "150Gi"
    }
 }
