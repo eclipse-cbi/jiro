@@ -257,7 +257,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         ssh:
-          host: "172.30.206.101"
+          host: "172.30.206.102"
           port: "2022"
           credentialsId: "jenkins-riscv-ssh"
           prefixStartSlaveCmd: "ulimit -c 0 && "
@@ -265,4 +265,4 @@ jenkins:
           jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK6APwGHe77eUwqB5ZbqnWjzqK+6rV6OtbJvwnqqe7qq"
+              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHbLax/0+MYc9YKExW50sK2ulFdJBme6QqE7y/AcELzI"
