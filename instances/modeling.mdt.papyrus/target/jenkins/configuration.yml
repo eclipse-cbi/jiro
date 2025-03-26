@@ -534,6 +534,35 @@ unclassified:
       timeout: 60
       vaultCredentialId: "secretsmanager-approle"
       vaultUrl: "https://secretsmanager.eclipse.org"
+  prometheusConfiguration:
+    appendParamLabel: false
+    appendStatusLabel: false
+    collectCodeCoverage: false
+    collectDiskUsage: true
+    collectNodeStatus: true
+    collectingMetricsPeriodInSeconds: 120
+    countAbortedBuilds: true
+    countFailedBuilds: true
+    countNotBuiltBuilds: true
+    countSuccessfulBuilds: true
+    countUnstableBuilds: true
+    defaultNamespace: ""
+    disabledMetricConfig:
+      entries:
+        - regexDisabledMetric:
+            regex: "jenkins_builds_last_stage_duration.*"
+        - regexDisabledMetric:
+            regex: "jvm_.*"
+        - regexDisabledMetric:
+            regex: "vm_memory.*"
+        - regexDisabledMetric:
+            regex: "jenkins_builds_discard_active.*"
+    fetchTestResults: true
+    jobAttributeName: "jenkins_job"
+    path: "prometheus"
+    perBuildMetrics: false
+    processingDisabledBuilds: false
+    useAuthenticatedEndpoint: false
   gitLabConnectionConfig:
     connections:
       - apiTokenId: "gitlab-api-token"
@@ -577,6 +606,8 @@ tool:
         home: "/opt/tools/java/openjdk/latest"
       - name: "openjdk-ea-latest"
         home: "/opt/tools/java/openjdk/ea-latest"
+      - name: "openjdk-jdk25-latest"
+        home: "/opt/tools/java/openjdk/jdk-25/latest"
       - name: "openjdk-jdk24-latest"
         home: "/opt/tools/java/openjdk/jdk-24/latest"
       - name: "openjdk-jdk23-latest"

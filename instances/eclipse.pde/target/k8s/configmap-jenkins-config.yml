@@ -557,6 +557,35 @@ data:
           timeout: 60
           vaultCredentialId: "secretsmanager-approle"
           vaultUrl: "https://secretsmanager.eclipse.org"
+      prometheusConfiguration:
+        appendParamLabel: false
+        appendStatusLabel: false
+        collectCodeCoverage: false
+        collectDiskUsage: true
+        collectNodeStatus: true
+        collectingMetricsPeriodInSeconds: 120
+        countAbortedBuilds: true
+        countFailedBuilds: true
+        countNotBuiltBuilds: true
+        countSuccessfulBuilds: true
+        countUnstableBuilds: true
+        defaultNamespace: ""
+        disabledMetricConfig:
+          entries:
+            - regexDisabledMetric:
+                regex: "jenkins_builds_last_stage_duration.*"
+            - regexDisabledMetric:
+                regex: "jvm_.*"
+            - regexDisabledMetric:
+                regex: "vm_memory.*"
+            - regexDisabledMetric:
+                regex: "jenkins_builds_discard_active.*"
+        fetchTestResults: true
+        jobAttributeName: "jenkins_job"
+        path: "prometheus"
+        perBuildMetrics: false
+        processingDisabledBuilds: false
+        useAuthenticatedEndpoint: false
     tool:
       jdk:
         installations:

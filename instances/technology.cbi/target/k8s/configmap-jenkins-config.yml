@@ -561,9 +561,6 @@ data:
           timeout: 60
           vaultCredentialId: "secretsmanager-approle"
           vaultUrl: "https://secretsmanager.eclipse.org"
-      slackNotifier:
-        teamDomain: "eclipsefoundation"
-        tokenCredentialId: "03a52394-e33f-46fc-be2a-222bf8e9a58f"
       prometheusConfiguration:
         appendParamLabel: false
         appendStatusLabel: false
@@ -593,6 +590,9 @@ data:
         perBuildMetrics: false
         processingDisabledBuilds: false
         useAuthenticatedEndpoint: false
+      slackNotifier:
+        teamDomain: "eclipsefoundation"
+        tokenCredentialId: "03a52394-e33f-46fc-be2a-222bf8e9a58f"
     tool:
       jdk:
         installations:
@@ -600,6 +600,8 @@ data:
             home: "/opt/tools/java/openjdk/latest"
           - name: "openjdk-ea-latest"
             home: "/opt/tools/java/openjdk/ea-latest"
+          - name: "openjdk-jdk25-latest"
+            home: "/opt/tools/java/openjdk/jdk-25/latest"
           - name: "openjdk-jdk24-latest"
             home: "/opt/tools/java/openjdk/jdk-24/latest"
           - name: "openjdk-jdk23-latest"
