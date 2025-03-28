@@ -262,5 +262,5 @@ if [[ "$(jq -r '.maven.generate' "${CONFIG}")" == "true" ]]; then
 
   >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating Maven toolchains.xml"
   #TODO: update max version when new JDK has been released
-  gen_maven_toolchains "24" > "${WORKDIR}/toolchains.xml"
+  gen_maven_toolchains "25" > "${WORKDIR}/toolchains.xml"
 fi
