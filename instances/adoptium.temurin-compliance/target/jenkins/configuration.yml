@@ -82,7 +82,7 @@ jenkins:
             label: "basic basic-ubuntu"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3261.v9c670a_4748a_9
+                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3248.3250.v3277a_8e88c9b_
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -173,7 +173,7 @@ jenkins:
             label: "ubuntu-2204"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3261.v9c670a_4748a_9
+                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3248.3250.v3277a_8e88c9b_
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -264,7 +264,7 @@ jenkins:
             label: "ubuntu-latest ubuntu-2404 migration jipp-migration centos-7 centos-8 centos-latest"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3261.v9c670a_4748a_9
+                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3248.3250.v3277a_8e88c9b_
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -1078,6 +1078,35 @@ unclassified:
       timeout: 60
       vaultCredentialId: "secretsmanager-approle"
       vaultUrl: "https://secretsmanager.eclipse.org"
+  prometheusConfiguration:
+    appendParamLabel: false
+    appendStatusLabel: false
+    collectCodeCoverage: false
+    collectDiskUsage: true
+    collectNodeStatus: true
+    collectingMetricsPeriodInSeconds: 120
+    countAbortedBuilds: true
+    countFailedBuilds: true
+    countNotBuiltBuilds: true
+    countSuccessfulBuilds: true
+    countUnstableBuilds: true
+    defaultNamespace: ""
+    disabledMetricConfig:
+      entries:
+        - regexDisabledMetric:
+            regex: "jenkins_builds_last_stage_duration.*"
+        - regexDisabledMetric:
+            regex: "jvm_.*"
+        - regexDisabledMetric:
+            regex: "vm_memory.*"
+        - regexDisabledMetric:
+            regex: "jenkins_builds_discard_active.*"
+    fetchTestResults: true
+    jobAttributeName: "jenkins_job"
+    path: "prometheus"
+    perBuildMetrics: false
+    processingDisabledBuilds: false
+    useAuthenticatedEndpoint: false
   globalLibraries:
     libraries:
       - defaultVersion: "master"
@@ -1107,6 +1136,8 @@ tool:
         home: "/opt/tools/java/openjdk/latest"
       - name: "openjdk-ea-latest"
         home: "/opt/tools/java/openjdk/ea-latest"
+      - name: "openjdk-jdk25-latest"
+        home: "/opt/tools/java/openjdk/jdk-25/latest"
       - name: "openjdk-jdk24-latest"
         home: "/opt/tools/java/openjdk/jdk-24/latest"
       - name: "openjdk-jdk23-latest"
