@@ -82,7 +82,7 @@ jenkins:
             label: "basic basic-ubuntu"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3261.v9c670a_4748a_9
+                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3248.3250.v3277a_8e88c9b_
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -173,7 +173,7 @@ jenkins:
             label: "ubuntu-2204"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3261.v9c670a_4748a_9
+                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3248.3250.v3277a_8e88c9b_
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -264,7 +264,7 @@ jenkins:
             label: "ubuntu-latest ubuntu-2404 migration jipp-migration centos-7 centos-8 centos-latest"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3261.v9c670a_4748a_9
+                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3248.3250.v3277a_8e88c9b_
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -388,6 +388,24 @@ jenkins:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPgLhlW7LdMg6VRkyl4trVUWvUvHD92264xtC7rgFe8s"
     - permanent:
+        name: "jck-marist-ubuntu2404-s390x-1"
+        nodeDescription: "2-core 4Gb zLinux machine hosted at Marist"
+        labelString: "ci.role.test hw.arch.s390x sw.os.linux"
+        remoteFS: '/home/jenkins'
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "148.100.75.241"
+            port: "22"
+            credentialsId: "jenkins-jck-ssh"
+            javaPath: "/usr/lib/jvm/jdk-11/bin/java"
+            jvmOptions: "-Xmx512m -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDc/NPFh+FGaJLzlWVaUqzgii67z7d+bG+6UThAAiaGO"
+    - permanent:
         name: "jck-marist-rhel7-s390x-2"
         nodeDescription: "2-core 4Gb machine hosted at Marist Cloud"
         labelString: "ci.role.test hw.arch.s390x sw.os.linux"
@@ -441,6 +459,42 @@ jenkins:
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDOAtFDmpy1wZWch5nLQsyvo0JMIy5bGpDNtofoMzr0QAKngH8sqdnokjakiylKkbJP+6H2UMHYBz5cwZN3vnnnJEGPwA5IrMVNxd4m48Sc3QOpEdLSnk+DFJwgFluBseJZ2UtQOFQJJPIBigdJ4vdUyyklAMgnQ5jqoipuCNBF0YZWCd2zDVev0/eWZiq+jR+N561NCnc/jW+qrruB/VH9v+ykSdkWIlNezxLtFKcb7B2alh3kYIeOFu9azLkXcrnORbO2z4aoR4hgmaOeqk9MU8S7HdYd+cndQqQ3tsexQa34K74rQPdGfB++i1VNKnDLBL0rLUAAPdI2+LjegFDDpUJFze7Cf6XGYaI+/Ax3mOIWp9P84wPgRRYw6Sv6QQTdUJpgfCgIQgc/AW5vEE4zvSkYVwPEJ4K29u8rs7zNVWELZxV4UXk2n0XL4KK+oA45cz5w6kRbt9APgVGz3kC/EOJGCnN9HWMMZNsTWylcFHFrsVIYwZZRZvcN5/7I+ZM="
+    - permanent:
+        name: "jck-osuosl-ubuntu2404-ppc64le-1"
+        nodeDescription: "2-core 4Gb zLinux machine hosted at Marist"
+        labelString: "ci.role.test hw.arch.ppc64le sw.os.linux"
+        remoteFS: '/home/jenkins'
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "140.211.168.137"
+            port: "22"
+            credentialsId: "jenkins-jck-ssh"
+            javaPath: "/usr/bin/java"
+            jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1bIgKXMiL3Uq/SkCSVco+sjOmaVal12enwpdLkl9QZUzN/SrVBir6GAYVeO7tlb+22BLnOLwCxrEMKDA3nR2hTC65nyFswARhLc7C42WPmzgK1REb/cQs8JXzGyntj23idFFencyMSdTBF4S1/OEJBMzs61BMfGIWAIk4atoaVVsJU9kp7F/cNxvudSFhorsjYmlZb50DxNCpR6ZTwAGZhhYy3gyq1TXnoce/I4g+kT4C2u79Ndolsd0lLgphVE0hQ2l2+sL+QqNOnQWI6IXIKq3jtI2OKONHaApyUPMl2hGfDq+VBAFySntjw3+m0LYHB349MGPFHA2tGOyxB7g+XZNFl7jTRZ0DIXESzM8Cv4JC6NSF1FCUXv2E5dp1cA64bTVjjj8PmYJziFiZ6ZurB94eCkDyeqSDRHH7xWUHa9sc1wo0BMUZnJ2HgesISLVx5y5HInkNYPP/eGSX7TwA7U4/z5tZn/9Oe1tpCxzoNhKiufpT+4/Vk41lrCaGsyE="
+    - permanent:
+        name: "jck-osuosl-ubuntu2404-ppc64le-2"
+        nodeDescription: "2-core 4Gb zLinux machine hosted at Marist"
+        labelString: "ci.role.test hw.arch.ppc64le sw.os.linux"
+        remoteFS: '/home/jenkins'
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "140.211.168.235"
+            port: "22"
+            credentialsId: "jenkins-jck-ssh"
+            javaPath: "/usr/bin/java"
+            jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDvBEvC1lJPR/OaXlaQ1l+4l4x5k+jBUf8IgifDXsvtEgc2+6kJ2vE/BgLbJbbe+ZDEy0/koNxeTAoFgzQTtZztn7bJNTyGPVFIBjCnvH7+jb+vu1I4TvEkQycpO+Wf7NdC2FpPplxPkvgZmRq5Pu21DkC6MGk72ljjXuAQ8BqLKb8v/tQxhU9yRWsmF34Uwf0+n1R9oimLAmUyrJpGviqHLxkubaREqgDNbz7lUfXLylssIH9jsh/l1HZp1GUxo8CcL+YUxj4o2LGaJlYVn79rH7RcjQy2yD/aCHVOlf7NDQ9CJf+P530IlOcsiBhRRyU0zSAd2WHQ0yykNmcfRiSjj3rqg3125dKY6YnhQkmDJCpUUKe6bg60N4MzZmltZdM6FONSpADrDVsvuiqsVrrcgdw61C4U7IPHKWqQo5KilhYH9BmB+LbmE/BkjbV9Z1Qfq1yklgIydpCY0uWQ621M9KHWdbRP/HrrMsgExmY19PfmICGzuMGKf7V3bXNF4Jc="
     - permanent:
         name: "jck-equinix-ubuntu2004-aarch64-1"
         nodeDescription: "Altra system loaned for TCK work from Equinix"
@@ -1078,6 +1132,35 @@ unclassified:
       timeout: 60
       vaultCredentialId: "secretsmanager-approle"
       vaultUrl: "https://secretsmanager.eclipse.org"
+  prometheusConfiguration:
+    appendParamLabel: false
+    appendStatusLabel: false
+    collectCodeCoverage: false
+    collectDiskUsage: true
+    collectNodeStatus: true
+    collectingMetricsPeriodInSeconds: 120
+    countAbortedBuilds: true
+    countFailedBuilds: true
+    countNotBuiltBuilds: true
+    countSuccessfulBuilds: true
+    countUnstableBuilds: true
+    defaultNamespace: ""
+    disabledMetricConfig:
+      entries:
+        - regexDisabledMetric:
+            regex: "jenkins_builds_last_stage_duration.*"
+        - regexDisabledMetric:
+            regex: "jvm_.*"
+        - regexDisabledMetric:
+            regex: "vm_memory.*"
+        - regexDisabledMetric:
+            regex: "jenkins_builds_discard_active.*"
+    fetchTestResults: true
+    jobAttributeName: "jenkins_job"
+    path: "prometheus"
+    perBuildMetrics: false
+    processingDisabledBuilds: false
+    useAuthenticatedEndpoint: false
   globalLibraries:
     libraries:
       - defaultVersion: "master"
@@ -1107,6 +1190,8 @@ tool:
         home: "/opt/tools/java/openjdk/latest"
       - name: "openjdk-ea-latest"
         home: "/opt/tools/java/openjdk/ea-latest"
+      - name: "openjdk-jdk25-latest"
+        home: "/opt/tools/java/openjdk/jdk-25/latest"
       - name: "openjdk-jdk24-latest"
         home: "/opt/tools/java/openjdk/jdk-24/latest"
       - name: "openjdk-jdk23-latest"
