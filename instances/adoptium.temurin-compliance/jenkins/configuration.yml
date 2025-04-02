@@ -230,7 +230,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         ssh:
-          host: "20.61.222.79"
+          host: "76.191.119.116"
           port: "22"
           credentialsId: "jenkins-jck-ssh"
           javaPath: "/usr/jdk-11.0.17+8/bin/java"
@@ -248,7 +248,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         ssh:
-          host: "20.61.222.106"
+          host: "76.191.119.200"
           port: "22"
           credentialsId: "jenkins-jck-ssh"
           javaPath: "/usr/jdk-11.0.17+8/bin/java"
@@ -266,7 +266,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         ssh:
-          host: "20.61.136.213"
+          host: "76.191.119.132"
           port: "22"
           credentialsId: "jenkins-jck-ssh"
           javaPath: "/usr/jdk-11.0.23+9/bin/java"
