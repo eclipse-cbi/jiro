@@ -625,7 +625,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           ssh:
-            host: "20.61.222.79"
+            host: "76.191.119.116"
             port: "22"
             credentialsId: "jenkins-jck-ssh"
             javaPath: "/usr/jdk-11.0.17+8/bin/java"
@@ -643,10 +643,10 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           ssh:
-            host: "20.61.222.106"
+            host: "76.191.119.200"
             port: "22"
             credentialsId: "jenkins-jck-ssh"
-            javaPath: "/usr/jdk-11.0.17+8/bin/java"
+            javaPath: "/usr/jdk-11.0.23+9/bin/java"
             jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
@@ -661,7 +661,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           ssh:
-            host: "20.61.136.213"
+            host: "76.191.119.132"
             port: "22"
             credentialsId: "jenkins-jck-ssh"
             javaPath: "/usr/jdk-11.0.23+9/bin/java"
@@ -810,6 +810,21 @@ jenkins:
               internalDir: "remoting"
     - permanent:
         name: "win11-arm64-4cpu-Jfd4ds"
+        nodeDescription: "Windows 11, hosted on Azure, 4vCPU, 16GB RAM, burstable"
+        labelString: "sw.os.windows hw.arch.arm64 hw.arch.aarch64 ci.role.test hw.cpu.burstable"
+        remoteFS: "c:/Users/jenkins"
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          inbound:
+            webSocket: true
+            workDirSettings:
+              disabled: false
+              failIfWorkDirIsMissing: false
+              internalDir: "remoting"
+    - permanent:
+        name: "win11-arm64-4cpu-hG4rs"
         nodeDescription: "Windows 11, hosted on Azure, 4vCPU, 16GB RAM, burstable"
         labelString: "sw.os.windows hw.arch.arm64 hw.arch.aarch64 ci.role.test hw.cpu.burstable"
         remoteFS: "c:/Users/jenkins"
