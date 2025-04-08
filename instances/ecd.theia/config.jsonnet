@@ -5,6 +5,7 @@
   },
   jenkins+: {
     plugins+: [
+      "copyartifact",
       "embeddable-build-status",
       "mail-watcher-plugin",
       "nodejs",
