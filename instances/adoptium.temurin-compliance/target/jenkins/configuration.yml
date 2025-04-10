@@ -992,42 +992,6 @@ jenkins:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJCwhR7dAioY+ugVaUv7zWbOaDJmj66mPJaqtrNFDF8r"
     - permanent:
-        name: "jck-scaleway-ubuntu2310-riscv64-1"
-        nodeDescription: "RiscV RV64GCV 4 cores 1,85 GHz"
-        labelString: "hw.arch.riscv64 hw.arch.riscv ci.role.test sw.os.linux"
-        remoteFS: '/home/jenkins'
-        numExecutors: 1
-        mode: EXCLUSIVE
-        retentionStrategy: "always"
-        launcher:
-          ssh:
-            host: "62.210.163.172"
-            port: "22"
-            credentialsId: "jenkins-jck-ssh"
-            javaPath: ""
-            jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
-            sshHostKeyVerificationStrategy:
-              manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII1Oqkhk3Nl8VvNPc75BlN+uqtFT8FF4uRDJ/sPD3yj9"
-    - permanent:
-        name: "jck-scaleway-ubuntu2310-riscv64-2"
-        nodeDescription: "RiscV RV64GCV 4 cores 1,85 GHz"
-        labelString: "hw.arch.riscv64 hw.arch.riscv ci.role.test sw.os.linux"
-        remoteFS: '/home/jenkins'
-        numExecutors: 1
-        mode: EXCLUSIVE
-        retentionStrategy: "always"
-        launcher:
-          ssh:
-            host: "62.210.163.106"
-            port: "22"
-            credentialsId: "jenkins-jck-ssh"
-            javaPath: ""
-            jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
-            sshHostKeyVerificationStrategy:
-              manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL4WK+PrmT4Jr+QcsGdxkAW+MPmqlA3uH2EDVE6t9F0m"
-    - permanent:
         name: "jck-ubuntu-2204-solaris10"
         nodeDescription: ""
         labelString: "ci.role.test hw.arch.x86 sw.os.sunos"
