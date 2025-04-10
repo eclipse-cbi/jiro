@@ -511,39 +511,6 @@ data:
               command:
                 command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix omr@192.168.10.170 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java  -jar remoting.jar'\""
         - permanent:
-            name: "mac10-x64-omr1"
-            nodeDescription: "Mac mini"
-            labelString: "OSX x86 UNB compile:xosx"
-            remoteFS: '/Users/jenkins'
-            numExecutors: 1
-            mode: EXCLUSIVE
-            retentionStrategy: "always"
-            launcher:
-              command:
-                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.117 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
-        - permanent:
-            name: "mac10-x64-omr2"
-            nodeDescription: "Mac mini"
-            labelString: "OSX x86 UNB compile:xosx"
-            remoteFS: '/Users/jenkins'
-            numExecutors: 1
-            mode: EXCLUSIVE
-            retentionStrategy: "always"
-            launcher:
-              command:
-                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.118 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
-        - permanent:
-            name: "osx1014-unb-01"
-            nodeDescription: "OSX x86"
-            labelString: "OSX x86 UNB compile:xosx"
-            remoteFS: '/Users/jenkins'
-            numExecutors: 1
-            mode: EXCLUSIVE
-            retentionStrategy: "always"
-            launcher:
-              command:
-                command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix jenkins@192.168.10.116 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -jar remoting.jar'\""
-        - permanent:
             name: "mac13-aarch64-08"
             nodeDescription: "OSX aarch64"
             labelString: "OSX aarch64 UNB compile:amac"
