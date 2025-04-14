@@ -400,7 +400,10 @@
             }
          }
       ],
-      "plugins": [ ],
+      "plugins": [
+         "github-checks",
+         "git-forensics"
+      ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",
