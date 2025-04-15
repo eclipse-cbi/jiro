@@ -39,21 +39,6 @@ jenkins:
             failIfWorkDirIsMissing: false
             internalDir: "remoting"
   - permanent:
-      labelString: "linux aarch64"
-      name: "kf0gm-project-provided-aarch64"
-      nodeDescription: "Agent provided by the project"
-      remoteFS: "/home/justj/build"
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        inbound:
-          webSocket: true
-          workDirSettings:
-            disabled: false
-            failIfWorkDirIsMissing: false
-            internalDir: "remoting"
-  - permanent:
       labelString: "macos macos-11 arm64"
       launcher:
         ssh:
