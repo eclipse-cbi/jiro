@@ -11,6 +11,7 @@
       "copyartifact",
       "view-job-filters",
       "gradle",
+      "envinject",
     ],
   },
   seLinuxLevel: "s0:c40,c35",

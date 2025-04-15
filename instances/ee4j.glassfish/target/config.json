@@ -407,7 +407,8 @@
          "jacoco",
          "copyartifact",
          "view-job-filters",
-         "gradle"
+         "gradle",
+         "envinject"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
