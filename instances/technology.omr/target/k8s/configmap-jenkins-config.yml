@@ -976,14 +976,14 @@ data:
             retentionStrategy: "always"
             launcher:
               ssh:
-                host: "172.30.206.101"
+                host: "172.30.206.102"
                 port: "2024"
                 credentialsId: "jenkins-riscv-ssh"
                 javaPath: "/usr/bin/java"
                 jvmOptions: ""
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
-                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPsJnWbfj/JEsbilsTcxhtKBtcy54JNCIafUd3ffCxtN"
+                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK3NfgRdVq3ANypyHdvsx1RgrfirQqIg44kyFWzYjcIl"
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
