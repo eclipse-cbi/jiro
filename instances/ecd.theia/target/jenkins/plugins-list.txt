@@ -1,4 +1,5 @@
 # GENERATED FILE - DO NOT EDIT
+copyartifact
 embeddable-build-status
 mail-watcher-plugin
 nodejs
