@@ -855,7 +855,7 @@ jenkins:
             jvmOptions: "-Xmx512m -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
-                key: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPVWsratBbWvRahSTuhRDHVp554yxsTePk6C51u+qJq95TAbFMcg+54IGjMYsK9atI7hLYDh1/WpKZwhKceo7LY="
+                key: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLCDvLwXH17FaPfhIiAWTJ39JvAmoBklpCqLWXJ725bFC1YjIbbH40NoVmMMJEDmBEW5wlojkJYsQdnoJvOstd0="
     - permanent:
         name: "jck-azure-containerized-alpine317-x64-1"
         nodeDescription: "Container host is jck-azure-ubuntu2204-x64-1"
