@@ -22,6 +22,7 @@
       "mail-watcher-plugin",
       "mask-passwords",
       "metrics",
+      "minio",
       "nexus-jenkins-plugin",
       "pubsub-light",
       "slack",
