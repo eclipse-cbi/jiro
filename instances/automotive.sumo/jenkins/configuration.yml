@@ -17,3 +17,19 @@ jenkins:
       remoteFS: "/Users/genie.sumo/jenkins"
       retentionStrategy: "always"
 
+  - permanent:
+      labelString: "macos macos-14 arm64"
+      launcher:
+        ssh:
+          credentialsId: "rg34F-macos14-arm64-bot-ssh"
+          host: "208.52.154.36"
+          jvmOptions: "-Xmx256m"
+          port: 22
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKq0Vor5hfmCr3HmmX2yOUa0ZlvHPVvGFLROrbbCYsyhdVv2XRZJ3ZsRk3CCo5KH3LTCv1/22RLiPy0OYp8MCSA="
+      mode: EXCLUSIVE
+      name: "rg34F-macos14-arm64"
+      remoteFS: "/Users/genie.sumo/jenkins"
+      retentionStrategy: "always"
+
