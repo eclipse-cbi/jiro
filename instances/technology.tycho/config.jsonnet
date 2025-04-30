@@ -11,4 +11,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       permissionsTemplates.user("laeubi@laeubi-soft.de", ["Agent/Connect", "Agent/Disconnect", "Agent/ExtendedRead"])
   },
   seLinuxLevel: "s0:c56,c10",
+  storage: {
+    storageClassName: "managed-nfs-storage-bambam-retain-policy",
+  }
 }
