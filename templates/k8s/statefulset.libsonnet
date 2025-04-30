@@ -92,7 +92,10 @@ local Kube = import "kube.libsonnet";
               volumeMounts: [
                 {
                   mountPath: config.jiroMaster.home,
-                  name: "jenkins-home",
+                  name: if std.objectHas(config, "storage") && std.objectHas(config.storage, "storageClassName") then
+                    "jenkins-home-nfs"
+                  else
+                    "jenkins-home",
                 },
                 {
                   mountPath: config.jiroMaster.webroot,
@@ -243,7 +246,10 @@ local Kube = import "kube.libsonnet";
       volumeClaimTemplates: [
         {
           metadata: {
-            name: "jenkins-home",
+            name: if std.objectHas(config, "storage") && std.objectHas(config.storage, "storageClassName") then
+              "jenkins-home-nfs"
+            else
+              "jenkins-home"
           },
           spec: {
             accessModes: [ "ReadWriteOnce", ],
@@ -255,7 +261,9 @@ local Kube = import "kube.libsonnet";
                   "50Gi",  //default value
               },
             },
-          },
+          } + (if std.objectHas(config, "storage") && std.objectHas(config.storage, "storageClassName") then
+              {storageClassName: config.storage.storageClassName}
+              else {}), // use default storageClassName
         },
       ],
     },
