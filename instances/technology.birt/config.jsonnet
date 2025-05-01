@@ -9,4 +9,7 @@
     ]
   },
   seLinuxLevel: "s0:c30,c20",
+  storage: {
+    storageClassName: "managed-nfs-storage-bambam-retain-policy",
+  }
 }

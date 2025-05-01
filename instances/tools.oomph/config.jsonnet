@@ -40,4 +40,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     },
   },
   seLinuxLevel: "s0:c50,c0",
+  storage: {
+    storageClassName: "managed-nfs-storage-bambam-retain-policy",
+  }
 }
