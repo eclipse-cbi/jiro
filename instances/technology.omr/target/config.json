@@ -732,5 +732,8 @@
          "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
          "username": "genie.omr"
       }
+   },
+   "storage": {
+      "storageClassName": "managed-nfs-storage-barney-retain-policy"
    }
 }

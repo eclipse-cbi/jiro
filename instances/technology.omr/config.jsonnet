@@ -31,4 +31,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     ],
   },
   seLinuxLevel: "s0:c49,c39",
+  storage: {
+    storageClassName: "managed-nfs-storage-barney-retain-policy",
+  }
 }

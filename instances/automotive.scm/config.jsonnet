@@ -10,4 +10,7 @@
       "mail-watcher-plugin",
     ],
   },
+  storage: {
+    storageClassName: "managed-nfs-storage-barney-retain-policy",
+  }
 }

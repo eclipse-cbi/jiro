@@ -1,2 +1,3 @@
 # GENERATED FILE - DO NOT EDIT
+github-scm-trait-notification-context
 jacoco

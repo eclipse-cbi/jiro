@@ -29,4 +29,7 @@
     },
   },
   seLinuxLevel: "s0:c53,c32",
+  storage: {
+    storageClassName: "managed-nfs-storage-barney-retain-policy",
+  }
 }

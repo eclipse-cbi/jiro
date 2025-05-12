@@ -9,4 +9,4 @@ spec:
   resources:
     requests:
       storage: "200Gi"
-  storageClassName: cephfs-2repl
+  storageClassName: managed-nfs-storage-bambam-delete-policy

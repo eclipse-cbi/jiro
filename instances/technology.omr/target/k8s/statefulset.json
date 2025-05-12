@@ -128,7 +128,7 @@
                   "volumeMounts": [
                      {
                         "mountPath": "/var/jenkins",
-                        "name": "jenkins-home"
+                        "name": "jenkins-home-nfs"
                      },
                      {
                         "mountPath": "/var/cache/jenkins/war",
@@ -190,7 +190,7 @@
       "volumeClaimTemplates": [
          {
             "metadata": {
-               "name": "jenkins-home"
+               "name": "jenkins-home-nfs"
             },
             "spec": {
                "accessModes": [
@@ -200,7 +200,8 @@
                   "requests": {
                      "storage": "50Gi"
                   }
-               }
+               },
+               "storageClassName": "managed-nfs-storage-barney-retain-policy"
             }
          }
       ]

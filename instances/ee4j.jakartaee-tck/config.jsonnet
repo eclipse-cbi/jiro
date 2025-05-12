@@ -22,6 +22,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   },
   seLinuxLevel: "s0:c43,c2",
   storage: {
-    quota: "200Gi"
+    quota: "200Gi",
+    storageClassName: "managed-nfs-storage-bambam-retain-policy",
   }
 }

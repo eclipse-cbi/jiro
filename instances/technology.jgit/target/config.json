@@ -694,5 +694,8 @@
          "identityFile": "/run/secrets/jenkins/ssh/id_rsa",
          "username": "genie.jgit"
       }
+   },
+   "storage": {
+      "storageClassName": "managed-nfs-storage-barney-retain-policy"
    }
 }
