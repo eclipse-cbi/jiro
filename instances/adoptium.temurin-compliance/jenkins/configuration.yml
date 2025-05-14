@@ -11,24 +11,6 @@ tool:
 jenkins:
   nodes:
   - permanent:
-      name: "jck-marist-ubuntu2004-s390x-3"
-      nodeDescription: "2-core 4Gb zLinux machine hosted at Marist"
-      labelString: "ci.role.test hw.arch.s390x sw.os.linux"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        ssh:
-          host: "148.100.74.163"
-          port: "22"
-          credentialsId: "jenkins-jck-ssh"
-          javaPath: "/usr/lib/jvm/jdk-11/bin/java"
-          jvmOptions: "-Xmx512m -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
-          sshHostKeyVerificationStrategy:
-            manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDXa49sG2Jyl/bq2D9z/GfzC1W7eLRIC/iOa/o4nxl0/"
-  - permanent:
       name: "jck-marist-ubuntu2204-s390x-1"
       nodeDescription: "2-core 4Gb zLinux machine hosted at Marist"
       labelString: "ci.role.test hw.arch.s390x sw.os.linux"
@@ -64,60 +46,6 @@ jenkins:
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDc/NPFh+FGaJLzlWVaUqzgii67z7d+bG+6UThAAiaGO"
-  - permanent:
-      name: "jck-marist-rhel7-s390x-2"
-      nodeDescription: "2-core 4Gb machine hosted at Marist Cloud"
-      labelString: "ci.role.test hw.arch.s390x sw.os.linux"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        ssh:
-          host: "148.100.74.223"
-          port: "22"
-          credentialsId: "jenkins-jck-ssh"
-          javaPath: "/usr/lib/jvm/jdk-11/bin/java"
-          jvmOptions: "-Xmx512m -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
-          sshHostKeyVerificationStrategy:
-            manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDJ8vY1vg2dBnt3GqzLEPq7Ozm4VBIDUgJQ62aZjiePprh9L91k231XSDj94CWV4WAzUAQ7BC4jjsOd7ZUTjC8punF6Eecaj80Qhs88ZzuZZTHR9KatAbJKa5BtxsJcENMTGouQGHydxhJp5KgoguuZuD7h8Q4JHWQSGdMrEV/tfAX9q5nPwKjINAVXxpnfTB6A0D8/uPUmXzGFiM+uv3A3xRBdrCzbrBL/sDqPD6NNLOgiVbV1J5dbGE3poeBiHnoEpgmrMcPRgjZyPwbLgn5D+xQ/T/fwzhSXuOWXAovRDv4mLipqHLQiCikjaxdGQ2Fsg0lLvDNQbiNag9KrDrWf"
-  - permanent:
-      name: "jck-osuosl-ubuntu2004-ppc64le-1"
-      nodeDescription: "2-core 4Gb zLinux machine hosted at Marist"
-      labelString: "ci.role.test hw.arch.ppc64le sw.os.linux"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        ssh:
-          host: "140.211.168.163"
-          port: "22"
-          credentialsId: "jenkins-jck-ssh"
-          javaPath: "/usr/bin/java"
-          jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
-          sshHostKeyVerificationStrategy:
-            manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC02p+ksu/ZuynsIBUOy+X+nMm8G1Zqkxrji1H0KbAJ1OqrPtbH/gjsCh16o1jdgXyQt+gY/Hc2QWwuEsb31aGnJ+OfhmSB1hvCWm73+fC83GB/9gtquuAvgKiyBETgDaoFp2Pbrx0uFi/4SKMVfWHiBttYlRbDwr+vzj1J2AtWWjwGiNfxCZU69S6QAbzqA8RwqOTe/K5Ilc4Z8yuXED7qRl4k2aciIyJ9SesuKyOp2wC1zPTWWLAKrtus0tfH/dSzN0Ryr+Ps6KBb/Q+799Aye3EExHcsZR+HKJutL31qXZGYlwfD6qc0gU3HSgJtZ2X14AEaE6gBVoiJmQ2Po8pDeVH5hnHItPMzEHMOA3zSFngj5jf7stQoE4daWQpokZtwrYVPVwj44s3CtiSakKr/iYCpXhKIKDtKpqSGoqjm9DVYmVjTBS01VG4Uu6H6vZIcshXz/8FmJ4kzGHOlkFhABv/+pnj3QfF1HJWMuSmeL7I/AOx7HWfdkS/MZTlzvV0="
-  - permanent:
-      name: "jck-osuosl-ubuntu2004-ppc64le-2"
-      nodeDescription: "2-core 4Gb zLinux machine hosted at Marist"
-      labelString: "ci.role.test hw.arch.ppc64le sw.os.linux"
-      remoteFS: '/home/jenkins'
-      numExecutors: 1
-      mode: EXCLUSIVE
-      retentionStrategy: "always"
-      launcher:
-        ssh:
-          host: "140.211.168.2"
-          port: "22"
-          credentialsId: "jenkins-jck-ssh"
-          javaPath: "/usr/bin/java"
-          jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
-          sshHostKeyVerificationStrategy:
-            manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDOAtFDmpy1wZWch5nLQsyvo0JMIy5bGpDNtofoMzr0QAKngH8sqdnokjakiylKkbJP+6H2UMHYBz5cwZN3vnnnJEGPwA5IrMVNxd4m48Sc3QOpEdLSnk+DFJwgFluBseJZ2UtQOFQJJPIBigdJ4vdUyyklAMgnQ5jqoipuCNBF0YZWCd2zDVev0/eWZiq+jR+N561NCnc/jW+qrruB/VH9v+ykSdkWIlNezxLtFKcb7B2alh3kYIeOFu9azLkXcrnORbO2z4aoR4hgmaOeqk9MU8S7HdYd+cndQqQ3tsexQa34K74rQPdGfB++i1VNKnDLBL0rLUAAPdI2+LjegFDDpUJFze7Cf6XGYaI+/Ax3mOIWp9P84wPgRRYw6Sv6QQTdUJpgfCgIQgc/AW5vEE4zvSkYVwPEJ4K29u8rs7zNVWELZxV4UXk2n0XL4KK+oA45cz5w6kRbt9APgVGz3kC/EOJGCnN9HWMMZNsTWylcFHFrsVIYwZZRZvcN5/7I+ZM="
   - permanent:
       name: "jck-osuosl-ubuntu2404-ppc64le-1"
       nodeDescription: "2-core 4Gb zLinux machine hosted at Marist"
