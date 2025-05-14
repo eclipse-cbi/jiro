@@ -652,6 +652,7 @@
       }
    },
    "storage": {
-      "quota": "250Gi"
+      "quota": "250Gi",
+      "storageClassName": "managed-nfs-storage-bambam-retain-policy"
    }
 }

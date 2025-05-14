@@ -16,7 +16,8 @@
   },
   seLinuxLevel: "s0:c40,c35",
   storage: {
-    quota: "250Gi"
+    quota: "250Gi",
+    storageClassName: "managed-nfs-storage-bambam-retain-policy",
   },
   develocity+: {
     generate: true,
