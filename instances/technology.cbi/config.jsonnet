@@ -5,7 +5,7 @@
     resourcePacks: 5,
   },
   jenkins+: {
-    version: "2.492.3",
+    version: "2.504.1",
     staticAgentCount: 3,
     plugins+: [
       "basic-branch-build-strategies",
@@ -37,4 +37,7 @@
     generate: true,
   },
   seLinuxLevel: "s0:c27,c9",
+  storage: {
+    storageClassName: "managed-nfs-storage-bambam-retain-policy",
+  }
 }

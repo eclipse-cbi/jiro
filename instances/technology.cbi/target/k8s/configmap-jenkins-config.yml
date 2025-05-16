@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "technology.cbi"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.492.3"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.492.3"
+    org.eclipse.cbi.jiro/jenkins.version: "2.504.1"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.504.1"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "cbi"
   namespace: "cbi"
   name: jenkins-config
@@ -104,7 +104,7 @@ data:
                 label: "basic basic-ubuntu"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3283.v92c105e0f819
+                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3301.v4363ddcca_4e7
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -220,7 +220,7 @@ data:
                 label: "ubuntu-2204"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3283.v92c105e0f819
+                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3301.v4363ddcca_4e7
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -336,7 +336,7 @@ data:
                 label: "ubuntu-latest ubuntu-2404 migration jipp-migration centos-7 centos-8 centos-latest"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3283.v92c105e0f819
+                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3301.v4363ddcca_4e7
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -525,6 +525,11 @@ data:
                 logRotator:
                   artifactNumToKeepStr: "5"
                   numToKeepStr: "128"
+                  #  diskUsageProjectActionFactory:
+                  #    checkWorkspaceOnAgent: false
+                  #    historyLength: 5
+                  #    showGraph: false
+                  #    timeoutWorkspace: 5
       sonarGlobalConfiguration:
         buildWrapperEnabled: true
         installations:
@@ -680,6 +685,8 @@ data:
             home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
           - name: "temurin-latest"
             home: "/opt/tools/java/temurin/latest"
+          - name: "temurin-jdk24-latest"
+            home: "/opt/tools/java/temurin/jdk-24/latest"
           - name: "temurin-jdk23-latest"
             home: "/opt/tools/java/temurin/jdk-23/latest"
           - name: "temurin-jdk22-latest"
