@@ -7,4 +7,7 @@
     theme: "quicksilver-light",
   },
   seLinuxLevel: "s0:c48,c22",
+  storage: {
+    storageClassName: "managed-nfs-storage-barney-retain-policy",
+  }
 }
