@@ -93,7 +93,7 @@ local Kube = import "kube.libsonnet";
                 {
                   mountPath: config.jiroMaster.home,
                   name: if std.objectHas(config, "storage") && std.objectHas(config.storage, "storageClassName") then
-                    "jenkins-home-nfs"
+                    if config.storage.storageClassName == "cephfs-new-retain" then "jenkins-home-cephfs" else "jenkins-home-nfs"
                   else
                     "jenkins-home",
                 },
@@ -247,7 +247,7 @@ local Kube = import "kube.libsonnet";
         {
           metadata: {
             name: if std.objectHas(config, "storage") && std.objectHas(config.storage, "storageClassName") then
-              "jenkins-home-nfs"
+              if config.storage.storageClassName == "cephfs-new-retain" then "jenkins-home-cephfs" else "jenkins-home-nfs"
             else
               "jenkins-home"
           },
