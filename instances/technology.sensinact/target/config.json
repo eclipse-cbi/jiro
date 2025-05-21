@@ -641,5 +641,8 @@
             ]
          }
       }
+   },
+   "storage": {
+      "storageClassName": "cephfs-new-retain"
    }
 }
