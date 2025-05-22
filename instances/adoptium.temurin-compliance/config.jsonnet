@@ -31,7 +31,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "Parameterized-Remote-Trigger",
       "pipeline-utility-steps",
       "slack",
-      "tap",
       "view-job-filters",
       "xvfb",
       "xunit",
