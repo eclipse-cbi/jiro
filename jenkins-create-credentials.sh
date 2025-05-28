@@ -268,10 +268,15 @@ fi
 ## GPG (for OSSRH) ##
 
 if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${GPG_PASS_DOMAIN}/secret-subkeys.asc.gpg" ]]; then
-  echo "Found ${GPG_PASS_DOMAIN} credentials in password store..."
+  echo "Found ${GPG_PASS_DOMAIN}/secret-subkeys credentials in password store..."
   # read credentials from pass
   subkeys="$(passw cbi "/bots/${PROJECT_NAME}/${GPG_PASS_DOMAIN}/secret-subkeys.asc")"
   create_file_credentials "_" "secret-subkeys.asc" "secret-subkeys.asc" "${subkeys}" # id == filename
 fi
 
-
+if [[ -f "${PASSWORD_STORE_DIR}/bots/${PROJECT_NAME}/${GPG_PASS_DOMAIN}/passphrase.gpg" ]]; then
+  echo "Found ${GPG_PASS_DOMAIN}/passphrase credentials in password store..."
+  # read credentials from pass
+  passphrase="$(passw cbi "/bots/${PROJECT_NAME}/${GPG_PASS_DOMAIN}/passphrase")"
+  "${SCRIPT_FOLDER}/jenkins-create-credentials-token.sh" _create_string_credentials "${PROJECT_NAME}" "gpg-passphrase" "gpg-passphrase" "${passphrase}"
+fi
