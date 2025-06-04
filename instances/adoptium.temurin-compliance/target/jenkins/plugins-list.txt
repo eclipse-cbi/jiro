@@ -14,7 +14,6 @@ monitoring
 parameter-separator
 pipeline-utility-steps
 slack
-tap
 view-job-filters
 xunit
 xvfb
