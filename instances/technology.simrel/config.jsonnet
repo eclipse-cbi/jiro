@@ -9,6 +9,7 @@
       "docker-workflow",
       "mail-watcher-plugin",
       "date-parameter",
+      "lockable-resources"
     ],
   },
   seLinuxLevel: "s0:c53,c27",

@@ -404,7 +404,8 @@
          "build-blocker-plugin",
          "docker-workflow",
          "mail-watcher-plugin",
-         "date-parameter"
+         "date-parameter",
+         "lockable-resources"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
@@ -555,6 +556,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/technology.simrel/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/technology.simrel/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/technology.simrel/gpg/passphrase"

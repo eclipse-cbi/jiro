@@ -2,4 +2,5 @@
 build-blocker-plugin
 date-parameter
 docker-workflow
+lockable-resources
 mail-watcher-plugin
