@@ -711,6 +711,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/eclipse.platform.releng/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/eclipse.platform.releng/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/eclipse.platform.releng/gpg/passphrase"
