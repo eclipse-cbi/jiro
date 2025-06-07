@@ -8,5 +8,8 @@
       "dashboard-view",
     ],
   },
+  storage: {
+    storageClassName: "cephfs-new-retain",
+  },
   seLinuxLevel: "s0:c52,c19",
 }

@@ -558,6 +558,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/technology.ease/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/technology.ease/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/technology.ease/gpg/passphrase"
@@ -649,5 +657,8 @@
             ]
          }
       }
+   },
+   "storage": {
+      "storageClassName": "cephfs-new-retain"
    }
 }

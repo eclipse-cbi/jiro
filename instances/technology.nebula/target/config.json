@@ -552,6 +552,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/technology.nebula/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/technology.nebula/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/technology.nebula/gpg/passphrase"
@@ -643,5 +651,8 @@
             ]
          }
       }
+   },
+   "storage": {
+      "storageClassName": "cephfs-new-retain"
    }
 }

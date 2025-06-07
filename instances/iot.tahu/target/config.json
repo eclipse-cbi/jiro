@@ -552,6 +552,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/iot.tahu/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/iot.tahu/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/iot.tahu/gpg/passphrase"
@@ -643,5 +651,8 @@
             ]
          }
       }
+   },
+   "storage": {
+      "storageClassName": "cephfs-new-retain"
    }
 }

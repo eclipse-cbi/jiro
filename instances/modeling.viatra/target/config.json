@@ -646,6 +646,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/modeling.viatra/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/modeling.viatra/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/modeling.viatra/gpg/passphrase"
@@ -737,5 +745,8 @@
             ]
          }
       }
+   },
+   "storage": {
+      "storageClassName": "cephfs-new-retain"
    }
 }

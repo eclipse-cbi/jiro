@@ -26,5 +26,8 @@
       },
     },
   },
+  storage: {
+    storageClassName: "cephfs-new-retain",
+  },
   seLinuxLevel: "s0:c46,c5",
 }

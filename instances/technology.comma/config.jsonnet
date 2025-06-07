@@ -3,8 +3,9 @@
     fullName: "technology.comma",
     displayName: "Eclipse CommaSuite",
   },
-  seLinuxLevel: "s0:c33,c17",
   storage: {
-    quota:"100Gi"
-  }
+    quota:"100Gi",
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c33,c17",
 }

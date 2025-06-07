@@ -550,6 +550,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/iot.milo/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/iot.milo/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/iot.milo/gpg/passphrase"
@@ -641,5 +649,8 @@
             ]
          }
       }
+   },
+   "storage": {
+      "storageClassName": "cephfs-new-retain"
    }
 }

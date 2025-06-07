@@ -550,6 +550,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/technology.comma/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/technology.comma/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/technology.comma/gpg/passphrase"
@@ -643,6 +651,7 @@
       }
    },
    "storage": {
-      "quota": "100Gi"
+      "quota": "100Gi",
+      "storageClassName": "cephfs-new-retain"
    }
 }

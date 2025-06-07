@@ -680,6 +680,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/rt.jetty/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/rt.jetty/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/rt.jetty/gpg/passphrase"
@@ -771,5 +779,8 @@
             ]
          }
       }
+   },
+   "storage": {
+      "storageClassName": "cephfs-new-retain"
    }
 }

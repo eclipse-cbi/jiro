@@ -550,6 +550,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/technology.trace4cps/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/technology.trace4cps/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/technology.trace4cps/gpg/passphrase"
@@ -641,5 +649,8 @@
             ]
          }
       }
+   },
+   "storage": {
+      "storageClassName": "cephfs-new-retain"
    }
 }

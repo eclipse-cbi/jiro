@@ -9,5 +9,8 @@
       "copyartifact",
     ],
   },
+  storage: {
+    storageClassName: "cephfs-new-retain",
+  },
   seLinuxLevel: "s0:c42,c24",
 }

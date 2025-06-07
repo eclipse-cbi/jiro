@@ -558,6 +558,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/adoptium.mc/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/adoptium.mc/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/adoptium.mc/gpg/passphrase"
@@ -649,5 +657,8 @@
             ]
          }
       }
+   },
+   "storage": {
+      "storageClassName": "cephfs-new-retain"
    }
 }

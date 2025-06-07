@@ -550,6 +550,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/technology.packaging.mpc/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/technology.packaging.mpc/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/technology.packaging.mpc/gpg/passphrase"
@@ -641,5 +649,8 @@
             ]
          }
       }
+   },
+   "storage": {
+      "storageClassName": "cephfs-new-retain"
    }
 }

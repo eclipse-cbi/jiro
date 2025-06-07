@@ -415,6 +415,7 @@
       ],
       "plugins": [
          "urltrigger",
+         "parameterized-remote-trigger-plugin",
          "pipeline-graph-view"
       ],
       "pluginsForceUpgrade": true,

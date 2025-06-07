@@ -648,6 +648,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/polarsys.kitalpha/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/polarsys.kitalpha/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/polarsys.kitalpha/gpg/passphrase"
@@ -739,5 +747,8 @@
             ]
          }
       }
+   },
+   "storage": {
+      "storageClassName": "cephfs-new-retain"
    }
 }
