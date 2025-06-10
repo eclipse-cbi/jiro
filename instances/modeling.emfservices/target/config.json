@@ -550,6 +550,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/modeling.emfservices/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/modeling.emfservices/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/modeling.emfservices/gpg/passphrase"

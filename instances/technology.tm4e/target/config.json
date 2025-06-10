@@ -550,6 +550,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/technology.tm4e/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/technology.tm4e/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/technology.tm4e/gpg/passphrase"

@@ -552,6 +552,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/automotive.mosaic/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/automotive.mosaic/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/automotive.mosaic/gpg/passphrase"

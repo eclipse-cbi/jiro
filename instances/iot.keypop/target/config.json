@@ -588,6 +588,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/iot.keypop/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/iot.keypop/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/iot.keypop/gpg/passphrase"

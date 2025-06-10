@@ -637,6 +637,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/technology.omr/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/technology.omr/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/technology.omr/gpg/passphrase"

@@ -550,6 +550,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/tools.tracecompass/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/tools.tracecompass/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/tools.tracecompass/gpg/passphrase"

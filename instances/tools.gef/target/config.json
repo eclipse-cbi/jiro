@@ -557,6 +557,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/tools.gef/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/tools.gef/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/tools.gef/gpg/passphrase"

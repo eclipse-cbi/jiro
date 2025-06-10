@@ -552,6 +552,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/technology.lyo/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/technology.lyo/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/technology.lyo/gpg/passphrase"

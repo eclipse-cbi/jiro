@@ -555,6 +555,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/technology.escet/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/technology.escet/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/technology.escet/gpg/passphrase"

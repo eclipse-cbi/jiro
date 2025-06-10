@@ -550,6 +550,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/automotive.sphinx/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/automotive.sphinx/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/automotive.sphinx/gpg/passphrase"

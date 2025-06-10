@@ -550,6 +550,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/science.statet/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/science.statet/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/science.statet/gpg/passphrase"

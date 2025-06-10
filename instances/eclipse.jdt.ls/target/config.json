@@ -558,6 +558,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/eclipse.jdt.ls/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/eclipse.jdt.ls/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/eclipse.jdt.ls/gpg/passphrase"

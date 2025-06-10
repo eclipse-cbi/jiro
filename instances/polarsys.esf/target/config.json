@@ -550,6 +550,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/polarsys.esf/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/polarsys.esf/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/polarsys.esf/gpg/passphrase"

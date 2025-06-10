@@ -553,6 +553,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/technology.lemminx/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/technology.lemminx/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/technology.lemminx/gpg/passphrase"

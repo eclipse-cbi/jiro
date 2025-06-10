@@ -456,7 +456,7 @@ data:
         createAccountBasedOnEmail: true
         useExistingAccountWithSameEmail: true
       jobConfigHistory:
-        excludePattern: "queue\\.xml|nodeMonitors\\.xml|UpdateCenter\\.xml|global-build-stats|LockableResourcesManager\\.xml|MilestoneStep\\.xml|hudson.plugins.xvnc.Xvnc\\.xml"
+        excludePattern: "queue\\.xml|nodeMonitors\\.xml|UpdateCenter\\.xml|global-build-stats|LockableResourcesManager\\.xml|MilestoneStep\\.xml|cloudbees-disk-usage-simple\\.xml|hudson.plugins.xvnc.Xvnc\\.xml|"
         maxDaysToKeepEntries: "60"
         maxEntriesPerPage: "12"
         maxHistoryEntries: "500"
@@ -587,6 +587,8 @@ data:
             home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
           - name: "temurin-latest"
             home: "/opt/tools/java/temurin/latest"
+          - name: "temurin-jdk24-latest"
+            home: "/opt/tools/java/temurin/jdk-24/latest"
           - name: "temurin-jdk23-latest"
             home: "/opt/tools/java/temurin/jdk-23/latest"
           - name: "temurin-jdk22-latest"
@@ -632,12 +634,12 @@ data:
       ant:
         installations:
           - name: "apache-ant-latest"
-            home: ""
             properties:
               - installSource:
                   installers:
-                    - antFromApache:
-                        id: "1.10.15"
+                    - zip:
+                        subdir: "apache-ant-1.10.15"
+                        url: "https://download.eclipse.org/cbi/build-tools/apache-ant-1.10.15-bin.zip"
       maven:
         installations:
           - name: "apache-maven-latest"
