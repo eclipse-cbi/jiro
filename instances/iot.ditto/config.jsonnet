@@ -9,8 +9,8 @@
       "pipeline-utility-steps",
     ],
   },
-  seLinuxLevel: "s0:c34,c29",
   storage: {
-    storageClassName: "managed-nfs-storage-barney-retain-policy",
-  }
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c34,c29",
 }

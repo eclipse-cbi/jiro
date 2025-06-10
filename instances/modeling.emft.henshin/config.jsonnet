@@ -9,8 +9,8 @@
       "git-forensics",
     ],
   },
-  seLinuxLevel: "s0:c41,c35",
   storage: {
-    storageClassName: "managed-nfs-storage-barney-retain-policy",
-  }
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c41,c35",
 }

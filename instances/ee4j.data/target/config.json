@@ -604,6 +604,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/ee4j.data/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/ee4j.data/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/ee4j.data/gpg/passphrase"
@@ -697,6 +705,6 @@
       }
    },
    "storage": {
-      "storageClassName": "managed-nfs-storage-barney-retain-policy"
+      "storageClassName": "cephfs-new-retain"
    }
 }

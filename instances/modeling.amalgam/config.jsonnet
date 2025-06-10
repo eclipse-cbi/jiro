@@ -8,8 +8,8 @@
       "zentimestamp",
     ],
   },
-  seLinuxLevel: "s0:c29,c4",
   storage: {
-    storageClassName: "managed-nfs-storage-barney-retain-policy",
-  }
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c29,c4",
 }

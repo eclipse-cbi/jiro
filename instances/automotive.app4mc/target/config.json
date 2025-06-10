@@ -550,6 +550,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/automotive.app4mc/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/automotive.app4mc/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/automotive.app4mc/gpg/passphrase"
@@ -643,6 +651,6 @@
       }
    },
    "storage": {
-      "storageClassName": "managed-nfs-storage-barney-retain-policy"
+      "storageClassName": "cephfs-new-retain"
    }
 }

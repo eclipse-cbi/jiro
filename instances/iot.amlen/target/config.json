@@ -550,6 +550,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/iot.amlen/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/iot.amlen/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/iot.amlen/gpg/passphrase"
@@ -643,6 +651,6 @@
       }
    },
    "storage": {
-      "storageClassName": "managed-nfs-storage-barney-retain-policy"
+      "storageClassName": "cephfs-new-retain"
    }
 }

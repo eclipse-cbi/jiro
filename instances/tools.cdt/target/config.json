@@ -555,6 +555,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/tools.cdt/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/tools.cdt/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/tools.cdt/gpg/passphrase"
@@ -648,6 +656,6 @@
       }
    },
    "storage": {
-      "storageClassName": "managed-nfs-storage-barney-retain-policy"
+      "storageClassName": "cephfs-new-retain"
    }
 }

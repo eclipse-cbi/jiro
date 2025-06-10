@@ -4,8 +4,8 @@
     displayName: "Eclipse Amlen",
     resourcePacks: 2,
   },
-  seLinuxLevel: "s0:c28,c2",
   storage: {
-    storageClassName: "managed-nfs-storage-barney-retain-policy",
-  }
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c28,c2",
 }
