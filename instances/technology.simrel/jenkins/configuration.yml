@@ -45,6 +45,8 @@ jenkins:
             key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk11-latest"
           - home: "/opt/public/common/java/openjdk/jdk-17_x64-latest"
             key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk17-latest"
+          - home: "/opt/public/common/java/openjdk/jdk-21_x64-latest"
+            key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk21-latest"
           - home: "/opt/public/common/apache-maven-latest"
             key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
           - home: "/opt/public/common/apache-maven-3.9.3"
