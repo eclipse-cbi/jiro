@@ -27,9 +27,9 @@ project_name="$(basename "${instance}")"
 echo "${project_name}:"
 
 #TODO: only ask if not connected
-echo
-echo "Connected to cluster?"
-read -rsp "Press enter to continue or CTRL-C to abort..."
+# echo
+# echo "Connected to cluster?"
+# read -rsp "Press enter to continue or CTRL-C to abort..."
 
 "${SCRIPT_FOLDER}/../build/gen-config.sh" "${instance}"
 "${SCRIPT_FOLDER}/../build/gen-jenkins.sh" "${instance}"
