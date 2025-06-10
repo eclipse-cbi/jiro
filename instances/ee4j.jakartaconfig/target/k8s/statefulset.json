@@ -119,16 +119,11 @@
                         "cpu": "250m"
                      }
                   },
-                  "securityContext": {
-                     "seLinuxOptions": {
-                        "level": "s0:c56,c35",
-                        "type": "spc_t"
-                     }
-                  },
+                  "securityContext": { },
                   "volumeMounts": [
                      {
                         "mountPath": "/var/jenkins",
-                        "name": "jenkins-home"
+                        "name": "jenkins-home-cephfs"
                      },
                      {
                         "mountPath": "/var/cache/jenkins/war",
@@ -169,7 +164,7 @@
       "volumeClaimTemplates": [
          {
             "metadata": {
-               "name": "jenkins-home"
+               "name": "jenkins-home-cephfs"
             },
             "spec": {
                "accessModes": [
@@ -179,7 +174,8 @@
                   "requests": {
                      "storage": "50Gi"
                   }
-               }
+               },
+               "storageClassName": "cephfs-new-retain"
             }
          }
       ]
