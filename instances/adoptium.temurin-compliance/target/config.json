@@ -567,6 +567,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/adoptium.temurin-compliance/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/adoptium.temurin-compliance/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/adoptium.temurin-compliance/gpg/passphrase"
