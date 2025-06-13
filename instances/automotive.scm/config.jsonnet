@@ -4,13 +4,13 @@
     displayName: "Eclipse SCM",
     resourcePacks: 3
   },
-  seLinuxLevel: "s0:c38,c22",
   jenkins+: {
     plugins+: [
       "mail-watcher-plugin",
     ],
   },
   storage: {
-    storageClassName: "managed-nfs-storage-barney-retain-policy",
-  }
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c38,c22",
 }

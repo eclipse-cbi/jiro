@@ -8,8 +8,8 @@
       "embeddable-build-status",
     ],
   },
-  seLinuxLevel: "s0:c58,c2",
   storage: {
-    storageClassName: "managed-nfs-storage-barney-retain-policy",
-  }
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c58,c2",
 }

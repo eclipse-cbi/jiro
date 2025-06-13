@@ -30,8 +30,8 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "gradle",
     ],
   },
-  seLinuxLevel: "s0:c49,c39",
   storage: {
-    storageClassName: "managed-nfs-storage-barney-retain-policy",
-  }
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c49,c39",
 }

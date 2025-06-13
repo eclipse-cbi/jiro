@@ -1,0 +1,24 @@
+{
+  "apiVersion": "v1",
+  "kind": "PersistentVolumeClaim",
+  "metadata": {
+    "labels": {
+      "org.eclipse.cbi.jiro/project.fullName": "modeling.xsemantics"
+    },
+    "name": "jenkins-home-nfs-xsemantics-0",
+    "namespace": "xsemantics"
+  },
+  "spec": {
+    "accessModes": [
+      "ReadWriteOnce"
+    ],
+    "resources": {
+      "requests": {
+        "storage": "50Gi"
+      }
+    },
+    "storageClassName": "cephfs-new-retain",
+    "volumeMode": "Filesystem",
+    "volumeName": "pvc-740edd2c-4c40-4429-9f0a-5a017459705a"
+  }
+}

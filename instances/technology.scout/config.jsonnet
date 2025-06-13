@@ -8,8 +8,8 @@
       "job-dsl",
     ],
   },
-  seLinuxLevel: "s0:c52,c49",
   storage: {
-    storageClassName: "managed-nfs-storage-barney-retain-policy",
-  }
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c52,c49",
 }

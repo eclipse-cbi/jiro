@@ -8,8 +8,8 @@
       "jacoco",
     ],
   },
-  seLinuxLevel: "s0:c38,c22",
   storage: {
-    storageClassName: "managed-nfs-storage-barney-retain-policy",
-  }
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c38,c22",
 }

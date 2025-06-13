@@ -8,8 +8,8 @@
       "declarative-pipeline-migration-assistant",
     ],
   },
-  seLinuxLevel: "s0:c46,c30",
   storage: {
-    storageClassName: "managed-nfs-storage-barney-retain-policy",
-  }
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c46,c30",
 }

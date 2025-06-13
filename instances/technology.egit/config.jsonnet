@@ -14,8 +14,8 @@
   gerrit+: [
     { site: "gerrithub.io" }
   ],
-  seLinuxLevel: "s0:c37,c14",
   storage: {
-    storageClassName: "managed-nfs-storage-barney-retain-policy",
-  }
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c37,c14",
 }

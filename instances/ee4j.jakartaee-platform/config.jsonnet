@@ -9,8 +9,8 @@
   maven+: {
     showVersion: false,
   },
-  seLinuxLevel: "s0:c42,c29",
   storage: {
-    storageClassName: "managed-nfs-storage-barney-retain-policy",
-  }
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c42,c29",
 }

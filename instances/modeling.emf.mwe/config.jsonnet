@@ -9,8 +9,8 @@
       "matrix-communication",
     ],
   },
-  seLinuxLevel: "s0:c48,c47",
   storage: {
-    storageClassName: "managed-nfs-storage-barney-retain-policy",
-  }
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c48,c47",
 }

@@ -1,0 +1,45 @@
+{
+    "apiVersion": "v1",
+    "kind": "PersistentVolumeClaim",
+    "metadata": {
+        "annotations": {
+            "pv.kubernetes.io/bind-completed": "yes",
+            "pv.kubernetes.io/bound-by-controller": "yes",
+            "volume.beta.kubernetes.io/storage-provisioner": "rook-ceph.cephfs.csi.ceph.com",
+            "volume.kubernetes.io/storage-provisioner": "rook-ceph.cephfs.csi.ceph.com"
+        },
+        "creationTimestamp": "2025-06-07T12:16:04Z",
+        "finalizers": [
+            "kubernetes.io/pvc-protection"
+        ],
+        "labels": {
+            "org.eclipse.cbi.jiro/project.fullName": "modeling.xsemantics"
+        },
+        "name": "jenkins-home-cephfs-xsemantics-cephfs-0",
+        "namespace": "xsemantics",
+        "resourceVersion": "1648735077",
+        "uid": "740edd2c-4c40-4429-9f0a-5a017459705a"
+    },
+    "spec": {
+        "accessModes": [
+            "ReadWriteOnce"
+        ],
+        "resources": {
+            "requests": {
+                "storage": "50Gi"
+            }
+        },
+        "storageClassName": "cephfs-new-retain",
+        "volumeMode": "Filesystem",
+        "volumeName": "pvc-740edd2c-4c40-4429-9f0a-5a017459705a"
+    },
+    "status": {
+        "accessModes": [
+            "ReadWriteOnce"
+        ],
+        "capacity": {
+            "storage": "50Gi"
+        },
+        "phase": "Bound"
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "apiVersion": "v1",
+    "kind": "PersistentVolume",
+    "metadata": {
+        "annotations": {
+            "pv.kubernetes.io/provisioned-by": "rook-ceph.cephfs.csi.ceph.com",
+            "volume.kubernetes.io/provisioner-deletion-secret-name": "rook-csi-cephfs-provisioner-ceph-prod-cephfs",
+            "volume.kubernetes.io/provisioner-deletion-secret-namespace": "rook-ceph-prod-external"
+        },
+        "creationTimestamp": "2025-06-07T12:16:05Z",
+        "finalizers": [
+            "kubernetes.io/pv-protection"
+        ],
+        "name": "pvc-740edd2c-4c40-4429-9f0a-5a017459705a",
+        "resourceVersion": "1648735079",
+        "uid": "3ff2bdfc-f06e-4344-89a5-a950cdceeecf"
+    },
+    "spec": {
+        "accessModes": [
+            "ReadWriteOnce"
+        ],
+        "capacity": {
+            "storage": "50Gi"
+        },
+        "claimRef": {
+            "apiVersion": "v1",
+            "kind": "PersistentVolumeClaim",
+            "name": "jenkins-home-cephfs-xsemantics-cephfs-0",
+            "namespace": "xsemantics",
+            "resourceVersion": "1648735059",
+            "uid": "740edd2c-4c40-4429-9f0a-5a017459705a"
+        },
+        "csi": {
+            "controllerExpandSecretRef": {
+                "name": "rook-csi-cephfs-provisioner-ceph-prod-cephfs-test-cluster",
+                "namespace": "rook-ceph-prod-external"
+            },
+            "driver": "rook-ceph.cephfs.csi.ceph.com",
+            "nodeStageSecretRef": {
+                "name": "rook-csi-cephfs-node-ceph-prod-cephfs",
+                "namespace": "rook-ceph-prod-external"
+            },
+            "volumeAttributes": {
+                "clusterID": "rook-ceph-prod-external",
+                "fsName": "cephfs",
+                "pool": "cephfs_data",
+                "storage.kubernetes.io/csiProvisionerIdentity": "1749155550114-1707-rook-ceph.cephfs.csi.ceph.com",
+                "subvolumeName": "csi-vol-0f485a72-4603-4968-9a7c-b2c8cd19b278",
+                "subvolumePath": "/volumes/csi/csi-vol-0f485a72-4603-4968-9a7c-b2c8cd19b278/f0b58e6c-5560-4952-8288-bba7a23037ac"
+            },
+            "volumeHandle": "0001-0017-rook-ceph-prod-external-000000000000000c-0f485a72-4603-4968-9a7c-b2c8cd19b278"
+        },
+        "persistentVolumeReclaimPolicy": "Retain",
+        "storageClassName": "cephfs-new-retain",
+        "volumeMode": "Filesystem"
+    },
+    "status": {
+        "phase": "Bound"
+    }
+}

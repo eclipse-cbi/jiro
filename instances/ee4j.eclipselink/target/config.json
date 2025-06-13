@@ -556,6 +556,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/ee4j.eclipselink/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/ee4j.eclipselink/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/ee4j.eclipselink/gpg/passphrase"
@@ -647,5 +655,8 @@
             ]
          }
       }
+   },
+   "storage": {
+      "storageClassName": "cephfs-new-retain"
    }
 }
