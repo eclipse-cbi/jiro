@@ -644,8 +644,8 @@ jenkins:
                 - home: "C:\\Program Files\\Git\\bin\\git"
                   key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
     - permanent:
-        name: "riscv-build1"
-        nodeDescription: "4-core 8Gb riscv machine hosted by EF"
+        name: "riscv-build3"
+        nodeDescription: "Scaleway hosted https://labs.scaleway.com/en/em-rv1/"
         labelString: "hw.arch.riscv64 riscv64 swt.natives-gtk.linux.riscv64 native.builder-gtk.linux.riscv64"
         remoteFS: '/home/jenkins'
         numExecutors: 1
@@ -653,7 +653,7 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           ssh:
-            host: "172.30.206.102"
+            host: "62.210.163.101"
             port: "2022"
             credentialsId: "jenkins-riscv-ssh"
             prefixStartSlaveCmd: "ulimit -c 0 && "
@@ -661,7 +661,7 @@ jenkins:
             jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJkyLXj92rxKybYq6KuI8SpU7v5gGTWA3t/dMkHD1X1/"
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJG9E2uspGY1szNEq6Cl0nR6Gpa+1NpixcQzGLV7b2CF"
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
