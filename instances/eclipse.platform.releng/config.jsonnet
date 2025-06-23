@@ -10,6 +10,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   jenkins+: {
     plugins+: [
       "mail-watcher-plugin",
+      "docker-workflow",
       "gerrit-code-review",
       "github-checks",
       "git-forensics",

@@ -91,6 +91,9 @@ jenkins:
         - emptyDirVolume:
             memory: false
             mountPath: "/home/jenkins/.m2/wrapper"
+        - emptyDirVolume:
+            memory: false
+            mountPath: "/home/jenkins/.m2/mvnd"
         {{/if}}
         {{#if ../../sbt.generate}}
         - emptyDirVolume:
