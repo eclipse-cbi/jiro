@@ -126,6 +126,9 @@ jenkins:
               - emptyDirVolume:
                   memory: false
                   mountPath: "/home/jenkins/.m2/wrapper"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.m2/mvnd"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -217,6 +220,9 @@ jenkins:
               - emptyDirVolume:
                   memory: false
                   mountPath: "/home/jenkins/.m2/wrapper"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.m2/mvnd"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -308,6 +314,9 @@ jenkins:
               - emptyDirVolume:
                   memory: false
                   mountPath: "/home/jenkins/.m2/wrapper"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.m2/mvnd"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -709,7 +718,7 @@ jenkins:
     - permanent:
         name: "win11-x64-4cpu-Of4shu"
         nodeDescription: "Windows 11, hosted on Azure, 4vCPU, 16GB RAM, burstable"
-        labelString: "sw.os.windows hw.arch.x86 ci.role.test hw.cpu.burstable"
+        labelString: "sw.os.windows hw.cpu.burstable ci.role.test.interactive hw.arch.x86"
         remoteFS: "c:/Users/jenkins"
         numExecutors: 1
         mode: EXCLUSIVE
@@ -1003,11 +1012,6 @@ unclassified:
             logRotator:
               artifactNumToKeepStr: "50"
               numToKeepStr: "128"
-  diskUsageProjectActionFactory:
-    checkWorkspaceOnAgent: false
-    historyLength: 5
-    showGraph: false
-    timeoutWorkspace: 5
   sonarGlobalConfiguration:
     buildWrapperEnabled: true
     installations:
@@ -1029,7 +1033,7 @@ unclassified:
     createAccountBasedOnEmail: true
     useExistingAccountWithSameEmail: true
   jobConfigHistory:
-    excludePattern: "queue\\.xml|nodeMonitors\\.xml|UpdateCenter\\.xml|global-build-stats|LockableResourcesManager\\.xml|MilestoneStep\\.xml|hudson.plugins.xvnc.Xvnc\\.xml"
+    excludePattern: "queue\\.xml|nodeMonitors\\.xml|UpdateCenter\\.xml|global-build-stats|LockableResourcesManager\\.xml|MilestoneStep\\.xml|cloudbees-disk-usage-simple\\.xml|hudson.plugins.xvnc.Xvnc\\.xml|"
     maxDaysToKeepEntries: "60"
     maxEntriesPerPage: "12"
     maxHistoryEntries: "500"
@@ -1229,12 +1233,12 @@ tool:
   ant:
     installations:
       - name: "apache-ant-latest"
-        home: ""
         properties:
           - installSource:
               installers:
-                - antFromApache:
-                    id: "1.10.15"
+                - zip:
+                    subdir: "apache-ant-1.10.15"
+                    url: "https://download.eclipse.org/cbi/build-tools/apache-ant-1.10.15-bin.zip"
   maven:
     installations:
       - name: "apache-maven-latest"
@@ -1275,6 +1279,13 @@ tool:
         home: "/opt/tools/apache-maven/3.3.9"
       - name: "apache-maven-3.2.5"
         home: "/opt/tools/apache-maven/3.2.5"
+      - name: "maven-daemon"
+        properties:
+          - installSource:
+              installers:
+                - zip:
+                    subdir: "maven-mvnd-1.0.2-linux-amd64"
+                    url: "https://download.eclipse.org/cbi/build-tools/maven-mvnd-1.0.2-linux-amd64.tar.gz"
   git:
     installations:
       - name: "Default"
