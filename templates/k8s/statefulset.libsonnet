@@ -3,6 +3,53 @@ local Kube = import "kube.libsonnet";
   gen(config): Kube.StatefulSet(config.kubernetes.master.stsName, config) {
     local agents = import "../../../jiro-agents/agents.jsonnet",
     local defaultJnlpAgent = agents[config.kubernetes.master.defaultJnlpAgentLabel].variants[config.jiroMaster.remoting.version],
+    local baseJvmOptions = [
+      "-showversion",
+      "-XshowSettings:vm",
+      "-XX:+AlwaysPreTouch",
+      "-XX:+ParallelRefProcEnabled",
+      "-XX:+DisableExplicitGC",
+
+      "-Duser.timezone=" + config.jenkins.timezone,
+
+      "-Dhudson.footerURL=https://" + config.deployment.host,
+      "-Dhudson.model.UsageStatistics.disabled=true",
+      "-Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle",
+      "-Djenkins.model.Jenkins.exitCodeOnRestart=0",
+      "-Djenkins.model.Jenkins.slaveAgentPort=" + config.deployment.jnlpPort,
+      "-Djenkins.model.Jenkins.slaveAgentPortEnforce=true",
+      "-Djenkins.install.runSetupWizard=false",
+
+      # since https://www.jenkins.io/changelog-stable/#v2.222.1
+      "-Djenkins.ui.refresh=true",
+      "-Djenkins.security.ManagePermission=true",
+
+      # See https://issues.jenkins.io/browse/JENKINS-50379
+      "-Dorg.jenkinsci.plugins.durabletask.BourneShellScript.HEARTBEAT_CHECK_INTERVAL=7200",
+
+      # See https://github.com/jenkinsci/extras-executable-war/blob/master/README.md
+      "-DexecutableWar.jetty.disableCustomSessionIdCookieName=false",
+      "-DexecutableWar.jetty.sessionIdCookieName=JSESSIONID." + config.project.shortName,
+
+      "-Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml",
+
+      # Useless for Jenkins >= 2.199 and JCasC >= 1.36
+      # See https://github.com/jenkinsci/configuration-as-code-plugin#compatibility-with-jenkins--2199-for-jcasc--136
+      "-Dio.jenkins.plugins.casc.ConfigurationAsCode.initialDelay=5000",
+
+      # https://support.cloudbees.com/hc/en-us/articles/360030405571-Change-the-default-JNLP-image-for-kubernetes-agents-provisioning
+      "-Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=%s/%s/%s:%s" % [defaultJnlpAgent.docker.registry, defaultJnlpAgent.docker.repository, defaultJnlpAgent.docker.image, defaultJnlpAgent.docker.tag],
+
+      # https://github.com/jenkinsci/kubernetes-plugin/blob/master/README.md#specifying-a-different-default-agent-connection-timeout
+      "-Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=" + config.jenkins.agentConnectionTimeout,
+
+      # https://github.com/fabric8io/kubernetes-client/blob/master/README.md
+      "-Dkubernetes.websocket.ping.interval=30000",
+    ],
+    local heapdumpOptions = if std.objectHas(config.jenkins, "heapdump") && config.jenkins.heapdump == true then [] else [
+      "-XX:-HeapDumpOnOutOfMemoryError",
+      "-XX:-CreateCoredumpOnCrash"
+    ],
     spec: {
       replicas: 1,
       selector: {
@@ -135,56 +182,7 @@ local Kube = import "kube.libsonnet";
               env: [
                 {
                   name: "JAVA_OPTS",
-                    # -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle
-                    # -Xshareclasses:verbose,name=jenkins,cacheDir=/var/cache/openj9/sharedclasses/jenkins,groupAccess,fatal
-                  value: std.join(" ", [
-                    "-showversion",
-                    "-XshowSettings:vm",
-                    "-XX:+AlwaysPreTouch",
-                    "-XX:+ParallelRefProcEnabled",
-                    "-XX:+DisableExplicitGC",
-
-                    "-Duser.timezone=" + config.jenkins.timezone,
-
-                    # not needed anymore since https://issues.jenkins-ci.org/browse/JENKINS-56307
-                    // "-Dhudson.slaves.NodeProvisioner.initialDelay=0",
-                    // "-Dhudson.slaves.NodeProvisioner.MARGIN=50",
-                    // "-Dhudson.slaves.NodeProvisioner.MARGIN0=0.85",
-
-                    "-Dhudson.footerURL=https://" + config.deployment.host,
-                    "-Dhudson.model.UsageStatistics.disabled=true",
-                    "-Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle",
-                    "-Djenkins.model.Jenkins.exitCodeOnRestart=0",
-                    "-Djenkins.model.Jenkins.slaveAgentPort=" + config.deployment.jnlpPort,
-                    "-Djenkins.model.Jenkins.slaveAgentPortEnforce=true",
-                    "-Djenkins.install.runSetupWizard=false",
-
-                    # since https://www.jenkins.io/changelog-stable/#v2.222.1
-                    "-Djenkins.ui.refresh=true",
-                    "-Djenkins.security.ManagePermission=true",
-
-                    # See https://issues.jenkins.io/browse/JENKINS-50379
-                    "-Dorg.jenkinsci.plugins.durabletask.BourneShellScript.HEARTBEAT_CHECK_INTERVAL=7200",
-
-                    # See https://github.com/jenkinsci/extras-executable-war/blob/master/README.md
-                    "-DexecutableWar.jetty.disableCustomSessionIdCookieName=false",
-                    "-DexecutableWar.jetty.sessionIdCookieName=JSESSIONID." + config.project.shortName,
-
-                    "-Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml",
-
-                    # Useless for Jenkins >= 2.199 and JCasC >= 1.36
-                    # See https://github.com/jenkinsci/configuration-as-code-plugin#compatibility-with-jenkins--2199-for-jcasc--136
-                    "-Dio.jenkins.plugins.casc.ConfigurationAsCode.initialDelay=5000",
-
-                    # https://support.cloudbees.com/hc/en-us/articles/360030405571-Change-the-default-JNLP-image-for-kubernetes-agents-provisioning
-                    "-Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=%s/%s/%s:%s" % [defaultJnlpAgent.docker.registry, defaultJnlpAgent.docker.repository, defaultJnlpAgent.docker.image, defaultJnlpAgent.docker.tag],
-
-                    # https://github.com/jenkinsci/kubernetes-plugin/blob/master/README.md#specifying-a-different-default-agent-connection-timeout
-                    "-Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=" + config.jenkins.agentConnectionTimeout,
-
-                    # https://github.com/fabric8io/kubernetes-client/blob/master/README.md
-                    "-Dkubernetes.websocket.ping.interval=30000",
-                    ])
+                  value: std.join(" ", baseJvmOptions + heapdumpOptions)
                 },
                 {
                   name: "JENKINS_OPTS",
