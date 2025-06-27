@@ -148,6 +148,9 @@ data:
                   - emptyDirVolume:
                       memory: false
                       mountPath: "/home/jenkins/.m2/wrapper"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/mvnd"
                 workspaceVolume:
                   emptyDirWorkspaceVolume:
                     memory: false
@@ -239,6 +242,9 @@ data:
                   - emptyDirVolume:
                       memory: false
                       mountPath: "/home/jenkins/.m2/wrapper"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/mvnd"
                 workspaceVolume:
                   emptyDirWorkspaceVolume:
                     memory: false
@@ -330,6 +336,9 @@ data:
                   - emptyDirVolume:
                       memory: false
                       mountPath: "/home/jenkins/.m2/wrapper"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/mvnd"
                 workspaceVolume:
                   emptyDirWorkspaceVolume:
                     memory: false
@@ -732,16 +741,23 @@ data:
             home: "/opt/tools/apache-maven/3.3.9"
           - name: "apache-maven-3.2.5"
             home: "/opt/tools/apache-maven/3.2.5"
+          - name: "maven-daemon"
+            properties:
+              - installSource:
+                  installers:
+                    - zip:
+                        subdir: "maven-mvnd-1.0.2-linux-amd64"
+                        url: "https://download.eclipse.org/cbi/build-tools/maven-mvnd-1.0.2-linux-amd64.tar.gz"
       git:
         installations:
           - name: "Default"
             home: "git"
       nodejs:
         installations:
-          - name: "node_20.x"
+          - name: "node_22.x"
             properties:
               - installSource:
                   installers:
                     - nodeJSInstaller:
-                        id: "20.11.1"
+                        id: "22.15.1"
                         npmPackagesRefreshHours: 72
