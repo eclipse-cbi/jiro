@@ -769,7 +769,7 @@ data:
                   failIfWorkDirIsMissing: false
                   internalDir: "remoting"
         - permanent:
-            name: "win11-arm64-4cpu-Jfd4ds"
+            name: "win11-arm64-4cpu-uk4gcu-1"
             nodeDescription: "Windows 11, hosted on Azure, 4vCPU, 16GB RAM, burstable"
             labelString: "sw.os.windows hw.arch.arm64 hw.arch.aarch64 ci.role.test hw.cpu.burstable"
             remoteFS: "c:/Users/jenkins"
