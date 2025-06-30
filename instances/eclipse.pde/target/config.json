@@ -536,6 +536,7 @@
          "config-file-provider",
          "configuration-as-code",
          "credentials-binding",
+         "disk-usage",
          "email-ext",
          "extended-read-permission",
          "external-monitor-job",
@@ -650,6 +651,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/eclipse.pde/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/eclipse.pde/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/eclipse.pde/gpg/passphrase"
