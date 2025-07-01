@@ -589,6 +589,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/rt.virgo/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/rt.virgo/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/rt.virgo/gpg/passphrase"
@@ -680,5 +688,8 @@
             ]
          }
       }
+   },
+   "storage": {
+      "storageClassName": "cephfs-new-retain"
    }
 }

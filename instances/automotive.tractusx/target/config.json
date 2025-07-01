@@ -550,6 +550,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/automotive.tractusx/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/automotive.tractusx/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/automotive.tractusx/gpg/passphrase"
@@ -641,5 +649,8 @@
             ]
          }
       }
+   },
+   "storage": {
+      "storageClassName": "cephfs-new-retain"
    }
 }

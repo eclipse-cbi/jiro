@@ -12,5 +12,8 @@
   gradle+: {
     generate: true,
   },
+  storage: {
+    storageClassName: "cephfs-new-retain",
+  },
   seLinuxLevel: "s0:c53,c17",
 }
