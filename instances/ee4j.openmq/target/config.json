@@ -439,6 +439,7 @@
          "config-file-provider",
          "configuration-as-code",
          "credentials-binding",
+         "disk-usage",
          "email-ext",
          "extended-read-permission",
          "external-monitor-job",
