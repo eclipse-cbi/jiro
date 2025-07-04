@@ -463,7 +463,7 @@ jenkins:
             manuallyTrustedKeyVerificationStrategy:
               requireInitialManualTrust: true
   - permanent:
-      name: "win11-x64-4cpu-5w0uue"
+      name: "win11-x64-4cpu-5w0uue-1"
       nodeDescription: "Windows 11, hosted on Azure, 4vCPU, 16GB RAM, non-burstable"
       labelString: "sw.os.windows ci.role.test hw.arch.x86"
       remoteFS: "c:/Users/jenkins"
