@@ -832,7 +832,7 @@ data:
                   manuallyTrustedKeyVerificationStrategy:
                     requireInitialManualTrust: true
         - permanent:
-            name: "win11-x64-4cpu-5w0uue"
+            name: "win11-x64-4cpu-5w0uue-1"
             nodeDescription: "Windows 11, hosted on Azure, 4vCPU, 16GB RAM, non-burstable"
             labelString: "sw.os.windows ci.role.test hw.arch.x86"
             remoteFS: "c:/Users/jenkins"
@@ -1056,7 +1056,7 @@ data:
         createAccountBasedOnEmail: true
         useExistingAccountWithSameEmail: true
       jobConfigHistory:
-        excludePattern: "queue\\.xml|nodeMonitors\\.xml|UpdateCenter\\.xml|global-build-stats|LockableResourcesManager\\.xml|MilestoneStep\\.xml|cloudbees-disk-usage-simple\\.xml|hudson.plugins.xvnc.Xvnc\\.xml|"
+        excludePattern: "queue\\.xml|nodeMonitors\\.xml|UpdateCenter\\.xml|global-build-stats|LockableResourcesManager\\.xml|MilestoneStep\\.xml|cloudbees-disk-usage-simple\\.xml|hudson.plugins.xvnc.Xvnc\\.xml"
         maxDaysToKeepEntries: "60"
         maxEntriesPerPage: "12"
         maxHistoryEntries: "500"
