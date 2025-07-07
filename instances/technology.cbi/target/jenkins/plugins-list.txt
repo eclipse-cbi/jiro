@@ -2,6 +2,7 @@
 basic-branch-build-strategies
 cloudbees-disk-usage-simple
 cloudbees-jenkins-advisor
+declarative-pipeline-migration-assistant
 docker-workflow
 embeddable-build-status
 favorite

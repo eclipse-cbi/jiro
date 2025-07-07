@@ -443,6 +443,7 @@
          "basic-branch-build-strategies",
          "cloudbees-jenkins-advisor",
          "cloudbees-disk-usage-simple",
+         "declarative-pipeline-migration-assistant",
          "docker-workflow",
          "embeddable-build-status",
          "favorite",
@@ -610,6 +611,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/technology.cbi/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/technology.cbi/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/technology.cbi/gpg/passphrase"

@@ -11,6 +11,7 @@
       "basic-branch-build-strategies",
       "cloudbees-jenkins-advisor",
       "cloudbees-disk-usage-simple",
+      "declarative-pipeline-migration-assistant",
       "docker-workflow",
       "embeddable-build-status",
       "favorite",
