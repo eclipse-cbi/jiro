@@ -11,7 +11,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       permissionsTemplates.user("ed.merks@gmail.com", ["Overall/Read", "Job/Build", "Job/Read", "Job/ExtendedRead", "Job/Cancel", "Agent/Build"]),
     plugins+: [
       "urltrigger",
-      'parameterized-remote-trigger-plugin',
+      "parameterized-remote-trigger-plugin",
       "pipeline-graph-view",
     ]
   },
