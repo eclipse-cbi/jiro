@@ -562,6 +562,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/ecd.che.che4z/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/ecd.che.che4z/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/ecd.che.che4z/gpg/passphrase"

@@ -562,6 +562,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/technology.justj/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/technology.justj/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/technology.justj/gpg/passphrase"

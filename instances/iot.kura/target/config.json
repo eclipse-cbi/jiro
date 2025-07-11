@@ -554,6 +554,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/iot.kura/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/iot.kura/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/iot.kura/gpg/passphrase"

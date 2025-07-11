@@ -553,6 +553,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/modeling.xpect/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/modeling.xpect/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/modeling.xpect/gpg/passphrase"

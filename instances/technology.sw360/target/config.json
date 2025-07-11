@@ -550,6 +550,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/technology.sw360/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/technology.sw360/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/technology.sw360/gpg/passphrase"

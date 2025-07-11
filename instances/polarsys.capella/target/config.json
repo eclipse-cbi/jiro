@@ -556,6 +556,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/polarsys.capella/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/polarsys.capella/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/polarsys.capella/gpg/passphrase"

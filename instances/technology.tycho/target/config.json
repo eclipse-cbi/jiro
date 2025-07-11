@@ -560,6 +560,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/technology.tycho/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/technology.tycho/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/technology.tycho/gpg/passphrase"

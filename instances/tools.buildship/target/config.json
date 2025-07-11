@@ -556,6 +556,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/tools.buildship/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/tools.buildship/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/tools.buildship/gpg/passphrase"

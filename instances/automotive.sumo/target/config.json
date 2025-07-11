@@ -550,6 +550,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/automotive.sumo/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/automotive.sumo/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/automotive.sumo/gpg/passphrase"

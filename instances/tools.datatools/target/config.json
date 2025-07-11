@@ -553,6 +553,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/tools.datatools/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/tools.datatools/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/tools.datatools/gpg/passphrase"

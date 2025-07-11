@@ -169,6 +169,9 @@ jenkins:
               - emptyDirVolume:
                   memory: false
                   mountPath: "/home/jenkins/.m2/wrapper"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.m2/mvnd"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -260,6 +263,9 @@ jenkins:
               - emptyDirVolume:
                   memory: false
                   mountPath: "/home/jenkins/.m2/wrapper"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.m2/mvnd"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -351,6 +357,9 @@ jenkins:
               - emptyDirVolume:
                   memory: false
                   mountPath: "/home/jenkins/.m2/wrapper"
+              - emptyDirVolume:
+                  memory: false
+                  mountPath: "/home/jenkins/.m2/mvnd"
             workspaceVolume:
               emptyDirWorkspaceVolume:
                 memory: false
@@ -477,7 +486,7 @@ unclassified:
     createAccountBasedOnEmail: true
     useExistingAccountWithSameEmail: true
   jobConfigHistory:
-    excludePattern: "queue\\.xml|nodeMonitors\\.xml|UpdateCenter\\.xml|global-build-stats|LockableResourcesManager\\.xml|MilestoneStep\\.xml|hudson.plugins.xvnc.Xvnc\\.xml"
+    excludePattern: "queue\\.xml|nodeMonitors\\.xml|UpdateCenter\\.xml|global-build-stats|LockableResourcesManager\\.xml|MilestoneStep\\.xml|cloudbees-disk-usage-simple\\.xml|hudson.plugins.xvnc.Xvnc\\.xml"
     maxDaysToKeepEntries: "60"
     maxEntriesPerPage: "12"
     maxHistoryEntries: "500"
@@ -701,6 +710,13 @@ tool:
         home: "/opt/tools/apache-maven/3.3.9"
       - name: "apache-maven-3.2.5"
         home: "/opt/tools/apache-maven/3.2.5"
+      - name: "maven-daemon"
+        properties:
+          - installSource:
+              installers:
+                - zip:
+                    subdir: "maven-mvnd-1.0.2-linux-amd64"
+                    url: "https://download.eclipse.org/cbi/build-tools/maven-mvnd-1.0.2-linux-amd64.tar.gz"
   git:
     installations:
       - name: "Default"

@@ -621,6 +621,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/foundation-internal.infra/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/foundation-internal.infra/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/foundation-internal.infra/gpg/passphrase"

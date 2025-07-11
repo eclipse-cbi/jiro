@@ -658,6 +658,14 @@
                }
             },
             "servers": {
+               "central": {
+                  "password": {
+                     "pass": "bots/tools.oomph/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/tools.oomph/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/tools.oomph/gpg/passphrase"
