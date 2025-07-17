@@ -899,7 +899,7 @@ data:
                 jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
-                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB5+4FN+1n3hGBoahfBq0xc0yYEZT22d5oTObjQnQlmU"
+                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKhpJp6Ahk7+GlDIyuHm0Ks4JewH914Sxvzxd/gwkg3L"
         - permanent:
             name: "jck-scaleway-ubuntu2404-riscv64-2"
             nodeDescription: "RiscV RV64GCV 4 cores 1,85 GHz"
