@@ -5,6 +5,7 @@
     resourcePacks: 17
   },
   jenkins+: {
+    version: "2.504.3",
     agentConnectionTimeout: 300,
     theme: "quicksilver-light",
     plugins+: [
