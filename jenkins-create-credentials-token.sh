@@ -25,6 +25,8 @@ INSTANCES="${SCRIPT_FOLDER}/instances"
 
 #shellcheck disable=SC1091
 source "${SCRIPT_FOLDER}/pass/pass_wrapper.sh"
+store="cbi"
+PASSWORD_STORE_DIR="$(jq -r '.["password-store"]["'"${store}"'-dir"]' "${LOCAL_CONFIG}")"
 
 _verify_inputs() {
   local project_name="${1:-}"
@@ -278,8 +280,12 @@ auto() {
   else
     echo "  No API token found."
   fi
-
-  #sonarcloud is excluded for now due to possible suffixes
+  echo "Checking for sonarcloud.io API tokens..."
+  if passw cbi "bots/${project_name}/sonarcloud.io" 2&> /dev/null; then
+    sonarcloud "${project_name}"
+  else
+    echo "  No API token found."
+  fi
 }
 
 docker() {
@@ -358,19 +364,14 @@ gitlab_webhook_secret() {
 
 sonarcloud() {
   local project_name="${1:-}"
-  local suffix="${2:-}" # optional
-
-  _verify_inputs "${project_name}"
-
   local short_name="${project_name##*.}"
-  local token
-  token="$(passw cbi "bots/${project_name}/sonarcloud.io/token")"
+  tokens=$(find "${PASSWORD_STORE_DIR}/bots/${project_name}/sonarcloud.io" -type f -name "*.gpg" | sed "s|${PASSWORD_STORE_DIR}/||; s|\.gpg$||")
 
-  if [[ -n "${suffix}" ]]; then
-    suffix="-${suffix}"
-  fi
-
-  _create_string_credentials "${project_name}" "sonarcloud-token${suffix}" "SonarCloud token for ${short_name}${suffix}" "${token}"
+  for token_path in $tokens; do
+    token_name="$(basename "$token_path")"
+    token="$(passw cbi "$token_path")"    
+    _create_string_credentials "${project_name}" "sonarcloud-${token_name}" "SonarCloud token for ${short_name} ${token_name}" "${token}"
+  done
 }
 
 npmjs() {
