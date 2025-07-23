@@ -935,7 +935,7 @@ data:
                 jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
-                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJCwhR7dAioY+ugVaUv7zWbOaDJmj66mPJaqtrNFDF8r"
+                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEEfodMbfxudCuOAcH1plg2Yeiv5iFOew7kr0mm6yAFp"
         - permanent:
             name: "jck-ubuntu-2204-solaris10"
             nodeDescription: ""
