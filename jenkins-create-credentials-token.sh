@@ -365,7 +365,7 @@ gitlab_webhook_secret() {
 sonarcloud() {
   local project_name="${1:-}"
   local short_name="${project_name##*.}"
-  tokens=$(find "${PASSWORD_STORE_DIR}/bots/${project_name}/sonarcloud.io" -type f -name "*.gpg" | sed "s|${PASSWORD_STORE_DIR}/||; s|\.gpg$||")
+  tokens=$(find "${PASSWORD_STORE_DIR}/bots/${project_name}/sonarcloud.io" -type f -name "token*.gpg" | sed "s|${PASSWORD_STORE_DIR}/||; s|\.gpg$||")
 
   for token_path in $tokens; do
     token_name="$(basename "$token_path")"
