@@ -1,5 +1,6 @@
 # GENERATED FILE - DO NOT EDIT
 basic-branch-build-strategies
+build-with-parameters
 cloudbees-disk-usage-simple
 cloudbees-jenkins-advisor
 declarative-pipeline-migration-assistant
