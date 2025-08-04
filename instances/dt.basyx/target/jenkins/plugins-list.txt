@@ -1,4 +1,0 @@
-# GENERATED FILE - DO NOT EDIT
-cmakebuilder
-envinject
-gerrit-code-review
