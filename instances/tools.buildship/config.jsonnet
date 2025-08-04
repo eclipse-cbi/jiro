@@ -12,5 +12,8 @@
   develocity+: {
     generate: true,
   },
+  storage: {
+    storageClassName: "cephfs-new-retain",
+  },
   seLinuxLevel: "s0:c64,c39",
 }
