@@ -9,6 +9,7 @@
     staticAgentCount: 3,
     plugins+: [
       "basic-branch-build-strategies",
+      "build-with-parameters",
       "cloudbees-jenkins-advisor",
       "cloudbees-disk-usage-simple",
       "declarative-pipeline-migration-assistant",
