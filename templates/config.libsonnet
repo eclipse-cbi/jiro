@@ -145,15 +145,6 @@ local clouds = import "clouds.libsonnet";
               pass: "nexus/password",
             },
           },
-          ossrh: {
-            nexusProUrl: if std.startsWith($.project.fullName, "ee4j") then "https://jakarta.oss.sonatype.org" else "https://oss.sonatype.org",
-            username: {
-              pass: "bots/" + $.project.fullName + "/oss.sonatype.org/username",
-            },
-            password: {
-              pass: "bots/" + $.project.fullName + "/oss.sonatype.org/password",
-            },
-          },
           central: {
             username: {
               pass: "bots/" + $.project.fullName + "/central.sonatype.org/token-username",

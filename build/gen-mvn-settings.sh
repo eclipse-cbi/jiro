@@ -15,7 +15,6 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 SCRIPT_NAME="$(basename "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 LOCAL_CONFIG="${HOME}/.cbi/config"
@@ -93,20 +92,9 @@ gen_server() {
     username="$(pass "${username_pass}")"
     password="$(pass "${password_pass}")"
 
-    local server_password server_username nexusProUrl
-    nexusProUrl="$(jq -r '.nexusProUrl | select (.!=null)' <<< "${server}")"
-    if [[ -n "${nexusProUrl}" ]]; then
-      >&2 echo -e "${SCRIPT_NAME}\tINFO: Server '${serverId}' will use Nexus Pro token for credentials"
-      >&2 echo -e "${SCRIPT_NAME}\tINFO: Nexus Pro URL: '${nexusProUrl}'"
-      # this server has a nexus Pro URL set, get a token to authenticate instead of using the account username/password
-      local token
-      token="$("${SCRIPT_FOLDER}/nexus-pro-token.sh" get_or_create "${nexusProUrl}" "${username}" "${password}")"
-      server_username="$(jq -r '.nameCode' <<< "${token}")"
-      server_password=$(mvn --encrypt-password "$(jq -r '.passCode' <<< "${token}")" -Dsettings.security="${SETTINGS_SECURITY_XML}")
-    else
-      server_username="${username}"
-      server_password=$(mvn --encrypt-password "$(printf "%s" "${password}")" -Dsettings.security="${SETTINGS_SECURITY_XML}")
-    fi
+    local server_password server_username 
+    server_username="${username}"
+    server_password=$(mvn --encrypt-password "$(printf "%s" "${password}")" -Dsettings.security="${SETTINGS_SECURITY_XML}")
 
     cat <<EOF
     <server>
