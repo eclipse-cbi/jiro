@@ -9,8 +9,8 @@
       "parameterized-scheduler",
     ],
   },
-  seLinuxLevel: "s0:c57,c34",
   storage: {
-    storageClassName: "managed-nfs-storage-bambam-retain-policy",
-  }
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c57,c34",
 }

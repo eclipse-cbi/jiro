@@ -128,7 +128,7 @@
                   "volumeMounts": [
                      {
                         "mountPath": "/var/jenkins",
-                        "name": "jenkins-home"
+                        "name": "jenkins-home-cephfs"
                      },
                      {
                         "mountPath": "/var/cache/jenkins/war",
@@ -180,7 +180,7 @@
       "volumeClaimTemplates": [
          {
             "metadata": {
-               "name": "jenkins-home"
+               "name": "jenkins-home-cephfs"
             },
             "spec": {
                "accessModes": [
@@ -190,7 +190,8 @@
                   "requests": {
                      "storage": "50Gi"
                   }
-               }
+               },
+               "storageClassName": "cephfs-new-retain"
             }
          }
       ]

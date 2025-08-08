@@ -690,5 +690,8 @@
          }
       },
       "gerrit-trigger-plugin": { }
+   },
+   "storage": {
+      "storageClassName": "cephfs-new-retain"
    }
 }

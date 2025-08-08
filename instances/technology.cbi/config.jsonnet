@@ -38,8 +38,8 @@
   develocity+: {
     generate: true,
   },
-  seLinuxLevel: "s0:c27,c9",
   storage: {
-    storageClassName: "managed-nfs-storage-bambam-retain-policy",
-  }
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c27,c9",
 }

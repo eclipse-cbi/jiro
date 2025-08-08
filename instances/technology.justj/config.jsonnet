@@ -13,8 +13,8 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "mail-watcher-plugin",
     ],
   },
-  seLinuxLevel: "s0:c45,c25",
   storage: {
-    storageClassName: "managed-nfs-storage-bambam-retain-policy",
-  }
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c45,c25",
 }

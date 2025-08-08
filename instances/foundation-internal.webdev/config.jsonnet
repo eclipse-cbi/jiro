@@ -43,5 +43,8 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   secrets+: {
     "gerrit-trigger-plugin": {},
   },
+  storage: {
+    storageClassName: "cephfs-new-retain",
+  },
   seLinuxLevel: "s0:c28,c2",
 }
