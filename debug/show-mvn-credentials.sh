@@ -92,54 +92,27 @@ for settingsFilename in $(jq -r '.maven.files | keys - ["settings-security.xml"]
       && [[ -f "${PASSWORD_STORE_DIR}/${passwordPassPath}.gpg" ]]; then
       
       passwordInPass="$(pass "${passwordPassPath}")"
-      usernameInPass="$(pass "${usernamePassPath}")"
-      nexusProUrl="$(jq -r '.nexusProUrl | select (.!=null)' <<< "${server}")"
-      if [[ -n "${nexusProUrl}" ]]; then
-        token="$("${SCRIPT_FOLDER}/../build/nexus-pro-token.sh" get_or_create "${nexusProUrl}" "${usernameInPass}" "${passwordInPass}" )"
-      fi
+      usernameInPass="$(pass "${usernamePassPath}")"      
       
       usernameDeployed="$(jq -r '.servers[] | select(.id == "'"${serverId}"'").username' "${settings}")"
       if [[ "${usernameInPass}" == "${usernameDeployed}" ]]; then
         echo "INFO: Deployed username for server ${serverId} is identical to the one in pass"
       else
-        if [[ -n "${nexusProUrl}" ]] && [[ -n "${token}" ]]; then
-          usernameNexus="$(jq -r '.nameCode' <<< "${token}")"
-          if [[ "${usernameNexus}" == "${usernameDeployed}" ]]; then
-            echo "INFO: Deployed username for server ${serverId} is identical to the token from ${nexusProUrl}"
-          else
-            echo "ERROR: Deployed username for server ${serverId} is different from both the one in pass and the token from ${nexusProUrl}"
-            printf "  In pass : %s\n" "${usernameInPass}"
-            printf "  Deployed: %s\n" "${usernameDeployed}"
-            printf "  Nexus   : %s\n" "${usernameNexus}"
-          fi
-        else 
-          echo "ERROR: Deployed username for server ${serverId} is different from the one in pass"
-          printf "  In pass : %s\n" "${usernameInPass}"
-          printf "  Deployed: %s\n" "${usernameDeployed}"
-          echo "  (Note that no Nexus URL was set or the token was impossible to get)"
-        fi
+        echo "ERROR: Deployed username for server ${serverId} is different from the one in pass"
+        printf "  In pass : %s\n" "${usernameInPass}"
+        printf "  Deployed: %s\n" "${usernameDeployed}"
+        echo "  (Note that no Nexus URL was set or the token was impossible to get)"        
       fi
 
       passwordDeployed="$(jq -r '.servers[] | select(.id == "'"${serverId}"'").password' "${settings}" | base64 -d)"
       if [[ "${passwordInPass}" == "${passwordDeployed}" ]]; then
         echo "INFO: Deployed password for server ${serverId} is identical to the one in pass"
       else
-        if [[ -n "${nexusProUrl}" ]] && [[ -n "${token}" ]]; then
-          passwordNexus="$(jq -r '.passCode' <<< "${token}")"
-          if [[ "${passwordNexus}" == "${passwordDeployed}" ]]; then
-            echo "INFO: Deployed password for server ${serverId} is identical to the token from ${nexusProUrl}"
-          else
-            echo "ERROR: Deployed password for server ${serverId} is different from both the one in pass and the token from ${nexusProUrl}"
-            printf "  In pass : %s\n" "${passwordInPass}"
-            printf "  Deployed: %s\n" "${passwordDeployed}"
-            printf "  Nexus   : %s\n" "${passwordNexus}"
-          fi
-        else 
-          echo "ERROR: Deployed password for server ${serverId} is different from the one in pass"
-          printf "  In pass : %s\n" "${passwordInPass}"
-          printf "  Deployed: %s\n" "${passwordDeployed}"
-          echo "  (Note that no Nexus URL was set for this server or the token was impossible to get)"
-        fi
+        echo "ERROR: Deployed password for server ${serverId} is different from the one in pass"
+        printf "  In pass : %s\n" "${passwordInPass}"
+        printf "  Deployed: %s\n" "${passwordDeployed}"
+        echo "  (Note that no Nexus URL was set for this server or the token was impossible to get)"
+        
       fi
     elif [[ -f "${PASSWORD_STORE_DIR}/${passphrasePassPath}.gpg" ]]; then
       passphraseInPass="$(pass "${passphrasePassPath}")"
