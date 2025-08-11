@@ -83,8 +83,8 @@ jenkins:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDvBEvC1lJPR/OaXlaQ1l+4l4x5k+jBUf8IgifDXsvtEgc2+6kJ2vE/BgLbJbbe+ZDEy0/koNxeTAoFgzQTtZztn7bJNTyGPVFIBjCnvH7+jb+vu1I4TvEkQycpO+Wf7NdC2FpPplxPkvgZmRq5Pu21DkC6MGk72ljjXuAQ8BqLKb8v/tQxhU9yRWsmF34Uwf0+n1R9oimLAmUyrJpGviqHLxkubaREqgDNbz7lUfXLylssIH9jsh/l1HZp1GUxo8CcL+YUxj4o2LGaJlYVn79rH7RcjQy2yD/aCHVOlf7NDQ9CJf+P530IlOcsiBhRRyU0zSAd2WHQ0yykNmcfRiSjj3rqg3125dKY6YnhQkmDJCpUUKe6bg60N4MzZmltZdM6FONSpADrDVsvuiqsVrrcgdw61C4U7IPHKWqQo5KilhYH9BmB+LbmE/BkjbV9Z1Qfq1yklgIydpCY0uWQ621M9KHWdbRP/HrrMsgExmY19PfmICGzuMGKf7V3bXNF4Jc="
   - permanent:
-      name: "jck-equinix-ubuntu2404-aarch64-1"
-      nodeDescription: "Altra system loaned for TCK work from Equinix"
+      name: "tck-osuosl-ubuntu2404-aarch64-1"
+      nodeDescription: "Oregon State University Open Source Lab instance 8GB/4VCPU"
       labelString: "ci.role.test hw.arch.aarch64 sw.os.linux sw.tool.docker"
       remoteFS: '/home/jenkins'
       numExecutors: 1
@@ -92,14 +92,32 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         ssh:
-          host: "139.178.87.197"
+          host: "140.211.169.28"
           port: "22"
           credentialsId: "jenkins-jck-ssh"
           javaPath: ""
           jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGAKW4rxqlOAasM6LC6Z713KDp5h9LHVhx/e/s9i7NmB"
+              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILUq6Ci9owJmRZNTp7MGanSN4qK63Dnroyr+IA8Aoiqe"
+  - permanent:
+      name: "tck-osuosl-ubuntu2404-aarch64-2"
+      nodeDescription: "Oregon State University Open Source Lab instance 8GB/4VCPU"
+      labelString: "ci.role.test hw.arch.aarch64 sw.os.linux sw.tool.docker"
+      remoteFS: '/home/jenkins'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "140.211.169.22"
+          port: "22"
+          credentialsId: "jenkins-jck-ssh"
+          javaPath: ""
+          jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAUNq0ufuxPWnsYv7JYGgaUJTwdWqH509xGZ1eZHLJIT"
   - permanent:
       name: "jck-siteox-solaris10u11-sparcv9-1"
       nodeDescription: "Solaris Sparc system hosted at SiteOx"
@@ -311,8 +329,8 @@ jenkins:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDKhRM5aejXDVO4p5SH49g7oz+za5TBVO6ZujHWx/IvY1XorayXUIO7Ke66Kb/Ju7XOaYXZtujiHTgwmQAK2AL4Rp/uyUQ4La/cnHysgN1FI3l53IYPwkrViJYp8VbvqFSZbD1QtaILWCzsuDXYcGD5vBIGrxHUnVOQybgEmW/4BulXe0qNfJEuDS+fYH8U1qO76Ss7zBzH+fCiMeyJ2i+uddYzj6I1297y6kD7dGM61FZF/JdCvIfIqPcZ4iQZPg4d2l33WpO5oegDwrFRKxSN71mgS8g7P4SgXd1/mQGX6Zm37MhK+mVKJpHQ+8I5RPQYK8TbKkXYiq5Gw7BmH2Cx"
   - permanent:
-      name: "jck-equinix-containerized-ubuntu2004-aarch32-1"
-      nodeDescription: "Container host is equinix-ubuntu2404-aarch64-1"
+      name: "jck-osuosl-containerized-ubuntu2004-aarch32-1"
+      nodeDescription: "Container host is tck-osuosl-ubuntu2404-aarch64-2"
       labelString: "ci.role.test hw.arch.aarch32 sw.os.linux"
       remoteFS: "/home/jenkins"
       retentionStrategy: "always"
@@ -321,7 +339,7 @@ jenkins:
           javaPath: "/usr/bin/java"
           jvmOptions: "-Xmx512m -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
           credentialsId: "jenkins-jck-ssh"
-          host: "139.178.87.197"
+          host: "140.211.169.22"
           port: 2222
           sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
   - permanent:
@@ -338,8 +356,8 @@ jenkins:
           port: 2222
           sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
   - permanent:
-      name: "jck-equinix-containerized-alpine315-arm64v8-1"
-      nodeDescription: "Container host is equinix-ubuntu2404-aarch64-1"
+      name: "jck-osuosl-containerized-alpine315-arm64v8-1"
+      nodeDescription: "Container host is tck-osuosl-ubuntu2404-aarch64-2"
       labelString: "ci.role.test hw.arch.arm64v8 hw.arch.aarch64 sw.os.alpine-linux"
       remoteFS: "/home/jenkins"
       retentionStrategy: "always"
@@ -347,7 +365,7 @@ jenkins:
         ssh:
           jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
           credentialsId: "jenkins-jck-ssh"
-          host: "139.178.87.197"
+          host: "140.211.169.22"
           port: 2224
           sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
   - permanent:
