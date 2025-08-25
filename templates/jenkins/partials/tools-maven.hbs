@@ -1,5 +1,12 @@
 maven:
   installations:
+    - name: "maven-daemon"
+      properties:
+        - installSource:
+            installers:
+              - zip:
+                  subdir: "maven-mvnd-1.0.2-linux-amd64"
+                  url: "https://download.eclipse.org/cbi/build-tools/maven-mvnd-1.0.2-linux-amd64.tar.gz"
     - name: "apache-maven-latest"
       home: "/opt/tools/apache-maven/latest"
     - name: "apache-maven-3.9.9"
@@ -12,6 +19,8 @@ maven:
       home: "/opt/tools/apache-maven/3.9.3"
     - name: "apache-maven-3.9.2"
       home: "/opt/tools/apache-maven/3.9.2"
+    - name: "apache-maven-3.9.11"
+      home: "/opt/tools/apache-maven/3.9.11"
     - name: "apache-maven-3.9.1"
       home: "/opt/tools/apache-maven/3.9.1"
     - name: "apache-maven-3.9.0"
@@ -38,10 +47,3 @@ maven:
       home: "/opt/tools/apache-maven/3.3.9"
     - name: "apache-maven-3.2.5"
       home: "/opt/tools/apache-maven/3.2.5"
-    - name: "maven-daemon"
-      properties:
-      - installSource:
-          installers:
-          - zip:
-              subdir: "maven-mvnd-1.0.2-linux-amd64"
-              url: "https://download.eclipse.org/cbi/build-tools/maven-mvnd-1.0.2-linux-amd64.tar.gz"
