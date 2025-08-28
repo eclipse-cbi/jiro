@@ -7,7 +7,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
 
   },
   jenkins+: {
-    version: "2.462.3",
+    version: "2.516.2",
     staticAgentCount: 26,
     permissions:
       permissionsTemplates.group("admins", ["Overall/Administer"]) +

@@ -82,7 +82,7 @@ jenkins:
             label: "basic basic-ubuntu"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3248.3250.v3277a_8e88c9b_
+                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3309.v27b_9314fd1a_4
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -176,7 +176,7 @@ jenkins:
             label: "ubuntu-2204"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3248.3250.v3277a_8e88c9b_
+                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3309.v27b_9314fd1a_4
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -270,7 +270,7 @@ jenkins:
             label: "ubuntu-latest ubuntu-2404 migration jipp-migration centos-7 centos-8 centos-latest"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3248.3250.v3277a_8e88c9b_
+                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3309.v27b_9314fd1a_4
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -1244,8 +1244,17 @@ tool:
                     url: "https://download.eclipse.org/cbi/build-tools/apache-ant-1.10.15-bin.zip"
   maven:
     installations:
+      - name: "maven-daemon"
+        properties:
+          - installSource:
+              installers:
+                - zip:
+                    subdir: "maven-mvnd-1.0.2-linux-amd64"
+                    url: "https://download.eclipse.org/cbi/build-tools/maven-mvnd-1.0.2-linux-amd64.tar.gz"
       - name: "apache-maven-latest"
         home: "/opt/tools/apache-maven/latest"
+      - name: "apache-maven-3.9.11"
+        home: "/opt/tools/apache-maven/3.9.11"
       - name: "apache-maven-3.9.9"
         home: "/opt/tools/apache-maven/3.9.9"
       - name: "apache-maven-3.9.6"
@@ -1282,13 +1291,6 @@ tool:
         home: "/opt/tools/apache-maven/3.3.9"
       - name: "apache-maven-3.2.5"
         home: "/opt/tools/apache-maven/3.2.5"
-      - name: "maven-daemon"
-        properties:
-          - installSource:
-              installers:
-                - zip:
-                    subdir: "maven-mvnd-1.0.2-linux-amd64"
-                    url: "https://download.eclipse.org/cbi/build-tools/maven-mvnd-1.0.2-linux-amd64.tar.gz"
   git:
     installations:
       - name: "Default"
