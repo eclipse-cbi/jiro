@@ -41,6 +41,9 @@
                      "-XX:+IdleTuningCompactOnIdle",
                      "-XX:+IdleTuningGcOnIdle"
                   ],
+                  "CENTRAL_SONATYPE_API_V1_ROOT_URL": [
+                     "https://central.sonatype.com/api/v1"
+                  ],
                   "_JAVA_OPTIONS": [ ]
                },
                "home": "/home/jenkins",
@@ -138,6 +141,9 @@
                      "-XX:+IdleTuningCompactOnIdle",
                      "-XX:+IdleTuningGcOnIdle"
                   ],
+                  "CENTRAL_SONATYPE_API_V1_ROOT_URL": [
+                     "https://central.sonatype.com/api/v1"
+                  ],
                   "_JAVA_OPTIONS": [ ]
                },
                "home": "/home/jenkins",
@@ -233,6 +239,9 @@
                      "-XX:+IgnoreUnrecognizedVMOptions",
                      "-XX:+IdleTuningCompactOnIdle",
                      "-XX:+IdleTuningGcOnIdle"
+                  ],
+                  "CENTRAL_SONATYPE_API_V1_ROOT_URL": [
+                     "https://central.sonatype.com/api/v1"
                   ],
                   "_JAVA_OPTIONS": [ ]
                },
