@@ -23,7 +23,7 @@ jenkins:
           host: "148.100.74.16"
           port: "22"
           credentialsId: "jenkins-jck-ssh"
-          javaPath: "/usr/lib/jvm/jdk-11/bin/java"
+          javaPath: "/usr/lib/jvm/jdk-17/bin/java"
           jvmOptions: "-Xmx512m -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
@@ -41,7 +41,7 @@ jenkins:
           host: "148.100.75.241"
           port: "22"
           credentialsId: "jenkins-jck-ssh"
-          javaPath: "/usr/lib/jvm/jdk-11/bin/java"
+          javaPath: "/usr/lib/jvm/jdk-17/bin/java"
           jvmOptions: "-Xmx512m -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
@@ -233,7 +233,7 @@ jenkins:
           host: "76.191.119.116"
           port: "22"
           credentialsId: "jenkins-jck-ssh"
-          javaPath: "/usr/jdk-11.0.17+8/bin/java"
+          javaPath: "/usr/jdk-17.0.12+6/bin/java"
           jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
@@ -251,7 +251,7 @@ jenkins:
           host: "76.191.119.200"
           port: "22"
           credentialsId: "jenkins-jck-ssh"
-          javaPath: "/usr/jdk-11.0.23+9/bin/java"
+          javaPath: "/usr/jdk-17.0.12+6/bin/java"
           jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
@@ -269,7 +269,7 @@ jenkins:
           host: "76.191.119.132"
           port: "22"
           credentialsId: "jenkins-jck-ssh"
-          javaPath: "/usr/jdk-11.0.23+9/bin/java"
+          javaPath: "/usr/jdk-17.0.12+6/bin/java"
           jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
@@ -323,7 +323,7 @@ jenkins:
           host: "ssh.temurin.hostedpi.com"
           port: "5378"
           credentialsId: "jenkins-jck-ssh"
-          javaPath: "/usr/lib/jvm/jdk-11/bin/java"
+          javaPath: "/usr/lib/jvm/jdk-17/bin/java"
           jvmOptions: "-Xmx512m -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
