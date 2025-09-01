@@ -323,7 +323,6 @@ jenkins:
           host: "ssh.temurin.hostedpi.com"
           port: "5378"
           credentialsId: "jenkins-jck-ssh"
-          javaPath: "/usr/lib/jvm/jdk-17/bin/java"
           jvmOptions: "-Xmx512m -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
