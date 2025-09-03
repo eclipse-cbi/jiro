@@ -546,10 +546,25 @@
          "settings.xml": {
             "color": "always",
             "mirrors": {
+               "central.testing": {
+                  "mirrorOf": "central.testing",
+                  "name": "Sonatype Central Testing Mirror",
+                  "url": "https://central.sonatype.com/api/v1/publisher/deployments/download"
+               },
                "eclipse.maven.central.mirror": {
                   "mirrorOf": "central",
                   "name": "Eclipse Central Proxy",
                   "url": "https://repo.eclipse.org/content/repositories/maven_central/"
+               }
+            },
+            "profiles": {
+               "central.testing": {
+                  "repositories": {
+                     "central.testing": {
+                        "name": "Central Testing repository",
+                        "url": "https://central.sonatype.com/api/v1/publisher/deployments/download"
+                     }
+                  }
                }
             },
             "servers": {
@@ -561,18 +576,18 @@
                      "pass": "bots/ee4j.openmq/central.sonatype.org/token-username"
                   }
                },
+               "central.testing": {
+                  "httpHeaders": true,
+                  "password": {
+                     "pass": "bots/ee4j.openmq/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/ee4j.openmq/central.sonatype.org/token-username"
+                  }
+               },
                "gpg.passphrase": {
                   "passphrase": {
                      "pass": "bots/ee4j.openmq/gpg/passphrase"
-                  }
-               },
-               "ossrh": {
-                  "nexusProUrl": "https://jakarta.oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/ee4j.openmq/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/ee4j.openmq/oss.sonatype.org/username"
                   }
                },
                "repo.eclipse.org": {
