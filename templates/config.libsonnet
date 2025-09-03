@@ -162,6 +162,15 @@ local clouds = import "clouds.libsonnet";
               pass: "bots/" + $.project.fullName + "/central.sonatype.org/token-password",
             },
           },
+          "central.testing": {
+            httpHeaders: true,
+            username: {
+              pass: "bots/" + $.project.fullName + "/central.sonatype.org/token-username",
+            },
+            password: {
+              pass: "bots/" + $.project.fullName + "/central.sonatype.org/token-password",
+            },
+          },
           "gpg.passphrase": {
             passphrase: {
               pass: "bots/" + $.project.fullName + "/gpg/passphrase"
