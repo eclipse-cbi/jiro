@@ -580,15 +580,6 @@
                      "pass": "bots/adoptium.temurin-compliance/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/adoptium.temurin-compliance/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/adoptium.temurin-compliance/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"
