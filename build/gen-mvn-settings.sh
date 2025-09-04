@@ -15,7 +15,6 @@ set -o nounset
 set -o pipefail
 
 IFS=$'\n\t'
-SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 SCRIPT_NAME="$(basename "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 LOCAL_CONFIG="${HOME}/.cbi/config"
@@ -83,6 +82,7 @@ gen_server() {
   local serverId="${1}"
   local server="${2}"
   local username_pass password_pass passphrase_pass
+  httpHeaders="$(jq -r '.httpHeaders' <<< "${server}")"
   username_pass="$(jq -r '.username.pass' <<< "${server}")"
   password_pass="$(jq -r '.password.pass' <<< "${server}")"
   passphrase_pass="$(jq -r '.passphrase.pass' <<< "${server}")"
@@ -93,20 +93,29 @@ gen_server() {
     username="$(pass "${username_pass}")"
     password="$(pass "${password_pass}")"
 
-    local server_password server_username nexusProUrl
-    nexusProUrl="$(jq -r '.nexusProUrl | select (.!=null)' <<< "${server}")"
-    if [[ -n "${nexusProUrl}" ]]; then
-      >&2 echo -e "${SCRIPT_NAME}\tINFO: Server '${serverId}' will use Nexus Pro token for credentials"
-      >&2 echo -e "${SCRIPT_NAME}\tINFO: Nexus Pro URL: '${nexusProUrl}'"
-      # this server has a nexus Pro URL set, get a token to authenticate instead of using the account username/password
-      local token
-      token="$("${SCRIPT_FOLDER}/nexus-pro-token.sh" get_or_create "${nexusProUrl}" "${username}" "${password}")"
-      server_username="$(jq -r '.nameCode' <<< "${token}")"
-      server_password=$(mvn --encrypt-password "$(jq -r '.passCode' <<< "${token}")" -Dsettings.security="${SETTINGS_SECURITY_XML}")
+    if [[ "${httpHeaders}" == "true" ]]; then
+      >&2 echo -e "${SCRIPT_NAME}\tINFO:   - using httpHeaders for authentication"
+
+    bearer=$(printf "${username}:${password}" | base64)
+    cat <<EOF
+    <server>
+      <id>${serverId}</id>
+      <configuration>
+        <httpHeaders>
+          <property>
+            <name>Authorization</name>
+            <value>Bearer ${bearer}</value>
+          </property>
+        </httpHeaders>
+      </configuration>
+    </server>
+EOF
+
     else
-      server_username="${username}"
-      server_password=$(mvn --encrypt-password "$(printf "%s" "${password}")" -Dsettings.security="${SETTINGS_SECURITY_XML}")
-    fi
+      >&2 echo -e "${SCRIPT_NAME}\tINFO:   - using username/password for authentication"
+          local server_password server_username 
+    server_username="${username}"
+    server_password=$(mvn --encrypt-password "$(printf "%s" "${password}")" -Dsettings.security="${SETTINGS_SECURITY_XML}")
 
     cat <<EOF
     <server>
@@ -115,6 +124,9 @@ gen_server() {
       <password>${server_password}</password>
     </server>
 EOF
+    fi
+
+
   elif [[ -f "${PASSWORD_STORE_DIR}/${passphrase_pass}.gpg" ]]; then
     >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating server entry '${serverId}'"
     local passphrase server_passphrase
@@ -144,6 +156,34 @@ gen_mirror() {
 EOF
 }
 
+gen_profile() {
+  local profileId="${1}"
+  local config="${2}"
+  echo "    <profile>"
+  echo "      <id>${profileId}</id>"
+
+  local repositoryId
+  for repositoryId in $(jq -r '.repositories | keys | .[]' <<< "${config}"); do
+    echo "      <repositories>"
+    gen_repository "${repositoryId}" "$(jq -c '.repositories["'"${repositoryId}"'"]' <<< "${config}")";
+    echo "      </repositories>"
+  done
+
+  echo "    </profile>"
+}
+
+gen_repository() {
+  local repositoryId="${1}"
+  local repository="${2}"
+  cat <<EOF
+        <repository>
+          <id>${repositoryId}</id>
+          <name>$(jq -r '.name' <<< "${repository}")</name>
+          <url>$(jq -r '.url' <<< "${repository}")</url>
+        </repository>
+EOF
+}
+
 gen_servers() {
   local settingsFilename="${1}"
   local config="${2}"
@@ -170,6 +210,19 @@ gen_mirrors() {
   echo "  </mirrors>"
 }
 
+gen_profiles() {
+  local settingsFilename="${1}"
+  local config="${2}"
+  echo "  <profiles>"
+
+  local profileId
+  for profileId in $(jq -r '.maven.files["'"${settingsFilename}"'"] | .profiles | keys | .[]' "${config}"); do
+    gen_profile "${profileId}" "$(jq -c '.maven.files["'"${settingsFilename}"'"].profiles["'"${profileId}"'"]' "${config}")";
+  done
+
+  echo "  </profiles>"
+}
+
 gen_settings() {
   local settingsFilename="${1}"
   local config="${2}"
@@ -179,7 +232,7 @@ gen_settings() {
   echo "  <interactiveMode>$(jq '.maven.interactiveMode' "${config}")</interactiveMode>"
   gen_servers "${settingsFilename}" "${config}"
   gen_mirrors "${settingsFilename}" "${config}"
-
+  gen_profiles "${settingsFilename}" "${config}"
   echo "</settings>"
 }
 

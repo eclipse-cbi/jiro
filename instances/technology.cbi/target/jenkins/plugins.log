@@ -3,7 +3,7 @@ analysis-model-api 13.8.0-902.v26f80296f743
 ant 518.v8d8dc7945eca_
 antisamy-markup-formatter 173.v680e3a_b_69ff3
 apache-httpcomponents-client-4-api 4.5.14-269.vfa_2321039a_83
-apache-httpcomponents-client-5-api 5.5-157.vb_43ef2f6845e
+apache-httpcomponents-client-5-api 5.5-166.v870a_96374f91
 asm-api 9.8-163.vb_2a_96d3f9c3c
 authentication-tokens 1.144.v5ff4a_5ec5c33
 authorize-project 2.0.0
@@ -15,9 +15,9 @@ build-timeout 1.38
 build-with-parameters 76.v9382db_f78962
 caffeine-api 3.2.2-178.v353b_8428ed56
 checks-api 373.vfe7645102093
-cloudbees-disk-usage-simple 241.v0ea_d9a_a_96ee8
+cloudbees-disk-usage-simple 256.v20ec4eb_884f1
 cloudbees-folder 6.1037.v4cb_8573b_72a_a_
-cloudbees-jenkins-advisor 384.vf19423a_eb_9b_0
+cloudbees-jenkins-advisor 392.v6ca_b_ff4e12fa_
 command-launcher 123.v37cfdc92ef67
 commons-lang3-api 3.18.0-98.v3a_674c06072d
 commons-text-api 1.14.0-194.v804a_dc3a_1b_d8
@@ -48,7 +48,7 @@ git-client 6.3.2
 git-parameter 444.vca_b_84d3703c2
 github 1.44.0
 github-api 1.321-488.v9b_c0da_9533f8
-github-branch-source 1834.v857721ea_74c6
+github-branch-source 1844.v4a_9883d49126
 gitlab-api 5.6.0-100.v83f8f4b_f1129
 gitlab-branch-source 723.v090f23d3cc49
 gitlab-plugin 1.9.8
@@ -73,11 +73,11 @@ jobConfigHistory 1352.va_201a_8389340
 joda-time-api 2.14.0-149.v1c3ce991d1b_9
 jquery3-api 3.7.1-594.vb_3864f326cf0
 jsch 0.2.16-95.v3eecb_55fa_b_78
-json-api 20250517-163.v1c5da_e99c775
-json-path-api 2.9.0-178.vca_b_c71881321
+json-api 20250517-173.v596efb_962a_31
+json-path-api 2.9.0-190.veefca_05d5477
 jsoup 1.21.2-66.v6ea_38164b_8a_2
 junit 1335.v6b_a_a_e18534e1
-kubernetes 4358.vcfd9c5a_0a_f51
+kubernetes 4369.va_9a_89327dd35
 kubernetes-client-api 7.3.1-256.v788a_0b_787114
 kubernetes-credentials 206.vde31a_b_0f71a_c
 ldap 780.vcb_33c9a_e4332
@@ -88,8 +88,8 @@ matrix-auth 3.2.8
 matrix-project 856.v4c352b_3a_b_23e
 maven-plugin 3.27
 metrics 4.2.33-484.v2fcd689980d1
-mina-sshd-api-common 2.15.0-161.vb_200831a_c15b_
-mina-sshd-api-core 2.15.0-161.vb_200831a_c15b_
+mina-sshd-api-common 2.16.0-167.va_269f38cc024
+mina-sshd-api-core 2.16.0-167.va_269f38cc024
 minio 1.3.499.v9d1eeeee3a_68
 nexus-jenkins-plugin 3.14.431.v37ca_dc788b_b_1
 okhttp-api 4.11.0-189.v976fa_d3379d6
@@ -130,7 +130,7 @@ ssh-agent 386.v36cc0c7582f0
 ssh-credentials 361.vb_f6760818e8c
 ssh-slaves 3.1071.v0d059c7b_c555
 structs 353.v261ea_40a_80fb_
-support-core 1758.v87f0f880c067
+support-core 1763.ve4ce0d10a_3f0
 timestamper 1.30
 token-macro 477.vd4f0dc3cb_cf1
 trilead-api 2.209.v0e69b_c43c245
