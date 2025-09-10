@@ -23,10 +23,11 @@ SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 JENKINS_CLI="${SCRIPT_FOLDER}/jenkins-cli.sh"
 INSTANCES="${SCRIPT_FOLDER}/instances"
 
+PASSWORD_STORE_DIR="$("${SCRIPT_FOLDER}/utils/local_config.sh" "get_var" "cbi-dir" "password-store")"
+export PASSWORD_STORE_DIR
+
 #shellcheck disable=SC1091
 source "${SCRIPT_FOLDER}/pass/pass_wrapper.sh"
-store="cbi"
-PASSWORD_STORE_DIR="$(jq -r '.["password-store"]["'"${store}"'-dir"]' "${LOCAL_CONFIG}")"
 
 _verify_inputs() {
   local project_name="${1:-}"
