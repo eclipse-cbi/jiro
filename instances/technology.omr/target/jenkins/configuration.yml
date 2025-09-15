@@ -953,7 +953,7 @@ jenkins:
                 - home: '/opt/freeware/bin/git'
                   key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
     - permanent:
-        name: "riscv-build1"
+        name: "riscv-build3"
         nodeDescription: "4-core 8Gb riscv machine hosted by EF"
         labelString: "hw.arch.riscv64 riscv64 swt.natives-gtk.linux.riscv64 native.builder-gtk.linux.riscv64"
         remoteFS: '/home/jenkins'
@@ -962,14 +962,14 @@ jenkins:
         retentionStrategy: "always"
         launcher:
           ssh:
-            host: "172.30.206.102"
+            host: "62.210.163.101"
             port: "2024"
             credentialsId: "jenkins-riscv-ssh"
             javaPath: "/usr/bin/java"
             jvmOptions: ""
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK3NfgRdVq3ANypyHdvsx1RgrfirQqIg44kyFWzYjcIl"
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEJf9y1GE0yXLWK2aR0On8ZkefDh8J9zuLMu5ads3CBl"
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
@@ -1240,8 +1240,17 @@ tool:
                     url: "https://download.eclipse.org/cbi/build-tools/apache-ant-1.10.15-bin.zip"
   maven:
     installations:
+      - name: "maven-daemon"
+        properties:
+          - installSource:
+              installers:
+                - zip:
+                    subdir: "maven-mvnd-1.0.2-linux-amd64"
+                    url: "https://download.eclipse.org/cbi/build-tools/maven-mvnd-1.0.2-linux-amd64.tar.gz"
       - name: "apache-maven-latest"
         home: "/opt/tools/apache-maven/latest"
+      - name: "apache-maven-3.9.11"
+        home: "/opt/tools/apache-maven/3.9.11"
       - name: "apache-maven-3.9.9"
         home: "/opt/tools/apache-maven/3.9.9"
       - name: "apache-maven-3.9.6"
@@ -1278,13 +1287,6 @@ tool:
         home: "/opt/tools/apache-maven/3.3.9"
       - name: "apache-maven-3.2.5"
         home: "/opt/tools/apache-maven/3.2.5"
-      - name: "maven-daemon"
-        properties:
-          - installSource:
-              installers:
-                - zip:
-                    subdir: "maven-mvnd-1.0.2-linux-amd64"
-                    url: "https://download.eclipse.org/cbi/build-tools/maven-mvnd-1.0.2-linux-amd64.tar.gz"
   git:
     installations:
       - name: "Default"
