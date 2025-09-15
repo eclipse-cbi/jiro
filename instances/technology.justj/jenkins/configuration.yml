@@ -70,7 +70,7 @@ jenkins:
       remoteFS: "/home/justj/build"
       retentionStrategy: "always"
   - permanent:
-      name: "riscv-build1"
+      name: "riscv-build3"
       nodeDescription: "4-core 8Gb riscv machine hosted by EF"
       labelString: "hw.arch.riscv64 riscv64 swt.natives-gtk.linux.riscv64 native.builder-gtk.linux.riscv64"
       remoteFS: '/home/jenkins/agent'
@@ -79,7 +79,7 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         ssh:
-          host: "172.30.206.102"
+          host: "62.210.163.101"
           port: "2023"
           credentialsId: "jenkins-riscv-ssh"
           prefixStartSlaveCmd: "ulimit -c 0 && "
@@ -87,7 +87,7 @@ jenkins:
           jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHbLax/0+MYc9YKExW50sK2ulFdJBme6QqE7y/AcELzI"
+              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJG9E2uspGY1szNEq6Cl0nR6Gpa+1NpixcQzGLV7b2CF"
   - permanent:
       labelString: "windows windows11 swt.natives-win32.win32.aarch64 native.builder-win32.win32.aarch64 aarch64 arm64"
       launcher:
