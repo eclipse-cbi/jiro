@@ -109,6 +109,11 @@ gen_server() {
         </httpHeaders>
       </configuration>
     </server>
+    <server>
+      <id>central.staging</id>
+      <username>${username}</username>
+      <password>${bearer}</password>
+    </server>
 EOF
 
     else
