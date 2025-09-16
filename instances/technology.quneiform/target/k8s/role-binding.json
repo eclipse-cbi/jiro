@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "technology.quneiform",
+         "org.eclipse.cbi.jiro/project.shortname": "quneiform"
+      },
+      "name": "quneiform",
+      "namespace": "quneiform"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "quneiform"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "quneiform",
+         "namespace": "quneiform"
+      }
+   ]
+}
