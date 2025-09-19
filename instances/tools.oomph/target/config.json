@@ -671,15 +671,6 @@
                      "pass": "bots/tools.oomph/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/tools.oomph/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/tools.oomph/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

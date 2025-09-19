@@ -580,15 +580,6 @@
                      "pass": "bots/technology.packaging/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/technology.packaging/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/technology.packaging/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

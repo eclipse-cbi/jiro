@@ -659,15 +659,6 @@
                      "pass": "bots/modeling.viatra/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/modeling.viatra/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/modeling.viatra/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

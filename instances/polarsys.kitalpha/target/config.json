@@ -661,15 +661,6 @@
                      "pass": "bots/polarsys.kitalpha/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/polarsys.kitalpha/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/polarsys.kitalpha/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

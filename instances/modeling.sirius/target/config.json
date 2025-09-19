@@ -662,15 +662,6 @@
                      "pass": "bots/modeling.sirius/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/modeling.sirius/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/modeling.sirius/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

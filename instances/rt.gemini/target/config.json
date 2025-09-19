@@ -563,15 +563,6 @@
                      "pass": "bots/rt.gemini/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/rt.gemini/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/rt.gemini/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

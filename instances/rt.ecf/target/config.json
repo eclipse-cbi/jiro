@@ -565,15 +565,6 @@
                      "pass": "bots/rt.ecf/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/rt.ecf/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/rt.ecf/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

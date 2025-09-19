@@ -565,15 +565,6 @@
                      "pass": "bots/technology.scout/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/technology.scout/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/technology.scout/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

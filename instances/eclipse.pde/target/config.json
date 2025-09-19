@@ -663,15 +663,6 @@
                      "pass": "bots/eclipse.pde/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/eclipse.pde/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/eclipse.pde/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

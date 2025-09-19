@@ -569,15 +569,6 @@
                      "pass": "bots/tools.buildship/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/tools.buildship/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/tools.buildship/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

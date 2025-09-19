@@ -563,15 +563,6 @@
                      "pass": "bots/science.ice/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/science.ice/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/science.ice/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

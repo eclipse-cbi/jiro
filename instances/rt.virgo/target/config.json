@@ -602,15 +602,6 @@
                      "pass": "bots/rt.virgo/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/rt.virgo/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/rt.virgo/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

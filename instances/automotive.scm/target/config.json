@@ -565,15 +565,6 @@
                      "pass": "bots/automotive.scm/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/automotive.scm/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/automotive.scm/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

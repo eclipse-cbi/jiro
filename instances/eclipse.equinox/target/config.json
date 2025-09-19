@@ -567,15 +567,6 @@
                      "pass": "bots/eclipse.equinox/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/eclipse.equinox/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/eclipse.equinox/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

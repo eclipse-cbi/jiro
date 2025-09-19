@@ -569,15 +569,6 @@
                      "pass": "bots/technology.simrel/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/technology.simrel/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/technology.simrel/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

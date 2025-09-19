@@ -567,15 +567,6 @@
                      "pass": "bots/eclipse.jdt/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/eclipse.jdt/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/eclipse.jdt/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

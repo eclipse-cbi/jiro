@@ -570,15 +570,6 @@
                      "pass": "bots/tools.gef/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/tools.gef/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/tools.gef/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

@@ -565,15 +565,6 @@
                      "pass": "bots/ecd.jkube/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/ecd.jkube/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/ecd.jkube/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

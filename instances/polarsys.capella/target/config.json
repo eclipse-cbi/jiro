@@ -569,15 +569,6 @@
                      "pass": "bots/polarsys.capella/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/polarsys.capella/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/polarsys.capella/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

@@ -567,15 +567,6 @@
                      "pass": "bots/iot.kapua/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/iot.kapua/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/iot.kapua/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

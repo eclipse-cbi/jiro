@@ -563,15 +563,6 @@
                      "pass": "bots/modeling.gendoc/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/modeling.gendoc/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/modeling.gendoc/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

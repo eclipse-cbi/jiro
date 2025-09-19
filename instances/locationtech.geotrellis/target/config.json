@@ -599,15 +599,6 @@
                      "pass": "bots/locationtech.geotrellis/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/locationtech.geotrellis/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/locationtech.geotrellis/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

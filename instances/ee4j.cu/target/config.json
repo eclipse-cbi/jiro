@@ -618,15 +618,6 @@
                      "pass": "bots/ee4j.cu/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://jakarta.oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/ee4j.cu/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/ee4j.cu/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

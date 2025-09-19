@@ -642,8 +642,17 @@ tool:
                     url: "https://download.eclipse.org/cbi/build-tools/apache-ant-1.10.15-bin.zip"
   maven:
     installations:
+      - name: "maven-daemon"
+        properties:
+          - installSource:
+              installers:
+                - zip:
+                    subdir: "maven-mvnd-1.0.2-linux-amd64"
+                    url: "https://download.eclipse.org/cbi/build-tools/maven-mvnd-1.0.2-linux-amd64.tar.gz"
       - name: "apache-maven-latest"
         home: "/opt/tools/apache-maven/latest"
+      - name: "apache-maven-3.9.11"
+        home: "/opt/tools/apache-maven/3.9.11"
       - name: "apache-maven-3.9.9"
         home: "/opt/tools/apache-maven/3.9.9"
       - name: "apache-maven-3.9.6"
@@ -680,13 +689,6 @@ tool:
         home: "/opt/tools/apache-maven/3.3.9"
       - name: "apache-maven-3.2.5"
         home: "/opt/tools/apache-maven/3.2.5"
-      - name: "maven-daemon"
-        properties:
-          - installSource:
-              installers:
-                - zip:
-                    subdir: "maven-mvnd-1.0.2-linux-amd64"
-                    url: "https://download.eclipse.org/cbi/build-tools/maven-mvnd-1.0.2-linux-amd64.tar.gz"
   git:
     installations:
       - name: "Default"

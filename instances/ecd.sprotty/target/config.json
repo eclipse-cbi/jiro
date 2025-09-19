@@ -563,15 +563,6 @@
                      "pass": "bots/ecd.sprotty/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/ecd.sprotty/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/ecd.sprotty/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

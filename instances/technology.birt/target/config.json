@@ -565,15 +565,6 @@
                      "pass": "bots/technology.birt/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/technology.birt/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/technology.birt/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

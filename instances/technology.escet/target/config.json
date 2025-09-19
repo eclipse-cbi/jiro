@@ -568,15 +568,6 @@
                      "pass": "bots/technology.escet/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/technology.escet/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/technology.escet/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

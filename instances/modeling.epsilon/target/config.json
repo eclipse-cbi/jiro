@@ -567,15 +567,6 @@
                      "pass": "bots/modeling.epsilon/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/modeling.epsilon/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/modeling.epsilon/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

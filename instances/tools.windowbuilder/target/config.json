@@ -563,15 +563,6 @@
                      "pass": "bots/tools.windowbuilder/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/tools.windowbuilder/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/tools.windowbuilder/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

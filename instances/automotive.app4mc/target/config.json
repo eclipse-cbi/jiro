@@ -563,15 +563,6 @@
                      "pass": "bots/automotive.app4mc/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/automotive.app4mc/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/automotive.app4mc/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"

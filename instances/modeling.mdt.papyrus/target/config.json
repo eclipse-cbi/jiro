@@ -663,15 +663,6 @@
                      "pass": "bots/modeling.mdt.papyrus/gpg/passphrase"
                   }
                },
-               "ossrh": {
-                  "nexusProUrl": "https://oss.sonatype.org",
-                  "password": {
-                     "pass": "bots/modeling.mdt.papyrus/oss.sonatype.org/password"
-                  },
-                  "username": {
-                     "pass": "bots/modeling.mdt.papyrus/oss.sonatype.org/username"
-                  }
-               },
                "repo.eclipse.org": {
                   "password": {
                      "pass": "nexus/password"
