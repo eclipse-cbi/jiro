@@ -482,12 +482,6 @@ data:
                       value: 'C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools'
               - toolLocation:
                   locations:
-                    - home: 'C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.1\bin\mvn.cmd'
-                      key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
-                    - home: 'C:\ProgramData\chocolatey\bin\ant.bat'
-                      key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-1.9.6"
-                    - home: 'C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot'
-                      key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk11-latest"
                     - home: 'C:\Program Files\Git\bin\git'
                       key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
         - permanent:
@@ -508,14 +502,6 @@ data:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6tfKfT8YiNcb3WQOO2t4AmMEGsq+IhxAo2ROEXYrcYDJNWiR7jI4drW1jlOICQKqN5EcvBmTAUegHWuUVE+EVAQm9HrqFtAkJ7bhCcAUTtoMqdYzIR6vQ0LKCMsw6KuGVqsZ2Ub2pkA7CCbJE0CEX5uQFRFd57ngn5+kOJ4TcM9x8N7dEXyIv0lgos9J9JEm/XAlLfsdPomi79KcAE4DTWPkMCgs91aTzTRylIb0iEeReTSljw0UyWdsZgwPEX3ISUM+dWA0nl4W/lyeiEjD8r8EWx8h7POZXlMyYuwysbatrU8hfUlGoLKEKLuzozMfJCgW/v7gITU8J5pXCs4hV1lynM1G0avGnNWBrdeX+PW8abKK015/OZ+28Lt9+ig+BQtIF0S3AcUzzDPTjz1CpO0pq1dh2A2ed5RwHSg18CGzU17s4rnbBsNqZyB34NoUMEb0Lfs2ozucfXsasIhbtTqoo08LopcHagYx0VOHrYv3PPjOEemROmMPiU2xc1i8="
             nodeProperties:
-              - toolLocation:
-                  locations:
-                    - home: '/usr/bin/ant'
-                      key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-1.9.6"
-                    - home: '/usr/bin/mvn'
-                      key: "hudson.tasks.Maven$MavenInstallation$DescriptorImpl@apache-maven-latest"
-                    - home: '/usr/bin/java'
-                      key: "hudson.model.JDK$DescriptorImpl@openjdk-latest"
               - watcher:
                   offlineAddresses: "releng@eclipse.org"
                   onlineAddresses: "releng@eclipse.org"
@@ -621,12 +607,6 @@ data:
                     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2EUBUJSBAIzhw5Vc1B/nIwWNWix+4Co8xtYGOJjEPP"
             mode: EXCLUSIVE
             nodeProperties:
-              - toolLocation:
-                  locations:
-                    - home: "/usr/local/openjdk-17/Contents/Home/bin"
-                      key: "hudson.model.JDK$DescriptorImpl@openjdk-jdk17-latest"
-                    - home: "/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home/bin"
-                      key: "hudson.model.JDK$DescriptorImpl@adoptopenjdk-hotspot-jdk11-latest"
             remoteFS: "/Users/genie.releng/"
             retentionStrategy: "always"
         - permanent:
@@ -647,8 +627,6 @@ data:
                   onlineAddresses: "releng@eclipse.org"
               - toolLocation:
                   locations:
-                    - home: "C:\\ProgramData\\chocolatey\\lib\\ant\\tools\\apache-ant-1.10.13"
-                      key: "hudson.tasks.Ant$AntInstallation$DescriptorImpl@apache-ant-latest"
                     - home: 'C:\Program Files\Git\bin\git'
                       key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
             remoteFS: "C:\\Users\\genie.releng\\"
