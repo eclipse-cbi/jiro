@@ -474,8 +474,7 @@ unclassified:
         apiUrl: "https://api.github.com"
         credentialsId: "github-bot-token"
         manageHooks: false
-    hookSecretConfigs:
-      - credentialsId: "github-webhook-secret"
+    hookSecretConfigs: []
     hookUrl: "https://foundation.eclipse.org/ci/webdev/github-webhook/"
   scmGit:
     createAccountBasedOnEmail: true

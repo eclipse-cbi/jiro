@@ -565,10 +565,10 @@
             "servers": {
                "central": {
                   "password": {
-                     "pass": "bots/mylyn.docs/oss.sonatype.org/password"
+                     "pass": "bots/mylyn.docs/central.sonatype.org/token-password"
                   },
                   "username": {
-                     "pass": "bots/mylyn.docs/oss.sonatype.org/username"
+                     "pass": "bots/mylyn.docs/central.sonatype.org/token-username"
                   }
                },
                "gpg.passphrase": {
