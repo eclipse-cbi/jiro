@@ -19,13 +19,12 @@
       "settings-deploy-ossrh-docs.xml": {
         servers: {
           "repo.eclipse.org": superSettings.servers["repo.eclipse.org"],
-          ossrh: {
-            nexusProUrl: superSettings.servers.ossrh.nexusProUrl,
+          central: {
             username: {
-              pass: "bots/mylyn.docs/oss.sonatype.org/username",
+              pass: "bots/mylyn.docs/central.sonatype.org/token-username",
             },
             password: {
-              pass: "bots/mylyn.docs/oss.sonatype.org/password",
+              pass: "bots/mylyn.docs/central.sonatype.org/token-password",
             }
           },
           "gpg.passphrase": {
