@@ -30,13 +30,12 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "settings-deploy-ossrh-jdt.xml": {
         servers: {
           "repo.eclipse.org": superSettings.servers["repo.eclipse.org"],
-          ossrh: {
-            nexusProUrl: superSettings.servers.ossrh.nexusProUrl,
+          central: {
             username: {
-              pass: "bots/eclipse.jdt/oss.sonatype.org/username",
+              pass: "bots/eclipse.jdt/central.sonatype.org/token-username",
             },
             password: {
-              pass: "bots/eclipse.jdt/oss.sonatype.org/password",
+              pass: "bots/eclipse.jdt/central.sonatype.org/token-password",
             }
           },
           "gpg.passphrase": {
@@ -50,13 +49,12 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "settings-deploy-ossrh-pde.xml": {
         servers: {
           "repo.eclipse.org": superSettings.servers["repo.eclipse.org"],
-          ossrh: {
-            nexusProUrl: superSettings.servers.ossrh.nexusProUrl,
+          central: {
             username: {
-              pass: "bots/eclipse.pde/oss.sonatype.org/username",
+              pass: "bots/eclipse.pde/central.sonatype.org/token-username",
             },
             password: {
-              pass: "bots/eclipse.pde/oss.sonatype.org/password",
+              pass: "bots/eclipse.pde/central.sonatype.org/token-password",
             }
           },
           "gpg.passphrase": {
@@ -70,13 +68,12 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "settings-deploy-ossrh-releng.xml": {
         servers: {
           "repo.eclipse.org": superSettings.servers["repo.eclipse.org"],
-          ossrh: {
-            nexusProUrl: superSettings.servers.ossrh.nexusProUrl,
+          central: {
             username: {
-              pass: "bots/eclipse.platform.releng/oss.sonatype.org/username",
+              pass: "bots/eclipse.platform.releng/central.sonatype.org/token-username",
             },
             password: {
-              pass: "bots/eclipse.platform.releng/oss.sonatype.org/password",
+              pass: "bots/eclipse.platform.releng/central.sonatype.org/token-password",
             }
           },
           "gpg.passphrase": {
