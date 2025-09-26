@@ -14,8 +14,8 @@ metadata:
     org.eclipse.cbi.jiro/project.fullName: "adoptium.temurin-compliance"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
-    org.eclipse.cbi.jiro/jenkins.version: "2.516.2"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.516.2"
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.516.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "temurin-compliance"
   namespace: "temurin-compliance"
   name: jenkins-config
@@ -997,8 +997,7 @@ data:
             apiUrl: "https://api.github.com"
             credentialsId: "github-bot-token"
             manageHooks: false
-        hookSecretConfigs:
-          - credentialsId: "github-webhook-secret"
+        hookSecretConfigs: []
         hookUrl: "https://ci.eclipse.org/temurin-compliance/github-webhook/"
       scmGit:
         createAccountBasedOnEmail: true
@@ -1209,7 +1208,7 @@ data:
                   installers:
                     - zip:
                         subdir: "apache-ant-1.10.15"
-                        url: "https://download.eclipse.org/cbi/build-tools/apache-ant-1.10.15-bin.zip"
+                        url: "https://download.eclipse.org/cbi/build-tools/apache-ant-1.10.15-bin.tar.gz"
       maven:
         installations:
           - name: "maven-daemon"
@@ -1217,8 +1216,8 @@ data:
               - installSource:
                   installers:
                     - zip:
-                        subdir: "maven-mvnd-1.0.2-linux-amd64"
-                        url: "https://download.eclipse.org/cbi/build-tools/maven-mvnd-1.0.2-linux-amd64.tar.gz"
+                        subdir: "maven-mvnd-1.0.3-linux-amd64"
+                        url: "https://download.eclipse.org/cbi/build-tools/maven-mvnd-1.0.3-linux-amd64.tar.gz"
           - name: "apache-maven-latest"
             home: "/opt/tools/apache-maven/latest"
           - name: "apache-maven-3.9.11"
