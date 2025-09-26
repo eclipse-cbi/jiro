@@ -1,4 +1,3 @@
 # GENERATED FILE - DO NOT EDIT
-parameterized-remote-trigger-plugin
 pipeline-graph-view
 urltrigger
