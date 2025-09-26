@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.492.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.516.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jetty"
   namespace: "jetty"
   name: jenkins-config
@@ -214,7 +214,7 @@ data:
                 label: "basic basic-ubuntu"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3283.v92c105e0f819
+                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3309.v27b_9314fd1a_4
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -308,7 +308,7 @@ data:
                 label: "ubuntu-2204"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3283.v92c105e0f819
+                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3309.v27b_9314fd1a_4
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -402,7 +402,7 @@ data:
                 label: "ubuntu-latest ubuntu-2404 migration jipp-migration centos-7 centos-8 centos-latest"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3283.v92c105e0f819
+                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3309.v27b_9314fd1a_4
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -758,7 +758,7 @@ data:
                   installers:
                     - zip:
                         subdir: "apache-ant-1.10.15"
-                        url: "https://download.eclipse.org/cbi/build-tools/apache-ant-1.10.15-bin.zip"
+                        url: "https://download.eclipse.org/cbi/build-tools/apache-ant-1.10.15-bin.tar.gz"
       maven:
         installations:
           - name: "maven-daemon"
@@ -766,8 +766,8 @@ data:
               - installSource:
                   installers:
                     - zip:
-                        subdir: "maven-mvnd-1.0.2-linux-amd64"
-                        url: "https://download.eclipse.org/cbi/build-tools/maven-mvnd-1.0.2-linux-amd64.tar.gz"
+                        subdir: "maven-mvnd-1.0.3-linux-amd64"
+                        url: "https://download.eclipse.org/cbi/build-tools/maven-mvnd-1.0.3-linux-amd64.tar.gz"
           - name: "apache-maven-latest"
             home: "/opt/tools/apache-maven/latest"
           - name: "apache-maven-3.9.11"
