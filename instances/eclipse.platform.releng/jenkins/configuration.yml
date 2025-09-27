@@ -178,7 +178,6 @@ jenkins:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2EUBUJSBAIzhw5Vc1B/nIwWNWix+4Co8xtYGOJjEPP"
       mode: EXCLUSIVE
-      nodeProperties:
       remoteFS: "/Users/genie.releng/"
       retentionStrategy: "always"
   - permanent:
