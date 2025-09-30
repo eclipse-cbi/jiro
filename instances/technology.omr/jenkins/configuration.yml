@@ -37,7 +37,7 @@ jenkins:
   - permanent:
       name: "cent9-x86-1"
       nodeDescription: "CentOS 9 Stream<br />OSU<br />x86-64<br />shared between openj9 & omr"
-      labelString: "Linux x86 compile:xlinux cgroup.v1"
+      labelString: "Linux x86 compile:xlinux cgroup.v1 shared"
       remoteFS: '/home/omr/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -54,7 +54,7 @@ jenkins:
   - permanent:
       name: "ubu22-x86-1"
       nodeDescription: "Ubuntu 22.04<br />OSU<br />x86-64<br />shared between openj9 & omr"
-      labelString: "Linux x86 compile:xlinux cgroup.v1"
+      labelString: "Linux x86 compile:xlinux cgroup.v1 shared"
       remoteFS: '/home/omr/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -71,7 +71,7 @@ jenkins:
   - permanent:
       name: "cent9-x86-4"
       nodeDescription: "CentOS 9 Stream<br />OSU<br />x86-64<br />shared between openj9 & omr"
-      labelString: "Linux x86 compile:xlinux cgroup.v2"
+      labelString: "Linux x86 compile:xlinux cgroup.v2 shared"
       remoteFS: '/home/omr/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -88,7 +88,7 @@ jenkins:
   - permanent:
       name: "ubu24-x86-3"
       nodeDescription: "Ubuntu 22.04<br />OSU<br />x86-64<br />shared between openj9 & omr"
-      labelString: "Linux x86 compile:xlinux cgroup.v2"
+      labelString: "Linux x86 compile:xlinux cgroup.v2 shared"
       remoteFS: '/home/omr/'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -105,7 +105,7 @@ jenkins:
   - permanent:
       name: "mac15-x86-1"
       nodeDescription: "Macmini8,1 - 2018<br />Disk Space - 466 GB<br />CPU - 6-Core Intel Core i7<br />RAM - 16 GB<br />"
-      labelString: "OSX x86 UNB compile:xosx"
+      labelString: "OSX x86 UNB compile:xosx shared"
       remoteFS: '/Users/omr'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -116,7 +116,7 @@ jenkins:
   - permanent:
       name: "mac15-x86-2"
       nodeDescription: "Macmini8,1 - 2018<br />Disk Space - 466 GB<br />CPU - 6-Core Intel Core i7<br />RAM - 16 GB<br />"
-      labelString: "OSX x86 UNB compile:xosx"
+      labelString: "OSX x86 UNB compile:xosx shared"
       remoteFS: '/Users/omr'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -127,7 +127,7 @@ jenkins:
   - permanent:
       name: "mac15-aarch64-1"
       nodeDescription: "Macmini9,1 - 2020<br />Disk Space - 460 GB<br />CPU - 8 (4 performance and 4 efficiency) Cores<br />RAM - 16 GB<br />"
-      labelString: "OSX aarch64 UNB compile:amac"
+      labelString: "OSX aarch64 UNB compile:amac shared"
       remoteFS: '/Users/omr'
       numExecutors: 1
       mode: EXCLUSIVE
@@ -138,7 +138,7 @@ jenkins:
   - permanent:
       name: "mac15-aarch64-2"
       nodeDescription: "Macmini9,1 - 2020<br />Disk Space - 460 GB<br />CPU - 8 (4 performance and 4 efficiency) Cores<br />RAM - 16 GB<br />"
-      labelString: "OSX aarch64 UNB compile:amac"
+      labelString: "OSX aarch64 UNB compile:amac shared"
       remoteFS: '/Users/omr'
       numExecutors: 1
       mode: EXCLUSIVE
