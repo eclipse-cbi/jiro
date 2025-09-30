@@ -15,3 +15,16 @@ tool:
           installers:
           - sonarRunnerInstaller:
               id: "4.5.0.2216"
+
+unclassified:
+  prometheusConfiguration:
+    disabledMetricConfig:
+      entries:
+      - regexDisabledMetric:
+          regex: "jenkins_builds_last_stage_duration.*"
+      - regexDisabledMetric:
+          regex: "jvm_.*"
+      - regexDisabledMetric:
+          regex: "vm_memory_pools.*"
+      - regexDisabledMetric:
+          regex: "jenkins_builds_discard_active.*"
