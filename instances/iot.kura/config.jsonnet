@@ -8,6 +8,7 @@
       "clone-workspace-scm",
       "jacoco",
       "junit-attachments",
+      "pipeline-utility-steps",
     ],
   },
 }
