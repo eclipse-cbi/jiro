@@ -460,6 +460,7 @@
          "pipeline-maven",
          "pipeline-stage-view",
          "pipeline-graph-view",
+         "plugin-usage-plugin",
          "prometheus",
          "promoted-builds",
          "rebuild",
