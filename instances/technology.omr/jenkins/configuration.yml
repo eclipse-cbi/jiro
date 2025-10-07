@@ -103,6 +103,40 @@ jenkins:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIByedZ1wKk2AjxiQct1kCK4Q7xhrvaZuITeXahgKhicV"
   - permanent:
+      name: "cent9-aarch64-1"
+      nodeDescription: "CentOS 9 Stream<br />OSU<br />aarch64<br />shared between openj9 & omr"
+      labelString: "Linux aarch64 compile:alinux cgroup.v2 shared"
+      remoteFS: '/home/omr/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "140.211.169.39"
+          port: "22"
+          credentialsId: "omr-agents-ssh-rh7"
+          javaPath: ""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOjGOSQEsh9TtjXm5suB9w2MFZNdA5KRtn3tayZNtBsZ"
+  - permanent:
+      name: "ubu24-aarch64-1"
+      nodeDescription: "Ubuntu 24.04<br />OSU<br />aarch64<br />shared between openj9 & omr"
+      labelString: "Linux aarch64 compile:alinux cgroup.v2 shared"
+      remoteFS: '/home/omr/'
+      numExecutors: 1
+      mode: EXCLUSIVE
+      retentionStrategy: "always"
+      launcher:
+        ssh:
+          host: "140.211.167.75"
+          port: "22"
+          credentialsId: "omr-agents-ssh-rh7"
+          javaPath: ""
+          sshHostKeyVerificationStrategy:
+            manuallyProvidedKeyVerificationStrategy:
+              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAcHMa1wyJ4O7dy5qEvQP0kdcqV1HkzJiz9svVJ2nzri"
+  - permanent:
       name: "mac15-x86-1"
       nodeDescription: "Macmini8,1 - 2018<br />Disk Space - 466 GB<br />CPU - 6-Core Intel Core i7<br />RAM - 16 GB<br />"
       labelString: "OSX x86 UNB compile:xosx shared"
