@@ -4,6 +4,7 @@
     displayName: "Eclipse 4diac",
   },
   jenkins+: {
+    staticAgentCount: 2, //trying to fix Java Heap Space issue - hd#6556
     plugins+: [
       "cmakebuilder",
       "copyartifact",
