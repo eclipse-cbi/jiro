@@ -77,7 +77,7 @@ jenkins:
   clouds:
     - kubernetes:
         name: "kubernetes"
-        containerCapStr: "10"
+        containerCapStr: "12"
         jenkinsUrl: "http://jenkins-ui.releng.svc.cluster.local/releng"
         jenkinsTunnel: "jenkins-discovery.releng.svc.cluster.local:50000"
         garbageCollection:

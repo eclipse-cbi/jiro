@@ -4,7 +4,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   project+: {
     fullName: "eclipse.platform.releng",
     displayName: "Eclipse Platform Releng",
-    resourcePacks: 5,
+    resourcePacks: 6,
     unixGroupName: "eclipse.platform",
   },
   jenkins+: {

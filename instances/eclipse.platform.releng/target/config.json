@@ -382,7 +382,7 @@
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
-      "maxConcurrency": 10,
+      "maxConcurrency": 12,
       "permissions": [
          {
             "user": {
@@ -586,12 +586,12 @@
          },
          "resources": {
             "cpu": {
-               "limit": "5900m",
-               "request": "2950m"
+               "limit": "6500m",
+               "request": "3250m"
             },
             "memory": {
-               "limit": "6144Mi",
-               "request": "6144Mi"
+               "limit": "6656Mi",
+               "request": "6656Mi"
             }
          },
          "stsName": "releng"
@@ -743,7 +743,7 @@
    "project": {
       "displayName": "Eclipse Platform Releng",
       "fullName": "eclipse.platform.releng",
-      "resourcePacks": 5,
+      "resourcePacks": 6,
       "shortName": "releng",
       "unixGroupName": "eclipse.platform"
    },
