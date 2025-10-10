@@ -453,9 +453,77 @@ jenkins:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDcGbOosxEs22/aErWNqhJg7xKcO8i4giQPHGoDh13pWh44Lqk1inQGXhIFdmL/3JX7dKSNyHrgHF0L61hzunwa5i5X4Hh9RgvHmntw1mEQOr2qi+9yoRv2tuwrNNpkfVeQnOXVOD0UiuL2MaC1bo1+PZo5UD65QF51ptsYO5Qpf/kP9uhQu7ZA81mMQeY1MlhnUaMRSVJl1+7DYlPvt77Z4fFGPnA34fH2fqbIeyZCXt9SBWvltFi4e/6ekmi7BMDcvHqaQvMMHaKhEOZPwn2lQ1grIfs/3AkRIQE+z5uoiPWikAbtE7rNYSEKK5AY6A4YCvEm5pcULEQClbKIB/+N"
     - permanent:
+        name: "cent9-x86-1"
+        nodeDescription: "CentOS 9 Stream<br />OSU<br />x86-64<br />shared between openj9 & omr"
+        labelString: "Linux x86 compile:xlinux cgroup.v1 shared"
+        remoteFS: '/home/omr/'
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "140.211.167.16"
+            port: "22"
+            credentialsId: "omr-agents-ssh-rh7"
+            javaPath: ""
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL4xaSI23IXg+x89NOEanQizZJzLLq8/Z/bzozxPN4l0"
+    - permanent:
+        name: "ubu22-x86-1"
+        nodeDescription: "Ubuntu 22.04<br />OSU<br />x86-64<br />shared between openj9 & omr"
+        labelString: "Linux x86 compile:xlinux cgroup.v1 shared"
+        remoteFS: '/home/omr/'
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "140.211.167.234"
+            port: "22"
+            credentialsId: "omr-agents-ssh-rh7"
+            javaPath: ""
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFVk4Hfvfo7/tUQWkGZLCo1uoszOBNKwxUVVTtorw3qb"
+    - permanent:
+        name: "cent9-x86-4"
+        nodeDescription: "CentOS 9 Stream<br />OSU<br />x86-64<br />shared between openj9 & omr"
+        labelString: "Linux x86 compile:xlinux cgroup.v2 shared"
+        remoteFS: '/home/omr/'
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "140.211.167.236"
+            port: "22"
+            credentialsId: "omr-agents-ssh-rh7"
+            javaPath: ""
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPwDoveUXOm/3asvbUChIDmnaO86s0AhPeT4XopJYJBO"
+    - permanent:
+        name: "ubu24-x86-3"
+        nodeDescription: "Ubuntu 22.04<br />OSU<br />x86-64<br />shared between openj9 & omr"
+        labelString: "Linux x86 compile:xlinux cgroup.v2 shared"
+        remoteFS: '/home/omr/'
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "140.211.166.238"
+            port: "22"
+            credentialsId: "omr-agents-ssh-rh7"
+            javaPath: ""
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIByedZ1wKk2AjxiQct1kCK4Q7xhrvaZuITeXahgKhicV"
+    - permanent:
         name: "mac15-x86-1"
         nodeDescription: "Macmini8,1 - 2018<br />Disk Space - 466 GB<br />CPU - 6-Core Intel Core i7<br />RAM - 16 GB<br />"
-        labelString: "OSX x86 UNB compile:xosx"
+        labelString: "OSX x86 UNB compile:xosx shared"
         remoteFS: '/Users/omr'
         numExecutors: 1
         mode: EXCLUSIVE
@@ -466,7 +534,7 @@ jenkins:
     - permanent:
         name: "mac15-x86-2"
         nodeDescription: "Macmini8,1 - 2018<br />Disk Space - 466 GB<br />CPU - 6-Core Intel Core i7<br />RAM - 16 GB<br />"
-        labelString: "OSX x86 UNB compile:xosx"
+        labelString: "OSX x86 UNB compile:xosx shared"
         remoteFS: '/Users/omr'
         numExecutors: 1
         mode: EXCLUSIVE
@@ -477,7 +545,7 @@ jenkins:
     - permanent:
         name: "mac15-aarch64-1"
         nodeDescription: "Macmini9,1 - 2020<br />Disk Space - 460 GB<br />CPU - 8 (4 performance and 4 efficiency) Cores<br />RAM - 16 GB<br />"
-        labelString: "OSX aarch64 UNB compile:amac"
+        labelString: "OSX aarch64 UNB compile:amac shared"
         remoteFS: '/Users/omr'
         numExecutors: 1
         mode: EXCLUSIVE
@@ -488,7 +556,7 @@ jenkins:
     - permanent:
         name: "mac15-aarch64-2"
         nodeDescription: "Macmini9,1 - 2020<br />Disk Space - 460 GB<br />CPU - 8 (4 performance and 4 efficiency) Cores<br />RAM - 16 GB<br />"
-        labelString: "OSX aarch64 UNB compile:amac"
+        labelString: "OSX aarch64 UNB compile:amac shared"
         remoteFS: '/Users/omr'
         numExecutors: 1
         mode: EXCLUSIVE
@@ -496,17 +564,6 @@ jenkins:
         launcher:
           command:
             command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix omr@192.168.10.170 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java  -jar remoting.jar'\""
-    - permanent:
-        name: "mac13-aarch64-08"
-        nodeDescription: "OSX aarch64"
-        labelString: "OSX aarch64 UNB compile:amac"
-        remoteFS: '/Users/omr'
-        numExecutors: 1
-        mode: EXCLUSIVE
-        retentionStrategy: "always"
-        launcher:
-          command:
-            command: "ssh -C -i /run/secrets/jenkins/ssh/id_rsa.omr jenkins@140.211.168.16 \"ssh -i ~/.ssh/id_rsa.aix omr@192.168.10.177 'wget -qO remoting.jar https://ci.eclipse.org/omr/jnlpJars/remoting.jar ; java -Xmx1g -Xdump:system:none -Xdump:heap:none -Xdump:java:none -Xdump:snap:none -Xdump:system:events=gpf+abort+traceassert+corruptcache -Xdump:java:events=gpf+user+abort+traceassert+corruptcache -Xdump:snap:events=gpf+abort+traceassert+corruptcache -jar remoting.jar'\""
     - permanent:
         name: "proxy"
         nodeDescription: "Used to connect to the UNB machines"
