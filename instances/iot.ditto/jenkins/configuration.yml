@@ -6,7 +6,7 @@ tool:
       - installSource:
           installers:
           - nodeJSInstaller:
-              id: "14.16.1"
+              id: "22.20.0"
               npmPackagesRefreshHours: 72
 unclassified:
   scmGit:
