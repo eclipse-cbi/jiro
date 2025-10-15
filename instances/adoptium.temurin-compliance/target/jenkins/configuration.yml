@@ -554,7 +554,7 @@ jenkins:
             port: "24828"
             credentialsId: "jenkins-jck-ssh"
             javaPath: "/usr/jdk-17.0.12+6/bin/java"
-            jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
+            jvmOptions: "-Xmx2g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChUHeepF+GU5QCh6Q3JiPZYZ8pAJ7yH9IaiT0FEHYB7d5GGyDYTT+XAcGg+DKcdyrwkV6IEFr8NFEIAXhr7Nr/hia5/gY+12kZvQT1HCj1EYbb80AJOQm/PqPlxBH96ThwlI3QCoNLkWz454QJxhMPscpkUr2umg8L3l0x09XjjLZqk+DIvEntL2ZEvoG7WyEOzc+FG3QA8XTLh3Q+OtLcQP+fsrLyvYXEeE3dMWzoTU+nsxG0HD40wMy+go07odciLu79GT+DU79I9fYf14gNN/ulWfe6L5aP44ejPUpoWfpVbJl00bvWX2XKiNc63Z+wCobAvA93F6Am2gHySYrh"
@@ -572,7 +572,7 @@ jenkins:
             port: "24845"
             credentialsId: "jenkins-jck-ssh"
             javaPath: "/usr/jdk-17.0.12+6/bin/java"
-            jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
+            jvmOptions: "-Xmx2g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChUHeepF+GU5QCh6Q3JiPZYZ8pAJ7yH9IaiT0FEHYB7d5GGyDYTT+XAcGg+DKcdyrwkV6IEFr8NFEIAXhr7Nr/hia5/gY+12kZvQT1HCj1EYbb80AJOQm/PqPlxBH96ThwlI3QCoNLkWz454QJxhMPscpkUr2umg8L3l0x09XjjLZqk+DIvEntL2ZEvoG7WyEOzc+FG3QA8XTLh3Q+OtLcQP+fsrLyvYXEeE3dMWzoTU+nsxG0HD40wMy+go07odciLu79GT+DU79I9fYf14gNN/ulWfe6L5aP44ejPUpoWfpVbJl00bvWX2XKiNc63Z+wCobAvA93F6Am2gHySYrh"
@@ -590,7 +590,7 @@ jenkins:
             port: "24860"
             credentialsId: "jenkins-jck-ssh"
             javaPath: "/usr/jdk-17.0.12+6/bin/java"
-            jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
+            jvmOptions: "-Xmx2g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChUHeepF+GU5QCh6Q3JiPZYZ8pAJ7yH9IaiT0FEHYB7d5GGyDYTT+XAcGg+DKcdyrwkV6IEFr8NFEIAXhr7Nr/hia5/gY+12kZvQT1HCj1EYbb80AJOQm/PqPlxBH96ThwlI3QCoNLkWz454QJxhMPscpkUr2umg8L3l0x09XjjLZqk+DIvEntL2ZEvoG7WyEOzc+FG3QA8XTLh3Q+OtLcQP+fsrLyvYXEeE3dMWzoTU+nsxG0HD40wMy+go07odciLu79GT+DU79I9fYf14gNN/ulWfe6L5aP44ejPUpoWfpVbJl00bvWX2XKiNc63Z+wCobAvA93F6Am2gHySYrh"
@@ -1053,6 +1053,8 @@ tool:
         home: "/opt/tools/java/openjdk/latest"
       - name: "openjdk-ea-latest"
         home: "/opt/tools/java/openjdk/ea-latest"
+      - name: "openjdk-jdk26-latest"
+        home: "/opt/tools/java/openjdk/jdk-26/latest"
       - name: "openjdk-jdk25-latest"
         home: "/opt/tools/java/openjdk/jdk-25/latest"
       - name: "openjdk-jdk24-latest"
@@ -1133,6 +1135,8 @@ tool:
         home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
       - name: "temurin-latest"
         home: "/opt/tools/java/temurin/latest"
+      - name: "temurin-jdk25-latest"
+        home: "/opt/tools/java/temurin/jdk-25/latest"
       - name: "temurin-jdk24-latest"
         home: "/opt/tools/java/temurin/jdk-24/latest"
       - name: "temurin-jdk23-latest"
@@ -1163,6 +1167,14 @@ tool:
         home: "/opt/tools/java/ibm/latest"
       - name: "semeru-latest"
         home: "/opt/tools/java/semeru/latest"
+      - name: "semeru-jdk25-latest"
+        home: "/opt/tools/java/semeru/jdk-25/latest"
+      - name: "semeru-jdk24-latest"
+        home: "/opt/tools/java/semeru/jdk-24/latest"
+      - name: "semeru-jdk23-latest"
+        home: "/opt/tools/java/semeru/jdk-23/latest"
+      - name: "semeru-jdk22-latest"
+        home: "/opt/tools/java/semeru/jdk-22/latest"
       - name: "semeru-jdk21-latest"
         home: "/opt/tools/java/semeru/jdk-21/latest"
       - name: "semeru-jdk20-latest"
