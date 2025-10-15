@@ -204,7 +204,7 @@ jenkins:
           port: "24828"
           credentialsId: "jenkins-jck-ssh"
           javaPath: "/usr/jdk-17.0.12+6/bin/java"
-          jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
+          jvmOptions: "-Xmx2g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChUHeepF+GU5QCh6Q3JiPZYZ8pAJ7yH9IaiT0FEHYB7d5GGyDYTT+XAcGg+DKcdyrwkV6IEFr8NFEIAXhr7Nr/hia5/gY+12kZvQT1HCj1EYbb80AJOQm/PqPlxBH96ThwlI3QCoNLkWz454QJxhMPscpkUr2umg8L3l0x09XjjLZqk+DIvEntL2ZEvoG7WyEOzc+FG3QA8XTLh3Q+OtLcQP+fsrLyvYXEeE3dMWzoTU+nsxG0HD40wMy+go07odciLu79GT+DU79I9fYf14gNN/ulWfe6L5aP44ejPUpoWfpVbJl00bvWX2XKiNc63Z+wCobAvA93F6Am2gHySYrh"
@@ -222,7 +222,7 @@ jenkins:
           port: "24845"
           credentialsId: "jenkins-jck-ssh"
           javaPath: "/usr/jdk-17.0.12+6/bin/java"
-          jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
+          jvmOptions: "-Xmx2g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChUHeepF+GU5QCh6Q3JiPZYZ8pAJ7yH9IaiT0FEHYB7d5GGyDYTT+XAcGg+DKcdyrwkV6IEFr8NFEIAXhr7Nr/hia5/gY+12kZvQT1HCj1EYbb80AJOQm/PqPlxBH96ThwlI3QCoNLkWz454QJxhMPscpkUr2umg8L3l0x09XjjLZqk+DIvEntL2ZEvoG7WyEOzc+FG3QA8XTLh3Q+OtLcQP+fsrLyvYXEeE3dMWzoTU+nsxG0HD40wMy+go07odciLu79GT+DU79I9fYf14gNN/ulWfe6L5aP44ejPUpoWfpVbJl00bvWX2XKiNc63Z+wCobAvA93F6Am2gHySYrh"
@@ -240,7 +240,7 @@ jenkins:
           port: "24860"
           credentialsId: "jenkins-jck-ssh"
           javaPath: "/usr/jdk-17.0.12+6/bin/java"
-          jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
+          jvmOptions: "-Xmx2g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChUHeepF+GU5QCh6Q3JiPZYZ8pAJ7yH9IaiT0FEHYB7d5GGyDYTT+XAcGg+DKcdyrwkV6IEFr8NFEIAXhr7Nr/hia5/gY+12kZvQT1HCj1EYbb80AJOQm/PqPlxBH96ThwlI3QCoNLkWz454QJxhMPscpkUr2umg8L3l0x09XjjLZqk+DIvEntL2ZEvoG7WyEOzc+FG3QA8XTLh3Q+OtLcQP+fsrLyvYXEeE3dMWzoTU+nsxG0HD40wMy+go07odciLu79GT+DU79I9fYf14gNN/ulWfe6L5aP44ejPUpoWfpVbJl00bvWX2XKiNc63Z+wCobAvA93F6Am2gHySYrh"
