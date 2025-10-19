@@ -10,24 +10,6 @@
       "git-forensics",
     ],
   },
-  clouds+: {
-    kubernetes+: {
-      local currentCloud = self,
-      templates+: {
-        "jipp-ubuntu-2404-agent-8gb": currentCloud.templates["ubuntu-2404"] {
-          labels: ["centos-8-8gb", "centos-latest-8gb"],
-          kubernetes+: {
-            resources+: {
-              memory: {
-                limit: "8192Mi",
-                request: "8192Mi",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
   storage: {
     storageClassName: "cephfs-new-retain",
   },
