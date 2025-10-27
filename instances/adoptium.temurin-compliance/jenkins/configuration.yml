@@ -200,8 +200,8 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         ssh:
-          host: "services-uswest.skytap.com"
-          port: "24828"
+          host: "services-us-texas-m-1.skytap.com"
+          port: "8373"
           credentialsId: "jenkins-jck-ssh"
           javaPath: "/usr/jdk-17.0.12+6/bin/java"
           jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
@@ -218,8 +218,8 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         ssh:
-          host: "services-uswest.skytap.com"
-          port: "24845"
+          host: "services-us-texas-m-1.skytap.com"
+          port: "8523"
           credentialsId: "jenkins-jck-ssh"
           javaPath: "/usr/jdk-17.0.12+6/bin/java"
           jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
@@ -236,8 +236,8 @@ jenkins:
       retentionStrategy: "always"
       launcher:
         ssh:
-          host: "services-uswest.skytap.com"
-          port: "24860"
+          host: "services-us-texas-m-1.skytap.com"
+          port: "8517"
           credentialsId: "jenkins-jck-ssh"
           javaPath: "/usr/jdk-17.0.12+6/bin/java"
           jvmOptions: "-Xmx1g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
