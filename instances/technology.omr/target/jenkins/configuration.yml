@@ -521,6 +521,74 @@ jenkins:
               manuallyProvidedKeyVerificationStrategy:
                 key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIByedZ1wKk2AjxiQct1kCK4Q7xhrvaZuITeXahgKhicV"
     - permanent:
+        name: "cent9-aarch64-1"
+        nodeDescription: "CentOS 9 Stream<br />OSU<br />aarch64<br />shared between openj9 & omr"
+        labelString: "Linux aarch64 compile:alinux cgroup.v2 shared"
+        remoteFS: '/home/omr/'
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "140.211.169.39"
+            port: "22"
+            credentialsId: "omr-agents-ssh-rh7"
+            javaPath: ""
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOjGOSQEsh9TtjXm5suB9w2MFZNdA5KRtn3tayZNtBsZ"
+    - permanent:
+        name: "cent9-aarch64-2"
+        nodeDescription: "CentOS 9 Stream<br />OSU<br />aarch64<br />shared between openj9 & omr"
+        labelString: "Linux aarch64 compile:alinux cgroup.v1 shared"
+        remoteFS: '/home/omr/'
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "140.211.169.24"
+            port: "22"
+            credentialsId: "omr-agents-ssh-rh7"
+            javaPath: ""
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICgF9Qs8oKeaLJcN659DEX+ypWEnElwfXxfd5WhsBs6t"
+    - permanent:
+        name: "ubu24-aarch64-1"
+        nodeDescription: "Ubuntu 24.04<br />OSU<br />aarch64<br />shared between openj9 & omr"
+        labelString: "Linux aarch64 compile:alinux cgroup.v2 shared"
+        remoteFS: '/home/omr/'
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "140.211.167.75"
+            port: "22"
+            credentialsId: "omr-agents-ssh-rh7"
+            javaPath: ""
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAcHMa1wyJ4O7dy5qEvQP0kdcqV1HkzJiz9svVJ2nzri"
+    - permanent:
+        name: "ubu24-aarch64-2"
+        nodeDescription: "Ubuntu 24.04<br />OSU<br />aarch64<br />shared between openj9 & omr"
+        labelString: "Linux aarch64 compile:alinux cgroup.v1 shared"
+        remoteFS: '/home/omr/'
+        numExecutors: 1
+        mode: EXCLUSIVE
+        retentionStrategy: "always"
+        launcher:
+          ssh:
+            host: "140.211.167.87"
+            port: "22"
+            credentialsId: "omr-agents-ssh-rh7"
+            javaPath: ""
+            sshHostKeyVerificationStrategy:
+              manuallyProvidedKeyVerificationStrategy:
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKczXOY0ANRrp8LwZnR/yh0+4Ez9QYG/7H9zP/KmRtfW"
+    - permanent:
         name: "mac15-x86-1"
         nodeDescription: "Macmini8,1 - 2018<br />Disk Space - 466 GB<br />CPU - 6-Core Intel Core i7<br />RAM - 16 GB<br />"
         labelString: "OSX x86 UNB compile:xosx shared"
@@ -1161,6 +1229,8 @@ tool:
         home: "/opt/tools/java/openjdk/latest"
       - name: "openjdk-ea-latest"
         home: "/opt/tools/java/openjdk/ea-latest"
+      - name: "openjdk-jdk26-latest"
+        home: "/opt/tools/java/openjdk/jdk-26/latest"
       - name: "openjdk-jdk25-latest"
         home: "/opt/tools/java/openjdk/jdk-25/latest"
       - name: "openjdk-jdk24-latest"
@@ -1241,6 +1311,8 @@ tool:
         home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
       - name: "temurin-latest"
         home: "/opt/tools/java/temurin/latest"
+      - name: "temurin-jdk25-latest"
+        home: "/opt/tools/java/temurin/jdk-25/latest"
       - name: "temurin-jdk24-latest"
         home: "/opt/tools/java/temurin/jdk-24/latest"
       - name: "temurin-jdk23-latest"
@@ -1271,6 +1343,14 @@ tool:
         home: "/opt/tools/java/ibm/latest"
       - name: "semeru-latest"
         home: "/opt/tools/java/semeru/latest"
+      - name: "semeru-jdk25-latest"
+        home: "/opt/tools/java/semeru/jdk-25/latest"
+      - name: "semeru-jdk24-latest"
+        home: "/opt/tools/java/semeru/jdk-24/latest"
+      - name: "semeru-jdk23-latest"
+        home: "/opt/tools/java/semeru/jdk-23/latest"
+      - name: "semeru-jdk22-latest"
+        home: "/opt/tools/java/semeru/jdk-22/latest"
       - name: "semeru-jdk21-latest"
         home: "/opt/tools/java/semeru/jdk-21/latest"
       - name: "semeru-jdk20-latest"
