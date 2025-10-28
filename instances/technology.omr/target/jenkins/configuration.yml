@@ -1041,7 +1041,7 @@ jenkins:
             javaPath: ""
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDH8rDccX6sSEY+7w44UesVpzT/6NP1GEqMNMaPL4rDcweH/3ngzEJ1Nb802kwbPRtr0OSAtESJPCHCISgPi7IgzZNfPPIAwwBu1HQPtAZ4cK9Di7rfOvGXyED2zEOz/fAW8wGLU16VXXmJLcZ+eMwKsS8Gzzo5xb7RK9rEHv2LxWL9xS4CXCxpnJtcpfasrWyismdc/sW/IqP48+tTywRatjjFGz7o1aOfBgdeYy4vOCpEqdy+nvg3BUc0TnynhkXfo8ziKzAOWto4lGIeUxh751EW830atixZDPQLJl0fG8yji6Bn9bD2K7h7XowSujSAEOCYjL/MkEVH1598LyNKKVWSaZNCdHC2e09wRg8LDteNIekuH/chcEnhqBQuc/EuAUVORoO1fSv5WN27FxbPkdK3rISZy0eyuPbGtSIwyu3zcZ4cLjiw4HwcFOsP+cUEyFIkIC1+OWBCr4QrXWnrhIB/U3TSikLEThVOPNkzYNdHIieOxUK3bgYmnElqwds="
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ05jizv2K2DweTCsADD9hWWIpjjFKHxPFvyCGltC8Xz"
         nodeProperties:
           - envVars:
               env:
@@ -1067,7 +1067,7 @@ jenkins:
             javaPath: ""
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDH8rDccX6sSEY+7w44UesVpzT/6NP1GEqMNMaPL4rDcweH/3ngzEJ1Nb802kwbPRtr0OSAtESJPCHCISgPi7IgzZNfPPIAwwBu1HQPtAZ4cK9Di7rfOvGXyED2zEOz/fAW8wGLU16VXXmJLcZ+eMwKsS8Gzzo5xb7RK9rEHv2LxWL9xS4CXCxpnJtcpfasrWyismdc/sW/IqP48+tTywRatjjFGz7o1aOfBgdeYy4vOCpEqdy+nvg3BUc0TnynhkXfo8ziKzAOWto4lGIeUxh751EW830atixZDPQLJl0fG8yji6Bn9bD2K7h7XowSujSAEOCYjL/MkEVH1598LyNKKVWSaZNCdHC2e09wRg8LDteNIekuH/chcEnhqBQuc/EuAUVORoO1fSv5WN27FxbPkdK3rISZy0eyuPbGtSIwyu3zcZ4cLjiw4HwcFOsP+cUEyFIkIC1+OWBCr4QrXWnrhIB/U3TSikLEThVOPNkzYNdHIieOxUK3bgYmnElqwds="
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ05jizv2K2DweTCsADD9hWWIpjjFKHxPFvyCGltC8Xz"
         nodeProperties:
           - envVars:
               env:
