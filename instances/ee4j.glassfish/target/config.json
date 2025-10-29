@@ -469,6 +469,7 @@
          "pipeline-maven",
          "pipeline-stage-view",
          "pipeline-graph-view",
+         "plugin-usage-plugin",
          "prometheus",
          "promoted-builds",
          "rebuild",
@@ -652,6 +653,6 @@
    },
    "storage": {
       "quota": "250Gi",
-      "storageClassName": "managed-nfs-storage-bambam-retain-policy"
+      "storageClassName": "cephfs-new-retain"
    }
 }
