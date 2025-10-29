@@ -70,12 +70,27 @@ data:
                 permissions:
                   - Overall/Read
             - user:
+                name: ana.bukvic@eclipse-foundation.org
+                permissions:
+                  - Overall/Read
+                  - Agent/Build
+            - user:
                 name: anonymous
                 permissions:
                   - Overall/Read
                   - Job/Discover
             - user:
                 name: boris.baldassari@eclipse-foundation.org
+                permissions:
+                  - Overall/Read
+                  - Agent/Build
+            - user:
+                name: carmen.delgado@eclipse-foundation.org
+                permissions:
+                  - Overall/Read
+                  - Agent/Build
+            - user:
+                name: charley.mann@eclipse-foundation.org
                 permissions:
                   - Overall/Read
                   - Agent/Build
@@ -101,6 +116,11 @@ data:
                   - Agent/Build
             - user:
                 name: shawn.kilpatrick@eclipse-foundation.org
+                permissions:
+                  - Overall/Read
+                  - Agent/Build
+            - user:
+                name: thomas.froment@eclipse-foundation.org
                 permissions:
                   - Overall/Read
                   - Agent/Build
@@ -535,8 +555,7 @@ data:
             apiUrl: "https://api.github.com"
             credentialsId: "github-bot-token"
             manageHooks: false
-        hookSecretConfigs:
-          - credentialsId: "github-webhook-secret"
+        hookSecretConfigs: []
         hookUrl: "https://foundation.eclipse.org/ci/infra/github-webhook/"
       scmGit:
         createAccountBasedOnEmail: true
@@ -619,6 +638,8 @@ data:
             home: "/opt/tools/java/openjdk/latest"
           - name: "openjdk-ea-latest"
             home: "/opt/tools/java/openjdk/ea-latest"
+          - name: "openjdk-jdk26-latest"
+            home: "/opt/tools/java/openjdk/jdk-26/latest"
           - name: "openjdk-jdk25-latest"
             home: "/opt/tools/java/openjdk/jdk-25/latest"
           - name: "openjdk-jdk24-latest"
@@ -699,6 +720,8 @@ data:
             home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
           - name: "temurin-latest"
             home: "/opt/tools/java/temurin/latest"
+          - name: "temurin-jdk25-latest"
+            home: "/opt/tools/java/temurin/jdk-25/latest"
           - name: "temurin-jdk24-latest"
             home: "/opt/tools/java/temurin/jdk-24/latest"
           - name: "temurin-jdk23-latest"
@@ -729,6 +752,14 @@ data:
             home: "/opt/tools/java/ibm/latest"
           - name: "semeru-latest"
             home: "/opt/tools/java/semeru/latest"
+          - name: "semeru-jdk25-latest"
+            home: "/opt/tools/java/semeru/jdk-25/latest"
+          - name: "semeru-jdk24-latest"
+            home: "/opt/tools/java/semeru/jdk-24/latest"
+          - name: "semeru-jdk23-latest"
+            home: "/opt/tools/java/semeru/jdk-23/latest"
+          - name: "semeru-jdk22-latest"
+            home: "/opt/tools/java/semeru/jdk-22/latest"
           - name: "semeru-jdk21-latest"
             home: "/opt/tools/java/semeru/jdk-21/latest"
           - name: "semeru-jdk20-latest"

@@ -27,6 +27,10 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       permissionsTemplates.user("marco.jahn@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
       permissionsTemplates.user("mariateresa.delgado@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
       permissionsTemplates.user("rahul.mohangeetha@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
+      permissionsTemplates.user("carmen.delgado@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
+      permissionsTemplates.user("thomas.froment@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
+      permissionsTemplates.user("charley.mann@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
+      permissionsTemplates.user("ana.bukvic@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
       permissionsTemplates.group("foundation-internal.it", permissionsTemplates.committerPermissionsList)
     ,
     plugins+: [
@@ -43,6 +47,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     master+: {
       namespace: "foundation-internal-infra"
     }
+  },
+  storage: {
+    storageClassName: "managed-nfs-storage-bambam-retain-policy",
   },
   seLinuxLevel: "s0:c27,c24",
 }
