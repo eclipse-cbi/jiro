@@ -48,12 +48,12 @@
                   "inheritYamlMergeStrategy": true,
                   "resources": {
                      "cpu": {
-                        "limit": "2000m",
-                        "request": "1000m"
+                        "limit": "4460m",
+                        "request": "4160m"
                      },
                      "memory": {
-                        "limit": "4096Mi",
-                        "request": "4096Mi"
+                        "limit": "16384Mi",
+                        "request": "16384Mi"
                      }
                   },
                   "volumes": [
@@ -145,12 +145,12 @@
                   "inheritYamlMergeStrategy": true,
                   "resources": {
                      "cpu": {
-                        "limit": "2000m",
-                        "request": "1000m"
+                        "limit": "4460m",
+                        "request": "4160m"
                      },
                      "memory": {
-                        "limit": "4096Mi",
-                        "request": "4096Mi"
+                        "limit": "16384Mi",
+                        "request": "16384Mi"
                      }
                   },
                   "volumes": [
@@ -241,12 +241,12 @@
                   "inheritYamlMergeStrategy": true,
                   "resources": {
                      "cpu": {
-                        "limit": "2000m",
-                        "request": "1000m"
+                        "limit": "4460m",
+                        "request": "4160m"
                      },
                      "memory": {
-                        "limit": "4096Mi",
-                        "request": "4096Mi"
+                        "limit": "16384Mi",
+                        "request": "16384Mi"
                      }
                   },
                   "volumes": [
@@ -345,8 +345,8 @@
       "generate": false
    },
    "jenkins": {
-      "agentConnectionTimeout": 180,
-      "maxConcurrency": 2,
+      "agentConnectionTimeout": 300,
+      "maxConcurrency": 25,
       "permissions": [
          {
             "user": {
@@ -450,10 +450,24 @@
                   "View/Read"
                ]
             }
+         },
+         {
+            "user": {
+               "name": "smarlow@redhat.com",
+               "permissions": [
+                  "Overall/SystemRead"
+               ]
+            }
          }
       ],
       "plugins": [
-         "jacoco"
+         "jacoco",
+         "blueocean",
+         "copyartifact",
+         "description-setter",
+         "envinject",
+         "extended-choice-parameter",
+         "groovy"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
@@ -514,6 +528,7 @@
          "pipeline-maven",
          "pipeline-stage-view",
          "pipeline-graph-view",
+         "plugin-usage-plugin",
          "prometheus",
          "promoted-builds",
          "rebuild",
@@ -547,12 +562,12 @@
       "agents": {
          "defaultResources": {
             "cpu": {
-               "limit": "2000m",
-               "request": "1000m"
+               "limit": "4460m",
+               "request": "4160m"
             },
             "memory": {
-               "limit": "4096Mi",
-               "request": "4096Mi"
+               "limit": "16384Mi",
+               "request": "16384Mi"
             }
          },
          "namespace": "jakartaee-platform"
@@ -576,12 +591,12 @@
          },
          "resources": {
             "cpu": {
-               "limit": "2000m",
-               "request": "250m"
+               "limit": "7400m",
+               "request": "3700m"
             },
             "memory": {
-               "limit": "1536Mi",
-               "request": "1536Mi"
+               "limit": "7424Mi",
+               "request": "7424Mi"
             }
          },
          "stsName": "jakartaee-platform"
@@ -637,7 +652,7 @@
    "project": {
       "displayName": "Jakarta EE Platform",
       "fullName": "ee4j.jakartaee-platform",
-      "resourcePacks": 1,
+      "resourcePacks": 52,
       "shortName": "jakartaee-platform",
       "unixGroupName": "ee4j.jakartaee-platform"
    },
@@ -696,6 +711,7 @@
       }
    },
    "storage": {
+      "quota": "250Gi",
       "storageClassName": "cephfs-new-retain"
    }
 }

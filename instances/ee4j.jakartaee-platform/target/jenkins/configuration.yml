@@ -95,6 +95,10 @@ jenkins:
               - View/Create
               - View/Delete
               - View/Read
+        - user:
+            name: smarlow@redhat.com
+            permissions:
+              - Overall/SystemRead
   markupFormatter: rawHtml
   crumbIssuer:
     standard:
@@ -111,7 +115,7 @@ jenkins:
   clouds:
     - kubernetes:
         name: "kubernetes"
-        containerCapStr: "2"
+        containerCapStr: "25"
         jenkinsUrl: "http://jenkins-ui.jakartaee-platform.svc.cluster.local/jakartaee-platform"
         jenkinsTunnel: "jenkins-discovery.jakartaee-platform.svc.cluster.local:50000"
         garbageCollection:
@@ -183,11 +187,11 @@ jenkins:
                 - name: jnlp
                   resources:
                     limits:
-                      cpu: "2000m"
-                      memory: "4096Mi"
+                      cpu: "4460m"
+                      memory: "16384Mi"
                     requests:
-                      cpu: "1000m"
-                      memory: "4096Mi"
+                      cpu: "4160m"
+                      memory: "16384Mi"
                   volumeMounts:
                   - name: m2-secret-dir
                     mountPath: /home/jenkins/.m2/settings-security.xml
@@ -277,11 +281,11 @@ jenkins:
                 - name: jnlp
                   resources:
                     limits:
-                      cpu: "2000m"
-                      memory: "4096Mi"
+                      cpu: "4460m"
+                      memory: "16384Mi"
                     requests:
-                      cpu: "1000m"
-                      memory: "4096Mi"
+                      cpu: "4160m"
+                      memory: "16384Mi"
                   volumeMounts:
                   - name: m2-secret-dir
                     mountPath: /home/jenkins/.m2/settings-security.xml
@@ -371,11 +375,11 @@ jenkins:
                 - name: jnlp
                   resources:
                     limits:
-                      cpu: "2000m"
-                      memory: "4096Mi"
+                      cpu: "4460m"
+                      memory: "16384Mi"
                     requests:
-                      cpu: "1000m"
-                      memory: "4096Mi"
+                      cpu: "4160m"
+                      memory: "16384Mi"
                   volumeMounts:
                   - name: m2-secret-dir
                     mountPath: /home/jenkins/.m2/settings-security.xml
@@ -536,6 +540,8 @@ tool:
         home: "/opt/tools/java/openjdk/latest"
       - name: "openjdk-ea-latest"
         home: "/opt/tools/java/openjdk/ea-latest"
+      - name: "openjdk-jdk26-latest"
+        home: "/opt/tools/java/openjdk/jdk-26/latest"
       - name: "openjdk-jdk25-latest"
         home: "/opt/tools/java/openjdk/jdk-25/latest"
       - name: "openjdk-jdk24-latest"
@@ -616,6 +622,8 @@ tool:
         home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
       - name: "temurin-latest"
         home: "/opt/tools/java/temurin/latest"
+      - name: "temurin-jdk25-latest"
+        home: "/opt/tools/java/temurin/jdk-25/latest"
       - name: "temurin-jdk24-latest"
         home: "/opt/tools/java/temurin/jdk-24/latest"
       - name: "temurin-jdk23-latest"
@@ -646,6 +654,14 @@ tool:
         home: "/opt/tools/java/ibm/latest"
       - name: "semeru-latest"
         home: "/opt/tools/java/semeru/latest"
+      - name: "semeru-jdk25-latest"
+        home: "/opt/tools/java/semeru/jdk-25/latest"
+      - name: "semeru-jdk24-latest"
+        home: "/opt/tools/java/semeru/jdk-24/latest"
+      - name: "semeru-jdk23-latest"
+        home: "/opt/tools/java/semeru/jdk-23/latest"
+      - name: "semeru-jdk22-latest"
+        home: "/opt/tools/java/semeru/jdk-22/latest"
       - name: "semeru-jdk21-latest"
         home: "/opt/tools/java/semeru/jdk-21/latest"
       - name: "semeru-jdk20-latest"

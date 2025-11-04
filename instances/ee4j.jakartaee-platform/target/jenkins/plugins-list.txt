@@ -1,2 +1,8 @@
 # GENERATED FILE - DO NOT EDIT
+blueocean
+copyartifact
+description-setter
+envinject
+extended-choice-parameter
+groovy
 jacoco
