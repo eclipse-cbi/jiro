@@ -88,7 +88,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
   },
   storage: {
     quota:"150Gi",
-    storageClassName: "managed-nfs-storage-bambam-retain-policy",
+    storageClassName: "cephfs-new-retain",
   },
   seLinuxLevel: "s0:c52,c29",
 }

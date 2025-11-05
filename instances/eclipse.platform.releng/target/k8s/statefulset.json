@@ -128,7 +128,7 @@
                   "volumeMounts": [
                      {
                         "mountPath": "/var/jenkins",
-                        "name": "jenkins-home-nfs"
+                        "name": "jenkins-home-cephfs"
                      },
                      {
                         "mountPath": "/var/cache/jenkins/war",
@@ -179,7 +179,7 @@
       "volumeClaimTemplates": [
          {
             "metadata": {
-               "name": "jenkins-home-nfs"
+               "name": "jenkins-home-cephfs"
             },
             "spec": {
                "accessModes": [
@@ -190,7 +190,7 @@
                      "storage": "150Gi"
                   }
                },
-               "storageClassName": "managed-nfs-storage-bambam-retain-policy"
+               "storageClassName": "cephfs-new-retain"
             }
          }
       ]
