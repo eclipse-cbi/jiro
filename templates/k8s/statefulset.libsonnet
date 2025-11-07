@@ -45,6 +45,10 @@ local Kube = import "kube.libsonnet";
 
       # https://github.com/fabric8io/kubernetes-client/blob/master/README.md
       "-Dkubernetes.websocket.ping.interval=30000",
+
+      # Related: https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/6744#note_5319438
+      # https://plugins.jenkins.io/git/#plugin-content-cache-root-directory
+      "-Djenkins.plugins.git.AbstractGitSCMSource.cacheRootDir=/var/cache/git-cache",
     ],
     local heapdumpOptions = if std.objectHas(config.jenkins, "heapdump") && config.jenkins.heapdump == true then [] else [
       "-XX:-HeapDumpOnOutOfMemoryError",
@@ -152,6 +156,11 @@ local Kube = import "kube.libsonnet";
                   mountPath: config.jiroMaster.pluginroot,
                   name: "jenkins-plugins",
                 },
+                # Related: https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/6744#note_5319438
+                {
+                  mountPath: "/var/cache/git-cache",
+                  name: "git-caches",
+                },
                 {
                   mountPath: "/etc/jenkins/",
                   name: "jenkins-config",
@@ -215,6 +224,10 @@ local Kube = import "kube.libsonnet";
             {
               name: "jenkins-plugins",
               emptyDir: {}
+            },
+            {
+              name: "git-caches",
+              emptyDir: {},
             },
             {
               name: "jenkins-config",
