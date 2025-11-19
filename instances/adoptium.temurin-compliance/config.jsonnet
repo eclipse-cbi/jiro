@@ -36,4 +36,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "xunit",
     ],
   },
+  storage: {
+    quota:"200Gi",
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c55,c15",
 }

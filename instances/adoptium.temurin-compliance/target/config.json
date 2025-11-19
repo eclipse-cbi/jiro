@@ -620,6 +620,7 @@
       },
       "generate": false
    },
+   "seLinuxLevel": "s0:c55,c15",
    "secrets": {
       "dockerconfigjson": {
          "dockerconfigjson-for-pull-as-default": {
@@ -657,5 +658,9 @@
             ]
          }
       }
+   },
+   "storage": {
+      "quota": "200Gi",
+      "storageClassName": "cephfs-new-retain"
    }
 }
