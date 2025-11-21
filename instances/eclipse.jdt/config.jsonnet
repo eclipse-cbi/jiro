@@ -11,8 +11,8 @@
       "git-forensics",
     ],
   },
-  seLinuxLevel: "s0:c43,c37",
   storage: {
-    storageClassName: "managed-nfs-storage-bambam-retain-policy",
-  }
+    storageClassName: "cephfs-new-retain",
+  },
+  seLinuxLevel: "s0:c43,c37",
 }
