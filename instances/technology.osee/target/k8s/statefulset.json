@@ -51,7 +51,7 @@
                   "env": [
                      {
                         "name": "JAVA_OPTS",
-                        "value": "-showversion -XshowSettings:vm -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -XX:+DisableExplicitGC -Duser.timezone=America/Toronto -Dhudson.footerURL=https://ci.eclipse.org -Dhudson.model.UsageStatistics.disabled=true -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Djenkins.model.Jenkins.exitCodeOnRestart=0 -Djenkins.model.Jenkins.slaveAgentPort=50000 -Djenkins.model.Jenkins.slaveAgentPortEnforce=true -Djenkins.install.runSetupWizard=false -Djenkins.ui.refresh=true -Djenkins.security.ManagePermission=true -Dorg.jenkinsci.plugins.durabletask.BourneShellScript.HEARTBEAT_CHECK_INTERVAL=7200 -DexecutableWar.jetty.disableCustomSessionIdCookieName=false -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.osee -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml -Dio.jenkins.plugins.casc.ConfigurationAsCode.initialDelay=5000 -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3309.v27b_9314fd1a_4 -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180 -Dkubernetes.websocket.ping.interval=30000 -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
+                        "value": "-showversion -XshowSettings:vm -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -XX:+DisableExplicitGC -Duser.timezone=America/Toronto -Dhudson.footerURL=https://ci.eclipse.org -Dhudson.model.UsageStatistics.disabled=true -Dhudson.lifecycle=hudson.lifecycle.ExitLifecycle -Djenkins.model.Jenkins.exitCodeOnRestart=0 -Djenkins.model.Jenkins.slaveAgentPort=50000 -Djenkins.model.Jenkins.slaveAgentPortEnforce=true -Djenkins.install.runSetupWizard=false -Djenkins.ui.refresh=true -Djenkins.security.ManagePermission=true -Dorg.jenkinsci.plugins.durabletask.BourneShellScript.HEARTBEAT_CHECK_INTERVAL=7200 -DexecutableWar.jetty.disableCustomSessionIdCookieName=false -DexecutableWar.jetty.sessionIdCookieName=JSESSIONID.osee -Dcasc.jenkins.config=/etc/jenkins/jenkins.yaml -Dio.jenkins.plugins.casc.ConfigurationAsCode.initialDelay=5000 -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.PodTemplateStepExecution.defaultImage=docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3309.v27b_9314fd1a_4 -Dorg.csanchez.jenkins.plugins.kubernetes.PodTemplate.connectionTimeout=180 -Dkubernetes.websocket.ping.interval=30000 -Djenkins.plugins.git.AbstractGitSCMSource.cacheRootDir=/var/cache/git-cache -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                      },
                      {
                         "name": "JENKINS_OPTS",
@@ -119,11 +119,16 @@
                         "cpu": "250m"
                      }
                   },
-                  "securityContext": { },
+                  "securityContext": {
+                     "seLinuxOptions": {
+                        "level": "s0:c50,c35",
+                        "type": "spc_t"
+                     }
+                  },
                   "volumeMounts": [
                      {
                         "mountPath": "/var/jenkins",
-                        "name": "jenkins-home"
+                        "name": "jenkins-home-cephfs"
                      },
                      {
                         "mountPath": "/var/cache/jenkins/war",
@@ -132,6 +137,10 @@
                      {
                         "mountPath": "/var/cache/jenkins/plugins",
                         "name": "jenkins-plugins"
+                     },
+                     {
+                        "mountPath": "/var/cache/git-cache",
+                        "name": "git-caches"
                      },
                      {
                         "mountPath": "/etc/jenkins/",
@@ -153,6 +162,10 @@
                   "name": "jenkins-plugins"
                },
                {
+                  "emptyDir": { },
+                  "name": "git-caches"
+               },
+               {
                   "configMap": {
                      "name": "jenkins-config"
                   },
@@ -164,7 +177,7 @@
       "volumeClaimTemplates": [
          {
             "metadata": {
-               "name": "jenkins-home"
+               "name": "jenkins-home-cephfs"
             },
             "spec": {
                "accessModes": [
@@ -172,9 +185,10 @@
                ],
                "resources": {
                   "requests": {
-                     "storage": "50Gi"
+                     "storage": "100Gi"
                   }
-               }
+               },
+               "storageClassName": "cephfs-new-retain"
             }
          }
       ]
