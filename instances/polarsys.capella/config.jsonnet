@@ -13,4 +13,8 @@
       "pipeline-utility-steps",
     ],
   },
+  storage: {
+    quota:"100Gi"
+  },
+  seLinuxLevel: "s0:c31,c15",
 }
