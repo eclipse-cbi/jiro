@@ -358,51 +358,6 @@ jenkins:
                     name: m2-dir
             inheritYamlMergeStrategy: "true"
             yamlMergeStrategy: "merge"
-  nodes:
-    - permanent:
-        labelString: "windows10"
-        launcher:
-          inbound:
-            webSocket: true
-            workDirSettings:
-              disabled: false
-              failIfWorkDirIsMissing: false
-              internalDir: "remoting"
-        mode: EXCLUSIVE
-        name: "9pfnn-win10-clone"
-        nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure\r\n<br/><br/>\r\nCloned disk from agent 9pfnn-win10 (2024-04-03)"
-        nodeProperties:
-          - watcher:
-              offlineAddresses: "releng@eclipse.org"
-              onlineAddresses: "releng@eclipse.org"
-          - toolLocation:
-              locations:
-                - home: "C:\\Program Files\\Git\\bin\\git"
-                  key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
-        remoteFS: "C:\\Users\\genie.openpass\\jenkins_agent"
-        retentionStrategy: "always"
-    - permanent:
-        labelString: "windows10"
-        launcher:
-          inbound:
-            webSocket: true
-            workDirSettings:
-              disabled: false
-              failIfWorkDirIsMissing: false
-              internalDir: "remoting"
-        mode: EXCLUSIVE
-        name: "9pfnn-win10"
-        nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure"
-        remoteFS: "C:\\Users\\genie.openpass\\jenkins_agent"
-        retentionStrategy: "always"
-        nodeProperties:
-          - watcher:
-              offlineAddresses: "releng@eclipse.org"
-              onlineAddresses: "releng@eclipse.org"
-          - toolLocation:
-              locations:
-                - home: "C:\\Program Files\\Git\\bin\\git"
-                  key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
@@ -566,6 +521,8 @@ tool:
         home: "/opt/tools/java/openjdk/latest"
       - name: "openjdk-ea-latest"
         home: "/opt/tools/java/openjdk/ea-latest"
+      - name: "openjdk-jdk26-latest"
+        home: "/opt/tools/java/openjdk/jdk-26/latest"
       - name: "openjdk-jdk25-latest"
         home: "/opt/tools/java/openjdk/jdk-25/latest"
       - name: "openjdk-jdk24-latest"
@@ -646,6 +603,8 @@ tool:
         home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
       - name: "temurin-latest"
         home: "/opt/tools/java/temurin/latest"
+      - name: "temurin-jdk25-latest"
+        home: "/opt/tools/java/temurin/jdk-25/latest"
       - name: "temurin-jdk24-latest"
         home: "/opt/tools/java/temurin/jdk-24/latest"
       - name: "temurin-jdk23-latest"
@@ -676,6 +635,14 @@ tool:
         home: "/opt/tools/java/ibm/latest"
       - name: "semeru-latest"
         home: "/opt/tools/java/semeru/latest"
+      - name: "semeru-jdk25-latest"
+        home: "/opt/tools/java/semeru/jdk-25/latest"
+      - name: "semeru-jdk24-latest"
+        home: "/opt/tools/java/semeru/jdk-24/latest"
+      - name: "semeru-jdk23-latest"
+        home: "/opt/tools/java/semeru/jdk-23/latest"
+      - name: "semeru-jdk22-latest"
+        home: "/opt/tools/java/semeru/jdk-22/latest"
       - name: "semeru-jdk21-latest"
         home: "/opt/tools/java/semeru/jdk-21/latest"
       - name: "semeru-jdk20-latest"
