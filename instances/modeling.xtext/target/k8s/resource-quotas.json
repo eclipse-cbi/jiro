@@ -1,0 +1,21 @@
+{
+   "apiVersion": "v1",
+   "kind": "ResourceQuota",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.xtext",
+         "org.eclipse.cbi.jiro/project.shortname": "xtext"
+      },
+      "name": "jenkins-instance-quota",
+      "namespace": "xtext"
+   },
+   "spec": {
+      "hard": {
+         "limits.cpu": "11200m",
+         "limits.memory": "20992Mi",
+         "pods": 5,
+         "requests.cpu": "5650m",
+         "requests.memory": "20992Mi"
+      }
+   }
+}

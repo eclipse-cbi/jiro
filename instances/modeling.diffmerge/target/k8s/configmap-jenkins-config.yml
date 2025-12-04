@@ -1,0 +1,715 @@
+#*******************************************************************************
+# Copyright (c) 2019 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html,
+# or the MIT License which is available at https://opensource.org/licenses/MIT.
+# SPDX-License-Identifier: EPL-2.0 OR MIT
+#*******************************************************************************
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    org.eclipse.cbi.jiro/project.shortname: "diffmerge"
+    org.eclipse.cbi.jiro/project.fullName: "modeling.diffmerge"
+    org.eclipse.cbi.jiro/kind: "master"
+  annotations:
+    org.eclipse.cbi.jiro/jenkins.version: "latest"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.516.3"
+    org.eclipse.cbi.jiro/kubernetes.master.namespace: "diffmerge"
+  namespace: "diffmerge"
+  name: jenkins-config
+data:
+  jenkins.yaml: |
+    # GENERATED FILE - DO NOT EDIT
+    #*******************************************************************************
+    # Copyright (c) 2018 Eclipse Foundation and others.
+    # This program and the accompanying materials are made available
+    # under the terms of the Eclipse Public License 2.0
+    # which is available at http://www.eclipse.org/legal/epl-v20.html,
+    # or the MIT License which is available at https://opensource.org/licenses/MIT.
+    # SPDX-License-Identifier: EPL-2.0 OR MIT
+    #*******************************************************************************
+    jenkins:
+      numExecutors: 0
+      scmCheckoutRetryCount: 2
+      mode: EXCLUSIVE
+      systemMessage: ""
+      disableRememberMe: false
+      authorizationStrategy:
+        projectMatrix:
+          entries:
+            - group:
+                name: admins
+                permissions:
+                  - Overall/Administer
+            - group:
+                name: common
+                permissions:
+                  - Job/ExtendedRead
+            - group:
+                name: modeling.diffmerge
+                permissions:
+                  - Agent/Build
+                  - Credentials/View
+                  - Job/Build
+                  - Job/Cancel
+                  - Job/Configure
+                  - Job/Create
+                  - Job/Delete
+                  - Job/Move
+                  - Job/Read
+                  - Job/Workspace
+                  - Overall/Read
+                  - Run/Delete
+                  - Run/Replay
+                  - Run/Update
+                  - SCM/Tag
+                  - View/Configure
+                  - View/Create
+                  - View/Delete
+                  - View/Read
+            - user:
+                name: anonymous
+                permissions:
+                  - Overall/Read
+                  - Job/Read
+      markupFormatter: rawHtml
+      crumbIssuer:
+        standard:
+          excludeClientIPFromCrumb: false
+      securityRealm:
+        ldap:
+          configurations:
+            - displayNameAttributeName: cn
+              groupSearchBase: ou=group
+              rootDN: dc=eclipse,dc=org
+              server: ldaps://ldapcluster.eclipse.org
+              userSearch: mail={0}
+              mailAddressAttributeName: mail
+      clouds:
+        - kubernetes:
+            name: "kubernetes"
+            containerCapStr: "2"
+            jenkinsUrl: "http://jenkins-ui.diffmerge.svc.cluster.local/diffmerge"
+            jenkinsTunnel: "jenkins-discovery.diffmerge.svc.cluster.local:50000"
+            garbageCollection:
+              timeout: 300
+            maxRequestsPerHostStr: "32"
+            namespace: "diffmerge"
+            podRetention: "never"
+            templates:
+              - name: "basic"
+                namespace: "diffmerge"
+                label: "basic basic-ubuntu"
+                containers:
+                  - name: "jnlp"
+                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3309.v27b_9314fd1a_4
+                    alwaysPullImage: true
+                    livenessProbe:
+                      failureThreshold: 0
+                      initialDelaySeconds: 0
+                      periodSeconds: 0
+                      successThreshold: 0
+                      timeoutSeconds: 0
+                    ttyEnabled: true
+                    command: ""
+                    args: ""
+                instanceCap: -1
+                nodeUsageMode: NORMAL
+                envVars:
+                  - envVar:
+                      key: "JAVA_TOOL_OPTIONS"
+                      value: ""
+                  - envVar:
+                      key: "JENKINS_REMOTING_JAVA_OPTS"
+                      value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  - envVar:
+                      key: "OPENJ9_JAVA_OPTIONS"
+                      value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+                  - envVar:
+                      key: "_JAVA_OPTIONS"
+                      value: ""
+                volumes:
+                  - persistentVolumeClaim:
+                      claimName: "tools-claim-jiro-diffmerge"
+                      mountPath: "/opt/tools"
+                      readOnly: true
+                  - configMapVolume:
+                      configMapName: "known-hosts"
+                      mountPath: "/home/jenkins/.ssh/"
+                      subPath: "."
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/repository"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/wrapper"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/mvnd"
+                workspaceVolume:
+                  emptyDirWorkspaceVolume:
+                    memory: false
+                yaml: |
+                  apiVersion: v1
+                  kind: Pod
+                  spec:
+                    containers:
+                    - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "4096Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "4096Mi"
+                      volumeMounts:
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings-security.xml
+                        subPath: settings-security.xml
+                        readOnly: true
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings.xml
+                        subPath: settings.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.m2/toolchains.xml
+                        subPath: toolchains.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.mavenrc
+                        subPath: .mavenrc
+                        readOnly: true
+                    volumes:
+                    - name: m2-secret-dir
+                      secret:
+                        secretName: m2-secret-dir
+                    - name: m2-dir
+                      configMap:
+                        name: m2-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
+              - name: "ubuntu-2204"
+                namespace: "diffmerge"
+                label: "ubuntu-2204"
+                containers:
+                  - name: "jnlp"
+                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3309.v27b_9314fd1a_4
+                    alwaysPullImage: true
+                    livenessProbe:
+                      failureThreshold: 0
+                      initialDelaySeconds: 0
+                      periodSeconds: 0
+                      successThreshold: 0
+                      timeoutSeconds: 0
+                    ttyEnabled: true
+                    command: ""
+                    args: ""
+                instanceCap: -1
+                nodeUsageMode: EXCLUSIVE
+                envVars:
+                  - envVar:
+                      key: "JAVA_TOOL_OPTIONS"
+                      value: ""
+                  - envVar:
+                      key: "JENKINS_REMOTING_JAVA_OPTS"
+                      value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  - envVar:
+                      key: "OPENJ9_JAVA_OPTIONS"
+                      value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+                  - envVar:
+                      key: "_JAVA_OPTIONS"
+                      value: ""
+                volumes:
+                  - persistentVolumeClaim:
+                      claimName: "tools-claim-jiro-diffmerge"
+                      mountPath: "/opt/tools"
+                      readOnly: true
+                  - configMapVolume:
+                      configMapName: "known-hosts"
+                      mountPath: "/home/jenkins/.ssh/"
+                      subPath: "."
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/repository"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/wrapper"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/mvnd"
+                workspaceVolume:
+                  emptyDirWorkspaceVolume:
+                    memory: false
+                yaml: |
+                  apiVersion: v1
+                  kind: Pod
+                  spec:
+                    containers:
+                    - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "4096Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "4096Mi"
+                      volumeMounts:
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings-security.xml
+                        subPath: settings-security.xml
+                        readOnly: true
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings.xml
+                        subPath: settings.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.m2/toolchains.xml
+                        subPath: toolchains.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.mavenrc
+                        subPath: .mavenrc
+                        readOnly: true
+                    volumes:
+                    - name: m2-secret-dir
+                      secret:
+                        secretName: m2-secret-dir
+                    - name: m2-dir
+                      configMap:
+                        name: m2-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
+              - name: "ubuntu-2404"
+                namespace: "diffmerge"
+                label: "ubuntu-latest ubuntu-2404 migration jipp-migration centos-7 centos-8 centos-latest"
+                containers:
+                  - name: "jnlp"
+                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3309.v27b_9314fd1a_4
+                    alwaysPullImage: true
+                    livenessProbe:
+                      failureThreshold: 0
+                      initialDelaySeconds: 0
+                      periodSeconds: 0
+                      successThreshold: 0
+                      timeoutSeconds: 0
+                    ttyEnabled: true
+                    command: ""
+                    args: ""
+                instanceCap: -1
+                nodeUsageMode: EXCLUSIVE
+                envVars:
+                  - envVar:
+                      key: "JAVA_TOOL_OPTIONS"
+                      value: ""
+                  - envVar:
+                      key: "JENKINS_REMOTING_JAVA_OPTS"
+                      value: "-showversion -XshowSettings:vm -Xmx256m -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
+                  - envVar:
+                      key: "OPENJ9_JAVA_OPTIONS"
+                      value: "-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+                  - envVar:
+                      key: "_JAVA_OPTIONS"
+                      value: ""
+                volumes:
+                  - persistentVolumeClaim:
+                      claimName: "tools-claim-jiro-diffmerge"
+                      mountPath: "/opt/tools"
+                      readOnly: true
+                  - configMapVolume:
+                      configMapName: "known-hosts"
+                      mountPath: "/home/jenkins/.ssh/"
+                      subPath: "."
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/repository"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/wrapper"
+                  - emptyDirVolume:
+                      memory: false
+                      mountPath: "/home/jenkins/.m2/mvnd"
+                workspaceVolume:
+                  emptyDirWorkspaceVolume:
+                    memory: false
+                yaml: |
+                  apiVersion: v1
+                  kind: Pod
+                  spec:
+                    containers:
+                    - name: jnlp
+                      resources:
+                        limits:
+                          cpu: "2000m"
+                          memory: "4096Mi"
+                        requests:
+                          cpu: "1000m"
+                          memory: "4096Mi"
+                      volumeMounts:
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings-security.xml
+                        subPath: settings-security.xml
+                        readOnly: true
+                      - name: m2-secret-dir
+                        mountPath: /home/jenkins/.m2/settings.xml
+                        subPath: settings.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.m2/toolchains.xml
+                        subPath: toolchains.xml
+                        readOnly: true
+                      - name: m2-dir
+                        mountPath: /home/jenkins/.mavenrc
+                        subPath: .mavenrc
+                        readOnly: true
+                    volumes:
+                    - name: m2-secret-dir
+                      secret:
+                        secretName: m2-secret-dir
+                    - name: m2-dir
+                      configMap:
+                        name: m2-dir
+                inheritYamlMergeStrategy: "true"
+                yamlMergeStrategy: "merge"
+    security:
+      apiToken:
+        creationOfLegacyTokenEnabled: false
+        tokenGenerationOnCreationEnabled: false
+        usageStatisticsEnabled: true
+      queueItemAuthenticator:
+        authenticators:
+          - global:
+              strategy: "triggeringUsersAuthorizationStrategy"
+      sSHD:
+        port: -1
+      gitHostKeyVerificationConfiguration:
+        sshHostKeyVerificationStrategy:
+          manuallyProvidedKeyVerificationStrategy:
+            approvedHostKeys: |-
+              gitlab.eclipse.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBsuD5uVWgjZX3jrcvdWu0DwbbarL32mfbNAVABi4wCc
+              gitlab.eclipse.org ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCl6Wwb+m463X7a05TsllEYEmRklkwUWgqHVcvxsW6l6n9tPNcUWrcfTWupMQoONe7PuBsr6SkiYXRcSjHJy9qDXo5Nz/F/IU+EQ+haTU5pGfMRXAsQfdAB0AR5mSPOTkurRHL1sGi6jtp2wpgkbEfykcuEnmg36BCBqsARl08K6OuI2CtrKevXN0x5S5bF6vgzmvUm4aRQnF7WIg7HSOYVZIH5QGHsxsqr045xGLyk0scEIz6ZdslsinGYyvg8J9d6WJJebtjMX+KBHtXYKrFx0xqqnIYSj3WACaP32GDVFqPpxeNmJaVIJuymxsxxQMGYCsJT9diDv3dI+efu5xb
+              gitlab.eclipse.org ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBIPik0+gkBsbyVzTLvDq4ESZJMlUSZeb/tjdOHPbTLcSSlHX8R4CdqQwjWdxi4AMQ/76FXUsNH2azvkvgSh/r+E=
+              github.com,192.30.253.*,140.82.112.*,140.82.113.*,140.82.114.* ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk=
+              github.com,192.30.253.*,140.82.112.*,140.82.113.*,140.82.114.* ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
+              github.com,192.30.253.*,140.82.112.*,140.82.113.*,140.82.114.* ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+              projects-storage.eclipse.org,172.25.25.150 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDKbQI09/IKbvAi3n8a2nluRcaZTB5HgzXwfJv/FUUKwusSwoyMi25jxqCHJbcQco4oAS89i7UeX7YAb2EnrPDd+VebNuTtNfWewxsBjwGI1qKMUsmQc5cLut0p1pe0VRz5ZgnXQeT9FSVA3zha+mJ3OCDtl0svvu3t4jN0zgZZfrmtwz4KQZjlfVv/cPtTKy5+RhBF9Vmto0ZVG+x8DDvxxhi37w90hXjdIb2JpILO4B65A4gEv910DJuwQ6FmrRu6oyqg7+1gnqIPigha7sHKGOX5h+mVrQTYdmPFAvNVawSYpLcEeajh9RI5kKwML6ftnmS/213KkVUUArXCYf4BxBN4h8kpvWqxBOlBNXy6nBLtzuDOdLviOGJ0HbazksuCrcvrT1lV4CfjCOjPlc9zV2r61XpMKBTq/0WPfq/r7LrIkswdszn3yTzvb1/cFCyQfkCGZvkuXJsen5Doi3Ixb0mOO0u+zL17RiS7//PVFs95DszOXqXlOytyB+u9Hmk=
+              projects-storage.eclipse.org,172.25.25.150 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAOUQ8p0E/Ib3uchk+6wEZ8UtBHTBvyI2E+eA/sOXajLQPKP0XIbVyECy8x5OmrrlvOYs+LxxniGJ69UIjiYZqM=
+              projects-storage.eclipse.org,172.25.25.150 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAsn6PO2Uemsr7wIUu5x0RnlRcuK36D2sbmYNe2LSKdb
+              [git.eclipse.org]:29418 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA8+KrFs55Aw6ATeoTxSIQOLiYBDALPZ4qN02mvB49a2
+              [eclipse.gerrithub.io]:29418 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC1wudLWtuNHlf5/nz2eewG8B+iVWfuuQcu9eXj3aC8B
+    appearance:
+      simpleTheme:
+        elements:
+          - cssUrl:
+              url: "/diffmerge/userContent/theme/quicksilver.css"
+          - cssUrl:
+              url: "//fonts.googleapis.com/css?family=Libre+Franklin:400,700,300,600,100"
+          - jsUrl:
+              url: "/diffmerge/userContent/theme/title.js"
+    unclassified:
+      location:
+        adminAddress: ci-admin@eclipse.org
+        url: https://ci.eclipse.org/diffmerge
+      mailer:
+        replyToAddress: ci-admin@eclipse.org
+        smtpHost: mail.eclipse.org
+      email-ext:
+        defaultContentType: "text/html"
+        defaultReplyTo: "ci-admin@eclipse.org"
+        mailAccount:
+          address: "ci-admin@eclipse.org"
+          smtpHost: "mail.eclipse.org"
+      globalDefaultFlowDurabilityLevel:
+        durabilityHint: PERFORMANCE_OPTIMIZED
+      buildDiscarders:
+        configuredBuildDiscarders:
+          - "jobBuildDiscarder"
+          - simpleBuildDiscarder:
+              discarder:
+                logRotator:
+                  artifactNumToKeepStr: "5"
+                  numToKeepStr: "128"
+                  #  diskUsageProjectActionFactory:
+                  #    checkWorkspaceOnAgent: false
+                  #    historyLength: 5
+                  #    showGraph: false
+                  #    timeoutWorkspace: 5
+      sonarGlobalConfiguration:
+        buildWrapperEnabled: true
+        installations:
+          - name: "SonarCloud.io"
+            serverUrl: "https://sonarcloud.io"
+            triggers:
+              skipScmCause: false
+              skipUpstreamCause: false
+      gitHubPluginConfig:
+        configs:
+          - name: "GitHub"
+            apiUrl: "https://api.github.com"
+            credentialsId: "github-bot-token"
+            manageHooks: false
+        hookSecretConfigs: []
+        hookUrl: "https://ci.eclipse.org/diffmerge/github-webhook/"
+      scmGit:
+        createAccountBasedOnEmail: true
+        useExistingAccountWithSameEmail: true
+      jobConfigHistory:
+        excludePattern: "queue\\.xml|nodeMonitors\\.xml|UpdateCenter\\.xml|global-build-stats|LockableResourcesManager\\.xml|MilestoneStep\\.xml|cloudbees-disk-usage-simple\\.xml|hudson.plugins.xvnc.Xvnc\\.xml"
+        maxDaysToKeepEntries: "60"
+        maxEntriesPerPage: "12"
+        maxHistoryEntries: "500"
+        saveModuleConfiguration: false
+        showBuildBadges: "never"
+        showChangeReasonCommentWindow: false
+        skipDuplicateHistory: true
+      hashicorpVault:
+        configuration:
+          disableChildPoliciesOverride: false
+          engineVersion: 2
+          timeout: 60
+          vaultCredentialId: "secretsmanager-approle"
+          vaultUrl: "https://secretsmanager.eclipse.org"
+      prometheusConfiguration:
+        appendParamLabel: false
+        appendStatusLabel: false
+        collectCodeCoverage: false
+        collectDiskUsage: true
+        collectNodeStatus: true
+        collectingMetricsPeriodInSeconds: 120
+        countAbortedBuilds: true
+        countFailedBuilds: true
+        countNotBuiltBuilds: true
+        countSuccessfulBuilds: true
+        countUnstableBuilds: true
+        defaultNamespace: ""
+        disabledMetricConfig:
+          entries:
+            - regexDisabledMetric:
+                regex: "jenkins_builds_last_stage_duration.*"
+            - regexDisabledMetric:
+                regex: "jvm_.*"
+            - regexDisabledMetric:
+                regex: "vm_memory.*"
+            - regexDisabledMetric:
+                regex: "jenkins_builds_discard_active.*"
+        fetchTestResults: true
+        jobAttributeName: "jenkins_job"
+        path: "prometheus"
+        perBuildMetrics: false
+        processingDisabledBuilds: false
+        useAuthenticatedEndpoint: false
+    tool:
+      jdk:
+        installations:
+          - name: "openjdk-latest"
+            home: "/opt/tools/java/openjdk/latest"
+          - name: "openjdk-ea-latest"
+            home: "/opt/tools/java/openjdk/ea-latest"
+          - name: "openjdk-jdk26-latest"
+            home: "/opt/tools/java/openjdk/jdk-26/latest"
+          - name: "openjdk-jdk25-latest"
+            home: "/opt/tools/java/openjdk/jdk-25/latest"
+          - name: "openjdk-jdk24-latest"
+            home: "/opt/tools/java/openjdk/jdk-24/latest"
+          - name: "openjdk-jdk23-latest"
+            home: "/opt/tools/java/openjdk/jdk-23/latest"
+          - name: "openjdk-jdk22-latest"
+            home: "/opt/tools/java/openjdk/jdk-22/latest"
+          - name: "openjdk-jdk21-latest"
+            home: "/opt/tools/java/openjdk/jdk-21/latest"
+          - name: "openjdk-jdk20-latest"
+            home: "/opt/tools/java/openjdk/jdk-20/latest"
+          - name: "openjdk-jdk19-latest"
+            home: "/opt/tools/java/openjdk/jdk-19/latest"
+          - name: "openjdk-jdk18-latest"
+            home: "/opt/tools/java/openjdk/jdk-18/latest"
+          - name: "openjdk-jdk17-latest"
+            home: "/opt/tools/java/openjdk/jdk-17/latest"
+          - name: "openjdk-jdk16-latest"
+            home: "/opt/tools/java/openjdk/jdk-16/latest"
+          - name: "openjdk-jdk15-latest"
+            home: "/opt/tools/java/openjdk/jdk-15/latest"
+          - name: "openjdk-jdk14-latest"
+            home: "/opt/tools/java/openjdk/jdk-14/latest"
+          - name: "openjdk-jdk13-latest"
+            home: "/opt/tools/java/openjdk/jdk-13/latest"
+          - name: "openjdk-jdk12-latest"
+            home: "/opt/tools/java/openjdk/jdk-12/latest"
+          - name: "openjdk-jdk11-latest"
+            home: "/opt/tools/java/openjdk/jdk-11/latest"
+          - name: "openjdk-jdk10-latest"
+            home: "/opt/tools/java/openjdk/jdk-10/latest"
+          - name: "openjdk-jdk9-latest"
+            home: "/opt/tools/java/openjdk/jdk-9/latest"
+          - name: "adoptopenjdk-hotspot-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-latest"
+          - name: "adoptopenjdk-hotspot-latest-lts"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-latest-lts"
+          - name: "adoptopenjdk-hotspot-jdk16-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-16/latest"
+          - name: "adoptopenjdk-hotspot-jdk15-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-15/latest"
+          - name: "adoptopenjdk-hotspot-jdk14-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-14/latest"
+          - name: "adoptopenjdk-hotspot-jdk13-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-13/latest"
+          - name: "adoptopenjdk-hotspot-jdk12-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-12/latest"
+          - name: "adoptopenjdk-hotspot-jdk11-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-11/latest"
+          - name: "adoptopenjdk-hotspot-jdk10-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-10/latest"
+          - name: "adoptopenjdk-hotspot-jdk9-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-9/latest"
+          - name: "adoptopenjdk-hotspot-jdk8-latest"
+            home: "/opt/tools/java/adoptopenjdk/hotspot-jdk-8/latest"
+          - name: "adoptopenjdk-openj9-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-latest"
+          - name: "adoptopenjdk-openj9-latest-lts"
+            home: "/opt/tools/java/adoptopenjdk/openj9-latest-lts"
+          - name: "adoptopenjdk-openj9-jdk16-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-16/latest"
+          - name: "adoptopenjdk-openj9-jdk15-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-15/latest"
+          - name: "adoptopenjdk-openj9-jdk14-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-14/latest"
+          - name: "adoptopenjdk-openj9-jdk13-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-13/latest"
+          - name: "adoptopenjdk-openj9-jdk12-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-12/latest"
+          - name: "adoptopenjdk-openj9-jdk11-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-11/latest"
+          - name: "adoptopenjdk-openj9-jdk10-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-10/latest"
+          - name: "adoptopenjdk-openj9-jdk9-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-9/latest"
+          - name: "adoptopenjdk-openj9-jdk8-latest"
+            home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
+          - name: "temurin-latest"
+            home: "/opt/tools/java/temurin/latest"
+          - name: "temurin-jdk25-latest"
+            home: "/opt/tools/java/temurin/jdk-25/latest"
+          - name: "temurin-jdk24-latest"
+            home: "/opt/tools/java/temurin/jdk-24/latest"
+          - name: "temurin-jdk23-latest"
+            home: "/opt/tools/java/temurin/jdk-23/latest"
+          - name: "temurin-jdk22-latest"
+            home: "/opt/tools/java/temurin/jdk-22/latest"
+          - name: "temurin-jdk21-latest"
+            home: "/opt/tools/java/temurin/jdk-21/latest"
+          - name: "temurin-jdk20-latest"
+            home: "/opt/tools/java/temurin/jdk-20/latest"
+          - name: "temurin-jdk17-latest"
+            home: "/opt/tools/java/temurin/jdk-17/latest"
+          - name: "temurin-jdk11-latest"
+            home: "/opt/tools/java/temurin/jdk-11/latest"
+          - name: "temurin-jdk8-latest"
+            home: "/opt/tools/java/temurin/jdk-8/latest"
+          - name: "oracle-latest"
+            home: "/opt/tools/java/oracle/latest"
+          - name: "oracle-jdk10-latest"
+            home: "/opt/tools/java/oracle/jdk-10/latest"
+          - name: "oracle-jdk9-latest"
+            home: "/opt/tools/java/oracle/jdk-9/latest"
+          - name: "oracle-jdk8-latest"
+            home: "/opt/tools/java/oracle/jdk-8/latest"
+          - name: "ibm-jdk8-latest"
+            home: "/opt/tools/java/ibm/jdk-8/latest"
+          - name: "ibm-latest"
+            home: "/opt/tools/java/ibm/latest"
+          - name: "semeru-latest"
+            home: "/opt/tools/java/semeru/latest"
+          - name: "semeru-jdk25-latest"
+            home: "/opt/tools/java/semeru/jdk-25/latest"
+          - name: "semeru-jdk24-latest"
+            home: "/opt/tools/java/semeru/jdk-24/latest"
+          - name: "semeru-jdk23-latest"
+            home: "/opt/tools/java/semeru/jdk-23/latest"
+          - name: "semeru-jdk22-latest"
+            home: "/opt/tools/java/semeru/jdk-22/latest"
+          - name: "semeru-jdk21-latest"
+            home: "/opt/tools/java/semeru/jdk-21/latest"
+          - name: "semeru-jdk20-latest"
+            home: "/opt/tools/java/semeru/jdk-20/latest"
+          - name: "semeru-jdk19-latest"
+            home: "/opt/tools/java/semeru/jdk-19/latest"
+          - name: "semeru-jdk18-latest"
+            home: "/opt/tools/java/semeru/jdk-18/latest"
+          - name: "semeru-jdk17-latest"
+            home: "/opt/tools/java/semeru/jdk-17/latest"
+          - name: "semeru-jdk11-latest"
+            home: "/opt/tools/java/semeru/jdk-11/latest"
+          - name: "semeru-jdk8-latest"
+            home: "/opt/tools/java/semeru/jdk-8/latest"
+      ant:
+        installations:
+          - name: "apache-ant-latest"
+            properties:
+              - installSource:
+                  installers:
+                    - zip:
+                        subdir: "apache-ant-1.10.15"
+                        url: "https://download.eclipse.org/cbi/build-tools/apache-ant-1.10.15-bin.tar.gz"
+      maven:
+        installations:
+          - name: "maven-daemon"
+            properties:
+              - installSource:
+                  installers:
+                    - zip:
+                        subdir: "maven-mvnd-1.0.3-linux-amd64"
+                        url: "https://download.eclipse.org/cbi/build-tools/maven-mvnd-1.0.3-linux-amd64.tar.gz"
+          - name: "apache-maven-latest"
+            home: "/opt/tools/apache-maven/latest"
+          - name: "apache-maven-3.9.11"
+            home: "/opt/tools/apache-maven/3.9.11"
+          - name: "apache-maven-3.9.9"
+            home: "/opt/tools/apache-maven/3.9.9"
+          - name: "apache-maven-3.9.6"
+            home: "/opt/tools/apache-maven/3.9.6"
+          - name: "apache-maven-3.9.5"
+            home: "/opt/tools/apache-maven/3.9.5"
+          - name: "apache-maven-3.9.3"
+            home: "/opt/tools/apache-maven/3.9.3"
+          - name: "apache-maven-3.9.2"
+            home: "/opt/tools/apache-maven/3.9.2"
+          - name: "apache-maven-3.9.1"
+            home: "/opt/tools/apache-maven/3.9.1"
+          - name: "apache-maven-3.9.0"
+            home: "/opt/tools/apache-maven/3.9.0"
+          - name: "apache-maven-3.8.6"
+            home: "/opt/tools/apache-maven/3.8.6"
+          - name: "apache-maven-3.8.5"
+            home: "/opt/tools/apache-maven/3.8.5"
+          - name: "apache-maven-3.8.4"
+            home: "/opt/tools/apache-maven/3.8.4"
+          - name: "apache-maven-3.8.3"
+            home: "/opt/tools/apache-maven/3.8.3"
+          - name: "apache-maven-3.8.2"
+            home: "/opt/tools/apache-maven/3.8.2"
+          - name: "apache-maven-3.8.1"
+            home: "/opt/tools/apache-maven/3.8.1"
+          - name: "apache-maven-3.6.3"
+            home: "/opt/tools/apache-maven/3.6.3"
+          - name: "apache-maven-3.6.0"
+            home: "/opt/tools/apache-maven/3.6.0"
+          - name: "apache-maven-3.5.4"
+            home: "/opt/tools/apache-maven/3.5.4"
+          - name: "apache-maven-3.3.9"
+            home: "/opt/tools/apache-maven/3.3.9"
+          - name: "apache-maven-3.2.5"
+            home: "/opt/tools/apache-maven/3.2.5"
+      git:
+        installations:
+          - name: "Default"
+            home: "git"

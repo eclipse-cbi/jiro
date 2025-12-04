@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.uml2",
+         "org.eclipse.cbi.jiro/project.shortname": "uml2"
+      },
+      "name": "uml2",
+      "namespace": "uml2"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "uml2"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "uml2",
+         "namespace": "uml2"
+      }
+   ]
+}
