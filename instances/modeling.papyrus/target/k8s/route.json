@@ -6,7 +6,7 @@
          "haproxy.router.openshift.io/timeout": "60s"
       },
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "modeling.mdt.papyrus",
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.papyrus",
          "org.eclipse.cbi.jiro/project.shortname": "papyrus"
       },
       "name": "papyrus",

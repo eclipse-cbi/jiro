@@ -3,7 +3,7 @@
    "kind": "ResourceQuota",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "modeling.mdt.papyrus",
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.papyrus",
          "org.eclipse.cbi.jiro/project.shortname": "papyrus"
       },
       "name": "jenkins-instance-quota",

@@ -6,7 +6,7 @@
          "kind": "PersistentVolume",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "modeling.mdt.papyrus",
+               "org.eclipse.cbi.jiro/project.fullName": "modeling.papyrus",
                "org.eclipse.cbi.jiro/project.shortname": "papyrus"
             },
             "name": "tools-jiro-papyrus"
@@ -50,7 +50,7 @@
          "kind": "PersistentVolumeClaim",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "modeling.mdt.papyrus",
+               "org.eclipse.cbi.jiro/project.fullName": "modeling.papyrus",
                "org.eclipse.cbi.jiro/project.shortname": "papyrus"
             },
             "name": "tools-claim-jiro-papyrus",

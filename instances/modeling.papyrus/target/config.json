@@ -2,7 +2,7 @@
    "accessControl": {
       "primaryGroup": {
          "id": -1,
-         "name": "modeling.mdt.papyrus"
+         "name": "modeling.papyrus"
       },
       "supplementalGroups": [ ],
       "user": {
@@ -421,7 +421,7 @@
    "docker": {
       "master": {
          "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.516.3\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
-         "image": "modeling.mdt.papyrus",
+         "image": "modeling.papyrus",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
          "tag": "2.516.3"
@@ -471,7 +471,7 @@
          },
          {
             "group": {
-               "name": "modeling.mdt.papyrus",
+               "name": "modeling.papyrus",
                "permissions": [
                   "Agent/Build",
                   "Credentials/View",
@@ -638,7 +638,7 @@
       "files": {
          "settings-security.xml": {
             "master": {
-               "pass": "bots/modeling.mdt.papyrus/apache-maven-security-settings"
+               "pass": "bots/modeling.papyrus/apache-maven-security-settings"
             }
          },
          "settings.xml": {
@@ -653,15 +653,15 @@
             "servers": {
                "central": {
                   "password": {
-                     "pass": "bots/modeling.mdt.papyrus/central.sonatype.org/token-password"
+                     "pass": "bots/modeling.papyrus/central.sonatype.org/token-password"
                   },
                   "username": {
-                     "pass": "bots/modeling.mdt.papyrus/central.sonatype.org/token-username"
+                     "pass": "bots/modeling.papyrus/central.sonatype.org/token-username"
                   }
                },
                "gpg.passphrase": {
                   "passphrase": {
-                     "pass": "bots/modeling.mdt.papyrus/gpg/passphrase"
+                     "pass": "bots/modeling.papyrus/gpg/passphrase"
                   }
                },
                "repo.eclipse.org": {
@@ -683,10 +683,10 @@
    },
    "project": {
       "displayName": "Eclipse Papyrus",
-      "fullName": "modeling.mdt.papyrus",
+      "fullName": "modeling.papyrus",
       "resourcePacks": 3,
       "shortName": "papyrus",
-      "unixGroupName": "modeling.mdt.papyrus"
+      "unixGroupName": "modeling.papyrus"
    },
    "sbt": {
       "files": {

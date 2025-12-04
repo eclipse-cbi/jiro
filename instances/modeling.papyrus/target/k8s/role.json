@@ -3,7 +3,7 @@
    "kind": "Role",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "modeling.mdt.papyrus",
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.papyrus",
          "org.eclipse.cbi.jiro/project.shortname": "papyrus"
       },
       "name": "jenkins-master-owner",

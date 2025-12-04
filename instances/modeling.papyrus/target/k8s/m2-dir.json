@@ -7,7 +7,7 @@
    "kind": "ConfigMap",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "modeling.mdt.papyrus",
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.papyrus",
          "org.eclipse.cbi.jiro/project.shortname": "papyrus"
       },
       "name": "m2-dir",

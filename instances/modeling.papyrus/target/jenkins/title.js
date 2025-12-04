@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let header = document.querySelector('.page-header__brand');
     if (header) {
         let newLink = document.createElement('a');
-        newLink.href = 'https://github.com/eclipse-cbi/jiro/blob/master/instances/modeling.mdt.papyrus/target/config.json';
+        newLink.href = 'https://github.com/eclipse-cbi/jiro/blob/master/instances/modeling.papyrus/target/config.json';
         newLink.textContent = 'JCasC Source';
         newLink.style = 'color: white; border-left: 1px solid white; padding-left: 1em; font-size: 1.1em; position: relative; top: 0.2em; left: -1.6em;';
         newLink.target = '_blank';

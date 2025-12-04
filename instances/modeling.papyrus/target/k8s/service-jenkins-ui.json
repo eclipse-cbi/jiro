@@ -3,7 +3,7 @@
    "kind": "Service",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "modeling.mdt.papyrus",
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.papyrus",
          "org.eclipse.cbi.jiro/project.shortname": "papyrus"
       },
       "name": "jenkins-ui",
@@ -19,7 +19,7 @@
          }
       ],
       "selector": {
-         "org.eclipse.cbi.jiro/project.fullName": "modeling.mdt.papyrus"
+         "org.eclipse.cbi.jiro/project.fullName": "modeling.papyrus"
       }
    }
 }

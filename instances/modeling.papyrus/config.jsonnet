@@ -1,6 +1,6 @@
 {
   project+: {
-    fullName: "modeling.mdt.papyrus",
+    fullName: "modeling.papyrus",
     displayName: "Eclipse Papyrus",
     resourcePacks: 3, //https://bugs.eclipse.org/bugs/show_bug.cgi?id=570916
   },

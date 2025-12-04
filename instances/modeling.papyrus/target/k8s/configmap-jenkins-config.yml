@@ -11,7 +11,7 @@ kind: ConfigMap
 metadata:
   labels:
     org.eclipse.cbi.jiro/project.shortname: "papyrus"
-    org.eclipse.cbi.jiro/project.fullName: "modeling.mdt.papyrus"
+    org.eclipse.cbi.jiro/project.fullName: "modeling.papyrus"
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
@@ -48,7 +48,7 @@ data:
                 permissions:
                   - Job/ExtendedRead
             - group:
-                name: modeling.mdt.papyrus
+                name: modeling.papyrus
                 permissions:
                   - Agent/Build
                   - Credentials/View
