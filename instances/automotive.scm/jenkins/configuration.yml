@@ -50,7 +50,7 @@ jenkins:
             failIfWorkDirIsMissing: false
             internalDir: "remoting"
       mode: EXCLUSIVE
-      name: "2IidJ-win10"
+      name: "win11-azr-ef-2IidJ"
       nodeDescription: "Windows 10 Pro N, no login session, hosted on Azure"
       remoteFS: "C:\\Users\\genie.scm\\jenkins_agent"
       retentionStrategy: "always"
