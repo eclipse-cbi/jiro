@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.516.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.528.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "pde"
   namespace: "pde"
   name: jenkins-config
@@ -104,7 +104,7 @@ data:
                 label: "basic basic-ubuntu"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3309.v27b_9314fd1a_4
+                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3327.v868139a_d00e0
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -198,7 +198,7 @@ data:
                 label: "ubuntu-2204"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3309.v27b_9314fd1a_4
+                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3327.v868139a_d00e0
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -292,7 +292,7 @@ data:
                 label: "ubuntu-latest ubuntu-2404 migration jipp-migration centos-7 centos-8 centos-latest"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3309.v27b_9314fd1a_4
+                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3327.v868139a_d00e0
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0

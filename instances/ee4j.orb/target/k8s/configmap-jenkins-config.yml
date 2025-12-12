@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.516.3"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.528.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "orb"
   namespace: "orb"
   name: jenkins-config
@@ -104,7 +104,7 @@ data:
                 label: "basic basic-ubuntu"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3309.v27b_9314fd1a_4
+                    image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3327.v868139a_d00e0
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -198,7 +198,7 @@ data:
                 label: "ubuntu-2204"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3309.v27b_9314fd1a_4
+                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3327.v868139a_d00e0
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -292,7 +292,7 @@ data:
                 label: "ubuntu-latest ubuntu-2404 migration jipp-migration centos-7 centos-8 centos-latest"
                 containers:
                   - name: "jnlp"
-                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3309.v27b_9314fd1a_4
+                    image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3327.v868139a_d00e0
                     alwaysPullImage: true
                     livenessProbe:
                       failureThreshold: 0
@@ -515,6 +515,8 @@ data:
             home: "/opt/tools/java/openjdk/latest"
           - name: "openjdk-ea-latest"
             home: "/opt/tools/java/openjdk/ea-latest"
+          - name: "openjdk-jdk26-latest"
+            home: "/opt/tools/java/openjdk/jdk-26/latest"
           - name: "openjdk-jdk25-latest"
             home: "/opt/tools/java/openjdk/jdk-25/latest"
           - name: "openjdk-jdk24-latest"
@@ -595,6 +597,8 @@ data:
             home: "/opt/tools/java/adoptopenjdk/openj9-jdk-8/latest"
           - name: "temurin-latest"
             home: "/opt/tools/java/temurin/latest"
+          - name: "temurin-jdk25-latest"
+            home: "/opt/tools/java/temurin/jdk-25/latest"
           - name: "temurin-jdk24-latest"
             home: "/opt/tools/java/temurin/jdk-24/latest"
           - name: "temurin-jdk23-latest"
@@ -625,6 +629,14 @@ data:
             home: "/opt/tools/java/ibm/latest"
           - name: "semeru-latest"
             home: "/opt/tools/java/semeru/latest"
+          - name: "semeru-jdk25-latest"
+            home: "/opt/tools/java/semeru/jdk-25/latest"
+          - name: "semeru-jdk24-latest"
+            home: "/opt/tools/java/semeru/jdk-24/latest"
+          - name: "semeru-jdk23-latest"
+            home: "/opt/tools/java/semeru/jdk-23/latest"
+          - name: "semeru-jdk22-latest"
+            home: "/opt/tools/java/semeru/jdk-22/latest"
           - name: "semeru-jdk21-latest"
             home: "/opt/tools/java/semeru/jdk-21/latest"
           - name: "semeru-jdk20-latest"
