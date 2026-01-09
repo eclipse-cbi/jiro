@@ -19,6 +19,7 @@ REMOTING_FILE="${SCRIPT_FOLDER}/../../jiro-agents/remoting/remoting.json"
 CONTROLLER_FILE="${SCRIPT_FOLDER}/../../jiro-masters/controller_definition.json"
 DEFAULT_BRANCH="master"
 
+# shellcheck disable=SC1091
 source "${SCRIPT_FOLDER}/../utils/common.sh"
 
 NEW_LTS_VERSION="${1:-}"
@@ -48,7 +49,8 @@ git_check_diff() {
   local file="${1:-}"
   local folder="${2:-}"
   pushd "${SCRIPT_FOLDER}/../../${folder}" > /dev/null
-  local rc=$(git diff --quiet "${file}"; echo $?)
+  local rc
+  rc=$(git diff --quiet "${file}"; echo $?)
   popd > /dev/null
   return ${rc}
 }
