@@ -982,7 +982,7 @@ data:
               discarder:
                 logRotator:
                   artifactNumToKeepStr: "50"
-                  numToKeepStr: "128"
+                  numToKeepStr: "300"
       sonarGlobalConfiguration:
         buildWrapperEnabled: true
         installations:
@@ -1232,6 +1232,8 @@ data:
                         url: "https://download.eclipse.org/cbi/build-tools/maven-mvnd-1.0.3-linux-amd64.tar.gz"
           - name: "apache-maven-latest"
             home: "/opt/tools/apache-maven/latest"
+          - name: "apache-maven-3.9.12"
+            home: "/opt/tools/apache-maven/3.9.12"
           - name: "apache-maven-3.9.11"
             home: "/opt/tools/apache-maven/3.9.11"
           - name: "apache-maven-3.9.9"

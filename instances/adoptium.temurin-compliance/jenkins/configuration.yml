@@ -588,4 +588,4 @@ unclassified:
           discarder:
             logRotator:
               artifactNumToKeepStr: "50"
-              numToKeepStr: "128"
+              numToKeepStr: "300"
