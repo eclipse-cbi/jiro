@@ -442,6 +442,7 @@
       "plugins": [
          "basic-branch-build-strategies",
          "build-with-parameters",
+         "build-discarder",
          "cloudbees-jenkins-advisor",
          "cloudbees-disk-usage-simple",
          "declarative-pipeline-migration-assistant",
@@ -492,6 +493,7 @@
          "authorize-project",
          "bouncycastle-api",
          "build-timeout",
+         "build-discarder",
          "cloudbees-disk-usage-simple",
          "cloudbees-folder",
          "command-launcher",
