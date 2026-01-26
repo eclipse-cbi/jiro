@@ -447,6 +447,7 @@
          "authorize-project",
          "bouncycastle-api",
          "build-timeout",
+         "build-discarder",
          "cloudbees-disk-usage-simple",
          "cloudbees-folder",
          "command-launcher",

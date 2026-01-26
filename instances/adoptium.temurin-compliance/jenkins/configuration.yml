@@ -584,7 +584,7 @@ unclassified:
   buildDiscarders:
     configuredBuildDiscarders:
       - "jobBuildDiscarder"
-      - simpleBuildDiscarder:
+      - defaultBuildDiscarder:
           discarder:
             logRotator:
               artifactNumToKeepStr: "50"
