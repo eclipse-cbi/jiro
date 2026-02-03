@@ -712,3 +712,10 @@ data:
                     - nodeJSInstaller:
                         id: "14.16.1"
                         npmPackagesRefreshHours: 72
+          - name: "node_24"
+            properties:
+              - installSource:
+                  installers:
+                    - nodeJSInstaller:
+                        id: "24.13.0"
+                        npmPackagesRefreshHours: 72
