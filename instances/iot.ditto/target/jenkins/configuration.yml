@@ -701,3 +701,10 @@ tool:
                 - nodeJSInstaller:
                     id: "22.20.0"
                     npmPackagesRefreshHours: 72
+      - name: "node_24"
+        properties:
+          - installSource:
+              installers:
+                - nodeJSInstaller:
+                    id: "24.13.0"
+                    npmPackagesRefreshHours: 72
