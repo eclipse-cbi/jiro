@@ -81,11 +81,45 @@ EOG
 gen_server() {
   local serverId="${1}"
   local server="${2}"
-  local username_pass password_pass passphrase_pass
+  local username_pass password_pass passphrase_pass username_sm password_sm
   username_pass="$(jq -r '.username.pass' <<< "${server}")"
   password_pass="$(jq -r '.password.pass' <<< "${server}")"
   passphrase_pass="$(jq -r '.passphrase.pass' <<< "${server}")"
-  if [[ -f "${PASSWORD_STORE_DIR}/${username_pass}.gpg" ]] \
+  username_sm="$(jq -r '.username.sm' <<< "${server}")"
+  password_sm="$(jq -r '.password.sm' <<< "${server}")"
+  
+  # Check if .username.sm and .password.sm exist
+  if [[ "${username_sm}" != "null" ]] && [[ "${password_sm}" != "null" ]]; then
+    >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating server entry '${serverId}' from the secrets manager"
+    local username password
+    
+    # Extract key and path from the sm entries
+    local username_key username_path password_key password_path
+    username_key="$(jq -r '.key' <<< "${username_sm}")"
+    username_path="$(jq -r '.path' <<< "${username_sm}")"
+    password_key="$(jq -r '.key' <<< "${password_sm}")"
+    password_path="$(jq -r '.path' <<< "${password_sm}")"
+    
+    # Retrieve secrets from Vault
+    username="$(vaultctl read cbi "${username_path}/${username_key}")"
+    password="$(vaultctl read cbi "${password_path}/${password_key}")"
+    
+    if [[ -n "${username}" ]] && [[ -n "${password}" ]]; then
+      local server_password server_username 
+      server_username="${username}"
+      server_password=$(mvn --encrypt-password "$(printf "%s" "${password}")" -Dsettings.security="${SETTINGS_SECURITY_XML}")
+
+      cat <<EOF
+    <server>
+      <id>${serverId}</id>
+      <username>${server_username}</username>
+      <password>${server_password}</password>
+    </server>
+EOF
+    else
+      >&2 echo -e "${SCRIPT_NAME}\tERROR: Failed to retrieve secrets from Vault for server ${serverId}"
+    fi
+  elif [[ -f "${PASSWORD_STORE_DIR}/${username_pass}.gpg" ]] \
   && [[ -f "${PASSWORD_STORE_DIR}/${password_pass}.gpg" ]]; then
     >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating server entry '${serverId}'"
     local username password
@@ -163,7 +197,25 @@ gen_settings() {
   local config="${2}"
   echo '<?xml version="1.0" encoding="UTF-8"?>'
   echo "<settings>"
-
+  cat <<EOF
+  <profiles>
+    <profile>
+      <id>central</id>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>https://repo3.eclipse.org/repository/maven-central/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+EOF
   echo "  <interactiveMode>$(jq '.maven.interactiveMode' "${config}")</interactiveMode>"
   gen_servers "${settingsFilename}" "${config}"
   gen_mirrors "${settingsFilename}" "${config}"
