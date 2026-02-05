@@ -67,7 +67,7 @@ jenkins:
   clouds:
     - kubernetes:
         name: "kubernetes"
-        containerCapStr: "26"
+        containerCapStr: "36"
         jenkinsUrl: "http://jenkins-ui.openpass.svc.cluster.local/openpass"
         jenkinsTunnel: "jenkins-discovery.openpass.svc.cluster.local:50000"
         garbageCollection:
@@ -403,7 +403,7 @@ unclassified:
   buildDiscarders:
     configuredBuildDiscarders:
       - "jobBuildDiscarder"
-      - simpleBuildDiscarder:
+      - defaultBuildDiscarder:
           discarder:
             logRotator:
               artifactNumToKeepStr: "5"
@@ -677,6 +677,8 @@ tool:
                     url: "https://download.eclipse.org/cbi/build-tools/maven-mvnd-1.0.3-linux-amd64.tar.gz"
       - name: "apache-maven-latest"
         home: "/opt/tools/apache-maven/latest"
+      - name: "apache-maven-3.9.12"
+        home: "/opt/tools/apache-maven/3.9.12"
       - name: "apache-maven-3.9.11"
         home: "/opt/tools/apache-maven/3.9.11"
       - name: "apache-maven-3.9.9"
