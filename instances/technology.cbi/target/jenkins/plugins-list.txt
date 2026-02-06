@@ -1,6 +1,5 @@
 # GENERATED FILE - DO NOT EDIT
 basic-branch-build-strategies
-build-discarder
 build-with-parameters
 cloudbees-disk-usage-simple
 cloudbees-jenkins-advisor
