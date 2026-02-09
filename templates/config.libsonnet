@@ -36,13 +36,13 @@ local clouds = import "clouds.libsonnet";
       permissions.committerPermissionsList + if std.member($.jenkins.plugins, "gerrit-trigger") then ["Gerrit/ManualTrigger", "Gerrit/Retrigger",] else [])
       + permissions_extra.additionalPermissions($.project.fullName),
   },
-  jiroMaster: if ($.jenkins.version == "latest") then jiroMasters.controllers[jiroMasters.latest] else jiroMasters.controllers[$.jenkins.version],
+  jiroMaster: if ($.jenkins.version == "latest") then jiroMasters.controllers[jiroMasters.latest] else jiroMasters.controllers[$.jenkins.id],
   docker: {
     master: {
       registry: $.jiroMaster.docker.registry,
       repository: "eclipsecbijenkins",
       image: $.project.fullName,
-      tag: $.jiroMaster.version,
+      tag: $.jiroMaster.id,
       dockerfile: |||
         FROM %(from)s
 
