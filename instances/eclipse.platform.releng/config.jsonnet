@@ -8,6 +8,8 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     unixGroupName: "eclipse.platform",
   },
   jenkins+: {
+    version: "2.528.3",
+    id: "2.528.3-jdk21",
     plugins+: [
       "mail-watcher-plugin",
       "docker-workflow",
