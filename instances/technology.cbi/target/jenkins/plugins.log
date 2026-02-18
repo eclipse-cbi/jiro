@@ -24,7 +24,7 @@ commons-lang3-api 3.20.0-109.ve43756e2d2b_4
 commons-text-api 1.15.0-210.v7480a_da_70b_9e
 config-file-provider 1006.vc7366c201f57
 configuration-as-code 2037.v8e5349845172
-credentials 1487.va_d001ede2c31
+credentials 1490.ve7532596f1fd
 credentials-binding 717.v951d49b_5f3a_a_
 data-tables-api 2.3.5-1497.v38449eb_7d5a_1
 declarative-pipeline-migration-assistant 1.6.6
@@ -44,10 +44,10 @@ favorite 2.263.v941d21defef7
 font-awesome-api 7.1.0-882.v1dfb_771e3278
 forensics-api 3.1832.va_1179842528b_
 ghprb 1.42.2
-git 5.9.0
+git 5.10.0
 git-client 6.5.0
 git-parameter 462.vdcf3df2ed2ca_
-github 1.45.0
+github 1.46.0
 github-api 1.330-492.v3941a_032db_2a_
 github-branch-source 1967.vdea_d580c1a_b_a_
 gitlab-api 6.2.0-111.vf174d6b_8c12e
@@ -114,7 +114,7 @@ pipeline-stage-step 322.vecffa_99f371c
 pipeline-stage-tags-metadata 2.2277.v00573e73ddf1
 pipeline-stage-view 2.39
 plain-credentials 199.v9f8e1f741799
-plugin-usage-plugin 4.10
+plugin-usage-plugin 418.v308c3c863d25
 plugin-util-api 6.1192.v30fe6e2837ff
 prism-api 1.30.0-703.v116fb_3b_5b_b_a_a_
 prometheus 852.v317db_5d17a_b_0
@@ -131,14 +131,14 @@ sonar 2.18.2
 sse-gateway 1.29
 ssh-agent 386.v36cc0c7582f0
 ssh-credentials 361.vb_f6760818e8c
-ssh-slaves 3.1096.v0b_cc466e4323
+ssh-slaves 3.1097.v868116049892
 structs 362.va_b_695ef4fdf9
 support-core 1801.v76b_389d2deec
 timestamper 1.30
 token-macro 477.vd4f0dc3cb_cf1
 trilead-api 2.284.v1974ea_324382
 variant 70.va_d9f17f859e0
-warnings-ng 12.10007.va_42704b_594d3
+warnings-ng 12.10012.v753ff0d0363a_
 workflow-aggregator 608.v67378e9d3db_1
 workflow-api 1398.v67030756d3fb_
 workflow-basic-steps 1098.v808b_fd7f8cf4
