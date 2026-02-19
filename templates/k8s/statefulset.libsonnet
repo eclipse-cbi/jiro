@@ -187,6 +187,11 @@ local Kube = import "kube.libsonnet";
                     "level": config.seLinuxLevel,
                     "type": "spc_t",
                   },
+                } else if config.kubernetes.master.autoSeLixux then {
+                   "seLinuxOptions": {
+                    "level": config.kubernetes.master.seLinuxLevel,
+                    "type": "spc_t",
+                  },
                 } else {},
               env: [
                 {
