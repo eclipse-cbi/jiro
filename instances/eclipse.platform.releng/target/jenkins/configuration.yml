@@ -91,7 +91,7 @@ jenkins:
             label: "basic basic-ubuntu"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3327.v868139a_d00e0
+                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3352.v17a_fb_4b_2773f
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -197,7 +197,7 @@ jenkins:
             label: "basic-jdk21 basic-ubuntu-jdk21"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu-jdk21:remoting-3327.v868139a_d00e0
+                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu-jdk21:remoting-3352.v17a_fb_4b_2773f
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -303,7 +303,7 @@ jenkins:
             label: "ubuntu-2204"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3327.v868139a_d00e0
+                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3352.v17a_fb_4b_2773f
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -409,7 +409,7 @@ jenkins:
             label: "ubuntu-latest ubuntu-2404 migration jipp-migration centos-7 centos-8 centos-latest"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3327.v868139a_d00e0
+                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3352.v17a_fb_4b_2773f
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -515,7 +515,7 @@ jenkins:
             label: "ubuntu-latest-jdk21 ubuntu-2404-jdk21"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404-jdk21:remoting-3327.v868139a_d00e0
+                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404-jdk21:remoting-3352.v17a_fb_4b_2773f
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
