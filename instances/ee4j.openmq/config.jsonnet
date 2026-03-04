@@ -2,6 +2,7 @@
   project+: {
     fullName: "ee4j.openmq",
     displayName: "Eclipse OpenMQ",
+    centralTesting: true,
   },
   jenkins+: {
     plugins+: [
