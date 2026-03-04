@@ -153,8 +153,15 @@ local clouds = import "clouds.libsonnet";
               pass: "bots/" + $.project.fullName + "/central.sonatype.org/token-password",
             },
           },
-          "central.testing": {
-            httpHeaders: true,
+          [if std.objectHas($.project, "centralTesting") && $.project.centralTesting then "central.testing"]: {
+            username: {
+              pass: "bots/" + $.project.fullName + "/central.sonatype.org/token-username",
+            },
+            password: {
+              pass: "bots/" + $.project.fullName + "/central.sonatype.org/token-password",
+            },
+          },
+          "central.staging": {
             username: {
               pass: "bots/" + $.project.fullName + "/central.sonatype.org/token-username",
             },
@@ -173,6 +180,16 @@ local clouds = import "clouds.libsonnet";
             name: "Eclipse Central Proxy",
             url: "https://repo.eclipse.org/content/repositories/maven_central/",
             mirrorOf: "central",
+          },
+        },
+        profiles: {
+          [if std.objectHas($.project, "centralTesting") && $.project.centralTesting then "central.testing"]: {
+            repositories: {
+              "central.testing": {
+                name: "Central Testing Repository",
+                url: "https://central.sonatype.com/api/v1/publisher/deployments/download",
+              },
+            },
           },
         },
       },

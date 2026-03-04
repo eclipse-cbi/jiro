@@ -82,7 +82,6 @@ gen_server() {
   local serverId="${1}"
   local server="${2}"
   local username_pass password_pass passphrase_pass
-  httpHeaders="$(jq -r '.httpHeaders' <<< "${server}")"
   username_pass="$(jq -r '.username.pass' <<< "${server}")"
   password_pass="$(jq -r '.password.pass' <<< "${server}")"
   passphrase_pass="$(jq -r '.passphrase.pass' <<< "${server}")"
@@ -93,10 +92,8 @@ gen_server() {
     username="$(pass "${username_pass}")"
     password="$(pass "${password_pass}")"
 
-    if [[ "${httpHeaders}" == "true" ]]; then
-      >&2 echo -e "${SCRIPT_NAME}\tINFO:   - using httpHeaders for authentication"
-
     bearer=$(printf "${username}:${password}" | base64)
+    if [[ "${serverId}" == "central.testing" ]]; then
     cat <<EOF
     <server>
       <id>${serverId}</id>
@@ -109,6 +106,9 @@ gen_server() {
         </httpHeaders>
       </configuration>
     </server>
+EOF
+    elif [[ "${serverId}" == "central.staging" ]]; then
+    cat <<EOF
     <server>
       <id>central.staging</id>
       <username>${username}</username>
