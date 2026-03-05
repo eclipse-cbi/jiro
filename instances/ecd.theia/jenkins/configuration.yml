@@ -54,10 +54,10 @@ jenkins:
 tool:
   nodejs:
     installations:
-    - name: "node_22.x"
+    - name: "node_24.x"
       properties:
       - installSource:
           installers:
           - nodeJSInstaller:
-              id: "22.20.0"
+              id: "24.14.0"
               npmPackagesRefreshHours: 72
