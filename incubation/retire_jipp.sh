@@ -56,9 +56,9 @@ create_retire_script() {
 #!/usr/bin/env bash
 rm -rf "${jenkins_home}/backup"
 mkdir -p "${jenkins_home}/backup"
-pushd "${jenkins_home}/plugins"
+pushd "${jenkins_home}/plugins" > /dev/null
 find . -type f -name '*.jpi' > "${jenkins_home}/plugins/plugins.lst"
-popd
+popd > /dev/null
 tar -czf "${jenkins_home}/backup/${backup_file_name}"\
  --exclude='*/backup'\
  --exclude='*/war'\
@@ -259,13 +259,38 @@ update_prometheus_scrape_targets() {
   popd > /dev/null
 }
 
+check_ssh_agent() {
+  # Taken from https://stackoverflow.com/a/48509425
+  # Ensure agent is running
+  ssh-add -l &>/dev/null || true
+  if [ "$?" == 2 ]; then
+    # Could not open a connection to your authentication agent.
 
+    # Load stored agent connection info.
+    test -r ~/.ssh-agent && \
+      eval "$(<~/.ssh-agent)" >/dev/null
+
+    ssh-add -l &>/dev/null || true
+    if [ "$?" == 2 ]; then
+      # Start agent and store agent connection info.
+      (umask 066; ssh-agent > ~/.ssh-agent)
+      eval "$(<~/.ssh-agent)" >/dev/null
+    fi
+  fi
+
+  # Load identities
+  ssh-add -l &>/dev/null || true
+  if [ "$?" == 1 ]; then
+     # The agent has no identities.
+     # Time to add one.
+     ssh-add -t 4h
+  fi
+}
 
 # Main
 
 #TODO: check if namespace & jiro dir still exist
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
+check_ssh_agent
 
 _question_action "collect the backup" collect_backup
 
