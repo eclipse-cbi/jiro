@@ -13,3 +13,4 @@ Dockerfile.buildlog
 /.localconfig
 /.cli_temp_dir/
 jcasc_update.log
+.vscode

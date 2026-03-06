@@ -145,6 +145,20 @@ local clouds = import "clouds.libsonnet";
               pass: "nexus/password",
             },
           },
+          "repo3.eclipse.org": {
+            username: {
+              sm: {
+                key: "token-username",
+                path: $.project.fullName + "/repo3.eclipse.org",
+              },
+            },
+            password: {
+              sm: {
+                key: "token-password",
+                path: $.project.fullName + "/repo3.eclipse.org",
+              },
+            },
+          },
           central: {
             username: {
               pass: "bots/" + $.project.fullName + "/central.sonatype.org/token-username",
