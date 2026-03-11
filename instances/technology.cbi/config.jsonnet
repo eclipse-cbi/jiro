@@ -6,7 +6,6 @@
   },
   jenkins+: {
     version: "2.541.2",
-    id: "2.541.2-jdk21",
     staticAgentCount: 3,
     plugins+: [
       "basic-branch-build-strategies",
