@@ -751,8 +751,17 @@
                   "url": "https://repo.eclipse.org/content/repositories/maven_central/"
                }
             },
+            "profiles": { },
             "servers": {
                "central": {
+                  "password": {
+                     "pass": "bots/ecd.theia/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/ecd.theia/central.sonatype.org/token-username"
+                  }
+               },
+               "central.staging": {
                   "password": {
                      "pass": "bots/ecd.theia/central.sonatype.org/token-password"
                   },

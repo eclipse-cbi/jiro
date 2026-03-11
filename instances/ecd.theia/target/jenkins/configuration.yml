@@ -934,6 +934,13 @@ tool:
         home: "git"
   nodejs:
     installations:
+      - name: "node_22.x"
+        properties:
+          - installSource:
+              installers:
+                - nodeJSInstaller:
+                    id: "22.20.0"
+                    npmPackagesRefreshHours: 72
       - name: "node_24.x"
         properties:
           - installSource:
