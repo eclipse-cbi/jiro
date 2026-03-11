@@ -36,7 +36,7 @@ local clouds = import "clouds.libsonnet";
       permissions.committerPermissionsList + if std.member($.jenkins.plugins, "gerrit-trigger") then ["Gerrit/ManualTrigger", "Gerrit/Retrigger",] else [])
       + permissions_extra.additionalPermissions($.project.fullName),
   },
-  jiroMaster: if ($.jenkins.version == "latest") then jiroMasters.controllers[jiroMasters.latest] else jiroMasters.controllers[$.jenkins.id],
+  jiroMaster: if ($.jenkins.version == "latest") then jiroMasters.controllers[jiroMasters.latest] else jiroMasters.controllers[std.get($.jenkins, "id", $.jenkins.version)],
   docker: {
     master: {
       registry: $.jiroMaster.docker.registry,
