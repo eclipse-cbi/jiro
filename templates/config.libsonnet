@@ -184,7 +184,7 @@ local clouds = import "clouds.libsonnet";
         mirrors: {
           "eclipse.maven.central.mirror": {
             name: "Eclipse Central Proxy",
-            url: "https://repo.eclipse.org/content/repositories/maven_central/",
+            url: "https://repo.eclipse.org/repository/maven-central/",
             mirrorOf: "central",
           },
         },
