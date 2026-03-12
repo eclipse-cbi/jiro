@@ -103,8 +103,8 @@ gen_server() {
     password_path="$(jq -r '.path' <<< "${password_sm}")"
     
     # Retrieve secrets from Vault
-    username="$(vaultctl read cbi "${username_path}/${username_key}")"
-    password="$(vaultctl read cbi "${password_path}/${password_key}")"
+    username="$(vaultctl read -b cbi "${username_path}/${username_key}")"
+    password="$(vaultctl read -b cbi "${password_path}/${password_key}")"
     
     if [[ -n "${username}" ]] && [[ -n "${password}" ]]; then
       local server_password server_username 
