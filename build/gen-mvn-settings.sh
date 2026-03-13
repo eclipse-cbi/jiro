@@ -10,7 +10,6 @@
 
 # Generates Maven settings file from credentials in password store
 
-set -o errexit
 set -o nounset
 set -o pipefail
 
@@ -204,12 +203,11 @@ gen_profile() {
   echo "      <id>${profileId}</id>"
 
   local repositoryId
+  echo "      <repositories>"
   for repositoryId in $(jq -r '.repositories | keys | .[]' <<< "${config}"); do
-    echo "      <repositories>"
     gen_repository "${repositoryId}" "$(jq -c '.repositories["'"${repositoryId}"'"]' <<< "${config}")";
-    echo "      </repositories>"
   done
-
+  echo "      </repositories>"
   echo "    </profile>"
 }
 
@@ -294,25 +292,6 @@ gen_settings() {
   local config="${2}"
   echo '<?xml version="1.0" encoding="UTF-8"?>'
   echo "<settings>"
-  cat <<EOF
-  <profiles>
-    <profile>
-      <id>central</id>
-      <repositories>
-        <repository>
-          <id>central</id>
-          <url>https://repo.eclipse.org/repository/maven-central/</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
-        </repository>
-      </repositories>
-    </profile>
-  </profiles>
-EOF
   echo "  <interactiveMode>$(jq '.maven.interactiveMode' "${config}")</interactiveMode>"
   gen_servers "${settingsFilename}" "${config}"
   gen_mirrors "${settingsFilename}" "${config}"
