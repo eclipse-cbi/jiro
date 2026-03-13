@@ -139,10 +139,16 @@ local clouds = import "clouds.libsonnet";
         servers: {
           "repo.eclipse.org": {
             username: {
-              pass: "nexus/username",
+              sm: {
+                key: "token-username",
+                path: $.project.fullName + "/repo.eclipse.org",
+              },
             },
             password: {
-              pass: "nexus/password",
+              sm: {
+                key: "token-password",
+                path: $.project.fullName + "/repo.eclipse.org",
+              },
             },
           },
           central: {
@@ -178,7 +184,7 @@ local clouds = import "clouds.libsonnet";
         mirrors: {
           "eclipse.maven.central.mirror": {
             name: "Eclipse Central Proxy",
-            url: "https://repo.eclipse.org/content/repositories/maven_central/",
+            url: "https://repo.eclipse.org/repository/maven-central/",
             mirrorOf: "central",
           },
         },
@@ -188,6 +194,16 @@ local clouds = import "clouds.libsonnet";
               "central.testing": {
                 name: "Central Testing Repository",
                 url: "https://central.sonatype.com/api/v1/publisher/deployments/download",
+              },
+              "central.proxy": {
+                name: "Central Proxy Releases and Snapshots",
+                url: "https://repo.eclipse.org/repository/maven-central/",
+                releases : {
+                  enabled: true,
+                },
+                snapshots : {
+                  enabled: true,    
+                }
               },
             },
           },
