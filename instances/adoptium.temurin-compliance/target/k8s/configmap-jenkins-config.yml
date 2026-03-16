@@ -797,8 +797,8 @@ data:
             retentionStrategy: "always"
             launcher:
               ssh:
-                host: "services-us-texas-m-1.skytap.com"
-                port: "8517"
+                host: "148.113.143.13"
+                port: "2223"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: "/usr/jdk-17.0.12+6/bin/java"
                 jvmOptions: "-Xmx2g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
@@ -815,8 +815,8 @@ data:
             retentionStrategy: "always"
             launcher:
               ssh:
-                host: "148.113.143.13"
-                port: "2223"
+                host: "178.62.54.114"
+                port: "22"
                 credentialsId: "jenkins-jck-ssh"
                 javaPath: ""
                 jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
