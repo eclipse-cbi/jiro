@@ -742,11 +742,20 @@
                "eclipse.maven.central.mirror": {
                   "mirrorOf": "central",
                   "name": "Eclipse Central Proxy",
-                  "url": "https://repo.eclipse.org/content/repositories/maven_central/"
+                  "url": "https://repo.eclipse.org/repository/maven-central/"
                }
             },
+            "profiles": { },
             "servers": {
                "central": {
+                  "password": {
+                     "pass": "bots/technology.tm4e/central.sonatype.org/token-password"
+                  },
+                  "username": {
+                     "pass": "bots/technology.tm4e/central.sonatype.org/token-username"
+                  }
+               },
+               "central.staging": {
                   "password": {
                      "pass": "bots/technology.tm4e/central.sonatype.org/token-password"
                   },
@@ -761,10 +770,16 @@
                },
                "repo.eclipse.org": {
                   "password": {
-                     "pass": "nexus/password"
+                     "sm": {
+                        "key": "token-password",
+                        "path": "technology.tm4e/repo.eclipse.org"
+                     }
                   },
                   "username": {
-                     "pass": "nexus/username"
+                     "sm": {
+                        "key": "token-username",
+                        "path": "technology.tm4e/repo.eclipse.org"
+                     }
                   }
                }
             }

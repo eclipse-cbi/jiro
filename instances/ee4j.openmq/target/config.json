@@ -745,12 +745,22 @@
                "eclipse.maven.central.mirror": {
                   "mirrorOf": "central",
                   "name": "Eclipse Central Proxy",
-                  "url": "https://repo.eclipse.org/content/repositories/maven_central/"
+                  "url": "https://repo.eclipse.org/repository/maven-central/"
                }
             },
             "profiles": {
                "central.testing": {
                   "repositories": {
+                     "central.proxy": {
+                        "name": "Central Proxy Releases and Snapshots",
+                        "releases": {
+                           "enabled": true
+                        },
+                        "snapshots": {
+                           "enabled": true
+                        },
+                        "url": "https://repo.eclipse.org/repository/maven-central/"
+                     },
                      "central.testing": {
                         "name": "Central Testing Repository",
                         "url": "https://central.sonatype.com/api/v1/publisher/deployments/download"
@@ -790,10 +800,16 @@
                },
                "repo.eclipse.org": {
                   "password": {
-                     "pass": "nexus/password"
+                     "sm": {
+                        "key": "token-password",
+                        "path": "ee4j.openmq/repo.eclipse.org"
+                     }
                   },
                   "username": {
-                     "pass": "nexus/username"
+                     "sm": {
+                        "key": "token-username",
+                        "path": "ee4j.openmq/repo.eclipse.org"
+                     }
                   }
                }
             }
