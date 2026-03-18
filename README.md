@@ -82,7 +82,7 @@ Give it the folder to an instance and it will let you call any Jenkins CLI comma
       $ ./jenkins-cli.sh instances/<project_full_name> quiet-down
 
 ### jenkins-hard-restart.sh
-
+ 
 Scale down to 0 the StatefulSet running Jenkins then scale it up to 1. It makes Kubernetes re-provision the pod (it may be re-scheduled on a new node).
 
     $ ./jenkins-hard-restart.sh instances/<project_full_name>
