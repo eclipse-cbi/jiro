@@ -24,7 +24,7 @@ commons-lang3-api 3.20.0-109.ve43756e2d2b_4
 commons-text-api 1.15.0-218.va_61573470393
 config-file-provider 1006.vc7366c201f57
 configuration-as-code 2053.vb_0da_47381a_25
-credentials 1491.v6d6145e96e1c
+credentials 1492.vcfb_5dc894a_e3
 credentials-binding 717.v951d49b_5f3a_a_
 data-tables-api 2.3.7-1534.v539d4edf109d
 declarative-pipeline-migration-assistant 1.6.6
@@ -33,7 +33,7 @@ display-url-api 2.217.va_6b_de84cc74b_
 docker-commons 457.v0f62a_94f11a_3
 docker-workflow 634.vedc7242b_eda_7
 durable-task 664.v2b_e7a_dfff66c
-echarts-api 6.0.0-1165.vd1283a_3e37d4
+echarts-api 6.0.0-1247.vf3e35a_c1813f
 eddsa-api 0.3.0.1-29.v67e9a_1c969b_b_
 email-ext 1933.v45cec755423f
 embeddable-build-status 637.vd878e68178f8
