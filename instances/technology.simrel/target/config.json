@@ -411,7 +411,8 @@
          "docker-workflow",
          "mail-watcher-plugin",
          "date-parameter",
-         "lockable-resources"
+         "lockable-resources",
+         "oidc-provider"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,

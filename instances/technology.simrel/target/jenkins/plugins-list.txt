@@ -4,3 +4,4 @@ date-parameter
 docker-workflow
 lockable-resources
 mail-watcher-plugin
+oidc-provider

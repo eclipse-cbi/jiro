@@ -9,7 +9,8 @@
       "docker-workflow",
       "mail-watcher-plugin",
       "date-parameter",
-      "lockable-resources"
+      "lockable-resources",
+      "oidc-provider", // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/work_items/2633
     ],
   },
   storage: {
