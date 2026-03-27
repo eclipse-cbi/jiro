@@ -64,7 +64,9 @@ local Kube = import "kube.libsonnet";
       serviceName: config.project.shortName,
       template: {
         metadata: {
-          labels: Kube.JiroLabels(config),
+          labels: Kube.JiroLabels(config) + {
+            "logging.grafana.com/collect": "true",
+          },
           name: config.project.shortName,
         },
         spec: {
