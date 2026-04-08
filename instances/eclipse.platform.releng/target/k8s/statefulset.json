@@ -20,6 +20,7 @@
       "template": {
          "metadata": {
             "labels": {
+               "logging.grafana.com/collect": "true",
                "org.eclipse.cbi.jiro/project.fullName": "eclipse.platform.releng",
                "org.eclipse.cbi.jiro/project.shortname": "releng"
             },
