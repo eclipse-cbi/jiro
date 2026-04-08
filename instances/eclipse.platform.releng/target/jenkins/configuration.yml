@@ -144,6 +144,9 @@ jenkins:
             yaml: |
               apiVersion: v1
               kind: Pod
+              metadata:
+                labels:
+                  logging.grafana.com/collect: "true"
               spec:
                 containers:
                 - name: jnlp
@@ -250,6 +253,9 @@ jenkins:
             yaml: |
               apiVersion: v1
               kind: Pod
+              metadata:
+                labels:
+                  logging.grafana.com/collect: "true"
               spec:
                 containers:
                 - name: jnlp
@@ -356,6 +362,9 @@ jenkins:
             yaml: |
               apiVersion: v1
               kind: Pod
+              metadata:
+                labels:
+                  logging.grafana.com/collect: "true"
               spec:
                 containers:
                 - name: jnlp
@@ -406,9 +415,9 @@ jenkins:
             yamlMergeStrategy: "merge"
   nodes:
     - permanent:
-        name: "b9h15-macos11-x86_64"
-        nodeDescription: "macOS 11 (Big Sur), no login session, hosted on MacStadium"
-        labelString: "macos macos-11 swt.natives-cocoa.macosx.x86_64 native.builder-cocoa.macosx.x86_64"
+        name: "b9h15-macos15-x86_64"
+        nodeDescription: "macOS 15 (Sequoia 15.7.4), no login session, hosted on MacStadium"
+        labelString: "macos macos-15 swt.natives-cocoa.macosx.x86_64 native.builder-cocoa.macosx.x86_64"
         remoteFS: '/Users/genie.releng/jenkins_agent/'
         numExecutors: 1
         mode: EXCLUSIVE
@@ -416,11 +425,11 @@ jenkins:
         launcher:
           ssh:
             credentialsId: "b9h15-macos11-x86_64-bot-ssh"
-            host: "208.52.161.179"
+            host: "207.254.22.142"
             port: 22
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDlxEHVKo8Mu6JEHdDOabGlbvZTQISBnCWWUXq2G/csOQwY2CimuzC3BX5ysdORTTnpMtq7Ck75cXMXr1h0mHszU7Pwx5ZPpTvNyWFFt9zMevlViGKy4OWSkq9W8qEL/JsZm1LGtP/lau+26XmE4gId1GAs2urTxbn923XSuFCbSEQAdPs11K8FRK4espEfXqmQ/w6BdiISwy3zB6/HKbOS462Qcar/1J9434nkTicH8bl5lGMfMFo57JsgrYcMFM5zB2GqHORHGsQ/88J/dsoTX1Bn+irZ6JMHx0HrkVJz1zXqDtfs8CH4q8PtFPFuSfEj2WZ7fGcRExqkiZ5mGfqrVsN5cV5vwXPE/EKFjxCgPvfUcmLHEYl00PhvyjScrP2XBJ1cFnHt44Ia0mM5zn69pxLWeuMdwfwk1mS+wAYvmwa0lGK61YupgOBiSyMV1KSYSnlcIyc1mRguZT6x3/qktzX7urJumuOskTnbAX5HdJnr7kWYmrBc4/Uyf8SXfes="
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEr/4ngQLAxBVx6CP3Cm1RBTep1SSCMue7F0jRL+ZGbK"
         nodeProperties:
           - envVars:
               env:
@@ -571,17 +580,17 @@ jenkins:
               failIfWorkDirIsMissing: false
               internalDir: "remoting"
     - permanent:
-        name: "nc1ht-macos11-arm64"
-        labelString: "macos macos11 swt.natives-cocoa.macosx.aarch64 native.builder-cocoa.macosx.aarch64"
-        nodeDescription: "macOS Ventura 13.0.1"
+        name: "nc1ht-macos26-arm64"
+        labelString: "macos macos26 swt.natives-cocoa.macosx.aarch64 native.builder-cocoa.macosx.aarch64"
+        nodeDescription: "macOS Tahoe 26.4"
         launcher:
           ssh:
-            credentialsId: "nc1ht-macos11-arm64-bot-ssh"
-            host: "208.52.190.236"
+            credentialsId: "nc1ht-macos26-arm64-bot-ssh"
+            host: "207.254.22.187"
             port: 22
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2EUBUJSBAIzhw5Vc1B/nIwWNWix+4Co8xtYGOJjEPP"
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICkXOUrd6bUxJwHS4Ay3oS2G2u2wx1v/TAeikM0nxZG7"
         mode: EXCLUSIVE
         remoteFS: "/Users/genie.releng/"
         retentionStrategy: "always"
@@ -782,6 +791,8 @@ tool:
         home: "/opt/tools/java/openjdk/latest"
       - name: "openjdk-ea-latest"
         home: "/opt/tools/java/openjdk/ea-latest"
+      - name: "openjdk-jdk27-latest"
+        home: "/opt/tools/java/openjdk/jdk-27/latest"
       - name: "openjdk-jdk26-latest"
         home: "/opt/tools/java/openjdk/jdk-26/latest"
       - name: "openjdk-jdk25-latest"
