@@ -103,7 +103,7 @@ jenkins:
   - permanent:
       name: "tck-osuosl-ubuntu2404-aarch64-2"
       nodeDescription: "Oregon State University Open Source Lab instance 8GB/4VCPU"
-      labelString: "ci.role.test hw.arch.aarch64 sw.os.linux sw.tool.docker"
+      labelString: "ci.role.test sw.os.linux sw.tool.docker"
       remoteFS: '/home/jenkins'
       numExecutors: 1
       mode: EXCLUSIVE
