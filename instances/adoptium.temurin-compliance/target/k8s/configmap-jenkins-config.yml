@@ -158,6 +158,9 @@ data:
                 yaml: |
                   apiVersion: v1
                   kind: Pod
+                  metadata:
+                    labels:
+                      logging.grafana.com/collect: "true"
                   spec:
                     containers:
                     - name: jnlp
@@ -252,6 +255,9 @@ data:
                 yaml: |
                   apiVersion: v1
                   kind: Pod
+                  metadata:
+                    labels:
+                      logging.grafana.com/collect: "true"
                   spec:
                     containers:
                     - name: jnlp
@@ -346,6 +352,9 @@ data:
                 yaml: |
                   apiVersion: v1
                   kind: Pod
+                  metadata:
+                    labels:
+                      logging.grafana.com/collect: "true"
                   spec:
                     containers:
                     - name: jnlp
@@ -476,7 +485,7 @@ data:
         - permanent:
             name: "tck-osuosl-ubuntu2404-aarch64-2"
             nodeDescription: "Oregon State University Open Source Lab instance 8GB/4VCPU"
-            labelString: "ci.role.test hw.arch.aarch64 sw.os.linux sw.tool.docker"
+            labelString: "ci.role.test sw.os.linux sw.tool.docker"
             remoteFS: '/home/jenkins'
             numExecutors: 1
             mode: EXCLUSIVE
@@ -1076,6 +1085,8 @@ data:
             home: "/opt/tools/java/openjdk/latest"
           - name: "openjdk-ea-latest"
             home: "/opt/tools/java/openjdk/ea-latest"
+          - name: "openjdk-jdk27-latest"
+            home: "/opt/tools/java/openjdk/jdk-27/latest"
           - name: "openjdk-jdk26-latest"
             home: "/opt/tools/java/openjdk/jdk-26/latest"
           - name: "openjdk-jdk25-latest"
