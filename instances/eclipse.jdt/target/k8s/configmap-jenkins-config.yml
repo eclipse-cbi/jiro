@@ -46,6 +46,8 @@ data:
             - group:
                 name: common
                 permissions:
+                  - Overall/Read
+                  - Job/Read
                   - Job/ExtendedRead
             - group:
                 name: eclipse.jdt
@@ -69,15 +71,8 @@ data:
                   - View/Create
                   - View/Delete
                   - View/Read
-            - user:
-                name: anonymous
-                permissions:
-                  - Overall/Read
-                  - Job/Read
       markupFormatter: rawHtml
-      crumbIssuer:
-        standard:
-          excludeClientIPFromCrumb: false
+      crumbIssuer: "standard"
       securityRealm:
         ldap:
           configurations:

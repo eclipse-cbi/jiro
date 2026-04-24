@@ -355,11 +355,10 @@
       "maxConcurrency": 6,
       "permissions": [
          {
-            "user": {
-               "name": "anonymous",
+            "group": {
+               "name": "admins",
                "permissions": [
-                  "Overall/Read",
-                  "Job/Read"
+                  "Overall/Administer"
                ]
             }
          },
@@ -367,15 +366,9 @@
             "group": {
                "name": "common",
                "permissions": [
+                  "Overall/Read",
+                  "Job/Read",
                   "Job/ExtendedRead"
-               ]
-            }
-         },
-         {
-            "group": {
-               "name": "admins",
-               "permissions": [
-                  "Overall/Administer"
                ]
             }
          },
