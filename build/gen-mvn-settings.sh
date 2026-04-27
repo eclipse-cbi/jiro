@@ -147,7 +147,7 @@ EOF
     <server>
       <id>central.staging</id>
       <username>${username}</username>
-      <password>${bearer}</password>
+      <password>${password}</password>
     </server>
 EOF
 
