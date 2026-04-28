@@ -20,9 +20,7 @@ jenkins:
         {{> permissions }}
 
   markupFormatter: rawHtml
-  crumbIssuer:
-    standard:
-       excludeClientIPFromCrumb: false
+  crumbIssuer: "standard"
 
   securityRealm:
     ldap:
