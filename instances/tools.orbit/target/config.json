@@ -406,7 +406,9 @@
             }
          }
       ],
-      "plugins": [ ],
+      "plugins": [
+         "oidc-provider"
+      ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",
