@@ -75,9 +75,7 @@ data:
                   - Overall/Read
                   - Job/Read
       markupFormatter: rawHtml
-      crumbIssuer:
-        standard:
-          excludeClientIPFromCrumb: true
+      crumbIssuer: "standard"
       securityRealm:
         ldap:
           configurations:
@@ -463,6 +461,7 @@ data:
               ssh:
                 credentialsId: "cfaf31c8-22ea-487d-9d6d-b7dd77b624f5"
                 host: "13.77.107.72"
+                javaPath: "/opt/java/jdk-21.0.2/bin/java"
                 jvmOptions: "-Xmx256m -Xms256m"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
