@@ -78,6 +78,9 @@ local clouds = import "clouds.libsonnet";
   },
   kubernetes: {
     master: {
+      uid: std.extVar('uid'),
+      seLinuxLevel: std.extVar('seLinuxLevel'),
+      autoSeLixux: yes,
       defaultJnlpAgentLabel: "basic",
       namespace: $.project.shortName,
       stsName: $.project.shortName,
