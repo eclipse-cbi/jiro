@@ -19,7 +19,4 @@
     quota: "250Gi",
     storageClassName: "cephfs-new-retain",
   },
-  develocity+: {
-    generate: true,
-  }
 }

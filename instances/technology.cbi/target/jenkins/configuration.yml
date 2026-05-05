@@ -125,9 +125,6 @@ jenkins:
                   mountPath: "/home/jenkins/.m2/mvnd"
               - emptyDirVolume:
                   memory: false
-                  mountPath: "/home/jenkins/.m2/.develocity"
-              - emptyDirVolume:
-                  memory: false
                   mountPath: "/home/jenkins/.gradle/caches"
               - emptyDirVolume:
                   memory: false
@@ -244,9 +241,6 @@ jenkins:
                   mountPath: "/home/jenkins/.m2/mvnd"
               - emptyDirVolume:
                   memory: false
-                  mountPath: "/home/jenkins/.m2/.develocity"
-              - emptyDirVolume:
-                  memory: false
                   mountPath: "/home/jenkins/.gradle/caches"
               - emptyDirVolume:
                   memory: false
@@ -361,9 +355,6 @@ jenkins:
               - emptyDirVolume:
                   memory: false
                   mountPath: "/home/jenkins/.m2/mvnd"
-              - emptyDirVolume:
-                  memory: false
-                  mountPath: "/home/jenkins/.m2/.develocity"
               - emptyDirVolume:
                   memory: false
                   mountPath: "/home/jenkins/.gradle/caches"

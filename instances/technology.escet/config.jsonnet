@@ -9,9 +9,6 @@
       "gradle",
     ],
   },
-  develocity+: {
-    generate: true,
-  },
   storage: {
     storageClassName: "cephfs-new-retain",
   },
