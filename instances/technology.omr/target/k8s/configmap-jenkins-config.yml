@@ -46,6 +46,8 @@ data:
             - group:
                 name: common
                 permissions:
+                  - Overall/Read
+                  - Job/Read
                   - Job/ExtendedRead
             - group:
                 name: technology.omr
@@ -83,11 +85,6 @@ data:
                   - Job/Build
                   - Job/Cancel
                   - Overall/SystemRead
-            - user:
-                name: anonymous
-                permissions:
-                  - Overall/Read
-                  - Job/Read
             - user:
                 name: aswinkr77@gmail.com
                 permissions:
@@ -134,9 +131,7 @@ data:
                   - Job/Build
                   - Job/Cancel
       markupFormatter: rawHtml
-      crumbIssuer:
-        standard:
-          excludeClientIPFromCrumb: false
+      crumbIssuer: "standard"
       securityRealm:
         ldap:
           configurations:
@@ -1252,6 +1247,8 @@ data:
             home: "/opt/tools/java/openjdk/latest"
           - name: "openjdk-ea-latest"
             home: "/opt/tools/java/openjdk/ea-latest"
+          - name: "openjdk-jdk27-latest"
+            home: "/opt/tools/java/openjdk/jdk-27/latest"
           - name: "openjdk-jdk26-latest"
             home: "/opt/tools/java/openjdk/jdk-26/latest"
           - name: "openjdk-jdk25-latest"

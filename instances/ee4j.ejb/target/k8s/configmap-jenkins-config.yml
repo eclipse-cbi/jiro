@@ -46,6 +46,8 @@ data:
             - group:
                 name: common
                 permissions:
+                  - Overall/Read
+                  - Job/Read
                   - Job/ExtendedRead
             - group:
                 name: ee4j.ejb
@@ -69,11 +71,6 @@ data:
                   - View/Create
                   - View/Delete
                   - View/Read
-            - user:
-                name: anonymous
-                permissions:
-                  - Overall/Read
-                  - Job/Read
             - user:
                 name: arjan.tijms@omnifish.ee
                 permissions:
@@ -119,9 +116,7 @@ data:
                   - View/Delete
                   - View/Read
       markupFormatter: rawHtml
-      crumbIssuer:
-        standard:
-          excludeClientIPFromCrumb: false
+      crumbIssuer: "standard"
       securityRealm:
         ldap:
           configurations:
@@ -559,6 +554,8 @@ data:
             home: "/opt/tools/java/openjdk/latest"
           - name: "openjdk-ea-latest"
             home: "/opt/tools/java/openjdk/ea-latest"
+          - name: "openjdk-jdk27-latest"
+            home: "/opt/tools/java/openjdk/jdk-27/latest"
           - name: "openjdk-jdk26-latest"
             home: "/opt/tools/java/openjdk/jdk-26/latest"
           - name: "openjdk-jdk25-latest"

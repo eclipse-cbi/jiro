@@ -23,6 +23,8 @@ jenkins:
         - group:
             name: common
             permissions:
+              - Overall/Read
+              - Job/Read
               - Job/ExtendedRead
         - group:
             name: eclipse.platform
@@ -52,19 +54,12 @@ jenkins:
               - Agent/Connect
               - Agent/Disconnect
         - user:
-            name: anonymous
-            permissions:
-              - Overall/Read
-              - Job/Read
-        - user:
             name: sravankumarl@in.ibm.com
             permissions:
               - Agent/Connect
               - Agent/Disconnect
   markupFormatter: rawHtml
-  crumbIssuer:
-    standard:
-      excludeClientIPFromCrumb: false
+  crumbIssuer: "standard"
   securityRealm:
     ldap:
       configurations:
@@ -144,9 +139,6 @@ jenkins:
             yaml: |
               apiVersion: v1
               kind: Pod
-              metadata:
-                labels:
-                  logging.grafana.com/collect: "true"
               spec:
                 containers:
                 - name: jnlp
@@ -253,9 +245,6 @@ jenkins:
             yaml: |
               apiVersion: v1
               kind: Pod
-              metadata:
-                labels:
-                  logging.grafana.com/collect: "true"
               spec:
                 containers:
                 - name: jnlp
@@ -362,9 +351,6 @@ jenkins:
             yaml: |
               apiVersion: v1
               kind: Pod
-              metadata:
-                labels:
-                  logging.grafana.com/collect: "true"
               spec:
                 containers:
                 - name: jnlp

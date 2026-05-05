@@ -23,6 +23,8 @@ jenkins:
         - group:
             name: common
             permissions:
+              - Overall/Read
+              - Job/Read
               - Job/ExtendedRead
         - group:
             name: tools.oomph
@@ -47,18 +49,11 @@ jenkins:
               - View/Delete
               - View/Read
         - user:
-            name: anonymous
-            permissions:
-              - Overall/Read
-              - Job/Read
-        - user:
             name: ed.merks@gmail.com
             permissions:
               - Overall/SystemRead
   markupFormatter: rawHtml
-  crumbIssuer:
-    standard:
-      excludeClientIPFromCrumb: false
+  crumbIssuer: "standard"
   securityRealm:
     ldap:
       configurations:
@@ -618,6 +613,8 @@ tool:
         home: "/opt/tools/java/openjdk/latest"
       - name: "openjdk-ea-latest"
         home: "/opt/tools/java/openjdk/ea-latest"
+      - name: "openjdk-jdk27-latest"
+        home: "/opt/tools/java/openjdk/jdk-27/latest"
       - name: "openjdk-jdk26-latest"
         home: "/opt/tools/java/openjdk/jdk-26/latest"
       - name: "openjdk-jdk25-latest"

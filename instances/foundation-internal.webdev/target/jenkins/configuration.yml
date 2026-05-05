@@ -23,6 +23,8 @@ jenkins:
         - group:
             name: common
             permissions:
+              - Overall/Read
+              - Job/Read
               - Job/ExtendedRead
         - group:
             name: foundation-internal.webdev
@@ -52,19 +54,12 @@ jenkins:
               - Overall/Read
               - Job/Discover
         - user:
-            name: anonymous
-            permissions:
-              - Overall/Read
-              - Job/Read
-        - user:
             name: martin.lowe@eclipse-foundation.org
             permissions:
               - Credentials/Create
               - Credentials/Update
   markupFormatter: rawHtml
-  crumbIssuer:
-    standard:
-      excludeClientIPFromCrumb: false
+  crumbIssuer: "standard"
   securityRealm:
     ldap:
       configurations:
