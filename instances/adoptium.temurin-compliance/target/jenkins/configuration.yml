@@ -53,9 +53,7 @@ jenkins:
               - Job/Build
               - Agent/Build
   markupFormatter: rawHtml
-  crumbIssuer:
-    standard:
-      excludeClientIPFromCrumb: false
+  crumbIssuer: "standard"
   securityRealm:
     ldap:
       configurations:
@@ -135,9 +133,6 @@ jenkins:
             yaml: |
               apiVersion: v1
               kind: Pod
-              metadata:
-                labels:
-                  logging.grafana.com/collect: "true"
               spec:
                 containers:
                 - name: jnlp
@@ -232,9 +227,6 @@ jenkins:
             yaml: |
               apiVersion: v1
               kind: Pod
-              metadata:
-                labels:
-                  logging.grafana.com/collect: "true"
               spec:
                 containers:
                 - name: jnlp
@@ -329,9 +321,6 @@ jenkins:
             yaml: |
               apiVersion: v1
               kind: Pod
-              metadata:
-                labels:
-                  logging.grafana.com/collect: "true"
               spec:
                 containers:
                 - name: jnlp
