@@ -403,23 +403,6 @@
          },
          {
             "user": {
-               "name": "anonymous",
-               "permissions": [
-                  "Overall/Read",
-                  "Job/Discover"
-               ]
-            }
-         },
-         {
-            "group": {
-               "name": "admins",
-               "permissions": [
-                  "Overall/Administer"
-               ]
-            }
-         },
-         {
-            "user": {
                "name": "martin.lowe@eclipse-foundation.org",
                "permissions": [
                   "Credentials/Create",

@@ -356,19 +356,19 @@
       "permissions": [
          {
             "group": {
-               "name": "admins",
-               "permissions": [
-                  "Overall/Administer"
-               ]
-            }
-         },
-         {
-            "group": {
                "name": "common",
                "permissions": [
                   "Overall/Read",
                   "Job/Read",
                   "Job/ExtendedRead"
+               ]
+            }
+         },
+         {
+            "group": {
+               "name": "admins",
+               "permissions": [
+                  "Overall/Administer"
                ]
             }
          },
