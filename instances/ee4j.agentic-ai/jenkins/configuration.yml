@@ -1,0 +1,41 @@
+
+unclassified:
+  gitLabConnectionConfig:
+    connections:
+    - apiTokenId: "gitlab-api-token"
+      clientBuilderId: "autodetect"
+      connectionTimeout: 10
+      ignoreCertificateErrors: false
+      name: "gitlab.eclipse.org"
+      readTimeout: 10
+      url: "https://gitlab.eclipse.org"
+    useAuthenticatedEndpoint: true
+  gitLabServers:
+    servers:
+    - credentialsId: "gitlab-personal-access-token"
+      name: "gitlab.eclipse.org"
+      serverUrl: "https://gitlab.eclipse.org"
+  globalLibraries:
+    libraries:
+    - defaultVersion: "main"
+      name: "releng-pipeline"
+      retriever:
+        modernSCM:
+          libraryPath: "."
+          scm:
+            gitlab:
+              credentialsId: "github-bot-ssh"
+              projectId: 0
+              projectOwner: "eclipsefdn/it/releng/jenkins-pipeline-service"
+              projectPath: "eclipsefdn/it/releng/jenkins-pipeline-service/jenkins-pipeline-library"
+              serverName: "gitlab.eclipse.org"
+              traits:
+              - gitLabBranchDiscovery:
+                  strategyId: 1
+              - gitLabOriginDiscovery:
+                  strategyId: 1
+              - gitLabForkDiscovery:
+                  buildMRForksNotMirror: false
+                  strategyId: 1
+                  trust: "gitLabTrustPermissions"
+              - "WebhookListenerBuildConditionsTrait"
