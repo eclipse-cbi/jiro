@@ -27,6 +27,7 @@
       "minio",
       "nexus-jenkins-plugin",
       "pubsub-light",
+      "secret-guard",
       "slack",
       "sse-gateway",
       "trilead-api",
