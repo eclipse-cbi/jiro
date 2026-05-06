@@ -468,7 +468,7 @@ data:
                     key: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCzg9AZquKQEzThi7pyk2tMfQL/l7qQDWViRIE/u1UdUfOgiVI+L4mlRA9YoJjkTT0N/QKgoDCF6BhvZA/ST7NY="
             mode: EXCLUSIVE
             retentionStrategy: "always"
-            numExecutors: 2
+            numExecutors: 5
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
