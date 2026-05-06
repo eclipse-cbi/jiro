@@ -358,7 +358,6 @@
             "user": {
                "name": "anonymous",
                "permissions": [
-                  "Overall/Read",
                   "Job/Discover"
                ]
             }

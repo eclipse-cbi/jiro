@@ -14,7 +14,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     staticAgentCount: 1,
     permissions:
       // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/1157#note_1153239
-      permissionsTemplates.user("anonymous", ["Overall/Read", "Job/Discover"]) +
+      permissionsTemplates.user("anonymous", ["Job/Discover"]) +
       permissionsTemplates.group("admins", ["Overall/Administer"]) +
       permissionsTemplates.group("foundation-internal.webdev", ["Overall/Read"]) +
       permissionsTemplates.user("wayne.beaton@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
