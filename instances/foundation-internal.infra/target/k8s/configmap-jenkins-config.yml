@@ -455,7 +455,7 @@ data:
                   onlineAddresses: "releng@eclipse.org"
         - permanent:
             name: "metrics-vm2"
-            remoteFS: "/home/metrics"
+            remoteFS: "/data/workspace"
             labelString: "metrics-vm1"
             launcher:
               ssh:
