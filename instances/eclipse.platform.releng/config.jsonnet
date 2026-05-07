@@ -22,7 +22,8 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
     permissions+:
       permissionsTemplates.user("sravankumarl@in.ibm.com", ["Agent/Connect", "Agent/Disconnect"]) +
       // https://bugs.eclipse.org/bugs/show_bug.cgi?id=562806#c15
-      permissionsTemplates.user("akurtakov@gmail.com", ["Agent/Connect", "Agent/Disconnect"])
+      permissionsTemplates.user("akurtakov@gmail.com", ["Agent/Connect", "Agent/Disconnect"]) +
+      permissionsTemplates.user("platform-releng-trigger-bot@eclipse.org", ["Overall/Read", "Job/Read"])
   },
   maven+: {
     local superSettings = super.files["settings.xml"],

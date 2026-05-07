@@ -451,6 +451,15 @@
                   "Agent/Disconnect"
                ]
             }
+         },
+         {
+            "user": {
+               "name": "platform-releng-trigger-bot@eclipse.org",
+               "permissions": [
+                  "Overall/Read",
+                  "Job/Read"
+               ]
+            }
          }
       ],
       "plugins": [
