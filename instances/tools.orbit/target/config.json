@@ -400,6 +400,7 @@
          }
       ],
       "plugins": [
+         "copyartifact",
          "oidc-provider"
       ],
       "pluginsForceUpgrade": true,

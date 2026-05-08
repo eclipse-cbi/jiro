@@ -3,6 +3,7 @@ basic-branch-build-strategies
 build-with-parameters
 cloudbees-disk-usage-simple
 cloudbees-jenkins-advisor
+copyartifact
 declarative-pipeline-migration-assistant
 docker-workflow
 embeddable-build-status
@@ -16,7 +17,6 @@ mail-watcher-plugin
 mask-passwords
 metrics
 minio
-nexus-jenkins-plugin
 pubsub-light
 secret-guard
 slack

@@ -5,6 +5,7 @@
   },
   jenkins+: {
     plugins+: [
+      "copyartifact", // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/7466
       "oidc-provider", // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/work_items/2633
     ],
   },

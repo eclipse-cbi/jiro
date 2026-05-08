@@ -401,6 +401,7 @@
       ],
       "plugins": [
          "build-blocker-plugin",
+         "copyartifact",
          "docker-workflow",
          "mail-watcher-plugin",
          "date-parameter",

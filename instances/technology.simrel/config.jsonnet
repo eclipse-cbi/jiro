@@ -6,6 +6,7 @@
   jenkins+: {
     plugins+: [
       "build-blocker-plugin",
+      "copyartifact", // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/7466
       "docker-workflow",
       "mail-watcher-plugin",
       "date-parameter",

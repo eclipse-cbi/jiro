@@ -12,6 +12,7 @@
       "build-with-parameters",
       "cloudbees-jenkins-advisor",
       "cloudbees-disk-usage-simple",
+      "copyartifact", // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/7466
       "declarative-pipeline-migration-assistant",
       "docker-workflow",
       "embeddable-build-status",
@@ -25,7 +26,6 @@
       "mask-passwords",
       "metrics",
       "minio",
-      "nexus-jenkins-plugin",
       "pubsub-light",
       "secret-guard",
       "slack",
