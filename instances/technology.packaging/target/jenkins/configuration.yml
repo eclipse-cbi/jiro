@@ -57,6 +57,13 @@ jenkins:
               - Job/ExtendedRead
               - Job/Cancel
               - Agent/Build
+        - user:
+            name: packaging-trigger-bot@eclipse.org
+            permissions:
+              - Overall/Read
+              - Job/Read
+              - Job/Build
+              - Agent/Build
   markupFormatter: rawHtml
   crumbIssuer: "standard"
   securityRealm:
