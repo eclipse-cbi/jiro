@@ -3,6 +3,11 @@
     fullName: "modeling.uml2",
     displayName: "Eclipse MDT UML2",
   },
+  jenkins+: {
+    plugins+: [
+      "copyartifact"
+    ]
+  },
   storage: {
     storageClassName: "cephfs-new-retain",
   },

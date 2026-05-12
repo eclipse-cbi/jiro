@@ -399,7 +399,9 @@
             }
          }
       ],
-      "plugins": [ ],
+      "plugins": [
+         "copyartifact"
+      ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",

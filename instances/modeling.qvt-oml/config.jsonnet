@@ -5,6 +5,9 @@
   },
   jenkins+: {
     theme: "quicksilver-light",
+    plugins+: [
+      "copyartifact"
+    ]
   },
   storage: {
     storageClassName: "cephfs-new-retain",
