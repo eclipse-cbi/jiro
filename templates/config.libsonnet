@@ -32,6 +32,7 @@ local clouds = import "clouds.libsonnet";
     # see https://github.com/jenkinsci/docker/pull/577
     pluginsForceUpgrade: true,
     plugins: plugins.additionalPlugins($.project.fullName),
+    enableAutomaticTemurinJDKInstallations: false,
     permissions: permissions.projectPermissions($.project.unixGroupName,
       permissions.committerPermissionsList + if std.member($.jenkins.plugins, "gerrit-trigger") then ["Gerrit/ManualTrigger", "Gerrit/Retrigger",] else [])
       + permissions_extra.additionalPermissions($.project.fullName),
