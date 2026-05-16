@@ -17,6 +17,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "job-dsl",
       "pipeline-graph-view",
       "pipeline-utility-steps",
+      "adoptopenjdk",
     ],
     staticAgentCount: 10,
     permissions+:
