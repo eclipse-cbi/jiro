@@ -156,6 +156,9 @@ data:
                 yaml: |
                   apiVersion: v1
                   kind: Pod
+                  metadata:
+                    labels:
+                      logging.grafana.com/collect: "true"
                   spec:
                     containers:
                     - name: jnlp
@@ -250,6 +253,9 @@ data:
                 yaml: |
                   apiVersion: v1
                   kind: Pod
+                  metadata:
+                    labels:
+                      logging.grafana.com/collect: "true"
                   spec:
                     containers:
                     - name: jnlp
@@ -344,6 +350,9 @@ data:
                 yaml: |
                   apiVersion: v1
                   kind: Pod
+                  metadata:
+                    labels:
+                      logging.grafana.com/collect: "true"
                   spec:
                     containers:
                     - name: jnlp

@@ -20,6 +20,7 @@
       "template": {
          "metadata": {
             "labels": {
+               "logging.grafana.com/collect": "true",
                "org.eclipse.cbi.jiro/project.fullName": "adoptium.temurin-compliance",
                "org.eclipse.cbi.jiro/project.shortname": "temurin-compliance"
             },
