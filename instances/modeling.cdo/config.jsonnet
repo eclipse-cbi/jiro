@@ -1,3 +1,4 @@
+local permissionsTemplates = import '../../templates/permissions.libsonnet';
 {
   project+: {
     fullName: "modeling.cdo",
@@ -10,6 +11,8 @@
       "pipeline-utility-steps",
       "zentimestamp",
     ],
+    permissions+:
+      permissionsTemplates.user("cdo-trigger-bot@eclipse.org", ["Overall/Read", "Job/Read"])
   },
   storage: {
     storageClassName: "cephfs-new-retain",

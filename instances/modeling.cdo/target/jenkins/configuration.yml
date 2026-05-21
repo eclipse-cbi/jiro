@@ -48,6 +48,11 @@ jenkins:
               - View/Create
               - View/Delete
               - View/Read
+        - user:
+            name: cdo-trigger-bot@eclipse.org
+            permissions:
+              - Overall/Read
+              - Job/Read
   markupFormatter: rawHtml
   crumbIssuer: "standard"
   securityRealm:
