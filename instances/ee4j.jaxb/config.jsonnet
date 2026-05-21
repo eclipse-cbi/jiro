@@ -6,6 +6,7 @@
   jenkins+: {
     plugins+: [
       "envinject",
+      "copyartifact",
     ],
   },
   storage: {

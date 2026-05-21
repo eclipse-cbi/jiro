@@ -453,7 +453,8 @@
       ],
       "plugins": [
          "jacoco",
-         "envinject"
+         "envinject",
+         "copyartifact"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
