@@ -85,7 +85,7 @@ data:
       clouds:
         - kubernetes:
             name: "kubernetes"
-            containerCapStr: "36"
+            containerCapStr: "46"
             jenkinsUrl: "http://jenkins-ui.openpass.svc.cluster.local/openpass"
             jenkinsTunnel: "jenkins-discovery.openpass.svc.cluster.local:50000"
             garbageCollection:

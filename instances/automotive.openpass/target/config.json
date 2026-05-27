@@ -352,7 +352,7 @@
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
-      "maxConcurrency": 36,
+      "maxConcurrency": 46,
       "permissions": [
          {
             "group": {
@@ -603,7 +603,7 @@
    "project": {
       "displayName": "Eclipse openPASS",
       "fullName": "automotive.openpass",
-      "resourcePacks": 18,
+      "resourcePacks": 23,
       "shortName": "openpass",
       "unixGroupName": "automotive.openpass"
    },
