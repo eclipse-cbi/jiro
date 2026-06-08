@@ -449,6 +449,15 @@
                   "View/Read"
                ]
             }
+         },
+         {
+            "user": {
+               "name": "aidentzhang@gmail.com",
+               "permissions": [
+                  "Overall/Read",
+                  "Job/Read"
+               ]
+            }
          }
       ],
       "plugins": [

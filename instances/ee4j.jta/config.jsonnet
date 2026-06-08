@@ -1,3 +1,4 @@
+local permissionsTemplates = import '../../templates/permissions.libsonnet';
 {
   project+: {
     fullName: "ee4j.jta",
@@ -7,6 +8,8 @@
     plugins+: [
       "copyartifact",
     ],
+    permissions+:
+      permissionsTemplates.user("aidentzhang@gmail.com", ["Overall/Read", "Job/Read"]),
   },
   storage: {
     storageClassName: "cephfs-new-retain",
