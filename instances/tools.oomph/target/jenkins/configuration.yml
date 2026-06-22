@@ -472,7 +472,7 @@ jenkins:
           ssh:
             credentialsId: "projects-storage.eclipse.org-bot-ssh"
             host: "promotion-vm"
-            javaPath: "/opt/public/common/java/openjdk/jdk-17_x64-latest/bin/java"
+            javaPath: "/usr/lib/jvm/jdk-21.0.11+10/bin/java17_x64-latest/bin/java"
             port: 22
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
