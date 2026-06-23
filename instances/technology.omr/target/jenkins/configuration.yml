@@ -1098,7 +1098,7 @@ jenkins:
             jvmOptions: ""
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICeTNQnWYtVTCBVHpUs1siycRREat1tkFeRNz6eds2h/"
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM9oDRwCMvyt+hCVMyZFpFYhnxLG41LlQYSaEzA4OAV0"
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
