@@ -403,7 +403,7 @@ data:
                 host: "148.100.74.16"
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
-                javaPath: "/usr/lib/jvm/jdk-17/bin/java"
+                javaPath: "/usr/lib/jvm/java-1.21.0-openjdk-s390x/bin/java"
                 jvmOptions: "-Xmx512m -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
@@ -421,7 +421,7 @@ data:
                 host: "148.100.75.241"
                 port: "22"
                 credentialsId: "jenkins-jck-ssh"
-                javaPath: "/usr/lib/jvm/jdk-17/bin/java"
+                javaPath: "/usr/lib/jvm/java-1.21.0-openjdk-s390x/bin/java"
                 jvmOptions: "-Xmx512m -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
@@ -583,7 +583,7 @@ data:
                 host: "141.95.104.111"
                 port: "2221"
                 credentialsId: "jenkins-jck-ssh"
-                javaPath: "/usr/jdk-17.0.12+6/bin/java"
+                javaPath: "/usr/jdk-21.0.11+10/bin/java"
                 jvmOptions: "-Xmx2g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
@@ -601,7 +601,7 @@ data:
                 host: "141.95.104.111"
                 port: "2222"
                 credentialsId: "jenkins-jck-ssh"
-                javaPath: "/usr/jdk-17.0.12+6/bin/java"
+                javaPath: "/usr/jdk-21.0.11+10/bin/java"
                 jvmOptions: "-Xmx2g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
@@ -619,7 +619,7 @@ data:
                 host: "141.95.104.111"
                 port: "2223"
                 credentialsId: "jenkins-jck-ssh"
-                javaPath: "/usr/jdk-17.0.12+6/bin/java"
+                javaPath: "/usr/jdk-21.0.11+10/bin/java"
                 jvmOptions: "-Xmx2g -XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
