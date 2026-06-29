@@ -1,18 +1,18 @@
 jenkins:
   nodes:
   - permanent:
-      name: "b9h15-macos11-x86_64"
-      nodeDescription: "MacOS 11, hosted at MacStadium"
-      labelString: "macos macos-11"
+      name: "b9h15-macos15-x86_64"
+      nodeDescription: "MacOS 15, hosted at MacStadium"
+      labelString: "macos macos-15"
       launcher:
         ssh:
           credentialsId: "b9h15-macos-bot-ssh"
-          host: "208.52.161.179"
+          host: "207.254.22.142"
           jvmOptions: "-Xmx256m"
           port: 22
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDlxEHVKo8Mu6JEHdDOabGlbvZTQISBnCWWUXq2G/csOQwY2CimuzC3BX5ysdORTTnpMtq7Ck75cXMXr1h0mHszU7Pwx5ZPpTvNyWFFt9zMevlViGKy4OWSkq9W8qEL/JsZm1LGtP/lau+26XmE4gId1GAs2urTxbn923XSuFCbSEQAdPs11K8FRK4espEfXqmQ/w6BdiISwy3zB6/HKbOS462Qcar/1J9434nkTicH8bl5lGMfMFo57JsgrYcMFM5zB2GqHORHGsQ/88J/dsoTX1Bn+irZ6JMHx0HrkVJz1zXqDtfs8CH4q8PtFPFuSfEj2WZ7fGcRExqkiZ5mGfqrVsN5cV5vwXPE/EKFjxCgPvfUcmLHEYl00PhvyjScrP2XBJ1cFnHt44Ia0mM5zn69pxLWeuMdwfwk1mS+wAYvmwa0lGK61YupgOBiSyMV1KSYSnlcIyc1mRguZT6x3/qktzX7urJumuOskTnbAX5HdJnr7kWYmrBc4/Uyf8SXfes="
+              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEr/4ngQLAxBVx6CP3Cm1RBTep1SSCMue7F0jRL+ZGbK"
           workDir: "/Users/genie.theia/jenkins_agent/cache"
       nodeProperties:
       - envVars:
