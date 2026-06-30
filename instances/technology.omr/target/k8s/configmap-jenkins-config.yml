@@ -1121,7 +1121,7 @@ data:
                 jvmOptions: ""
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
-                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM9oDRwCMvyt+hCVMyZFpFYhnxLG41LlQYSaEzA4OAV0"
+                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGmercAHkQPActjTQK8HjMnWGOntVfd/rHNfJ2cj8x/G"
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
