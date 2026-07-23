@@ -16,7 +16,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/1571#note_1985722
       permissionsTemplates.user("martin.lowe@eclipse-foundation.org", ["Credentials/Create", "Credentials/Update"]) +
       // https://github.com/eclipsefdn-ai-registry/ai-registry-core/issues/41#issuecomment-4799184356
-      permissionsTemplates.user("jhelming@eclipsesource.com", ["Overall/Read"])
+      permissionsTemplates.user("jhelming@eclipsesource.com", ["Overall/Read"]) +
+      // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/work_items/7692
+      permissionsTemplates.user("ai-registry-trigger-bot@eclipse.org", ["Overall/Read"])
     ,
     plugins+: [
       "disable-failed-job",

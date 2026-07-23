@@ -521,6 +521,14 @@
                   "Overall/Read"
                ]
             }
+         },
+         {
+            "user": {
+               "name": "ai-registry-trigger-bot@eclipse.org",
+               "permissions": [
+                  "Overall/Read"
+               ]
+            }
          }
       ],
       "plugins": [
