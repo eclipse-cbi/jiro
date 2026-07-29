@@ -57,6 +57,7 @@ jenkins:
             name: ai-registry-trigger-bot@eclipse.org
             permissions:
               - Overall/Read
+              - Agent/Build
         - user:
             name: jhelming@eclipsesource.com
             permissions:

@@ -18,7 +18,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       // https://github.com/eclipsefdn-ai-registry/ai-registry-core/issues/41#issuecomment-4799184356
       permissionsTemplates.user("jhelming@eclipsesource.com", ["Overall/Read"]) +
       // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/work_items/7692
-      permissionsTemplates.user("ai-registry-trigger-bot@eclipse.org", ["Overall/Read"])
+      permissionsTemplates.user("ai-registry-trigger-bot@eclipse.org", ["Overall/Read", "Agent/Build"])
     ,
     plugins+: [
       "disable-failed-job",

@@ -526,7 +526,8 @@
             "user": {
                "name": "ai-registry-trigger-bot@eclipse.org",
                "permissions": [
-                  "Overall/Read"
+                  "Overall/Read",
+                  "Agent/Build"
                ]
             }
          }
