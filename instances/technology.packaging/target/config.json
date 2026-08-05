@@ -532,7 +532,7 @@
       ],
       "plugins": [
          "urltrigger",
-         "parameterized-remote-trigger-plugin",
+         "Parameterized-Remote-Trigger",
          "pipeline-graph-view"
       ],
       "pluginsForceUpgrade": true,

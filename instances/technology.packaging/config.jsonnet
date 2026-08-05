@@ -12,7 +12,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       permissionsTemplates.user("packaging-trigger-bot@eclipse.org", ["Overall/Read", "Job/Read", "Job/Build", "Agent/Build"]), // https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/6174
     plugins+: [
       "urltrigger",
-      "parameterized-remote-trigger-plugin",
+      "Parameterized-Remote-Trigger",
       "pipeline-graph-view",
     ]
   },
