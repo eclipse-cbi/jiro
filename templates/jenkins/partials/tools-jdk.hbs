@@ -89,7 +89,19 @@ jdk:
   - name: "temurin-latest"
     home: "/opt/tools/java/temurin/latest"
   - name: "temurin-jdk25-latest"
+{{#if jenkins.enableAutomaticTemurinJDKInstallations}}
+    properties:
+    - installSource:
+        installers:
+        - command:
+            command: "true"
+            label: "jdk-provider"
+            toolHome: "/opt/tools/java/temurin/jdk-25/latest"
+        - adoptOpenJdkInstaller:
+            id: "jdk-25.0.3+9"
+{{else}}
     home: "/opt/tools/java/temurin/jdk-25/latest"
+{{/if}}
   - name: "temurin-jdk24-latest"
     home: "/opt/tools/java/temurin/jdk-24/latest"
   - name: "temurin-jdk23-latest"
@@ -97,15 +109,63 @@ jdk:
   - name: "temurin-jdk22-latest"
     home: "/opt/tools/java/temurin/jdk-22/latest"
   - name: "temurin-jdk21-latest"
+{{#if jenkins.enableAutomaticTemurinJDKInstallations}}
+    properties:
+    - installSource:
+        installers:
+        - command:
+            command: "true"
+            label: "jdk-provider"
+            toolHome: "/opt/tools/java/temurin/jdk-21/latest"
+        - adoptOpenJdkInstaller:
+            id: "jdk-21.0.11+10"
+{{else}}
     home: "/opt/tools/java/temurin/jdk-21/latest"
+{{/if}}
   - name: "temurin-jdk20-latest"
     home: "/opt/tools/java/temurin/jdk-20/latest"
   - name: "temurin-jdk17-latest"
+{{#if jenkins.enableAutomaticTemurinJDKInstallations}}
+    properties:
+    - installSource:
+        installers:
+        - command:
+            command: "true"
+            label: "jdk-provider"
+            toolHome: "/opt/tools/java/temurin/jdk-17/latest"
+        - adoptOpenJdkInstaller:
+            id: "jdk-17.0.19+10"
+{{else}}
     home: "/opt/tools/java/temurin/jdk-17/latest"
+{{/if}}
   - name: "temurin-jdk11-latest"
+{{#if jenkins.enableAutomaticTemurinJDKInstallations}}
+    properties:
+    - installSource:
+        installers:
+        - command:
+            command: "true"
+            label: "jdk-provider"
+            toolHome: "/opt/tools/java/temurin/jdk-11/latest"
+        - adoptOpenJdkInstaller:
+            id: "jdk-11.0.31+11"
+{{else}}
     home: "/opt/tools/java/temurin/jdk-11/latest"
+{{/if}}
   - name: "temurin-jdk8-latest"
+{{#if jenkins.enableAutomaticTemurinJDKInstallations}}
+    properties:
+    - installSource:
+        installers:
+        - command:
+            command: "true"
+            label: "jdk-provider"
+            toolHome: "/opt/tools/java/temurin/jdk-8/latest"
+        - adoptOpenJdkInstaller:
+            id: "jdk8u492-b09"
+{{else}}
     home: "/opt/tools/java/temurin/jdk-8/latest"
+{{/if}}
   - name: "oracle-latest"
     home: "/opt/tools/java/oracle/latest"
   - name: "oracle-jdk10-latest"
