@@ -17,6 +17,7 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "job-dsl",
       "pipeline-graph-view",
       "pipeline-utility-steps",
+      "text-finder",
     ],
     staticAgentCount: 10,
     permissions+:

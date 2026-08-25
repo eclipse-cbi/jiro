@@ -7,3 +7,4 @@ job-dsl
 mail-watcher-plugin
 pipeline-graph-view
 pipeline-utility-steps
+text-finder

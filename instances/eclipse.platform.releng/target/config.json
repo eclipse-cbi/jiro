@@ -473,7 +473,8 @@
          "git-forensics",
          "job-dsl",
          "pipeline-graph-view",
-         "pipeline-utility-steps"
+         "pipeline-utility-steps",
+         "text-finder"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 10,
