@@ -530,7 +530,7 @@
                "request": "250m"
             },
             "memory": {
-               "limit": "1536Mi",
+               "limit": "3072Mi",
                "request": "1536Mi"
             }
          },
