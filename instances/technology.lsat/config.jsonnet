@@ -7,8 +7,8 @@
     master+: {
       resources+: {
         memory+: {
-          limit: "3072Mi",
-          request: "1536Mi",
+          limit: "2048Mi",
+          request: "2048Mi",
         },
       },
     },
