@@ -3,6 +3,16 @@
     fullName: "iot.kura",
     displayName: "Eclipse Kura"
   },
+  kubernetes+: {
+    master+: {
+      resources+: {
+        memory+: {
+          limit: "2048Mi",
+          request: "2048Mi",
+        },
+      },
+    },
+  },
   jenkins+: {
     plugins+: [
       "clone-workspace-scm",
