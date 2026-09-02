@@ -58,11 +58,12 @@ git_check_diff() {
 git_commit() {
   local file="${1:-}"
   local folder="${2:-}"
+  local commit_message="${3:-}"
   pushd "${SCRIPT_FOLDER}/../../${folder}" > /dev/null
   git add "${file}"
   git diff --cached
   read -rsp $'Once you are done, press any key to continue...\n' -n1
-  git commit -m "Add new remoting version for Jenkins LTS ${NEW_LTS_VERSION}"
+  git commit -m "${commit_message}"
   echo
   git log -1
   read -rsp $'If you are ready to push, press any key to continue...\n' -n1
@@ -71,24 +72,24 @@ git_commit() {
 }
 
 remoting_commit() {
-  git_commit "${REMOTING_FILE}" "jiro-agents"
+  git_commit "${REMOTING_FILE}" "jiro-agents" "Add new remoting version for Jenkins LTS ${NEW_LTS_VERSION}"
 }
 
 controller_commit() {
-  git_commit "${CONTROLLER_FILE}" "jiro-masters"
+  git_commit "${CONTROLLER_FILE}" "jiro-masters" "Add new Jenkins LTS version ${NEW_LTS_VERSION}"
 }
 
 
 remoting() {
   echo
   echo "Checking remoting version..."
-  
+
   #curl -SJOL http://mirrors.jenkins.io/war-stable/${NEW_LTS_VERSION}/jenkins.war
   wget -cq "http://mirrors.jenkins.io/war-stable/${NEW_LTS_VERSION}/jenkins.war"
   remoting_version="$(unzip -p jenkins.war META-INF/MANIFEST.MF | grep Remoting-Embedded | sed 's/Remoting-Embedded-Version://' | tr -d '[:space:]')"
-  
+
   printf "\n  Remoting version: %s\n\n" "${remoting_version}"
-  
+
   #TODO: check if remoting version already exists in jiro-agents/remoting/remoting.libsonnet
   echo "1. Adding new remoting version (if applicable)..."
   echo
@@ -105,7 +106,7 @@ remoting() {
    printf "  ERROR: a version must be given.\n"
    exit 1
   fi
-  
+
   if grep "${NEW_LTS_VERSION}" "${REMOTING_FILE}" > /dev/null; then
     echo "  Remoting definition already contains an entry for Jenkins version ${NEW_LTS_VERSION}. Skipping..."
   else
@@ -120,12 +121,12 @@ remoting() {
     jq . "${REMOTING_FILE}"
     rm "${REMOTING_FILE}.tmp"
   fi
-  
+
   #TODO: add newer startupScript_version if required
-  
+
   echo
   check_latest
-  
+
   echo
   echo "  * remove old versions (optional)"
   echo
