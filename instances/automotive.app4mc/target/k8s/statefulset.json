@@ -67,7 +67,7 @@
                         "value": "true"
                      }
                   ],
-                  "image": "docker.io/eclipsecbijenkins/automotive.app4mc:2.568.2",
+                  "image": "docker.io/eclipsecbijenkins/automotive.app4mc:2.568.3",
                   "imagePullPolicy": "Always",
                   "lifecycle": {
                      "preStop": {

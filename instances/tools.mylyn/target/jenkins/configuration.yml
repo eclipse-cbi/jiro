@@ -513,6 +513,8 @@ tool:
         home: "/opt/tools/java/openjdk/latest"
       - name: "openjdk-ea-latest"
         home: "/opt/tools/java/openjdk/ea-latest"
+      - name: "openjdk-jdk28-latest"
+        home: "/opt/tools/java/openjdk/jdk-28/latest"
       - name: "openjdk-jdk27-latest"
         home: "/opt/tools/java/openjdk/jdk-27/latest"
       - name: "openjdk-jdk26-latest"

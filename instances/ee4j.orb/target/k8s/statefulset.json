@@ -67,7 +67,7 @@
                         "value": "true"
                      }
                   ],
-                  "image": "docker.io/eclipsecbijenkins/ee4j.orb:2.568.2",
+                  "image": "docker.io/eclipsecbijenkins/ee4j.orb:2.568.3",
                   "imagePullPolicy": "Always",
                   "lifecycle": {
                      "preStop": {

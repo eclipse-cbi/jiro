@@ -15,7 +15,7 @@ metadata:
     org.eclipse.cbi.jiro/kind: "master"
   annotations:
     org.eclipse.cbi.jiro/jenkins.version: "latest"
-    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.568.2"
+    org.eclipse.cbi.jiro/jenkins.actualVersion: "2.568.3"
     org.eclipse.cbi.jiro/kubernetes.master.namespace: "jdt"
   namespace: "jdt"
   name: jenkins-config
