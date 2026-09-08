@@ -3,6 +3,16 @@
     fullName: "technology.lsat",
     displayName: "Eclipse LSAT",
   },
+  kubernetes+: {
+    master+: {
+      resources+: {
+        memory+: {
+          limit: "2048Mi",
+          request: "2048Mi",
+        },
+      },
+    },
+  },
   storage: {
     storageClassName: "cephfs-new-retain",
   },
