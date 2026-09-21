@@ -20,8 +20,6 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       permissionsTemplates.user("wayne.beaton@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
       // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/617
       permissionsTemplates.user("boris.baldassari@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
-      // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/work_items/2888
-      permissionsTemplates.user("lemmy.nwadishi@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
       // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/1033
       permissionsTemplates.user("florent.zara@eclipse-foundation.org", ["Overall/Read", "Agent/Build"]) +
       // https://gitlab.eclipse.org/eclipsefdn/infrazilla/-/issues/933
