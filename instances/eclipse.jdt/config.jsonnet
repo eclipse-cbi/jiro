@@ -12,6 +12,7 @@
     ],
   },
   storage: {
+    quota:"100Gi",
     storageClassName: "cephfs-new-retain",
   },
   seLinuxLevel: "s0:c43,c37",

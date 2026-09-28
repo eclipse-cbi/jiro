@@ -186,7 +186,7 @@
                ],
                "resources": {
                   "requests": {
-                     "storage": "50Gi"
+                     "storage": "100Gi"
                   }
                },
                "storageClassName": "cephfs-new-retain"
