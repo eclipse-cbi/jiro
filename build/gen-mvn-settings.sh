@@ -88,25 +88,25 @@ gen_server() {
   passphrase_pass="$(jq -r '.passphrase.pass' <<< "${server}")"
   username_sm="$(jq -r '.username.sm' <<< "${server}")"
   password_sm="$(jq -r '.password.sm' <<< "${server}")"
-  
+
   # Check if .username.sm and .password.sm exist
   if [[ "${username_sm}" != "null" ]] && [[ "${password_sm}" != "null" ]]; then
     >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating server entry '${serverId}' from the secretsmanager"
     local username password
-    
+
     # Extract key and path from the sm entries
     local username_key username_path password_key password_path
     username_key="$(jq -r '.key' <<< "${username_sm}")"
     username_path="$(jq -r '.path' <<< "${username_sm}")"
     password_key="$(jq -r '.key' <<< "${password_sm}")"
     password_path="$(jq -r '.path' <<< "${password_sm}")"
-    
+
     # Retrieve secrets from Vault
     username="$(vaultctl read -b cbi "${username_path}/${username_key}")"
     password="$(vaultctl read -b cbi "${password_path}/${password_key}")"
-    
+
     if [[ -n "${username}" ]] && [[ -n "${password}" ]]; then
-      local server_password server_username 
+      local server_password server_username
       server_username="${username}"
       server_password=$(mvn --encrypt-password "$(printf "%s" "${password}")" -Dsettings.security="${SETTINGS_SECURITY_XML}")
 
@@ -153,7 +153,7 @@ EOF
 
     else
       >&2 echo -e "${SCRIPT_NAME}\tINFO:   - using username/password for authentication"
-          local server_password server_username 
+          local server_password server_username
     server_username="${username}"
     server_password=$(mvn --encrypt-password "$(printf "%s" "${password}")" -Dsettings.security="${SETTINGS_SECURITY_XML}")
 
@@ -214,19 +214,19 @@ gen_profile() {
 gen_repository() {
   local repositoryId="${1}"
   local repository="${2}"
-  
+
   echo "        <repository>"
   echo "          <id>${repositoryId}</id>"
-  
+
   # Name is optional
   local name
   name="$(jq -r '.name' <<< "${repository}")"
   if [[ "${name}" != "null" ]]; then
     echo "          <name>${name}</name>"
   fi
-  
+
   echo "          <url>$(jq -r '.url' <<< "${repository}")</url>"
-  
+
   # Releases section (optional)
   local releases_enabled
   releases_enabled="$(jq -r '.releases.enabled' <<< "${repository}")"
@@ -235,7 +235,7 @@ gen_repository() {
     echo "            <enabled>${releases_enabled}</enabled>"
     echo "          </releases>"
   fi
-  
+
   # Snapshots section (optional)
   local snapshots_enabled
   snapshots_enabled="$(jq -r '.snapshots.enabled' <<< "${repository}")"
@@ -244,7 +244,7 @@ gen_repository() {
     echo "            <enabled>${snapshots_enabled}</enabled>"
     echo "          </snapshots>"
   fi
-  
+
   echo "        </repository>"
 }
 
@@ -378,5 +378,5 @@ if [[ "$(jq -r '.maven.generate' "${CONFIG}")" == "true" ]]; then
 
   >&2 echo -e "${SCRIPT_NAME}\tINFO: Generating Maven toolchains.xml"
   #TODO: update max version when new JDK has been released
-  gen_maven_toolchains "27" > "${WORKDIR}/toolchains.xml"
+  gen_maven_toolchains "28" > "${WORKDIR}/toolchains.xml"
 fi
