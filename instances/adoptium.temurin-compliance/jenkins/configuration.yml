@@ -9,6 +9,13 @@ tool:
       home: ""
 
 jenkins:
+  nodeMonitors:
+    - "architecture"
+    - diskSpace:
+        freeSpaceThreshold: "10GB"
+    - "swapSpace"
+    - tmpSpace:
+        freeSpaceThreshold: "1GB"
   nodes:
   - permanent:
       name: "jck-marist-ubuntu2204-s390x-1"
