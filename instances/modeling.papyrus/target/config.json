@@ -396,6 +396,7 @@
                   "yamlMergeStrategy": "merge"
                },
                "labels": [
+                  "ubuntu-2404-agent-6gb",
                   "centos-7-6gb"
                ],
                "maxHeap": "256m",

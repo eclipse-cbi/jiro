@@ -369,7 +369,7 @@ jenkins:
             yamlMergeStrategy: "merge"
           - name: "ubuntu-2404-agent-6gb"
             namespace: "papyrus"
-            label: "centos-7-6gb"
+            label: "ubuntu-2404-agent-6gb centos-7-6gb"
             containers:
               - name: "jnlp"
                 image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3355.3357.v931d3c992987
@@ -781,8 +781,8 @@ tool:
           - installSource:
               installers:
                 - zip:
-                    subdir: "apache-ant-1.10.15"
-                    url: "https://download.eclipse.org/cbi/build-tools/apache-ant-1.10.15-bin.tar.gz"
+                    subdir: "apache-ant-1.10.18"
+                    url: "https://download.eclipse.org/cbi/build-tools/apache-ant-1.10.18-bin.tar.gz"
   maven:
     installations:
       - name: "maven-daemon"

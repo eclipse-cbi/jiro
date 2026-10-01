@@ -16,7 +16,7 @@
       local currentCloud = self,
       templates+: {
         "ubuntu-2404-agent-6gb": currentCloud.templates["ubuntu-2404"] {
-          labels: ["centos-7-6gb"],
+          labels: ["ubuntu-2404-agent-6gb", "centos-7-6gb"],
           kubernetes+: {
             resources+: {
               memory: {
