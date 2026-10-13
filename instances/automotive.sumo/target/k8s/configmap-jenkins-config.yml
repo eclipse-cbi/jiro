@@ -408,18 +408,18 @@ data:
             remoteFS: "/Users/genie.sumo/jenkins"
             retentionStrategy: "always"
         - permanent:
-            labelString: "macos macos-14 arm64"
+            labelString: "macos macos-15 arm64"
             launcher:
               ssh:
-                credentialsId: "rg34F-macos14-arm64-bot-ssh"
+                credentialsId: "rg34F-macos15-arm64-bot-ssh"
                 host: "208.52.154.36"
                 jvmOptions: "-Xmx256m"
                 port: 22
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
-                    key: "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKq0Vor5hfmCr3HmmX2yOUa0ZlvHPVvGFLROrbbCYsyhdVv2XRZJ3ZsRk3CCo5KH3LTCv1/22RLiPy0OYp8MCSA="
+                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP49ih4cV4i0+0tu9fyDKmFnd4+fwvhi11TE/iqA+i2t"
             mode: EXCLUSIVE
-            name: "rg34F-macos14-arm64"
+            name: "rg34F-macos15-arm64"
             remoteFS: "/Users/genie.sumo/jenkins"
             retentionStrategy: "always"
     security:
@@ -703,8 +703,8 @@ data:
               - installSource:
                   installers:
                     - zip:
-                        subdir: "apache-ant-1.10.15"
-                        url: "https://download.eclipse.org/cbi/build-tools/apache-ant-1.10.15-bin.tar.gz"
+                        subdir: "apache-ant-1.10.18"
+                        url: "https://download.eclipse.org/cbi/build-tools/apache-ant-1.10.18-bin.tar.gz"
       maven:
         installations:
           - name: "maven-daemon"
@@ -720,6 +720,8 @@ data:
             home: "/opt/tools/apache-maven/3-latest"
           - name: "apache-maven-4-latest"
             home: "/opt/tools/apache-maven/4-latest"
+          - name: "apache-maven-3.10.0"
+            home: "/opt/tools/apache-maven/3.10.0"
           - name: "apache-maven-3.9.16"
             home: "/opt/tools/apache-maven/3.9.16"
           - name: "apache-maven-3.9.12"
