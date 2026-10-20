@@ -911,7 +911,7 @@ data:
                 jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
-                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFiT96PJGr+0f9wSunhF2AoqARawYTbaL3BIwnJB65Hj"
+                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFUa/Rc79L5Q/2lzlzmiTb9mqtVG6peT3uYz7LqBjsx7"
         - permanent:
             name: "jck-scaleway-ubuntu2404-riscv64-3"
             nodeDescription: "RiscV RV64GCV 4 cores 1,85 GHz"
@@ -1230,8 +1230,8 @@ data:
               - installSource:
                   installers:
                     - zip:
-                        subdir: "apache-ant-1.10.15"
-                        url: "https://download.eclipse.org/cbi/build-tools/apache-ant-1.10.15-bin.tar.gz"
+                        subdir: "apache-ant-1.10.18"
+                        url: "https://download.eclipse.org/cbi/build-tools/apache-ant-1.10.18-bin.tar.gz"
       maven:
         installations:
           - name: "maven-daemon"
@@ -1247,6 +1247,8 @@ data:
             home: "/opt/tools/apache-maven/3-latest"
           - name: "apache-maven-4-latest"
             home: "/opt/tools/apache-maven/4-latest"
+          - name: "apache-maven-3.10.0"
+            home: "/opt/tools/apache-maven/3.10.0"
           - name: "apache-maven-3.9.16"
             home: "/opt/tools/apache-maven/3.9.16"
           - name: "apache-maven-3.9.12"

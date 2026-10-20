@@ -537,7 +537,7 @@ jenkins:
           jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
           sshHostKeyVerificationStrategy:
             manuallyProvidedKeyVerificationStrategy:
-              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFiT96PJGr+0f9wSunhF2AoqARawYTbaL3BIwnJB65Hj"
+              key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFUa/Rc79L5Q/2lzlzmiTb9mqtVG6peT3uYz7LqBjsx7"
 
   - permanent:
       name: "jck-scaleway-ubuntu2404-riscv64-3"
