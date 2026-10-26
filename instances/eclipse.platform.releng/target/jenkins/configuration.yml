@@ -434,7 +434,7 @@ jenkins:
             port: 22
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEr/4ngQLAxBVx6CP3Cm1RBTep1SSCMue7F0jRL+ZGbK"
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIN8lhfEsrZ+AwaZapYpcfDHfa+LZCxIXIxaO3Gg6yL9"
         nodeProperties:
           - envVars:
               env:
@@ -574,7 +574,7 @@ jenkins:
             port: 22
             sshHostKeyVerificationStrategy:
               manuallyProvidedKeyVerificationStrategy:
-                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICkXOUrd6bUxJwHS4Ay3oS2G2u2wx1v/TAeikM0nxZG7"
+                key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPaIdp/tTv6IoYndVtfaT63awO11QEd82vw/ze5gihXs"
         mode: EXCLUSIVE
         remoteFS: "/Users/genie.releng/"
         retentionStrategy: "always"
