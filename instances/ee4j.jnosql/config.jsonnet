@@ -1,6 +1,6 @@
 {
   project+: {
-    fullName: "technology.jnosql",
+    fullName: "ee4j.jnosql",
     displayName: "Eclipse JNoSQL"
   },
   storage: {

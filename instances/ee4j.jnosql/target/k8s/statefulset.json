@@ -3,7 +3,7 @@
    "kind": "StatefulSet",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "technology.jnosql",
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jnosql",
          "org.eclipse.cbi.jiro/project.shortname": "jnosql"
       },
       "name": "jnosql",
@@ -13,7 +13,7 @@
       "replicas": 1,
       "selector": {
          "matchLabels": {
-            "org.eclipse.cbi.jiro/project.fullName": "technology.jnosql"
+            "org.eclipse.cbi.jiro/project.fullName": "ee4j.jnosql"
          }
       },
       "serviceName": "jnosql",
@@ -21,7 +21,7 @@
          "metadata": {
             "labels": {
                "logging.grafana.com/collect": "true",
-               "org.eclipse.cbi.jiro/project.fullName": "technology.jnosql",
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j.jnosql",
                "org.eclipse.cbi.jiro/project.shortname": "jnosql"
             },
             "name": "jnosql"
@@ -67,7 +67,7 @@
                         "value": "true"
                      }
                   ],
-                  "image": "docker.io/eclipsecbijenkins/technology.jnosql:2.568.3",
+                  "image": "docker.io/eclipsecbijenkins/ee4j.jnosql:2.568.3",
                   "imagePullPolicy": "Always",
                   "lifecycle": {
                      "preStop": {

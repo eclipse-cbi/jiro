@@ -6,7 +6,7 @@
    "kind": "ConfigMap",
    "metadata": {
       "labels": {
-         "org.eclipse.cbi.jiro/project.fullName": "technology.jnosql",
+         "org.eclipse.cbi.jiro/project.fullName": "ee4j.jnosql",
          "org.eclipse.cbi.jiro/project.shortname": "jnosql"
       },
       "name": "known-hosts",

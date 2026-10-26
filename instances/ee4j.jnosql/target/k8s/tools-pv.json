@@ -6,7 +6,7 @@
          "kind": "PersistentVolume",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "technology.jnosql",
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j.jnosql",
                "org.eclipse.cbi.jiro/project.shortname": "jnosql"
             },
             "name": "tools-jiro-jnosql"
@@ -50,7 +50,7 @@
          "kind": "PersistentVolumeClaim",
          "metadata": {
             "labels": {
-               "org.eclipse.cbi.jiro/project.fullName": "technology.jnosql",
+               "org.eclipse.cbi.jiro/project.fullName": "ee4j.jnosql",
                "org.eclipse.cbi.jiro/project.shortname": "jnosql"
             },
             "name": "tools-claim-jiro-jnosql",

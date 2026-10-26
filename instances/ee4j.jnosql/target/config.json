@@ -2,7 +2,7 @@
    "accessControl": {
       "primaryGroup": {
          "id": -1,
-         "name": "technology.jnosql"
+         "name": "ee4j.jnosql"
       },
       "supplementalGroups": [ ],
       "user": {
@@ -331,7 +331,7 @@
    "docker": {
       "master": {
          "dockerfile": "FROM docker.io/eclipsecbi/jiro-master:2.568.3\n\nEXPOSE 8080\nEXPOSE 50000\n\nCOPY jenkins/ref/plugins /usr/share/jenkins/ref/plugins\n\nRUN mkdir -p /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/quicksilver.css.override /usr/share/jenkins/ref/userContent/theme/\nCOPY jenkins/title.js /usr/share/jenkins/ref/userContent/theme/\n\nUSER 10001\n",
-         "image": "technology.jnosql",
+         "image": "ee4j.jnosql",
          "registry": "docker.io",
          "repository": "eclipsecbijenkins",
          "tag": "2.568.3"
@@ -383,7 +383,7 @@
          },
          {
             "group": {
-               "name": "technology.jnosql",
+               "name": "ee4j.jnosql",
                "permissions": [
                   "Agent/Build",
                   "Credentials/View",
@@ -408,7 +408,9 @@
             }
          }
       ],
-      "plugins": [ ],
+      "plugins": [
+         "jacoco"
+      ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
       "theme": "quicksilver",
@@ -547,7 +549,7 @@
       "files": {
          "settings-security.xml": {
             "master": {
-               "pass": "bots/technology.jnosql/apache-maven-security-settings"
+               "pass": "bots/ee4j.jnosql/apache-maven-security-settings"
             }
          },
          "settings.xml": {
@@ -563,36 +565,36 @@
             "servers": {
                "central": {
                   "password": {
-                     "pass": "bots/technology.jnosql/central.sonatype.org/token-password"
+                     "pass": "bots/ee4j.jnosql/central.sonatype.org/token-password"
                   },
                   "username": {
-                     "pass": "bots/technology.jnosql/central.sonatype.org/token-username"
+                     "pass": "bots/ee4j.jnosql/central.sonatype.org/token-username"
                   }
                },
                "central.staging": {
                   "password": {
-                     "pass": "bots/technology.jnosql/central.sonatype.org/token-password"
+                     "pass": "bots/ee4j.jnosql/central.sonatype.org/token-password"
                   },
                   "username": {
-                     "pass": "bots/technology.jnosql/central.sonatype.org/token-username"
+                     "pass": "bots/ee4j.jnosql/central.sonatype.org/token-username"
                   }
                },
                "gpg.passphrase": {
                   "passphrase": {
-                     "pass": "bots/technology.jnosql/gpg/passphrase"
+                     "pass": "bots/ee4j.jnosql/gpg/passphrase"
                   }
                },
                "repo.eclipse.org": {
                   "password": {
                      "sm": {
                         "key": "token-password",
-                        "path": "technology.jnosql/repo.eclipse.org"
+                        "path": "ee4j.jnosql/repo.eclipse.org"
                      }
                   },
                   "username": {
                      "sm": {
                         "key": "token-username",
-                        "path": "technology.jnosql/repo.eclipse.org"
+                        "path": "ee4j.jnosql/repo.eclipse.org"
                      }
                   }
                }
@@ -602,15 +604,15 @@
       "generate": true,
       "interactiveMode": false,
       "mavenrc": "",
-      "showVersion": true,
+      "showVersion": false,
       "transferListenerLogLevel": "warn"
    },
    "project": {
       "displayName": "Eclipse JNoSQL",
-      "fullName": "technology.jnosql",
+      "fullName": "ee4j.jnosql",
       "resourcePacks": 1,
       "shortName": "jnosql",
-      "unixGroupName": "technology.jnosql"
+      "unixGroupName": "ee4j.jnosql"
    },
    "sbt": {
       "files": {
