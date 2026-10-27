@@ -483,6 +483,9 @@ data:
               [git.eclipse.org]:29418 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA8+KrFs55Aw6ATeoTxSIQOLiYBDALPZ4qN02mvB49a2
               [eclipse.gerrithub.io]:29418 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC1wudLWtuNHlf5/nz2eewG8B+iVWfuuQcu9eXj3aC8B
     appearance:
+      loginTheme:
+        header: "<p style=\"font-size: 110%\">Please use your <span style=\"font-weight: bold\">Eclipse.org-account email address</span> as the username!</p>"
+        useDefaultTheme: true
       simpleTheme:
         elements:
           - cssUrl:
@@ -757,6 +760,8 @@ data:
             home: "/opt/tools/apache-maven/3-latest"
           - name: "apache-maven-4-latest"
             home: "/opt/tools/apache-maven/4-latest"
+          - name: "apache-maven-3.10.0"
+            home: "/opt/tools/apache-maven/3.10.0"
           - name: "apache-maven-3.9.16"
             home: "/opt/tools/apache-maven/3.9.16"
           - name: "apache-maven-3.9.12"

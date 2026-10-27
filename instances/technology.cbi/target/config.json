@@ -516,6 +516,7 @@
          "jobConfigHistory",
          "kubernetes",
          "ldap",
+         "login-theme",
          "mailer",
          "matrix-auth",
          "maven-plugin",
