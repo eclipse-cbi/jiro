@@ -143,7 +143,7 @@ jenkins:
             label: "basic basic-ubuntu"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3355.3357.v931d3c992987
+                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3386.v353e57a_1b_ea_0
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -240,7 +240,7 @@ jenkins:
             label: "ubuntu-2204"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3355.3357.v931d3c992987
+                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3386.v353e57a_1b_ea_0
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -337,7 +337,7 @@ jenkins:
             label: "ubuntu-latest ubuntu-2404 migration jipp-migration centos-7 centos-8 centos-latest"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3355.3357.v931d3c992987
+                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3386.v353e57a_1b_ea_0
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -498,6 +498,9 @@ security:
           [foundation.eclipse.org]:29418 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBkIIXQt8hQ/2xqrDc7n9iat1JQwiCoBT8JecHbk+COS
           20.104.233.12 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDkH1ET4ScUfV5JHHr7f7dOg4jHg09SL2Q03ST6oAmC5yxmU52uu8vhUZRM5H5zjrW4ml7/U4s+J3LyUHNtcQq5xqBrQCDc2uSXUTFeShp3FeehHRvvOzlJqSANvQj+0Qdxb/aU0lxAYXaLsRy+HEH75aSceTXYDFvVjygteBApVFAaTCNYlDNPsxMUQ1ZKi7cy7DPT1w6PVpGO+9i7WXHkMCJlhOLf6ivJWgH5NtcHJMAxs7fGHYPjn8rUJlSAY/Hg1bT5JcGAdNWxsaCmKMucaGBeHz2E+hXtx6k4ye5fJqlFuWkxfWyJSewmoNrilACl9XKp5mPbVZyCZCDJCtVYkT6gf3nm5bTiSfIBb5fLM1eVKssa2PNcEW7sajRKEpw6GKcD0a1gj1ERbZapVWk42AD9TCIeaT8SniZrq60n5E/SVRBQvoCArdLIQgfm4zflUsH/gFeMFMV/PvQ6vrbRCd+fhbnaRWFVOpUUwwMaM+8OXCbS9XOPge8B2wqOVqk=
 appearance:
+  loginTheme:
+    header: "<p style=\"font-size: 110%\">Please use your <span style=\"font-weight: bold\">Eclipse.org-account email address</span> as the username!</p>"
+    useDefaultTheme: true
   simpleTheme:
     elements:
       - cssUrl:
@@ -778,8 +781,8 @@ tool:
           - installSource:
               installers:
                 - zip:
-                    subdir: "apache-ant-1.10.15"
-                    url: "https://download.eclipse.org/cbi/build-tools/apache-ant-1.10.15-bin.tar.gz"
+                    subdir: "apache-ant-1.10.18"
+                    url: "https://download.eclipse.org/cbi/build-tools/apache-ant-1.10.18-bin.tar.gz"
   maven:
     installations:
       - name: "maven-daemon"
@@ -795,6 +798,8 @@ tool:
         home: "/opt/tools/apache-maven/3-latest"
       - name: "apache-maven-4-latest"
         home: "/opt/tools/apache-maven/4-latest"
+      - name: "apache-maven-3.10.0"
+        home: "/opt/tools/apache-maven/3.10.0"
       - name: "apache-maven-3.9.16"
         home: "/opt/tools/apache-maven/3.9.16"
       - name: "apache-maven-3.9.12"
