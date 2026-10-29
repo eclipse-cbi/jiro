@@ -80,7 +80,7 @@ jenkins:
             label: "basic basic-ubuntu"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3355.3357.v931d3c992987
+                image: docker.io/eclipsecbi/jiro-agent-basic-ubuntu:remoting-3386.v353e57a_1b_ea_0
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -177,7 +177,7 @@ jenkins:
             label: "ubuntu-2204"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3355.3357.v931d3c992987
+                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2204:remoting-3386.v353e57a_1b_ea_0
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -274,7 +274,7 @@ jenkins:
             label: "ubuntu-latest ubuntu-2404 migration jipp-migration centos-7 centos-8 centos-latest"
             containers:
               - name: "jnlp"
-                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3355.3357.v931d3c992987
+                image: docker.io/eclipsecbi/jiro-agent-ubuntu-2404:remoting-3386.v353e57a_1b_ea_0
                 alwaysPullImage: true
                 livenessProbe:
                   failureThreshold: 0
@@ -936,6 +936,9 @@ security:
   globalJobDslSecurityConfiguration:
     useScriptSecurity: false
 appearance:
+  loginTheme:
+    header: "<p style=\"font-size: 110%\">Please use your <span style=\"font-weight: bold\">Eclipse.org-account email address</span> as the username!</p>"
+    useDefaultTheme: true
   simpleTheme:
     elements:
       - cssUrl:
