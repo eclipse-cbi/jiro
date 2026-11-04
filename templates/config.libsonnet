@@ -152,6 +152,9 @@ local clouds = import "clouds.libsonnet";
             },
           },
           central: {
+            repositoryOrigins: [
+              "https://central.sonatype.com",
+            ],
             username: {
               pass: "bots/" + $.project.fullName + "/central.sonatype.org/token-username",
             },
@@ -160,6 +163,9 @@ local clouds = import "clouds.libsonnet";
             },
           },
           [if std.objectHas($.project, "centralTesting") && $.project.centralTesting then "central.testing"]: {
+            repositoryOrigins: [
+              "https://central.sonatype.com",
+            ],
             username: {
               pass: "bots/" + $.project.fullName + "/central.sonatype.org/token-username",
             },
@@ -168,6 +174,9 @@ local clouds = import "clouds.libsonnet";
             },
           },
           "central.staging": {
+            repositoryOrigins: [
+              "https://central.sonatype.com",
+            ],
             username: {
               pass: "bots/" + $.project.fullName + "/central.sonatype.org/token-username",
             },
