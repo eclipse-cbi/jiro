@@ -42,16 +42,6 @@ jenkins:
             manuallyProvidedKeyVerificationStrategy:
               key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGaRXhfwXtNtwsPs+hFTKVGs/o+EIQPFs3W1A+n5gIJc"
       nodeProperties:
-      - envVars:
-          env:
-          - key: "JAVA_HOME"
-            value: 'C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot'
-          - key: "PATH"
-            value: 'C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\ProgramData\GooGet;C:\Users\SSHD\AppData\Local\Microsoft\WindowsApps;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\bin'
-          - key: "VS90_HOME"
-            value: 'C:\Program Files (x86)\Microsoft Visual Studio\2019'
-          - key: "VS90COMNTOOLS"
-            value: 'C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools'
       - toolLocation:
           locations:
           - home: 'C:\Program Files\Git\bin\git'
