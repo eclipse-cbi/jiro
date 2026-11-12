@@ -19,7 +19,7 @@ IFS=$'\n\t'
 SCRIPT_NAME="$(basename "${BASH_SOURCE[0]}")"
 SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
-PASSWORD_STORE_DIR="$("${SCRIPT_FOLDER}/utils/local_config.sh" "get_var" "cbi-dir" "password-store")"
+PASSWORD_STORE_DIR="$("${SCRIPT_FOLDER}/utils/local_config.sh" "password-store.cbi-dir")"
 export PASSWORD_STORE_DIR
 
 #shellcheck disable=SC1091

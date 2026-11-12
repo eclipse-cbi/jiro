@@ -29,18 +29,11 @@ fi
 
 _check_if_var_exists() {
   local var="${1:-}"
-  local name="${2:-}"
+  local key="${2:-}"
   if [[ -z "${var}" ]] || [[ "${var}" == "null" ]]; then
-    printf "ERROR: '${name}' must be set in %s.\n" "${LOCAL_CONFIG}" >> /dev/tty
+    printf "ERROR: '%s' must be set in %s.\n" "${key}" "${LOCAL_CONFIG}" > /dev/tty
     exit 1
   fi
-}
-
-help() {
-  printf "Available commands:\n"
-  printf "Command\t\t\tDescription\n\n"
-  printf "get_var\t\tGet variable from local config.\n"
-  exit 0
 }
 
 #TODO: show available variables
@@ -49,31 +42,18 @@ help() {
 #["jenkins_login"]["user"]
 #["jenkins_login"]["pw"]
 
-#TODO: use <group>/<var> format
 get_var() {
-  local name="${1:-}"
-  local group="${2:-}"
+  local key="${1:-}"
   local lcv
 
-  if [[ -z "${name}" ]]; then
-    printf "ERROR: 'name' must be set\n" >> /dev/tty
+  if [[ -z "${key}" ]]; then
+    printf "ERROR: 'key' must be set\n" > /dev/tty
     exit 1
   fi
-  if [[ -z "${group}" ]] || [[ "${group}" == "" ]]; then
-    lcv="$(jq -r ".\"${name}\"" "${LOCAL_CONFIG}")"
-    _check_if_var_exists "${lcv}" "${name}"
-  else  
-    lcv="$(jq -r ".[\"${group}\"][\"${name}\"]" "${LOCAL_CONFIG}")"
-    _check_if_var_exists "${lcv}" "${group}/${name}"
-  fi
+
+  lcv="$(jq -r ".${key}" "${LOCAL_CONFIG}")"
+  _check_if_var_exists "${lcv}" "${key}"
   echo "${lcv}"
 }
 
-"$@"
-
-# show help menu, if no first parameter is given
-if [[ -z "${1:-}" ]]; then
-  help
-fi
-
-
+get_var "${1:-}"

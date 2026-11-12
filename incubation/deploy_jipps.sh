@@ -31,9 +31,9 @@ mkdir -p "${DEPLOY_LOG_FOLDER}"
 runningBuilds() {
   local url="${1}"
   local jenkins_user
-  jenkins_user="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "get_var" "user" "jenkins_login")"
+  jenkins_user="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "jenkins_login.user")"
   local jenkins_pw
-  jenkins_pw="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "get_var" "pw" "jenkins_login")"
+  jenkins_pw="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "jenkins_login.pw")"
   curl --retry 10 -gSs --user "${jenkins_user}:${jenkins_pw}" "${url}"'/computer/api/json?depth=2&tree=computer[displayName,executors[currentExecutable[*]],oneOffExecutors[currentExecutable[*]]]' | jq -c '.computer | map({name: .displayName?, executors: (.executors? + .oneOffExecutors?) | map(select(.currentExecutable != null)) | map(.currentExecutable | {name: .fullDisplayName, url: .url}) })'
 }
 

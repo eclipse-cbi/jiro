@@ -24,7 +24,7 @@ if [ -z "${instance}" ]; then
 fi
 
 if [[ ${instance} == "ALL" ]]; then
-  for i in "${SCRIPT_FOLDER}/instances/"*; do 
+  for i in "${SCRIPT_FOLDER}/instances/"*; do
     >&2 echo "Calling CLI for '$(basename "${i}")'..."
     "${BASH_SOURCE[0]}" "${i}" "${@:2}" || :
   done
@@ -44,8 +44,8 @@ if [[ ! -f ${CLI_JAR} ]]; then
   curl -sfSL "${jenkinsUrl}/jnlpJars/jenkins-cli.jar" -o "${CLI_JAR}"
 fi
 
-jenkins_user="$("${SCRIPT_FOLDER}/utils/local_config.sh" "get_var" "user" "jenkins_login")"
-jenkins_pw="$("${SCRIPT_FOLDER}/utils/local_config.sh" "get_var" "pw" "jenkins_login")"
+jenkins_user="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "jenkins_login.user")"
+jenkins_pw="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "jenkins_login.pw")"
 
 java -jar "${CLI_JAR}" -webSocket -auth "${jenkins_user}:${jenkins_pw}" -s "${jenkinsUrl}" "${@:2}"
 

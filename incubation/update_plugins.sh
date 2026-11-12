@@ -31,9 +31,9 @@ STILL_RUNNING_QUEUE="${LOG_FOLDER}/instances_still_running_builds.txt"
 runningBuilds() {
   local url="${1}"
   local jenkins_user
-  jenkins_user="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "get_var" "user" "jenkins_login")"
+  jenkins_user="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "jenkins_login.user")"
   local jenkins_pw
-  jenkins_pw="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "get_var" "pw" "jenkins_login")"
+  jenkins_pw="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "jenkins_login.pw")"
   local numberOfRunningBuilds
   numberOfRunningBuilds="$(curl --retry 10 -gSs --user "${jenkins_user}:${jenkins_pw}" "${url}"'/computer/api/json' | jq -c '.busyExecutors')"
   echo "${numberOfRunningBuilds}"

@@ -38,12 +38,12 @@ if [[ -z "${PROJECT_NAME}" ]]; then
  exit 1
 fi
 
-FILE_SERVER="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "get_var" "server" "file_server")"
-FILE_SERVER_USER="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "get_var" "user" "file_server")"
-FILE_SERVER_PW="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "get_var" "pw" "file_server")"
-FILE_SERVER_PW_ROOT="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "get_var" "pw_root" "file_server")"
+FILE_SERVER="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "file_server.server")"
+FILE_SERVER_USER="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "file_server.user")"
+FILE_SERVER_PW="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "file_server.pw")"
+FILE_SERVER_PW_ROOT="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "file_server.pw_root")"
 
-CBI_PASS_DIR="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "get_var" "cbi-dir" "password-store")"
+CBI_PASS_DIR="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "password-store.cbi-dir")"
 
 create_retire_script() {
   local backup_file_name="${BACKUP_FILE_NAME}"

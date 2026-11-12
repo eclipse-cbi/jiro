@@ -23,7 +23,7 @@ SCRIPT_FOLDER="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 JENKINS_CLI="${SCRIPT_FOLDER}/jenkins-cli.sh"
 INSTANCES="${SCRIPT_FOLDER}/instances"
 
-PASSWORD_STORE_DIR="$("${SCRIPT_FOLDER}/utils/local_config.sh" "get_var" "cbi-dir" "password-store")"
+PASSWORD_STORE_DIR="$("${SCRIPT_FOLDER}/utils/local_config.sh" "password-store.cbi-dir")"
 export PASSWORD_STORE_DIR
 
 #shellcheck disable=SC1091
@@ -370,7 +370,7 @@ sonarcloud() {
 
   for token_path in $tokens; do
     token_name="$(basename "$token_path")"
-    token="$(passw cbi "$token_path")"    
+    token="$(passw cbi "$token_path")"
     _create_string_credentials "${project_name}" "sonarcloud-${token_name}" "SonarCloud token for ${short_name} ${token_name}" "${token}"
   done
 }
