@@ -38,10 +38,25 @@ if [[ -z "${PROJECT_NAME}" ]]; then
  exit 1
 fi
 
-FILE_SERVER="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "file_server.server")"
-FILE_SERVER_USER="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "file_server.user")"
-FILE_SERVER_PW="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "file_server.pw")"
-FILE_SERVER_PW_ROOT="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "file_server.pw_root")"
+BW_SECRET="$("${CI_ADMIN_ROOT}/bitwarden/get_bw_secrets.sh" "ci-admin_file-server")"
+
+get_secret_field() {
+  local field_name="${1:-}"
+  local field_value
+  field_value="$(jq -r '.[].fields[] | select(.name=="'"${field_name}"'").value' <<< "${BW_SECRET}")"
+
+  if [[ -z "${field_value}" ]]; then
+    >&2 echo "INFO: ${field_name} is empty."
+    exit 1
+  else
+    echo "${field_value}"
+  fi
+}
+
+FILE_SERVER="$(get_secret_field "server")"
+FILE_SERVER_USER="$(get_secret_field "login_user")"
+FILE_SERVER_PW="$(get_secret_field "login_pw")"
+FILE_SERVER_PW_ROOT="$(jq -r '.[].login.password' <<< "${BW_SECRET}")" #FIXME
 
 CBI_PASS_DIR="$("${SCRIPT_FOLDER}/../utils/local_config.sh" "password-store.cbi-dir")"
 
