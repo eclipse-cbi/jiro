@@ -51,7 +51,26 @@ get_var() {
     exit 1
   fi
 
-  lcv="$(jq -r ".${key}" "${LOCAL_CONFIG}")"
+  #TODO: simplify
+  # deal with jq's problem with special characters like '-' in keys
+  if [[ "${key}" == *"."* ]]; then
+    #Split the key by '.'
+    readarray -d "." -t key_array <<< "${key}"
+    #print the array
+    for element in "${key_array[@]}"; do
+      #FIXME: readarray -t should already handle that
+      element="$(echo "${element}" | tr -d '\n')"
+      key_escaped+="\"${element}\"."
+    done
+    #Remove the last trailing dot '.'
+    key_escaped="${key_escaped%.}"
+    #DEBUG
+    #echo "key_escaped: ${key_escaped}"
+  else
+    key_escaped="\"${key}\""
+  fi
+
+  lcv="$(jq -r .${key_escaped} "${LOCAL_CONFIG}")"
   _check_if_var_exists "${lcv}" "${key}"
   echo "${lcv}"
 }
