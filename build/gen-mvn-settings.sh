@@ -79,15 +79,27 @@ gen_settings_security() {
 EOG
 }
 
+gen_server_repository_origins() {
+  local server="${1}"
+  jq -r 'if has("repositoryOrigins") then
+    "      <repositoryOrigins>",
+    (.repositoryOrigins[] | "        <repositoryOrigin>\(.)</repositoryOrigin>"),
+    "      </repositoryOrigins>"
+  else
+    empty
+  end' <<< "${server}"
+}
+
 gen_server() {
   local serverId="${1}"
   local server="${2}"
-  local username_pass password_pass passphrase_pass username_sm password_sm
+  local username_pass password_pass passphrase_pass username_sm password_sm repositoryOrigins
   username_pass="$(jq -r '.username.pass' <<< "${server}")"
   password_pass="$(jq -r '.password.pass' <<< "${server}")"
   passphrase_pass="$(jq -r '.passphrase.pass' <<< "${server}")"
   username_sm="$(jq -r '.username.sm' <<< "${server}")"
   password_sm="$(jq -r '.password.sm' <<< "${server}")"
+  repositoryOrigins="$(gen_server_repository_origins "${server}")"
 
   # Check if .username.sm and .password.sm exist
   if [[ "${username_sm}" != "null" ]] && [[ "${password_sm}" != "null" ]]; then
@@ -115,6 +127,7 @@ gen_server() {
       <id>${serverId}</id>
       <username>${server_username}</username>
       <password>${server_password}</password>
+${repositoryOrigins}
     </server>
 EOF
     else
@@ -140,6 +153,7 @@ EOF
           </property>
         </httpHeaders>
       </configuration>
+${repositoryOrigins}
     </server>
 EOF
     elif [[ "${serverId}" == "central.staging" ]]; then
@@ -148,6 +162,7 @@ EOF
       <id>central.staging</id>
       <username>${username}</username>
       <password>${password}</password>
+${repositoryOrigins}
     </server>
 EOF
 
@@ -162,6 +177,7 @@ EOF
       <id>${serverId}</id>
       <username>${server_username}</username>
       <password>${server_password}</password>
+${repositoryOrigins}
     </server>
 EOF
     fi
@@ -176,6 +192,7 @@ EOF
     <server>
       <id>${serverId}</id>
       <passphrase>${server_passphrase}</passphrase>
+${repositoryOrigins}
     </server>
 EOF
   else
