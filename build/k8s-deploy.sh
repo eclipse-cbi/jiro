@@ -32,6 +32,38 @@ fi
 
 . "${SCRIPT_FOLDER}/k8s-set-context.sh" "$(jq -r '.deployment.cluster' "${instance}/target/config.json")"
 
+scc_tmp="$(mktemp)"
+
+question() {
+  local message="${1:-}"
+  local action="${2:-}"
+  read -rp "Do you want to ${message}? (Y)es, (N)o, E(x)it: " yn
+  case $yn in
+    [Yy]* ) ${action};;
+    [Nn]* ) return ;;
+    [Xx]* ) exit 0;;
+        * ) echo "Please answer (Y)es, (N)o, E(x)it"; question "${message}" "${action}";
+  esac
+}
+
+apply_scc() {
+  oc apply -f "${scc_tmp}"
+}
+
+update_scc(){
+  SHORTNAME="${instance##*.}"
+  if oc get scc restricted-v2-selinux-scc -o json | jq -r '.users[]' | grep "${SHORTNAME}:${SHORTNAME}" > /dev/null; then 
+    echo "SCC already contains user for project ${SHORTNAME}. Skipping..."
+  else
+    echo "Update SCC for project ${SHORTNAME}"
+    oc get scc restricted-v2-selinux-scc -o json | jq ".users += [\"system:serviceaccount:${SHORTNAME}:${SHORTNAME}\"]" > "${scc_tmp}"
+    jq '.users[]' "${scc_tmp}"
+    question "apply the changes to the SCC" apply_scc
+  fi
+}
+
+update_scc
+
 oc apply -f "${instance}/target/k8s/namespace.json"
 
 oc apply -f "${instance}/target/k8s/configmap-jenkins-config.yml"

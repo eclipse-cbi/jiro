@@ -100,8 +100,14 @@ deploy_secret() {
   oc secrets link "${serviceAccount}" "${secretName}" -n "${namespace}" --for="${type}"
 }
 
-. "${SCRIPT_FOLDER}/k8s-set-context.sh" "$(jsonnet "${JIRO}" | jq -r '.["config.json"].deployment.cluster')"
+# otherwise raised an error
+JSONNET_PARAM=(
+  "--ext-str" "uid=" \
+  "--ext-str" "seLinuxLevel="
+)
 
-for SECRET_NAME in $(jsonnet "${JIRO}" | jq -cr '.["config.json"].secrets.dockerconfigjson | keys[]'); do
-  deploy_secret "${SECRET_NAME}" "$(jsonnet "${JIRO}" | jq '.["config.json"].secrets.dockerconfigjson["'"${SECRET_NAME}"'"]')"
+. "${SCRIPT_FOLDER}/k8s-set-context.sh" "$(jsonnet "${JIRO}" "${JSONNET_PARAM[@]}" | jq -r '.["config.json"].deployment.cluster')"
+
+for SECRET_NAME in $(jsonnet "${JIRO}" "${JSONNET_PARAM[@]}" | jq -cr '.["config.json"].secrets.dockerconfigjson | keys[]'); do
+  deploy_secret "${SECRET_NAME}" "$(jsonnet "${JIRO}" "${JSONNET_PARAM[@]}" | jq '.["config.json"].secrets.dockerconfigjson["'"${SECRET_NAME}"'"]')"
 done
