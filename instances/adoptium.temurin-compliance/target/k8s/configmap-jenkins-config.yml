@@ -930,6 +930,42 @@ data:
                 sshHostKeyVerificationStrategy:
                   manuallyProvidedKeyVerificationStrategy:
                     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEEfodMbfxudCuOAcH1plg2Yeiv5iFOew7kr0mm6yAFp"
+        - permanent:
+            name: "jck-scaleway-ubuntu2404-riscv64-4"
+            nodeDescription: "RiscV RV64GCV 4 cores 1,85 GHz"
+            labelString: "hw.arch.riscv64 hw.arch.riscv ci.role.test sw.os.linux"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              ssh:
+                host: "62.210.163.158"
+                port: "22"
+                credentialsId: "jenkins-jck-ssh"
+                javaPath: ""
+                jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
+                sshHostKeyVerificationStrategy:
+                  manuallyProvidedKeyVerificationStrategy:
+                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmN/ccteZ03+ZDFRWosGFYLlgGuMV/tybxUnUDDDkEC"
+        - permanent:
+            name: "jck-scaleway-ubuntu2404-riscv64-5"
+            nodeDescription: "RiscV RV64GCV 4 cores 1,85 GHz"
+            labelString: "hw.arch.riscv64 hw.arch.riscv ci.role.test sw.os.linux"
+            remoteFS: '/home/jenkins'
+            numExecutors: 1
+            mode: EXCLUSIVE
+            retentionStrategy: "always"
+            launcher:
+              ssh:
+                host: "62.210.163.190"
+                port: "22"
+                credentialsId: "jenkins-jck-ssh"
+                javaPath: ""
+                jvmOptions: "-XX:-HeapDumpOnOutOfMemoryError -XX:-CreateCoredumpOnCrash"
+                sshHostKeyVerificationStrategy:
+                  manuallyProvidedKeyVerificationStrategy:
+                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOugFqQtC0lWk7h/VS6W0x7CVG5kXjGQ/+B+sdv9iD44"
     security:
       apiToken:
         creationOfLegacyTokenEnabled: false
@@ -1250,6 +1286,8 @@ data:
             home: "/opt/tools/apache-maven/3-latest"
           - name: "apache-maven-4-latest"
             home: "/opt/tools/apache-maven/4-latest"
+          - name: "apache-maven-3.10.1"
+            home: "/opt/tools/apache-maven/3.10.1"
           - name: "apache-maven-3.10.0"
             home: "/opt/tools/apache-maven/3.10.0"
           - name: "apache-maven-3.9.16"
