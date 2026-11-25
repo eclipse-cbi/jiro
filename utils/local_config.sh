@@ -67,9 +67,12 @@ get_var() {
     #DEBUG
     #echo "key_escaped: ${key_escaped}"
   else
+    #TODO: improve
+    #shellcheck disable=SC2089
     key_escaped="\"${key}\""
   fi
-
+  #TODO: improve
+  #shellcheck disable=SC2090,SC2086
   lcv="$(jq -r .${key_escaped} "${LOCAL_CONFIG}")"
   _check_if_var_exists "${lcv}" "${key}"
   echo "${lcv}"
