@@ -18,7 +18,9 @@ local permissionsTemplates = import '../../templates/permissions.libsonnet';
       "pipeline-graph-view",
       "pipeline-utility-steps",
       "text-finder",
+      "adoptopenjdk",
     ],
+    enableAutomaticTemurinJDKInstallations: true,
     staticAgentCount: 10,
     permissions+:
       permissionsTemplates.user("sravankumarl@in.ibm.com", ["Agent/Connect", "Agent/Disconnect"]) +
