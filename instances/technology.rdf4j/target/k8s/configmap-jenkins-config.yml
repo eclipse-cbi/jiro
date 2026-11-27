@@ -691,6 +691,8 @@ data:
             home: "/opt/tools/apache-maven/3-latest"
           - name: "apache-maven-4-latest"
             home: "/opt/tools/apache-maven/4-latest"
+          - name: "apache-maven-3.10.1"
+            home: "/opt/tools/apache-maven/3.10.1"
           - name: "apache-maven-3.10.0"
             home: "/opt/tools/apache-maven/3.10.0"
           - name: "apache-maven-3.9.16"
@@ -717,3 +719,12 @@ data:
         installations:
           - name: "Default"
             home: "git"
+      nodejs:
+        installations:
+          - name: "node_22.x"
+            properties:
+              - installSource:
+                  installers:
+                    - nodeJSInstaller:
+                        id: "22.23.5"
+                        npmPackagesRefreshHours: 72

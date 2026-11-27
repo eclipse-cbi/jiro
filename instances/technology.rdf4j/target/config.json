@@ -403,7 +403,8 @@
          }
       ],
       "plugins": [
-         "dashboard-view"
+         "dashboard-view",
+         "nodejs"
       ],
       "pluginsForceUpgrade": true,
       "staticAgentCount": 0,
