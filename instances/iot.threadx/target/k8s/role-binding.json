@@ -1,0 +1,24 @@
+{
+   "apiVersion": "rbac.authorization.k8s.io/v1",
+   "kind": "RoleBinding",
+   "metadata": {
+      "labels": {
+         "org.eclipse.cbi.jiro/project.fullName": "iot.threadx",
+         "org.eclipse.cbi.jiro/project.shortname": "threadx"
+      },
+      "name": "threadx",
+      "namespace": "threadx"
+   },
+   "roleRef": {
+      "kind": "Role",
+      "name": "jenkins-master-owner",
+      "namespace": "threadx"
+   },
+   "subjects": [
+      {
+         "kind": "ServiceAccount",
+         "name": "threadx",
+         "namespace": "threadx"
+      }
+   ]
+}
