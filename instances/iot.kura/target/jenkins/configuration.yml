@@ -67,7 +67,7 @@ jenkins:
   clouds:
     - kubernetes:
         name: "kubernetes"
-        containerCapStr: "2"
+        containerCapStr: "4"
         jenkinsUrl: "http://jenkins-ui.kura.svc.cluster.local/kura"
         jenkinsTunnel: "jenkins-discovery.kura.svc.cluster.local:50000"
         garbageCollection:
@@ -670,6 +670,8 @@ tool:
         home: "/opt/tools/apache-maven/3-latest"
       - name: "apache-maven-4-latest"
         home: "/opt/tools/apache-maven/4-latest"
+      - name: "apache-maven-3.10.1"
+        home: "/opt/tools/apache-maven/3.10.1"
       - name: "apache-maven-3.10.0"
         home: "/opt/tools/apache-maven/3.10.0"
       - name: "apache-maven-3.9.16"

@@ -346,7 +346,7 @@
    },
    "jenkins": {
       "agentConnectionTimeout": 180,
-      "maxConcurrency": 2,
+      "maxConcurrency": 4,
       "permissions": [
          {
             "group": {
@@ -427,8 +427,8 @@
       "id": "2.580.2",
       "key_fingerprint": "7198F4B714ABFC68",
       "plugin_manager": {
-         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.15.0/jenkins-plugin-manager-2.15.0.jar",
-         "version": "2.15.0"
+         "jar": "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.16.0/jenkins-plugin-manager-2.16.0.jar",
+         "version": "2.16.0"
       },
       "pluginroot": "/var/cache/jenkins/plugins",
       "plugins": [
@@ -533,11 +533,11 @@
          "resources": {
             "cpu": {
                "limit": "2000m",
-               "request": "550m"
+               "request": "850m"
             },
             "memory": {
-               "limit": "2048Mi",
-               "request": "2048Mi"
+               "limit": "2560Mi",
+               "request": "2560Mi"
             }
          },
          "stsName": "kura"
@@ -608,7 +608,7 @@
    "project": {
       "displayName": "Eclipse Kura",
       "fullName": "iot.kura",
-      "resourcePacks": 1,
+      "resourcePacks": 2,
       "shortName": "kura",
       "unixGroupName": "iot.kura"
    },

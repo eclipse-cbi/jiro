@@ -1,7 +1,8 @@
 {
   project+: {
     fullName: "iot.kura",
-    displayName: "Eclipse Kura"
+    displayName: "Eclipse Kura",
+    resourcePacks: 2,
   },
   jenkins+: {
     plugins+: [
